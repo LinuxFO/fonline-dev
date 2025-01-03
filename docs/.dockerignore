@@ -1,0 +1,4 @@
+*.Dockerfile
+Dockerfile
+compose.yaml
+node_modules
