@@ -1,16 +1,14 @@
-FROM node:23.5.0-alpine3.21
+FROM node:23.6.0-alpine3.21
 
 RUN apk update \
     && apk upgrade
 
-WORKDIR /var/www/app
+WORKDIR /usr/src/app
 
 COPY ./app/package*.json .
-
-USER node
 
 RUN npm install
 
 COPY --chown=node:node ./app .
 
-CMD ["sh"]
+CMD ["npm", "run", "dev"]
