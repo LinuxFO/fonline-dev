@@ -8,4 +8,5 @@ services:
     ports:
       - "3000:3000"
     volumes:
-      - ./app:/var/www/app
+      - ./app:/usr/src/app
+      - /usr/src/app/node_modules
