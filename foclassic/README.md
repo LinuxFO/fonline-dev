@@ -4,16 +4,16 @@
 
 * git (required)  
   When working on Windows, use _Git for Windows Portable_ if possible - bundled tools might be used in future.  
-  https://git-scm.com/download/
+  <https://git-scm.com/download/>
 
 * cmake v3.12.4 (minimum required)  
-  https://cmake.org/download/
+  <https://cmake.org/download/>
 
 * Visual Studio 2010 (required)  
-  https://visualstudio.microsoft.com/vs/older-downloads/
+  <https://visualstudio.microsoft.com/vs/older-downloads/>
 
 * Visual Studio 2017 (optional)  
-  https://visualstudio.microsoft.com/vs/
+  <https://visualstudio.microsoft.com/vs/>
 
 ## Preparations
 
@@ -23,12 +23,11 @@
 * Create a build directory; recommended: SDK*  
   This step can be skipped if using automated build
 
-    * Windows
-        * _Visual Studio 2010_: `cmake -G "Visual Studio 10" Path/To/Main/Directory/`
-        * _Visual Studio 2017_: `cmake -G "Visual Studio 15" -T v100 Path/To/Main/Directory/`  
-          Note that -T option informs cmake to generate solution which uses VS2010 toolchain.  
-          Builds using _Visual Studio 2017_ toolchain (without -T switch) will NOT work.
-
+  * Windows
+    * _Visual Studio 2010_: `cmake -G "Visual Studio 10" Path/To/Main/Directory/`
+    * _Visual Studio 2017_: `cmake -G "Visual Studio 15" -T v100 Path/To/Main/Directory/`
+    * Note that -T option informs cmake to generate solution which uses VS2010 toolchain.
+    * Builds using _Visual Studio 2017_ toolchain (without -T switch) will NOT work.
 
 ## Automated build
 
@@ -39,16 +38,14 @@ Included tasks:
 
 * Preparing files
 
-    * Source formatting
-
+  * Source formatting
     * Restoring files modification time (CI only)  
       This step is required for timestamps used in released files.
 
 * Preparing build directory/directories
-
-    * When building on Windows, two different directories are created for two different scenarios:
-        * `SDK.VS2017.v100`, used to work with source on modern Visual Studio version
-        * `SDK.VS2017`,      used to check if engine is ready for migration to VS2017
+  * When building on Windows, two different directories are created for two different scenarios:
+  * `SDK.VS2017.v100`, used to work with source on modern Visual Studio version
+  * `SDK.VS2017`,      used to check if engine is ready for migration to VS2017
 
     * Other platforms are not supported currently
 
