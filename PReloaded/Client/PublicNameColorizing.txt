@@ -24,8 +24,7 @@
 #############################################################################
 
 # Game Staff
-> Kilgore GameStaff GameStaff
-> DocAn	  GameStaff GameStaff
+> admin   GameStaff GameStaff
 
 ##############################################################################
 # Faction colorizing section												 #

@@ -8,6 +8,9 @@
 # intellisense creator
 intellisense*.h text eol=lf
 
+# syntax highlighting for .fos files
+*.fos linguist-language=AngelScript
+
 # binary
 *.acm  binary
 *.ACM  binary
