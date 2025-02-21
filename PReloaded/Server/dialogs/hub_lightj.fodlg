@@ -1,0 +1,94 @@
+[comment]
+lighter job 
+
+[data]
+lang=engl russ
+
+[dialog]
+&
+1 1000 None 0 #
+4 1010 D _var p name_mem_npc_player = 0 D _var p hub_lightjp = 0 #
+9 1020 D _var p name_mem_npc_player = 1 D _var p hub_lightjp = 1 @
+4 2000 None 0 #
+7 2010 #
+6 2020 #
+5 2030 #
+0 2040 @
+5 3000 None 0 @
+6 4000 None 0 @
+7 5000 None 0 #
+8 5010 @
+8 6000 None 0 #
+0 6010 R _var p name_mem_npc_player = 1 R _var p hub_lightjp = 1 @
+9 7000 None 0 #
+10 7010 D _item p PID_LIGHTER > 0 R _item p PID_LIGHTER - 1 R _script dialog@r_AddMoney 1 50 R _script dialog@r_AddExperience 1 50 #
+0 7020 @
+10 8000 None 0 &
+
+[engl]
+{100}{}{Vera Lieun}
+{200}{}{You see Vera Lieun.}
+{210}{}{She looks like another police officer of the hub, but she seems to be collecting lighters. She's playing with a zippo right now, you can hear it from outside. }
+{1000}{}{Predialogue installations}
+{1010}{}{not known}
+{1020}{}{known}
+{2000}{}{This is the guard's quarters, citizen. Move along please.}
+{2010}{}{Oh sorry, I was distracted by that cool lighter you're playing with.}
+{2020}{}{Guards? Well get back to work then!}
+{2030}{}{Can I ask you some questions?}
+{2040}{}{Sorry, I'll just go.}
+{3000}{}{No. I'm not a detective.}
+{4000}{}{Yeahuh.}
+{5000}{}{Oh thanks! I'm Vera Lieun [She smiles] I'm actually a famous collector of lighters. I started out when I was a kid, used to take the collection on tour to bars every friday night. I'm sure if you threw my name around the older generation they'd probably recognize it. }
+{5010}{}{That's cool, so you looking to buy any lighters then?}
+{6000}{}{Hell yes! I doubt you could find any of the cool ones, but I'll take pretty much any zippo you can find. You can't smoke a cigarette without a proper lighter so I only use my zippo when I smoke. Problem is finding a new fucking flint when the old one dies. I'll buy any lighter you find for 50 caps. But you should get out of here, I'm still on duty.}
+{6010}{}{Okay, I'll see you around, Vera.}
+{7000}{}{Citizen. [She leans over] Got any lighters? I'll buy em' for 50 caps.}
+{7010}{}{I found this one out there.}
+{7020}{}{Not right now, see ya.}
+{8000}{}{Wicked! Here, let's trade! }
+{100000001}{}{Better wash the counter again...}
+{100000002}{}{That's 5 caps buddy. Hey did you hear me? Cough em' up.}
+{100000003}{}{Better change the keg...}
+{100000004}{}{RotGut? You drink that shit?}
+{100000005}{}{Domestic? I got B.E.E.R buddy, do you want one or not?}
+{100000006}{}{Fuckin' dust is getting everywhere. Hey close the fuckin' door!}
+{100000007}{}{I swear if the next asshole doesn't tip. Ima' shoot somebody!}
+{100000008}{}{I got bottles, I got shots, and I got a bat behind the counter for the retards. Your not a retard are you?}
+{100000009}{}{Uh-huh, yeah that's nice buddy. You don't say...What? Of course I'm listening...}
+{100000010}{}{That's 5 caps. FIVE CAPS Tribal! F.I.V.E! }
+{100000011}{}{Shut up and order a fuckin' beer already!}
+{100000012}{}{I swear if I have to serve another drunk, I'm getting the shotgun!}
+{100000013}{}{Look the keg went dry, and it's going to be another month until the caravan shows up again.}
+{100000014}{}{Really? You don't say, buy another drink or get out!}
+{100000015}{}{What? I'm on break.}
+{100000016}{}{Be right with ya'}
+{100000017}{}{Have a sit stranger. I'll be with you in a moment.}
+{100000018}{}{When do we close? Uh, when the place get's shot up, that's when!}
+{100000019}{}{We're fresh outta' cold beer, sorry. You'll just have to drink it warm.}
+{100000020}{}{RotGut? No man, go make that shit yourself! I wouldn't drink it!}
+
+[russ]
+{100}{}{Алкоголик}
+{200}{}{Вы видите пьяницу.}
+{210}{}{Вы видите шатающегося из стороны в сторону пьяного человека в лохмотьях. Лицо его распухло, нос синющий как слива. А аромат рядом с ним такой, что свалит брамина насмерть. Он что-то бормочет про себя и иногда громко поет песни.}
+{210}{}{Вы видите алкаша. Он весьма грязен - кажется, он повалялся в луже, но не особо этим расстроен.}
+{1000}{}{I?aaaeaeiaiaua onoaiiaee}
+{1010}{}{Answer text}
+{1020}{}{known}
+{2000}{}{Thank you! Thank you! }
+{2010}{}{Head to the camp}
+{2020}{}{Exit into the wasteland}
+{2030}{}{Answer 4}
+{2040}{}{Answer 3}
+{3000}{}{No. }
+{4000}{}{Yeahuh.}
+{5000}{}{Oh thanks! I'm Vera Lieun [She smiles] I'm actually a famous collector of lighters. I started out when I was a kid, used to take the collection on tour to bars every friday night. I'm sure if you threw my name around the older generation they'd probably recognize it. }
+{5010}{}{That's cool, so you looking to buy any lighters then?}
+{6000}{}{Hell yes! I doubt you could find any of the cool ones, but I'll take pretty much any zippo you can find. You can't smoke a cigarette without a proper lighter so I only use my zippo when I smoke. Problem is finding a new fucking flint when the old one dies. I'll buy any lighter you find for 50 caps. But you should get out of here, I'm still on duty.}
+{6010}{}{Okay, I'll see you around, Vera.}
+{7000}{}{Citizen, can I help you? [She leans over] Got any lighters? I'll buy em' for 50 caps.}
+{7010}{}{Here, I found this one out there.}
+{7020}{}{Not right now, see ya.}
+{8000}{}{Wicked! Here, let's trade! }
+

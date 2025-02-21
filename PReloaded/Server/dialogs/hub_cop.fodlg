@@ -1,0 +1,20 @@
+[comment]
+
+
+[data]
+lang=engl
+
+[dialog]
+&
+1 1000 None 0 #
+2 1010 @
+2 2000 None 0 &
+
+[engl]
+{100}{}{Hub Swat Police}
+{200}{}{You see a police officer of the Hub.}
+{210}{}{Saved by the boys, and girls in blue... }
+{1000}{}{Predialogue installations}
+{1010}{}{Answer text}
+{2000}{}{Jesus, look at this place!@@Have you ever seen so much blood in one spot before?@@Didn't think you'd make it, detective. Good to see you alive again.@@Goddamn... did... are you okay, detective?@@We heard you might have needed backup, so we brought in the big guns... Jesus... look at this mess. We had to kill them all.@@For blood, and honour, eh, detective?@@Too much blood, and broken bones.@@Hang in there, pal, we'll get you some medical attention soon.@@Got this one... right between the eyes... he just... kept coming...@@Those poor kids...@@Don't worry, detective, the cavalry has arrived.@@Relax, detective. We'll take it from here.@@Why don't you get some sleep, detective?@@When's the last time you took a nap?@@Got any smokes? My pack got all covered in blood, had to throw it away...}
+

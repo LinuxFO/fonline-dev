@@ -1,0 +1,20 @@
+[comment]
+
+
+[data]
+lang=engl
+
+[dialog]
+&
+1 1000 None 0 #
+2 1010 @
+2 2000 None 0 &
+
+[engl]
+{100}{}{Detective Cwan}
+{200}{}{You see Detective Cwan.}
+{210}{}{Saved by the boys, and girls in blue... }
+{1000}{}{Predialogue installations}
+{1010}{}{Answer text}
+{2000}{}{Just returning the favour, @pname@. But this doesn't make us even yet. You talk to the Sheriff yet?}
+

@@ -1,0 +1,48 @@
+[comment]
+
+
+[data]
+lang=engl
+
+[dialog]
+&
+1 1000 None 0 #
+2 1010 @
+2 2000 None 0 #
+3 2010 D _script dialog@d_CommonTimeoutReady 0  D _var p q_boss2 = 0 #
+7 2020 D _var p q_boss2 = 2 R _script dialog@r_CommonTimeout 1 30 R _item p PID_MR_NIXON_DOLL + 1 R _param p ST_KARMA + 1 R _var p q_boss2 = 0 R _script quest_boss2@r_DeleteLoc 0  R _script dialog@r_AddExperience 1 1250 R _param p REPUTATION_JUNKTOWN + 60 R _script dialog@r_AddMoney 1 700 R _script dialog@r_BulkOrderRewardLow 0  R _script dialog@r_BulkOrderRewardJunk 0  R _var p z_warrior2 + 1 #
+0 2030 D _script dialog@d_CommonTimeoutNotReady 0  #
+0 2040 @
+3 3000 None 0 #
+4 3010 @
+4 4000 None 0 #
+5 4010 @
+5 5000 None 0 #
+8 5010 D _param p ST_LEVEL } 6 R _var p q_boss2 = 1 R _script quest_boss2@r_SpawnLoc 0  #
+6 5020 @
+6 6000 None 0 @
+7 7000 None 0 @
+8 8000 None 0 &
+
+[engl]
+{100}{}{Telltale}
+{200}{}{You see a local story teller.}
+{210}{}{So much wit, and skill, this raconteur. But how can we believe anything anymore?}
+{1000}{}{Predialogue installations}
+{1010}{}{Answer text}
+{2000}{}{Come closer, and hear the tale of the Blood Vipers, and their vicious leader.}
+{2010}{}{Tell me your story, old man. I am not afraid.}
+{2020}{}{Silence your words! Your story is no longer truth. The Blood Vipers are dead!}
+{2030}{}{Hmm, I'll have to come back later.}
+{2040}{}{Maybe some other time, I don't think I'm ready for this.}
+{3000}{}{Listen closely now, children, many moons ago a dark storm hit the Earth, and with it, came an awakening within the hearts of some hellish men. This awakening brought madness to these lands, and inspired a vicious army to rise up in all of its glory!}
+{3010}{}{Go on...}
+{4000}{}{They called themselves Blood Vipers, in order to seperate themselves from the far larger, but weaker clan. Rumour has it that they rose up from Hell, but these are just stories. The truth is that they are simply cowards, hiding behind a name. But I know where they sleep, and haunt... }
+{4010}{}{*Gulp* Go on...}
+{5000}{}{[He hands you a piece of paper with the location of the Blood Vipers. It's recommended that you're at least Level 6, and come prepared for a fight. Type /combatmode rt or tb for Real-Time, or Turn-Based combat before continuing]}
+{5010}{}{[Challenge the Legendary Villain?]}
+{5020}{}{[Throw the paper away, and leave, refusing to fight]}
+{6000}{}{I too, am afraid, young adventurer.}
+{7000}{}{It is done! Another pack of Blood Vipers and their leader has been destroyed! Thank the name of @pname@! May their story be told across the ocean!}
+{8000}{}{Prepare yourself, this is no ordinary gang.}
+

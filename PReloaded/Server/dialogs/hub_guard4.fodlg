@@ -1,0 +1,119 @@
+[comment]
+Random Towny in Junktown who wants a Cats Paw Magazine
+Will give you 150xp for it
+
+Good for noobs who randomly started with one
+Makes players feel the need to talk to random NPCS, find random quests.
+
+[data]
+lang=engl russ
+
+[dialog]
+&
+1 1000 None 0 #
+8 1010 D _var p hub_guard4 = 0 D _var p name_mem_npc_player = 1 D _param p ST_INTELLECT > 3 #
+7 1020 D _var p hub_guard4 = 0 D _var p name_mem_npc_player = 0 D _param p ST_INTELLECT > 3 #
+3 1030 D _param p ST_INTELLECT < 3 D _var p name_mem_npc_player = 0 D _var p hub_guard4 = 0 #
+2 1040 D _var p name_mem_npc_player = 1 D _param p ST_INTELLECT < 3 D _var p hub_guard4 = 0 #
+4 1050 D _var p hub_guard4 = 1 @
+3 2000 None 0 #
+5 2010 #
+0 2020 @
+5 3000 None 0 #
+0 3010 R _var p name_mem_npc_player = 1 @
+2 4000 None 0 #
+6 4010 D _item p PID_223_FMJ > 49 R _var p hub_guard4 = 1 R _item p PID_223_FMJ - 50 R _item p PID_SLEDGEHAMMER + 1 R _script dialog@r_AddExperience 1 650 R _param p ST_KARMA + 1 #
+0 4020 @
+6 5000 None 0 #
+0 5010 @
+4 6000 None 0 @
+7 7000 None 0 #
+9 7010 #
+0 7020 @
+9 8000 None 0 #
+0 8010 R _var p name_mem_npc_player = 1 @
+8 9000 None 0 #
+6 9010 D _item p PID_223_FMJ > 49 R _var p hub_guard4 = 1 R _item p PID_223_FMJ - 50 R _item p PID_SLEDGEHAMMER + 1 R _script dialog@r_AddExperience 1 650 R _param p ST_KARMA + 1 #
+0 9020 &
+
+[engl]
+{100}{}{Anxious Caravan Guard }
+{200}{}{You see an anxious caravan guard.}
+{210}{}{Looks like they're worried about something.}
+{1000}{}{Predialogue installations}
+{1010}{}{known}
+{1020}{}{notknown}
+{1030}{}{dumb}
+{1040}{}{dumb known}
+{1050}{}{complete}
+{2000}{}{[You're standing before a typical caravan guard. This one seems to be checking their weapons. They try to quickly grab your attention as you approach] Fancy makin' a trade? I can't leave my post again or else they'll fire me, but I need a few more clips of two two three before I head out for the next run. Interested in making a deal?}
+{2010}{}{I dunno, these really shiny, why me give to you?}
+{2020}{}{Two, two three! Two, two three! Good song! Bye!}
+{3000}{}{[The guard notices your handicap] I'll give you Thor's hammer! You remember Thor? From the comics? Well I got his sledgehammer! And I'll trade you for fifty rounds of .223! Deal?}
+{3010}{}{Me not stoopid kid! Me no no Thor! Me grown up! But maybe me come back, I dunno. Bye!}
+{4000}{}{[The guard suddenly remembers you] Dumi-god! I've got your hammer, if you've got the ammo!}
+{4010}{}{Me give you shiny things with me hand, but you no touch me hand.}
+{4020}{}{Nah! Bye!}
+{5000}{}{[The guard smiles and starts reloading it's weapon] Loki favours you indeed! Thanks man! You saved my butt today, I don't know what I'd do if I ran out of ammo again! I'd probably get fired! You saved me dude!}
+{5010}{}{No problem! Now to rule over these mortals!}
+{6000}{}{Whoa! Careful with that hammer! It can destroy this entire universe with a single thrust!@@Thanks again pal!}
+{7000}{}{[You're standing before a typical caravan guard. This one seems to be checking their weapons. They try to quickly grab your attention as you approach] Fancy makin' a trade? I can't leave my post again or else they'll fire me, but I need a few more clips of two two three before I head out for the next run. Interested in making a deal?}
+{7010}{}{Well I don't know, those are high grade military rounds. What could you possibly offer me in return?}
+{7020}{}{Sorry can't talk, too busy.}
+{8000}{}{[This guard seems to have had either an epiphany or has found a clever way to fool you] I'll give you Thor's hammer! You remember Thor? From the comics? Well I got his sledgehammer! And I'll trade you for fifty rounds of .223! Deal?}
+{8010}{}{Did you really think that I'd believe you? No mortal can carry the hammer of the gods! But I might come back, see ya.}
+{9000}{}{[The guard suddenly remembers you] Demi-god! I've got your hammer, if you've got the ammo!}
+{9010}{}{Alright let's trade!}
+{9020}{}{Nothing yet, sorry.}
+{100000001}{}{Better wash the counter again...}
+{100000002}{}{That's 5 caps buddy. Hey did you hear me? Cough em' up.}
+{100000003}{}{Better change the keg...}
+{100000004}{}{RotGut? You drink that shit?}
+{100000005}{}{Domestic? I got B.E.E.R buddy, do you want one or not?}
+{100000006}{}{Fuckin' dust is getting everywhere. Hey close the fuckin' door!}
+{100000007}{}{I swear if the next asshole doesn't tip. Ima' shoot somebody!}
+{100000008}{}{I got bottles, I got shots, and I got a bat behind the counter for the retards. Your not a retard are you?}
+{100000009}{}{Uh-huh, yeah that's nice buddy. You don't say...What? Of course I'm listening...}
+{100000010}{}{That's 5 caps. FIVE CAPS Tribal! F.I.V.E! }
+{100000011}{}{Shut up and order a fuckin' beer already!}
+{100000012}{}{I swear if I have to serve another drunk, I'm getting the shotgun!}
+{100000013}{}{Look the keg went dry, and it's going to be another month until the caravan shows up again.}
+{100000014}{}{Really? You don't say, buy another drink or get out!}
+{100000015}{}{What? I'm on break.}
+{100000016}{}{Be right with ya'}
+{100000017}{}{Have a sit stranger. I'll be with you in a moment.}
+{100000018}{}{When do we close? Uh, when the place get's shot up, that's when!}
+{100000019}{}{We're fresh outta' cold beer, sorry. You'll just have to drink it warm.}
+{100000020}{}{RotGut? No man, go make that shit yourself! I wouldn't drink it!}
+
+[russ]
+{100}{}{Алкоголик}
+{200}{}{Вы видите пьяницу.}
+{210}{}{Вы видите шатающегося из стороны в сторону пьяного человека в лохмотьях. Лицо его распухло, нос синющий как слива. А аромат рядом с ним такой, что свалит брамина насмерть. Он что-то бормочет про себя и иногда громко поет песни.}
+{210}{}{Вы видите алкаша. Он весьма грязен - кажется, он повалялся в луже, но не особо этим расстроен.}
+{1000}{}{I?aaaeaeiaiaua onoaiiaee}
+{1010}{}{Answer text}
+{1020}{}{notknown}
+{1030}{}{dumb}
+{1040}{}{no book}
+{1050}{}{complete}
+{2000}{}{Welcome to... Junktown...Stranger? Are you okay? You look pretty bad... We've got a doctor that can help you.}
+{2010}{}{Me think that is okay, enjoy the boobies.}
+{2020}{}{Mine! My boobies!}
+{3000}{}{[The guard suddenly notices your handicap] Ugh...Me need three Stimpaks. Please bring to me fast fast! Me give you shiny tools in exchange! Go now, run little forest, run.}
+{3010}{}{Okay, but you no have to speak so funny! Me be back!}
+{4000}{}{Hey pal! Did you get those Stimpaks? I'll trade you for a set of Tools!}
+{4010}{}{Me have pointy things! Catch!}
+{4020}{}{Nah! Bye!}
+{5000}{}{Thanks stranger! You take care now.}
+{5010}{}{Okay bye!}
+{6000}{}{Thanks again stranger! }
+{7000}{}{[You're standing before a typical caravan guard. This one looks disciplined, experienced, and mean. They try to quickly grab your attention as you approach] Say pal! Do me a favour will you? If you're running into town could you pick me up a trio of Stimpaks? I'll give you my old Tools in return. }
+{7010}{}{I'll think about it. }
+{7020}{}{No. Too busy. Bye.}
+{8000}{}{[The guard gives you a funny look] Um, I, took them off right away just like the brochure said... Didn't you get one? Say anyhow! Listen... It sure is lonely out here...Especially on them long caravan runs. If you could find me an inflatable companion I'd be mighty grateful! Honest! I'll give you this here combat! Deal?}
+{8010}{}{Uhm...Sure...I'll be back...Maybe...}
+{9000}{}{[The guard wipes the sweat from it's brow] Ugh... I need stims before I head out. Got any news for me?}
+{9010}{}{I've got those stims you wanted, here ya go.}
+{9020}{}{Nothing yet, sorry.}
+

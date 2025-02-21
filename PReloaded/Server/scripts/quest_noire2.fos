@@ -1,0 +1,63 @@
+#include "utils_h.fos"
+#include "worldmap_h.fos"
+#include "npc_planes_h.fos"
+#include "entire.fos"
+#include "_colors.fos"
+#include "logging_h.fos"
+ 
+ 
+//function called as request from dialog to spawn quest location
+void r_SpawnLoc(Critter& player, Critter@ npc)
+{
+    //roll X,Y value of WM zone index, in this case from 3x2 zones area under Hub
+    uint zoneX = Random(30, 30);    
+    uint zoneY = Random(40, 40);    
+ 
+    //get X,Y value of quest location position on WM in zone we picked above
+    uint   wx = zoneX * __GlobalMapZoneLength;          //get zone X,Y start value
+    uint   wy = zoneY * __GlobalMapZoneLength;
+    wx += Random(0, __GlobalMapZoneLength);             //add random value from 0 to zone size
+    wy += Random(0, __GlobalMapZoneLength);
+ 
+    //version with defined set of maps, comment this one and uncomment lines about to use zone maps
+   array<uint16> locationIds = { 98 };
+   uint num = locationIds.length;
+ 
+    //pick random encounter map
+    uint16        locPid = locationIds[Random(0, num - 1)];
+   
+    //create quest location
+    Critter@[] crits = { player };
+    int           loc = CreateLocation(locPid, wx, wy, crits);
+    if(loc == 0)
+        return;
+    player.SetKnownLoc(true, loc);
+     
+    //change location color on WM
+    Location@ location = GetLocation(loc);
+    location.Color = COLOR_WM_QUEST;
+    location.Update();
+	
+	    //set TB combat mode if needed
+    if(player.Mode[MODE_DEFAULT_COMBAT] == COMBAT_MODE_TURN_BASED)
+        SetTurnBasedAvailability(location);
+ 
+    //set location id to quest lvar (used when you need to delete location)
+    GameVar@  locidv = GetLocalVar(LVAR_noire2_locid, player.Id);
+    locidv = loc;
+
+	//player can die and come back
+    location.AutoGarbage = false;
+    DynamicLocationAddLog(player, npc, locidv, "quest_noire2");
+}
+ 
+//dialog function used in request to delete quest location (after player report finishing the quest)
+void r_DeleteLoc(Critter& player, Critter@ npc)
+{
+    GameVar@ var = GetLocalVar(LVAR_noire2_locid, player.Id);
+    DeleteLocation(var.GetValue());
+    DynamicLocationDelLog(player, npc, var, "quest_noire2");
+}
+ 
+
+ 

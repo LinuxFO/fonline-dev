@@ -1,0 +1,62 @@
+[comment]
+
+
+[data]
+lang=engl
+
+[dialog]
+&
+1 1000 None 0 #
+2 1010 @
+2 2000 None 0 #
+5 2010 D _script dialog@d_CommonTimeoutReady 0  D _var p q_boss14 = 0 D _item p PID_MR_NIXON_DOLL > 12 #
+7 2020 D _var p q_boss14 = 2 R _script dialog@r_CommonTimeout 1 20 R _var p q_boss14 = 0 R _param p ST_KARMA + 24 R _script dialog@r_AddExperience 1 16500 R _script dialog@r_AddMoney 1 20000 R _script quest_boss14@r_DeleteLoc 0  R _script dialog@r_BulkOrderRewardLow 0  R _script dialog@r_BulkOrderRewardJunk 0  R _script dialog@r_BulkOrderRewardHub 0  R _script dialog@r_BulkOrderRewardInde 0  R _script dialog@r_BulkOrderRewardLow 0  R _script dialog@r_BulkOrderRewardJunk 0  R _script dialog@r_BulkOrderRewardHub 0  R _script dialog@r_BulkOrderRewardInde 0  R _var p z_warrior2 + 1 R_script dialog@r_AddLootSetLevel3 0 #
+3 2030 D _item p PID_MR_NIXON_DOLL > 0 #
+12 2040 D _script dialog@d_CommonTimeoutNotReady 0  #
+0 2050 @
+3 3000 None 0 #
+4 3010 @
+4 4000 None 0 #
+9 4010 @
+5 5000 None 0 #
+8 5010 D _param p ST_LEVEL } 12 R _var p q_boss14 = 1 R _script quest_boss14@r_SpawnLoc 0  R _item p PID_MR_NIXON_DOLL - 13 #
+6 5020 @
+6 6000 None 0 @
+7 7000 None 0 @
+8 8000 None 0 @
+9 9000 None 0 #
+10 9010 @
+10 10000 None 0 #
+11 10010 @
+11 11000 None 0 @
+12 12000 None 0 &
+
+[engl]
+{100}{}{Ancient Telltale}
+{200}{}{You see a nightmare speaker.}
+{210}{}{Who is the Puppet Man?}
+{1000}{}{Predialogue installations}
+{1010}{}{Answer text}
+{2000}{}{Have you seen the Puppet Man?}
+{2010}{}{I have your puppets, old man. Now, shut up and help me summon The Puppet Man!}
+{2020}{}{It is done, old man! I have slaughtered that which was known as The Puppet Man! Behold! Its head! Fall on your knees in awe!}
+{2030}{}{The Puppet Man? Who's that? Is that what all these Mr. Nixon dolls are about? }
+{2040}{}{If he rises again, I will be ready to summon him, and kill him all over. Mark my words. I am the darkness that should be feared!}
+{2050}{}{No, thank you. I'll just be going now!}
+{3000}{}{A long time ago, a vault opened, and out came a man wearing a puppet. The rest is a nightmare just waiting to be told by someone with much more courage than me. }
+{3010}{}{Go on...}
+{4000}{}{No one has seen this man for years, but story has it that one day when a crate full of puppets is placed out into the wasteland, the Puppet Man will come. }
+{4010}{}{*Gulp* Go on...}
+{5000}{}{[You give the man the puppets, and follow him as he places them inside of a crate and walks out into the wasteland. A few hours later he comes back, and marks the location on your map. The Puppet Man awaits you. It's recommended that you're at least Level 60, and come prepared for a fight. Type /combatmode rt or tb for Real-Time, or Turn-Based combat before continuing]}
+{5010}{}{[Challenge the Legendary God?]}
+{5020}{}{[Throw the paper away, and leave, refusing to fight]}
+{6000}{}{No one lives to see the Puppet Man. You're wise to run.}
+{7000}{}{What? You can't stop the Puppet Man. He will rise again... and he will come for his revenge. You should hide, @pname@.  The Puppet Man is coming.}
+{8000}{}{The Puppet Man will not be stopped. Do not visit him, @pname@. You will be killed.}
+{9000}{}{One day, I will gather enough puppets to summon him! And I will bow down and call him master! }
+{9010}{}{You know how to find this... Puppet Man?}
+{10000}{}{Yes! Bring me 13 Puppets, and I will make him come to life! I promise! Muhahahaahahahah! [He laughs like a madman!]}
+{10010}{}{Interesting...}
+{11000}{}{I will also pay you a small fortune for a crate full of those puppets...}
+{12000}{}{... he always comes back... and we always fear...}
+

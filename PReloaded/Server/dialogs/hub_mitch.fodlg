@@ -1,0 +1,143 @@
+[comment]
+
+
+[data]
+lang=engl
+
+[dialog]
+&
+1 1000 None 0 #
+2 1010 D _var n name_mem_npc_player = 0 R _var p name_mem_npc_player = 1 #
+2 1020 D _var n name_mem_npc_player = 1 @
+2 2000 None 0 #
+23 2010 D _var p camp_evil = 1 #
+17 2020 D _var p q_tourist = 5 #
+4 2030 #
+6 2040 D _var p q_jt_power_house_handy = 1 #
+16 2050 D _var p la_crate1 = 1 D _item p PID_CARAVAN_BOX > 0 R _item p PID_CARAVAN_BOX - 1 R _var p la_crate1 = 2 #
+16 2060 D _var p la_crate2 = 1 D _item p PID_CARAVAN_BOX > 0 R _item p PID_CARAVAN_BOX - 1 R _var p la_crate2 = 2 #
+16 2070 D _var p la_crate3 = 1 D _item p PID_CARAVAN_BOX > 0 R _item p PID_CARAVAN_BOX - 1 R _var p la_crate3 = 2 #
+24 2080 D _var p q_packages = 7 D _item p PID_CARAVAN_BOX > 0 R _item p PID_CARAVAN_BOX - 1 R _var p q_packages = 98 #
+0 2090 @
+3 3000 None 0 #
+0 3010 @
+4 4000 None 0 #
+65506 4010 D _param p ST_INTELLECT > 3 #
+0 4020 D _param p ST_INTELLECT > 3 #
+65506 4030 D _param p ST_INTELLECT < 4 #
+0 4040 D _param p ST_INTELLECT < 4 @
+5 5000 None 0 @
+6 6000 None 0 #
+9 6010 #
+7 6020 R _script dialog@r_SkillRoll 3 Barter -50 8 #
+0 6030 @
+7 7000 None 0 #
+9 7010 #
+0 7020 @
+8 8000 None 0 #
+15 8010 D _item p PID_BOTTLE_CAPS } 400 R _var p q_jt_power_house_handy = 2 R _item p PID_ROBOT_MOTIVATOR + 1 R _script dialog@r_RemoveMoney 1 400 #
+11 8020 D _item p PID_BOTTLE_CAPS } 300 R _script dialog@r_SkillRoll 3 Barter -75 13 #
+0 8030 @
+9 9000 None 0 #
+15 9010 D _item p PID_BOTTLE_CAPS } 800 R _var p q_jt_power_house_handy = 2 R _item p PID_ROBOT_MOTIVATOR + 1 R _script dialog@r_RemoveMoney 1 800 #
+12 9020 D _item p PID_BOTTLE_CAPS } 700 R _script dialog@r_SkillRoll 3 Barter -75 14 #
+0 9030 @
+10 10000 None 0 #
+0 10010 @
+11 11000 None 0 #
+15 11010 D _item p PID_BOTTLE_CAPS } 400 R _var p q_jt_power_house_handy = 2 R _item p PID_ROBOT_MOTIVATOR + 1 R _script dialog@r_RemoveMoney 1 400 #
+10 11020 @
+12 12000 None 0 #
+15 12010 D _item p PID_BOTTLE_CAPS } 800 R _var p q_jt_power_house_handy = 2 R _item p PID_ROBOT_MOTIVATOR + 1 R _script dialog@r_RemoveMoney 1 800 #
+10 12020 @
+13 13000 None 0 #
+0 13010 R _var p q_jt_power_house_handy = 2 R _item p PID_ROBOT_MOTIVATOR + 1 R _script dialog@r_AddExperience 1 100 R _script dialog@r_RemoveMoney 1 300 @
+14 14000 None 0 #
+0 14010 R _var p q_jt_power_house_handy = 2 R _item p PID_ROBOT_MOTIVATOR + 1 R _script dialog@r_AddExperience 1 100 R _script dialog@r_RemoveMoney 1 700 @
+15 15000 None 0 #
+0 15010 @
+16 16000 None 0 @
+17 17000 None 0 #
+18 17010 @
+18 18000 None 0 #
+19 18010 @
+19 19000 None 0 #
+20 19010 @
+20 20000 None 0 #
+21 20010 @
+21 21000 None 0 #
+22 21010 @
+22 22000 None 0 #
+0 22010 R _var p q_tourist = 6 R _script dialog@r_AddExperience 1 125 R _script dialog@r_AddMoney 1 75 @
+23 23000 None 0 @
+24 24000 None 0 &
+
+[engl]
+{100}{}{Mitch}
+{200}{}{You see Mitch of the All-N-One store.}
+{1000}{}{Predialogue installations}
+{1010}{}{Unknown}
+{1020}{}{Familiar}
+{2000}{}{Hello, how can I help you?@@How may I help you today?}
+{2010}{}{Do you know where I can find a spaceship?}
+{2020}{}{Heya, Mitch! I'm @pname@, the newcomer. Beth told me to come check in with you. I'm a trader myself now, I suppose. Why not!}
+{2030}{}{I'd like to buy something.@@I want to buy something.@@Show me what you have to sell.}
+{2040}{}{I've heard you might have a robot motivator unit for purchase?}
+{2050}{}{I've got another crate for you from L.A.}
+{2060}{}{I've got another crate for you from L.A.}
+{2070}{}{I've got another crate for you from L.A.}
+{2080}{}{[Deliver Package]}
+{2090}{}{Nevermind. Bye.@@Nothing. Thanks.}
+{3000}{}{Sorry, I can't understand you. Come back when you finish school.}
+{3010}{}{Uh.}
+{4000}{}{Great. Here's what I have.@@Great, always looking for new things.}
+{4010}{}{Alright, let me take a look at it.@@Let me see.}
+{4020}{}{Nevermind. Bye.}
+{4030}{}{Me want to see.}
+{4040}{}{Me going. Bye.}
+{5000}{}{Get out of here.@@You're scaring off my customers.@@Door's right behind you.}
+{6000}{}{Don't tell me you want to buy it! Just a few hours ago, I sold it to someone else. That means, it's not yet sold, but the deal is done...}
+{6010}{}{What's the price? I will double it!}
+{6020}{}{Of course you could sell the motivator to that other person, but you are a clever guy and I am a clever customer. Giving it to me would guarantee you more revenue in future trades with me! Think about it.}
+{6030}{}{That's a shame, really. See you later then.}
+{7000}{}{No, not at all. }
+{7010}{}{What's the price? I will double it!}
+{7020}{}{That's a shame, really. See you later then.}
+{8000}{}{Damnit, you are right! The original price has been 400 caps. Deal?}
+{8010}{}{Deal! [You give him the 400 caps.]}
+{8020}{}{Let's make 300 caps out of it and we call it a deal!}
+{8030}{}{No, that's too expensive for me.}
+{9000}{}{That doesn't sound that bad to me. Damnit, okay. 800 caps, deal?}
+{9010}{}{Deal. [You give him the 800 caps.]}
+{9020}{}{Let's make 700 caps out of it and we call it a deal!}
+{9030}{}{No, that's too expensive for me. }
+{10000}{}{Don't wait for too long.}
+{10010}{}{I'll come back later.}
+{11000}{}{No, 400 caps or nothing.}
+{11010}{}{Deal. [You give him the 400 caps.]}
+{11020}{}{No, that's too expensive for me. }
+{12000}{}{No, 800 caps or nothing.}
+{12010}{}{Deal. [You give him the 800 caps.]}
+{12020}{}{No, that's too expensive for me. }
+{13000}{}{Mah... you are robbing me! [He takes the 300 caps and gives you the motivator unit.] But you better pay more the next time we meet!}
+{13010}{}{Goodbye.}
+{14000}{}{Mah... you are robbing me! [He takes the 700 caps and gives you the motivator unit.] But you better pay more the next time we meet!}
+{14010}{}{Goodbye.}
+{15000}{}{[He takes the caps and gives you the motivator unit.] }
+{15010}{}{Goodbye.}
+{16000}{}{Looks good. Here's your receipt. Keep them coming.}
+{17000}{}{Another vault dweller, eh? Glad you made it over to the Hub. Mitch's All-N-One sure could use some fresh customers. I get a lot of the same crap each day, maybe you'll help mix it up. }
+{17010}{}{I'll do what I can, Mitch. So, what are you selling here?}
+{18000}{}{Guns, mostly. I don't dabble too much in anything else. Guns, ammo, stimpaks, that sort of thing is what I'm more interested in, I suppose. Care to have a look?}
+{18010}{}{Maybe later, right now I'm just playing tourist. Sure is nice to get out and stretch my legs. Did nuka cola survive the war?}
+{19000}{}{[He laughs] It sure did, buddy! It sure did! [He hands you a fresh, ice cold nuka cola] Here, it's on the house.}
+{19010}{}{Oh, boy! Well gee willikers mister! Oh wow! Thanks a million!}
+{20000}{}{Careful though, it might get you feeling a bit irradiated. Everything around here from before the war is covered in radiation dust. Speaking of which, have you been checked by Doctor Burhnefletch yet?}
+{20010}{}{Checked? Checked for what?}
+{21000}{}{Radiation poisoning, or retinal damage! You're fresh from a vault, aren't you concerned about your health? Not even the least bit?}
+{21010}{}{My health?! Dear God, man! Why didn't I think of it sooner! Thanks a million chief! I'm gone! Need to go see a quack, pronto! Which way to the nearest auto doc?}
+{22000}{}{Auto Doc? [He laughs] We got an actual doctor here, all flesh and bone... mostly. He's over in the west side of the market, far west. Go tell him his old pal Mitch said hi. Here, have a few caps on me, should help pay for some treatment.}
+{22010}{}{[Run off into the city lights]}
+{23000}{}{A what? What the hell is that? Go talk crazy with the church.}
+{24000}{}{One from Vault City?! Finally! These suckers are rare, holy shit! Thanks a lot, stranger!}
+

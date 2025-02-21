@@ -1,10 +1,3 @@
-//
-// FOnline: 2238
-// Rotators
-//
-// replication.fos
-//
-
 #include "_macros.fos"
 #include "_basetypes.fos"
 #include "follower_h.fos"
@@ -28,15 +21,11 @@ import void DropPoison(Critter& cr) from "poison";
 import void CapRadiation(Critter& cr) from "radiation";
 //import Map@ GetRoomPosition(uint PlayerId, uint16& out hx, uint16& out hy) from "rooms";
 
-// const uint16 HellMapPid=MAP_replication_hell;
-const uint16[] Hospitals = { LOCATION_StartLocation };
+const uint16[] Hospitals = {LOCATION_StartLocation};
 
 // starting towns
-const uint16[] Towns = { LOCATION_StartLocation };
+const uint16[] Towns = {LOCATION_Hub};
 
-//
-// Gets nearest replication map
-//
 Map@ GetNearestReplicatorMap(Critter& player)
 {
     Location@ loc;
@@ -76,9 +65,6 @@ Map@ GetRandomReplicatorMap(Critter& player)
     return GetLocationByPid(random_from_array(Hospitals), 0).GetMapByIndex(0);
 }
 
-//
-// Chose one of the towns to start
-//
 Map@ GetStartingMap(Critter& player)
 {
     uint      idx = Random(0, Towns.length() - 1);
@@ -89,25 +75,34 @@ Map@ GetStartingMap(Critter& player)
 
 void SetStartLocation(Critter& cr)   // Export
 {
-    /*Map@ map=GetStartingMap(cr);
-       if(not valid(map))
-            return;*/
-
     // Spawn player in instanced starter location
-    //uint x = 0, y = 0;
-   // uint startloc = Random(LOCATION_Spawnpoint1, LOCATION_Spawnpoint3);
-    //uint startloc = 0;
+    uint x = 0;
+    uint y = 0;
+    uint startloc = LOCATION_StartVault24;
 
-    //uint      locId = CreateLocation(startloc, x, y, null);
-    //Location@ loc = GetLocation(locId);
-    //Map@      map = loc.GetMapByIndex(0);
-    Map@ map = GetStartingMap(cr);
-    if(!valid(map))
+    switch (startloc)
+    {
+        case LOCATION_StartVault24:
+            x = 1522;
+            y = 2028;
+            break;
+        default:
+            Log("Wrong location pid!");
+    }
+
+    uint locId = CreateLocation(startloc, x, y, null);
+    Location@ loc = GetLocation(locId);
+    Map@ map = loc.GetMapByIndex(0);
+
+    if (!valid(map))
+    {
         return;
+    }
 
     // Hidden fog on default player position
     uint zoneX = cr.WorldX / __GlobalMapZoneLength;
     uint zoneY = cr.WorldY / __GlobalMapZoneLength;
+
     cr.SetFog(zoneX, zoneY, WORLDMAP_FOG_FULL);
     cr.SetFog(zoneX - 1, zoneY - 1, WORLDMAP_FOG_FULL);
     cr.SetFog(zoneX, zoneY - 1, WORLDMAP_FOG_FULL);
@@ -122,6 +117,7 @@ void SetStartLocation(Critter& cr)   // Export
 
     zoneX = cr.WorldX / __GlobalMapZoneLength;
     zoneY = cr.WorldY / __GlobalMapZoneLength;
+
     cr.SetFog(zoneX, zoneY, WORLDMAP_FOG_NONE);
     cr.SetFog(zoneX - 1, zoneY - 1, WORLDMAP_FOG_HALF);
     cr.SetFog(zoneX, zoneY - 1, WORLDMAP_FOG_HALF);

@@ -1,0 +1,252 @@
+[comment]
+
+
+[data]
+lang=engl
+
+[dialog]
+&
+1 1000 None 0 #
+2 1010 D _var p name_mem_npc_player = 0 #
+7 1020 D _var p name_mem_npc_player = 1 @
+2 2000 None 0 #
+3 2010 @
+3 3000 None 0 #
+4 3010 @
+4 4000 None 0 #
+5 4010 @
+5 5000 None 0 #
+6 5010 R _var p name_mem_npc_player = 1 #
+0 5020 R _var p name_mem_npc_player = 1 @
+6 6000 None 0 @
+7 7000 None 0 #
+8 7010 #
+9 7020 #
+31 7030 #
+33 7040 #
+32 7050 @
+8 8000 None 0 #
+8 8010 @
+9 9000 None 0 #
+9 9010 @
+10 10000 None 0 #
+7 10010 @
+11 11000 None 0 #
+7 11010 @
+12 12000 None 0 #
+7 12010 @
+13 13000 None 0 #
+7 13010 @
+14 14000 None 0 #
+7 14010 @
+15 15000 None 0 #
+7 15010 @
+16 16000 None 0 #
+7 16010 @
+17 17000 None 0 #
+7 17010 @
+18 18000 None 0 #
+7 18010 @
+19 19000 None 0 #
+7 19010 @
+20 20000 None 0 #
+7 20010 @
+21 21000 None 0 #
+7 21010 @
+22 22000 None 0 #
+7 22010 @
+23 23000 None 0 #
+7 23010 @
+24 24000 None 0 #
+7 24010 @
+25 25000 None 0 #
+7 25010 @
+26 26000 None 0 #
+7 26010 @
+27 27000 None 0 #
+7 27010 @
+28 28000 None 0 #
+7 28010 @
+29 29000 None 0 #
+7 29010 @
+30 30000 None 0 #
+7 30010 @
+31 31000 None 0 #
+27 31010 #
+27 31020 #
+27 31030 #
+27 31040 #
+27 31050 #
+27 31060 #
+27 31070 #
+27 31080 #
+27 31090 #
+27 31100 #
+27 31110 #
+27 31120 #
+27 31130 #
+27 31140 #
+27 31150 #
+27 31160 #
+27 31170 #
+27 31180 #
+27 31190 #
+7 31200 @
+32 32000 None 0 @
+33 33000 None 0 #
+29 33010 D _item p PID_MEAT > 23 #
+29 33020 D _item p PID_FIREWOOD > 23 #
+29 33030 D _item p PID_WATERBAG > 23 #
+29 33040 D _item p PID_METAL_PARTS > 23 #
+29 33050 D _item p PID_ELECTRONIC_PARTS > 23 #
+29 33060 D _item p PID_PUMP_PARTS > 23 #
+29 33070 D _item p PID_TOBACCO > 23 #
+29 33080 D _item p PID_FIBER > 23 #
+29 33090 D _item p PID_BARLEY > 23 #
+29 33100 D _item p PID_BEER > 23 #
+29 33110 D _item p PID_NUKA_COLA > 23 #
+29 33120 D _item p PID_CIGARETTES > 23 #
+29 33130 D _item p PID_BRAHMIN_HIDE > 23 #
+29 33140 D _item p PID_GOLD_NUGGET > 23 #
+29 33150 #
+29 33160 #
+29 33170 #
+29 33180 #
+29 33190 #
+7 33200 &
+
+[engl]
+{100}{}{Hub Trademaster}
+{200}{}{You see the local Trademaster for the Hub.}
+{210}{}{Looks like she deals with all import and export related trade activites in the city. }
+{1000}{}{Predialogue installations}
+{1010}{}{Answer text}
+{1020}{}{known}
+{2000}{}{Hi, and welcome to the Hub! California's largest expansion, and most productive city in the entire wasteland.}
+{2010}{}{What is it that you do around here?}
+{3000}{}{I help manage the city's inventory, supplies, weapons, and personnel. Anything we import, or export has to go through me first. Are you interested in helping the city out, and raising our prosperity?}
+{3010}{}{What can I do to improve the prosperity of the Hub?}
+{4000}{}{Good question! For one, you can help us stock up on resources, weapons, armour, and various different items. Each day we'll need something new in focus, and we'll have to maintain our current stock of inventory.}
+{4010}{}{How do I do that? And what's in it for me?}
+{5000}{}{Well, you can start by having a look at our current stock, and deciding for yourself what you'd rather help bring in. Once we've gotten an excess of standard items, we can start sending our caravans to the other cities. Everything you bring us will be bought by us for caps, and you'll help make a name for yourself around town.}
+{5010}{}{Okay, sure! Sign me up!}
+{5020}{}{That sounds stupid. I'm not a slave. Goodbye.}
+{6000}{}{Done, and done! Welcome to the list of employees! @pname@! Come back when you're ready to begin.}
+{7000}{}{Hi, there, @pname@! Care to help out the Hub? We're always looking for new hands on deck! }
+{7010}{}{How's the city's inventory looking?}
+{7020}{}{What do you need the most today?}
+{7030}{}{Let's set up a caravan, shall we?}
+{7040}{}{I've brought you some items.}
+{7050}{}{Not today, but maybe later.}
+{8000}{}{Here, have a look! [She hands you a copy of the latest inventory stock]
+
+The Hub has:
+
+Food:
+Wood:
+Water:
+Metal Parts:
+Electronic Parts:
+Junk:
+Tobacco:
+Fibers:
+Barley:
+Beer:
+Nuka-Cola:
+Cigarettes:
+Leather:
+Fruit:
+Flint:
+Xander Root:
+Broc Flower:
+
+As you can see, some items are more in demand than others. Everything excessive can be eventually sent out to another city via caravan.}
+{8010}{}{Interesting, thanks!}
+{9000}{}{Let me just check out the board here...}
+{9010}{}{[Wait]}
+{10000}{}{Well, @pname@, we're really low on... Food!}
+{10010}{}{Okay, thanks.}
+{11000}{}{Well, @pname@, we're really low on... Wood!}
+{11010}{}{Okay, thanks.}
+{12000}{}{Well, @pname@, we're really low on... Water!}
+{12010}{}{Okay, thanks.}
+{13000}{}{Well, @pname@, we're really low on... Metal Parts!}
+{13010}{}{Okay, thanks.}
+{14000}{}{Well, @pname@, we're really low on... Electronic Parts!}
+{14010}{}{Okay, thanks.}
+{15000}{}{Well, @pname@, we're really low on... Junk!}
+{15010}{}{Okay, thanks.}
+{16000}{}{Well, @pname@, we're really low on... Food!}
+{16010}{}{Okay, thanks.}
+{17000}{}{Well, @pname@, we're really low on... Wood!}
+{17010}{}{Okay, thanks.}
+{18000}{}{Well, @pname@, we're really low on... Tobacco!}
+{18010}{}{Okay, thanks.}
+{19000}{}{Well, @pname@, we're really low on... Fibers!}
+{19010}{}{Okay, thanks.}
+{20000}{}{Well, @pname@, we're really low on... Barley!}
+{20010}{}{Okay, thanks.}
+{21000}{}{Well, @pname@, we're really low on... Beer!}
+{21010}{}{Okay, thanks.}
+{22000}{}{Well, @pname@, we're really low on... Nuka-Cola!}
+{22010}{}{Okay, thanks.}
+{23000}{}{Well, @pname@, we're really low on... Cigarettes!}
+{23010}{}{Okay, thanks.}
+{24000}{}{Well, @pname@, we're really low on... Leather!}
+{24010}{}{Okay, thanks.}
+{25000}{}{Well, @pname@, we're really low on... Gold!}
+{25010}{}{Okay, thanks}
+{26000}{}{Well, @pname@, we're really low on... Uranium!}
+{26010}{}{Okay, thanks}
+{27000}{}{Well, @pname@, we're really low on... Flint!}
+{27010}{}{Okay, thanks.}
+{28000}{}{Well, @pname@, we're really low on... Fruit!}
+{28010}{}{Okay, thanks.}
+{29000}{}{Well, @pname@, we're really low on... Xander Root!}
+{29010}{}{Okay, thanks.}
+{30000}{}{Well, @pname@, we're really low on... Broc Flower!}
+{30010}{}{Okay, thanks.}
+{31000}{}{Hmm, I don't know. What kind of caravan did you want to send out?}
+{31010}{}{Food. }
+{31020}{}{Wood.}
+{31030}{}{Water.}
+{31040}{}{Metal Parts.}
+{31050}{}{Electronic Parts.}
+{31060}{}{Junk.}
+{31070}{}{Tobacco.}
+{31080}{}{Fibers.}
+{31090}{}{Barley.}
+{31100}{}{Beer.}
+{31110}{}{Nuka-Cola.}
+{31120}{}{Cigarettes.}
+{31130}{}{Leather.}
+{31140}{}{Gold.}
+{31150}{}{Uranium.}
+{31160}{}{Fruit.}
+{31170}{}{Flint.}
+{31180}{}{Xander Root.}
+{31190}{}{Broc Flower.}
+{31200}{}{Nevermind.}
+{32000}{}{Okay, great. Come back any time!}
+{33000}{}{You did? That's wonderful. What are you willing to sell? We can only accept units of 24x, by the way. But we'll give you a great price for anything you bring us. [She smiles]}
+{33010}{}{Food.}
+{33020}{}{Wood.}
+{33030}{}{Water.}
+{33040}{}{Metal Parts.}
+{33050}{}{Electronic Parts.}
+{33060}{}{Junk.}
+{33070}{}{Tobacco.}
+{33080}{}{Fibers.}
+{33090}{}{Barley.}
+{33100}{}{Beer.}
+{33110}{}{Nuka-Cola.}
+{33120}{}{Cigarettes.}
+{33130}{}{Leather.}
+{33140}{}{Gold.}
+{33150}{}{Uranium.}
+{33160}{}{Fruit.}
+{33170}{}{Flint.}
+{33180}{}{Xander Root.}
+{33190}{}{Broc Flower.}
+{33200}{}{Nevermind.}
+

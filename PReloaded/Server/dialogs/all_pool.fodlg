@@ -1,0 +1,140 @@
+[comment]
+
+
+[data]
+lang=engl
+
+[dialog]
+&
+1 1000 None 0 #
+2 1010 @
+2 2000 None 0 #
+2 2010 D _item p PID_BOTTLE_CAPS > 49 R _item p PID_BOTTLE_CAPS - 50 R _script dialog@r_JumpToRandomNode 3 1 2 10 R _var p q_pool1 = 8 R _var p q_pool2 = 8 #
+0 2020 @
+10 3000 None 0 #
+10 3010 R _script dialog@r_JumpToRandomNode 3 3 4 10 @
+20 4000 None 0 #
+20 4010 R _script dialog@r_JumpToRandomNode 3 3 4 10 @
+30 5000 None 0 #
+30 5010 R _script dialog@r_JumpToRandomNode 3 5 7 10 @
+40 6000 None 0 #
+110 6010 @
+50 7000 None 0 #
+110 7010 D _var p q_pool1 > 0 D _var p q_pool2 > 0 R _var p q_pool1 - 1 #
+104 7020 D _var p q_pool1 = 0 D _var p q_pool2 > 0 R _script dialog@r_AddMoney 1 125 #
+103 7030 D _var p q_pool2 = 0 D _var p q_pool1 > 0 @
+60 8000 None 0 #
+60 8010 D _var p q_pool1 > 0 D _var p q_pool2 > 0 R _script dialog@r_JumpToRandomNode 3 5 7 10 R _script dialog@r_Roll 4 1 10 10 102 R _var p q_pool2 - 1 #
+104 8020 D _var p q_pool1 = 0 D _var p q_pool2 > 0 R _script dialog@r_AddMoney 1 125 #
+103 8030 D _var p q_pool2 = 0 D _var p q_pool1 > 0 @
+70 9000 None 0 #
+110 9010 D _var p q_pool1 > 0 D _var p q_pool2 > 0 #
+104 9020 D _var p q_pool1 = 0 D _var p q_pool2 > 0 R _script dialog@r_AddMoney 1 125 #
+103 9030 D _var p q_pool2 = 0 D _var p q_pool1 > 0 @
+80 10000 None 0 #
+110 10010 D _var p q_pool1 > 0 D _var p q_pool2 > 0 R _script dialog@r_Roll 4 1 10 10 101 R _var p q_pool1 - 1 #
+104 10020 D _var p q_pool1 = 0 D _var p q_pool2 > 0 R _script dialog@r_AddMoney 1 125 #
+103 10030 D _var p q_pool2 = 0 D _var p q_pool1 > 0 @
+90 11000 None 0 #
+90 11010 D _var p q_pool1 > 0 D _var p q_pool2 > 0 R _script dialog@r_JumpToRandomNode 3 5 7 10 R _var p q_pool2 - 1 #
+104 11020 D _var p q_pool1 = 0 D _var p q_pool2 > 0 R _script dialog@r_AddMoney 1 125 #
+103 11030 D _var p q_pool2 = 0 D _var p q_pool1 > 0 @
+100 12000 None 0 #
+100 12010 D _var p q_pool1 > 0 D _var p q_pool2 > 0 R _script dialog@r_JumpToRandomNode 3 5 7 10 #
+104 12020 D _var p q_pool1 = 0 D _var p q_pool2 > 0 R _script dialog@r_AddMoney 1 125 #
+103 12030 D _var p q_pool2 = 0 D _var p q_pool1 > 0 @
+101 13000 None 0 #
+103 13010 @
+102 14000 None 0 #
+104 14010 R _script dialog@r_AddMoney 1 125 @
+103 15000 None 0 @
+104 16000 None 0 @
+110 17000 None 0 #
+110 17010 R _script dialog@r_JumpToRandomNode 3 12 14 10 #
+130 17020 R _script dialog@r_Roll 4 1 2 2 120 #
+140 17030 R _script dialog@r_Roll 4 1 4 4 150 #
+130 17040 R _script dialog@r_Roll 4 1 6 6 160 #
+180 17050 R _script dialog@r_Roll 4 1 8 8 170 @
+120 18000 None 0 #
+80 18010 @
+130 19000 None 0 #
+90 19010 @
+140 20000 None 0 #
+100 20010 @
+150 21000 None 0 #
+80 21010 @
+160 22000 None 0 #
+80 22010 @
+170 23000 None 0 #
+80 23010 @
+180 24000 None 0 #
+101 24010 &
+
+[engl]
+{100}{}{Pool Shark}
+{200}{}{You see an opportunity to gamble!}
+{210}{}{I can gamble here! Hooray!}
+{1000}{}{Predialogue installations}
+{1010}{}{Answer text}
+{2000}{}{Care to play a game of pool? Bets are 50 caps. First person to sink 9 of their balls wins, just don't sink the Eight-Ball. If you can pull off a legendary move, I'll give you two gold coins.}
+{2010}{}{Sure! Let's play.}
+{2020}{}{Maybe later.}
+{3000}{}{You're Stripes. I'm Solids. Feel free to break.}
+{3010}{}{[Break]}
+{4000}{}{You're Solids. I'm Stripes. Feel free to break.}
+{4010}{}{[Break]}
+{5000}{}{[You pull off a horrible break]}
+{5010}{}{Darn. Your turn.}
+{6000}{}{[You pull off a great break!]}
+{6010}{}{Woot! My turn.}
+{7000}{}{[Your opponent sinks a ball of your colour!]@@[Lucky you! Your opponent sinks one of your balls!]@@[With grace and absolute beauty, your opponent sinks a ball of your colour!]@@[What luck! Your opponent gets cocky and accidently sinks a ball of your colour!]}
+{7010}{}{My turn!}
+{7020}{}{I win! Woot!}
+{7030}{}{Damnit! Looks like you win, you sank all your balls.}
+{8000}{}{[Your opponent sinks a ball of his colour!]@@[Unfortunately, your opponent sinks a ball of his colour. Scoring a point]@@[Your opponent masterfully sinks one of his balls!]@@[Leaning over the table, your opponent skillfully sinks a ball of his colour!]}
+{8010}{}{Damn! Your turn again.}
+{8020}{}{I win! Woot!}
+{8030}{}{Damnit! Looks like you win, you sank all your balls.}
+{9000}{}{[Your opponent misses!]@@[Your opponent clumsily misses his shot!]@@[Someone accidently hits your opponent on the shoulder, causing him to miss his shot!]@@[What an amature! Your opponent fumbles and scores a miss!]}
+{9010}{}{My turn!}
+{9020}{}{I win! Woot!}
+{9030}{}{Damnit! Looks like you win, you sank all your balls.}
+{10000}{}{[You sink a ball of your colour!]@@[Score one for you! You sink a ball of your colour!]@@[You skillfully lean over the table and sink a ball of your colour!]@@[Like a pro you twist the ball, bouncing it off the corner and landing a perfect point!]@@[You succesfully sink one of your balls!]}
+{10010}{}{Nice! My turn again! Just need to wait for the balls to stop spinning...}
+{10020}{}{I win! Woot!}
+{10030}{}{Damnit! Looks like you win, you sank all your balls.}
+{11000}{}{[You sink a ball of your opponent's colour!]@@[You line up the perfect shot, but a drunkard stumbles into you causing you to sink a ball of your opponent's colour!]@@[Your shot fails, and you end up sinking one of your opponent's balls!]@@[You arrogantly attempt a trick shot and fail miserably! You sunk one of your opponent's balls!]@@[Oh! You sink one of your opponent's balls by accident! Gaining him a point!]}
+{11010}{}{Damn! Your turn.}
+{11020}{}{I win! Woot!}
+{11030}{}{Damnit! Looks like you win, you sank all your balls.}
+{12000}{}{[You missed!]@@[You missed completely!]@@[You barely hit the ball! It goes nowhere!]@@[You try to line up the perfect shot but miss by an inch!]@@[Scratch!]@@[You accidently fumble and hit the ball on a poor angle. You missed!]}
+{12010}{}{Damn! Your turn.}
+{12020}{}{I win! Woot!}
+{12030}{}{Damnit! Looks like you win, you sank all your balls.}
+{13000}{}{[You sunk the Eight Ball! You lose!]}
+{13010}{}{Damnit! Looks like you won.}
+{14000}{}{[Your opponent sunk the Eight Ball! He loses!]}
+{14010}{}{Awesome! I win!}
+{15000}{}{I win. Care to try again?}
+{16000}{}{You beat me fair and square. Care to play again?}
+{17000}{}{[How do you want to approach this?]}
+{17010}{}{[Carefully, and gently take your turn]}
+{17020}{}{[Line up your shot and strike it hard]}
+{17030}{}{[Skillfully bounce it off an angle]}
+{17040}{}{[Try to keep your cool, and make a tactical decision]}
+{17050}{}{[Go for broke, and attempt a legendary strike!]}
+{18000}{}{[You gaze menacingly at your opponent, lean over the table, line up your shot, and...]}
+{18010}{}{[Strike the ball!]}
+{19000}{}{[You gaze menacingly at your opponent, lean over the table, line up your shot, and...]}
+{19010}{}{[Strike the ball!]}
+{20000}{}{[You gaze menacingly at your opponent, lean over the table, line up your shot, and...]}
+{20010}{}{[Strike the ball!]}
+{21000}{}{[You gaze menacingly at your opponent, lean over the table, line up your shot, and...]}
+{21010}{}{[Strike the ball!]}
+{22000}{}{[You gaze menacingly at your opponent, lean over the table, line up your shot, and...]}
+{22010}{}{[Strike the ball!]}
+{23000}{}{[You gaze menacingly at your opponent, lean over the table, line up your shot, and...]}
+{23010}{}{[Strike the ball!]}
+{24000}{}{[You gaze menacingly at your opponent, lean over the table, line up your shot, and...]}
+{24010}{}{[Strike the ball!]}
+

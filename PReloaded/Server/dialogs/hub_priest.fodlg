@@ -1,0 +1,379 @@
+[comment]
+evil things, no one should ever do
+
+[data]
+lang=engl russ
+
+[dialog]
+&
+1 1000 None 0 #
+2 1010 R _var p KIDS + 1 @
+2 2000 None 0 #
+32 2010 D _var p camp_evil = 3 #
+32 2020 D _var p camp_evil = 4 #
+32 2030 D _var p camp_evil = 5 #
+26 2040 D _var p camp_evil = 1 #
+22 2050 D _var p q_evil = 2 R _var p q_evil = 3 R _param p ST_KARMA - 10 R _script quest_evil@r_DeleteLoc 0  R _param p REPUTATION_JUNKTOWN - 176 R _param p REPUTATION_LA - 176 R _param p REPUTATION_HUB - 176 R _param p REPUTATION_NCR - 176 R _param p REPUTATION_NCR_RANGERS - 176 R _param p REPUTATION_REGULATORS - 176 R _var p CRIM + 1 R _script dialog@r_AddExperience 1 300 R _script dialog@r_AddMoney 1 300 #
+23 2060 D _var p q_evil = 3 #
+13 2070 #
+10 2080 #
+8 2090 #
+3 2100 #
+4 2110 #
+5 2120 #
+5 2130 #
+7 2140 #
+0 2150 @
+3 3000 None 0 #
+2 3010 #
+0 3020 @
+4 4000 None 0 #
+6 4010 @
+5 5000 None 0 #
+6 5010 @
+6 6000 None 0 #
+0 6010 #
+2 6020 @
+7 7000 None 0 #
+2 7010 @
+8 8000 None 0 #
+9 8010 D _item p PID_BOTTLE_CAPS > 49 R _item p PID_BOTTLE_CAPS - 50 R _script dialog@r_AddExperience 1 1 #
+9 8020 D _param p ST_CHARISMA > 4 #
+2 8030 #
+0 8040 @
+9 9000 None 0 #
+0 9010 #
+0 9020 #
+0 9030 @
+10 10000 None 0 #
+11 10010 D _item p PID_BOTTLE_CAPS > 9 R _item p PID_BOTTLE_CAPS - 1 #
+11 10020 D _item p PID_BOTTLE_CAPS > 49 R _item p PID_BOTTLE_CAPS - 50 #
+11 10030 D _item p PID_BOTTLE_CAPS > 99 R _item p PID_BOTTLE_CAPS - 100 #
+11 10040 D _item p PID_BOTTLE_CAPS > 499 R _item p PID_BOTTLE_CAPS - 500 #
+11 10050 D _item p PID_BOTTLE_CAPS > 999 R _item p PID_BOTTLE_CAPS - 1000 #
+12 10060 D _item p PID_BOTTLE_CAPS > 999999 R _item p PID_BOTTLE_CAPS - 1000000 #
+2 10070 @
+11 11000 None 0 @
+12 12000 None 0 @
+13 13000 None 0 #
+14 13010 D _param p KILL_MEN > 0 D _param p KILL_WOMEN > 0 #
+16 13020 D _param p KILL_CHILDREN > 0 #
+14 13030 D _param p ST_KARMA = 0 #
+14 13040 D _param p ST_KARMA = 0 #
+14 13050 D _param p ST_KARMA = 0 #
+14 13060 D _param p ST_KARMA > 0 #
+16 13070 D _param p TRAIT_BLOODY_MESS > 0 #
+16 13080 D _param p ST_KARMA < 0 #
+16 13090 D _param p ST_KARMA < 0 #
+14 13100 D _param p ST_KARMA > 0 #
+15 13110 D _param p ST_KARMA > 14 #
+16 13120 D _param p ST_KARMA = 0 #
+65507 13130 D _var p q_evil = 3 #
+0 13140 @
+14 14000 None 0 @
+15 15000 None 0 @
+16 16000 None 0 #
+17 16010 @
+17 17000 None 0 #
+18 17010 @
+18 18000 None 0 #
+19 18010 @
+19 19000 dialog@dlg_Kid 0 #
+20 19010 @
+20 20000 None 0 #
+21 20010 @
+21 21000 dialog@dlg_Kid 0 #
+0 21010 D _var p q_evil = 0 D _var p KIDS > 0 R _var p q_evil = 1 R _script quest_evil@r_SpawnLoc 0  #
+0 21020 @
+22 22000 None 0 #
+23 22010 @
+23 23000 None 0 #
+24 23010 @
+24 24000 None 0 #
+25 24010 @
+25 25000 dialog@dlg_Kid 0 #
+0 25010 D _var p q_evil = 3 D _var p KIDS > 0 R _var p q_evil = 1 R _script quest_evil@r_SpawnLoc 0  #
+0 25020 @
+26 26000 None 0 #
+27 26010 @
+27 27000 None 0 #
+28 27010 @
+28 28000 None 0 #
+29 28010 @
+29 29000 None 0 #
+30 29010 @
+30 30000 None 0 #
+31 30010 R _var p camp_evil = 2 R _param p ST_CURRENT_HP = 6 R _script dialog@r_AddExperience 1 2500 R _item p PID_BONES + 1 R _param p DAMAGE_LEFT_LEG = 1 R _param p DAMAGE_RIGHT_ARM = 1 R _param p ST_KARMA - 13 @
+31 31000 None 0 @
+32 32000 None 0 #
+33 32010 D _var p camp_evil = 3 D _item p PID_BONES > 0 #
+33 32020 D _var p camp_evil = 3 D _item p PID_BONES = 0 #
+33 32030 D _var p camp_evil = 4 #
+33 32040 D _var p camp_evil = 5 @
+33 33000 None 0 #
+34 33010 @
+34 34000 None 0 #
+35 34010 D _var p camp_evil = 3 D _item p PID_BONES > 0 R _var p camp_evil = 6 R _script dialog@r_AddExperience 1 3500 R _param p ST_KARMA - 20 R _item p PID_BONES - 1 R _item p PID_GOLD_NUGGET + 4 R _item p PID_FOOLS_GOLD + 2 #
+33 34020 D _var p camp_evil = 3 D _item p PID_BONES = 0 R _var p camp_evil = 6 R _script dialog@r_AddExperience 1 3175 R _param p ST_KARMA - 17 R _item p PID_GOLD_NUGGET + 3 R _item p PID_FOOLS_GOLD + 2 #
+35 34030 D _var p camp_evil = 4 R _var p camp_evil = 6 R _script dialog@r_AddExperience 1 2500 R _param p ST_KARMA - 14 R _item p PID_GOLD_NUGGET + 2 R _item p PID_FOOLS_GOLD + 2 #
+35 34040 D _var p camp_evil = 5 R _var p camp_evil = 6 R _script dialog@r_AddExperience 1 2200 R _param p ST_KARMA - 11 R _item p PID_GOLD_NUGGET + 1 R _item p PID_FOOLS_GOLD + 2 @
+35 35000 None 0 &
+
+[engl]
+{100}{}{Father Confessor}
+{200}{}{You see Father Confessor.}
+{210}{}{You see an eerie looking priest. He has a sawed-off shotgun on his back. Odd, for a man of the cloth.}
+{1000}{}{Predialogue installations}
+{1010}{}{not known}
+{2000}{}{[A strong feeling of dread looms over your shoulders as you enter the strange church. If there is a God, you don't think he lives here. The priest greets you as you approach] I am Father Confessor! The Lord is near to the brokenhearted, and saves the crushed in spirit. My child, he heals the brokenhearted and binds up their wounds. What wounds may have fallen upon you today?}
+{2010}{}{Hello, father. I have returned! I guess you could say it's my... second coming?}
+{2020}{}{Hello, father. I have returned! I guess you could say it's my... second coming?}
+{2030}{}{Hello, father. I have returned! I guess you could say it's my... second coming?}
+{2040}{}{Do you know where I can find a spaceship?}
+{2050}{}{The children are dead.}
+{2060}{}{Got any more children to slaughter?}
+{2070}{}{Forgive me father, for I have sinned...}
+{2080}{}{I would like to make a donation.}
+{2090}{}{Could I receive a blessing?}
+{2100}{}{Hi, I'm @pname@. Nice to meet you.}
+{2110}{}{So what is it that you do around here?}
+{2120}{}{What are you? A doctor? Can you take a look at my leg?}
+{2130}{}{Is this some sort of church? I don't recognize anything in here...}
+{2140}{}{Got any work?}
+{2150}{}{[Just leave]}
+{3000}{}{[He spreads his arms out to the sky, and says] The heavens bless me. Have you come to bask in the waters of the righteous? Wash away your sins, in the basin of God's tears?}
+{3010}{}{Let me ask you something...}
+{3020}{}{No, I'm just looking around. Thanks.}
+{4000}{}{[He laughs, menacingly] For the law was given through Moses; grace and truth came through Jesus Christ. I am the gate; whoever enters through me will be saved. They will come in and go out, and find pasture. I am the way, the truth, and the life. I am the word of God.}
+{4010}{}{That sounds awfully homosexual, sir...}
+{5000}{}{[He grins, menacingly] This is the kingdom of heaven. Where God smiles upon his sheep, and let's his will be heard throughout the wasteland. This is God's home. This is where he lives. I am the door: by me if any man enter in, he shall be saved, and вЂ¦}
+{5010}{}{That sounds awfully homosexual, sir...}
+{6000}{}{[He roars] Dimisissem eam! Unum nocte, qui exprobravit!}
+{6010}{}{Uh... Okay.}
+{6020}{}{Riight. Well, let me ask you something...}
+{7000}{}{[He shakes his head] Slaves, in all things obey those who are your masters on earth. Not with external service, as those who merely please men, but with sincerity of heart, fearing the Lord. I cannot give you work, but I can give you a blessing.}
+{7010}{}{Whatever.}
+{8000}{}{[He smiles] Of course, my child. But a blessing worth conjuring is a blessing worth gold. I must ask the Lord to help you look into your heart, and deliver me 50 caps. }
+{8010}{}{Okay, here's the money. Now shut up and bless me!}
+{8020}{}{But Father! I am but a poor @sex@|man,||woman| the riches of the wasteland have not found me yet. But maybe with your blessing, and the good lord's approval, heaven might favor me?}
+{8030}{}{Let's talk about something else.}
+{8040}{}{50 caps?! For a goddamn blessing?! I'm out of here!}
+{9000}{}{[He waves his arms around and slaps you on the chest] God called you out of darkness, into his wonderful light. May you experience his kindness and blessings, and be strong in faith, in hope, and in love. Because you are followers of Christ, who appeared on this day as a light shining in darkness, may he make you a light to all your sisters and brothers. The wise men followed the star, and found Christ who is light from light. May you too find the Lord when your pilgrimage is ended. May almighty God bless you, the Father, and the Son, and the Holy Spirit. Amen.}
+{9010}{}{Sure, whatever. Thanks.}
+{9020}{}{You call that a blessing?! Where's my fucking +1?!}
+{9030}{}{Amen.}
+{10000}{}{[He smiles, menacingly] Whatever your hand finds to do, do it with all your might. For in the realm of the dead, where you are going, there is neither working nor planning nor knowledge nor wisdom. And whatever you do in word or deed, do all in the name of the Lord вЂ¦}
+{10010}{}{[Donate 10 caps]}
+{10020}{}{[Donate 50 caps]}
+{10030}{}{[Donate 100 caps]}
+{10040}{}{[Donate 500 caps]}
+{10050}{}{[Donate 1000 caps]}
+{10060}{}{[Donate 1,000,000 caps]}
+{10070}{}{Whoops! Forgot my wallet in my other armour, haha.}
+{11000}{}{And it came to pass at the time of the offering of the evening sacrifice, that @pname@ the prophet came near.}
+{12000}{}{Muhahahaha! You fool! This moron just gave me a 1,000,000 caps!}
+{13000}{}{[He smiles, menacingly] We are all sinners, my child. In what ways have you sinned?}
+{13010}{}{I've killed people.}
+{13020}{}{I've killed a child.}
+{13030}{}{I lied.}
+{13040}{}{I cheated.}
+{13050}{}{I stole.}
+{13060}{}{This one time I farted in the vault, and blamed it on someone else.}
+{13070}{}{For some strange twist of fate the people around me keep dying horrible, horrible deaths! I don't know why, but I like it!}
+{13080}{}{I ... need to burn this world... to the ground.}
+{13090}{}{I want to let the devil inside of me, and unleash a second apocalyptic wrath upon mankind!}
+{13100}{}{Oh, I don't know... I once used the word "pecker".}
+{13110}{}{I can honestly say that I'm a good person.}
+{13120}{}{I have no sins at this moment, but feel an awfully huge, irresistable urge to kill, maim, and murder...}
+{13130}{}{I helped you kill over a dozen children, and now I must ask the Lord for forgiveness. Soon, I shall fall to my knees, but not before bringing you to the great redeemer. Goodbye Father Confessor. May there be a God left to punish us! [Attack!]}
+{13140}{}{Nevermind, I've got to go.}
+{14000}{}{My child... You should come back when you actually have something juicy to confess...}
+{15000}{}{The Light shines in the darkness, and the darkness did not comprehend it. Carry on, I am very busy.}
+{16000}{}{[He laugh menacingly] Hahahahah! Go on! Please...}
+{16010}{}{[Ramble on about your dastardly deeds]}
+{17000}{}{[You and Father Confessor spend a few long moments laughing like madmen. After a while the other people in the church begin to grow nervous. Father Confessor takes you aside, and says] The Lord is a jealous God, filled with vengeance and wrath. He takes revenge on all who oppose him and furiously destroys his enemies! The lord is slow to get angy, but his power is great, and he never lets the guilty go unpunished. He displays his power in the whirlwind and the storm. The billowing clouds are the dust beneath his feet.}
+{17010}{}{Go on...}
+{18000}{}{[He continues] In his presence the mountains quake, and the hills melt away; the earth trembles, and its people are destroyed.  Who can stand before his fierce anger?  Who can survive his burning fury?  His rage blazes forth like fire, and the mountains crumble to dust in his presence.  The LORD is good.  When trouble comes, he is a strong refuge.  And he knows everyone who trusts in him.  But he sweeps away his enemies in an overwhelming flood.  He pursues his foes into the darkness of night.}
+{18010}{}{Okay, so fucking what? }
+{19000}{}{[Father Confessor looks like he just manifested himself into the devil] This world is overpopulated! There are @lex KidsLeft@ souls that do not belong here! The weak, sick, and pathetic! Sour cattle breeds like there is salvation in tomorrow, these hospital beds are filled with the fat whores of yesterday! All these bastard children are sent out to die in the ashes. You may call me mad, but I see that there is a sickness clouding this Earth, and it is the youth. }
+{19010}{}{You want me to murder a bunch of kids?}
+{20000}{}{[Father Confessor laughs menacingly] Mhhyes! Muhaahahha! There are thousands of children out in the wasteland with no future. I will pay you to end their lives. One by one, tallest to smallest. }
+{20010}{}{Hmm... How much money are we talking about?}
+{21000}{}{[He smiles] We will discuss payment after the deed is done. Do you wish to bring salvation to the children of the wasteland? It's God's will, you know. There are @lex KidsLeft@ children out there that must be punished.}
+{21010}{}{Sure. Show me.}
+{21020}{}{Ugh... I think I'm going to be sick.}
+{22000}{}{[Father Confessor whispers] The children have been killed?}
+{22010}{}{Yes, they're all dead.}
+{23000}{}{[He laughs maniacally] Mhhhyess! Muhahahhaahha! }
+{23010}{}{Ahahahamuhahahh!}
+{24000}{}{[He continues to laugh maniacally] Muahahhahhhah! Ahahahah! Mhhyess! Mmmhyess!! Hahahahah!  }
+{24010}{}{Muhahaahhhahahah!}
+{25000}{}{[He tries to stop himself] Okay that's enough! Muhahah! Want to kill some more kids? Looks like there's @lex KidsLeft@ left out there, shitting, and pissing all over the Earth! }
+{25010}{}{You damn right!}
+{25020}{}{Maybe later. See ya.}
+{26000}{}{[The sky grows dark, and you can feel a strange urge rising up inside of you] Welcome back, my child. I knew that you would find me once again. }
+{26010}{}{Hey now... you don't look like a spaceship! What gives?!}
+{27000}{}{[Father Confessor is no more! The place where you once were is gone. Around you the walls crumble into dust, and the floor leads endlessly towards a growingly darker light underneath your feet] It is your time now, my child. Your purpose is to be soon revealed.}
+{27010}{}{Uh... okay. I guess... I found my... spaceship...}
+{28000}{}{[A dark figure speaks. Unsure of where it is, but positive that it's speaking directly to you] You are mine now. You have made your bond. You have made your choice.}
+{28010}{}{Command me then, father.}
+{29000}{}{[The dark figure slides closer towards you. You can feel it breathing down your neck] There... is a... prisoner here... inside the city. Give... him this. He will know what to do with it.}
+{29010}{}{What the hell is this? A dead carcass? Why the hell shouldn't I just throw this away?}
+{30000}{}{[The strange being seems angry with you. Your bones are beginning to hurt! A lot! You can feel almost... shorter! Like your bones are shrinking!]}
+{30010}{}{AHHHHHH!!!! Okay! Okay! I'll do it! Just... STOP!!! Please!!!}
+{31000}{}{Stop what? Why have you just been standing there? Can I help you?!}
+{32000}{}{[A statue on the wall begins to shout!] WHERE ARE THE BONES?!}
+{32010}{}{Why! Right here, of course!}
+{32020}{}{Well! They were right here... but I guess I freakin' lost em! Shit!}
+{32030}{}{I... uh... left them behind...}
+{32040}{}{No idea! I lost them, or something! So I choked the fucker instead! [Smile] I wish you were there, it sure was something beautiful.}
+{33000}{}{[The statue does not seem impressed!]}
+{33010}{}{[Take off your boot, and throw it at the statue!]}
+{34000}{}{WHAT KIND OF PERSON THROWS THEIR SHOE?! Get out of my church! You crazy!}
+{34010}{}{Well! That went well! Now I'm short a boot! Damnit!}
+{34020}{}{Well! That went well! Now I'm short a boot! Damnit!}
+{34030}{}{Well! That went well! Now I'm short a boot! Damnit!}
+{34040}{}{Well! That went well! Now I'm short a boot! Damnit!}
+{35000}{}{... and take your boot back!...}
+{100000001}{}{... the gifts of children be no more...}
+{100000002}{}{... we usher in fire... in place of new water...}
+{100000003}{}{... the shadow that cleanses the faint screams...}
+{100000004}{}{Hear me! For thou art the flame!}
+{100000005}{}{In what light do you burn again?!}
+{100000006}{}{Have we seen too much sorrow?!}
+{100000007}{}{Can you feel the flame?! Burning bright!!!}
+{100000008}{}{When the Father was just a child did he walk foolishly?}
+{100000009}{}{In despair, in lack of retribution?!}
+{100000010}{}{Why do you haunt the ones who follow so close behind?}
+{100000011}{}{Are we not alone? Do we not seek the comforts of darkness?}
+{100000012}{}{You've come far! And to me! Your journey ends here...}
+{100000013}{}{Yes! Yes! Listen to my voice! Fall over the barrens!}
+{100000014}{}{You cannot challenge the light! But we can extinquish the shadow! The overbaring!}
+{100000015}{}{... will you pick up the sword...}
+{100000016}{}{... strike the children...}
+{100000017}{}{Come closer to me!}
+{100000018}{}{Hear my words!}
+{100000019}{}{This! This is what brings us together!}
+{100000020}{}{We are the darkness! Can't you see?! Embrace it! Embraaaaaace it!!!}
+
+[russ]
+{100}{}{Алкоголик}
+{200}{}{Вы видите пьяницу.}
+{210}{}{Вы видите шатающегося из стороны в сторону пьяного человека в лохмотьях. Лицо его распухло, нос синющий как слива. А аромат рядом с ним такой, что свалит брамина насмерть. Он что-то бормочет про себя и иногда громко поет песни.}
+{210}{}{Вы видите алкаша. Он весьма грязен - кажется, он повалялся в луже, но не особо этим расстроен.}
+{1000}{}{I?aaaeaeiaiaua onoaiiaee}
+{1010}{}{Answer text}
+{2000}{}{Thank you! Thank you! }
+{2010}{}{Hello, father. I have returned! I guess you could say it's my... second coming?}
+{2020}{}{Hello, father. I have returned! I guess you could say it's my... second coming?}
+{2030}{}{Hello, father. I have returned! I guess you could say it's my... second coming?}
+{2040}{}{Do you know where I can find a spaceship?}
+{2050}{}{The children are dead.}
+{2060}{}{Got any more children to slaughter?}
+{2070}{}{Forgive me father, for I have sinned...}
+{2080}{}{I would like to make a donation.}
+{2090}{}{Could I receive a blessing?}
+{2100}{}{Head to the camp}
+{2110}{}{Exit into the wasteland}
+{2120}{}{Answer 3}
+{2130}{}{Answer 4}
+{2140}{}{Got any work?}
+{2150}{}{[Just leave]}
+{3000}{}{[He spreads his arms out to the air, and says] The heavens bless me, have you come to bask in the waters of the righteous? Wash away your sins, in the basin of God's tears.}
+{3010}{}{Let me ask you something...}
+{3020}{}{No, I'm just looking around. Thanks.}
+{4000}{}{[He laughs, menacingly] For the law was given through Moses; grace and truth came through Jesus Christ. I am the gate; whoever enters through me will be saved. They will come in and go out, and find pasture. I am the way, the truth, and the life. I am the word of God.}
+{4010}{}{That sounds awfully homosexual, sir...}
+{5000}{}{[He grins, menacingly] This is the kingdom of heaven. Where God smiles upon his sheep, and let's his will be heard throughout the wasteland. This is God's home. This is where he lives. I am the door: by me if any man enter in, he shall be saved, and вЂ¦}
+{5010}{}{That sounds awfully homosexual, sir...}
+{6000}{}{[He roars] Dimisissem eam! Unum nocte, qui exprobravit!}
+{6010}{}{Uh... Okay.}
+{6020}{}{Riight. Well, let me ask you something...}
+{7000}{}{[He shakes his head] Slaves, in all things obey those who are your masters on earth, not with external service, as those who merely please men, but with sincerity of heart, fearing the Lord. I cannot give you work, but I can give you a blessing.}
+{7010}{}{Whatever.}
+{8000}{}{[He smiles] Of course, my child. But a blessing worth conjuring is a blessing worth gold. I must ask the Lord to help you look into your heart, and deliver me 50 caps. }
+{8010}{}{Okay, here's the money. Now shut up! And bless me!}
+{8020}{}{But Father! I am but a poor @sex@|man,||woman| the riches of the wasteland have not found me yet. But maybe with your blessing, and the good lord's approaval, heaven might favor me?}
+{8030}{}{Let's talk about something else.}
+{8040}{}{50 caps?! For a goddamn blessing?! I'm out of here!}
+{9000}{}{[He waves his arms around and slaps you on the chest] God called you out of darkness, into His wonderful light. May you experience His kindness and blessings, and be strong in faith, in hope, and in love. Because you are followers of Christ, who appeared on this day as a light shining in darkness may He make you a light to all your sisters and brothers. The wise men followed the star,
+and found Christ who is light from light. May you too find the Lord
+when your pilgrimage is ended. May almighty God bless you,
+the Father, and the Son, and the Holy Spirit. Amen.}
+{9010}{}{Sure, whatever. Thanks.}
+{9020}{}{You call that a blessing?! Where's my fucking +1?}
+{9030}{}{Amen.}
+{10000}{}{[He smiles, menacingly] Whatever your hand finds to do, do it with all your might. For in the realm of the dead, where you are going, there is neither working nor planning nor knowledge nor wisdom. And whatever you do in word or deed, do all in the name of the Lord вЂ¦}
+{10010}{}{[Donate 10 caps]}
+{10020}{}{[Donate 50 caps]}
+{10030}{}{[Donate 100 caps]}
+{10040}{}{[Donate 500 caps]}
+{10050}{}{[Donate 1000 caps]}
+{10060}{}{[Donate 1000000 caps]}
+{10070}{}{Whoops! Forgot my wallet in my other armour, haha.}
+{11000}{}{And it came to pass at the time of the offering of the evening sacrifice, that Elijah the prophet came near.}
+{12000}{}{Muhahahaha! You fool! This moron just gave me a 1,000,000 caps!}
+{13000}{}{[He smiles, menacingly] We are all sinners, my child. In what ways have you sinned?}
+{13010}{}{I've killed people.}
+{13020}{}{I've killed a child.}
+{13030}{}{I lied.}
+{13040}{}{I cheated.}
+{13050}{}{I stole.}
+{13060}{}{One time I farted in the vault, and blamed it on someone else.}
+{13070}{}{For some strange twist of fate the people around me keep dying horrible, horrible deaths! I don't know why, but I like it!}
+{13080}{}{I ... need to burn this world... to the ground.}
+{13090}{}{I want to let the devil inside of me, and unleash a second apocalyptic wrath upon mankind!}
+{13100}{}{Oh, I don't know... I once used the word "pecker".}
+{13110}{}{I can honestly say that I'm a good person.}
+{13120}{}{I have no sins at this moment, but feel an awfully huge, irresistable urge to kill, maim, and murder.}
+{13130}{}{I helped you kill over a dozen children, and now I must ask the Lord for forgiveness. Soon, I shall fall to my knees, but not before bringing you to the great redeemer. Goodbye Father Confessor. May there be a God left to punish us! [Attack!]}
+{13140}{}{Nevermind, I've got to go.}
+{14000}{}{My child... You should come back when you actually have something juicy to confess...}
+{15000}{}{The Light shines in the darkness, and the darkness did not comprehend it.}
+{16000}{}{[He laugh, menacingly] Hahahahah! Go on! Please...}
+{16010}{}{[Ramble on about your dastardly deeds]}
+{17000}{}{[You and Father Confessor spend a few long moments laughing like madmen. After a while the other people in the church begin to grow nervous. Father Confessor takes you aside, and says] The Lord is a jealous God, filled with vengeance and wrath. He takes revenge on all who oppose him and furiously destroys his enemies! The lord is slow to get angy, but his power is great, and he never lets the guilty go unpunished. He displays his power in the whirlwind and the storm. The billowing clouds are the dust beneath his feet.}
+{17010}{}{Go on...}
+{18000}{}{[He continues] In his presence the mountains quake, and the hills melt away; the earth trembles, and its people are destroyed.  Who can stand before his fierce anger?  Who can survive his burning fury?  His rage blazes forth like fire, and the mountains crumble to dust in his presence.  The LORD is good.  When trouble comes, he is a strong refuge.  And he knows everyone who trusts in him.  But he sweeps away his enemies in an overwhelming flood.  He pursues his foes into the darkness of night.}
+{18010}{}{Okay, so fucking what? }
+{19000}{}{[Father Confessor looks like he just manifested himself into the devil] This world is overpopulated! With the weak, sick, and pathetic! Sour cattle breeds like there is salvation in tomorrow, these hospital beds are filled with the fat whores of yesterday! All these bastard children are sent out to die in the ashes. You may call me mad, but I see that there is a sickness clouding this Earth, and it is the youth. }
+{19010}{}{You want me to murder a bunch of kids?}
+{20000}{}{[Father Confessor laughs menacingly] Mhhyes! Muhaahahha! There are thousands of children out in the wasteland with no future. I will pay you to end their lives. One by one, tallest to smallest. }
+{20010}{}{Hmm... How much money are we talking about?}
+{21000}{}{[He smiles] We will discuss payment after the deed is done. Do you wish to bring salvation to the children of the wasteland? It's God's will, you know?}
+{21010}{}{Sure. Show me.}
+{21020}{}{Ugh... I think I'm going to be sick.}
+{22000}{}{[Father Confessor whispers] The children have been killed?}
+{22010}{}{Yes, they're all dead.}
+{23000}{}{[He laughs maniacally] Mhhhyess! Muhahahhaahha! }
+{23010}{}{Ahahahamuhahahh!}
+{24000}{}{[He continues to laugh maniacally] Muahahhahhhah! Ahahahah! Mhhyess! Mmmhyess!! Hahahahah!  }
+{24010}{}{Muhahaahhhahahah!}
+{25000}{}{[He tries to stop himself] Okay that's enough! Muhahah! Want to kill some more kids?}
+{25010}{}{You damn right!}
+{25020}{}{Maybe later. See ya.}
+{26000}{}{[The sky grows dark, and you can feel a strange urge rising up inside of you] Welcome back, my child. I knew that you would find me once again. }
+{26010}{}{Hey now... you don't look like a spaceship! What gives?!}
+{27000}{}{[Father Confessor is no more! The place where you once were is gone. Around you the walls crumble into dust, and the floor leads endlessly towards a growingly darker light underneath your feet] It is your time now, my child. Your purpose is to be soon revealed.}
+{27010}{}{Uh... okay. I guess... I found my... spaceship...}
+{28000}{}{[A dark figure speaks. Unsure of where it is, but positive that it's speaking directly to you] You are mine now. You have made your bond. You have made your choice.}
+{28010}{}{Command me then, father.}
+{29000}{}{[The dark figure slides closer towards you. You can feel it breathing down your neck] There... is a... prisoner here... inside the city. Give... him this. He will know what to do with it.}
+{29010}{}{What the hell is this? A dead carcass? Why the hell shouldn't I just throw this away?}
+{30000}{}{[The strange being seems angry with you. Your bones are beginning to hurt! A lot! You feel almost... shorter! Like your bones are shrinking!]}
+{30010}{}{AHHHHHH!!!! Okay! Okay! I'll do it! Just... STOP!!! Please!!!}
+{31000}{}{Stop what? Why have you just been standing there? Can I help you?}
+{32000}{}{[A statue on the wall begins to shout!] WHERE ARE THE BONES?!}
+{32010}{}{Why! Right here, of course!}
+{32020}{}{Well! They were right here... but I guess I freakin' lost em! Shit!}
+{32030}{}{I... uh... left them behind...}
+{32040}{}{No idea! I lost them, or something! So I choked the fucker instead! [Smile] I wish you were there, it sure was something beautiful.}
+{33000}{}{[The statue does not seem impressed!]}
+{33010}{}{[Take off your boot, and throw it at the statue!]}
+{34000}{}{WHAT KIND OF PERSON THROWS THEIR SHOE?! Get out of my church! You crazy!}
+{34010}{}{Well! That went well! Now I'm short a boot! Damnit!}
+{34020}{}{Well! That went well! Now I'm short a boot! Damnit!}
+{34030}{}{Well! That went well! Now I'm short a boot! Damnit!}
+{34040}{}{Well! That went well! Now I'm short a boot! Damnit!}
+{35000}{}{... and take your boot back!...}
+

@@ -1,10 +1,3 @@
-//
-// FOnline: 2238
-// Rotators
-//
-// _defines.fos
-//
-
 #ifndef __DEFINES__
 # define __DEFINES__
 
@@ -90,7 +83,10 @@
 #define DLGSTR                                   # (dialogId, strNum)(1000000000 + (dialogId) * 100000 + (strNum))
 
 // Critter conditions
-#define CRITTER_CONDITION_NOT_IN_GAME                         (4) // Криттер не в игре
+#define COND_LIFE                                (1) // Криттер жив
+#define COND_KNOCKOUT                            (2) // Криттер упал
+#define COND_DEAD                                (3) // Криттер умер
+#define CRITTER_CONDITION_NOT_IN_GAME            (4) // Криттер не в игре
 
 // Gender
 #define GENDER_IT                                (2)
@@ -110,6 +106,40 @@
 #define ITEM_TYPE_TRANSFER                       (23) //(ITEM_TYPE_LAST+5) //(23) // Objects transfering critter somewhere else when used somehow
                                                       // or walked over: exit edges, ladders etc. (WIP, don't use).
 #define ITEM_TYPE_TRIGGER                        (24) //(ITEM_TYPE_LAST+6) //(24) // Activators which run a function when stepped over / out (WIP, don't use).
+
+// Item flags
+#define ITEM_HIDDEN                              (0x00000001)
+#define ITEM_FLAT                                (0x00000002)
+#define ITEM_NO_BLOCK                            (0x00000004)
+#define ITEM_SHOOT_THRU                          (0x00000008)
+#define ITEM_LIGHT_THRU                          (0x00000010)
+#define ITEM_MULTI_HEX                           (0x00000020) // Not used
+#define ITEM_WALL_TRANS_END                      (0x00000040) // Not used
+#define ITEM_TWO_HANDS                           (0x00000080)
+#define ITEM_BIG_GUN                             (0x00000100)
+#define ITEM_ALWAYS_VIEW                         (0x00000200)
+#define ITEM_HAS_TIMER                           (0x00000400)
+#define ITEM_BAD_ITEM                            (0x00000800)
+#define ITEM_NO_HIGHLIGHT                        (0x00001000)
+#define ITEM_SHOW_ANIM                           (0x00002000)
+#define ITEM_SHOW_ANIM_EXT                       (0x00004000)
+#define ITEM_LIGHT                               (0x00008000)
+#define ITEM_GECK                                (0x00010000)
+#define ITEM_TRAP                                (0x00020000)
+#define ITEM_NO_LIGHT_INFLUENCE                  (0x00040000)
+#define ITEM_NO_LOOT                             (0x00080000)
+#define ITEM_NO_STEAL                            (0x00100000)
+#define ITEM_GAG                                 (0x00200000)
+#define ITEM_COLORIZE                            (0x00400000)
+#define ITEM_COLORIZE_INV                        (0x00800000)
+#define ITEM_CAN_USE_ON_SMTH                     (0x01000000)
+#define ITEM_CAN_LOOK                            (0x02000000)
+#define ITEM_CAN_TALK                            (0x04000000)
+#define ITEM_CAN_PICKUP                          (0x08000000)
+#define ITEM_CAN_USE                             (0x10000000)
+#define ITEM_HOLODISK                            (0x20000000)
+#define ITEM_RADIO                               (0x40000000)
+#define ITEM_CACHED                              (0x80000000) // Not used
 
 // Possible weapon bonus
 #define BONUS_WEAPON_CRITICAL_ROLL				(100)
@@ -189,6 +219,10 @@
 #define SLOT_PERK_MOTION_SENSOR                  (0x04) // +20 outdoorsman
 #define SLOT_PERK_STEALTH_BOY                    (0x08) // +20 sneak
 
+// In SendMessage
+#define MESSAGE_TO_VISIBLE_ME                    (0)
+#define MESSAGE_TO_IAM_VISIBLE                   (1)
+#define MESSAGE_TO_ALL_ON_MAP                    (2) 
 // more eng-friendly aliases
 #define SENDMESSAGE_TO_WHO_SEES_ME                   (SENDMESSAGE_TO_VISIBLE_ME)
 #define SENDMESSAGE_TO_I_SEE                         (SENDMESSAGE_TO_IAM_VISIBLE)
@@ -1022,6 +1056,14 @@
 #define CRTYPE_FEMALE_DEFAULT                    (CRTYPE_FEMALE_JUMPSUIT)
 
 // Global map events
+#define GLOBAL_PROCESS_MOVE                      (0) // Called every __GlobalMapMoveTime
+#define GLOBAL_PROCESS_ENTER                     (1)
+#define GLOBAL_PROCESS_START_FAST                (2)
+#define GLOBAL_PROCESS_START                     (3)
+#define GLOBAL_PROCESS_SET_MOVE                  (4)
+#define GLOBAL_PROCESS_STOPPED                   (5)
+#define GLOBAL_PROCESS_NPC_IDLE                  (6)    // Called every __CritterIdleTick
+#define GLOBAL_PROCESS_KICK                      (7)
 #define GLOBAL_MAP_BASE_SPEED                    (6.0f) // Base speed, 6.0 pixels per second
 
 // AngelScript properties

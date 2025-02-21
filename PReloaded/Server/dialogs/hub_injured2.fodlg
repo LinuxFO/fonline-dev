@@ -1,0 +1,32 @@
+[comment]
+
+
+[data]
+lang=engl
+
+[dialog]
+&
+1 1000 None 0 #
+2 1010 @
+2 2000 None 0 #
+3 2010 D _param p SK_DOCTOR > 59 D _var p name_mem_npc_player = 0 R _var p name_mem_npc_player = 1 #
+4 2020 D _var p q_church2 = 1 D _var p inj2 = 0 @
+3 3000 None 0 @
+4 4000 None 0 #
+5 4010 R _var p inj2 = 1 R _script dialog@r_AddExperience 1 1000 R _param p ST_KARMA + 1 R _param p REPUTATION_HUB + 7 @
+5 5000 None 0 &
+
+[engl]
+{100}{}{Hubber}
+{200}{}{You see an old woman with a bad cough.}
+{210}{}{She doesn't look like she's doing too well...}
+{1000}{}{Predialogue installations}
+{1010}{}{Answer text}
+{2000}{}{*cough* *cough*@@*wheeze*@@Go... *cough* *cough* ... away...@@*wheeze* ... leave me... to... *wheeze* ... die...}
+{2010}{}{How long have you had that cough? I could help... I'm an experienced physician...}
+{2020}{}{Doctor Burhnefletch can take a look at that cough of yours. In fact, he will do it for free. He's asked me to help him find some new patients. He is a brilliant doctor, ma'am.}
+{3000}{}{Get your... hands *wheeze* off... of me!}
+{4000}{}{*cough* *cough* *vomits blood and bile* *cough* *cough* *wheeze*}
+{4010}{}{Listen! You need help! Doctor Burhnefletch wants to help you, can't you see that?! Get over there, before it's too damn late, woman!}
+{5000}{}{Yea... *wheeze* you're right, *wheeze* aren't you... damn... *wheeze* maybe I'll go *cough* *cough* see him. I *wheeze* don't know...}
+

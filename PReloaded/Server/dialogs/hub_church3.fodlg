@@ -1,0 +1,33 @@
+[comment]
+
+
+[data]
+lang=engl
+
+[dialog]
+&
+1 1000 None 0 #
+2 1010 @
+2 2000 None 0 &
+
+[engl]
+{100}{}{Wheeper}
+{200}{}{You see a wheeper.}
+{210}{}{They look lost, and hopeless.}
+{1000}{}{Predialogue installations}
+{1010}{}{Answer text}
+{2000}{}{*wheeps*@@*cries*@@*Screams!*@@Sanctuary!@@*curses the name of god*@@Be gone!}
+{100000001}{}{Sanctuary!}
+{100000002}{}{I didn't ask for this!}
+{100000003}{}{*wheeps*}
+{100000004}{}{*cries*}
+{100000005}{}{*curses the name of god*}
+{100000006}{}{Father! Save us!}
+{100000007}{}{Forgive us!}
+{100000008}{}{Where is God?!}
+{100000009}{}{Christ! Where are you?!}
+{100000010}{}{Father?!}
+{100000011}{}{Mother?!}
+{100000012}{}{Where is my hope?!}
+{100000013}{}{Who will save me?!}
+
