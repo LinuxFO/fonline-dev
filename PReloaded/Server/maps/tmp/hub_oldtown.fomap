@@ -2,8 +2,8 @@
 Version              4
 MaxHexX              163
 MaxHexY              144
-WorkHexX             74
-WorkHexY             49
+WorkHexX             103
+WorkHexY             77
 ScriptModule         map_hub
 ScriptFunc           map_init
 NoLogOut             0
@@ -10152,12 +10152,12 @@ MapY                 62
 MapObjType           2
 ProtoId              3853
 MapX                 118
-MapY                 55
+MapY                 54
 
 MapObjType           2
 ProtoId              3853
-MapX                 120
-MapY                 60
+MapX                 118
+MapY                 56
 
 MapObjType           2
 ProtoId              3853
@@ -13515,32 +13515,26 @@ MapY                 37
 
 MapObjType           2
 ProtoId              3853
-MapX                 121
-MapY                 52
+MapX                 124
+MapY                 53
 Scenery_ToEntire     220
 
 MapObjType           2
 ProtoId              3853
-MapX                 121
+MapX                 124
+MapY                 57
+Scenery_ToEntire     220
+
+MapObjType           2
+ProtoId              3853
+MapX                 124
 MapY                 55
 Scenery_ToEntire     220
 
 MapObjType           2
 ProtoId              3853
 MapX                 124
-MapY                 56
-Scenery_ToEntire     220
-
-MapObjType           2
-ProtoId              3853
-MapX                 124
-MapY                 59
-Scenery_ToEntire     220
-
-MapObjType           2
-ProtoId              3853
-MapX                 127
-MapY                 61
+MapY                 51
 Scenery_ToEntire     220
 
 MapObjType           0
@@ -14421,8 +14415,8 @@ Critter_ParamValue10 0
 MapObjType           0
 ProtoId              132
 MapX                 40
-MapY                 66
-Dir                  3
+MapY                 64
+Dir                  2
 ScriptName           hub_guard
 FuncName             critter_init
 Critter_Cond         1
@@ -14485,9 +14479,9 @@ Critter_ParamValue10 70
 
 MapObjType           0
 ProtoId              132
-MapX                 126
-MapY                 100
-Dir                  3
+MapX                 128
+MapY                 103
+Dir                  5
 ScriptName           hub_guard
 FuncName             critter_init
 Critter_Cond         1
@@ -18887,26 +18881,26 @@ Scenery_ToEntire     245
 
 MapObjType           2
 ProtoId              3853
-MapX                 61
-MapY                 120
+MapX                 59
+MapY                 121
 Scenery_ToEntire     243
 
 MapObjType           2
 ProtoId              3853
-MapX                 59
+MapX                 58
 MapY                 109
 Scenery_ToEntire     243
 
 MapObjType           2
 ProtoId              3853
 MapX                 73
-MapY                 122
+MapY                 121
 Scenery_ToEntire     243
 
 MapObjType           2
 ProtoId              3853
 MapX                 70
-MapY                 111
+MapY                 110
 Scenery_ToEntire     243
 
 MapObjType           1
@@ -19076,8 +19070,9 @@ Critter_ParamValue9  0
 
 MapObjType           0
 ProtoId              132
-MapX                 36
-MapY                 61
+MapX                 25
+MapY                 44
+Dir                  3
 ScriptName           hub_guard
 FuncName             critter_init
 Critter_Cond         1
@@ -19137,9 +19132,9 @@ Critter_ParamValue9  0
 
 MapObjType           0
 ProtoId              132
-MapX                 103
-MapY                 113
-Dir                  5
+MapX                 86
+MapY                 116
+Dir                  2
 ScriptName           hub_guard
 FuncName             critter_init
 Critter_Cond         1
@@ -21522,5 +21517,41 @@ MapObjType           2
 ProtoId              2067
 MapX                 84
 MapY                 80
+
+MapObjType           2
+ProtoId              3853
+MapX                 122
+MapY                 57
+Scenery_ToEntire     220
+
+MapObjType           2
+ProtoId              3853
+MapX                 122
+MapY                 55
+Scenery_ToEntire     220
+
+MapObjType           2
+ProtoId              3853
+MapX                 122
+MapY                 53
+Scenery_ToEntire     220
+
+MapObjType           2
+ProtoId              3853
+MapX                 122
+MapY                 51
+Scenery_ToEntire     220
+
+MapObjType           2
+ProtoId              3853
+MapX                 65
+MapY                 121
+Scenery_ToEntire     243
+
+MapObjType           2
+ProtoId              3853
+MapX                 65
+MapY                 113
+Scenery_ToEntire     243
 
 
