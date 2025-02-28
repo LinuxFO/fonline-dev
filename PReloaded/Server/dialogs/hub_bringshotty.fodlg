@@ -1,0 +1,166 @@
+[comment]
+bring shotty = get armor 
+
+[data]
+lang=engl russ
+
+[dialog]
+&
+1 1000 None 0 #
+7 1010 D _var p name_mem_npc_player = 0 D _var p hub_bringshotty = 0 #
+2 1020 D _var p name_mem_npc_player = 1 D _var p hub_bringshotty = 1 #
+5 1030 D _var p hub_bringshotty = 2 #
+5 1040 D _var p hub_bringshotty = 3 @
+4 2000 None 0 #
+0 2010 R _var p name_mem_npc_player = 1 R _var p hub_bringshotty = 1 #
+0 2020 @
+2 3000 None 0 #
+3 3010 D _item p PID_SHOTGUN > 0 R _item p PID_SHOTGUN - 1 R _script dialog@r_AddExperience 1 300 R _item p PID_LEATHER_ARMOR_HELMET_MK2 + 1 R _var p hub_bringshotty = 3 R _param p ST_KARMA + 1 R _param p REPUTATION_HUB + 30 R _script dialog@r_AddLootSetLevel1 0  #
+6 3020 D _param p SK_SPEECH > 59 R _script dialog@r_AddExperience 1 300 R _item p PID_SHOTGUN_SHELLS + 50 R _var p hub_bringshotty = 2 R _param p ST_KARMA + 1 R _param p REPUTATION_HUB + 50 R _script dialog@r_AddLootSetLevel1 0  #
+12 3030 #
+0 3040 @
+3 4000 None 0 @
+5 5000 None 0 @
+6 6000 None 0 #
+0 6010 @
+7 7000 None 0 #
+8 7010 #
+9 7020 #
+10 7030 #
+11 7040 #
+4 7050 @
+8 8000 None 0 #
+4 8010 @
+9 9000 None 0 #
+4 9010 @
+10 10000 None 0 #
+4 10010 @
+11 11000 None 0 #
+4 11010 @
+12 12000 None 0 #
+13 12010 D _param p ST_INTELLECT > 5 #
+13 12020 D _param p SK_DOCTOR > 49 #
+14 12030 #
+14 12040 #
+15 12050 @
+13 13000 None 0 #
+14 13010 D _item p PID_RADAWAY > 0 R _item p PID_RADAWAY - 1 R _param p ST_KARMA + 1 R _script dialog@r_AddExperience 1 500 R _item p PID_SHOTGUN_SHELLS + 50 R _item p PID_LEATHER_ARMOR_HELMET_MK2 + 1 R _var p hub_bringshotty = 2 R _param p REPUTATION_HUB + 75 R _script dialog@r_AddLootSetLevel1 0  #
+14 13020 @
+14 14000 None 0 @
+15 15000 None 0 &
+
+[engl]
+{100}{}{Sad Dog Owner}
+{200}{}{You see a very sad looking man.}
+{210}{}{He looks pretty upset about something, you wonder what?}
+{1000}{}{Predialogue installations}
+{1010}{}{not known}
+{1020}{}{known}
+{1030}{}{done}
+{1040}{}{extra}
+{2000}{}{[He looks at you with a great sadness in his eyes] Hey, my dog's dying. I'm pretty upset, man. Looks like I'll have to put er' down. I don't want her to suffer though. So, I think I should use a Shotgun. You got one you want to trade? I'll give you my old helmet. }
+{2010}{}{I'll think about. }
+{2020}{}{No. Goodbye.}
+{3000}{}{[This man is very sad] Hey again. Did you want to trade a shotgun for my old helmet? I've got some shells here, just no gun. }
+{3010}{}{Alright, let's trade.}
+{3020}{}{Why don't you give me those bullets? You really don't want to kill your dog, do you?}
+{3030}{}{What's wrong with your dog?}
+{3040}{}{No, see ya.}
+{4000}{}{Thanks. Hold still girl. It's coming. }
+{5000}{}{Thanks again! I'm really glad my dog is still alive.}
+{6000}{}{[He pauses] No, not really. I guess I could just wait for her to die of old age, or something. Okay man, here, take the bullets. Thanks. }
+{6010}{}{See ya.}
+{7000}{}{Welcome to my humble home, stranger. Can I help you? Or are you lost? It's not every day someone just walks into your house and stares you down.}
+{7010}{}{Could you tell me a little about the Hub?}
+{7020}{}{Where can I find some ammo and weapons around here?}
+{7030}{}{What do you do around here?}
+{7040}{}{Who's the law around here?}
+{7050}{}{Sorry, didn't mean to bother you.}
+{8000}{}{It's a sprawling city, the largest I've ever seen, frankly. Downtown is just south of here, keep going. You ever seen it before? It's quite the sight.}
+{8010}{}{Thanks.}
+{9000}{}{I usually buy my stuff from Beth, she's alright. But Jacob has a better selection. Actually, Beth has the worse selection of them all, but she's a fair trader.}
+{9010}{}{Thanks.}
+{10000}{}{This and that. I normally work for the caravans. A few times a month I'll go on a run, or unload crates for a week. Good money.}
+{10010}{}{Thanks.}
+{11000}{}{You passed Deputy Kelly didn't you? Hub Police run the city. But the caravans have a say in it all too. But nobody messes with the cops.}
+{11010}{}{Thanks.}
+{12000}{}{*Sigh* Cancer most likely. She was sniffin' around an old barrel, might have gotten radiation sickness. Her hair's been falling out.}
+{12010}{}{That's too bad. Have you tried giving the dog any anti-radiation drugs?}
+{12020}{}{Radiation sickness can be cured. Using anti-radiation drugs.}
+{12030}{}{Cancer? Oh no. }
+{12040}{}{Well, nothing lives forever.}
+{12050}{}{[Chuckle]}
+{13000}{}{Anti what? I've never heard of those. Do you have any?}
+{13010}{}{Yeah I do. Here! Give your dog some of this Rad-Away.}
+{13020}{}{No, sorry.}
+{14000}{}{Hard to say goodbye to little Winkles.}
+{15000}{}{Hard to say goodbye to little Winkles, you fucking prick.}
+{100000001}{}{Better wash the counter again...}
+{100000002}{}{That's 5 caps buddy. Hey did you hear me? Cough em' up.}
+{100000003}{}{Better change the keg...}
+{100000004}{}{RotGut? You drink that shit?}
+{100000005}{}{Domestic? I got B.E.E.R buddy, do you want one or not?}
+{100000006}{}{Fuckin' dust is getting everywhere. Hey close the fuckin' door!}
+{100000007}{}{I swear if the next asshole doesn't tip. Ima' shoot somebody!}
+{100000008}{}{I got bottles, I got shots, and I got a bat behind the counter for the retards. Your not a retard are you?}
+{100000009}{}{Uh-huh, yeah that's nice buddy. You don't say...What? Of course I'm listening...}
+{100000010}{}{That's 5 caps. FIVE CAPS Tribal! F.I.V.E! }
+{100000011}{}{Shut up and order a fuckin' beer already!}
+{100000012}{}{I swear if I have to serve another drunk, I'm getting the shotgun!}
+{100000013}{}{Look the keg went dry, and it's going to be another month until the caravan shows up again.}
+{100000014}{}{Really? You don't say, buy another drink or get out!}
+{100000015}{}{What? I'm on break.}
+{100000016}{}{Be right with ya'}
+{100000017}{}{Have a sit stranger. I'll be with you in a moment.}
+{100000018}{}{When do we close? Uh, when the place get's shot up, that's when!}
+{100000019}{}{We're fresh outta' cold beer, sorry. You'll just have to drink it warm.}
+{100000020}{}{RotGut? No man, go make that shit yourself! I wouldn't drink it!}
+
+[russ]
+{100}{}{Алкоголик}
+{200}{}{Вы видите пьяницу.}
+{210}{}{Вы видите шатающегося из стороны в сторону пьяного человека в лохмотьях. Лицо его распухло, нос синющий как слива. А аромат рядом с ним такой, что свалит брамина насмерть. Он что-то бормочет про себя и иногда громко поет песни.}
+{210}{}{Вы видите алкаша. Он весьма грязен - кажется, он повалялся в луже, но не особо этим расстроен.}
+{1000}{}{I?aaaeaeiaiaua onoaiiaee}
+{1010}{}{Answer text}
+{1020}{}{known}
+{1030}{}{done}
+{1040}{}{extra}
+{2000}{}{Thank you! Thank you! }
+{2010}{}{Head to the camp}
+{2020}{}{No. Goodbye.}
+{3000}{}{[This man is very sad] Hey again. Did you want to trade a shotgun for my old helmet? I'll got some shells here, just no gun. }
+{3010}{}{Alright, let's trade.}
+{3020}{}{Why don't you give me those bullets? You really don't want to kill your dog, do you?}
+{3030}{}{What's wrong with your dog?}
+{3040}{}{No, see ya.}
+{4000}{}{Thanks. Hold still, girl. It's coming. }
+{5000}{}{Thanks again! You solved my problem.}
+{6000}{}{[He pauses] No, not really. I guess I could just wait for her to die of old age, or something. Okay man, here, take the bullets. Thanks. }
+{6010}{}{See ya.}
+{7000}{}{Welcome to my humble house, stranger. Can I help you? Or are you just lost?}
+{7010}{}{Could you tell me a little about the Hub?}
+{7020}{}{Where can I find some ammo and weapons?}
+{7030}{}{What do you do around here?}
+{7040}{}{Who's the law around here?}
+{7050}{}{Sorry to bother you, goodbye.}
+{8000}{}{It's a sprawling city, the largest I've ever seen, frankly. Downtown is just south of here, keep going. You ever seen it before? It's quite the sight.}
+{8010}{}{Thanks.}
+{9000}{}{I usually buy my stuff from Beth, she's alright. But Jacob has a better selection. Actually, Beth has the worse selection of them all, but she's a fair trader.}
+{9010}{}{Thanks.}
+{10000}{}{This and that. I normally for the caravans. A few times a month I'll go on a run, or unload crates for a week. Good money.}
+{10010}{}{Thanks.}
+{11000}{}{You passed Deputy Kelly didn't you? Hub Police run the city. But the caravans have a say in it all too.}
+{11010}{}{Thanks.}
+{12000}{}{*Sigh* Cancer most likely.}
+{12010}{}{That's too bad. Have you tried giving the dog any anti-radiation drugs?}
+{12020}{}{Radiation sickness can be cured.}
+{12030}{}{Cancer? Oh no. }
+{12040}{}{Well, nothing lives forever.}
+{12050}{}{[Chuckle]}
+{13000}{}{Anti what? I've never heard of those. Do you have any?}
+{13010}{}{Yeah I do. Here! Give your dog some of this Rad-Away.}
+{13020}{}{No, sorry.}
+{14000}{}{Hard to say goodbye to little Winkles.}
+{15000}{}{Hard to say goodbye to little Winkles, you fucking prick.}
+

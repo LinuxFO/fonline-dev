@@ -1,0 +1,76 @@
+[comment]
+
+
+[data]
+lang=engl
+
+[dialog]
+&
+1 1000 None 0 #
+2 1010 @
+2 2000 None 0 #
+3 2010 D _var p z_survivalrats = 1 #
+3 2020 D _var p z_survivalrats = 0 R _var p z_survivalrats = 1 #
+4 2030 D _var p z_survivalrats = 3 R _var p z_survivalrats = 1 R _script survivalrats@r_DeleteLoc 0  R _item p PID_MEAT + 200 R _item p PID_MUTATED_FRUIT + 100 R _script dialog@r_AddLootSetLevel1 0  R _script dialog@r_AddMoney 1 2000 R _script dialog@r_AddLootSetLevel1 0  R _param p ST_EXPERIENCE + 1000 R _item p PID_MR_NIXON_DOLL + 1 #
+0 2040 #
+3 2050 D _var p z_survival = 0 D _param p ST_STRENGTH > 99 R _var p z_survival = 1 #
+4 2060 D _var p z_survival = 3 D _param p ST_STRENGTH > 99 R _var p z_survival = 1 R _script survival@r_DeleteLoc 0  #
+3 2070 D _var p z_survivalclowns = 0 D _param p ST_STRENGTH > 99 R _var p z_survivalclowns = 1 #
+4 2080 D _var p z_survivalclowns = 3 D _param p ST_STRENGTH > 99 R _var p z_survivalclowns = 1 R _script survivalclowns@r_DeleteLoc 0  #
+3 2090 D _var p z_survivalgeckos = 0 D _param p ST_STRENGTH > 99 R _var p z_survivalgeckos = 1 #
+4 2100 D _var p z_survivalgeckos = 3 D _param p ST_STRENGTH > 99 R _var p z_survivalgeckos = 1 R _script survivalgeckos@r_DeleteLoc 0  #
+3 2110 D _var p z_survivalzombies = 0 D _param p ST_STRENGTH > 99 R _var p z_survivalzombies = 1 #
+4 2120 D _var p z_survivalzombies = 3 D _param p ST_STRENGTH > 99 R _var p z_survivalzombies = 1 R _script survivalzombies@r_DeleteLoc 0  @
+3 3000 None 0 #
+5 3010 #
+7 3020 D _var p z_survivalrats = 1 R _var p z_survivalrats = 2 R _script survivalrats@r_SpawnLoc 0  #
+0 3030 #
+3 3040 D _var p z_survival = 1 D _param p ST_STRENGTH > 99 R _var p z_survival = 2 R _script survival@r_SpawnLoc 0  #
+3 3050 D _var p z_survivalclowns = 1 D _param p ST_STRENGTH > 99 R _var p z_survivalclowns = 2 R _script survivalclowns@r_SpawnLoc 0  #
+3 3060 D _var p z_survivalgeckos = 1 D _param p ST_STRENGTH > 99 R _var p z_survivalgeckos = 2 R _script survivalgeckos@r_SpawnLoc 0  #
+3 3070 D _var p z_survivalzombies = 1 D _param p ST_STRENGTH > 99 R _var p z_survivalzombies = 2 R _script survivalzombies@r_SpawnLoc 0  @
+4 4000 None 0 @
+5 5000 None 0 #
+6 5010 #
+7 5020 @
+6 6000 None 0 #
+7 6010 #
+0 6020 @
+7 7000 None 0 &
+
+[engl]
+{100}{}{Rimmer}
+{200}{}{You see the Hub's local scout He's in charge of the local wasteland critter control.}
+{210}{}{This guy looks like a nervous wreck! Always trying to find volunteers to tackle the hardest part about maintaining a community out in the wasteland; the random mutated animals that constantly attack the city.}
+{1000}{}{Predialogue installations}
+{1010}{}{Answer text}
+{2000}{}{Wastelander! Glad you're here! Ready to volunteer for combat duty?}
+{2010}{}{Yeah, I'm ready. What do you need help with?}
+{2020}{}{Combat duty? What's going on?}
+{2030}{}{Mission Accomplished, sir. At least for now.}
+{2040}{}{No thanks, I am not at all ready for this.}
+{2050}{}{Job.}
+{2060}{}{All done.}
+{2070}{}{Clowns.}
+{2080}{}{Clowns Ded.}
+{2090}{}{Geckos.}
+{2100}{}{Geckos ded.}
+{2110}{}{Zombies}
+{2120}{}{Zombies ded.}
+{3000}{}{Rats, man! Rats! All sorts of mutated ones keep attacking the damn city! All day, and all goddamn night! They never end! It's madness, I tell you! Madness! Will you help?! I'll obviously pay you! }
+{3010}{}{Rats? Tell me more about this job before I take it.}
+{3020}{}{Yeah, I'm ready! Bring it on!}
+{3030}{}{No way! I hate rats! I'm out of here.}
+{3040}{}{Spawn it.}
+{3050}{}{Spawn The Clowns.}
+{3060}{}{Spawn Geckos.}
+{3070}{}{Spawn Zombies.}
+{4000}{}{Amazing work, @pname@! You ready to try it again?}
+{5000}{}{Okay, it's simple... well, not really, but whatever! You, and some of your friends, if you're lucky enough that they come with you, will be holed up behind a ton of barricades. We've got some bait set out, so expect at least a hundred critters to come at you in sections, and in layers!}
+{5010}{}{Go on...}
+{5020}{}{Alright, I think I can handle this.}
+{6000}{}{All you've gotta do is survive long enough to kill them all! Then come back here, and we'll send some scouts out to re-bait the area. You'll have about an hour to do it all before we give up on you. Just think of it as pest control! You'll be in cover, and the enemies will come directly to you.}
+{6010}{}{Alright, I think I can handle this.}
+{6020}{}{Wow! No way! I'm out of here!}
+{7000}{}{Hey, people! @pname@ is attempting the Rat Challenge! Go join him!}
+

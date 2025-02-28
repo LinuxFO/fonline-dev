@@ -1,0 +1,114 @@
+[comment]
+
+
+[data]
+lang=engl
+
+[dialog]
+&
+1 1000 None 0 #
+2 1010 D _var p hub_inde = 0 #
+14 1020 D _var p hub_inde = 1 #
+15 1030 D _var p hub_inde = 2 #
+14 1040 D _var p hub_inde = 3 #
+17 1050 D _var p hub_inde = 4 #
+18 1060 D _var p hub_inde = 5 #
+19 1070 D _var p hub_inde = 6 @
+2 2000 None 0 #
+13 2010 D _var p hub_inde = 0 D _item p PID_MINERAL } 10 D _item p PID_METAL_ORE } 10 R _item p PID_MINERAL - 10 R _item p PID_METAL_ORE - 10 #
+3 2020 #
+4 2030 #
+5 2040 #
+6 2050 #
+7 2060 #
+0 2070 @
+3 3000 None 0 #
+9 3010 @
+4 4000 None 0 #
+10 4010 @
+5 5000 None 0 #
+11 5010 @
+6 6000 None 0 #
+12 6010 @
+7 7000 None 0 #
+8 7010 @
+8 8000 None 0 #
+0 8010 @
+9 9000 None 0 #
+0 9010 @
+10 10000 None 0 #
+0 10010 @
+11 11000 None 0 #
+0 11010 @
+12 12000 None 0 #
+0 12010 @
+13 13000 None 0 #
+0 13010 R _script quest_indea@r_SpawnLoc 0  R _script dialog@r_TeleportToMap 2 179 666 R _var p hub_inde = 1 @
+14 14000 None 0 @
+15 15000 None 0 #
+0 15010 R _var p hub_inde = 3 R _script quest_indeb@r_SpawnLoc 0  R _script dialog@r_TeleportToMap 2 159 666 R _script quest_indea@r_DeleteLoc 0  #
+16 15020 @
+16 16000 None 0 @
+17 17000 None 0 #
+0 17010 R _var p hub_inde = 5 R _script quest_indec@r_SpawnLoc 0  R _script dialog@r_TeleportToMap 2 158 666 R _script quest_indeb@r_DeleteLoc 0  #
+16 17020 @
+18 18000 None 0 @
+19 19000 None 0 #
+0 19010 R _script dialog@r_AddExperience 1 500 R _script dialog@r_AddMoney 1 175 R _script dialog@r_BulkOrderRewardInde 0  R _param p ST_KARMA + 1 R _param p REPUTATION_NCR + 4 R _param p REPUTATION_HUB + 4 R _param p REPUTATION_FREE_TRADERS + 7 R _var p hub_inde = 0 R _script dialog@r_TeleportToMap 2 221 666 R _script quest_indec@r_DeleteLoc 0  #
+16 19020 &
+
+[engl]
+{100}{}{Independent Caravan Driver}
+{200}{}{You see an Independent Caravan Driver.}
+{210}{}{Looks like they're looking to hire some new guards, but they will need to fix their caravan cart before they can get anywhere.}
+{1000}{}{Predialogue installations}
+{1010}{}{no job}
+{1020}{}{1st run not completed}
+{1030}{}{1st run completed}
+{1040}{}{2nd run not completed}
+{1050}{}{2nd run completed}
+{1060}{}{3rd run not completed}
+{1070}{}{3rd run completed}
+{2000}{}{Sorry, @sex@|pal||toots|, this cart ain't going anywhere without some replacement parts. Come back later, and I might have a guard job available for you.}
+{2010}{}{Here's 10x Iron Ore & Minerals. Fix your cart, and let's get this show on the road! I'm riding Shotgun!}
+{2020}{}{What was that about a guard job?}
+{2030}{}{Replacement parts?}
+{2040}{}{Where are you heading?}
+{2050}{}{What happened to your cart?}
+{2060}{}{So what, are you hiring or something?}
+{2070}{}{I might come back, see ya.}
+{3000}{}{I'm hiring private guards for my next run, but I can't afford much. Not like those other caravan companies. I'm independent don't you know? So I can only afford to pay one of you wastelanders.}
+{3010}{}{When are you leaving?}
+{4000}{}{@sex@|Yessir!||Yes ma'am!| Replacement parts. I need a new tranny for my cart, and I ain't got the caps, or the time to go buy the part, but I sure can make one myself if I had the parts. }
+{4010}{}{What do you need to make a spare tranny?}
+{5000}{}{I'm heading to the Hub next. I make a good living going back and forth. I sell this, and that, whatever I can find in bulk really.}
+{5010}{}{What are you selling today?}
+{6000}{}{My tranny got shot off by some jerk bandit last night. What a shame!  I just fixed her up too! Seems like every run breaks my poor old Betsy.}
+{6010}{}{Is this a dangerous business?}
+{7000}{}{Of course! But I need someone bright! And tough! }
+{7010}{}{I'm bright! And tough! Maybe I can do it?}
+{8000}{}{You? Well, sure! But I need ten pieces of ore and minerals to fix up my cart before I can go anywhere! Bring me some of those resources, and I'll fix up this rig in a jiffy.}
+{8010}{}{Alright! But we'll see, maybe I'll be back later.}
+{9000}{}{Anytime now. But I need ten pieces of ore and minerals to fix up my cart before I can go anywhere! Bring me some of those resources, and I'll fix up this rig in a jiffy.}
+{9010}{}{Alright! But we'll see, maybe I'll be back later.}
+{10000}{}{I need ten pieces of ore and minerals to fix up my cart before I can go anywhere! Bring me some of those resources, and I'll fix up this rig in a jiffy.}
+{10010}{}{Alright! But we'll see, maybe I'll be back later.}
+{11000}{}{This, and that. But I need ten pieces of ore and minerals to fix up my cart before I can go anywhere! Bring me some of those resources, and I'll fix up this rig in a jiffy.}
+{11010}{}{Alright! But we'll see, maybe I'll be back later.}
+{12000}{}{Not at all! But my cart keeps getting robbed by bandits! So I need ten pieces of ore and minerals to fix up my cart before I can go anywhere! Bring me some of those resources, and I'll fix up this rig in a jiffy. You could help me out, and I'll pay you a decent guard wage.}
+{12010}{}{Alright! But we'll see, maybe I'll be back later.}
+{13000}{}{Let's get this show on the road! Load up your guns, and let's move out! Hub City here we come! We are leaving now! [/combatmode tb or rt to choose between your desired combat mode]}
+{13010}{}{Yeeeeeeeehaw!!!! [Begin the Caravan Escort]}
+{14000}{}{Holy Christ! Get rid of these guys!@@I don't want to die! Help me!@@This is what I'm paying you for! Take it to them!@@There's still something out there! Go find it!}
+{15000}{}{Great job, padner! Thanks to you, we're still alive! You ready to keep going?}
+{15010}{}{Yeah, let's hit the road running.}
+{15020}{}{Not yet, give me a few minutes.}
+{16000}{}{Okay, but I don't have all day.}
+{17000}{}{Looks like we're half way there! You ready to continue?}
+{17010}{}{Yeah, let's move out.}
+{17020}{}{Not yet, give me a few minutes.}
+{18000}{}{Not these guys again! These damn Bikers keep shooting out my tranny!}
+{19000}{}{Hah! Stupid Bikers! That'll teach them to mess with my caravan! Great work! Let's get to the Hub, and I'll give you your reward. You ready to leave now?}
+{19010}{}{Hell yes! Let's head out. Maybe I'll see you around. Thanks for the run.}
+{19020}{}{Not yet, give me a few minutes.}
+

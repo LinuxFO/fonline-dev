@@ -1,0 +1,78 @@
+[comment]
+
+
+[data]
+lang=engl
+
+[dialog]
+&
+1 1000 None 0 #
+2 1010 @
+2 2000 None 0 #
+3 2010 @
+3 3000 None 0 #
+4 3010 @
+4 4000 None 0 #
+5 4010 @
+5 5000 None 0 #
+6 5010 @
+6 6000 None 0 #
+7 6010 @
+7 7000 None 0 #
+8 7010 @
+8 8000 None 0 #
+9 8010 @
+9 9000 None 0 #
+10 9010 D _var p hub_decision1 = 1 #
+11 9020 D _var p hub_decision1 = 2 #
+12 9030 D _var p hub_decision1 = 2 @
+10 10000 None 0 #
+13 10010 @
+11 11000 None 0 #
+13 11010 @
+12 12000 None 0 #
+13 12010 @
+13 13000 None 0 #
+14 13010 @
+14 14000 None 0 #
+15 14010 @
+15 15000 None 0 #
+0 15010 R _var p noire5 = 7 R _script dialog@r_AddExperience 1 5000 R _param p REPUTATION_NCR + 50 R _param p REPUTATION_LA + 50 R _param p REPUTATION_HUB + 50 R _param p REPUTATION_JUNKTOWN + 50 R _param p REPUTATION_NECROPOLIS + 50 R _param p REPUTATION_FOLLOWERS + 50 R _param p REPUTATION_REGULATORS + 50 R _param p REPUTATION_NCR_RANGERS + 50 R _param p ST_KARMA + 12 R _script dialog@r_TeleportToMap 2 221 666 R _script quest_noire8@r_DeleteLoc 0  &
+
+[engl]
+{100}{}{Sheriff Hayden}
+{200}{}{You see Sheriff Hayden.}
+{210}{}{Saved by the boys, and girls in blue... }
+{1000}{}{Predialogue installations}
+{1010}{}{Answer text}
+{2000}{}{You alright. champ? Thought you were a goner for a second... shit, Detective, I... can't lose another good soldier. Not again. }
+{2010}{}{I was lost a long time ago, Andrew.}
+{3000}{}{What happened here? I need your report, Detective @pname@. Right fucking now!}
+{3010}{}{There came a darkness. From us, and our sins. A cult of not men, or women, but beasts. Beasts that wore the flesh of man like a second skin. }
+{4000}{}{Speak english, man! What the hell are you talking about? [The rain begins to pour down. Soon enough, the puddles of blood become oceans]}
+{4010}{}{Look around you, Sheriff. What do you see?}
+{5000}{}{I see a nightmare I want to wake up from.}
+{5010}{}{It's too late for dreams now. Whatever we should be afraid is finally here. There's a cult out there, of fanatical ghouls. They're killing people and skinning them to make suits. }
+{6000}{}{[Andrew says nothing but a shocked gasp, but he's trying his best to deny it]}
+{6010}{}{There's something about the skin... I don't know what... but... it... makes you... feel... something...}
+{7000}{}{Like what? What does it make you feel?}
+{7010}{}{Darkness. [Hand him the horrific mask]}
+{8000}{}{Do you expect me to fucking put this on?!}
+{8010}{}{Yes, I do, Sheriff. It's the only way.}
+{9000}{}{[Detectives Cwan and Spade give you an eerie look, and begin to walk away. Sheriff Hayden looks at you with regret, and sadness] Have you been wearing this, @pname@?}
+{9010}{}{I had no choice, they forced it over my face.}
+{9020}{}{Yes, and it was beautiful.}
+{9030}{}{I had to understand, Sheriff. And now, so must you.}
+{10000}{}{Those... animals!}
+{10010}{}{There's something... strange about wearing the mask. I can't describe it, but you have to believe me.}
+{11000}{}{[Sheriff Hayden, and the rest of the Detectives are shocked!]}
+{11010}{}{There's something... strange about wearing the mask. I can't describe it, but you have to believe me.}
+{12000}{}{[Sheriff Hayden, and the rest of the Detectives are shocked, and confused!]}
+{12010}{}{There's something... strange about wearing the mask. I can't describe it, but you have to believe me.}
+{13000}{}{I don't understand, @pname@. What's so great about wearing a mask made out of human flesh?}
+{13010}{}{It takes you to a different world, Sheriff. These ghouls out there, they're addicted to it. They're living in between some crazy, supernatural world, and our radiated nightmare.}
+{14000}{}{You're losing it, @pname@. I think you should see a doctor...}
+{14010}{}{Stop worrying about me, and start worrying about just what the hell we're going to do about that army of darkness out there! They won't stop skinning people alive unless we put the boots to them!}
+{15000}{}{We will, but we need to get you the hell out of here first. Come on, soldier, we're going home. Let's take this shit bucket of a ghoul with us too, we'll bring him back for "interrogation".}
+{15010}{}{[Hide the mask, and follow the cavalry home]}
+

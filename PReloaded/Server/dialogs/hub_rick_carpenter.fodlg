@@ -1,0 +1,56 @@
+[comment]
+
+
+[data]
+lang=engl
+
+[dialog]
+&
+1 1000 None 0 #
+2 1010 @
+2 2000 None 0 #
+3 2010 #
+0 2020 @
+3 3000 None 0 #
+4 3010 D _item p PID_BOTTLE_CAPS } 2000 R _item p PID_TENT + 1 R _item p PID_BOTTLE_CAPS - 2000 #
+4 3020 D _item p PID_BOTTLE_CAPS } 500 R _item p PID_MULTI_TOOL + 1 R _item p PID_BOTTLE_CAPS - 500 #
+4 3030 D _item p PID_BOTTLE_CAPS } 150 R _item p PID_AXE + 1 R _item p PID_BOTTLE_CAPS - 150 #
+4 3040 D _item p PID_BOTTLE_CAPS } 150 R _item p PID_SLEDGEHAMMER + 1 R _item p PID_BOTTLE_CAPS - 150 #
+4 3050 D _item p PID_BOTTLE_CAPS } 100 R _item p PID_KNIFE + 1 R _item p PID_BOTTLE_CAPS - 100 #
+4 3060 D _item p PID_BOTTLE_CAPS } 50 R _item p PID_WATERBAG_EMPTY + 1 R _item p PID_BOTTLE_CAPS - 50 #
+4 3070 D _item p PID_BOTTLE_CAPS > 199 R _item p PID_BOTTLE_CAPS - 200 R _item p PID_LIGHTER + 1 #
+4 3080 D _item p PID_BOTTLE_CAPS > 324 R _item p PID_BOTTLE_CAPS - 325 R _item p PID_RADIO + 1 #
+0 3090 @
+4 4000 None 0 #
+0 4010 &
+
+[engl]
+{100}{}{Tool Maker}
+{200}{}{You see a local tool maker.}
+{210}{}{You see a very strong and skilled man.}
+{1000}{}{Predialogue installations}
+{1010}{}{Answer text}
+{2000}{}{Welcome to my shop, stranger. I'm just a local trader, but if you need any handmade tools then you're in the right place.}
+{2010}{}{What do you have for sale?}
+{2020}{}{No, thank you, Goodbye.}
+{3000}{}{Here's what I have:
+- Tent [2000 caps]
+- Tool [500 caps]
+- Hatchet [150 caps]
+- Sledgehammer [150 caps]
+- Knife [100 caps]
+- Water bag [50 caps]
+- Lighter [200 caps]
+- Radio [325 caps]}
+{3010}{}{I'll buy a tent.}
+{3020}{}{I'll buy a tool.}
+{3030}{}{I'll buy a hatchet.}
+{3040}{}{I'll buy a sledgehammer.}
+{3050}{}{I'll buy a knife.}
+{3060}{}{I'll buy a water bag.}
+{3070}{}{I'll buy a lighter.}
+{3080}{}{I'll buy a radio.}
+{3090}{}{Maybe next time, see you.}
+{4000}{}{A fine choice, make good use of it.}
+{4010}{}{Thanks!}
+

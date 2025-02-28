@@ -1,0 +1,281 @@
+[comment]
+russian roulette man
+recycled dialog from cut content
+
+[data]
+lang=engl russ
+
+[dialog]
+&
+1 1000 None 0 #
+4 1010 D _var p name_mem_npc_player = 0 #
+4 1020 D _var p name_mem_npc_player = 1 @
+3 2000 None 0 @
+4 3000 None 0 #
+3 3010 D _var p camp_evil = 1 #
+5 3020 #
+9 3030 #
+8 3040 #
+14 3050 D _var p hub_hopeq = 4 #
+26 3060 D _var p noire1 = 8 #
+31 3070 D _var p q_packages = 10 D _item p PID_CARAVAN_BOX > 0 R _var p q_packages = 98 R _item p PID_CARAVAN_BOX - 1 #
+0 3080 @
+5 4000 None 0 #
+6 4010 #
+7 4020 @
+6 5000 None 0 #
+7 5010 #
+0 5020 @
+7 6000 None 0 #
+8 6010 #
+0 6020 @
+8 7000 None 0 #
+8 7010 D _item p PID_BOTTLE_CAPS > 49 R _script dialog@r_JumpToRandomNode 3 1 2 10 R _var p hub_rougam = 50 R _item p PID_BOTTLE_CAPS - 50 #
+8 7020 D _item p PID_BOTTLE_CAPS > 99 R _script dialog@r_JumpToRandomNode 3 1 2 10 R _var p hub_rougam = 100 R _item p PID_BOTTLE_CAPS - 100 #
+8 7030 D _item p PID_BOTTLE_CAPS > 299 R _script dialog@r_JumpToRandomNode 3 1 2 10 R _var p hub_rougam = 300 R _item p PID_BOTTLE_CAPS - 300 #
+8 7040 D _item p PID_BOTTLE_CAPS > 499 R _script dialog@r_JumpToRandomNode 3 1 2 10 R _var p hub_rougam = 500 R _item p PID_BOTTLE_CAPS - 500 #
+8 7050 D _item p PID_BOTTLE_CAPS > 759 R _script dialog@r_JumpToRandomNode 3 1 2 10 R _var p hub_rougam = 750 R _item p PID_BOTTLE_CAPS - 750 #
+8 7060 D _item p PID_BOTTLE_CAPS > 999 R _script dialog@r_JumpToRandomNode 3 1 2 10 R _var p hub_rougam = 1000 R _item p PID_BOTTLE_CAPS - 1000 #
+8 7070 D _item p PID_BOTTLE_CAPS > 4999 R _script dialog@r_JumpToRandomNode 3 1 2 10 R _var p hub_rougam = 5000 R _item p PID_BOTTLE_CAPS - 5000 #
+8 7080 D _item p PID_BOTTLE_CAPS > 9999 D _param p ST_STRENGTH = 1237 R _script dialog@r_JumpToRandomNode 3 1 2 10 R _var p hub_rougam = 10000 R _item p PID_BOTTLE_CAPS - 10000 #
+0 7090 @
+9 8000 None 0 #
+7 8010 #
+3 8020 @
+10 9000 None 0 #
+13 9010 R _script dialog@r_ToDead 1 117 R _var p hub_rougam = 0 R _script dialog@r_PlaySoundGun 1 2 @
+20 10000 None 0 #
+12 10010 D _var p hub_rougam = 50 R _script dialog@r_AddMoney 1 100 R _var p hub_rougam = 0 R _script dialog@r_PlaySoundGun 1 3 R _param p ST_KARMA - 1 #
+12 10020 D _var p hub_rougam = 100 R _script dialog@r_AddMoney 1 200 R _var p hub_rougam = 0 R _script dialog@r_PlaySoundGun 1 3 R _param p ST_KARMA - 1 #
+12 10030 D _var p hub_rougam = 300 R _script dialog@r_AddMoney 1 600 R _var p hub_rougam = 0 R _script dialog@r_PlaySoundGun 1 3 R _param p ST_KARMA - 1 #
+12 10040 D _var p hub_rougam = 500 R _script dialog@r_AddMoney 1 1000 R _var p hub_rougam = 0 R _script dialog@r_PlaySoundGun 1 3 R _param p ST_KARMA - 1 #
+12 10050 D _var p hub_rougam = 750 R _script dialog@r_AddMoney 1 1500 R _var p hub_rougam = 0 R _script dialog@r_PlaySoundGun 1 3 R _param p ST_KARMA - 1 #
+12 10060 D _var p hub_rougam = 1000 R _script dialog@r_AddMoney 1 2000 R _var p hub_rougam = 0 R _script dialog@r_PlaySoundGun 1 3 R _param p ST_KARMA - 1 #
+12 10070 D _var p hub_rougam = 5000 R _script dialog@r_AddMoney 1 10000 R _var p hub_rougam = 0 R _script dialog@r_PlaySoundGun 1 3 R _param p ST_KARMA - 3 #
+12 10080 D _var p hub_rougam = 10000 R _script dialog@r_AddMoney 1 20000 R _var p hub_rougam = 0 R _script dialog@r_PlaySoundGun 1 3 R _param p ST_KARMA - 3 @
+12 11000 None 0 @
+13 12000 None 0 @
+14 13000 None 0 #
+15 13010 @
+15 14000 None 0 #
+16 14010 @
+16 15000 None 0 #
+17 15010 @
+17 16000 None 0 #
+18 16010 @
+18 17000 None 0 #
+19 17010 @
+19 18000 None 0 #
+21 18010 @
+21 19000 None 0 #
+22 19010 @
+22 20000 None 0 #
+23 20010 @
+23 21000 None 0 #
+24 21010 @
+24 22000 None 0 #
+25 22010 @
+25 23000 None 0 #
+0 23010 R _var p hub_hopeq = 5 @
+26 24000 None 0 #
+27 24010 @
+27 25000 None 0 #
+28 25010 @
+28 26000 None 0 #
+29 26010 @
+29 27000 None 0 #
+30 27010 R _var p noire1 = 9 R _script dialog@r_AddExperience 1 1500 @
+30 28000 None 0 @
+31 29000 None 0 &
+
+[engl]
+{100}{}{Vasquez}
+{200}{}{You see a seedy-looking gunman.}
+{210}{}{It's Vasquez, the mercenary desperado.}
+{1000}{}{Predialogue installations}
+{1010}{}{not known}
+{1020}{}{known}
+{2000}{}{Adios, I do not work for the weak of mind. You leave now.}
+{3000}{}{Hello, my friend. Welcome to the Bunker Bar.}
+{3010}{}{Got any spaceships? I need to go for a... fly!}
+{3020}{}{Who are you?}
+{3030}{}{Got anything to drink?}
+{3040}{}{Hey Vasquez! Let's gamble!}
+{3050}{}{I'm investigating the murder of a Detective Hoyt. When his body was found he had a matchbook on him from this bar. What can you tell me about that?}
+{3060}{}{[Flash your badge] Hello, Vasquez. Remember me?}
+{3070}{}{[Deliver Package]}
+{3080}{}{I'll just be going.}
+{4000}{}{You have not heard of me? I am hurt! My name is Vasquez Villanova Hernandez Ortega. I am a famous desperado, my friend. And, if you have need, I am a gun for hire. But alas, today I am playing bartender, and recruiting lads for the "American Roulette" party...}
+{4010}{}{Really? How much do you cost?}
+{4020}{}{"American Roulette"?}
+{5000}{}{Ahh, straight to the point, my friend. Excellent. I will help you around town for a measly $500 a week. My services are not cheap, but then again, I am worth it. But like I said, I'm playing bartender here, and in charge of the gambling. So no leaving to go work for young adventurers. }
+{5010}{}{What's this about gambling?}
+{5020}{}{Sorry to have bothered you, but I don't think I'm in need of your services.}
+{6000}{}{Yes! You're interested? We play games down here, away from the public. It's similar to Russian Roulette, but one bullet is pussy stuff! We're in America, we play American Roulette. Three bullet bet, we spin the barrel and then we pull the trigger! Winner doesn't die, makes some money, and goes home a happy man. Loser, well... You know... Poof.  }
+{6010}{}{Sure, let's do this!}
+{6020}{}{Uh, maybe later. }
+{7000}{}{Alright, my soon to be dead friend! How much do you bet? What's your life worth in bottle caps? }
+{7010}{}{[50]}
+{7020}{}{[100]}
+{7030}{}{[300]}
+{7040}{}{[500]}
+{7050}{}{[750]}
+{7060}{}{[1000]}
+{7070}{}{[5000]}
+{7080}{}{[10,000]}
+{7090}{}{Nothing.}
+{8000}{}{Yes, my friend! But the real bar is upstairs. This is a gambling hall.}
+{8010}{}{What's this about gambling?}
+{8020}{}{What the fuck?! Gimme a damn beer!}
+{9000}{}{Roll the cylinder and pull the trigger!}
+{9010}{}{[Gamble your life away]}
+{10000}{}{Roll the cylinder and pull the trigger!}
+{10010}{}{[Gamble your life away]}
+{10020}{}{[Gamble your life away]}
+{10030}{}{[Gamble your life away]}
+{10040}{}{[Gamble your life away]}
+{10050}{}{[Gamble your life away]}
+{10060}{}{[Gamble your life away]}
+{10070}{}{[Gamble your life away]}
+{10080}{}{[Gamble your life away]}
+{11000}{}{*Click*}
+{12000}{}{*You hear the silent whisper of a bullet penetrating someone's brain!*}
+{13000}{}{[You can hear the sounds of rain coming from above] Oh, the policia, si? How is your spanish, @sex@|senor?||senorita?| I can feel a sudden lose of my, uh, anglais. Hablas espagnol?}
+{13010}{}{I'm not playing games, boyo. The games I like to play are loud, and come from a gun. It's also called justice. Do you want to end up going home tonight a free man? Or would you prefer hanging out with a noose? }
+{14000}{}{[Vasquez laughs] Oh-hahaha! Vasquez is not intimidated by the Hub policia! You think that you're tough? Hmm? Why don't you play a little game with me? [He pulls a .44 Magnum from under the counter, loads a single round in it, and says] @sex@|Senor||Senorita|, if you play this little game with me, my friend, I will tell you everything you want to know... Yes?}
+{14010}{}{Last chance, Vasquez. Tell me everything I want to know, or I'm going to make you regret it. }
+{15000}{}{[Vasquez frowns] Regret is for the weak of heart, and faint of mind. Are you going to agree to my terms? Or are you a coward?}
+{15010}{}{You want to play games, Vasquez?! You want to play games! I'll show you my fucking game! [Take the gun, stick it in his face, and pull the trigger]}
+{16000}{}{*Click* [Vasquez is speechless, and shaking] My... friend... No... No...}
+{16010}{}{There's only one way home, Vasquez. You tell me the truth, or this gun is going off!}
+{17000}{}{[He spits in your face]  You fucking Pendejo! Ir Mierda su madre! [He reaches for your revolver]}
+{17010}{}{[Stick the gun in his face, and pull the trigger]}
+{18000}{}{*Click* [Vasquez is mortified]}
+{18010}{}{[Stick the gun in his face, but don't pull the trigger]}
+{19000}{}{[Vasquez is gone. Whatever life he had worth fighting for has completely given up, he's just standing there. He's looking at you like a sad dog, about to be put down by his master] oh Dios, por favor perdoname. No quiero ir al infierno, yo no puedo dejar de ser mala.}
+{19010}{}{Live or die, but only the good souls can judge the day. I'm trying to be the good guy here, Vasquez. But you're not making it easy. Please, think of Hope, how do you think she feels right now? If it wasn't for me, she'd be hung for a crime she didn't even commit. I'm just trying to get to the bottom of this, Vasquez. Help me, please.}
+{20000}{}{[You've broken Vasquez beyond words. Who would have thought how traumatic Russian Roulette could be? Looks like you showed Vasquez how it feels to be on the other end of the gun, and he didn't like it] Un demonio! Un demonio! Que es este infierno que I'm lo merece, por que Dios! Por que ahora!}
+{20010}{}{For God's sake, man! An innocent woman's life is at stake here! Have you ever had a wish? A dream? Have you ever felt so alone that you could just disappear? Have you ever broken down, and prayed for a fucking hero before? I'm trying to answer a poor girl's dreams, man, her wish, her prayer!}
+{21000}{}{[Your PipBoy finally decides to translate Vasquez's conversation] No hay mas dios ! Basta con mirar lo que hemos hecho a este mundo! Solo tienes que disparar! Por Favor! No hay tales cosas como suenos contestadas. *Beeboop-Patiing!* [A british voice,  screams] "There is no god! Just look at what we've done to this world! Just shoot me! Please! There are no such things as answered dreams!"}
+{21010}{}{Well, I dream of an age where men, and women are free to own property, raise a family, and live in safety. There was a time, long ago, before the war changed everything where people achieved this dream. You and me, right now, we can achieve this dream together.  Just tell me what happened to Hoyt, and we can all learn to live again.}
+{22000}{}{[Vasquez wipes the tears away from his eyes] Hope... She didn't kill Hoyt... She had an affair with a man... Long ago...But the man, he could not let go. It seems that... He was a fling... But he could not accept this... I fear that... He probably killed Hoyt... I did not want to say... I ... I never cared much... For anything... Until you put that pistol to my eye.}
+{22010}{}{Death is a man, a horrible, horrible man. But he never tells a lie. Maybe there's still a little bit of light left in you, Vasquez. Now tell me, who the fuck is this man? And where can I kill him?}
+{23000}{}{[He pats you on the back and says] Thank you my friend, you sure are something, you know that? The man you are looking for is Harry Parker Moore. He lives by the Old Heights.The policia probably know him very well, I suggest you go tell the Sheriff.}
+{23010}{}{And so still, you shine on, Vasquez. Thank you, you've helped made this right. I'll make sure the police leave you alone for a bit. Goodbye, my friend.}
+{24000}{}{[Vasquez is horrified] Si...}
+{24010}{}{Detective Rockatansky, you know him?}
+{25000}{}{[Vasquez does not move] Si...}
+{25010}{}{The Night Rider, you know him too?}
+{26000}{}{[Vasquez is shaking] Si...}
+{26010}{}{Good. Tell me about these two things.}
+{27000}{}{[Vasquez is gone] Si...}
+{27010}{}{Hey? *snap your fingers* You there?}
+{28000}{}{Si...}
+{29000}{}{Hola! From Vault City? Si, si! That's bueno! Gracias.}
+{100000001}{}{Better wash the counter again...}
+{100000002}{}{That's 5 caps buddy. Hey did you hear me? Cough em' up.}
+{100000003}{}{Better change the keg...}
+{100000004}{}{RotGut? You drink that shit?}
+{100000005}{}{Domestic? I got B.E.E.R buddy, do you want one or not?}
+{100000006}{}{Fuckin' dust is getting everywhere. Hey close the fuckin' door!}
+{100000007}{}{I swear if the next asshole doesn't tip. Ima' shoot somebody!}
+{100000008}{}{I got bottles, I got shots, and I got a bat behind the counter for the retards. Your not a retard are you?}
+{100000009}{}{Uh-huh, yeah that's nice buddy. You don't say...What? Of course I'm listening...}
+{100000010}{}{That's 5 caps. FIVE CAPS Tribal! F.I.V.E! }
+{100000011}{}{Shut up and order a fuckin' beer already!}
+{100000012}{}{I swear if I have to serve another drunk, I'm getting the shotgun!}
+{100000013}{}{Look the keg went dry, and it's going to be another month until the caravan shows up again.}
+{100000014}{}{Really? You don't say, buy another drink or get out!}
+{100000015}{}{What? I'm on break.}
+{100000016}{}{Be right with ya'}
+{100000017}{}{Have a sit stranger. I'll be with you in a moment.}
+{100000018}{}{When do we close? Uh, when the place get's shot up, that's when!}
+{100000019}{}{We're fresh outta' cold beer, sorry. You'll just have to drink it warm.}
+{100000020}{}{RotGut? No man, go make that shit yourself! I wouldn't drink it!}
+
+[russ]
+{100}{}{Алкоголик}
+{200}{}{Вы видите пьяницу.}
+{210}{}{Вы видите шатающегося из стороны в сторону пьяного человека в лохмотьях. Лицо его распухло, нос синющий как слива. А аромат рядом с ним такой, что свалит брамина насмерть. Он что-то бормочет про себя и иногда громко поет песни.}
+{210}{}{Вы видите алкаша. Он весьма грязен - кажется, он повалялся в луже, но не особо этим расстроен.}
+{1000}{}{I?aaaeaeiaiaua onoaiiaee}
+{1010}{}{Answer text}
+{1020}{}{known}
+{2000}{}{I do not work for the weak of mind. You leave now.}
+{3000}{}{What do you want?}
+{3010}{}{Got any spaceships? I need to go for a... fly!}
+{3020}{}{Who are you?}
+{3030}{}{Got anything to drink?}
+{3040}{}{Hey Vasquez! Let's gamble!}
+{3050}{}{[Punch him, and start yelling] Who the fuck killed Hoyt?!}
+{3060}{}{[Flash your badge] Hello, Vasquez. Remember me?}
+{3070}{}{[Deliver Package]}
+{3080}{}{I'll just be going.}
+{4000}{}{You have not heard of me? I am hurt! My name is Vasquez Villanova Hernandez Ortega. I am a famous desperado, my friend. And, if you have need, I am a gun for hire. But alas, my friend, today I am playing bartender, and recruiting lads for the "American Roulette" party...}
+{4010}{}{Really? How much do you cost?}
+{4020}{}{What's this about gambling?}
+{5000}{}{Ahh, straight to the point, my friend. Excellent. I will help you around town for a measly $500 a week. My services are not cheap, but then again, I am worth it. But like I said, I'm playing bartender here, and in charge of the gambling. So no leaving to go work for young adventurers. }
+{5010}{}{What's this about gambling?}
+{5020}{}{Sorry to bother you, but I don't think I need your services.}
+{6000}{}{Yes! You're interested? We play games down here, away from the public. It's similar to Russian Roulette, but one bullet is pussy stuff! We're in America, we play American Roulette. Two bullet bet, we spin the barrel and then we pull the trigger! Winner doesn't die, makes some money, and goes home a happy man. Loser, well... You know... Poof.  }
+{6010}{}{Sure, let's do this!}
+{6020}{}{Uh, maybe later. }
+{7000}{}{Alright, my soon to be dead friend! How much do you bet? What's your life worth in bottle caps? }
+{7010}{}{[50]}
+{7020}{}{[100]}
+{7030}{}{[300]}
+{7040}{}{[500]}
+{7050}{}{[750]}
+{7060}{}{[1000]}
+{7070}{}{[5000]}
+{7080}{}{[10,000]}
+{7090}{}{Nothing.}
+{8000}{}{Yes, my friend! But the real bar is upstairs. This is a gambling hall.}
+{8010}{}{What's this about gambling?}
+{8020}{}{What the fuck?! Gimme a damn beer!}
+{9000}{}{[You hear the silent whisper of a bullet penetrating your brain, and fall deep into the darkness. Whatever life was left inside of your body is now gone, and oozing out all over the floor of this cold, dark basement. You are dead]}
+{9010}{}{[Go into the light]}
+{10000}{}{*Click*}
+{10010}{}{Oh thank God!}
+{10020}{}{Oh thank God!}
+{10030}{}{Oh thank God!}
+{10040}{}{Oh thank God!}
+{10050}{}{Oh thank God!}
+{10060}{}{Oh thank God!}
+{10070}{}{Oh thank God!}
+{10080}{}{[Gamble your life away]}
+{11000}{}{*Click*}
+{12000}{}{*Bang!*}
+{13000}{}{[You can hear the sounds of rain coming from above] Oh, the policia, si? How is your spanish, @sex@|senor?|senorita?| I can feel a sudden lose of my, uh, anglais. Hablas espagnol?}
+{13010}{}{I'm not playing games, boyo. The games I like to play are loud, and come from a gun. It's also called justice. Do you want to end up going home tonight a free man? Or would you prefer hanging out with a noose? }
+{14000}{}{[Vasquez laughs] Oh-hahaha! Vasquez is not intimidated by the Hub policia! You think that you're tough? Hmm? Why don't you play a little game with me? [He pulls a .44 Magnum from under the counter, loads a single round in it, and says] @sex@|Senor||Senorita|, if you play this little game with me, my friend, I will tell you everything you want to know... Yes?}
+{14010}{}{Last chance, Vasquez. Tell me everything I want to know, or I'm going to make you regret it. }
+{15000}{}{[Vasquez frowns] Regret is for the weak of heart, and faint of mind. Are you going to agree to my terms? Or are you a coward?}
+{15010}{}{[Take the gun, stick it in his face, and pull the trigger]}
+{16000}{}{*Click*}
+{16010}{}{There's only one way home, Vasquez. You tell me the truth, or this gun is going off!}
+{17000}{}{[He spits in your face]  You fucking Pendejo! Ir Mierda su madre! [He reaches for your revolver]}
+{17010}{}{[Stick the gun in his face, and pull the trigger]}
+{18000}{}{*Click* [Vasquez is mortified]}
+{18010}{}{[Stick the gun in his face, but don't pull the trigger]}
+{19000}{}{[Vasquez is gone. Whatever life he had worth fighting for has completely given up, he's just standing there. He's looking at you like a sad dog, about to be put down by his master] oh Dios, por favor perdoname. No quiero ir al infierno, yo no puedo dejar de ser mala.}
+{19010}{}{Live or die, but only the good souls can judge the day. I'm trying to be the good guy here, Vasquez. But you're not making it easy,.Please, think of Hope, how do you think she feels right now? If it wasn't for me, she'd be hung for a crime she didn't even commit.  I'm just trying to get to the bottom of this, Vasquez. Help me, please.}
+{20000}{}{[You've broken Vasquez beyond words. Who would have thought how traumatic Russian Roulette could be? Looks like you showed Vasquez how it feels to be on the other end of the gun, and he didn't like it[ }
+{20010}{}{For God's sake, man! An innocent woman's life is at stake here! Have you ever had a wish? A dream? Have you ever felt so alone that you could just disappear? Have you ever broken down, and prayed for a fucking hero before? I'm trying to answer a poor girl's dreams, man, her wish, her prayer!}
+{21000}{}{[Your PipBoy finally decides to translate Vasquez's conversation] No hay mГЎs dios ! Basta con mirar lo que hemos hecho a este mundo! Solo tienes que disparar! Por Favor! No hay tales cosas como suenos contestadas. *Beeboop-Patiing!* [A british voice,  screams] "There is no god! Just look at what we've done to this world! Just shoot me! Please! There are no such things as answered dreams!"}
+{21010}{}{Well, I dream of an age where men, and women are free to own property, raise a family, and live in safety. There was time, long ago, before the war changed everything where people achieved this dream. You and me, right now, we can achieve this dream together.  Just tell me what happened to Hoyt, and we all learn to live again.}
+{22000}{}{[Vasquez wipes the tears away from his eyes] Hope... She didn't kill Hoyt... She had an affair with a man... Long ago...But the man, he could not let go. It seems that... He was a fling... But he could not accept this... I fear that... He probably killed Hoyt... I did not want to say... I ... I never cared much... For anything... Until you put that pistol to my eye.}
+{22010}{}{Death is a man, a horrible, horrible man. But he never tells a lie. Maybe there's still a little bit of light left in you, Vasquez. Now tell me, who the fuck is this man? And where can I kill him?}
+{23000}{}{[He pats you on the back and says] Thank you my friend, you sure are something, you know that? The man you are looking for is Harry Parker Moore. He lives by the Old Heights.The policia probably know him very well, I suggest you go tell the Sheriff.}
+{23010}{}{And so still, you shine on, Vasquez. Thank you, you've helped made this right. I'll make sure the police leave you alone for a bit. Goodbye.}
+{24000}{}{[Vasquez is horrified] Si...}
+{24010}{}{Detective Rockatansky, you know him?}
+{25000}{}{[Vasquez does not move] Si...}
+{25010}{}{The Night Rider, you know him too?}
+{26000}{}{[Vasquez is shaking] Si...}
+{26010}{}{Good. Tell me about these two things.}
+{27000}{}{[Vasquez is gone] Si...}
+{27010}{}{Hey? *snap your fingers* You there?}
+{28000}{}{Si...}
+{29000}{}{Hola! From Vault City? Si, si! That's bueno! Gracias.}
+

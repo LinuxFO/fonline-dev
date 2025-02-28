@@ -1,0 +1,54 @@
+[comment]
+
+
+[data]
+lang=engl
+
+[dialog]
+&
+1 1000 None 0 #
+2 1010 D _var p name_mem_npc_player = 0 #
+5 1020 D _var p name_mem_npc_player = 1 @
+2 2000 None 0 #
+3 2010 R _var p q_loan = 1 #
+0 2020 @
+3 3000 None 0 #
+4 3010 R _var p name_mem_npc_player = 1 #
+0 3020 R _var p name_mem_npc_player = 1 @
+4 4000 None 0 #
+0 4010 R _script quest_loan@r_SpawnLoc 0  R _var p q_loan = 2 @
+5 5000 None 0 #
+7 5010 D _var p z_dailyq1 = 3 #
+6 5020 D _var p q_loan = 3 R _var p q_loan = 1 R _script quest_loan@r_DeleteLoc 0  R _param p REPUTATION_HUB - 12 R _param p ST_KARMA - 1 R _param p REPUTATION_HUB_CRIMINALS + 30 R _param p REPUTATION_NCR_RANGERS - 15 R _param p REPUTATION_HUB - 15 R _param p REPUTATION_JUNKTOWN - 15 R _param p REPUTATION_LA - 15 R _param p REPUTATION_REGULATORS - 15 R _param p REPUTATION_SCAVENGERS - 15 R _param p REPUTATION_FOLLOWERS - 15 R _script dialog@r_AddMoney 1 125 R _script dialog@r_AddExperience 1 300 #
+4 5030 D _var p q_loan = 1 #
+0 5040 @
+6 6000 None 0 @
+7 7000 None 0 #
+0 7010 R _var p z_dailyq1 = 4 R _script quest_loansim@r_SpawnLoc 0  R _script quest_mutarsim@r_DeleteLoc 0  &
+
+[engl]
+{100}{}{Sancho}
+{200}{}{You see Sancho, the bank guard.}
+{210}{}{It's Sancho. He seems to be mentioning you over...}
+{240}{}{You see a dead police officer.}
+{260}{}{You see a slain Ghoul.}
+{1000}{}{Predialogue installations}
+{1010}{}{Answer text}
+{1020}{}{known}
+{2000}{}{*Psst!* Come over here! Say essai, you looking to make a few caps?}
+{2010}{}{Well that depends, what's the job?}
+{2020}{}{Not right now, see ya.}
+{3000}{}{My boss keeps handing me lists with people to shake down, but I can't do all this work alone. There's caps in it for you if you shake them down for me. You down? Si?}
+{3010}{}{Hell yeah! Where are they?}
+{3020}{}{No way, do your dirty work yourself!}
+{4000}{}{Mierda , impresionante, dude! @sex@|!||I mean, broad. Woman... Whatever.| Here's the location, just go beat them a little. But they might not like being jumped by debt collectors... bring a gun, or two. [Type /combatmode tb if you'd like to play this mission in Turn Based]}
+{4010}{}{I'll be back.}
+{5000}{}{Yeah, you! I know you, what's up, essai? }
+{5010}{}{Joe Kelly tells me that you've got a tougher than usual dead beat to take care of?}
+{5020}{}{I took care of that problem for you.}
+{5030}{}{Got any more work?}
+{5040}{}{Not much, see ya.}
+{6000}{}{Good, good. I got more, come back later, si?}
+{7000}{}{That so, essai? Yeah, we gots a problem. I'll show you where they are. It's good that Kelly worries about this stuff, si?}
+{7010}{}{[Get back to work]}
+

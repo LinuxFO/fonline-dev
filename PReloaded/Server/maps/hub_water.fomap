@@ -14455,7 +14455,7 @@ ProtoId              157
 MapX                 134
 MapY                 106
 ScriptName           workbench
-FuncName             critter_init
+FuncName             item_init
 
 MapObjType           1
 ProtoId              157

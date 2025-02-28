@@ -1,0 +1,121 @@
+[comment]
+job = selling buffout 120 caps 200 xp
+
+[data]
+lang=engl russ
+
+[dialog]
+&
+1 1000 None 0 #
+8 1010 D _var p name_mem_npc_player = 1 D _param p ST_INTELLECT > 3 #
+7 1020 D _var p name_mem_npc_player = 0 D _param p ST_INTELLECT > 3 #
+3 1030 D _param p ST_INTELLECT < 3 D _var p name_mem_npc_player = 0 #
+2 1040 D _var p name_mem_npc_player = 1 D _param p ST_INTELLECT < 3 #
+4 1050 @
+3 2000 None 0 #
+5 2010 #
+0 2020 @
+5 3000 None 0 #
+0 3010 R _var p name_mem_npc_player = 1 @
+2 4000 None 0 #
+6 4010 D _item p PID_BUFFOUT > 0 R _item p PID_BUFFOUT - 1 R _script dialog@r_AddExperience 1 140 R _script dialog@r_AddMoney 1 80 #
+0 4020 @
+4 5000 None 0 @
+6 6000 None 0 #
+8 6010 D _item p PID_BUFFOUT > 0 #
+0 6020 @
+7 7000 None 0 #
+0 7010 R _var p name_mem_npc_player = 1 #
+0 7020 @
+8 8000 None 0 #
+6 8010 D _item p PID_BUFFOUT > 0 R _item p PID_BUFFOUT - 1 R _script dialog@r_AddExperience 1 140 R _script dialog@r_AddMoney 1 80 #
+10 8020 D _var p hub_gangers3 = 0 D _var p hub_gangers = 2 D _item p PID_LEATHER_JACKET > 0 R _item p PID_LEATHER_JACKET - 1 #
+0 8030 @
+10 9000 None 0 #
+0 9010 R _var p hub_gangers3 = 1 &
+
+[engl]
+{100}{}{Street Punk}
+{200}{}{You see a street punk.}
+{210}{}{He's growling while trying to bend a stop sign with his bare hands. His back is covered in ache. He's clearly suffering from buffout rage.}
+{1000}{}{Predialogue installations}
+{1010}{}{known}
+{1020}{}{notknown}
+{1030}{}{dumb}
+{1040}{}{dumb known}
+{1050}{}{complete}
+{2000}{}{[He finally gives up upon seeing you] Dude! Man! This fucking stop sign ain't moving! And it's in my fucking way! I think I need a couple more Buffout. }
+{2010}{}{It don't move, it say STOP [Your character points to the big letters on the sign]}
+{2020}{}{Me think you should bend more with your back, bye.}
+{3000}{}{[The street punk suddenly notices your handicap] Me need Buffout to make it say GO! [He points to the sign] }
+{3010}{}{Me not stoopid, sign won't change. Big man turn off lights long ago. But me probably bring you funny green pills anyway. }
+{4000}{}{[All the energy left in this man has been exhausted, but you wonder how long that will last] Man! Dude! You got got some power pills? Buffout, bro! That shit moves mountains.}
+{4010}{}{Me have magic green monster pills, give me money. }
+{4020}{}{Nah! Bye!}
+{5000}{}{I'm broke dude, sorry.}
+{6000}{}{[They quickly stuff it into a bag and go back to trying to bend the stop sign] Good shit man! I'll be here if you got more.}
+{6010}{}{I've got more.}
+{6020}{}{Yeah, alright. }
+{7000}{}{[He finally gives up upon seeing you] Dude! Man! This fucking stop sign ain't moving! And it's in my fucking way! I think I need a couple more Buffout. }
+{7010}{}{Sure, I'll think about it.}
+{7020}{}{No way! Drugs are bad!}
+{8000}{}{[All the energy left in this man has been exhausted, but you wonder how long that will last] Man! Dude! You got got some power pills? Buffout, bro! That shit moves mountains.}
+{8010}{}{Let's deal.}
+{8020}{}{[Recruit him]}
+{8030}{}{Buffout's for losers, I'm outta here.}
+{9000}{}{[The street punk doesn't even have to think about it, he's in. You should be able to find three others like him]}
+{9010}{}{[Tell him everything he needs to know and leave]}
+{100000001}{}{Better wash the counter again...}
+{100000002}{}{That's 5 caps buddy. Hey did you hear me? Cough em' up.}
+{100000003}{}{Better change the keg...}
+{100000004}{}{RotGut? You drink that shit?}
+{100000005}{}{Domestic? I got B.E.E.R buddy, do you want one or not?}
+{100000006}{}{Fuckin' dust is getting everywhere. Hey close the fuckin' door!}
+{100000007}{}{I swear if the next asshole doesn't tip. Ima' shoot somebody!}
+{100000008}{}{I got bottles, I got shots, and I got a bat behind the counter for the retards. Your not a retard are you?}
+{100000009}{}{Uh-huh, yeah that's nice buddy. You don't say...What? Of course I'm listening...}
+{100000010}{}{That's 5 caps. FIVE CAPS Tribal! F.I.V.E! }
+{100000011}{}{Shut up and order a fuckin' beer already!}
+{100000012}{}{I swear if I have to serve another drunk, I'm getting the shotgun!}
+{100000013}{}{Look the keg went dry, and it's going to be another month until the caravan shows up again.}
+{100000014}{}{Really? You don't say, buy another drink or get out!}
+{100000015}{}{What? I'm on break.}
+{100000016}{}{Be right with ya'}
+{100000017}{}{Have a sit stranger. I'll be with you in a moment.}
+{100000018}{}{When do we close? Uh, when the place get's shot up, that's when!}
+{100000019}{}{We're fresh outta' cold beer, sorry. You'll just have to drink it warm.}
+{100000020}{}{RotGut? No man, go make that shit yourself! I wouldn't drink it!}
+
+[russ]
+{100}{}{Алкоголик}
+{200}{}{Вы видите пьяницу.}
+{210}{}{Вы видите шатающегося из стороны в сторону пьяного человека в лохмотьях. Лицо его распухло, нос синющий как слива. А аромат рядом с ним такой, что свалит брамина насмерть. Он что-то бормочет про себя и иногда громко поет песни.}
+{210}{}{Вы видите алкаша. Он весьма грязен - кажется, он повалялся в луже, но не особо этим расстроен.}
+{1000}{}{I?aaaeaeiaiaua onoaiiaee}
+{1010}{}{Answer text}
+{1020}{}{notknown}
+{1030}{}{dumb}
+{1040}{}{no book}
+{1050}{}{complete}
+{2000}{}{Welcome to... Junktown...Stranger? Are you okay? You look pretty bad... We've got a doctor that can help you.}
+{2010}{}{Me think that is okay, enjoy the boobies.}
+{2020}{}{Mine! My boobies!}
+{3000}{}{[The guard suddenly notices your handicap] Ugh...Me need three Stimpaks. Please bring to me fast fast! Me give you shiny tools in exchange! Go now, run little forest, run.}
+{3010}{}{Okay, but you no have to speak so funny! Me be back!}
+{4000}{}{Hey pal! Did you get those Stimpaks? I'll trade you for a set of Tools!}
+{4010}{}{Me have pointy things! Catch!}
+{4020}{}{Nah! Bye!}
+{5000}{}{Thanks again stranger! }
+{6000}{}{Thanks stranger! You take care now.}
+{6010}{}{I've got more.}
+{6020}{}{Okay bye!}
+{7000}{}{[You're standing before a typical caravan guard. This one looks disciplined, experienced, and mean. They try to quickly grab your attention as you approach] Say pal! Do me a favour will you? If you're running into town could you pick me up a trio of Stimpaks? I'll give you my old Tools in return. }
+{7010}{}{I'll think about it. }
+{7020}{}{No. Too busy. Bye.}
+{8000}{}{[The guard wipes the sweat from it's brow] Ugh... I need stims before I head out. Got any news for me?}
+{8010}{}{I've got those stims you wanted, here ya go.}
+{8020}{}{[Recruit him]}
+{8030}{}{Nothing yet, sorry.}
+{9000}{}{[The street punk doesn't even have to think about it, he's in. You should be able to find three others like him]}
+{9010}{}{[Tell him everything he needs to know and leave]}
+

@@ -15,6 +15,8 @@
 #define LOCATION_Tent2City1                              (73) // 
 #define LOCATION_Tent2Desert1                            (74) // 
 #define LOCATION_OceanEncounter1                         (81) // The wide, dirty ocean.
+#define LOCATION_Q_FirstTent                             (84) // This is the tent that my PipBoy warned me about! I'd better check it out right now! It's obviously the best place to start my journey...
+#define LOCATION_Q_FirstTent2                            (86) // A small, rat-ridden farm.
 #define LOCATION_DesertEncounter1                        (101) // 
 #define LOCATION_DesertEncounter2                        (102) // 
 #define LOCATION_DesertEncounter3                        (103) // 
@@ -75,6 +77,13 @@
 #define LOCATION_TentMountain1                           (212) // A small tent between mountains.
 #define LOCATION_TentCoast1                              (213) // A small tent at the coast.
 #define LOCATION_TentCity1                               (214) // A small tent in the city.
+#define MAP_HubDowntown                                  (221) // hub, Hub(25)
+#define MAP_HubOldtown                                   (222) // hub_oldtown, map_hub@map_init, Hub(25)
+#define MAP_HubHeights                                   (223) // hub_heights, map_hub@map_init, Hub(25)
+#define MAP_HubWatermerchants                            (224) // hub_water, map_hub@map_init, Hub(25)
+#define MAP_HubUnderground                               (225) // hub_downtown_decker, map_hub@map_init, Hub(25)
+#define MAP_HubUnderground226                            (226) // hub_oldtown_thief, map_hub@map_init, Hub(25)
+#define MAP_HubArena                                     (227) // hub_arena,
 #define LOCATION_DesertEncounter7                        (300) // 
 #define LOCATION_DesertEncounter8                        (301) // 
 #define LOCATION_DesertEncounter9                        (302) // 

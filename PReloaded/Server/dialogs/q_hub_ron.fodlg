@@ -1,0 +1,46 @@
+[comment]
+
+
+[data]
+lang=engl
+
+[dialog]
+&
+1 1000 None 0 #
+2 1010 D _var p q_hub_ron = 0 #
+4 1020 D _var p q_hub_ron = 1 #
+8 1030 @
+2 2000 None 0 #
+0 2010 #
+3 2020 @
+3 3000 None 0 #
+0 3010 R _var p q_hub_ron = 1 #
+0 3020 @
+4 4000 None 0 #
+5 4010 D _item p PID_BIG_BOOK_OF_SCIENCE } 1 D _item p PID_DEANS_ELECTRONICS } 1 D _item p PID_SCOUT_HANDBOOK } 1 D _item p PID_BARTER_BOOK } 1 R _var p q_hub_ron = 2 R _item p PID_TENT + 1 R _item p PID_SHOTGUN_SHELLS_FLECHETTE + 100 R _script dialog@r_AddExperience 1 5000 R _item p PID_BIG_BOOK_OF_SCIENCE - 1 R _item p PID_DEANS_ELECTRONICS - 1 R _item p PID_SCOUT_HANDBOOK - 1 R _item p PID_BARTER_BOOK - 1 #
+0 4020 @
+5 5000 None 0 #
+0 5010 @
+8 6000 None 0 &
+
+[engl]
+{100}{}{Ron Carnegie}
+{200}{}{You see Ron Carnegie.}
+{210}{}{This guy is looking at you in some weird way.}
+{1000}{}{Predialogue installations}
+{1010}{}{Quest available.}
+{1020}{}{Quest taken.}
+{1030}{}{Quest done.}
+{2000}{}{Salut! [smiles] I`m Carnegie, Ron Carnegie, Carnagie`s nephew but you can call me Ron. You don't look like a smart ass, do you? I bet you have heard about my Uncle, he's a man in charge - you know what I mean... Anyway I'm collecting books for him. He's looking for some special ones but I'm lazy son of a bitch and can't read so I would ask for your help. Are you in?}
+{2010}{}{No dude, I don't think so. [Leave]}
+{2020}{}{What you need?}
+{3000}{}{I need you to bring me four books. I can't even read their titles, it is something about science, how to repair stuff, a yellow one and some shit about trading. I`ll share my stuff if you handle it.}
+{3010}{}{All right I'll do it with pleasure.}
+{3020}{}{Get those damn books by yourself! [Leave]}
+{4000}{}{So, you got books I asked you for?}
+{4010}{}{Here are your books.}
+{4020}{}{Nope, still working on that.}
+{5000}{}{Thank you. Here, take this as a reward.}
+{5010}{}{Thanks!}
+{6000}{}{Sun is shinning, birds are singing. Beautiful day to do... nothing,}
+

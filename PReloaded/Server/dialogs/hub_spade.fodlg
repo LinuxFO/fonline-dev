@@ -1,0 +1,253 @@
+[comment]
+spade hope quest
+
+[data]
+lang=engl russ
+
+[dialog]
+&
+1 1000 None 0 #
+2 1010 D _var p hub_hopeq = 0 #
+2 1020 D _var p hub_hopeq = 1 #
+2 1030 D _var p hub_hopeq = 2 #
+3 1040 D _var p hub_hopeq = 3 #
+33 1050 D _var p hub_hopeq = 4 #
+33 1060 D _var p hub_hopeq = 5 #
+33 1070 D _var p hub_hopeq = 6 #
+33 1080 D _var p hub_hopeq = 7 @
+2 2000 None 0 @
+3 3000 None 0 #
+4 3010 @
+4 4000 None 0 #
+5 4010 @
+5 5000 None 0 #
+6 5010 @
+6 6000 None 0 #
+7 6010 @
+7 7000 None 0 #
+8 7010 @
+8 8000 None 0 #
+9 8010 @
+9 9000 None 0 #
+10 9010 @
+10 10000 None 0 #
+11 10010 @
+11 11000 None 0 #
+12 11010 @
+12 12000 None 0 #
+13 12010 @
+13 13000 None 0 #
+14 13010 @
+14 14000 None 0 #
+15 14010 @
+15 15000 None 0 #
+16 15010 @
+16 16000 None 0 #
+17 16010 @
+17 17000 None 0 #
+18 17010 @
+18 18000 None 0 #
+19 18010 @
+19 19000 None 0 #
+20 19010 @
+20 20000 None 0 #
+21 20010 R _script dialog@r_PlaySoundGun 1 2 @
+21 21000 None 0 #
+22 21010 @
+22 22000 None 0 #
+23 22010 @
+23 23000 None 0 #
+24 23010 @
+24 24000 None 0 #
+25 24010 @
+25 25000 None 0 #
+26 25010 @
+26 26000 None 0 #
+27 26010 @
+27 27000 None 0 #
+28 27010 @
+28 28000 None 0 #
+29 28010 @
+29 29000 None 0 #
+30 29010 @
+30 30000 None 0 #
+31 30010 @
+31 31000 None 0 #
+32 31010 @
+32 32000 None 0 #
+0 32010 R _var p hub_hopeq = 4 @
+33 33000 None 0 &
+
+[engl]
+{100}{}{Detective Spade}
+{200}{}{You see a detective.}
+{210}{}{He looks like one of the Hub's numerous detectives. His badge says, "Lt. S. Spade". }
+{1000}{}{Predialogue installations}
+{1010}{}{not known}
+{1020}{}{not 1}
+{1030}{}{not 2}
+{1040}{}{rdy}
+{1050}{}{almost final}
+{1060}{}{final1}
+{1070}{}{final2}
+{1080}{}{final3}
+{2000}{}{Beat it, kid.@@I'm not interested. Go file a report.@@The fuck? You a cop? No? Get out.@@Who left the door open?@@Does this look like the Sheriff's office? Beat it.@@This is the detective's office, get out.@@Hey, Cwan. You let this guy in here?@@Another witness, Cwan?@@Look, if you aren't here to report a crime, get out.@@Bunker's been playing "RR" again... Better get my cut.@@ }
+{3000}{}{[Spade looks pissed] The fuck was that all about? What're you doing in here anyways? You poking your fucking nose where it don't belong, @sex@|boy||bird|?}
+{3010}{}{Are you?}
+{4000}{}{[He looks insulted] The fuck's that supposed to mean? If you got something on me why don't you come right out and say it? If not, then get the fuck out of my face before I shoot it off! Fucking @sex@|prick||bitch|!}
+{4010}{}{My name is @pname@, I'm investigating the murder of Hope's husband, Hoyt...}
+{5000}{}{[He frowns] What're you, a fucking spook? Where's your badge?}
+{5010}{}{I'm not a cop. Miss Hope simply hired me to clear her name. I just took a job, and I'm getting it done. I really don't believe that Miss Hope killed her own husband. }
+{6000}{}{[He laughs] Hah! What the fuck do you even know? Why don't you leave the goddamn police work to the fucking professionals, huh? Hope is a fucking whore! She bangs every guy, girl, or brahmin that walks into the Maltese Falcon. Is that what this is all about? You trying to *fuck* Hope?}
+{6010}{}{Listen here, you foul-mouthed son of a bitch! It's not about her body! It's about doing what's right! I'm simply trying to prevent a poor, widowed lounge singer from getting hung to death for a crime she didn't commit.  }
+{7000}{}{[He gives you a hefty push, and says] Hope's a fucking whore! Her husband was a piece of shit! That's why she killed him! She just wanted to take the insurance money and run off. There's nothing complicated about any of this, bitch is going to hang. }
+{7010}{}{The only thing making this investigation complicated, is you. I've spoken to the Sheriff, and your partner Detective Cwan, we all suspect that it's not the wife. Why are you so hell bent on killing Hope?}
+{8000}{}{[He's slowly reaching towards his weapon] You're the @sex@|guy||gal| from the bar aren't you?}
+{8010}{}{Please! What are you going to do? Shoot me? After I've been running around your office investigating a murder you're so eager to throw away? Why don't you think for a minute, and start telling me some truth.}
+{9000}{}{[He lights up a smoke, and says] What do you want to know?}
+{9010}{}{Why were you at the bar, arguing with Hope?}
+{10000}{}{[He frowns] None of your business, that was between me and the girl.}
+{10010}{}{So you admit then? That you were at the bar, arguing with Hope? That was in fact, you?}
+{11000}{}{[Spade doesn't quite know what to do] Yeah, so? }
+{11010}{}{Why were you about to shoot her right as I walked in? }
+{12000}{}{[Spade looks shifty] Go fuck yourself, kid. }
+{12010}{}{You know, Detective Spade... I'm starting to think that maybe you killed Detective Hoyt...}
+{13000}{}{[He grabs you by the throat and says] What makes you so sure that I won't kill you then? [Detective Cwan appears and restrains Detective Spade] What the hell are you doing, Spade? Leave the kid alone! }
+{13010}{}{*choke*}
+{14000}{}{[Detective Cwan kicks out Spade's right knee, forcing him to fall to the ground and let you go] You dirty fuck, Spade! What's gotten into you? Ever since Hoyt died you've been acting out! Did you fucking kill my partner? You son of a bitch! }
+{14010}{}{*gasp*}
+{15000}{}{[Detective Spade pulls out his service revolver and points it towards Detective Cwan. Detective Cwan does the same] }
+{15010}{}{[Start crawling towards Cwan's desk to retrieve the .44 Magnum]}
+{16000}{}{[Detective Spade] I didn't kill him! [Detective Cwan] I don't care, put down the gun, or you're going straight to hell! }
+{16010}{}{[Open the desk drawer]}
+{17000}{}{[Detective Spade] Don't do this man! She ain't worth it! She's just a broad! What?! Do you love her too?! [Detective Cwan] Ain't nobody here in love right now, put down the fucking gun! Or I will put you down!}
+{17010}{}{[Take the .44 Magnum]}
+{18000}{}{[Detective Spade] I'm telling you! I didn't kill Hoyt! I just wanted the dame! That's all! Was going to take her to Reno myself, I swear! I... I didn't do nothing! [Detective Cwan] I don't care! I don't care about this shit! I don't give a flying fuck who you love, or who's sucking your goddamn dick! Put down the fucking gun! Now!}
+{18010}{}{[Lift up the Magnum, and get ready to aim]}
+{19000}{}{[The sounds of rain drown out the conversation. You've never heard it rain this hard before. Lighting strikes the street outside as you steady your aim] }
+{19010}{}{[Focus! Focus!]}
+{20000}{}{[Detective Spade] No! I can't do it! I can't do this shit anymore! I can't be without you, Hope! I need you! I need you so bad! She killed her husband just so she can be with me! She fucking loves me, man! She fucking loves me! [He shoots Cwan in the chest before he could return fire] Arrggh! [Cwan shouts as he hits the floor. Detective Spade then turns his attention to you]}
+{20010}{}{Fall deep into the darkness, Spade [Shoot him] }
+{21000}{}{[Hoyt's sidearm rips through Spade's chest, stricking him in the badge. He stumbles to the floor and begins to gasp for air. He looks up to you and says] A... A man does... Funny things... When... He's in... Love... }
+{21010}{}{I want you to do something, Spade. I want you to get yourself off that floor, and get over to that window and scream as loud as you can. Otherwise you only have another three minutes to live.}
+{22000}{}{[He cries] Hope! Oh god... Why?! Why won't you love me? Why... Why... why...}
+{22010}{}{I'm still on the clock here, Spade, job ain't done. Who killed Hoyt? Was it you? Tell me! Now! [Grab him by the collar]}
+{23000}{}{[With tears in his eyes he tells you no] No! No! I didn't kill him, I didn't kill Hoyt... We... We were kind of friends... I guess... Fuck man! I didn't kill him! It was her! It was all her! She did it because she loves me! But she doesn't love me does she?! Oh God! I'm a fucking mess! These fucking dames, man! These fucking dames!}
+{23010}{}{Things are tough all over! I've still got the gun remember?! Stop crying and think for a fucking second! Who the hell killed Hoyt? It sure as hell wasn't Hope!}
+{24000}{}{[Spade really has no idea] Just look at what Hope did to me! If her body can break my will, how many more men, or women out there are dying to get a piece of her? Maybe some sick, jealous fuck just killed Hoyt to make room for himself?}
+{24010}{}{What are you saying then? We've been arguing and killing each other over a goddamn dame? And it's all for nothing?!}
+{25000}{}{[He looked at me as if his will was broken. And for a moment I wasn't looking at a man, but a grown child] I didn't kill Hoyt! I'm messed up, I know! But I really thought she killed him to be with me! I was at the Falcon with five thousand caps so we could run off to Reno together! And she told me off! I was going to kill that bitch! Why the hell did she lead me on so much?! What the fuck was she thinking?! What... What the hell was I thinking?... God...}
+{25010}{}{I need to find the real killer... It's not Spade, it's not Cwan, it's not the Sheriff, and it sure as hell isn't Hope. }
+{26000}{}{[Spade is a pathetic excuse for a man] What about me... What am I going to do now? [Detective Cwan stands up from the corner and walks over to you, clutching his chest] Well, Spade... You shot me. It hurt. But I'm not dead. And I know how these dames are, it's hard on a man, but... You shot me. It hurt. }
+{26010}{}{Love... Is hardly an excuse for attempted murder. }
+{27000}{}{[Detective Cwan frowns] Yeah... But he didn't kill Hoyt... I'm not losing any more partners... Spade, ya only shot me in the vest, same place I would 'ave shot you... And the same place @pname@ shot you as well... On one side of this room, I see a hero, on another, I see a broken man, torn by love. And in the last corner, I see a light, that shines deep into the darkness. Only a fool never forgives, and I believe that we still have a killer to catch. }
+{27010}{}{But Spade...}
+{28000}{}{[The Sheriff barges in, assault rifle in hand and a half dozen men behind him] What the silly fuck! What the hell are you people up to?! Have you been shooting back here?! In the goddamn police station! How many times do I have to tell you pricks, NO SHOOTING IN THE POLICE STATION!}
+{28010}{}{It's uh... @sex@|guy stuff...Sir.||girl stuff...Sir.|}
+{29000}{}{[The Sheriff calms down, but not before saying] Well grow the fuck up! We've got a killer to catch! Or did you two forget already? [The Sheriff leaves. Detective Cwan begins to speak] He's right, we need to quit this shit and get back to finding the real killer. Can we all agree now that it isn't Hope? }
+{29010}{}{I hate to say it, but we really don't have any other leads. Maybe you guys were right? }
+{30000}{}{[Spade whimpers] No... No, we were wrong... It's not Hope, she... Fucking loved Hoyt... It wouldn't make any sense... There's only one place we haven't searched...}
+{30010}{}{The Heights? Where we found the body?}
+{31000}{}{[Detective Cwan speaks up] No. We need to go to the Bunker Bar, under the Maltese Falcon. Look, Hoyt's hand canon fired four rounds into something, or someone. Maybe three... Most likely three. We need to figure out what the fuck he was shooting at...}
+{31010}{}{That's the only thing left really... Maybe you're right, Detective. Listen, I think I should check it out. Nobody knows me, I'll be a ghost.}
+{32000}{}{[Detective Cwan and Detective Spade both agree. Detective Cwan hands you a badge] Here, you might need this, besides... It looks great with the fedora. Don't flash it around too much, just use it if you need... Might get your ass out of trouble, who knows. Consider Hope off the hook, unless you find something new on her. In the mean time, let's worry about her not being the killer, and check out the Bunker Bar. Don't, uh, mention any of this... Uh, you know... Shooting... Please. Just boys being boys... With guns... And... Fedoras...}
+{32010}{}{Time to finish this, bring the killer back to hell, and some goddamn justice back to the fucking wastes. }
+{33000}{}{Hey pal, you're something, you know that?}
+{100000001}{}{Better wash the counter again...}
+{100000002}{}{That's 5 caps buddy. Hey did you hear me? Cough em' up.}
+{100000003}{}{Better change the keg...}
+{100000004}{}{RotGut? You drink that shit?}
+{100000005}{}{Domestic? I got B.E.E.R buddy, do you want one or not?}
+{100000006}{}{Fuckin' dust is getting everywhere. Hey close the fuckin' door!}
+{100000007}{}{I swear if the next asshole doesn't tip. Ima' shoot somebody!}
+{100000008}{}{I got bottles, I got shots, and I got a bat behind the counter for the retards. Your not a retard are you?}
+{100000009}{}{Uh-huh, yeah that's nice buddy. You don't say...What? Of course I'm listening...}
+{100000010}{}{That's 5 caps. FIVE CAPS Tribal! F.I.V.E! }
+{100000011}{}{Shut up and order a fuckin' beer already!}
+{100000012}{}{I swear if I have to serve another drunk, I'm getting the shotgun!}
+{100000013}{}{Look the keg went dry, and it's going to be another month until the caravan shows up again.}
+{100000014}{}{Really? You don't say, buy another drink or get out!}
+{100000015}{}{What? I'm on break.}
+{100000016}{}{Be right with ya'}
+{100000017}{}{Have a sit stranger. I'll be with you in a moment.}
+{100000018}{}{When do we close? Uh, when the place get's shot up, that's when!}
+{100000019}{}{We're fresh outta' cold beer, sorry. You'll just have to drink it warm.}
+{100000020}{}{RotGut? No man, go make that shit yourself! I wouldn't drink it!}
+
+[russ]
+{100}{}{Алкоголик}
+{200}{}{Вы видите пьяницу.}
+{210}{}{Вы видите шатающегося из стороны в сторону пьяного человека в лохмотьях. Лицо его распухло, нос синющий как слива. А аромат рядом с ним такой, что свалит брамина насмерть. Он что-то бормочет про себя и иногда громко поет песни.}
+{210}{}{Вы видите алкаша. Он весьма грязен - кажется, он повалялся в луже, но не особо этим расстроен.}
+{1000}{}{I?aaaeaeiaiaua onoaiiaee}
+{1010}{}{not known}
+{1020}{}{not 1}
+{1030}{}{not 2}
+{1040}{}{rdy}
+{1050}{}{almost final}
+{1060}{}{final1}
+{1070}{}{final2}
+{1080}{}{final3}
+{2000}{}{Thank you! Thank you! }
+{3000}{}{[Spade looks pissed] The fuck was that all about? What're you doing in here anyways? You poking your fucking nose where it don't belong, @sex@|boy||bird|?}
+{3010}{}{Are you?}
+{4000}{}{[He looks insulted] The fuck's that supposed to mean? If you got something on me why don't you come right out and say it? If not, then get the fuck out of my face before I shoot it off! Fucking @sex@|prick||bitch|!}
+{4010}{}{My name is @pname@, I'm investigating the murder of Hope's husband, Hoyt...}
+{5000}{}{[He frowns] What're you, a fucking spook? Where's your badge?}
+{5010}{}{I'm not a cop. Miss Hope simply hired me to clear her name. I just took a job, and I'm getting it done. I really don't believe that Miss Hope killed her own husband. }
+{6000}{}{[He laughs] Hah! What the fuck do you even know? Why don't you leave the goddamn police work to the fucking professionals, huh? Hope is a fucking whore! She bangs every guy, girl, or brahmin that walks into the Maltese Falcon. Is that what this is all about? You trying to *fuck* Hope?}
+{6010}{}{Listen here, you foul-mouthed son of a bitch! It's not about her body! It's about doing what's right! I'm simply trying to prevent a poor, widowed lounge singer from getting hung to death for a crime she didn't commit.  }
+{7000}{}{[He gives you a hefty push, and says] Hope's a fucking whore! Her husband was a piece of shit! That's why she killed him! She just wanted to take the insurance money and run off. There's nothing complicated about any of this, bitch is going to hang. }
+{7010}{}{The only thing making this investigation complicated, is you. I've spoken to the Sheriff, and your partner Detective Cwan, we all suspect that it's not the wife. Why are you so hell bent on killing Hope?}
+{8000}{}{[He's slowly reaching towards his weapon] You're the guy from the bar aren't you?}
+{8010}{}{Please! What are you going to do? Shoot me? After I've been running around your office investigating a murder you're so eager to solve? Why don't you think for a minute, and start telling me some truth.}
+{9000}{}{[He lights up a smoke, and says] What do you want to know?}
+{9010}{}{Why are you at the bar, arguing with Hope?}
+{10000}{}{[He frowns] None of your business, that was between me and the girl.}
+{10010}{}{So you admit then? That you were at the bar, arguing with Hope? That was in fact, you?}
+{11000}{}{[Spade doesn't quite know what to do] Yeah, so? }
+{11010}{}{Why were you about to shoot her right as I walked in? }
+{12000}{}{[Spade looks shifty] Go fuck yourself, kid. }
+{12010}{}{You know, Detective Spade... I'm starting to think that maybe you killed Detective Hoyt...}
+{13000}{}{[He grabs you by the throat and says] What makes you so sure that I won't kill you then? [Detective Cwan appears and restrains Detective Spade] What the hell are you doing, Spade? Leave the kid alone! }
+{13010}{}{*choke*}
+{14000}{}{[Detective Cwan kicks out Spade's right knee, forcing him to fall to the ground and let you go] You dirty fuck, Spade! What's gotten into you? Ever since Hoyt died you've been acting out! Did you fucking kill my partner? You son of a bitch! }
+{14010}{}{*gasp*}
+{15000}{}{[Detective Spade pulls out his service revolver and points it towards Detective Cwan. Cwan does the same] }
+{15010}{}{[Start crawling towards Cwan's desk to retrieve the .44 Magnum]}
+{16000}{}{[Detective Spade] I didn't kill him! [Detective Cwan] I don't care, put down the gun, or you're going straight to hell! }
+{16010}{}{[Open the desk drawer]}
+{17000}{}{[Detective Spade] Don't do this man! She ain't worth it! She's just a broad! What?! Do you love her too?! [Detective Cwan] Ain't nobody here in love right now, put down the fucking gun! Or I will put you down!}
+{17010}{}{[Take the .44 Magnum]}
+{18000}{}{[Detective Spade] I'm telling you! I didn't kill Hoyt! I just wanted the dame! That's all! Was going to take her to Reno myself, I swear! I... I didn't do nothing! [Detective Cwan] I don't care! I don't care about this shit! I don't give a flying fuck who you love, or who's sucking your goddamn dick! Put down the fucking gun! Now!}
+{18010}{}{[Lift up the Magnum, and get ready to aim]}
+{19000}{}{[The sounds of rain drown out the conversation. You've never heard it rain this hard before. Lighting strikes the street outside as you steady your aim] }
+{19010}{}{[Focus! Focus!]}
+{20000}{}{[Detective Spade] No! I can't do it! I can't do this shit anymore! I can't be without you, Hope! I need you! I need you so bad! She killed her husband just so she can be with me! She fucking loves me, man! She fucking loves me! [He shoots Cwan in the chest before he could return fire] Arrggh! }
+{20010}{}{Fall deep into the darkness, Spade [Shoot him] }
+{21000}{}{[Hoyt's sidearm rips through Spade's chest, stricking him in the badge. He stumbles to floor and begins to gasp for air. He looks up to you and says] A... A man does... Funny things... When... He's in... Love... }
+{21010}{}{I want you to do something, Spade. I want you to get yourself off that floor, and get over to that window and scream as loud as you can. Otherwise you only have another three minutes to live.}
+{22000}{}{[He cries] Hope! Oh god... Why?! Why won't you love me? Why... Why... why...}
+{22010}{}{I'm still on the clock here, Spade, job ain't done. Who killed Hoyt? Was it you? Tell me! Now! [Grab him by the collar]}
+{23000}{}{[With tears in his eyes he tells you no] No! No! I didn't kill him, I didn't kill Hoyt... We... We were kind of friends... I guess... Fuck man! I didn't kill him! It was her! It was all her! She did it because she loves me! But she doesn't love me does she?! Oh God! I'm a fucking mess! These fucking dames, man! These fucking dames!}
+{23010}{}{Things are tough all over! I've still got the gun remember?! Stop crying and think for a fucking second! Who the hell killed Hoyt? It sure as hell wasn't Hope!}
+{24000}{}{[Spade really has no idea] Just look at what Hope did to me! If her body can break my will, how many more men, or women out there are dying to get a piece of her? Maybe some sick, jealous fuck just killed Hoyt to make room for himself?}
+{24010}{}{What are you saying then? We've been arguing and killing each other over a goddamn dame? And it's all for nothing?!}
+{25000}{}{[He looked at me as if his will was broken. And for a moment I wasn't looking at a man, but a grown child] I didn't kill Hoyt! I'm messed up, I know! But I really thought she killed him to be with me! I was at the Falcon with five thousand caps so we could run off to Reno together! And she told me off! I was going to kill that bitch! Why the hell did she lead me on so much?! What the fuck was she thinking?!}
+{25010}{}{I need to find the real killer... It's not Spade, it's not Cwan, it's not the Sheriff, and it sure as hell isn't Hope. }
+{26000}{}{[Spade is a pathetic excuse for a man] What about me... What am I going to do now? }
+{26010}{}{Love... Is hardly an excuse for attempted murder. }
+{27000}{}{[Detective Cwan frowns] Yeah... But he didn't kill Hoyt... I'm not losing any more partners... Spade, ya only shot me in the vest, same place I would 'ave shot you... And the same place @pname@ shot you as well... On one side of this room, I see a hero, on another, I see a broken man, torn by love. And in the last corner, I see a light, that shines deep into the darkness. Only a fool never forgives, and I believe that we still have a killer to catch. }
+{27010}{}{But Spade...}
+{28000}{}{[The Sheriff barges in, assault rifle in hand and a half dozen men behind him] What the silly fuck! What the hell are you people up to?! Have you been shooting back here?! In the goddamn police station! How many times do I have to tell you pricks, NO SHOOTING IN THE POLICE STATION!}
+{28010}{}{It's uh... @sex@|guy stuff...||girl stuff...|}
+{29000}{}{[The Sheriff calms down, but not before saying] Well grow the fuck up! We've got a killer to catch! Or did you two forget already? [The Sheriff leaves. Detective Cwan begins to speak] He's right, we need to quit this shit and get back to finding the real killer. Can we all agree now that it isn't Hope? }
+{29010}{}{I hate to say it, but we really don't have any other leads. Maybe you guys were right? }
+{30000}{}{[Spade whimpers] No... No, we were wrong... It's not Hope, she... Fucking loved Hoyt... It wouldn't make any sense... There's only one place we haven't searched...}
+{30010}{}{The Heights? Where we found the body?}
+{31000}{}{[Detective Cwan speaks up] No. We need to go to the Bunker Bar, under the Maltese Falcon. Look, Hoyt's hand canon fired four rounds into something, or someone. Maybe three... Most likely three. We need to figure out what the fuck he was shooting at...}
+{31010}{}{That's the only thing left really... Maybe you're right, Detective. Listen, I think I should check it out. Nobody knows me, I'll be a ghost.}
+{32000}{}{[Detective Cwan and Detective Spade both agree. Detective Cwan hands you a badge] Here, you might need this, besides... It looks great with the fedora. Don't flash it around too much, just use it if you need... Might get your ass out of trouble, who knows. Consider Hope off the hook, unless you find something new on her. In the mean time, let's worry about her not being the killer, and check out the Bunker Bar. Don't, uh, mention any of this... Uh, you know... Shooting... Please. Just boys being boys... With guns... And... Fedoras...}
+{32010}{}{Time to finish this, bring the killer back to hell, and some goddamn justice back to the fucking wastes. }
+{33000}{}{Hey pal, you're something, you know that?}
+

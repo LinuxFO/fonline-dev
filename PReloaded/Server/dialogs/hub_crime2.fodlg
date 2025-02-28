@@ -1,0 +1,122 @@
+[comment]
+
+
+[data]
+lang=engl
+
+[dialog]
+&
+1 1000 None 0 #
+2 1010 D _var p name_mem_npc_player = 0 #
+21 1020 D _var p name_mem_npc_player = 1 @
+2 2000 None 0 #
+3 2010 #
+4 2020 D _var p noire1 = 6 @
+3 3000 None 0 @
+4 4000 None 0 #
+5 4010 @
+5 5000 None 0 #
+6 5010 R _script dialog@r_PlaySoundGun 1 2 #
+7 5020 R _script dialog@r_PlaySoundGun 1 2 #
+8 5030 #
+9 5040 @
+6 6000 None 0 #
+14 6010 @
+7 7000 None 0 #
+13 7010 @
+8 8000 None 0 #
+9 8010 R _script dialog@r_PlaySoundGun 1 2 #
+9 8020 R _script dialog@r_PlaySoundGun 1 2 #
+10 8030 @
+9 9000 None 0 #
+11 9010 R _script dialog@r_PlaySoundGun 1 2 #
+12 9020 R _script dialog@r_PlaySoundGun 1 2 #
+10 9030 @
+10 10000 None 0 #
+11 10010 R _script dialog@r_PlaySoundGun 1 2 #
+12 10020 R _script dialog@r_PlaySoundGun 1 2 @
+11 11000 None 0 #
+15 11010 @
+12 12000 None 0 #
+13 12010 @
+13 13000 None 0 #
+16 13010 @
+14 14000 None 0 #
+22 14010 @
+15 15000 None 0 #
+17 15010 @
+16 16000 None 0 #
+19 16010 R _script dialog@r_PlaySoundGun 1 2 #
+18 16020 @
+17 17000 None 0 #
+20 17010 @
+18 18000 None 0 #
+0 18010 R _var p noire1 = 7 R _var p name_mem_npc_player = 1 R _script dialog@r_AddExperience 1 3000 R _param p ST_KARMA + 6 R _param p REPUTATION_HUB + 60 R _item p PID_9MM_MAUSER + 1 R _item p PID_JET + 1 R _script dialog@r_AddMoney 1 800 @
+19 19000 None 0 #
+0 19010 R _var p noire1 = 7 R _var p name_mem_npc_player = 1 R _script dialog@r_AddExperience 1 2500 R _param p ST_KARMA + 3 R _param p REPUTATION_HUB + 60 R _item p PID_9MM_MAUSER + 1 R _item p PID_JET + 1 R _script dialog@r_AddMoney 1 800 R _script dialog@r_NinjaKillNpc 1 117 R _script dialog@r_PlaySoundGun 1 2 @
+20 20000 None 0 #
+0 20010 R _var p noire1 = 7 R _var p name_mem_npc_player = 1 R _script dialog@r_AddExperience 1 3500 R _param p ST_KARMA + 6 R _param p REPUTATION_HUB + 60 R _item p PID_9MM_MAUSER + 1 R _item p PID_JET + 1 R _script dialog@r_AddMoney 1 800 R _script dialog@r_NinjaKillNpc 1 117 R _script dialog@r_PlaySoundGun 1 2 @
+22 21000 None 0 #
+0 21010 R _var p noire1 = 7 R _var p name_mem_npc_player = 1 R _script dialog@r_AddExperience 1 2000 R _param p ST_KARMA + 3 R _param p REPUTATION_HUB + 60 R _item p PID_9MM_MAUSER + 1 R _item p PID_JET + 1 R _script dialog@r_AddMoney 1 800 R _script dialog@r_NinjaKillNpc 1 117 R _script dialog@r_PlaySoundGun 1 2 @
+21 22000 None 0 #
+0 22010 &
+
+[engl]
+{100}{}{Scum Bag}
+{200}{}{You see another suspicious looking individual.}
+{210}{}{What a scumbag.}
+{1000}{}{Predialogue installations}
+{1010}{}{Answer text}
+{1020}{}{2}
+{2000}{}{You can't fucking stop me!@@Get back! I'll do it!@@You want to see brains?! Get lost!@@This whore is dead! DEAD!}
+{2010}{}{Hey! What are you doing?!}
+{2020}{}{Hub Police! Put down the gun! Let the girl go, and get on the fucking ground!}
+{3000}{}{I'll cut her fucking throat! Step back!}
+{4000}{}{Fuck you, pig! Take another step and I'll blow this girl's brains out!}
+{4010}{}{[Assess the situation]}
+{5000}{}{[Before you is a desperate man. He is armed with a 9mm Mauser, and is holding a scared, young girl in his arms. His weapon is pointed towards her head]}
+{5010}{}{[Shoot the suspect in the head]}
+{5020}{}{[Shoot the suspect's weapon]}
+{5030}{}{[Shout at the man to drop his weapon]}
+{5040}{}{[Attempt to calm the man down]}
+{6000}{}{[You shoot the suspect in the head! But as your bullet penetrates his brain, his own weapon discharges! The young, innocent women in his arms is killed by the round]}
+{6010}{}{Damnit! I almost saved her! Fuck...}
+{7000}{}{[You shoot the suspect in the hand! But as your bullet rips into his flesh, his own weapon discharges! The young, innocent women in his arms is killed by the round]}
+{7010}{}{Damnit! I almost saved her! Fuck...}
+{8000}{}{[You shout at the man, asking him to drop his weapon. But he does not comply. His weapon is now pointing towards you!]}
+{8010}{}{[Shoot the suspect in the head]}
+{8020}{}{[Shoot the suspect's weapon]}
+{8030}{}{[Attempt to negotiate]}
+{9000}{}{[You attempt to calm the man down, but he ignores you, and begins to aim his weapon towards your head!]}
+{9010}{}{[Shoot the suspect in the head]}
+{9020}{}{[Shoot the suspect's weapon]}
+{9030}{}{[Attempt to negotiate]}
+{10000}{}{[The man fires his weapon towards you! But he misses!]}
+{10010}{}{[Shoot the suspect in the head]}
+{10020}{}{[Shoot the suspect's weapon]}
+{11000}{}{[You shoot the suspect in the head, and he falls back! But his weapon discharges! Fortunately, the round fired hits nothing]}
+{11010}{}{Stand clear, lady! }
+{12000}{}{[You shoot the suspect in the hand, but as the bullet penetrates his flesh, his weapon discharges. Unfortunately, the young woman was pulled back with the man, and his weapon kills her]}
+{12010}{}{Damnit! I almost saved her! Fuck...}
+{13000}{}{[The young woman has died. But the suspect is still alive! What should you do with him?]}
+{13010}{}{[Kick his gun away] Let me read you your rights...}
+{14000}{}{[Both the young woman, and the suspect have died]}
+{14010}{}{Horrible mess...}
+{15000}{}{[The suspect lies dead on the ground. But the young woman is alive and well]}
+{15010}{}{Are you okay? What's your name? Can you tell me what this was all about?}
+{16000}{}{[The suspect is cowering in fear]}
+{16010}{}{You have the right to die. [Shoot him in the head]}
+{16020}{}{[Let the Hub Police hang him]}
+{17000}{}{[You try your best to comfort the victim, and learn as much as possible about the situation. When you're finished, you tell her to walk over to the Police Station and tell the Sheriff what happened]}
+{17010}{}{Well... that went well. Could have gone a lot worse, I reckon. }
+{18000}{}{[You lead the scum bag to the nearest Police Officer and tell him the situation. After showing them your badge, you turn the suspect in with the guard, and go about your business]}
+{18010}{}{[Walk off into the night]}
+{19000}{}{[You splatter the suspect's brains all over the streets of the Hub, and walk away]}
+{19010}{}{[Walk off into the night]}
+{20000}{}{[Looks like another crime solved. Good work, Detective]}
+{20010}{}{[Walk off into the night]}
+{21000}{}{[You feel like a failure, but none the less, the crime has been solved]}
+{21010}{}{[Walk off into the night]}
+{22000}{}{[This is just the shadow of an old memory. A silhouette of days gone by]}
+{22010}{}{[Walk off into the night]}
+

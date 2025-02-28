@@ -1,0 +1,58 @@
+[comment]
+
+
+[data]
+lang=engl
+
+[dialog]
+&
+1 1000 None 0 #
+2 1010 @
+2 2000 None 0 #
+3 2010 D _var p noire1 = 9 #
+11 2020 D _var p noire1 = 13 R _var p noire1 = 14 R _script quest_noire3@r_DeleteLoc 0  R _script dialog@r_NinjaKillNpc 1 117 R _script dialog@r_AddExperience 1 700 R _param p ST_KARMA + 12 R _param p REPUTATION_HUB + 120 R _param p REPUTATION_NCR_RANGERS + 120 R _param p REPUTATION_NCR + 120 R _var p CRIM - 1 R _script dialog@r_PlaySoundGun 1 2 @
+3 3000 None 0 #
+4 3010 @
+4 4000 None 0 #
+5 4010 @
+5 5000 None 0 #
+6 5010 @
+6 6000 None 0 #
+7 6010 R _script dialog@r_PlaySoundGun 1 2 @
+7 7000 None 0 #
+8 7010 R _script dialog@r_PlaySoundGun 1 2 @
+8 8000 None 0 #
+9 8010 R _script dialog@r_PlaySoundGun 1 2 @
+9 9000 None 0 #
+10 9010 R _script quest_noire3@r_SpawnLoc 0  R _script dialog@r_PlaySoundGun 1 2 @
+10 10000 None 0 #
+0 10010 R _var p noire1 = 10 R _param p DAMAGE_LEFT_ARM = 1 R _param p ST_CURRENT_HP = 1 R _param p DAMAGE_RIGHT_LEG = 1 R _script quest_noire2@r_DeleteLoc 0  R _script dialog@r_TeleportToMap 2 136 0 R _param p DAMAGE_EYE = 1 R _script dialog@r_PlaySoundGun 1 2 @
+11 11000 None 0 &
+
+[engl]
+{100}{}{Biker}
+{200}{}{You see a rough looking man in leather armor.}
+{210}{}{He looks like a typical scum bag. But this one seems meaner, and a little tougher.}
+{1000}{}{Predialogue installations}
+{1010}{}{Answer text}
+{2000}{}{Fuckin' bike broke down again.@@Yo, a beer.@@You looking for trouble? Beat it.@@Get your candy ass out of my face!}
+{2010}{}{You ever heard of the Night Rider before, buyo?}
+{2020}{}{[Put your gun to his head, and blow his brains all over the wall]}
+{3000}{}{Go fuck yourself, cop.}
+{3010}{}{Tough guy, eh--}
+{4000}{}{[The Biker quickly stands up, grabs you by the arm, and pins you against the bar. He laughs, and says] You fucking pussy cops! You're pathetic!}
+{4010}{}{[Reach for your weapon]}
+{5000}{}{[Your arm is broken faster than you could even think about reaching for your gun!]}
+{5010}{}{Arrrgghhhh!}
+{6000}{}{[The Biker laughs as he toses you to the ground, picking up your .44 Magnum]}
+{6010}{}{[Reach for your Knife]}
+{7000}{}{[You attempt to stab the Biker, but he quickly side steps, and fires a round into your chest!]}
+{7010}{}{[Fall back down onto the floor]}
+{8000}{}{[You are shot again, and again, until your .44 Magnum is empty. The world around you begins to fade...]}
+{8010}{}{Ughhhh...}
+{9000}{}{[The Biker reaches into your pocket and takes out a few more .44 Magnum rounds. Loads them into the gun, and fires them into your body]}
+{9010}{}{[Whimper]}
+{10000}{}{[You eventually succumb to your injuries, and pass out. If you would like to play the next sequence in Turn Based mode, please type /combatmode tb before continuing!] [Real-Time is recommended for cinematic purposes]}
+{10010}{}{[Go into the darkness]}
+{11000}{}{*gunshots of justice!*}
+

@@ -72040,37 +72040,6 @@ ProtoId              60
 MapX                 148
 MapY                 308
 
-MapObjType           0
-ProtoId              2033
-MapX                 175
-MapY                 47
-Dir                  2
-Critter_Cond         1
-Critter_Anim1        0
-Critter_Anim2        0
-Critter_ParamIndex0  ST_DIALOG_ID
-Critter_ParamValue0  24402
-Critter_ParamIndex1  ST_AI_ID
-Critter_ParamValue1  23
-Critter_ParamIndex2  ST_BAG_ID
-Critter_ParamValue2  334
-Critter_ParamIndex3  ST_TEAM_ID
-Critter_ParamValue3  0
-Critter_ParamIndex4  ST_NPC_ROLE
-Critter_ParamValue4  0
-Critter_ParamIndex5  ST_REPLICATION_TIME
-Critter_ParamValue5  0
-Critter_ParamIndex6  ST_FACTION_RANK
-Critter_ParamValue6  0
-Critter_ParamIndex7  ST_FACTION_MODE
-Critter_ParamValue7  0
-Critter_ParamIndex8  ST_OVERRIDE_CRTYPE
-Critter_ParamValue8  9
-Critter_ParamIndex9  ST_LEVEL
-Critter_ParamValue9  24
-Critter_ParamIndex10 ST_SCHEDULE
-Critter_ParamValue10 0
-
 MapObjType           1
 ProtoId              67
 MapX                 155
@@ -79072,14 +79041,14 @@ ProtoId              1817
 MapX                 85
 MapY                 174
 ScriptName           prod_plant_fiber
-FuncName             item_inititem_inititem_in
+FuncName             item_init
 
 MapObjType           1
 ProtoId              1817
 MapX                 199
 MapY                 92
 ScriptName           prod_plant_fiber
-FuncName             item_inititem_inititem_in
+FuncName             item_init
 
 MapObjType           2
 ProtoId              4037

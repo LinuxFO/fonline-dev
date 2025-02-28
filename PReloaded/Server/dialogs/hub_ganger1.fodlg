@@ -1,0 +1,730 @@
+[comment]
+gang in hub robs you, or you can join them
+
+200 caps to join = 1 leather jacket
+
+unlocks quest to recruit 4 punks -> costs 1 leather jacket per punk
+
+final = 1000 xp 400 caps 
+
+[data]
+lang=engl russ
+
+[dialog]
+&
+1 1000 None 0 #
+7 1010 D _var p hub_gangers = 0 #
+16 1020 D _var p hub_gangers = 9 #
+21 1030 D _var p hub_gangers = 0 D _var p name_mem_npc_player = 1 #
+23 1040 D _var p hub_gangers = 1 #
+26 1050 D _var p hub_gangers = 2 #
+29 1060 D _var p hub_gangers = 8 #
+31 1070 D _param p ST_INTELLECT < 3 #
+33 1080 D _var p hub_gangers = 10 #
+35 1090 D _var p hub_gangers = 11 #
+36 1100 D _var p hub_gangers = 12 #
+38 1110 D _var p hub_gangers = 13 #
+42 1120 D _var p hub_gangers = 14 #
+44 1130 D _var p hub_gangers = 15 R _var p hub_heist = 0 R _var p hub_johnavl = 0 R _var p hub_daveavl = 0 R _var p hub_bobavl = 0 R _var p hub_jetavl = 0 R _var p hub_bufavl = 0 R _var p hub_mentavl = 0 R _var p hub_psyavl = 0 #
+73 1140 D _var p hub_gangers = 16 @
+7 2000 None 0 #
+8 2010 D _param p ST_STRENGTH > 7 #
+9 2020 D _param p ST_ENDURANCE > 7 #
+10 2030 #
+11 2040 #
+12 2050 D _param p ST_INTELLECT > 4 #
+0 2060 @
+8 3000 None 0 #
+17 3010 #
+0 3020 @
+9 4000 None 0 #
+17 4010 #
+0 4020 @
+10 5000 None 0 #
+14 5010 #
+0 5020 @
+11 6000 None 0 #
+12 6010 #
+0 6020 @
+12 7000 None 0 #
+13 7010 #
+0 7020 @
+13 8000 None 0 #
+14 8010 #
+14 8020 @
+14 9000 None 0 #
+18 9010 #
+15 9020 @
+15 10000 None 0 #
+0 10010 R _param p DAMAGE_RIGHT_ARM = 1 R _item p PID_BOTTLE_CAPS - 50 R _item p PID_WATERBAG_EMPTY + 1 R _var p hub_gangers = 9 @
+16 11000 None 0 @
+17 12000 None 0 #
+22 12010 #
+0 12020 R _var p name_mem_npc_player = 1 @
+18 13000 None 0 #
+19 13010 #
+19 13020 #
+19 13030 @
+19 14000 None 0 #
+20 14010 #
+0 14020 @
+20 15000 None 0 #
+0 15010 R _var p hub_gangers = 1 @
+21 16000 None 0 #
+22 16010 @
+22 17000 None 0 #
+20 17010 #
+0 17020 @
+23 18000 None 0 #
+24 18010 D _item p PID_BOTTLE_CAPS > 199 R _item p PID_BOTTLE_CAPS - 200 R _item p PID_LEATHER_JACKET + 1 #
+0 18020 @
+24 19000 None 0 #
+25 19010 @
+25 20000 None 0 #
+26 20010 R _var p hub_gangers = 2 #
+0 20020 R _var p hub_gangers = 2 @
+26 21000 None 0 #
+27 21010 #
+28 21020 D _var p hub_gangers1 = 1 D _var p hub_gangers2 = 1 D _var p hub_gangers3 = 1 D _var p hub_gangers4 = 1 @
+27 22000 None 0 #
+0 22010 #
+0 22020 #
+0 22030 @
+28 23000 None 0 #
+0 23010 R _var p hub_gangers = 8 R _script dialog@r_AddExperience 1 1000 R _script dialog@r_AddMoney 1 400 @
+29 24000 None 0 #
+30 24010 #
+0 24020 @
+30 25000 None 0 #
+32 25010 @
+31 26000 None 0 @
+32 27000 None 0 #
+0 27010 R _var p hub_gangers = 10 @
+33 28000 None 0 #
+34 28010 D _item p PID_BOTTLE_CAPS > 1199 #
+0 28020 @
+34 29000 None 0 #
+0 29010 R _var p hub_gangers = 11 @
+35 30000 None 0 @
+36 31000 None 0 #
+37 31010 @
+37 32000 None 0 #
+0 32010 R _var p hub_gangers = 13 R _script dialog@r_AddExperience 1 1000 R _item p PID_METAL_ARMOR + 1 @
+38 33000 None 0 #
+39 33010 #
+39 33020 #
+0 33030 @
+39 34000 None 0 #
+40 34010 @
+40 35000 None 0 #
+41 35010 @
+41 36000 None 0 #
+0 36010 R _var p hub_gangers = 14 @
+42 37000 None 0 #
+44 37010 D _item p PID_10MM_PISTOL > 0 D _item p PID_10MM_SMG > 0 D _item p PID_44_MAGNUM_REVOLVER > 0 D _item p PID_CROWBAR > 0 D _item p PID_HUNTING_RIFLE > 0 D _item p PID_SAWED_OFF_SHOTGUN > 0 D _item p PID_SHOTGUN > 0 D _item p PID_10MM_JHP > 49 D _item p PID_223_FMJ > 49 D _item p PID_SHOTGUN_SHELLS > 49 D _item p PID_44_MAGNUM_JHP > 49 R _var p hub_gangers = 15 R _item p PID_10MM_PISTOL - 1 R _item p PID_10MM_SMG - 1 R _item p PID_44_MAGNUM_REVOLVER - 1 R _item p PID_CROWBAR - 1 R _item p PID_HUNTING_RIFLE - 1 R _item p PID_SAWED_OFF_SHOTGUN - 1 R _item p PID_SHOTGUN - 1 R _item p PID_10MM_JHP - 50 R _item p PID_223_FMJ - 50 R _item p PID_44_MAGNUM_JHP - 50 R _item p PID_SHOTGUN_SHELLS - 50 R _script dialog@r_AddExperience 1 750 #
+43 37020 #
+0 37030 @
+43 38000 None 0 #
+0 38010 @
+44 39000 None 0 #
+45 39010 R _var p hub_heist = 0 R _var p hub_johnavl = 0 R _var p hub_daveavl = 0 R _var p hub_bobavl = 0 R _var p hub_jetavl = 0 R _var p hub_bufavl = 0 R _var p hub_mentavl = 0 R _var p hub_psyavl = 0 #
+0 39020 @
+45 40000 None 0 #
+46 40010 #
+47 40020 #
+48 40030 #
+49 40040 #
+50 40050 #
+51 40060 #
+52 40070 #
+53 40080 @
+46 41000 None 0 #
+45 41010 @
+47 42000 None 0 #
+45 42010 @
+48 43000 None 0 #
+45 43010 @
+49 44000 None 0 #
+45 44010 @
+50 45000 None 0 #
+45 45010 @
+51 46000 None 0 #
+45 46010 @
+52 47000 None 0 #
+45 47010 @
+53 48000 None 0 #
+54 48010 D _var p hub_johnavl = 0 R _var p hub_johnavl = 1 R _var p hub_heist + 7 #
+54 48020 D _var p hub_daveavl = 0 R _var p hub_daveavl = 1 R _var p hub_heist + 4 #
+54 48030 D _var p hub_bobavl = 0 R _var p hub_bobavl = 1 R _var p hub_heist + 6 #
+54 48040 D _var p hub_jetavl = 0 R _var p hub_jetavl = 1 #
+54 48050 D _var p hub_bufavl = 0 R _var p hub_bufavl = 1 #
+54 48060 D _var p hub_mentavl = 0 R _var p hub_mentavl = 1 R _var p hub_heist + 5 #
+54 48070 D _var p hub_psyavl = 0 @
+54 49000 None 0 #
+55 49010 D _var p hub_johnavl = 0 R _var p hub_johnavl = 1 #
+55 49020 D _var p hub_daveavl = 0 R _var p hub_daveavl = 1 R _var p hub_heist + 7 #
+55 49030 D _var p hub_bobavl = 0 R _var p hub_bobavl = 1 #
+55 49040 D _var p hub_jetavl = 0 R _var p hub_jetavl = 1 R _var p hub_heist + 5 #
+55 49050 D _var p hub_bufavl = 0 R _var p hub_bufavl = 1 R _var p hub_heist + 4 #
+55 49060 D _var p hub_mentavl = 0 R _var p hub_mentavl = 1 #
+55 49070 D _var p hub_psyavl = 0 R _var p hub_psyavl = 1 R _var p hub_heist + 6 @
+55 50000 None 0 #
+56 50010 D _var p hub_johnavl = 0 R _var p hub_johnavl = 1 #
+56 50020 D _var p hub_daveavl = 0 R _var p hub_daveavl = 1 R _var p hub_heist + 4 #
+56 50030 D _var p hub_bobavl = 0 R _var p hub_bobavl = 1 #
+56 50040 D _var p hub_jetavl = 0 R _var p hub_jetavl = 1 R _var p hub_heist + 7 #
+56 50050 D _var p hub_bufavl = 0 R _var p hub_bufavl = 1 R _var p hub_heist + 5 #
+56 50060 D _var p hub_mentavl = 0 R _var p hub_mentavl = 1 R _var p hub_heist + 6 #
+56 50070 D _var p hub_psyavl = 0 R _var p hub_psyavl = 1 @
+56 51000 None 0 #
+57 51010 D _var p hub_johnavl = 0 R _var p hub_johnavl = 1 #
+57 51020 D _var p hub_daveavl = 0 R _var p hub_daveavl = 1 #
+57 51030 D _var p hub_bobavl = 0 R _var p hub_bobavl = 1 #
+57 51040 D _var p hub_jetavl = 0 R _var p hub_jetavl = 1 R _var p hub_heist + 5 #
+57 51050 D _var p hub_bufavl = 0 R _var p hub_bufavl = 1 R _var p hub_heist + 7 #
+57 51060 D _var p hub_mentavl = 0 R _var p hub_mentavl = 1 R _var p hub_heist + 4 #
+57 51070 D _var p hub_psyavl = 0 R _var p hub_psyavl = 1 R _var p hub_heist + 6 @
+57 52000 None 0 #
+58 52010 D _var p hub_johnavl = 0 R _var p hub_johnavl = 1 #
+58 52020 D _var p hub_daveavl = 0 R _var p hub_daveavl = 1 #
+58 52030 D _var p hub_bobavl = 0 R _var p hub_bobavl = 1 #
+58 52040 D _var p hub_jetavl = 0 R _var p hub_jetavl = 1 R _var p hub_heist + 4 #
+58 52050 D _var p hub_bufavl = 0 R _var p hub_bufavl = 1 R _var p hub_heist + 6 #
+58 52060 D _var p hub_mentavl = 0 R _var p hub_mentavl = 1 R _var p hub_heist + 5 #
+58 52070 D _var p hub_psyavl = 0 R _var p hub_psyavl = 1 R _var p hub_heist + 7 @
+58 53000 None 0 #
+59 53010 D _var p hub_johnavl = 0 R _var p hub_johnavl = 1 #
+59 53020 D _var p hub_daveavl = 0 R _var p hub_daveavl = 1 #
+59 53030 D _var p hub_bobavl = 0 R _var p hub_bobavl = 1 #
+59 53040 D _var p hub_jetavl = 0 R _var p hub_jetavl = 1 R _var p hub_heist + 6 #
+59 53050 D _var p hub_bufavl = 0 R _var p hub_bufavl = 1 R _var p hub_heist + 5 #
+59 53060 D _var p hub_mentavl = 0 R _var p hub_mentavl = 1 R _var p hub_heist + 7 #
+59 53070 D _var p hub_psyavl = 0 R _var p hub_psyavl = 1 R _var p hub_heist + 4 @
+59 54000 None 0 #
+60 54010 D _var p hub_johnavl = 0 R _var p hub_johnavl = 1 R _var p hub_heist + 6 #
+60 54020 D _var p hub_daveavl = 0 R _var p hub_daveavl = 1 #
+60 54030 D _var p hub_bobavl = 0 R _var p hub_bobavl = 1 R _var p hub_heist + 7 #
+60 54040 D _var p hub_jetavl = 0 R _var p hub_jetavl = 1 R _var p hub_heist + 4 #
+60 54050 D _var p hub_bufavl = 0 R _var p hub_bufavl = 1 #
+60 54060 D _var p hub_mentavl = 0 R _var p hub_mentavl = 1 R _var p hub_heist + 5 #
+60 54070 D _var p hub_psyavl = 0 R _var p hub_psyavl = 1 @
+60 55000 None 0 #
+61 55010 #
+45 55020 R _var p hub_heist = 0 R _var p hub_johnavl = 0 R _var p hub_daveavl = 0 R _var p hub_bobavl = 0 R _var p hub_jetavl = 0 R _var p hub_bufavl = 0 R _var p hub_mentavl = 0 R _var p hub_psyavl = 0 @
+61 56000 None 0 #
+62 56010 D _var p hub_heist > 48 #
+63 56020 D _var p hub_heist > 42 #
+64 56030 D _var p hub_heist > 35 #
+65 56040 D _var p hub_heist > 28 #
+66 56050 D _var p hub_heist < 27 @
+62 57000 None 0 #
+67 57010 @
+63 58000 None 0 #
+68 58010 @
+64 59000 None 0 #
+69 59010 @
+65 60000 None 0 #
+70 60010 @
+66 61000 None 0 #
+71 61010 @
+67 62000 None 0 #
+72 62010 R _script dialog@r_AddExperience 1 2000 R _script dialog@r_AddMoney 1 2400 R _var p hub_gangers = 16 R _script dialog@r_BulkOrderRewardInde 0  R _script dialog@r_BulkOrderRewardInde 0  R _script dialog@r_BulkOrderRewardInde 0  @
+68 63000 None 0 #
+72 63010 R _script dialog@r_AddExperience 1 1500 R _script dialog@r_AddMoney 1 2000 R _var p hub_gangers = 16 R _script dialog@r_BulkOrderRewardInde 0  R _script dialog@r_BulkOrderRewardInde 0  @
+69 64000 None 0 #
+72 64010 R _script dialog@r_AddExperience 1 1300 R _script dialog@r_AddMoney 1 1800 R _var p hub_gangers = 16 R _script dialog@r_BulkOrderRewardInde 0  @
+70 65000 None 0 #
+72 65010 R _script dialog@r_AddExperience 1 1200 R _script dialog@r_AddMoney 1 1600 R _var p hub_gangers = 16 @
+71 66000 None 0 #
+72 66010 R _script dialog@r_AddExperience 1 1000 R _script dialog@r_AddMoney 1 1200 R _var p hub_gangers = 16 @
+72 67000 None 0 #
+0 67010 R _param p ST_KARMA - 1 R _param p REPUTATION_HUB - 100 R _param p REPUTATION_JUNKTOWN - 100 R _param p REPUTATION_NCR_RANGERS - 100 R _var p CRIM + 3 R _script dialog@r_AddLootSetLevel2 0  @
+73 68000 None 0 &
+
+[engl]
+{100}{}{Mean Thug Leader}
+{200}{}{You see a mean looking thug.}
+{210}{}{This one appears to be the leader of the tetra of mean looking thugs.}
+{1000}{}{Predialogue installations}
+{1010}{}{not known}
+{1020}{}{fail}
+{1030}{}{known}
+{1040}{}{200 caps}
+{1050}{}{recruit}
+{1060}{}{done}
+{1070}{}{retard}
+{1080}{}{bribe start}
+{1090}{}{off to pay}
+{1100}{}{paid}
+{1110}{}{all done step 3}
+{1120}{}{gun colllect}
+{1130}{}{puzzle time}
+{1140}{}{all done final}
+{2000}{}{[You've just walked into a shady room, in a shady part of town. Good for you] Well lookie 'ere boys! Just what the fuck is your name? Twinkle toes?}
+{2010}{}{[Lift the punk off his feet] Do you want to try asking me again what my name is? Twinkle toes?}
+{2020}{}{My name is the sound my victims make after I've ripped their jaws off. What's yours? Steve?}
+{2030}{}{*gulp* @pname@, but I'm not looking for trouble!}
+{2040}{}{It's @pname@.}
+{2050}{}{Whoa! Stay back! I've got a gun!}
+{2060}{}{[Walk away]}
+{3000}{}{[You hear an old door creak shut, and then the sounds of whimpering] I was just playin' with you, sir. Please...Please put me down. Nobody's goin' to rob you, okay?}
+{3010}{}{Give me one good reason why I shouldn't break you punks in half! }
+{3020}{}{[Walk away]}
+{4000}{}{[You hear an old door creak shut, and then absolute silence. The men do not know if you're being serious or not] Jesus, I'm just about to piss my pants! Sir! I was just, just teasing you! I'm not going to rob you!}
+{4010}{}{You weren't. But I am! How much you guys got? If it's nothing, then I'll just start taking toes.}
+{4020}{}{[Walk away]}
+{5000}{}{[You hear an old door creak shut, and then the sounds of laughter] Hahahahaha! Well you've just found it mister. How many caps you got on ya? Hmm? Boys! Grab em'!}
+{5010}{}{Oh golly! Help! I'm being accosted!}
+{5020}{}{[Run away]}
+{6000}{}{[The men just stare at you] @pname@ eh? Well I'm mister gun, and these fine gentlemen here are my bullets. You lookin' to get shot?}
+{6010}{}{Are you? }
+{6020}{}{[Run away]}
+{7000}{}{[You hear an old door creak shut, and then the sounds of men reaching for their weapons] Us too! Boys! Watchu' goin' to do now, stranger?}
+{7010}{}{I will honestly just start shooting. I'll start with you, shoot you right between the eyes. Then I'll go for this guy over here, but I'll shoot him right in the dick. Whoever's left standing after that is getting fifteen in the knee. }
+{7020}{}{[Run away]}
+{8000}{}{[It's dead silent] Scatter, boys! This one's above us! Drop the caps and let's go!}
+{8010}{}{Wait! I'm not going to rob you.}
+{8020}{}{You damn right! }
+{9000}{}{[A bag is placed over your head as the men start punching you] That's it, get him! Find the soft spot, and punch it! }
+{9010}{}{I just wanted to join the gang, that's all!}
+{9020}{}{[Get beat up and robbed]}
+{10000}{}{[You choose to curl up into a fetal position, and cry. After a few moments the men stop punching you and begin to laugh] Oh man! That was quite the show @pname@! You truly are pathetic. Now get the hell out of here!}
+{10010}{}{Ow! I think you broke a rib.}
+{11000}{}{You cruisin' for another bruisin'? Get the hell out of here!}
+{12000}{}{[It's dead silent as the men run off]}
+{12010}{}{I just wanted to join the gang, that's all!}
+{12020}{}{Hah! Pussies.}
+{13000}{}{[The men stop punching you] See! I told you, Dave! We should ask people if they want to join the gang before we beat them up!}
+{13010}{}{Yeah! You jerk!}
+{13020}{}{Fuck you, Dave! I haven't even met you, but I don't like you already!}
+{13030}{}{I think you broke a rib.}
+{14000}{}{[Dave helps you to your feet] Here's how it works: We need lots of money, to buy a base, But we also need more men to form an actual gang. So...You bring us two hundred caps, and you're in. We'll even give you an honorary leather jacket to symbolize your new lifestyle. Cool?}
+{14010}{}{Cool.}
+{14020}{}{Fuck that! This sounds like a goddamn flit party to me, I'm outta here!}
+{15000}{}{[You and the men start introducing yourselves] Cool, @pname@! I'm Johnny, that's Dave, and he's Bobby. We're all from the Boneyard. Moved down here together after the Regulators took over Adytum. Goal is now just to get enough money together and head to Junktown. There's a man that likes to hang around the bar all day long, knows some good locations to set up shop.}
+{15010}{}{Yeah man! Let's get started! I'll go get you the two hundred caps.}
+{16000}{}{[The gang remembers you well] Oh shit! It's him, it's him! We don't want any trouble, okay?! }
+{16010}{}{I just wanted to join the gang, that's all.}
+{17000}{}{[They seem surprised] Okay, uh, yeah! Okay! Here's how it works: We need lots of money, to buy a base, But we also need more men to form an actual gang. So...You bring us two hundred caps, and you're in. We'll even give you an honorary leather jacket to symbolize your new lifestyle. Cool?}
+{17010}{}{Cool.}
+{17020}{}{Fuck that! This sounds like a goddamn flit party to me, I'm outta here!}
+{18000}{}{[The men welcome you back] @pname@! You here to pay the tribute, and finally join the gang? That base is looking closer by the minute, I tell you.}
+{18010}{}{Yeah man, I got the money.}
+{18020}{}{Not yet, but I'll be back.}
+{19000}{}{[Bobby pockets the money] Bobby'l take that, thank you. He handles the numbers, we just handle the crunchin'! Here's your jacket, man! Put that shit on!}
+{19010}{}{Alright, give me a second. [Put on the jacket]}
+{20000}{}{[It's a perfect fit! Surprisingly] Dave's a master with the needle, hah! He sized you up the moment you walked in I bet. Go break it in. Come back later if you want a job, I got something good for ya.  }
+{20010}{}{What's the job? I can do it now.}
+{20020}{}{Yeah alright, see ya.}
+{21000}{}{[He gets right to the point] @pname@, we need more men. I've got only the four guys, and that's including you. We need to go out there and recruit some serious badasses. Problem is though, we don't know anybody in the city. You got friends out here?}
+{21010}{}{Nah, I'm new here too.}
+{21020}{}{Yeah! I've got a lot of friends now! Four of them! And they're all addicted to drugs! It's awesome!}
+{22000}{}{[He frowns] Too bad. Well, guess we better just hit the streets then, dude. I don't know, walk around, check out the alleyways. Look for punks, you know? People like us, man. You'll need some leather jackets though. You can't just tell em' they're in, ain't nobody goin' to believe that. If you find any street punks you want to recruit, just make sure you have a leather jacket on you, or else it ain't going to work. Just bring back four punks, that should be enough. }
+{22010}{}{Yeah, okay. I'll see what I can do. }
+{22020}{}{We'll see. }
+{22030}{}{No way, man. See ya.}
+{23000}{}{[The gang applauds you] Alright @pname@! A friend in need, is a friend indeed, but a friend with weed is better! Good fucking job dude, have some caps! With these numbers we can make it rich! Come back later, I might have something else for you.}
+{23010}{}{Yeah! Totally!}
+{24000}{}{[The men welcome you back] @pname@! Good to see you man! Those new recruits are working out great! But listen, dude... The fuzz has been sniffing their noses around here. Looks like they're expecting a bribe! Fucking cops! Can't we ever get a break?}
+{24010}{}{A bribe? How much do they want?}
+{24020}{}{The kettle's boiling, boys! I'm outta here!}
+{25000}{}{[Johnny frowns] Twelve hundred fucking caps, or we're all going to jail next month. We don't even have that kind of money, man! You've gotta do something! You're the smart one!}
+{25010}{}{Twelve hundred caps?! Where am I going to get that kind of money?!}
+{26000}{}{Oh, man! Looks like someone already fucked you up big time! Beat it. }
+{27000}{}{[Johnny looks at you with sad eyes] Sell drugs? Kill people? Learn a trade? I don't know man! We've just been shovelling shit together, we're all out of ideas. Either we come up with twelve hundred caps, or we just skip town. It's up to you, I won't judge you. Just come back if you've got the caps, until then I guess we don't know each other. Shitty deal, but what can we do?}
+{27010}{}{Don't worry, I'll think of something.}
+{28000}{}{[Johnny whispers] @pname@! What're you doin' back here? The fuzz, dude! Wait, do you have the caps? Tell me you do!}
+{28010}{}{Yeah! Got them right here.}
+{28020}{}{[Walk away]}
+{29000}{}{[The gang cheers] Alright @pname@! You did it again, brother! Go deliver the caps to the Sheriff over by the police station. Tell him you've got a couple of questions, but don't say anything else! Just hand him the caps and walk out. Play it real cool, alright?}
+{29010}{}{Cool, man. I'll be back.}
+{30000}{}{Go pay the fuzz, man!}
+{31000}{}{[Johnny whispers] You pay those pricks yet?}
+{31010}{}{Yeah man it's done. }
+{32000}{}{[The gang cheers!] Yeah! @pname@! You did it again! Good job! Looks like we won't be moving to Junktown after all, that's wicked news man. Now that the bribe's been paid, let's hang low for a while and let the heat die down. Come back later, brother, we'll talk. Oh! I almost forgot! The gang made you something, but it's a surprise!}
+{32010}{}{Alright, see ya!}
+{33000}{}{[The gang welcomes you back] Good to see you again, brother! That bribe worked miracles for the gang, heat's gone. But that twelve hundred set us back way too much. }
+{33010}{}{Yeah I know, I had to fucking pay it.}
+{33020}{}{It's all good.}
+{33030}{}{Sorry, wrong room.}
+{34000}{}{[Johnny looks like he's got the idea of a lifetime] Yeah, sorry you had to pay it, but we found a wicked way to get the money back, hear me out. There's a warehouse off the corner of 8th and 12th just filled with commodities. And we're going to rob it! You in? This is going to be our final heist! If we can pull it off we'll have to skip town. You might be fine, but we'll be outta here in a flash. So one last time, you in?}
+{34010}{}{Hell yeah! When do we start?}
+{35000}{}{[Johnny smiles] Right now. Listen up brothers! We're robbing the ol' warehouse on 8th and 12th, but we're going to need some serious heat! I'm talking guns, bullets, tools, and some armor! Bobby! You get the armor! Dave! You get the tools! @pname@! You're the smartest one here, so you're responsible for bringing us the guns and bullets. Come over here for a second.}
+{35010}{}{What do you need?}
+{36000}{}{[Johnny hands you a list] Here, so you don't forget. There's seven of us, so we'll need about seven guns. You'll be commanding the squad from here, so don't worry about it too much, we got this. There's an old radio on the table over there, we'll communicate from there. But first thing's first, we need the weapons. I need you to bring back: 1x .44 Magnum, 1x Sawed-off Shotgun, 1x 10mm SMG, 1x 10mm Pistol, 1x Shotgun, 1x Hunting Rifle, and 1x Crowbar. We'll also need 50x rounds of .44 JHP, 12 ga Shells, 50x rounds of 10mm JHP, and 50x rounds of .223. Get this done and we'll be ready to leave on your command. I'll be waiting.  }
+{36010}{}{That's quite the list, I'll be back when I can.}
+{37000}{}{[The gang welcomes you back] You almost ready?}
+{37010}{}{Yeah, I've got all the weapons we needed.}
+{37020}{}{What did we need again?}
+{37030}{}{No, not yet. I'll be back.}
+{38000}{}{[Johnny hands you a list] Here, so you don't forget. There's seven of us, so we'll need about seven guns. You'll be commanding the squad from here, so don't worry about it too much, we got this. There's an old radio on the table over there, we'll communicate from there. But first thing's first, we need the weapons. I need you to bring back: 1x .44 Magnum, 1x Sawed-off Shotgun, 1x 10mm SMG, 1x 10mm Pistol, 1x Shotgun, 1x Hunting Rifle, and 1x Crowbar. We'll also need 50x rounds of .44 JHP, 12 ga Shells, 50x rounds of 10mm JHP, and 50x rounds of .223. Get this done and we'll be ready to leave on your command. I'll be waiting.  }
+{38010}{}{Okay, I'll be back.}
+{39000}{}{[The gang cheers] Fantastic! Are you ready to start this heist now? Or did you want to come back? It's going to be tough, and there's a chance that we all die. }
+{39010}{}{Let's begin.}
+{39020}{}{I'll come back.}
+{40000}{}{[You and the gang are going over the steps. Each man takes a weapon. You have seven men at your disposal, what shall you do?]}
+{40010}{}{[Talk to Johnny]}
+{40020}{}{[Talk to Dave]}
+{40030}{}{[Talk to Bobby]}
+{40040}{}{[Talk to the Jet addict]}
+{40050}{}{[Talk to the Buffout addict]}
+{40060}{}{[Talk to the Mentat addict]}
+{40070}{}{[Talk to the Psycho addict]}
+{40080}{}{[Begin Tactical Phase]}
+{41000}{}{[Johnny tells you to assign each man a task he will excel at. Jet addicts are fast, Buffout addicts are strong, Mentat addicts are smart, and Psycho addicts are tough. He isn't sure about Dave, or Bobby though]}
+{41010}{}{[Go back]}
+{42000}{}{[Dave tells you to let him breach the front door, but he doesn't seem confident. He just thinks Johnny should probably stay outside and scout.]}
+{42010}{}{[Go back]}
+{43000}{}{[Bobby tells you not to risk losing any of the addicts. Less men means less arms to carry the loot]}
+{43010}{}{[Go back]}
+{44000}{}{[The Jet addict rambles on about his reflexes]}
+{44010}{}{[Go back]}
+{45000}{}{[The Buffout addict rambles on about his ability to stop bullets]}
+{45010}{}{[Go back]}
+{46000}{}{[The Mentat addict is in another world. You give up]}
+{46010}{}{[Go back]}
+{47000}{}{[The Psycho addict rambles on about his ability with tools]}
+{47010}{}{[Go back]}
+{48000}{}{[Now you must assign your men roles. Choose who will scout out the area, before you breach the front door]}
+{48010}{}{Johnny.}
+{48020}{}{Dave.}
+{48030}{}{Bobby.}
+{48040}{}{Jet Addict.}
+{48050}{}{Buffout Addict.}
+{48060}{}{Mentat Addict.}
+{48070}{}{Psycho Addict.}
+{49000}{}{[Now choose who will breach the front door]}
+{49010}{}{Johnny.}
+{49020}{}{Dave.}
+{49030}{}{Bobby.}
+{49040}{}{Jet Addict.}
+{49050}{}{Buffout Addict.}
+{49060}{}{Mentat Addict.}
+{49070}{}{Psycho Addict.}
+{50000}{}{[Now choose who will enter the door first]}
+{50010}{}{Johnny.}
+{50020}{}{Dave.}
+{50030}{}{Bobby.}
+{50040}{}{Jet Addict.}
+{50050}{}{Buffout Addict.}
+{50060}{}{Mentat Addict.}
+{50070}{}{Psycho Addict.}
+{51000}{}{[Now choose someone to protect him]}
+{51010}{}{Johnny.}
+{51020}{}{Dave.}
+{51030}{}{Bobby.}
+{51040}{}{Jet Addict.}
+{51050}{}{Buffout Addict.}
+{51060}{}{Mentat Addict.}
+{51070}{}{Psycho Addict.}
+{52000}{}{[Now choose who will support the assault team]}
+{52010}{}{Johnny.}
+{52020}{}{Dave.}
+{52030}{}{Bobby.}
+{52040}{}{Jet Addict.}
+{52050}{}{Buffout Addict.}
+{52060}{}{Mentat Addict.}
+{52070}{}{Psycho Addict.}
+{53000}{}{[Now choose who will deal with any random surprises]}
+{53010}{}{Johnny.}
+{53020}{}{Dave.}
+{53030}{}{Bobby.}
+{53040}{}{Jet Addict.}
+{53050}{}{Buffout Addict.}
+{53060}{}{Mentat Addict.}
+{53070}{}{Psycho Addict.}
+{54000}{}{[Now choose who will protect the escape route]}
+{54010}{}{Johnny.}
+{54020}{}{Dave.}
+{54030}{}{Bobby.}
+{54040}{}{Jet Addict.}
+{54050}{}{Buffout Addict.}
+{54060}{}{Mentat Addict.}
+{54070}{}{Psycho Addict.}
+{55000}{}{[Now that the roles have been assigned, you're ready to begin the heist. You need to have selected the right man for each job, or else this is going to blow up in your face big time. Are you ready to rob the warehouse? Or would you like to re-assign the roles?}
+{55010}{}{[Begin the Heist]}
+{55020}{}{[Re-Assign the Roles]}
+{56000}{}{[You sit by the radio and wait for your men to get into position]}
+{56010}{}{Okay echo team, are you guys ready?}
+{56020}{}{Let's do this!}
+{56030}{}{Move! Move!}
+{56040}{}{You guys better not fuck up!}
+{56050}{}{Fuck! I have no idea what I'm doing! Just go!}
+{57000}{}{[PERFECT!] [You pull off the perfect heist without losing a single man! You properly scouted out the area before breaching the front door. Your entrance team was ready for anything upon entry, and your support team quickly followed. Your rear guardsman wasn't even needed. With seven people looting the warehouse, your men come back with a fortune!] }
+{57010}{}{Great job, team! Everyone head back to base immediately.}
+{58000}{}{[GREAT SUCCESS!] [You pull off a wonderful heist, but Dave was killed during the raid, too bad. Your men are forced to leave his body behind, and one hundred and fifty pounds of loot!]}
+{58010}{}{Good job, team! It's just too bad about Dave! }
+{59000}{}{[SUCCESS!] [You pull off a successful heist, but bad news... Dave and Bobby were killed during the raid. Your men are forced to leave their bodies behind, and three hundred pounds of loot!] }
+{59010}{}{Shit! We lost a few! Everyone, head back to base immediately.}
+{60000}{}{[COMPLETED!] [You barely manage to pull off the heist... Dave, Bobby, and two of the addicts were killed during the raid. Your men are forced to leave their bodies behind, and six hundred pounds of loot!]}
+{60010}{}{Fuck! What the hell went wrong?! Get back here, guys!}
+{61000}{}{[FAIL!] [Your men were in position, but everything went wrong! No one was able to properly scout out the area before breaching the front door. Your entrance team was killed upon entry, and your support team quickly followed. Your rear guardsman was shot in the back while trying to run away]}
+{61010}{}{Guys?! Come in! Hello? Hello?! Anybody...? Fuck!}
+{62000}{}{[Johnny and the boys walk in; smiling like jackals, and carrying a fortune] @pname@! We fucking did it! We're rich! Time to relax and have a smoke, then get this shit to a fence ASAP. We did it, buddy! Man, your leadership skills are fucking impressive! You had this whole thing figured out even before it started, didn't you?   }
+{62010}{}{Team work, boys. So what's my take?}
+{63000}{}{[Johnny and the boys walk in; smiling like jackals, and carrying a few dozen crates] @pname@! We fucking did it! Time to relax and have a smoke, then get this shit to a fence ASAP. We did it, buddy! Man, your leadership skills are fucking good! You almost had this whole thing figured out even before it started, didn't you? It's just too bad about Dave, damn.  }
+{63010}{}{Yeah, poor Dave. So what's my take?}
+{64000}{}{[Johnny and the addicts walk in, carrying a dozen crates] @pname@! It went sour! Bobby and Dave just weren't ready for what you were expecting them to do. Man, they're dead! Your fucking leadership skills suck! They were my brothers, man! My fucking brothers! Oh fuck, what am I going to do now?  }
+{64010}{}{I'm sorry man! I did my best! So what's my take?}
+{65000}{}{[Johnny and two addicts walk in, carrying a few crates] Oh fuck! You fucking clown! You fucked up big time! You call this a succesful heist?! My team! My team is dead! You fucking loser! What were you thinking back there?! You almost got us all killed! We had to shoot our way out, and now the cops are probably out looking for us!}
+{65010}{}{YOU were the one out there, not me. You fucked up, I didn't. Where's my take?}
+{66000}{}{[Johnny barely manages to drag himself, and a crate back to base] @pname@! They're dead! They're all dead! [Johnny begins to wheep] But I got a crate! You fucking piece of shit! Here! Take it and get the fuck out of my life! Whatever's left of it! I'll kill you if you ever show your face around here! Oh God! Why didn't I just shoot this fucker when we first met?!}
+{66010}{}{Shut up, and give me my damn money.}
+{67000}{}{[QUEST COMPLETE!]}
+{67010}{}{Better stay away from these guys now. }
+{68000}{}{I'm sorry, do I know you?}
+{100000001}{}{Better wash the counter again...}
+{100000002}{}{That's 5 caps buddy. Hey did you hear me? Cough em' up.}
+{100000003}{}{Better change the keg...}
+{100000004}{}{RotGut? You drink that shit?}
+{100000005}{}{Domestic? I got B.E.E.R buddy, do you want one or not?}
+{100000006}{}{Fuckin' dust is getting everywhere. Hey close the fuckin' door!}
+{100000007}{}{I swear if the next asshole doesn't tip. Ima' shoot somebody!}
+{100000008}{}{I got bottles, I got shots, and I got a bat behind the counter for the retards. Your not a retard are you?}
+{100000009}{}{Uh-huh, yeah that's nice buddy. You don't say...What? Of course I'm listening...}
+{100000010}{}{That's 5 caps. FIVE CAPS Tribal! F.I.V.E! }
+{100000011}{}{Shut up and order a fuckin' beer already!}
+{100000012}{}{I swear if I have to serve another drunk, I'm getting the shotgun!}
+{100000013}{}{Look the keg went dry, and it's going to be another month until the caravan shows up again.}
+{100000014}{}{Really? You don't say, buy another drink or get out!}
+{100000015}{}{What? I'm on break.}
+{100000016}{}{Be right with ya'}
+{100000017}{}{Have a sit stranger. I'll be with you in a moment.}
+{100000018}{}{When do we close? Uh, when the place get's shot up, that's when!}
+{100000019}{}{We're fresh outta' cold beer, sorry. You'll just have to drink it warm.}
+{100000020}{}{RotGut? No man, go make that shit yourself! I wouldn't drink it!}
+
+[russ]
+{100}{}{Алкоголик}
+{200}{}{Вы видите пьяницу.}
+{210}{}{Вы видите шатающегося из стороны в сторону пьяного человека в лохмотьях. Лицо его распухло, нос синющий как слива. А аромат рядом с ним такой, что свалит брамина насмерть. Он что-то бормочет про себя и иногда громко поет песни.}
+{210}{}{Вы видите алкаша. Он весьма грязен - кажется, он повалялся в луже, но не особо этим расстроен.}
+{1000}{}{I?aaaeaeiaiaua onoaiiaee}
+{1010}{}{complete}
+{1020}{}{fail}
+{1030}{}{Fuck that! This sounds like a goddamn flit party to me, I'm outta here!}
+{1040}{}{200 caps}
+{1050}{}{recruit}
+{1060}{}{done}
+{1070}{}{retard}
+{1080}{}{bribe start}
+{1090}{}{off to pay}
+{1100}{}{paid}
+{1110}{}{all done step 3}
+{1120}{}{gun colllect}
+{1130}{}{collected}
+{1140}{}{all done final}
+{2000}{}{[You're standing before a typical caravan guard. This one looks disciplined, experienced, and mean. They try to quickly grab your attention as you approach] Say pal! Do me a favour will you? If you're running into town could you pick me up a trio of Stimpaks? I'll give you my old Tools in return. }
+{2010}{}{[Lift the punk off his feet] Do you want to try asking me again what my name is? Twinkle toes?}
+{2020}{}{My name is sound my victims make after I've ripped their jaw off. What's yours? Steve?}
+{2030}{}{I don't want trouble.}
+{2040}{}{It's @pname@.}
+{2050}{}{Whoa! Stay back! I've got a gun!}
+{2060}{}{[Walk away]}
+{3000}{}{[The guard wipes the sweat from it's brow] Ugh... I need stims before I head out. Got any news for me?}
+{3010}{}{I've got those stims you wanted, here ya go.}
+{3020}{}{Nothing yet, sorry.}
+{4000}{}{[You hear an old door creak shut] Blah Blah}
+{4010}{}{Answer}
+{4020}{}{Exit}
+{5000}{}{[You hear an old door creak shut] Blah Blah}
+{5010}{}{Answer}
+{5020}{}{Exit}
+{6000}{}{[You hear an old door creak shut] Blah Blah}
+{6010}{}{Answer}
+{6020}{}{Exit}
+{7000}{}{[You hear an old door creak shut] Blah Blah}
+{7010}{}{Answer}
+{7020}{}{Exit}
+{8000}{}{[It's dead silent] Scatter boys! This one's above us! Drop the caps and let's go!}
+{8010}{}{Wait! I'm not going to rob you.}
+{8020}{}{You damn right! }
+{9000}{}{[A bag is place over your head as the men start punching you] That's it, get him! Find the soft spot, and punch it! }
+{9010}{}{I just wanted to join the gang, that's all!}
+{9020}{}{[Get beat up and robbed]}
+{10000}{}{[You choose to curl up into a fetal position, and cry. After a few moments the men stop punching you and begin to laugh] Oh man! That was quite the show @pname@! You truly are pathetic. Now get the hell out of here!}
+{10010}{}{Ow! I think you broke a rib.}
+{11000}{}{You cruisin' for another bruisin'? Get the hell out of here!}
+{12000}{}{[It's dead silent as the men run off]}
+{12010}{}{If you let me join the gang, I won't kill you.}
+{12020}{}{Hah! Pussies.}
+{13000}{}{[The men stop punching you] See! I told you, Dave! We should ask people if they want to join the gang before we beat them up!}
+{13010}{}{Yeah! You jerk!}
+{13020}{}{Fuck you, Dave! I haven't even met you, but I don't like you already!}
+{13030}{}{I think you broke a rib.}
+{14000}{}{[Dave helps you to your feet] Here's how it works: We need lots of money, to buy a base, But we also need more men to form an actual gang. So...You bring us two hundred caps, and you're in. We'll even give you an honorary leather jacket to symbolize your new lifestyle. Cool?}
+{14010}{}{Cool.}
+{14020}{}{Fuck that! This sounds like a goddamn flit party to me, I'm outta here!}
+{15000}{}{[You and the men start introducing yourselves] Cool! I'm Johnny, that's Dave, and he's Bobby. We're all from the Boneyard. Moved down here together after the Regulators took over Adytum. Goal is now, just to get enough money together and head to Junktown. There's a man that likes to hang around the bar all day long, knows some good locations to set up shop.}
+{15010}{}{Yeah man! Let's get started! I'll go get you the two hundred caps.}
+{16000}{}{[The gang remembers you well] Oh shit, it's him! We don't want any trouble, okay?! }
+{16010}{}{I just wanted to join the gang, that's all.}
+{17000}{}{[They seem surprised] Okay, uh, yeah! Okay! Here's how it works: We need lots of money, to buy a base, But we also need more men to form an actual gang. So...You bring us two hundred caps, and you're in. We'll even give you an honorary leather jacket to symbolize your new lifestyle. Cool?}
+{17010}{}{Cool.}
+{17020}{}{Fuck that! This sounds like a goddamn flit party to me, I'm outta here!}
+{18000}{}{[The men welcome you back] @pname@! You here to pay the tribute? That base is looking closer by the minute, I tell you.}
+{18010}{}{Yeah man, I got the money.}
+{18020}{}{Not yet, but I'll be back.}
+{19000}{}{[Bobby pockets the money] Bobby'l take that, thank yo. He handles the numbers, we just handle the crunchin'! Here's your jacket, man! Put that shit on!}
+{19010}{}{Alright, give me a second.}
+{20000}{}{[It's a perfect fit! Surprisingly] Dave's a master with the needle, hah! He sized you up the moment you walk in I bet. Go break it in. Come back if you want a job, I got something good for ya.  }
+{20010}{}{What's the job? I can do it now.}
+{20020}{}{Yeah alright, see ya.}
+{21000}{}{[He gets right to the point] @pname@, we need more men. I've got only the four guys, and that's including you. We need to go out there and recruit some serious badasses. Problem is though, we don't know anybody in the city. You got friends out here?}
+{21010}{}{Nah, I'm new here too.}
+{21020}{}{Yeah! I've got a lot of friends now! Four of them! And they're all addicted to drugs! It's awesome!}
+{22000}{}{[He frowns] Too bad. Well, guess we better just hit the streets then, dude. I don't know, walk around, check out the alleyways. Look for punks, you know? People like us, man. You'll need some leather jackets though. You can't just tell em' they're in, ain't nobody goin' to believe that. If you find any street punks you want to recruit, make sure you have a leather jacket on you, or else it ain't going to work. }
+{22010}{}{Yeah, okay. I'll see what I can do. }
+{22020}{}{We'll see. }
+{22030}{}{No way, man. See ya.}
+{23000}{}{[The gang applauds you] Alright @pname@! A friend in need, is a friend indeed, but a friend with weed is better! Good fucking job dude! With these numbers we can make it rich!}
+{23010}{}{Yeah! Totally!}
+{24000}{}{Hey buddy! Nothing for ya today, sorry.}
+{24010}{}{A bribe? How much do they want?}
+{24020}{}{The kettle's boiling boys! I'm outta here!}
+{25000}{}{[Jonny frowns] Twelve hundred fucking caps, or we're all going to jail next month. We don't even have that kind of money, man! You've gotta do something! You're the smart one!}
+{25010}{}{Twelve hundred caps?! Where am I going to get that kind of money?!}
+{26000}{}{Oh, man! Looks like someone already fucked you up big time! Beat it. }
+{27000}{}{[Johnny looks at you with sad eyes] Sell drugs? Kill people? Learn a trade? I don't know man! We've just been shovelling shit together, we're all out of ideas. Either we come up with twelve hundred caps, or we just skip town. It's up to you, I won't judge you. Just come back if you've got the caps, until then I guess we don't know each other. Shitty deal, but what can we do?}
+{27010}{}{Don't worry, I'll think of something.}
+{28000}{}{[Johnny whispers] @pname@! What're you doin' back here? The fuzz, dude! Wait, do you have the caps? Tell me you do!}
+{28010}{}{Yeah! Got them right here.}
+{28020}{}{[Walk away]}
+{29000}{}{[The gang cheers] Alright @pname@! You did it again, brother! Go deliver the caps to the Sheriff's assistant. He's the angry guy behind the desk over by the police station. Just don't say anything! Just hand him the caps and walk out. Play it real cool, alright?}
+{29010}{}{Cool, man. I'll be back.}
+{30000}{}{Go pay the fuzz, man!}
+{31000}{}{[Johnny whispers] You pay those pricks yet?}
+{31010}{}{Yeah man it's done. }
+{32000}{}{[The gang cheers!] Yeah! @pname@! You did it again! Good job! }
+{32010}{}{Alright, see ya!}
+{33000}{}{@pname@, hey buddy! It's still too hot, come back later.}
+{33010}{}{Yeah I know, I had to fucking pay it.}
+{33020}{}{It's all good.}
+{33030}{}{Sorry, wrong room.}
+{34000}{}{[Johnny looks like he's got the idea of a lifetime] Yeah, sorry you had to pay it, but we found a wicked way to get the money back, hear me out. There's a warehouse off the corner of 8th and 12th just filled with commodities. And we're going to rob it! You in? This is going to be our final heist! If we can pull it all we'll have to skip town. You might be fine, but we'll be outta here in a flash. So one last time, you in?}
+{34010}{}{Hell yeah! When do we start?}
+{35000}{}{[Johnny smiles] Right now. Listen up brothers! We're robbing the ol' warehouse on 8th and 12th, but we're going to need some serious heat! I'm talking guns, bullets, tools, and some armor! Bobby! You get the armor! Dave! You get the tools! @pname@! You're the smartest one here, so you're responsible for bringing us the guns and bullets. Come over here for a second.}
+{35010}{}{What do you need?}
+{36000}{}{[Johnny hands you a list] Here, so you don't forget. There's seven of us, so we'll need about seven guns. You'll be commanding the squad from here, so don't worry about it too much, we got this. There's an old radio on the table over there, we'll communicate from there. But first thing's first, we need the weapons. I need you to bring back: 1x .44 Magnum, 1x Sawed-off Shotgun, 1x 10mm SMG, 1x 10mm Pistol, 1x Shotgun, 1x Hunting Rifle, and 1x Crowbar. We'll also need 50x rounds of .44 JHP, 12 ga Shells, 50x rounds of 10mm JHP, and 50x rounds of .223. Get this done and we'll be ready to leave on your command. I'll be waiting.  }
+{36010}{}{That's quite the list, I'll be back when I can.}
+{37000}{}{[The gang welcomes you back] You almost ready?}
+{37010}{}{Yeah, I've got all the weapons we needed.}
+{37020}{}{What did we need again?}
+{37030}{}{No, not yet. I'll be back.}
+{38000}{}{[Johnny hands you a list] Here, so you don't forget. There's seven of us, so we'll need about seven guns. You'll be commanding the squad from here, so don't worry about it too much, we got this. There's an old radio on the table over there, we'll communicate from there. But first thing's first, we need the weapons. I need you to bring back: 1x .44 Magnum, 1x Sawed-off Shotgun, 1x 10mm SMG, 1x 10mm Pistol, 1x Shotgun, 1x Hunting Rifle, and 1x Crowbar. We'll also need 50x rounds of .44 JHP, 12 ga Shells, 50x rounds of 10mm JHP, and 50x rounds of .223. Get this done and we'll be ready to leave on your command. I'll be waiting.  }
+{38010}{}{Okay, I'll be back.}
+{39000}{}{[The gang cheers] Fantastic! Are you ready to start this heist now? Or did you want to come back? It's going to be tough, and there's a chance that we all die. }
+{39010}{}{Let's begin}
+{39020}{}{I'll come back.}
+{40000}{}{[You and the gang are going over the steps. Each man takes a weapon. You have seven men at your disposal, where shall you put them?]}
+{40010}{}{[Talk to Johnny]}
+{40020}{}{[Talk to Dave]}
+{40030}{}{[Talk to Bobby]}
+{40040}{}{[Talk to the Jet addict]}
+{40050}{}{[Talk to the Buffout addict]}
+{40060}{}{[Talk to the Mentat addict]}
+{40070}{}{[Talk to the Psycho addict]}
+{40080}{}{[Begin the tactical phase]}
+{41000}{}{[Johnny tells you to assign each man a task he will excel at. Jet addicts are fast, Buffout addicts are strong, Mentat addicts are smart, and Psycho addicts are tough. He isn't sure about Dave, or Bobby though]}
+{41010}{}{[Go back]}
+{42000}{}{[Dave tells you to let him breach the front door, but he doesn't seem confident]}
+{42010}{}{[Go back]}
+{43000}{}{[Bobby tells you not to risk losing any of the addicts. Less men means less arms to carry the loot]}
+{43010}{}{[Go back]}
+{44000}{}{[The Jet addict rambles on about his reflexes]}
+{44010}{}{[Go back]}
+{45000}{}{[The Buffout addict rambles on about his ability to stop bullets]}
+{45010}{}{[Go back]}
+{46000}{}{[The Mentat addict is in another world. You give up]}
+{46010}{}{[Go back]}
+{47000}{}{[The Psycho addict rambles on about ability with a crowbar]}
+{47010}{}{[Go back]}
+{48000}{}{[Now you must assign your men roles. Choose who will be responsible for what]}
+{48010}{}{Johnny.}
+{48020}{}{Dave.}
+{48030}{}{Bobby.}
+{48040}{}{Jet Addict}
+{48050}{}{Buffout Addict}
+{48060}{}{Mentat Addict}
+{48070}{}{Psycho Addict}
+{49000}{}{[Now choose who will breach the front door]}
+{49010}{}{Johnny}
+{49020}{}{Dave.}
+{49030}{}{Bobby.}
+{49040}{}{Jet Addict.}
+{49050}{}{Buffout Addict.}
+{49060}{}{Mentat Addict.}
+{49070}{}{Psycho Addict.}
+{50000}{}{[Now choose who will enter the door first]}
+{50010}{}{Johnny.}
+{50020}{}{Dave.}
+{50030}{}{Bobby.}
+{50040}{}{Jet Addict.}
+{50050}{}{Buffout Addict.}
+{50060}{}{Mentat Addict.}
+{50070}{}{Psycho Addict.}
+{51000}{}{[Now choose who will stay behind and protect the escape route]}
+{51010}{}{Johnny.}
+{51020}{}{Dave.}
+{51030}{}{Bobby.}
+{51040}{}{Jet Addict.}
+{51050}{}{Mentat Addict.}
+{51060}{}{Mentat Addict.}
+{51070}{}{Psycho Addict.}
+{52000}{}{[Now choose who will support the assault team]}
+{52010}{}{Johnny.}
+{52020}{}{Dave.}
+{52030}{}{Bobby.}
+{52040}{}{Jet Addict.}
+{52050}{}{Buffout Addict.}
+{52060}{}{Mentat Addict.}
+{52070}{}{Psycho Addict.}
+{53000}{}{[Now choose who will deal with any alarms or traps]}
+{53010}{}{Johnny.}
+{53020}{}{Dave.}
+{53030}{}{Bobby.}
+{53040}{}{Jet Addict.}
+{53050}{}{Buffout Addict.}
+{53060}{}{Mentat Addict.}
+{53070}{}{Psycho Addict.}
+{54000}{}{[Now choose who will protect the escape route]}
+{54010}{}{Johnny.}
+{54020}{}{Dave.}
+{54030}{}{Bobby.}
+{54040}{}{Jet Addict.}
+{54050}{}{Buffout Addict.}
+{54060}{}{Mentat Addict.}
+{54070}{}{Psycho Addict.}
+{55000}{}{[Now that the roles have been assigned, you're ready to begin the heist. You need to have selected the right man for each job, or else this is going to blow up in your face big time. Are you ready to rob the warehouse? Or would you like to re-assign the roles?}
+{55010}{}{[Begin the Heist]}
+{55020}{}{[Re-Assign Roles]}
+{56000}{}{[You sit by the radio and wait for your men to get into position]}
+{56010}{}{Okay echo team, are you guys ready?}
+{56020}{}{Let's do this!}
+{56030}{}{Move! Move!}
+{56040}{}{You guys better not fuck up!}
+{56050}{}{Fuck! I have no idea what I'm doing! Just go!}
+{57000}{}{SUCCESS}
+{57010}{}{Great job, team! Everyone head back to base immediately.}
+{58000}{}{SLIGHT WIN}
+{58010}{}{Great job, team! It's just too bad about Dave! }
+{59000}{}{BREAK EVEN}
+{59010}{}{Shit! We lost a few! Everyone, regroup!}
+{60000}{}{SLIGHT LOSS}
+{60010}{}{Fuck! What the hell went wrong?! Get back here, guys!}
+{61000}{}{FAIL}
+{61010}{}{Guys?! Come in! Do you read? Hello? Anybody...? Fuck!}
+{62000}{}{[Johnny and the boys walk in; smiling like jackals, and carrying a fortune] @pname@! We fucking did it! We're rich! Time to relax and have a smoke, then get this shit to a fence ASAP. We did it, buddy! Man, your leadership skills are fucking impressive! You had this whole thing figured out even before it started, didn't you?   }
+{62010}{}{Team work, boys. So what's my take?}
+{63000}{}{[Johnny and the boys walk in; smiling like jackals, and carrying a few dozen crates] @pname@! We fucking did it! Time to relax and have a smoke, then get this shit to a fence ASAP. We did it, buddy! Man, your leadership skills are fucking good! You almost had this whole thing figured out even before it started, didn't you?   }
+{63010}{}{Yeah, poor Dave. So what's my take?}
+{64000}{}{[Johnny and the addicts walk in, carrying a dozen crates] @pname@! It went sour! Bobby and Dave just weren't ready for what you were expecting them to do. Man, they're dead! Your fucking leadership skills suck! They were my brothers, man! My fucking brothers! Oh fuck, what am I going to do now?  }
+{64010}{}{I'm sorry man! I did my best! So what's my take?}
+{65000}{}{[Johnny and two addicts walk in, carrying a few crates] Oh fuck! You fucking clown! You fucked up big time! You call this a succesful heist?! My team! My team is dead! You fucking loser! What were you thinking back there?! You almost got us all killed! We had to shoot our way out, and now the cops are probably out looking for us!}
+{65010}{}{YOU were the one out there, not me. You fucked up, I didn't. Where's my take?}
+{66000}{}{[Johnny barely manages to drag himself, and a crate back to base] @pname@! They're dead! They're all dead! [Johnny begins to wheep] But I got a crate! You fucking piece of shit! Here! Take it and get the fuck out of my life! Whatever's left of it! I'll kill you if you ever show your face around here! Oh God! Why didn't I just shoot this fucker when we first met?!}
+{66010}{}{Shut up, and give me my damn money.}
+{67000}{}{[QUEST COMPLETED!]}
+{67010}{}{Better stay away from these guys now. }
+{68000}{}{I'm sorry, do I know you?}
+

@@ -1,0 +1,103 @@
+[comment]
+
+
+[data]
+lang=engl
+
+[dialog]
+&
+1 1000 None 0 #
+2 1010 @
+2 2000 None 0 #
+15 2010 D _var p z_dailyq1 = 16 #
+3 2020 #
+4 2030 D _var p q_hub_watertaxes = 1 #
+9 2040 D _var p player_farmOwner = 1 #
+11 2050 D _var p la_caravan = 1 R _var p la_caravan = 2 R _item p PID_CARAVAN_BOX + 1 #
+12 2060 D _var p q_bos_initiatequest_start = 37 #
+14 2070 D _var p q_packages = 11 D _item p PID_CARAVAN_BOX > 0 R _var p q_packages = 98 R _item p PID_CARAVAN_BOX - 1 #
+0 2080 @
+3 3000 None 0 #
+0 3010 @
+4 4000 None 0 #
+5 4010 @
+5 5000 None 0 #
+6 5010 D _param p SK_BARTER } 60 D or D _param p ST_CHARISMA } 5 R _var p q_hub_watertaxes = 3 R _script dialog@r_AddExperience 1 500 R _param p REPUTATION_HUB + 50 R _param p REPUTATION_WATER_MERCHANTS + 10 #
+7 5020 R _var p q_hub_watertaxes = 2 R _script dialog@r_AddExperience 1 100 R _param p REPUTATION_HUB + 5 R _param p REPUTATION_WATER_MERCHANTS + 10 #
+8 5030 D _param p SK_SPEECH } 35 @
+6 6000 None 0 #
+0 6010 @
+7 7000 None 0 #
+0 7010 @
+8 8000 None 0 #
+6 8010 D _param p SK_SPEECH } 40 R _var p q_hub_watertaxes = 3 R _script dialog@r_AddExperience 1 500 R _param p REPUTATION_HUB + 50 R _param p REPUTATION_WATER_MERCHANTS + 10 #
+6 8020 D _param p SK_BARTER } 50 R _var p q_hub_watertaxes = 3 R _script dialog@r_AddExperience 1 500 R _param p REPUTATION_HUB + 50 R _param p REPUTATION_WATER_MERCHANTS + 10 #
+7 8030 D _param p SK_BARTER < 50 R _var p q_hub_watertaxes = 2 R _script dialog@r_AddExperience 1 100 R _param p REPUTATION_HUB + 5 R _param p REPUTATION_WATER_MERCHANTS + 10 #
+0 8040 R _var p q_hub_watertaxes = 2 @
+9 9000 None 0 #
+10 9010 D _item p PID_BOTTLE_CAPS > 4999 R _item p PID_BOTTLE_CAPS - 5000 R _item p PID_WATER_BARREL + 1 #
+0 9020 @
+10 10000 None 0 @
+11 11000 None 0 @
+12 12000 None 0 #
+13 12010 R _var p q_bos_initiatequest_start = 38 #
+13 12020 D _param p SK_BARTER > 109 R _var p q_bos_initiatequest_start = 38 R _script dialog@r_AddExperience 1 3000 R _script dialog@r_AddMoney 1 10000 R _param p ST_KARMA - 5 R _param p REPUTATION_LA - 10 R _param p REPUTATION_HUB - 10 R _param p REPUTATION_JUNKTOWN - 10 R _param p REPUTATION_REDDING - 10 R _param p REPUTATION_GECKO - 10 R _param p REPUTATION_MODOC - 10 R _param p REPUTATION_KLAMATH - 10 R _param p REPUTATION_FREE_TRADERS - 10 R _param p REPUTATION_FOLLOWERS - 10 R _param p REPUTATION_GUNRUNNERS - 10 R _param p REPUTATION_NCR - 10 R _param p REPUTATION_BOS - 2 R _param p REPUTATION_WATER_MERCHANTS - 15 @
+13 13000 None 0 @
+14 14000 None 0 @
+15 15000 None 0 #
+16 15010 @
+16 16000 None 0 #
+18 16010 D _param p REPUTATION_WATER_MERCHANTS > 49 R _param p REPUTATION_WATER_MERCHANTS - 50 R _item p PID_WATER_BARREL + 1 #
+17 16020 D _param p REPUTATION_WATER_MERCHANTS < 49 @
+17 17000 None 0 @
+18 18000 None 0 &
+
+[engl]
+{100}{}{Master Merchant}
+{200}{}{You see a Master Merchant.}
+{1000}{}{Predialogue installations}
+{1010}{}{Answer text}
+{2000}{}{...I don't care what they say.  We need new... Oh, yes.  Sorry. What can I do for you?@@... like I know what happened to yesterday's shipment... Oh! Hello! Welcome to the Water Merchants. How can I help you today?@@Yeah? I've got a ton of work to-do. What do you want?@@You better be that new assistant I hired.@@You looking for water? That's what we do. Water for the world.@@Water Merchants. Can I help you?@@Yes? Looking for work? We ain't hiring.@@Welcome, if it's about water sit down. If it isn't, then beat it.}
+{2010}{}{I'm here on behalf of the NCR. I need a Water Barrel for a settlement.}
+{2020}{}{I'm looking for work. Hire me.}
+{2030}{}{I want to talk to someone about the water contracts with the independent merchants in the Hub.}
+{2040}{}{I'd like to buy a Water Crate for my Farm. How much is that going to cost?}
+{2050}{}{I'm here to pick up a crate of Hydroponic parts, for L.A. I have this receipt...}
+{2060}{}{The Brotherhood of Steel is requesting a shipment of water sent to their Alpha Bunker. Coordinates are as follows: Grid X twenty-six, Grid Y twenty-four. Pin point: thirteen hundred and thirty four. You have three weeks to deliver the water. Do you understand.}
+{2070}{}{[Deliver Package]}
+{2080}{}{Nothing, bye.}
+{3000}{}{Sure, great.  You're hired.  Wait.  What position?  Oh, wait, I see we don't have any open positions... right now. You might want to check back later.@@No, sorry. We aren't hiring.@@I would, but this isn't the time, or place.@@Try somewhere else. Go outside, and ask the little guy.@@Okay, great. We're hiring caravan guards and runners. Ask around, just not here.@@Sorry, I'm not hiring your type today. Maybe tomorrow. Check back.@@I would, but, you know, hands are tied.@@Yeah? Okay, go see the little guy outside.@@Sure, grab a crate from outside.@@Okay, deliver water. Ask the little guy.@@Sure, grab a gun and go join the next caravan.@@Deliver water to towns, farms, people, whatever. Or ask the little guy outside.}
+{3010}{}{Goodbye.}
+{4000}{}{Oh, this again.  Sorry, but the contracts are clear and rubber-stamped by the Hub's Central Council.}
+{4010}{}{Can't you give a temporary discount on the taxes?}
+{5000}{}{No. As I told you, the contracts are clear.}
+{5010}{}{Strengthen the wealth of the independent parties in the Hub will higher their chance of survival, which in return will strengthen the wealth of the whole Hub region. It can't be bad for the Water Merchants.}
+{5020}{}{Your contracts are weakening the Hub's independent merchants. That's not what I'd call a fair move.}
+{5030}{}{What will the Council do, if the independent merchants are breaking away due to the taxes they can't pay?}
+{6000}{}{Maybe you are right. I am going to submit your arguments for the next Council conference.  Now, please, I have a lot of work to do.}
+{6010}{}{Goodbye.}
+{7000}{}{This really is not my problem. The Council has made its decisions clear to everyone and everyone else agreed with it.  Now, please, I have a lot work to do.}
+{7010}{}{Goodbye.}
+{8000}{}{The Council has made its decision clear already. The next conference about water contracts will be in a few months. Until then, the contracts will not be altered or otherwise modified in any way.}
+{8010}{}{The farmers need water for their crops. Without water, no crops, without crops, no food and without food... I'll guess you get the picture. The water on the fields mainly runs from the independent merchants.}
+{8020}{}{Giving the farmers an option to actually water their fields will be necessary to keep the Hub alive in a longer run. The water at the northern part of the Hub mainly comes from the independent merchants.}
+{8030}{}{Giving the farmers an option to actually water their fields will be necessary to keep the Hub alive in a longer run. The water at the northern part of the Hub mainly comes from the independent merchants.}
+{8040}{}{Whatever.}
+{9000}{}{Full Water Crates go for 5000 caps. Fresh, clean water isn't cheap. Would you like to buy a crate?}
+{9010}{}{Okay, fine. Here's the money. Hand me the Crate.}
+{9020}{}{I'll think about it.}
+{10000}{}{Pleasure doing business with you.}
+{11000}{}{You'd better be able to carry this! Don't freakin' lose it, because I won't give you a new one unless you have a new receipt! Now beat it.}
+{12000}{}{[Her eyes bright up with excitement!] The BROTHERHOOD OF STEEL?! [She quickly takes note] Of course! We're right on it! Tell Maxson I love him! He's so cool! That'll come to 20,000 caps, but we'll cut the cost in half this time. Just because [She smiles]}
+{12010}{}{Great. Glad to hear. See ya.}
+{12020}{}{Wonderful news. Here is my acquisition form. Please give me the ten thousand back in caps. It's easier than writing a new form. It will get back to the Brotherhood, you can count on it. I wouldn't break my oath over something as pitiful as bottle caps. *I'm* from a vault. [Lie]}
+{13000}{}{Take care, brother! [She smiles]}
+{14000}{}{Finally, the parts are in! Thank you, and thank Vault City for me!}
+{15000}{}{That's nice. Do you have an official requisition form?}
+{15010}{}{Uh... no.}
+{16000}{}{*sigh* }
+{16010}{}{[Consume Water Merchant Reputation]}
+{16020}{}{[Not enough Water Merchant Reputation!]}
+{17000}{}{Sorry. How about you do a few delivery jobs first?}
+{18000}{}{Okay, here you go. Just don't make a habit of asking for something for free.}
+

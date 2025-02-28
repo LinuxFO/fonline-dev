@@ -1,0 +1,331 @@
+[comment]
+Intro
+
+[data]
+lang=engl russ
+
+[dialog]
+&
+1 1000 None 0 #
+2 1010 D _var p name_mem_npc_player = 0 D _var p hub_hopeq = 0 D _var p ncr_investigation1 = 0 #
+12 1020 D _var p name_mem_npc_player = 1 D _var p hub_hopeq = 0 D _var p ncr_investigation1 = 0 #
+28 1030 D _var p hub_hopeq = 1 D _var p ncr_investigation1 = 0 #
+28 1040 D _var p hub_hopeq = 2 D _var p ncr_investigation1 = 0 #
+28 1050 D _var p hub_hopeq = 3 D _var p ncr_investigation1 = 0 #
+28 1060 D _var p hub_hopeq = 4 D _var p ncr_investigation1 = 0 #
+28 1070 D _var p hub_hopeq = 5 D _var p ncr_investigation1 = 0 #
+42 1080 D _var p hub_hopeq = 6 D _var p ncr_investigation1 = 0 #
+30 1090 D _var p hub_hopeq = 7 D _var p ncr_investigation1 = 0 R _script dialog@r_JumpToRandomNode 3 3 4 10 #
+43 1100 D _var p ncr_investigation1 = 1 D _var p hub_hopeq = 7 #
+30 1110 D _var p hub_hopeq = 7 D _var p ncr_investigation1 > 1 R _script dialog@r_JumpToRandomNode 3 3 4 10 @
+2 2000 None 0 #
+0 2010 D _var p camp_evil > 0 #
+3 2020 D _param p ST_KARMA } 0 D _var p camp_evil = 0 #
+0 2030 D _var p camp_evil = 0 @
+3 3000 None 0 #
+4 3010 @
+4 4000 None 0 #
+5 4010 @
+5 5000 None 0 #
+6 5010 @
+6 6000 None 0 #
+7 6010 @
+7 7000 None 0 #
+8 7010 @
+8 8000 None 0 #
+9 8010 @
+9 9000 None 0 #
+10 9010 @
+10 10000 None 0 #
+11 10010 @
+11 11000 None 0 #
+0 11010 R _var p name_mem_npc_player = 1 #
+0 11020 R _var p name_mem_npc_player = 1 @
+12 12000 None 0 #
+14 12010 #
+13 12020 #
+13 12030 #
+14 12040 #
+13 12050 @
+13 13000 None 0 @
+14 14000 None 0 #
+15 14010 D _item p PID_LIGHTER > 0 R _item p PID_LIGHTER - 1 #
+0 14020 @
+15 15000 None 0 #
+16 15010 #
+16 15020 @
+16 16000 None 0 #
+17 16010 #
+17 16020 #
+17 16030 #
+17 16040 @
+17 17000 None 0 #
+18 17010 @
+18 18000 None 0 #
+19 18010 @
+19 19000 None 0 #
+20 19010 @
+20 20000 None 0 #
+21 20010 #
+21 20020 @
+21 21000 None 0 #
+22 21010 @
+22 22000 None 0 #
+23 22010 #
+23 22020 #
+23 22030 @
+23 23000 None 0 #
+24 23010 @
+24 24000 None 0 #
+25 24010 @
+25 25000 None 0 #
+26 25010 @
+26 26000 None 0 #
+27 26010 @
+27 27000 None 0 #
+0 27010 R _var p hub_hopeq = 1 @
+28 28000 None 0 #
+29 28010 @
+29 29000 None 0 #
+30 29010 @
+30 30000 None 0 @
+40 31000 None 0 @
+41 32000 None 0 #
+0 32010 R _var p hub_hopeq = 7 R _script dialog@r_AddMoney 1 500 R _param p REPUTATION_HUB + 10 R _var p LAW + 1 @
+42 33000 None 0 #
+41 33010 @
+43 34000 None 0 #
+44 34010 @
+44 35000 None 0 #
+45 35010 R _var p ncr_investigation1 = 2 @
+45 36000 None 0 &
+
+[engl]
+{100}{}{Hope, the lounge singer}
+{200}{}{You see a beautiful young woman in a red dress.}
+{210}{}{It's Hope, the lounge singer.}
+{1000}{}{Predialogue installations}
+{1010}{}{not known}
+{1020}{}{known lighter}
+{1030}{}{started}
+{1040}{}{started2}
+{1050}{}{started3}
+{1060}{}{almost final}
+{1070}{}{final1}
+{1080}{}{final2}
+{1090}{}{final3}
+{1100}{}{returnncr}
+{1110}{}{returnfinalfinal}
+{2000}{}{[As you walk into the Maltese Falcon it begins to rain. The cold, damp air sends a gush of wind towards the bar and a cold shiver down your spine. You overhear the sounds of a beautiful woman arguing] What have you ever given me besides money? You ever given me any of your confidence, any of the truth? Haven't you tried to buy my loyalty with money enough?}
+{2010}{}{Honestly? I'm too damn evil to care. Screw that bitch. There's no way that I would EVER help anyone THAT much. Pfft! Let's go get some Jet, and beat a hooker!}
+{2020}{}{[Listen]}
+{2030}{}{[Walk away]}
+{3000}{}{[The calm sound of rain fills in the background. The man arguing with the woman says] What else can I buy you with? You haven't lived a very good life you know...}
+{3010}{}{[Listen]}
+{4000}{}{[The faint sounds of rain is silenced by the woman's reply] I've been worse than you could ever know!}
+{4010}{}{[Listen]}
+{5000}{}{[The mysterious man is furious! He reaches for his weapon] I've taken all the riding I'm going to take from you! Get up and shoot it out! }
+{5010}{}{Stop it, both of you! The police will be here any minute!}
+{6000}{}{[The beautiful woman is shocked] Oh! How could you accuse me of such a terr -- }
+{6010}{}{[Continue]}
+{7000}{}{[The mysterious man interrupts her] This isn't the time for the school girl act! We're both sitting under the gallows!}
+{7010}{}{What are you...}
+{8000}{}{[The beautiful woman calmly speaks in unison with the rain] That may be, but I've got the Falcon...}
+{8010}{}{Yeah! We've got your back! Right fellas?!}
+{9000}{}{[A few of the regulars stand up.The mysterious man begins to leave, but not before saying] You may certainly have the Falcon, but now we've got you!}
+{9010}{}{What was that all about? You okay?}
+{10000}{}{[The young woman smiles and puts a cigarette to her lips. Her dark red lipstick stains the filter] Thanks to you, stranger. But oh don't mind me, I'm a big girl, I can handle my own problems. He's just another small kid playing in a big man's world. }
+{10010}{}{It didn't look like nothing, anything I can help you with?}
+{11000}{}{[She smiles and orders herself a drink] Could you be a doll, and fetch me a lighter? Pretty please, with cherries on top? That goon seems to of... Run off with mine. }
+{11010}{}{My pleasure. I'll be right back}
+{11020}{}{We'll see. See ya.}
+{12000}{}{[The day is dark, and full of rain. Hope is just finishing up one of her performances when you walk up to greet her. The calm sounds of raindrops hitting the cold, concrete floor of the city keeps you at ease] Catch my last set? What did you think? The boys always tell me I'll make it to Reno some day.}
+{12010}{}{It was beautiful, you sure know how to put on a show.}
+{12020}{}{You remind me of the grandmother of all whores. The devil definitely got his dues tonight.}
+{12030}{}{You belong somewhere you feel free. I don't think Reno is a place to start a new life. }
+{12040}{}{Oh yeah, best ever. [Lie]}
+{12050}{}{Show? You call that a show? When I was in the vault we had a thing called RADIO! Bitch! You can't sing. }
+{13000}{}{You... you imbecile. You bloated idiot. You stupid fat-head you. This is what my dreams are made of!}
+{14000}{}{[It rains on, louder than ever] Thanks, stranger. Say, did you find me a lighter? A girl just can't be herself without a little... Flame. }
+{14010}{}{Sure did, here. Consider it a gift... For the great performance.}
+{14020}{}{No, I just came here for the show. I might come back.}
+{15000}{}{[She stares you deep into the eyes, and says] You're too kind, @sex@|mister||lmiss|?...}
+{15010}{}{It's @pname@.}
+{15020}{}{@pname@, just @pname@.}
+{16000}{}{[The beautiful young woman smiles, and gently shakes your hand] Charmed, I'm sure. @pname@ is such a pretty name, I'm Hope, the lounge singer. Been here for years, just singing my heart away, looking for the same thing we all are... Love, food, water... Bullets... A clean dress. }
+{16010}{}{Aren't we all? So what was that argument all about anyways?}
+{16020}{}{Things are tough all over, aren't they?}
+{16030}{}{Anything I can help you with?}
+{16040}{}{So you haven't lived a good life, eh? You better start talking, dame. }
+{17000}{}{[The young woman takes a sip of her drink] ...Worse than you could ever know...}
+{17010}{}{You know, that's good, because if you actually were as innocent as you pretend to be, we'd never get anywhere.}
+{18000}{}{[She glances down at her drink. The sounds of rain keep on pouring] When a man's partner is killed, he's supposed to do something about it. It doesn't make any difference what you thought of him. He was your partner and you're supposed to do something about it. And it happens when you're in the detective business. Well, when one of your organization gets killed, it's-it's bad business to let the killer get away with it, bad all around, bad for every detective everywhere.}
+{18010}{}{Yeah, so? You kill someone?}
+{19000}{}{[The young woman's smile fades] No, but nobody exactly believes my story. They believed in the 200 dollars. I mean, I paid them more than if I had been telling the truth, and enough if I wasn't. }
+{19010}{}{Who? The police?}
+{20000}{}{[Hope smiles] Strange, how I never knew... I looked into his eyes, and I saw nothing. [She cries] Some kind of night, into the darkness. colours the eyes with what's not there.}
+{20010}{}{[Put your hand on hers]}
+{20020}{}{[Say nothing]}
+{21000}{}{[The rain falls down like tears as Hope cries] You... you bungled it. You and your stupid attempt to show off! I had him right where I wanted him!}
+{21010}{}{What the hell are you talking about, woman?}
+{22000}{}{[Hope latches onto your shoulder] You've got to trust me, Mr. @pname@. Oh, I'm so alone and afraid. I've got nobody to help me if you won't help me. Be generous, Mr. @pname@. You're brave. You're strong. You can spare me some of that courage and strength surely. Help me, Mr. @pname@. I need help so badly. I've no right to ask you, I know I haven't, but I do ask you. Help me.}
+{22010}{}{Don't be too sure I'm as crooked as I'm suppose to be.}
+{22020}{}{You won't need much of anybody's help. You're good. It's chiefly your eyes, I think, and that throb you get in your voice when you say things like "Be generous, Mr. @pname@."}
+{22030}{}{[smiling] Now you are dangerous.}
+{23000}{}{[Hope backs away] I don't care what your secrets are. But I can't go ahead without more confidence in you than I've got now. You've got to convince me that you know what this is all about, that you aren't just fiddling around, hoping that it will all come out right in the end.}
+{23010}{}{Clearly you've got some troubles, and judging by that fancy dress you're wearing, I reckon you've got some money to spend. You want to hire a real detective? }
+{24000}{}{[Hope smiles] You always have a very smooth explanation ready.}
+{24010}{}{What do you want me to do, learn to stutter?}
+{25000}{}{[Hope takes your hand and leads you to her room] I couldn't be fonder of you if you were my own @sex@|son||daughter|. But, well, if you lose a kid, its possible to get another. There's only one Maltese Falcon. This is my home, but my husband is dead! And I'm afraid they suspect me to be the murderer! I paid the Hub Police 200 caps to investigate his passing, and the only suspect they have is me!}
+{25010}{}{Sounds tough, kiddo. }
+{26000}{}{[The face she made at me was probably meant for a smile. Whatever it was, it beat me. I was afraid she'd do it again, so I surrendered] Won't you be my hero? Care to play detective for a bit, and get to the bottom of things? I'll pay you 500 caps, double what I paid the police.}
+{26010}{}{Well, there's nothing certain either way. It depends. Maybe. }
+{27000}{}{[Her face melts] You've been playing with me. Just pretending you care to trap me like this. You didn't care at all. You don't love me! Just... Just please think about it! Go over to the police station and snoop around. You're the only @sex@|man||girl| I've got! }
+{27010}{}{[Walk away] }
+{28000}{}{[The day is dark, and full of rain. Hope is just finishing up one of her performances when you walk up to greet her. The calm sounds of raindrops hitting the cold, concrete floor of the city keeps you at ease] Hope you find something at the police station... Catch my last set? What did you think? The boys always tell me I'll make it to Reno some day. }
+{28010}{}{Always do, can we talk?}
+{29000}{}{[Hope runs off] Sorry, lover. Gotta sing. }
+{29010}{}{We'll talk later then.}
+{30000}{}{How do you stop the rain?! How do you stop the rain! How do you stop, how do you stop?!@@Love, love me darlin', come and go with me. Don't send me beyond the sea...@@When I want you... In my arms... When I want you... And all your charms... Whenever I want you... All I have to do is dream...@@Dream lover, where are you with a love, oh, so true? And a hand that I can hold, to feel you near as I grow old@@I want a, dream lover, so I don't have to dream alone... So I don't have to dream alone...@@In the still of the night, I held you... Held you tight... Cause I love you... Love you soooo... Promise I'll never... Let you go...@@I can sit and whisper, to the trees, but the only sound they make is breeze... The waters ... Don't say a word but drown... Like fallen lovers, risen from the ground...@@Do you remember, all the times, the earth shook by your rage... Least you never forget, the worlds you'll destroy...@@Oh yes... I'm the great pretender... Pretending that I'm doing so well...@@I caught a train... I met a dame... She was a hepster... And a real gone dame... She was pretty... From New York City...@@What a difference a day made... Twenty four little hours... Brought the sun and the flowers... Where there use to be rain...@@My yesterday was blue dear... But today I'm a part of you dear... All my lonely nights are through dear... Since you said you were mine, now everything's going to be fine!@@Got my mojo workin', but it just don't work on you! Got my mojo workin', but it just don't work on you! I want to love you so bad, till I ... Don't know what to do...@@Now, you say you're lonely... You cried the whole night through... Well you can, cry me a river... Cry me a river... I cried a river, over youuuu...@@Well, I give you all of my money, but you just won't treat me right! You like to ball every morning, don't come back till late at night...@@Just let me hear some other rock n roll music! Any ol' way you choose it! It's got a backin' you can't lose it! Any ol' time you use it!@@}
+{31000}{}{When I fall in love... It will be forever... And I'll never! Fall in love in a restless world, like this is...@@I've got you... Under my skin... I've got you... Deep in the heart of me... So deep in my heart, that you're really a part of meeee...@@I left my love in San Francisco! Too eager was the gentle fight! Something's bound to be given, when all your love is spent!@@Oh he told me he was from Reno, had a silver nugget in his pocket...Told me I'd be like candy, come take a fly on his Jet...@@Mentat me into tomorrow, because yesterday is gone... No wonder the sun is so warm, over the shores of Navarro...@@Begin again, in the night, let's sway again, tonight. Your arm on my shoulder. Your cheek against mine. Where can we go? Where will we find, that we know? To let go?@@Does anybody here remember Vera Lynn? Remember how she said that "we would meet again, some sunny day"? Vera! Vera! What has become of you? Does anybody else in here feel the way I do?@@Maybe, You'll think of me, When you are all alone. Maybe, The one who is waiting for you Will prove untrue Then, what, Will you do@@Other arms reach out to me...Other eyes smile tenderly...Still in peaceful dreams I see...The road leads back to you...@@Woah, Georgia, Georgia... No peace, no peace I find... Just an old, sweet song... Keeps Georgia on my mind...@@I look at you and I see nothing, I look to you to see the truth. You live your life, You go in shadows. You''ll come apart and you'll go blind. Some kind of night into your darkness, colours your eyes with what's not there...@@Days go on, I wonder, How long until the rain... Falls down from the darkened skies and takes away our lives...@@I want to own disaster, cripple the reason why... Good men die. All for an illusion, answers to my mind...@@Give me a reason...To love you... Give me a reason to be.. A woman...@@From this time, unchained, we're all looking at a different picture, from this new frame of mine... A thousand flowers could bloom, move over and give us some room, yeah!@@
+}
+{32000}{}{[Hope runs into your arms, and you hold each other for what seems like hours. The rain pours down like angels sing, and the sky is a beautiful dark grey. What little hope you had left in dying, if any at all, is so far gone that you're at perfect peace. For a long moment, the world is still, and you embrace Hope. You aren't lovers, and never will be. But you were there to answer an innocent girl's prayer. For all it was worth, it was worth the while, knowing that at least now... If anything at all, you've done your one good deed. Hope will never get Hoyt back, and you will never get your Vault back, but at least... In the darkest part of any shadow, you know that you can always find... A light inside the darkness] [QUEST COMPLETE!] }
+{32010}{}{[Throw your fedora away, and leave]}
+{33000}{}{[The day is dark, and full of rain. Hope is just finishing up one of her performances when you walk up to greet her. The calm sounds of raindrops hitting the cold, concrete floor of the city keeps you at ease. Something is brighter about the day, but you can't quite make it out. You walk up to Hope, and tell her everything] }
+{33010}{}{[Continue]}
+{34000}{}{How do you stop the rain?! How do you stop the rain! How do you stop, how do you stop?!@@Love, love me darlin', come and go with me. Don't send me beyond the sea...@@When I want you... In my arms... When I want you... And all your charms... Whenever I want you... All I have to do is dream...@@Dream lover, where are you with a love, oh, so true? And a hand that I can hold, to feel you near as I grow old@@I want a, dream lover, so I don't have to dream alone... So I don't have to dream alone...@@In the still of the night, I held you... Held you tight... Cause I love you... Love you soooo... Promise I'll never... Let you go...@@I can sit and whisper, to the trees, but the only sound they make is breeze... The waters ... Don't say a word but drown... Like fallen lovers, risen from the ground...@@Do you remember, all the times, the earth shook by your rage... Least you never forget, the worlds you'll destroy...@@What a difference a day made... Twenty four little hours... Brought the sun and the flowers... Where there use to be rain...@@My yesterday was blue dear... But today I'm a part of you dear... All my lonely nights are through dear... Since you said you were mine, now everything's going to be fine!@@Got my mojo workin', but it just don't work on you! Got my mojo workin', but it just don't work on you! I want to love you so bad, till I ... Don't know what to do...@@Now, you say you're lonely... You cried the whole night through... Well you can, cry me a river... Cry me a river... I cried a river, over youuuu...}
+{34010}{}{[Watch the performance]}
+{35000}{}{How do you stop the rain?! How do you stop the rain! How do you stop, how do you stop?!@@Love, love me darlin', come and go with me. Don't send me beyond the sea...@@When I want you... In my arms... When I want you... And all your charms... Whenever I want you... All I have to do is dream...@@Dream lover, where are you with a love, oh, so true? And a hand that I can hold, to feel you near as I grow old@@I want a, dream lover, so I don't have to dream alone... So I don't have to dream alone...@@In the still of the night, I held you... Held you tight... Cause I love you... Love you soooo... Promise I'll never... Let you go...@@I can sit and whisper, to the trees, but the only sound they make is breeze... The waters ... Don't say a word but drown... Like fallen lovers, risen from the ground...@@Do you remember, all the times, the earth shook by your rage... Least you never forget, the worlds you'll destroy...@@Oh yes... I'm the great pretender... Pretending that I'm doing so well...@@I caught a train... I met a dame... She was a hepster... And a real gone dame... She was pretty... From New York City...@@What a difference a day made... Twenty four little hours... Brought the sun and the flowers... Where there use to be rain...@@My yesterday was blue dear... But today I'm a part of you dear... All my lonely nights are through dear... Since you said you were mine, now everything's going to be fine!@@Got my mojo workin', but it just don't work on you! Got my mojo workin', but it just don't work on you! I want to love you so bad, till I ... Don't know what to do...@@Now, you say you're lonely... You cried the whole night through... Well you can, cry me a river... Cry me a river... I cried a river, over youuuu...@@Well, I give you all of my money, but you just won't treat me right! You like to ball every morning, don't come back till late at night...@@Just let me hear some other rock n roll music! Any ol' way you choose it! It's got a backin' you can't lose it! Any ol' time you use it!}
+{35010}{}{[Catch your old Fedora as Hope throws it towards you during her performance]}
+{36000}{}{Don't miss me too much, sweetie.}
+{100000001}{}{How do you stop the rain?! How do you stop the rain! How do you stop, how do you stop?!}
+{100000002}{}{Love, love me darlin', come and go with me. Don't send me beyond the sea...}
+{100000003}{}{When I want you... In my arms... When I want you... And all your charms... Whenever I want you... All I have to do is dream...}
+{100000004}{}{Dream lover, where are you with a love, oh, so true? And a hand that I can hold, to feel you near as I grow old}
+{100000005}{}{I want a, dream lover, so I don't have to dream alone... So I don't have to dream alone...}
+{100000006}{}{In the still of the night, I held you... Held you tight... Cause I love you... Love you soooo... Promise I'll never... Let you go...}
+{100000007}{}{I can sit and whisper, to the trees, but the only sound they make is breeze... The waters ... Don't say a word but drown... Like fallen lovers, risen from the ground...}
+{100000008}{}{Do you remember, all the times, the earth shook by your rage... Least you never forget, the worlds you'll destroy...}
+{100000009}{}{What a difference a day made... Twenty four little hours... Brought the sun and the flowers... Where there use to be rain...}
+{100000010}{}{My yesterday was blue dear... But today I'm a part of you dear... All my lonely nights are through dear... Since you said you were mine, now everything's going to be fine!}
+{100000011}{}{Got my mojo workin', but it just don't work on you! Got my mojo workin', but it just don't work on you! I want to love you so bad, till I ... Don't know what to do...}
+{100000012}{}{Now, you say you're lonely... You cried the whole night through... Well you can, cry me a river... Cry me a river... I cried a river, over youuuu...}
+{100000013}{}{Oh yes... I'm the great pretender... Pretending that I'm doing so well...}
+{100000014}{}{I caught a train... I met a dame... She was a hepster... And a real gone dame... She was pretty... From New York City...}
+{100000015}{}{Well, I give you all of my money, but you just won't treat me right! You like to ball every morning, don't come back till late at night...}
+{100000016}{}{Just let me hear some other rock n roll music! Any ol' way you choose it! It's got a backin' you can't lose it! Any ol' time you use it!}
+{100000017}{}{When I fall in love... It will be forever... And I'll never! Fall in love in a restless world, like this is...}
+{100000018}{}{I've got you... Under my skin... I've got you... Deep in the heart of me... So deep in my heart, that you're really a part of meeee...}
+{100000019}{}{I left my love in San Francisco! Too eager was the gentle fight! Something's bound to be given, when all your love is spent!}
+{100000020}{}{Oh he told me he was from Reno, had a silver nugget in his pocket...Told me I'd be like candy, come take a fly on his Jet...}
+{100000021}{}{Mentat me into tomorrow, because yesterday is gone... No wonder the sun is so warm, over the shores of Navarro...}
+{100000022}{}{Begin again, in the night, let's sway again, tonight. Your arm on my shoulder. Your cheek against mine. Where can we go? Where will we find, that we know? To let go?}
+{100000023}{}{Does anybody here remember Vera Lynn? Remember how she said that "we would meet again, some sunny day"? Vera! Vera! What has become of you? Does anybody else in here feel the way I do?}
+{100000024}{}{Maybe, You'll think of me, When you are all alone. Maybe, The one who is waiting for you Will prove untrue Then, what, Will you do}
+{100000025}{}{Other arms reach out to me...Other eyes smile tenderly...Still in peaceful dreams I see...The road leads back to you...}
+{100000026}{}{Woah, Georgia, Georgia... No peace, no peace I find... Just an old, sweet song... Keeps Georgia on my mind...}
+{100000027}{}{I look at you and I see nothing, I look to you to see the truth. You live your life, You go in shadows. You''ll come apart and you'll go blind. Some kind of night into your darkness, colours your eyes with what's not there...}
+{100000028}{}{Days go on, I wonder, How long until the rain... Falls down from the darkened skies and takes away our lives...}
+{100000029}{}{I want to own disaster, cripple the reason why... Good men die. All for an illusion, answers to my mind...}
+{100000030}{}{Give me a reason...To love you... Give me a reason to be.. A woman...}
+{100000031}{}{From this time, unchained, we're all looking at a different picture, from this new frame of mine... A thousand flowers could bloom, move over and give us some room, yeah!}
+
+[russ]
+{100}{}{Алкоголик}
+{200}{}{Вы видите пьяницу.}
+{210}{}{Вы видите шатающегося из стороны в сторону пьяного человека в лохмотьях. Лицо его распухло, нос синющий как слива. А аромат рядом с ним такой, что свалит брамина насмерть. Он что-то бормочет про себя и иногда громко поет песни.}
+{210}{}{Вы видите алкаша. Он весьма грязен - кажется, он повалялся в луже, но не особо этим расстроен.}
+{1000}{}{I?aaaeaeiaiaua onoaiiaee}
+{1010}{}{Answer text}
+{1020}{}{known lighter}
+{1030}{}{started}
+{1040}{}{started2}
+{1050}{}{started3}
+{1060}{}{almost final}
+{1070}{}{final1}
+{1080}{}{final2}
+{1090}{}{final3}
+{1100}{}{returnncr}
+{1110}{}{returnfinalfinal}
+{2000}{}{Thank you! Thank you! }
+{2010}{}{Honestly? I'm too damn evil to care. Screw that bitch. There's no way that I would EVER help anyone THAT much. Pfft! Let's go get some Jet, and beat a hooker!}
+{2020}{}{[Listen]}
+{2030}{}{[Walk away]}
+{3000}{}{[The calm sound of rain fills in the background. The man arguing with the woman says] What else can I buy you with? You haven't lived a very good life you know... You've been worse than you could know...}
+{3010}{}{[Listen]}
+{4000}{}{[The faint sounds of rain is silenced by the woman's reply] I've been worse than you could ever know!}
+{4010}{}{[Listen]}
+{5000}{}{[The mysterious man is furious! He reaches for his weapon] I've taken all the riding I'm going to take from you! Get up and shoot it out! }
+{5010}{}{Stop it! The police will be here any minute!}
+{6000}{}{[The beautiful woman is shocked] Oh! How could you accuse me of such a terr -- }
+{6010}{}{[Continue]}
+{7000}{}{[The mysterious man interrupts her] This isn't the time for the school girl act! We're both sitting under the gallows!}
+{7010}{}{[Continue]}
+{8000}{}{[The beautiful woman calmly speaks in unison with the rain] That may be, but I've got the falcon...}
+{8010}{}{Falcon?}
+{9000}{}{[The mysterious man begins to leave, but not before saying] You may certainly have the Falcon, but now we've got you!}
+{9010}{}{What was that all about? You okay?}
+{10000}{}{[The young woman smiles and puts a cigarette to her lips. Her dark red lipstick stains the filter] Thanks to you, stranger. But oh don't mind me, I'm a big girl, I can handle my own problems. He's just another small kid playing in a big man's world. }
+{10010}{}{It didn't look like nothing, anything I can help you with?}
+{11000}{}{[She smiles and orders herself a drink] Could you be a doll, and fetch me a lighter? Pretty please, with cherries on top? }
+{11010}{}{My pleasure. I'll be right back}
+{11020}{}{We'll see. See ya.}
+{12000}{}{[The day is dark, and full of rain. Hope is just finishing up one of her  performances when you walk up to greet her. The calm sounds of raindrops splashing keeps you at ease] Catch my last set? What did you think? The boys always tell me I'll make it to Reno some day.}
+{12010}{}{It was beautiful, you sure know how to put on a show.}
+{12020}{}{You remind me of the grandmother of all whores. The devil definitely got his dues tonight.}
+{12030}{}{You belong somewhere you feel free. I don't think Reno is a place to start a new life. }
+{12040}{}{Oh yeah, best ever. [Lie]}
+{12050}{}{Show? You call that a show? When I was in the vault we had a thing called RADIO! Bitch! You can't sing. }
+{13000}{}{You... you imbecile. You bloated idiot. You stupid fat-head you. This is what my dreams are made of!}
+{14000}{}{[It rains on, loud than before] Thanks, stranger. Say, did you find me a lighter? A girl just can't be herself without a little... Flame. }
+{14010}{}{Sure did, here. Consider it a gift... For the great performance.}
+{14020}{}{No, I just came here for the show. I might come back.}
+{15000}{}{[She stares you deep into the eyes, and says] You're too kind, }
+{15010}{}{It's @pname@.}
+{15020}{}{@pname@, just @pname@.}
+{16000}{}{[The beautiful woman smiles, and gently shakes your hand] Charmed, I'm sure. @pname@ is such a pretty name, I'm Hope, the lounge singer. Been here for years, just singing my heart away, looking for the same thing we all are... Love, food, water... Bullets...}
+{16010}{}{Aren't we all? So what was that argument all about anyways?}
+{16020}{}{Things are tough all over, aren't they?}
+{16030}{}{Anything I can help you with?}
+{16040}{}{So you haven't lived a good life, eh? You better start talking, dame. }
+{17000}{}{{The young woman takes a sip of her drink] ...Worse than you could ever know...}
+{17010}{}{You know, that's good, because if you actually were as innocent as you pretend to be, we'd never get anywhere.}
+{18000}{}{[She glances down at her drink. The sounds of rain keep on falling] When a man's partner is killed, he's supposed to do something about it. It doesn't make any difference what you thought of him. He was your partner and you're supposed to do something about it. And it happens when you're in the detective business. Well, when one of your organization gets killed, it's-it's bad business to let the killer get away with it, bad all around, bad for every detective everywhere.}
+{18010}{}{Yeah, so? You kill someone?}
+{19000}{}{[The youg woman's smile fades] No, but nobody exactly believes my story. They believed in the 200 dollars. I mean, I paid them more than if I had been telling the truth, and enough if I wasn't. }
+{19010}{}{Who? The police?}
+{20000}{}{[Hope smiles] Strange, how I never knew... I looked into his eyes, and I saw nothing. [She cries] Some kind of night, into the darkness, colours the eyes with what's not there.}
+{20010}{}{[Put your hand on hers]}
+{20020}{}{[Say nothing]}
+{21000}{}{[The rain falls down like tears as Hope cries] You... you bungled it. You and your stupid attempt! }
+{21010}{}{What are you talking about?}
+{22000}{}{You've got to trust me, Mr. @pname@. Oh, I'm so alone and afraid. I've got nobody to help me if you won't help me. Be generous, Mr. @pname@. You're brave. You're strong. You can spare me some of that courage and strength surely. Help me, Mr. @pname@. I need help so badly. I've no right to ask you, I know I haven't, but I do ask you. Help me.}
+{22010}{}{Don't be too sure I'm as crooked as I'm suppose to be.}
+{22020}{}{You won't need much of anybody's help. You're good. It's chiefly your eyes, I think, and that throb you get in your voice when you say things like "Be generous, Mr. @pname@."}
+{22030}{}{[smiling] Now you are dangerous.}
+{23000}{}{[Hope backs away] I don't care what your secrets are. But I can't go ahead without more confidence in you than I've got now. You've got to convince me that you know what this is all about, that you aren't just fiddling around, hoping that it will all come out right in the end.}
+{23010}{}{Clearly you've got some troubles, and judging by the fancy dress you're wearing, I reckon you've got some money to spend. You want to hire a real detective? }
+{24000}{}{[Hope smiles] You always have a very smooth explanation ready.}
+{24010}{}{What do you want me to do, learn to stutter?}
+{25000}{}{[Hope takes your hand and leads you to her room] I couldn't be fonder of you if you were my own @sex@|son||daughter|. But, well, if you lose a kid, its possible to get another. There's only one Maltese Falcon. This is my home, but my husband is dead! And I'm afraid they suspect me to be the murderer!}
+{25010}{}{Sounds tough, kiddo. }
+{26000}{}{[The face she made at me was probably meant for a smile. Whatever it was, it beat me. I was afraid she'd do it again, so I surrendered] Won't you be my here? Care to play detective for a bit, and get to the bottom of things? I'll pay you 500 caps, double what I paid them. }
+{26010}{}{Well, there's nothing certain either way. It depends. Maybe. }
+{27000}{}{[Her face melts] You've been playing with me. Just pretending you care to trap me like this. You didn't care at all. You don't love me! Just... Just please think about it! Go over to the police station and snoop around. You're the only @sex@|man||girl| I've got! }
+{27010}{}{[Walk away] }
+{28000}{}{[The day is dark, and full of rain. Hope is just finishing up one of her performances when you walk up to greet her. The calm sounds of raindrops hitting the cold, concrete floor of the city keeps you at ease] Catch my last set? What did you think? The boys always tell me I'll make it to Reno some day.}
+{28010}{}{Always do, can we talk?}
+{29000}{}{Sorry, lover. Gotta sing. }
+{29010}{}{We'll talk later then.}
+{30000}{}{в™Єв™« How do you stop the rain?! How do you stop the rain! How do you stop, how do you stop?! в™«в™Є@@в™Єв™« Love, love, love me darlin', come and go with me. Don't send me beyond the sea...в™«в™Є@@в™Єв™« When I want you... In my arms... When I want you... And all your charms... Whenever I want you... All I have to do is dream...в™«в™Є@@в™Єв™« Dream lover, where are you with a love, oh, so true? And I hand that can hold, to feel you near as I grow old в™«в™Є@@в™Єв™« In the still of the night, I held you... Held you tight... Cause I love you... Love you soooo... Promise I'll never... Let you go...в™«в™Є@@в™Єв™« I can sit and whisper, to the trees, but the only sounds they make is breeze... The waters ... Don't say a word but drown... Like fallen lovers, risen from the ground... в™«в™Є@@в™Єв™« Do you remember, all the times, the earth shook by your rage... Least you never forget, the worlds you'll destroy...в™«в™Є@@в™Єв™« Oh yes... I'm the great pretender... Pretending that I'm doing so well... в™«в™Є@@в™Єв™« I caught a train... I met a dame... She was a hepster... And a real gone dame... She was pretty... From New York City...в™«в™Є@@}
+{31000}{}{I hear you knocking! But you can't come in! Go back where... I begged you not to go...@@But you changed your mind... I hear you knocking! But you can't come in!@@I'ma get up in the morning! And I believe I'll dust my broom! I quit the best gal I'm lovin, so my friends can get my room... I'm gonna write a letter! Telephone every town I know!@@When I fall in love... It will be forever... And I'll never! Fall in love in a restless world, like this is...@@Wake up, little suzie! Wake up! Little suzie! Wake up little suzie! Wake up!@@I've got you... Under my skin... I've got you... Deep in the heart of me... So deep in my heart, that you're really a part of meeee...@@Baby please! Don't go... Baby please... Don't go! Oh don't you know, that I... Love you soooo...@@I left my love in San Francisco! Too eager was the gentle fight! Something's bound to be given, when all your love is spent!@@Oh he told me he was from Reno, had a silver nugget in his pocket...@@Told me I'd be like candy, come take a fly on his Jet...@@Mentat me into tomorrow, because yesterday is gone... No wonder the sun is so warm, over the shores of Navarro...@@Begin again, in the night, let's sway again, tonight. Your arm on my shoulder. Your cheek against mine.@@Where can we go? Where will we find, that we know? To let go?@@Does anybody here remember Vera Lynn? Remember how she said that "we would meet again, some sunny day"?@@Vera! Vera! What has become of you? Does anybody else in here feel the way I do?@@I don't want to set the world on fire...I just want to start a flame... In your heart...@@Mayyybeee... You'll think of meeeee... When you are all alone...@@Mayyybeeee... The one who is waiting for you... Will prove untrue... Than, what, Will you dooooo...@@Play it again, Johnny...Guitar...@@Will the wind ever remember, the names it has blown in the past... With this crutch, this old age, and it's wisdow... It whispers no, this will be the last...@@Georgia...Georgia...The whole day through...Just an old sweet song... Keeps Georgia... On my mind...@@Other arms reach out to me...Other eyes smile tenderly...Still in peaceful dreams I see...The road leads back to you...@@Woah, Georgia, Georgia... No peace, no peace I find... Just an old, sweet song... Keeps Georgia on my mind...@@}
+{32000}{}{[Hope runs into your arms, and you hold each other for what seems like hours. The rain pours down like angels sing, and the sky is a beautiful dark grey. What little hope you had left in dying, if any at all, is so far gone that you're at perfect peace. For a long moment, the world is still, and you embrace Hope. You aren't lovers, and never will be. But you were there to answer an innocent girl's prayer. For all it was worth, it was worth the while, knowing that at least now... If anything at all, you've done your one good deed. Hope will never get Hoyt back, and you will never get your Vault back, but at least... In the darkest part of any shadow, you know that you can always find... A light in the darkness] [QUEST COMPLETE!] }
+{32010}{}{[Throw your fedora away, and leave]}
+{33000}{}{[The day is dark, and full of rain. Hope is just finishing up one of her performances when you walk up to greet her. The calm sounds of raindrops hitting the cold, concrete floor of the city keeps you at ease. Something is brighter about the day, but you can't quite make it out. You walk up to Hope, and tell her everything] }
+{33010}{}{[Continue]}
+{34000}{}{How do you stop the rain?! How do you stop the rain! How do you stop, how do you stop?!@@Love, love me darlin', come and go with me. Don't send me beyond the sea...@@When I want you... In my arms... When I want you... And all your charms... Whenever I want you... All I have to do is dream...@@Dream lover, where are you with a love, oh, so true? And a hand that I can hold, to feel you near as I grow old@@I want a, dream lover, so I don't have to dream alone... So I don't have to dream alone...@@In the still of the night, I held you... Held you tight... Cause I love you... Love you soooo... Promise I'll never... Let you go...@@I can sit and whisper, to the trees, but the only sound they make is breeze... The waters ... Don't say a word but drown... Like fallen lovers, risen from the ground...@@Do you remember, all the times, the earth shook by your rage... Least you never forget, the worlds you'll destroy...@@Oh yes... I'm the great pretender... Pretending that I'm doing so well...@@I caught a train... I met a dame... She was a hepster... And a real gone dame... She was pretty... From New York City...@@What a difference a day made... Twenty four little hours... Brought the sun and the flowers... Where there use to be rain...@@My yesterday was blue dear... But today I'm a part of you dear... All my lonely nights are through dear... Since you said you were mine, now everything's going to be fine!@@Got my mojo workin', but it just don't work on you! Got my mojo workin', but it just don't work on you! I want to love you so bad, till I ... Don't know what to do...@@Now, you say you're lonely... You cried the whole night through... Well you can, cry me a river... Cry me a river... I cried a river, over youuuu...@@Well, I give you all of my money, but you just won't treat me right! You like to ball every morning, don't come back till late at night...@@Just let me hear some other rock n roll music! Any ol' way you choose it! It's got a backin' you can't lose it! Any ol' time you use it!@@}
+{34010}{}{[Watch the performance]}
+{35000}{}{How do you stop the rain?! How do you stop the rain! How do you stop, how do you stop?!@@Love, love me darlin', come and go with me. Don't send me beyond the sea...@@When I want you... In my arms... When I want you... And all your charms... Whenever I want you... All I have to do is dream...@@Dream lover, where are you with a love, oh, so true? And a hand that I can hold, to feel you near as I grow old@@I want a, dream lover, so I don't have to dream alone... So I don't have to dream alone...@@In the still of the night, I held you... Held you tight... Cause I love you... Love you soooo... Promise I'll never... Let you go...@@I can sit and whisper, to the trees, but the only sound they make is breeze... The waters ... Don't say a word but drown... Like fallen lovers, risen from the ground...@@Do you remember, all the times, the earth shook by your rage... Least you never forget, the worlds you'll destroy...@@Oh yes... I'm the great pretender... Pretending that I'm doing so well...@@I caught a train... I met a dame... She was a hepster... And a real gone dame... She was pretty... From New York City...@@What a difference a day made... Twenty four little hours... Brought the sun and the flowers... Where there use to be rain...@@My yesterday was blue dear... But today I'm a part of you dear... All my lonely nights are through dear... Since you said you were mine, now everything's going to be fine!@@Got my mojo workin', but it just don't work on you! Got my mojo workin', but it just don't work on you! I want to love you so bad, till I ... Don't know what to do...@@Now, you say you're lonely... You cried the whole night through... Well you can, cry me a river... Cry me a river... I cried a river, over youuuu...@@Well, I give you all of my money, but you just won't treat me right! You like to ball every morning, don't come back till late at night...@@Just let me hear some other rock n roll music! Any ol' way you choose it! It's got a backin' you can't lose it! Any ol' time you use it!@@}
+{35010}{}{[Catch your old Fedora as Hope throws it towards you during her performance]}
+{36000}{}{Don't miss me too much, sweetie.}
+

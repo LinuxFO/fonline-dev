@@ -1,0 +1,163 @@
+[comment]
+hub chef, questin 4 soup
+
+[data]
+lang=engl russ
+
+[dialog]
+&
+1 1000 None 0 #
+4 1010 D _var p name_mem_npc_player = 0 D _var p hub_chefquest = 0 D _param p ST_INTELLECT > 3 #
+13 1020 D _var p name_mem_npc_player = 1 D _param p ST_INTELLECT > 3 D _var p hub_chefquest = 1 #
+17 1030 D _param p ST_INTELLECT > 3 D _var p hub_chefquest = 2 #
+20 1040 D _param p ST_INTELLECT < 3 @
+4 2000 None 0 #
+7 2010 D _param p ST_LEVEL > 11 #
+2 2020 #
+3 2030 #
+5 2040 #
+6 2050 @
+2 3000 None 0 @
+3 4000 None 0 @
+5 5000 None 0 @
+6 6000 None 0 @
+7 7000 None 0 #
+6 7010 #
+8 7020 @
+8 8000 None 0 #
+9 8010 @
+9 9000 None 0 #
+10 9010 @
+10 10000 None 0 #
+11 10010 #
+6 10020 @
+11 11000 None 0 #
+12 11010 R _var p name_mem_npc_player = 1 R _var p hub_chefquest = 1 @
+12 12000 None 0 @
+13 13000 None 0 #
+15 13010 D _item p PID_MEAT_JERKY > 9 D _item p PID_IGUANA_ON_A_STICK > 4 D _item p PID_BROC_FLOWER > 11 D _item p PID_XANDER_ROOT > 5 D _item p PID_MUTATED_FRUIT > 2 D _item p PID_ROENTGEN_RUM > 0 D _item p PID_WATERBAG > 1 D _var p hub_chefquest = 1 R _item p PID_MEAT_JERKY - 10 R _item p PID_IGUANA_ON_A_STICK - 5 R _item p PID_BROC_FLOWER - 12 R _item p PID_XANDER_ROOT - 6 R _item p PID_MUTATED_FRUIT - 3 R _item p PID_ROENTGEN_RUM - 1 R _item p PID_WATERBAG - 2 R _script dialog@r_AddExperience 1 4000 R _script dialog@r_AddMoney 1 600 R _var p hub_chefquest = 2 R _param p ST_KARMA + 1 R _param p REPUTATION_HUB + 50 R _script dialog@r_AddLootSetLevel1 0  #
+14 13020 #
+0 13030 @
+14 14000 None 0 #
+0 14010 @
+15 15000 None 0 #
+0 15010 D _param p ST_CHARISMA < 3 #
+16 15020 D _param p ST_CHARISMA > 3 @
+16 16000 None 0 #
+0 16010 R _param p ST_MAX_LIFE + 2 @
+17 17000 None 0 @
+20 18000 None 0 &
+
+[engl]
+{100}{}{Hub Chef}
+{200}{}{You see a chef. }
+{210}{}{He looks underpaid, and overworked. }
+{1000}{}{Predialogue installations}
+{1010}{}{not known}
+{1020}{}{known}
+{1030}{}{final}
+{1040}{}{stoopid}
+{2000}{}{Eh, bonjour! Now get the hell out of my kitchen! Unless you want to peel some fucking vegetables!}
+{2010}{}{You call this soup?! Get the hell out of my way! I'll teach you how to make soup!}
+{2020}{}{Whatever you're making smells like shit.}
+{2030}{}{Sure, I'll peel some vegetables.}
+{2040}{}{What is this? A restaurant?}
+{2050}{}{I'll just leave.}
+{3000}{}{What?! How dare you monsieu! You think you can make a better souffle? You and that nasty American accent?! }
+{4000}{}{Hah! *I'm* a professional! You couldn't cut vegetables even if you had over a hundred points in unarmed combat! Did you go to culinary school for four years? I didn't think so! }
+{5000}{}{A restaurant?! Do I look like I run a fucking restaurant?! This is a kitchen! You stupid ignorant American! }
+{6000}{}{Au revoir! You stupid henglish man!}
+{7000}{}{Eh? What the hell is this? You stupid Americans think you can cook better than the French? Hah! You make me laugh! You ignorant little man! If you want a job, I have a job for you, eh? }
+{7010}{}{I'll never work for the French!}
+{7020}{}{That's more like it! What do you need?}
+{8000}{}{These fucking assholes I work for, they eat, and eat, and eat. Then they shit, and shit, and shit. Then you know what they do?}
+{8010}{}{Uh... }
+{9000}{}{They eat, and eat, and eat! Then they shit, and shit, and shit. You know what I want from you now, eh?}
+{9010}{}{I'm not shovelling anyone's shit!}
+{10000}{}{No, no, no! You stupid American! Forget about the shits, for one fucking minute! These people, they love my cooking so much I can't keep up with all the fucking ingredients. They overwork me, and underpay as well! Those fuckers. You want to help? }
+{10010}{}{Yeah, okay.}
+{10020}{}{Nah, maybe later.}
+{11000}{}{Bon! Merveilleux! That's good for me, I will make it good for you too, eh? You bring me a shit load of ingredients all at once, okay? None of this bring me one this, one that, no, fuck that shit. I'm French! I don't have time for this shit. You got a pen? No? Fuck you then. I need 10x Meat Jerky, 5x Iguana-on-a-stick, 12x Broc Flowers, 6x Xander Roots, 3x Fruit, 1x Roentgen Rum, and 2x Filled Water Bags. Courier monsieu! I need it now, yes? }
+{11010}{}{Geez, that's a lot all at once. What's in it for me?}
+{12000}{}{I cook you something nice, eh? Now fuck off! My dish is on fire, calis!}
+{13000}{}{Ah, the ignorant henglish man has returned. You bring me that big crate of food? Or did your tiny American brain forget what you were trying to do with your tiny, little hands? Hmm?}
+{13010}{}{Fuck off, I've got your food order right here.}
+{13020}{}{What did you need again?}
+{13030}{}{Sorry, wrong asshole. }
+{14000}{}{You got a pen? No? Fuck you then. I need 10x Meat Jerky, 5x Iguana-on-a-stick, 12x Broc Flowers, 6x Xander Roots, 3x Fruit, 1x Roentgen Rum, and 2x Filled Water Bags. Courier monsieu! I need it now, yes? }
+{14010}{}{Alright, see ya.}
+{15000}{}{Eh, this is good. Look at all this, yes, yes, so fresh. Well... Fresh enough for soup. You did a good job, for an American, merci monsieu. Here is your payment for a fair job. }
+{15010}{}{Thanks. See ya. }
+{15020}{}{Thanks. See ya. }
+{16000}{}{Oh, wait, wait, wait! Here, have some soup, I just make it this morning. It's good for you, eat, eat. }
+{16010}{}{Oh, thanks. See ya! [Gain +2 Max HP]}
+{17000}{}{How many times do I 'ave to tell you people to get the hell out of my kitchen?! Out! Out!}
+{18000}{}{Eh? What is this? Fuck off and go shit and eat!}
+{100000001}{}{Better wash the counter again...}
+{100000002}{}{That's 5 caps buddy. Hey did you hear me? Cough em' up.}
+{100000003}{}{Better change the keg...}
+{100000004}{}{RotGut? You drink that shit?}
+{100000005}{}{Domestic? I got B.E.E.R buddy, do you want one or not?}
+{100000006}{}{Fuckin' dust is getting everywhere. Hey close the fuckin' door!}
+{100000007}{}{I swear if the next asshole doesn't tip. Ima' shoot somebody!}
+{100000008}{}{I got bottles, I got shots, and I got a bat behind the counter for the retards. Your not a retard are you?}
+{100000009}{}{Uh-huh, yeah that's nice buddy. You don't say...What? Of course I'm listening...}
+{100000010}{}{That's 5 caps. FIVE CAPS Tribal! F.I.V.E! }
+{100000011}{}{Shut up and order a fuckin' beer already!}
+{100000012}{}{I swear if I have to serve another drunk, I'm getting the shotgun!}
+{100000013}{}{Look the keg went dry, and it's going to be another month until the caravan shows up again.}
+{100000014}{}{Really? You don't say, buy another drink or get out!}
+{100000015}{}{What? I'm on break.}
+{100000016}{}{Be right with ya'}
+{100000017}{}{Have a sit stranger. I'll be with you in a moment.}
+{100000018}{}{When do we close? Uh, when the place get's shot up, that's when!}
+{100000019}{}{We're fresh outta' cold beer, sorry. You'll just have to drink it warm.}
+{100000020}{}{RotGut? No man, go make that shit yourself! I wouldn't drink it!}
+
+[russ]
+{100}{}{Алкоголик}
+{200}{}{Вы видите пьяницу.}
+{210}{}{Вы видите шатающегося из стороны в сторону пьяного человека в лохмотьях. Лицо его распухло, нос синющий как слива. А аромат рядом с ним такой, что свалит брамина насмерть. Он что-то бормочет про себя и иногда громко поет песни.}
+{210}{}{Вы видите алкаша. Он весьма грязен - кажется, он повалялся в луже, но не особо этим расстроен.}
+{1000}{}{I?aaaeaeiaiaua onoaiiaee}
+{1010}{}{Answer text}
+{1020}{}{known}
+{1030}{}{final}
+{1040}{}{stoopid}
+{2000}{}{Thank you! Thank you! }
+{2010}{}{You call this soup?! Get out of my way! }
+{2020}{}{Head to the camp}
+{2030}{}{Exit into the wasteland}
+{2040}{}{Answer 3}
+{2050}{}{Answer 4}
+{3000}{}{What?! How dare you monsieu! You think you can make a better souffle? You and that nasty American accent?! }
+{4000}{}{Hah! *I'm* a professional! You couldn't cut vegetables even if you had over a hundred points in unarmed combat! Did you go to culinary school for four years? I didn't think so! }
+{5000}{}{A restaurant?! Do I look like I run a fucking restaurant?! This is a kitchen! You stupid ignorant American! }
+{6000}{}{Au revoir! You stupid henglish man!}
+{7000}{}{Eh? What the hell is this? You stupid American's think you can cook better than the French? Hah! You make me laugh! You ignorant little man! If you want a job I have a job a for you, eh? }
+{7010}{}{I'll never work for the French!}
+{7020}{}{That's more like it! What do you need?}
+{8000}{}{These fucking assholes I work for, they eat, and eat, and eat. Then they shit, and shit, and shit. Then you know what they do?}
+{8010}{}{Uh... }
+{9000}{}{They eat, and eat, and eat! Then they shit, and shit, and shit. You know what I want from you now, eh?}
+{9010}{}{I'm not shovelling any shit!}
+{10000}{}{No, no, no! You stupid American! Forget about the shits, for one fucking minute! These people, they love my cooking so much I can't keep up with all the fucking ingredients. They overwork me, and underpay as well! Those fuckers. You want to help? }
+{10010}{}{Yeah, okay.}
+{10020}{}{Nah, maybe later.}
+{11000}{}{Bon! Merveilleux! That's good for me, I will make it good for you too, eh? You bring me a shit load of ingredients all at once, okay? None of this bring me one this, one that, no, fuck that shit. I'm French! I don't have time for this shit. You got a pen? No? Fuck you then. I need 10x Meat Jerky, 5x Iguana-on-a-stick, 12x Broc Flowers, 6x Xander Roots, 3x Fruit, 1x Roentgen Rum, and 2x Filled Water Bags. Courier monsieu! I need it now, yes? }
+{11010}{}{Geez, that's a lot all at once. What's in it for me?}
+{12000}{}{I cook you something nice, eh? Now fuck off! My dish is on fire, calis!}
+{13000}{}{Ah, the ignorant henglish man has returned. You bring me that big crate of food? Or did your tiny American brain forget what you were trying to do with your little hands? Hmm?}
+{13010}{}{Fuck off, I've got your food. Here. }
+{13020}{}{What did you need again?}
+{13030}{}{Sorry, wrong asshole. }
+{14000}{}{You got a pen? No? Fuck you then. I need 10x Meat Jerky, 5x Iguana-on-a-stick, 12x Broc Flowers, 6x Xander Roots, 3x Fruit, 1x Roentgen Rum, and 2x Filled Water Bags. Courier monsieu! I need it now, yes? }
+{14010}{}{Alright, see ya.}
+{15000}{}{Eh, this is good. Look at all this, yes, yes, so fresh. Well... Fresh enough for soup. You did a good job, for an American, merci monsieu. Here is your payment for a fair job. }
+{15010}{}{Thanks. See ya. }
+{15020}{}{Thanks. See ya. }
+{16000}{}{Oh, wait, wait, wait! Here, have some soup, I just make it this morning. It's good for you, eat, eat. }
+{16010}{}{Oh, thanks. See ya! [Gain +2 Max HP]}
+{17000}{}{How many times do I 'ave to tell you people to get the hell out of my kitchen?!}
+{18000}{}{Eh? What is this? Fuck off and go shit and eat!}
+

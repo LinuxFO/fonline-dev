@@ -1,0 +1,151 @@
+[comment]
+ferrarius quest
+
+[data]
+lang=engl russ
+
+[dialog]
+&
+1 1000 None 0 #
+4 1010 D _var p hub_foundryp = 0 #
+4 1020 D _var p hub_foundryp = 1 @
+4 2000 None 0 #
+7 2010 #
+2 2020 #
+3 2030 #
+3 2040 #
+3 2050 #
+3 2060 #
+10 2070 D _var p q_packages = 4 D _item p PID_CARAVAN_BOX > 0 R _var p q_packages = 98 R _item p PID_CARAVAN_BOX - 1 #
+0 2080 @
+3 3000 None 0 #
+5 3010 #
+4 3020 #
+5 3030 #
+0 3040 @
+5 4000 None 0 #
+0 4010 R _var p hub_foundryp = 1 @
+2 5000 None 0 #
+6 5010 D _item p PID_ALLOYS > 7 R _item p PID_ALLOYS - 8 R _script dialog@r_BulkOrderRewardLow 0  R _script dialog@r_BulkOrderRewardFoundry 0  R _script dialog@r_AddMoney 1 300 R _script dialog@r_AddExperience 1 330 #
+6 5020 D _item p PID_ELECTRONIC_PARTS > 7 R _item p PID_ELECTRONIC_PARTS - 8 R _script dialog@r_BulkOrderRewardLow 0  R _script dialog@r_BulkOrderRewardFoundry 0  R _script dialog@r_AddExperience 1 500 R _script dialog@r_AddMoney 1 400 #
+6 5030 D _item p PID_CLUB > 7 R _item p PID_CLUB - 8 R _script dialog@r_BulkOrderRewardLow 0  R _script dialog@r_BulkOrderRewardFoundry 0  R _script dialog@r_AddExperience 1 500 R _script dialog@r_AddMoney 1 400 #
+6 5040 D _item p PID_METAL_PARTS > 7 R _item p PID_METAL_PARTS - 8 R _script dialog@r_BulkOrderRewardLow 0  R _script dialog@r_BulkOrderRewardFoundry 0  R _script dialog@r_AddMoney 1 200 R _script dialog@r_AddExperience 1 250 #
+0 5050 @
+6 6000 None 0 #
+2 6010 @
+7 7000 None 0 #
+8 7010 #
+0 7020 @
+8 8000 None 0 #
+9 8010 #
+0 8020 @
+9 9000 None 0 #
+8 9010 #
+0 9020 @
+10 10000 None 0 &
+
+[engl]
+{100}{}{Ferrarius}
+{200}{}{You see a strange machinist.}
+{210}{}{He appears to be working on some sort of machine. You have no idea what it could be, but he's making a lot of noise.}
+{1000}{}{Predialogue installations}
+{1010}{}{not known}
+{1020}{}{known}
+{2000}{}{[The loud banging of a hammer echoes through your ears as you approach the man. He doesn't seem interested in speaking with you. He's simply working on a machine, and doesn't seem to care about anything else]  }
+{2010}{}{Need any labour?}
+{2020}{}{I've filled one of your bulk orders.}
+{2030}{}{Well hey there! I'm @pname@! Say, what'chu doin' back here?}
+{2040}{}{Is this some sort of store? Can I buy something?}
+{2050}{}{Got anything to sell?}
+{2060}{}{Who are you?}
+{2070}{}{[Deliver Package]}
+{2080}{}{[Just leave]}
+{3000}{}{[The man stops what he's doing and turns to face you] Sorry, @sex@|pal,||lady,| didn't hear ya walk in. I'm Ferrarius, nice to meet you. I'm the local machinist and foundry worker. We process scrap metals here, and melt it down into steel for our armor.}
+{3010}{}{That's interesting, got any work?}
+{3020}{}{Oh, okay.}
+{3030}{}{You looking to buy any scrap metal?}
+{3040}{}{Alright, thanks. That's all I wanted to know.}
+{4000}{}{[He hands you a list] Always looking for labour, friend. That there list has everything I need. You bring me any of it and I'll make sure you get some caps. [He quickly gets back to work]}
+{4010}{}{Sure, sounds good. I'll let you know if I've got anything to sell. Thanks.}
+{5000}{}{[He stops what he's doing and smiles] What have you got, friend? Anything I can use?}
+{5010}{}{Sell 8x Alloys.}
+{5020}{}{Sell 8x Electronic Parts.}
+{5030}{}{Sell 8x Steel Clubs.}
+{5040}{}{Sell 8x Metal Parts.}
+{5050}{}{Nothing, today. Maybe tomorrow.}
+{6000}{}{Yeah, this is what I'm looking for. Got any more?}
+{6010}{}{[Go back]}
+{7000}{}{[He stops what he's doing and smiles] @sex@|Yessir!||Yes ma'am!| I'll pay you by the hour if you want to help back here. Come over here...}
+{7010}{}{Sure [Work]}
+{7020}{}{Not right now. See ya.}
+{8000}{}{[You are asked to start smashing various pieces of metal into smaller chunks of metal. You begin doing so. Time passes very slowly]}
+{8010}{}{[Smash!]}
+{8020}{}{That's it! I quit!}
+{9000}{}{[You keep smashing metal into more metal. Your body begins to hurt]}
+{9010}{}{[Smash!]}
+{9020}{}{That's it! I quit!}
+{10000}{}{The Vault City package? Give it here.}
+{100000001}{}{Better wash the counter again...}
+{100000002}{}{That's 5 caps buddy. Hey did you hear me? Cough em' up.}
+{100000003}{}{Better change the keg...}
+{100000004}{}{RotGut? You drink that shit?}
+{100000005}{}{Domestic? I got B.E.E.R buddy, do you want one or not?}
+{100000006}{}{Fuckin' dust is getting everywhere. Hey close the fuckin' door!}
+{100000007}{}{I swear if the next asshole doesn't tip. Ima' shoot somebody!}
+{100000008}{}{I got bottles, I got shots, and I got a bat behind the counter for the retards. Your not a retard are you?}
+{100000009}{}{Uh-huh, yeah that's nice buddy. You don't say...What? Of course I'm listening...}
+{100000010}{}{That's 5 caps. FIVE CAPS Tribal! F.I.V.E! }
+{100000011}{}{Shut up and order a fuckin' beer already!}
+{100000012}{}{I swear if I have to serve another drunk, I'm getting the shotgun!}
+{100000013}{}{Look the keg went dry, and it's going to be another month until the caravan shows up again.}
+{100000014}{}{Really? You don't say, buy another drink or get out!}
+{100000015}{}{What? I'm on break.}
+{100000016}{}{Be right with ya'}
+{100000017}{}{Have a sit stranger. I'll be with you in a moment.}
+{100000018}{}{When do we close? Uh, when the place get's shot up, that's when!}
+{100000019}{}{We're fresh outta' cold beer, sorry. You'll just have to drink it warm.}
+{100000020}{}{RotGut? No man, go make that shit yourself! I wouldn't drink it!}
+
+[russ]
+{100}{}{Алкоголик}
+{200}{}{Вы видите пьяницу.}
+{210}{}{Вы видите шатающегося из стороны в сторону пьяного человека в лохмотьях. Лицо его распухло, нос синющий как слива. А аромат рядом с ним такой, что свалит брамина насмерть. Он что-то бормочет про себя и иногда громко поет песни.}
+{210}{}{Вы видите алкаша. Он весьма грязен - кажется, он повалялся в луже, но не особо этим расстроен.}
+{1000}{}{I?aaaeaeiaiaua onoaiiaee}
+{1010}{}{Answer text}
+{1020}{}{known}
+{2000}{}{Thank you! Thank you! }
+{2010}{}{Need any labour?}
+{2020}{}{I've filled one of your bulk orders.}
+{2030}{}{Head to the camp}
+{2040}{}{Exit into the wasteland}
+{2050}{}{Answer 3}
+{2060}{}{Answer 4}
+{2070}{}{[Deliver Package]}
+{2080}{}{[Just leave]}
+{3000}{}{[The man stops what he's doing and turns to face you] Sorry, @sex@|pal,||lady,| didn't hear ya walk in. I'm Ferrarius, nice to meet you. I'm the local machinist and foundry worker. We process scrap metals here, and melt it down into steel for our armor.}
+{3010}{}{That's interresting, got any work?}
+{3020}{}{Oh, okay.}
+{3030}{}{You looking to buy any scrap metal?}
+{3040}{}{Alright, thanks. That's all I wanted to know.}
+{4000}{}{[He hands you a list] Always looking for labour, friend. That there list has everything I need. You bring me any of it and I'll make sure you get some caps. }
+{4010}{}{Sure, sounds good. I'll let you know if I've got anything to sell. Thanks.}
+{5000}{}{[He stops what he's doing and smiles] What have you got, friend? Anything I can use?}
+{5010}{}{Sell 12x Alloys.}
+{5020}{}{Sell 12x Electronic Parts.}
+{5030}{}{Sell 12x Steel Clubs.}
+{5040}{}{Sell 12x Metal Parts.}
+{5050}{}{Nothing, today. Maybe tomorrow.}
+{6000}{}{Yeah, this is what I'm looking for. Got any more?}
+{6010}{}{[Go back]}
+{7000}{}{[He stops what he's doing and smiles] @sex@|Yessir!||Yes ma'am!| I'll pay you by the hour if you want to help back here. Come over here...}
+{7010}{}{Sure [Work]}
+{7020}{}{Not right now. See ya.}
+{8000}{}{[You are asked to start lifting boxes of metal parts, then smash them down into pieces with a hammer. You begin doing so. Time passes very slowly]}
+{8010}{}{[Smash!]}
+{8020}{}{That's it! I quit!}
+{9000}{}{[You keep smashing metal into more metal. Your body begins to hurt]}
+{9010}{}{[Smash!]}
+{9020}{}{That's it! I quit!}
+{10000}{}{The Vault City package? Give it here.}
+

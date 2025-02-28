@@ -1,0 +1,459 @@
+[comment]
+For now this dilaog is only for bounty purposes.
+
+[data]
+lang=engl
+
+[dialog]
+&
+1 1000 None 0 #
+2 1010 D _var p name_mem_npc_player = 1 #
+6 1020 D _var p name_mem_npc_player = 0 R _var p name_mem_npc_player = 1 @
+2 2000 None 0 #
+4 2010 #
+0 2020 @
+4 3000 None 0 #
+93 3010 D _var p z_dailyq1 = 5 #
+91 3020 D _var p camp_evil = 1 #
+45 3030 D _var p q_cop = 2 R _script quest_cop@r_DeleteLoc 0  R _var p q_cop = 3 R _param p REPUTATION_HUB_CRIMINALS - 24 R _param p ST_KARMA + 1 R _script dialog@r_AddExperience 1 500 R _script dialog@r_AddMoney 1 200 R _param p REPUTATION_HUB + 9 #
+7 3040 #
+8 3050 #
+10 3060 D _item p PID_BOTTLE_CAPS > 1199 D _var p hub_gangers = 11 R _item p PID_BOTTLE_CAPS - 1200 R _var p hub_gangers = 12 #
+11 3070 D _var p hub_hopeq = 1 #
+39 3080 D _var p hub_hopeq = 4 #
+40 3090 D _var p hub_hopeq = 5 #
+46 3100 D _var p noire1 = 2 #
+59 3110 D _var p noire1 = 4 #
+64 3120 D _var p noire1 = 7 #
+70 3130 D _var p noire1 = 14 D _var p noire5 { 0 #
+81 3140 D _var p noire5 = 3 #
+90 3150 D _var p noire5 = 7 #
+92 3160 D _var p q_packages = 8 D _item p PID_CARAVAN_BOX > 0 R _var p q_packages = 98 R _item p PID_CARAVAN_BOX - 1 #
+0 3170 @
+5 4000 None 0 @
+6 5000 None 0 #
+4 5010 #
+0 5020 @
+7 6000 None 0 #
+44 6010 D _var p q_cop = 3 #
+44 6020 D _var p q_cop = 0 D _param p ST_LEVEL > 5 D _param p ST_KARMA } 0 #
+65505 6030 #
+0 6040 @
+8 7000 None 0 #
+9 7010 #
+65505 7020 #
+0 7030 @
+9 8000 None 0 #
+0 8010 @
+10 9000 None 0 #
+0 9010 @
+11 10000 None 0 #
+12 10010 @
+12 11000 None 0 #
+13 11010 @
+13 12000 None 0 #
+14 12010 @
+14 13000 None 0 #
+15 13010 @
+15 14000 None 0 #
+21 14010 #
+22 14020 #
+18 14030 #
+20 14040 #
+16 14050 #
+17 14060 #
+23 14070 #
+28 14080 #
+24 14090 #
+31 14100 #
+0 14110 R _var p hub_hopeq = 2 @
+16 15000 None 0 #
+15 15010 @
+17 16000 None 0 #
+15 16010 @
+18 17000 None 0 #
+19 17010 @
+19 18000 None 0 #
+15 18010 @
+20 19000 None 0 #
+15 19010 @
+21 20000 None 0 #
+15 20010 @
+22 21000 None 0 #
+15 21010 @
+23 22000 None 0 #
+15 22010 @
+24 23000 None 0 #
+25 23010 @
+25 24000 None 0 #
+26 24010 @
+26 25000 None 0 #
+27 25010 @
+27 26000 None 0 #
+15 26010 @
+28 27000 None 0 #
+29 27010 @
+29 28000 None 0 #
+30 28010 #
+30 28020 #
+30 28030 @
+30 29000 None 0 #
+15 29010 @
+31 30000 None 0 #
+32 30010 @
+32 31000 None 0 #
+33 31010 @
+33 32000 None 0 #
+34 32010 #
+35 32020 #
+36 32030 #
+37 32040 #
+38 32050 #
+15 32060 @
+34 33000 None 0 #
+33 33010 @
+35 34000 None 0 #
+33 34010 @
+36 35000 None 0 #
+33 35010 @
+37 36000 None 0 #
+33 36010 @
+38 37000 None 0 #
+33 37010 @
+39 38000 None 0 #
+0 38010 @
+40 39000 None 0 #
+41 39010 @
+41 40000 None 0 #
+42 40010 @
+42 41000 None 0 #
+43 41010 @
+43 42000 None 0 #
+0 42010 R _var p hub_hopeq = 6 R _param p REPUTATION_HUB + 25 R _param p REPUTATION_HUB_CRIMINALS - 25 R _item p PID_44_MAGNUM_REVOLVER + 1 R _item p PID_LEATHER_ARMOR + 1 R _item p PID_ROT_GUT + 1 R _item p PID_CIGARETTES + 2 R _param p ST_KARMA + 1 R _script dialog@r_AddExperience 1 1000 @
+44 43000 None 0 #
+0 43010 R _var p q_cop = 1 R _script quest_cop@r_SpawnLoc 0  #
+0 43020 @
+45 44000 None 0 #
+0 44010 @
+46 45000 None 0 #
+47 45010 @
+47 46000 None 0 #
+48 46010 @
+48 47000 None 0 #
+49 47010 @
+49 48000 None 0 #
+50 48010 @
+50 49000 None 0 #
+51 49010 @
+51 50000 None 0 #
+52 50010 @
+52 51000 None 0 #
+53 51010 @
+53 52000 None 0 #
+54 52010 @
+54 53000 None 0 #
+55 53010 @
+55 54000 None 0 #
+56 54010 @
+56 55000 None 0 #
+57 55010 @
+57 56000 None 0 #
+58 56010 R _var p noire1 = 3 R _script quest_noire1@r_SpawnLoc 0  @
+58 57000 None 0 @
+59 58000 None 0 #
+60 58010 @
+60 59000 None 0 #
+61 59010 @
+61 60000 None 0 #
+62 60010 @
+62 61000 None 0 #
+63 61010 @
+63 62000 None 0 #
+0 62010 R _var p noire1 = 5 R _script dialog@r_AddExperience 1 3000 R _script quest_noire1@r_DeleteLoc 0  R _param p ST_KARMA + 10 R _item p PID_223_PISTOL + 1 R _item p PID_223_FMJ + 120 R _item p PID_SUPER_STIMPAK + 6 R _script quest_noire2@r_SpawnLoc 0  R _var p z_warrior2 + 1 @
+64 63000 None 0 #
+65 63010 @
+65 64000 None 0 #
+66 64010 @
+66 65000 None 0 #
+67 65010 @
+67 66000 None 0 #
+68 66010 @
+68 67000 None 0 #
+69 67010 @
+69 68000 None 0 #
+0 68010 R _var p noire1 = 8 R _script quest_noire2@r_DeleteLoc 0  R _script dialog@r_AddExperience 1 3000 R _item p PID_SUPER_STIMPAK + 6 R _item p PID_ROT_GUT + 1 R _item p PID_CIGARETTES + 1 R _item p PID_BUFFOUT + 1 R _item p PID_JET + 1 R _item p PID_MENTATS + 1 R _item p PID_PSYCHO + 1 R _item p PID_GAMMA_GULP_BEER + 1 R _var p z_warrior2 + 1 @
+70 69000 None 0 #
+71 69010 @
+71 70000 None 0 #
+72 70010 @
+72 71000 None 0 #
+73 71010 @
+73 72000 None 0 #
+74 72010 @
+74 73000 None 0 #
+75 73010 @
+75 74000 None 0 #
+76 74010 @
+76 75000 None 0 #
+77 75010 @
+77 76000 None 0 #
+78 76010 @
+78 77000 None 0 #
+79 77010 @
+79 78000 None 0 #
+80 78010 @
+80 79000 None 0 #
+0 79010 R _script quest_noire4@r_SpawnLoc 0  R _var p noire5 = 1 @
+81 80000 None 0 #
+82 80010 @
+82 81000 None 0 #
+83 81010 @
+83 82000 None 0 #
+84 82010 @
+84 83000 None 0 #
+85 83010 @
+85 84000 None 0 #
+86 84010 @
+86 85000 None 0 #
+87 85010 @
+87 86000 None 0 #
+88 86010 @
+88 87000 None 0 #
+89 87010 R _var p noire5 = 4 R _param p ST_KARMA + 20 R _script dialog@r_AddExperience 1 5000 R _param p REPUTATION_HUB + 50 R _param p REPUTATION_JUNKTOWN + 50 R _param p REPUTATION_NCR + 50 R _param p REPUTATION_NCR_RANGERS + 50 R _param p REPUTATION_LA + 50 R _item p PID_SUPER_STIMPAK + 12 R _item p PID_ROT_GUT + 1 R _item p PID_CIGARETTES + 1 R _item p PID_223_FMJ + 60 R _script quest_noire5@r_DeleteLoc 0  R _script quest_noire6@r_SpawnLoc 0  R _var p z_warrior2 + 1 @
+89 88000 None 0 @
+90 89000 None 0 #
+0 89010 R _var p noire5 = 8 R _script quest_pending@r_SpawnLoc 0  R _script dialog@r_TeleportToMap 2 258 0 @
+91 90000 None 0 @
+92 91000 None 0 @
+93 92000 None 0 #
+0 92010 R _var p z_dailyq1 = 6 R _script quest_loansim@r_DeleteLoc 0  R _script quest_copsim@r_SpawnLoc 0  &
+
+[engl]
+{100}{}{Sheriff Hayden}
+{200}{}{You see Sheriff Andrew Hayden.}
+{210}{}{You see a powerfully built man looking at you intently.}
+{1000}{}{Predialogue installations}
+{1010}{}{default}
+{1020}{}{New}
+{2000}{}{@sex@|Hello again, sir. What can I do for you today?||Hello again, ma'am. What can I do for you today?|}
+{2010}{}{Hello, Sheriff.}
+{2020}{}{I won't make any trouble. I was just leaving. Goodbye.@@Nothing, sorry.}
+{3000}{}{What can I do for ya?}
+{3010}{}{I'm doing the daily grind, ready for anything. Got anyone really nasty you want help with?}
+{3020}{}{I need to find a spaceship! Get your best minds on it, pronto! Quickly, now! I'm a celebrity!}
+{3030}{}{I took care of that bounty. I'm here for the reward.}
+{3040}{}{Do you have any work to offer?}
+{3050}{}{Is there anything I should watch out for around here?}
+{3060}{}{[Hand him the bag of caps]}
+{3070}{}{A Miss Hope hired me to investigate her husband's murder. What can you tell me about the situation?}
+{3080}{}{The detective's and I have concluded that it wasn't Miss Hope who murdered Detective Hoyt. We're still working on it, but I just wanted to let you know.}
+{3090}{}{I've solved the murder of Detective Hoyt!}
+{3100}{}{You know, Andrew... After Hope, I... I became a detective in the NCR...}
+{3110}{}{[Pour yourself a drink, and tell the Sheriff the good news]}
+{3120}{}{I took care of that little situation we had over the radio.}
+{3130}{}{[Throw Detective Rockatansky's badge on his desk] I killed off the V8 Gang and cleared out the Night Rider bar. Looks like we'll be able to use it as a base, or something.}
+{3140}{}{[Show him your hands, and assume he understands]}
+{3150}{}{Are we ready to interrogate the ghoul?}
+{3160}{}{[Deliver Package]}
+{3170}{}{Ah.. nevermind. I'll come back later. Bye.}
+{4000}{}{You're about a taco short of a combination plate.@@No hand-outs here. Now git!@@Move along, little doggy.@@Move along.}
+{5000}{}{@sex@|Hello sir! The name's Andrew Hayden. I'm the sheriff of this fine city. Is there something I can do for you this fine day?||Hello ma'am! The name's Andrew Hayden. I'm the sheriff of this fine city. Is there something I can do for you this fine day?|}
+{5010}{}{I just had a couple of questions, Sheriff.}
+{5020}{}{I won't make any trouble. I was just leaving. Goodbye.@@Nothing, sorry.}
+{6000}{}{Just bounties. We're not in the business of giving uniforms and guns to hoodlums from the wastes. Unless, of course, you think you're tough enough? Or moral enough. You really sure you're capable of carrying out the "law"? [Level 6+]}
+{6010}{}{I'll take another bounty.}
+{6020}{}{Okay, I'll take a bounty.}
+{6030}{}{Nevermind. Can I ask you something else?}
+{6040}{}{Fair enough I suppose. Thanks for your help anyway. Good bye.}
+{7000}{}{We get quite a few raiders out here, Khans mostly. They don't come too near the town because of us, but if you take a walk in to the wastes you could end up dead or worse.}
+{7010}{}{Worse?}
+{7020}{}{I'll keep a look out for them. Can I ask you something else?}
+{7030}{}{I'll keep a look out for them. }
+{8000}{}{You hear stories, bad ones, and you find some poor soul with their mind half gone out in the wastes sometimes.}
+{8010}{}{I'll make sure that doesn't happen to me, thanks.}
+{9000}{}{[He quickly pockets the caps, but says nothing else. You walk away] }
+{9010}{}{[Exit]}
+{10000}{}{[The rain pours down, and the sounds of it fill in the background. The Sheriff takes a drag of his cigarette and says] So the dame hired you too, eh? Lousy deal if I've ever heard one, pal.  }
+{10010}{}{Yeah, well, at the end of the day, a @sex@|man's||girl's| gotta eat. Besides a pretty gal like Hope ain't something to just pass up.}
+{11000}{}{[The Sheriff pulls out a bottle of Rotgut, and pours himself a glass. He offers you one] Take it, I distrust a fellow who can't handle their drink. If you've got to be careful not too drink too much, that's cause you can't be trusted when you have. }
+{11010}{}{Here's mud in your eye [Drink] }
+{12000}{}{[He sits back and loosens his tie] You're a close-mouthed @sex@|man||gal|.}
+{12010}{}{No, I like to talk.}
+{13000}{}{[He tips his fedora] Better and better. I distrust a closed-mouth. They generally pick the wrong time to talk and say the wrong things. Talking's something you can't do judiciously unless you keep in practice. Now, we'll talk if you like. I'll tell you right out - I'm a man who likes talking to a fellow who likes to talk.}
+{13010}{}{Swell, so tell me about this... Hope, broad.}
+{14000}{}{[He takes a sip of Rotgut, and continues to puff on his cigarette] *Blowing smoke* What do you want to know?}
+{14010}{}{[Ask about her lifestyle]}
+{14020}{}{[Ask about the Maltese Falcon]}
+{14030}{}{[Ask about her Husband]}
+{14040}{}{[Mention the Argument you overheard]}
+{14050}{}{[Ask about her drug habit]}
+{14060}{}{[Ask about her drinking]}
+{14070}{}{[Ask about her devotion to her Husband]}
+{14080}{}{[Ask why they suspect her]}
+{14090}{}{[Ask to see the Body]}
+{14100}{}{[Talk about the Crime Scene]}
+{14110}{}{Thanks a lot, Sheriff. I think that will be it.}
+{15000}{}{[He thinks for a minute] Her drugs habit? The girl doesn't have one, as far as I can tell. She drinks, but no dope. [He takes a long pull off of his cigarette] Nah, Hope's clean. Her husband on the other hand...}
+{15010}{}{Tell me about...}
+{16000}{}{[He takes a long pull off of his cigarette, and flicks the ashes] Girl drinks like a fish, I tell ya. Used to get herself into a lot of trouble in the Bunker Bar. You should go have a chat with the bartender, he might know something I don't.}
+{16010}{}{Tell me about...}
+{17000}{}{[He laughs] Well he was married, with ten thousand insurance, no children, and a wife that didn't love him. He was also a crummy cop! Ain't really missing him.}
+{17010}{}{Hope's husband is a cop?}
+{18000}{}{[He frowns and lowers his head] *Was* a cop, pfft! Fucking shame. Didn't like him at all, but he wore a badge. But I guess he knew what he was doing. Those are the chances we take. Still, he's gone now. Goin' to lock up his wife by the end of the week, after we've filled out the paperwork.}
+{18010}{}{Tell me about...}
+{19000}{}{[He seems concerned] Sounds like Lieutenant Spade... He's a little rough around the edges, but he was probably just trying to pressure a lead. Him and his partner, Cwan, are in the back room. They're the ones assigned to the investigation. Feel free to talk to them. }
+{19010}{}{Tell me about...}
+{20000}{}{[He tighens his tie] Ugh... Hope's a mess, she's got no idea what she's doing. Seems like she falls in love with every new stranger that walks into the bar... Do yourself a favor, kid, and don't get too attached, eh? When she ain't singing, who the hell knows what she's up to. }
+{20010}{}{Tell me about...}
+{21000}{}{[He takes a long swig of his drink] Cesspoll, bud. Stay away from that place. You can find all sorts of trouble hangin' around a bunch of drunks for too long. People walk into that bar, and never walk out again. It's just a hole to crawl into and die. Not much else to say, used to be ran by a man named Decker, but he's been dead for a long time. }
+{21010}{}{Tell me about...}
+{22000}{}{[He laughs] What devotion? They fought all day long, then one of them would run off and find a bottle. They've both been caught cheatin', and the whole damn town knows it. [He sighs] I'd hate to hang her by that sweet neck though, but chances are she'll get off with life. }
+{22010}{}{Tell me about...}
+{23000}{}{[He leans forward from his chair, and throws a photograph towards you] That's the husband... What's left of him, poor sob. Guy was a real natural in a firefight, let me tell you, can't believe he went out like this... [You focus on the face of the dead man in the photograph. Most of his mind just... Isn't there. Looks like he was shot to death from close range] Found a .44 magnum on his body, killer probably tried to make it look like a suicide.}
+{23010}{}{Has suicide been ruled out?}
+{24000}{}{[He tilts his fedora] Yeah... Hope's husband, Hoyt, wasn't much into killing himself. He was too tough for that. Only person that couldn't kill Hoyt... [He takes a long drag off his cigarette] ...Was Hoyt. }
+{24010}{}{What about robbery? Did he have any money on him at the time? Any valuables that could be worth stealing?}
+{25000}{}{[He sits back, enjoying his cigarette] Nah, it wasn't a robbery. Hoyt was a damn Hub cop, ain't nobody around here got the balls to fuck with one of us. He had almost a thousand dollars in his pockets when we found him. Lucky guy. }
+{25010}{}{Interesting... So he was shot in the face at close range, wasn't robbed, and had almost a thousand caps on him when he died...}
+{26000}{}{[As he crushes his cigarette into a dirty, overfilled ashtray] Yeah... Damn shame. It was the wife I tell ya, she probably caught the poor bastard cheating again, and blew his head off. It's always the same in this business... Teach your kids, man, crime doesn't pay.}
+{26010}{}{Tell me about...}
+{27000}{}{[He laughs, then frowns] *Sigh* I don't know... Detective Spade, and Cwan are on the case. They say that the evidence checks out, she killed her husband over a marital affair. }
+{27010}{}{Odd then, that she would pay the police to investigate the murder. Why would she do that if she was guilty?}
+{28000}{}{[He thinks for a moment, then says] Why not? How else could you fake innocence? For all we know she could be playing the little schoolgirl act. You've met her, what do you think?}
+{28010}{}{I think she's telling the truth...}
+{28020}{}{Haven't figured that one out yet...}
+{28030}{}{She's guilty as hell, I just want to make damn sure...}
+{29000}{}{[He laughs, and lights up another cigarette] We'll see now, won't we? Cwan and Spade have a few more days until I close the case, but if you think you can do better, then by all means. You know, you do a good job here, and there might be a career in law enforcement waiting for you at the end of this. }
+{29010}{}{Let's talk about ...}
+{30000}{}{[His face melts as he leans forward from his chair] Crime scene? Murder? Just why the hell should I tell you anything? You're not a cop, you're just @sex@|some guy||some broad| off the street. You don't got a badge, you don't get to preach law and order!}
+{30010}{}{Don't go on discussing what a good person should be. Just be one.}
+{31000}{}{[He is shocked by your words] I'm being honest, I'm in this up to my neck, chum. I've got to find somebody - a victim - when the time comes. If I don't, I'll be it. Let's give 'em the gunsel. Someone actually shot Hoyt and I don't think it was his wife, do you? Anyway, Spade's going to feed me the cheatin' n' angry wife, and I don't like it. }
+{31010}{}{[Put on a fedora, light up a smoke and say] I'll figure out the truth. The only question is, who's going to stop me? Let's talk about the crime scene...}
+{32000}{}{[He pours you a shot of Rotgut, and lights up a smoke] Yeah, alright... What do you want to know?}
+{32010}{}{[Ask where they found the body]}
+{32020}{}{[Ask what was in the victim's pockets]}
+{32030}{}{[Ask if there we any witnesses]}
+{32040}{}{[Ask about the murder weapon]}
+{32050}{}{[Ask who was first on scene]}
+{32060}{}{[Talk about something else]}
+{33000}{}{[He thinks for a moment] We found him by the Old Heights. It was around 5:45 am when we found the body.He was just lying there, sleeping in a pool of his own blood. No one else around, not much else to go on.}
+{33010}{}{[Talk about something else]}
+{34000}{}{[He leans back] Thousand caps, lighter, smokes. He was still wearing his holster, but his gun was gone. We think it was the murder weapon. Oh, and a matchbook for the Bunker Bar... That's under the Maltese Falcon by the way. Don't ask me about it, I don't know nothin'.}
+{34010}{}{[Talk about something else]}
+{35000}{}{[He frowns] Never are in the Hub. Didn't even bother asking too many questions, nobody knows anything. Maybe you could poke your head around? You ain't a cop after all. }
+{35010}{}{[Talk about something else]}
+{36000}{}{[He pulls a .44 Magnum out from his desk] Here. Have a look. Impossible to tell nowadays who a gun belongs to, but to me this looks like Detective Hoyt's hand canon. We found it beside his body, with four rounds spent. Hoyt was only shot once. }
+{36010}{}{[Talk about something else]}
+{37000}{}{[He tilts his hat] That would be Detective Spade, he found him. Detective Cwan came shortly after Spade made the call. If you ask me, Spade's been taking an awfully big interest in this case... Maybe he's got the hots for Hope? }
+{37010}{}{[Talk about something else]}
+{38000}{}{[He tips his hat to you] Bang up job there, kiddo. But don't count your chickens before they hatch. You ain't done yet, without a killer we still only have Hope to fall back on. }
+{38010}{}{I'll let you know when I've solved the case.}
+{39000}{}{[It begins to pour. The calm sound of rain eases your anxiety, as you light up a cigarette and sit down. The Sheriff does the same, but prepares two glasses of Rotgut] I'll tell ya, @pname@... If you figured this out, you sure are a swell @sex@|guy||gal|. I hope to God we can clear that poor woman's name. }
+{39010}{}{A man named Harry Parker Moore killed him, out of pure jealousy for his wife. It appears that Hope had an affair years ago, but the man simply couldn't let go. He engaged Hoyt in a firefight, no doubt getting shot as a result. But he clearly managed to surprise Hoyt, and kill him with his own weapon. Must have been on Psycho.
+}
+{40000}{}{[The Sheriff smiles] You're a hero, @sex@|sir,||girl,| a savior, a godsend. }
+{40010}{}{No, I'm just a Vault Dweller.}
+{41000}{}{[He shakes your hand] Well, whatever you are, don't ever change. We could use more people like you on the force. You saved that poor girl's life, you really are a hero. And a great detective! Maybe you were born to wear a badge?}
+{41010}{}{This isn't life, this is blood. I'm in the business of saving lives, or taking them. Police work isn't about right or wrong, it's just about justice. And this world doesn't give enough shit about it for me to care. I watched two good men almost kill each other over pride, and I almost killed a man over mine. If there's something out there for me, I haven't found it yet. 
+}
+{42000}{}{[The Sheriff completely understands, and gives you a sincere nod] It's a big world out there kiddo, and it's just waiting for ya. I guess this is where we part ways, but I want you to have this. If you ever change your mind and want to become a cop, go to the NCR. Please, the world needs a hero.}
+{42010}{}{Thank you, Sheriff. But there are better Vault Dwellers than I. I'll see you around. }
+{43000}{}{I've got some asshole holed up outside of town. Been trying to take him in for weeks now, but he's too slippery for us. I'll give you 200 caps if you go over to his shack, and kill him for me. I doubt he'd run from you. [If you want to play this mission in Turn Based Mode make sure you set your default Combat Mode to it before accepting the job. To do this push enter and type "/combatmode tb"]
+}
+{43010}{}{Sure. Show me. }
+{43020}{}{Nah, not right now.}
+{44000}{}{'Bout time someone killed that asshole. I appreciate it. I've got some more people that could use a good killing if you're interested.}
+{44010}{}{Maybe later. See ya.}
+{45000}{}{[A cold rain falls. The sense of gloom once again falls upon your shoulders. A cold, gross feeling fills in the pit of your stomach, and you feel sick. You can smell the scent of fresh blood in the air, and you've never felt more worse than this. Your heart races with each word spoken]}
+{45010}{}{I saved people, Andrew... I killed so many men, women, animals. Americans! They gave me a fucking badge, Andrew! After everything I've done. They... gave me... a fucking... badge...}
+{46000}{}{[Sheriff Andrew stares you down, confused. You race to grab his bottle of Rotgut, and begin to pour yourself a glass]}
+{46010}{}{[Rip off your badge, set it down, and start drinking]}
+{47000}{}{[Sheriff Andrew picks up your badge and cleans it off. He begins to pin it back onto your shirt]}
+{47010}{}{What are you doing? I don't deserve to wear this.}
+{48000}{}{Yes, @pname@. You do. Everyone in California has heard about you. What you did for that little girl, for all those women over in the NCR. For Hope. For Detective Hoyt. For Spade. Cwan. Gallows. Stark. Tandi. Everyone. You deserve to wear this badge more than anyone else I've ever met. Wear it with pride, detective.}
+{48010}{}{You people don't know what I've done with myself! You've only heard of the good deeds! I'm a monster! I'm covered in blood, Andrew! And it isn't mine!}
+{49000}{}{You wear those stains like it's your armour, @pname@. You may have hurt people, but you've hurt the people that deserved it.}
+{49010}{}{Nobody deserved the pain I brought them... Maybe a couple of them... maybe... I don't know anymore. Man can't just go around killing man. This isn't how civilized society should act. Where the hell did we go wrong, Andrew?}
+{50000}{}{@pname@... you have to stop living in the past. Look around you, open your damn eyes. Yesterday is gone. There is no more society, or civilization. There's just animals, and injustice. Things will never change, but it isn't our place to change them. We're here to protect the people that we love. That's it. Find a home, @pname@. Settle down. Get married. Have some kids. Protect them.}
+{50010}{}{[Pour yourself another glass of bourbon]}
+{51000}{}{I want to hire you, detective. The NCR annexed the Hub a long time ago. Our office shares the same government. You being an official police officer in Shady Sands means that you're an official police officer in the Hub as well. }
+{51010}{}{You mean you want me to kill some more people... for justice...}
+{52000}{}{Don't look at it that way, sport. There are still good people out there. Not everyone is scum. But the people we have to kill, well, @pname@, they fucking deserve it. Don't think about it too much. We can't lock people up and rehabilitate them like they used to. Noose, gun, knife, bare hands. These tools are the only thing justice has at its disposal.}
+{52010}{}{Maybe you're right, Sheriff. Nothing else really makes sense to me anymore. Part of me loves hurting people in the name of Lady Justice, but the other part just can't forgive myself for it.}
+{53000}{}{Just don't ever hurt someone innocent. Never lose your humanity. }
+{53010}{}{Tell that to humanity. }
+{54000}{}{[You sit and watch the rain fall down as Sheriff Hayden hands you a list of assignments. Nothing surprises you any more]}
+{54010}{}{Rapists, thieves, murderers... All these people are scum.}
+{55000}{}{Yes, and they're holed up outside of town. Why don't you go over there, and read them their rights? Make them suffer the only way you know how.}
+{55010}{}{Give me a location for some barricade suspects. I'll consider it a vacation.}
+{56000}{}{[Sheriff Hayden hands you the location of six well armed barricade suspects. If you would like to do this mission in Turn Based mode please type /combatmode tb before continuing]}
+{56010}{}{[Finish your drink, and head out into the wasteland]}
+{57000}{}{It's judgement day for someone.}
+{58000}{}{[Sheriff Hayden lights up a smoke, and sits down. You can almost smell the rain beginning to build up. With the flash of his lighter, the Sheriff looks out into the gloomy skies] Rains when you're around, Detective. Must mean something. All that blood you spill, this is how it will all go away. Crops grow everytime you take a bad man's life, you know...}
+{58010}{}{[Light up a cigarette] }
+{59000}{}{[As you light up a smoke it begins to pour. Sheriff Hayden looks at you, and says] That gang you killed... they were real trouble. They were extorting money from the caravans. Spade and Cwan were going to be assigned to take them out. But I figured you could of used a little... vacation. How did it feel?}
+{59010}{}{I don't know... tell me more about their crimes.}
+{60000}{}{[I'll never forget the words that came out of Andrew's mouth. I threw my glass of whiskey across the room, and felt a cold, sharp pain in my heart. I screamed. I screamed as loud as justice could, and took a good look at my hands. All these blood stains finally started to make sense to me now] }
+{60010}{}{I'm going to clean this town up, Andrew. One thug at a time. There'll be no more rapes, or murders. Nothing when I'm done with it.}
+{61000}{}{[The look on Sheriff Hayden's face was spectacular. Two forces were finally reunited, ready to take on the world again. He shook my hand as hard as he could. I felt it. It was the first thing I felt in a long time]}
+{61010}{}{Where do we begin, partner?}
+{62000}{}{I want you to walk a beat around town. Hit the streets. Take a good fucking look at this city, and then report back to me. You'll know when you're finished. God have mercy on their souls, @pname@.}
+{62010}{}{Hah! I hope not.}
+{63000}{}{[You can hear the rain beginning to build up. Getting ready to wash all the blood away, and quench the fires of yesterday's sins. Sheriff Hayden smiles, offers you a drink and says] You ready for a real case?}
+{63010}{}{Let's have her.}
+{64000}{}{[A cold, dark wind breaths through, and you can feel the very reason we have darkness covering this world] One of my detectives, Detective Rockatansky, he went missing earlier. Last week, I believe. We have no idea what happened to him. His... wife... his baby... they went missing... and he ran after them...}
+{64010}{}{His wife and baby? Did he just wake up one day, and they were gone?}
+{65000}{}{[It rains. Cold, and hard] Yeah... [Sheriff Hayden lights up a cigarette, and stares off into the distance] Some bikers showed up a while back. Caused some shit. Rockatansky gave 'em all hell. Now his wife, and kid are gone... and now Rockatansky's gone too. I need you to find him, @pname@. }
+{65010}{}{Sounds like he could use a hand. Where can I find him? Got any leads? Anything?}
+{66000}{}{[The gloom of this city is dark, and miserable. The only light here that shines, is you] The Night Rider. I heard Rockatansky talk about some fucker with that name. Don't know if it's a gang, or just some asshole's leader. }
+{66010}{}{Probably both, who knows. Where was Rockatansky heading last?}
+{67000}{}{[Sheriff Hayden pours himself a glass of Rotgut, and says] The Bunker Bar. That fucking gang tried to shoot the place up. Rockatansky must have gone over there looking for answers after his wife and kid went missing. }
+{67010}{}{I might have to go blow Vasquez's brains out, Sheriff.}
+{68000}{}{[Sheriff Hayden laughs] Nah, Vasquez ain't as bad as he used to be. Looks like you taught him a lesson a while back. Must be someone else Rockatansky was looking for. Just... be careful, alright? I don't need to lose any more fucking detectives this month.}
+{68010}{}{Will do, Sheriff. I'll talk to you later.}
+{69000}{}{[You can smell the cold, damp air starting to tear up. Sheriff Hayden smiles] And Rockatansky? What happened to him? What, did he retire again?}
+{69010}{}{I don't know. He ran off. Said something about wandering the wasteland. His wife and kid were killed, maybe all he needs is some time?}
+{70000}{}{[A cold, hard rain falls, straight from the gods in the sky] How much time do any of us have left anyway?}
+{70010}{}{[Look out into the cold, dark mist] Not enough to stop the rain. }
+{71000}{}{[Within no time, the streets are covered in the wet, damp tears of the sky] And their leader? What happened?}
+{71010}{}{I shot him. After that, all I could do was sit there and watch him die. He seemed like an animal, didn't think I had much of a choice.}
+{72000}{}{[The water slowly fills in the void, and cold loneliness of the busy streets of the city. Sheriff Hayden sighs] *Sigh* That's another detective lost, @pname@, I'm running out of men. Not many people can handle it for a life time. Ten years in the force is 40 civilian years.}
+{72010}{}{Tell me about it...}
+{73000}{}{[The cold sounds of the rain never cease to remind me of all the lives it has seen just wash away] I've seen good men come and go, some of them leave in body bags, some of them leave broken. I guess in the end, a man needs to make a choice. Do I live long enough to die a hero, or live long enough to become the villain?}
+{73010}{}{Teach us to number our days that we may get a heart of wisdom.}
+{74000}{}{[Sheriff Hayden lights up a smoke, and sits back. He pulls out a large case file from his desk and hands it over to you] Got something sickening for you again, @pname@. Hope this isn't the case that breaks you.}
+{74010}{}{[Begin to flip through the case file]}
+{75000}{}{[You flip through page, after page, after page of pictures of dead bodies. Their faces have been smashed in, and their arms have been ripped off. Parts of their skin have also been primitively sawn off and taken for possible collection. Men, women, children, this, or these killers didn't care who their victims were. It's hard to distinqush what's left of these poor little faces, but there are almost more males than female] }
+{75010}{}{[Feel nothing] Looks like we've got a stamp collector. But what is he collecting? Skin?}
+{76000}{}{[Sheriff Hayden gives you a strange look you've never quite seen before] Looks like it. I'll give it to you straight, kid. Someone is out there, walking these streets, and preying on people. I think it's a serial killer. Just one man, or woman. Every body shares the same modus operandi. That tells me it must be the same killer.}
+{76010}{}{Or killers... But what would these people want with the skin?}
+{77000}{}{[An eerie feeling looms over with a clash of thunder and lightning] Maybe they're trying to make the perfect human? One part at a time... Maybe the killer is making a costume out of human flesh? Who knows, but it makes my stomach turn. I'm putting you on the case, Detective @pname@. You're the best I got, and I know you can handle it. }
+{77010}{}{Thanks, Sheriff. But where should I begin? Where have you been finding these bodies?}
+{78000}{}{[The Sheriff pours himself a glass of Rotgut, and says] Everywhere. There's no pattern. Well.. we find them mostly near the exterior of town, but that's it. I'm really not sure where you can begin. I'll give you the location of the last victim's house, you might as well start there.}
+{78010}{}{Sounds good. I'm on my way.}
+{79000}{}{[Sheriff Hayden quickly stops you before you get a chance to leave] @pname@! It's a gruesome sight... there's... blood... and... skin... and bones everywhere...}
+{79010}{}{[Say nothing, and leave]}
+{80000}{}{[The Sheriff spits out his whiskey, and as soon as it hits the ground, it begins to rain. Thunder, and lightning clash, and rock the sky above. Darkness looms closer, and closer into your heart]}
+{80010}{}{[Attempt to wash your hands clean using the Sheriff's handkerchief]}
+{81000}{}{[I could feel things getting closer to an end. But not for the end of me, but for the end of everything I've come to learn, and hate. It didn't matter anymore what the Sheriff was saying, I couldn't take this for much longer. Something inside of me was breaking, and I had the sudden urge to leave this place behind forever]}
+{81010}{}{It's impossible to let go of the old world, Sheriff. I've been trying to kill that cold feeling ever since I started in this rotten business. That last house... there was a ghoul wearing a suit made of human skin... he killed a little girl... but he's gone now. Dead. I'll give you the locations to mop up.}
+{82000}{}{[The Sheriff pours you a tall glass of bourbon. The rest, well, was just hell] It's not over yet, @pname@. While you were out there we got some more calls of people being skinned alive. All around us actually... there's something out there, @pname@... and it's coming...}
+{82010}{}{Wha-- what do you mean?}
+{83000}{}{[Black... darkness... life that is hollow, never looking back] There's much, much more to this freak show than we thought! There's hundreds of them, @pname@! Hundreds! And they're coming for us all!}
+{83010}{}{It's what I was afraid of... some kind of sick cult. Before I killed him, the ghoul mentioned something about the light, and if I'd ever seen it. He rambled on about how I had "perfect skin" as well... These people are a real menace to this state, Sheriff. We need to exterminate these insects before they get too powerful. Or God forbid, learn to perfect their sewing.}
+{84000}{}{[The cold, hard rain is unforgiving, but at least you both share the same disposition] This one is haunting, @pname@, haunting to the core. I can't shake it off, I'm shaking in my boots. What... what if *this* is how the Hub is going to end? Skinned alive... by... freaks! It's all going to be over, @pname@! I just know it!}
+{84010}{}{No, no, it won't end like this. I won't allow it! I'll kill every last one of these fuckers if I have to! The Hub is my only real home, it's the only thing that I've got left! I won't let anything take what's mine anymore! Not again! I'm not losing anymore of my self.}
+{85000}{}{[The rain falls, but how long until it drowns us all?] I'm weak, @pname@! I'm weak! I can't do this like you can. You've got to help us! I'm getting too old for this shit. There's just too much blood. Too much pain, and sadness. [He throws you a case file, and sits back down to his bottle of bourbon, and carton of cigarettes] It was never this bad before... never...}
+{85010}{}{[Read the case file]}
+{86000}{}{[Due to your inept training the only thing you've managed to make out of this was an address, and a name. You mark the location on your map]}
+{86010}{}{I guess this'll do, wish me luck, Sheriff.}
+{87000}{}{[The Sheriff jumps up from his chair!] You! You're really going out there?! It's suicide, Detective! Don't do it! I'm begging you! }
+{87010}{}{[Laugh] Begging someone to do something never works, Sheriff. I'm going to save some lives, by ending an army of freaks. Goodbye, Sheriff. Maybe we'll meet again some... sunny day.}
+{88000}{}{There goes the best damn detective I've ever met.}
+{89000}{}{[The day falls dark, and the rain pours down as usual. There is nothing new about this. Several men will enter a cold, dark room, but these men will all be changed, forever]}
+{89010}{}{[Walk with the Sheriff, Detective Cwan, and Spade]}
+{90000}{}{Will you get the hell out of here! You damn, dirty drunk!}
+{91000}{}{Vault City's finally bringing me my parts, eh? Glad to hear.}
+{92000}{}{You bet'cha. I got the meaniest of the day right here, boyo. Go make a mess.}
+{92010}{}{I promise.}
+

@@ -1,0 +1,193 @@
+#ifndef __NPC_SCHEDULES_HUB__
+#define __NPC_SCHEDULES_HUB__
+
+#include "npc_schedules_h.fos"
+
+INpcSchedule@ Hub_FatherOshaughnessy()
+{
+	string[][] sermon =
+	{
+		{
+			"Only now, when it is too late, come the brothers and sisters, who tear each other's throats out.",
+			"Have you come to seek the Lord, or have you come for forgiveness? Justification?",
+			"Cursed is the ground for our sake;",
+			"In sorrow, and all the days of life.",
+			"In the sweat of thy face, till thou return unto the ground.",
+			"Both thorn and thistles it should bring forth, for us. ",
+			"For out of the ground we were taken for the dust we are, and to the dust we shall return.",
+			"Do you still remember why we bury the dead?",
+			"After Adam took the apple, the Lord sought out to punish us.",
+			"He rose our bodies up from the dirt, and gave us life.",
+			"But not so we may live.",
+			"But so we may die.",
+			"And die well, you all shall.",
+			"One by one, until we can change things.",
+			"I ask you all, all of my children, my brothers, my sisters.",
+			"Rise up beyond the madness.",
+			"Rise up beyond the killing.",
+			"God does not want you to go to war",
+			"Because war never changes",
+			"God wants you to change",
+			"To make things whole again",
+			"Clean up the pieces of yesterday",
+			"Bury your dead, share your food",
+			"Stay clean, and stay goodhearted",
+			"Do not let temptation, and darkness cloud your minds",
+			"Do not let the darkness within your hearts consume you",
+			"Remember the Legacy of the Vault Dweller",
+			"And the sacrifices made, and the sheer power behind them",
+			"With each passing day, we gain one step closer to sanctuary, to peace",
+			"In the past, man, us, we, all of us have disappointed the Lord",
+			"But today we shall make God proud! That is all. Thank you for coming children."
+		},
+		{
+			"Can you smell that, my children?",
+			"The smell of death surrounds you",
+			"Unjustified death. Forgotten bodies",
+			"Lives just... swept away",
+			"These people were daughters, mothers",
+			"Sons, fathers, they were all once smiles",
+			"Living like the rest of you, in dirt, in darkness",
+			"Torn between being civilized, or playing the barbarian",
+			"You people, you cower behind rocks, behind trees",
+			"Behind your homes, your walls",
+			"You hide where you think that the light won't find you",
+			"You cower behind the eyes of children, as you decimate them",
+			"Like it was nothing. Killing... just for the sake of killing...",
+			"I have seen the fires of Orc rise above these mountains",
+			"Devouring life as it crawled through the muck",
+			"Tearing lives, ripping the flesh from the throat",
+			"I've seen things you people wouldn't believe",
+			"Such beauty lost, forever, all those moments",
+			"All these people, lost in time, like tears in the rain",
+			"And still you do nothing as they go gently into that dying light",
+			"Alone and afraid, screaming for justice!",
+			"Screaming for hope!",
+			"For safety! For help!",
+			"For a savior! For a God!",
+			"For a Hero!",
+			"But to no avail",
+			"Empty arms, and ears",
+			"Empty hearts",
+			"The world lets them die afraid, and screaming",
+			"Drowning in their sorrow, in a pool of their own tears",
+			"She was only twelve years old..."
+		},
+		{
+			"Blessed is the one, who guides the weak",
+			"Through fire and flame, through the gates of Hell",
+			"Blessed is the Shepard, the keeper of lost children",
+			"He who shines brighter than the sun in the darkest day",
+			"He who has never ignored the call of duty, the answer to save",
+			"He who has rose up above fear and brought what was right",
+			"Even when all seemed lost, the Shepard never surrenders",
+			"Futility is to go against its grain. To defy the angels of Mars",
+			"You will never be saved",
+			"Death is a man, a horrible, horrible man",
+			"But he never tells a lie",
+			"The sun kills the moon",
+			"And the moon kills the sun",
+			"But the day still goes on by",
+			"Righteousness is not a reward, or a gift",
+			"It is life, it is the proper way to live",
+			"Only when all men are good, can the world be saved",
+			"But how many good men have we lost today?",
+			"How many good men are buried outside?",
+			"How many good men must die, until we finally get things right?",
+			"We were born in the desert, killing",
+			"But our children do not have to be born into such a wretched life!",
+			"There is still hope! There is still God!",
+			"Although the Lord might be angry, and smiteful, the Lord FORGIVES!",
+			"The Lord loves all of his children! But he does not love the sinners!",
+			"The killers! The rapists! The liars! The thieves! The inhumane!",
+			"The Lord is not obliged to care for the downtrodden",
+			"The Lord is the downtrodden, and understands your struggles",
+			"She is here, like a mother, whose arms can tend to her young",
+			"To her grieving kin, to her little youngens!",
+			"The Lord needs you, as much as you need the Lord! Never forget that!"
+		},
+		{
+			"You are all wrong",
+			"You are all sinners",
+			"You are all overrated",
+			"I think I'm going to be sick, and it's your fault",
+			"This is the end of everything",
+			"You are the end of everything",
+			"I haven't slept since I woke up",
+			"And found my whole life was a lie",
+			"What the hell am I even doing?",
+			"Is there anyone left in my life?",
+			"What was I thinking?",
+			"Anyone want to tell me I'm fine?",
+			"Where the hell am I going?",
+			"Do I even need a reason to hide?",
+			"I am only betrayed",
+			"I am only conditioned to die",
+			"I have preached, and preached, and preached!",
+			"And still no one listens!",
+			"This morning I found more bodies piled up!",
+			"Did you insects learn nothing?!",
+			"|"+COLOR_LRED+" NOTHING?!",
+			"Must the Lord itself come down and smack some sense into your pathetic minds?!",
+			"Killing, and killing, and killing, and killing!",
+			"This noise is deafening!",
+			"I wish you would shut up about everything!",
+			"The future will be decimated!",
+			"Why should you people even bother continuing on at all?!",
+			"Do the world a favour, and go home, and blow your brains out tonight!",
+			"I am tired of living in a world full of you people!",
+			"You dirty, disgusting, murdering little bastards!",
+			"All of you! Go to hell! And get the fuck out of my church!"
+		}
+	};
+
+	INpcSchedule@ schedule = CreateNpcSchedule( "Hub: Father O'shaughnessy" );
+
+	INpcTask@ task = schedule.AddTask_OnTime( "Sermon", 12, 0 )
+	//INpcTask@ task = schedule.AddTask_EveryFullHour( "Sermon" ) // DEBUG
+		.Setup_MapPid( MAP_HubDowntown )
+		//
+		.If_NotDayOfWeek( WEEKDAY_SUNDAY )
+			.Task_Finish()
+		.EndIf()
+		.Log( "MicroEvent start: 'Hub sermon'" )
+		.TaskVar_CopyFromParam( "MODE_NO_TALK", MODE_NO_TALK )
+		.Param_Set(MODE_NO_TALK,1)
+		.Wait_Home()
+		.TaskVar_SetRandom( "sermon", 0, sermon.length() - 1 );
+
+	for( uint s=0, sLen=sermon.length(); s<sLen; s++ )
+	{
+		task
+		.If_TaskVarEqual( "sermon", s )
+			.Say_Wait( SAY_NORM_ON_HEAD, sermon[s] )
+		.EndIf();
+	}
+
+		task
+		.TaskVar_CopyToParam( "MODE_NO_TALK", MODE_NO_TALK )
+		.TaskVar_Delete( "MODE_NO_TALK" )
+		.TaskVar_Delete( "sermon" )
+		.Log( "MicroEvent end: 'Hub sermon'" );
+		//.EndIf();
+
+	return( schedule );
+}
+
+INpcSchedule@ Hub_SermonListener()
+{
+	INpcSchedule@ schedule = CreateNpcSchedule( "Hub: Sermon listeners" );
+
+	schedule.AddTask_OnTime( "Sermon", 11, 0 )
+		.If_NotDayOfWeek( WEEKDAY_SUNDAY )
+			.Task_Finish()
+		.EndIf()
+		.Home_Save()
+		.Walk_RandomMarker( MARKER_Sermon )
+		.Wait_Random( GAME_HOUR(2)+GAME_MINUTE(30), GAME_HOUR(3)+GAME_MINUTE(15) ) // TODO: signals
+		.Home_Load();
+
+	return( schedule );
+}
+
+#endif // __NPC_SCHEDULES_HUB__ //
