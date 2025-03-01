@@ -1,10 +1,3 @@
-//
-// FOnline: 2238
-// Rotators
-//
-// map_hub.fos
-//
-
 #include "_macros.fos"
 #include "factions_h.fos"
 #include "economy_h.fos"
@@ -20,7 +13,6 @@ import void StartFirstTentQuest(Critter& player) from "quest_first_tent";
 void map_init(Map& map, bool firstTime)
 {
 	_MapSetMode(map, MAP_MODE_NO_PVP); //disables PVP in the hub
-	map.SetRain(Random(25,250)); //this is what makes the rain active
 	map.SetData(MAP_DATA_BANK, BANK_HUB);
 
     uint proto = map.GetProtoId();

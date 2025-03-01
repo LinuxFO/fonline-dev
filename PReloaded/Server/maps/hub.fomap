@@ -2,8 +2,8 @@
 Version              4
 MaxHexX              354
 MaxHexY              344
-WorkHexX             196
-WorkHexY             211
+WorkHexX             163
+WorkHexY             286
 ScriptModule         map_hub
 ScriptFunc           map_init
 NoLogOut             0
@@ -11866,24 +11866,24 @@ tile       266  212            art\tiles\edgs000.frm
 tile       268  212            art\tiles\edg4002.frm
 tile       270  212            art\tiles\edg4000.frm
 tile       272  212            art\tiles\road28.frm
-tile       274  212            art\tiles\road52.frm
+tile       274  212            art\tiles\road52.FRM
 tile       276  212            art\tiles\road02.frm
 tile       278  212            art\tiles\road02.frm
 tile       280  212            art\tiles\road02.frm
 tile       282  212            art\tiles\road02.frm
 tile       284  212            art\tiles\road02.frm
 tile       286  212            art\tiles\road02.frm
-tile       288  212            art\tiles\road50.frm
+tile       288  212            art\tiles\road50.FRM
 tile       290  212            art\tiles\road30.frm
 tile       292  212            art\tiles\road31.frm
 tile       294  212            art\tiles\edgs000.frm
 tile       296  212            art\tiles\road28.frm
-tile       298  212            art\tiles\road52.frm
+tile       298  212            art\tiles\road52.FRM
 tile       300  212            art\tiles\road02.frm
 tile       302  212            art\tiles\road02.frm
 tile       304  212            art\tiles\road02.frm
 tile       306  212            art\tiles\road02.frm
-tile       308  212            art\tiles\road53.frm
+tile       308  212            art\tiles\road53.FRM
 tile       310  212            art\tiles\road24.frm
 tile       312  212            art\tiles\road24.frm
 tile       314  212            art\tiles\road23.frm
@@ -12015,10 +12015,10 @@ tile       268  214            art\tiles\edg1001.frm
 tile       270  214            art\tiles\edg1000.frm
 tile       272  214            art\tiles\edg1002.frm
 tile       274  214            art\tiles\road28.frm
-tile       276  214            art\tiles\road52.frm
+tile       276  214            art\tiles\road52.FRM
 tile       278  214            art\tiles\road02.frm
 tile       280  214            art\tiles\road02.frm
-tile       282  214            art\tiles\road50.frm
+tile       282  214            art\tiles\road50.FRM
 tile       284  214            art\tiles\road30.frm
 tile       286  214            art\tiles\road29.frm
 tile       288  214            art\tiles\road31.frm
@@ -12027,11 +12027,11 @@ tile       292  214            art\tiles\edg3001.frm
 tile       294  214            art\tiles\edg3001.frm
 tile       296  214            art\tiles\edg3000.frm
 tile       298  214            art\tiles\road28.frm
-tile       300  214            art\tiles\road52.frm
+tile       300  214            art\tiles\road52.FRM
 tile       302  214            art\tiles\road02.frm
-tile       304  214            art\tiles\road50.frm
+tile       304  214            art\tiles\road50.FRM
 tile       306  214            art\tiles\road30.frm
-tile       308  214            art\tiles\road52.frm
+tile       308  214            art\tiles\road52.FRM
 tile       310  214            art\tiles\road02.frm
 tile       312  214            art\tiles\road02.frm
 tile       314  214            art\tiles\road02.frm
@@ -12047,7 +12047,7 @@ tile       260  215            art\tiles\edg5002.frm
 tile       80   216            art\tiles\road23.frm
 tile       82   216            art\tiles\road24.frm
 tile       84   216            art\tiles\road23.frm
-tile       86   216            art\tiles\road51.frm
+tile       86   216            art\tiles\road51.FRM
 tile       88   216            art\tiles\road02.frm
 tile       90   216            art\tiles\road02.frm
 tile       92   216            art\tiles\road02.frm
@@ -12163,10 +12163,10 @@ tile       268  216            art\tiles\road23.frm
 tile       270  216            art\tiles\road24.frm
 tile       272  216            art\tiles\road24.frm
 tile       274  216            art\tiles\road23.frm
-tile       276  216            art\tiles\road51.frm
+tile       276  216            art\tiles\road51.FRM
 tile       278  216            art\tiles\road02.frm
 tile       280  216            art\tiles\road02.frm
-tile       282  216            art\tiles\road53.frm
+tile       282  216            art\tiles\road53.FRM
 tile       284  216            art\tiles\road22.frm
 tile       286  216            art\tiles\edg5002.frm
 tile       288  216            art\tiles\edg7001.frm
@@ -12183,7 +12183,7 @@ tile       308  216            art\tiles\road27.frm
 tile       310  216            art\tiles\road02.frm
 tile       312  216            art\tiles\road02.frm
 tile       314  216            art\tiles\road02.frm
-tile       316  216            art\tiles\road53.frm
+tile       316  216            art\tiles\road53.FRM
 tile       318  216            art\tiles\road23.frm
 tile       320  216            art\tiles\road23.frm
 tile       322  216            art\tiles\road22.frm
@@ -12329,7 +12329,7 @@ tile       304  218            art\tiles\edgs004.frm
 tile       306  218            art\tiles\edg2000.frm
 tile       308  218            art\tiles\road28.frm
 tile       310  218            art\tiles\road30.frm
-tile       312  218            art\tiles\road52.frm
+tile       312  218            art\tiles\road52.FRM
 tile       314  218            art\tiles\road02.frm
 tile       316  218            art\tiles\road02.frm
 tile       318  218            art\tiles\road02.frm
@@ -12338,7 +12338,7 @@ tile       322  218            art\tiles\road33.frm
 tile       324  218            art\tiles\edg6009.frm
 tile       326  218            art\tiles\edg6001.frm
 tile       328  218            art\tiles\road26.frm
-tile       330  218            art\tiles\road53.frm
+tile       330  218            art\tiles\road53.FRM
 tile       332  218            art\tiles\road23.frm
 tile       334  218            art\tiles\road24.frm
 tile       82   220            art\tiles\curb30.frm
@@ -12493,7 +12493,7 @@ tile       308  220            art\tiles\edgs000.frm
 tile       310  220            art\tiles\edg5006.frm
 tile       312  220            art\tiles\road28.frm
 tile       314  220            art\tiles\road29.frm
-tile       316  220            art\tiles\road52.frm
+tile       316  220            art\tiles\road52.FRM
 tile       318  220            art\tiles\road02.frm
 tile       320  220            art\tiles\road02.frm
 tile       322  220            art\tiles\road14.frm
@@ -12675,7 +12675,7 @@ tile       330  222            art\tiles\road02.frm
 tile       332  222            art\tiles\road02.frm
 tile       334  222            art\tiles\road02.frm
 tile       84   224            art\tiles\road29.frm
-tile       86   224            art\tiles\road52.frm
+tile       86   224            art\tiles\road52.FRM
 roof       86   224            art\tiles\tp014.frm
 tile       88   224            art\tiles\road13.frm
 roof       88   224            art\tiles\tp026.frm
@@ -13166,7 +13166,7 @@ tile       288  228            art\tiles\edg4004.frm
 tile       290  228            art\tiles\curb11.frm
 tile       292  228            art\tiles\curb22.frm
 roof       292  228            art\tiles\tp029.frm
-tile       294  228            art\tiles\road50.frm
+tile       294  228            art\tiles\road50.FRM
 roof       294  228            art\tiles\tp026.frm
 tile       296  228            art\tiles\road29.frm
 roof       296  228            art\tiles\tp025.frm
@@ -13892,7 +13892,7 @@ tile       288  236            art\tiles\road32.frm
 tile       290  236            art\tiles\curb11.frm
 tile       292  236            art\tiles\curb16.frm
 roof       292  236            art\tiles\tp092.frm
-tile       294  236            art\tiles\road53.frm
+tile       294  236            art\tiles\road53.FRM
 roof       294  236            art\tiles\tp037.frm
 tile       296  236            art\tiles\road24.frm
 tile       298  236            art\tiles\road24.frm
@@ -14063,7 +14063,7 @@ tile       288  238            art\tiles\road31.frm
 tile       290  238            art\tiles\curb11.frm
 tile       292  238            art\tiles\curb16.frm
 roof       292  238            art\tiles\tp092.frm
-tile       294  238            art\tiles\road50.frm
+tile       294  238            art\tiles\road50.FRM
 roof       294  238            art\tiles\tp026.frm
 tile       296  238            art\tiles\road30.frm
 tile       298  238            art\tiles\road29.frm
@@ -14101,7 +14101,7 @@ tile       98   240            art\tiles\curb35.frm
 tile       100  240            art\tiles\curb29.frm
 tile       102  240            art\tiles\curb33.frm
 tile       104  240            art\tiles\road25.frm
-tile       106  240            art\tiles\road51.frm
+tile       106  240            art\tiles\road51.FRM
 roof       106  240            art\tiles\tp108.frm
 tile       108  240            art\tiles\curb16.frm
 tile       110  240            art\tiles\curb08.frm
@@ -14249,9 +14249,9 @@ tile       316  240            art\tiles\curb26.frm
 tile       318  240            art\tiles\edg2001.frm
 tile       320  240            art\tiles\road25.frm
 roof       320  240            art\tiles\tp024.frm
-tile       322  240            art\tiles\road51.frm
+tile       322  240            art\tiles\road51.FRM
 roof       322  240            art\tiles\tp034.frm
-tile       324  240            art\tiles\road53.frm
+tile       324  240            art\tiles\road53.FRM
 roof       324  240            art\tiles\tp031.frm
 tile       326  240            art\tiles\road22.frm
 tile       328  240            art\tiles\edg5004.frm
@@ -14392,7 +14392,7 @@ tile       278  242            art\tiles\tp163.frm
 roof       278  242            art\tiles\tp182.frm
 tile       280  242            art\tiles\curb16.frm
 tile       282  242            art\tiles\curb08.frm
-tile       284  242            art\tiles\road53.frm
+tile       284  242            art\tiles\road53.FRM
 tile       286  242            art\tiles\road22.frm
 tile       288  242            art\tiles\edgs002.frm
 tile       290  242            art\tiles\edgs001.frm
@@ -14539,7 +14539,7 @@ tile       278  244            art\tiles\curb17.frm
 tile       280  244            art\tiles\curb16.frm
 tile       282  244            art\tiles\curb08.frm
 tile       284  244            art\tiles\road02.frm
-tile       286  244            art\tiles\road53.frm
+tile       286  244            art\tiles\road53.FRM
 tile       288  244            art\tiles\road22.frm
 tile       290  244            art\tiles\edgs000.frm
 tile       292  244            art\tiles\curb34.frm
@@ -14840,7 +14840,7 @@ tile       254  248            art\tiles\curb25.frm
 tile       256  248            art\tiles\curb16.frm
 tile       258  248            art\tiles\curb16.frm
 tile       260  248            art\tiles\curb44.frm
-tile       262  248            art\tiles\road52.frm
+tile       262  248            art\tiles\road52.FRM
 tile       264  248            art\tiles\road02.frm
 tile       266  248            art\tiles\road02.frm
 tile       268  248            art\tiles\road02.frm
@@ -14852,7 +14852,7 @@ tile       278  248            art\tiles\road38.frm
 tile       280  248            art\tiles\curb11.frm
 tile       282  248            art\tiles\curb08.frm
 tile       284  248            art\tiles\road29.frm
-tile       286  248            art\tiles\road52.frm
+tile       286  248            art\tiles\road52.FRM
 tile       288  248            art\tiles\road32.frm
 tile       290  248            art\tiles\curb11.frm
 tile       292  248            art\tiles\curb27.frm
@@ -15005,9 +15005,9 @@ tile       264  250            art\tiles\road02.frm
 tile       266  250            art\tiles\road02.frm
 tile       268  250            art\tiles\road02.frm
 tile       270  250            art\tiles\road02.frm
-tile       272  250            art\tiles\road50.frm
+tile       272  250            art\tiles\road50.FRM
 tile       274  250            art\tiles\road29.frm
-tile       276  250            art\tiles\road52.frm
+tile       276  250            art\tiles\road52.FRM
 tile       278  250            art\tiles\road02.frm
 tile       280  250            art\tiles\curb11.frm
 tile       282  250            art\tiles\curb08.frm
@@ -15162,11 +15162,11 @@ tile       256  252            art\tiles\curb35.frm
 tile       258  252            art\tiles\curb28.frm
 tile       260  252            art\tiles\curb33.frm
 tile       262  252            art\tiles\road28.frm
-tile       264  252            art\tiles\road52.frm
+tile       264  252            art\tiles\road52.FRM
 tile       266  252            art\tiles\road02.frm
 tile       268  252            art\tiles\road02.frm
 tile       270  252            art\tiles\road02.frm
-tile       272  252            art\tiles\road53.frm
+tile       272  252            art\tiles\road53.FRM
 tile       274  252            art\tiles\road22.frm
 tile       276  252            art\tiles\road26.frm
 tile       278  252            art\tiles\road02.frm
@@ -15320,13 +15320,13 @@ tile       258  254            art\tiles\curb16.frm
 tile       260  254            art\tiles\curb26.frm
 tile       262  254            art\tiles\edgs004.frm
 tile       264  254            art\tiles\road28.frm
-tile       266  254            art\tiles\road52.frm
+tile       266  254            art\tiles\road52.FRM
 tile       268  254            art\tiles\road34.frm
 tile       270  254            art\tiles\road02.frm
 tile       272  254            art\tiles\road02.frm
 tile       274  254            art\tiles\road33.frm
 tile       276  254            art\tiles\road28.frm
-tile       278  254            art\tiles\road52.frm
+tile       278  254            art\tiles\road52.FRM
 tile       280  254            art\tiles\curb11.frm
 tile       282  254            art\tiles\curb08.frm
 tile       284  254            art\tiles\edg5001.frm
@@ -15494,7 +15494,7 @@ tile       312  256            art\tiles\edgs000.frm
 tile       314  256            art\tiles\edgs000.frm
 tile       316  256            art\tiles\road25.frm
 tile       318  256            art\tiles\road23.frm
-tile       320  256            art\tiles\road51.frm
+tile       320  256            art\tiles\road51.FRM
 tile       322  256            art\tiles\road16.frm
 tile       324  256            art\tiles\road18.frm
 tile       326  256            art\tiles\road17.frm
@@ -15610,11 +15610,11 @@ tile       258  258            art\tiles\curb32.frm
 tile       260  258            art\tiles\edg1002.frm
 tile       262  258            art\tiles\road25.frm
 tile       264  258            art\tiles\road24.frm
-tile       266  258            art\tiles\road51.frm
+tile       266  258            art\tiles\road51.FRM
 tile       268  258            art\tiles\road02.frm
 tile       270  258            art\tiles\road02.frm
 tile       272  258            art\tiles\road02.frm
-tile       274  258            art\tiles\road53.frm
+tile       274  258            art\tiles\road53.FRM
 tile       276  258            art\tiles\road22.frm
 tile       278  258            art\tiles\edgs000.frm
 tile       280  258            art\tiles\curb35.frm
@@ -15756,7 +15756,7 @@ tile       268  260            art\tiles\road02.frm
 tile       270  260            art\tiles\road02.frm
 tile       272  260            art\tiles\road02.frm
 tile       274  260            art\tiles\road02.frm
-tile       276  260            art\tiles\road53.frm
+tile       276  260            art\tiles\road53.FRM
 tile       278  260            art\tiles\road22.frm
 tile       280  260            art\tiles\curb34.frm
 tile       282  260            art\tiles\curb39.frm
@@ -15891,11 +15891,11 @@ tile       262  262            art\tiles\road27.frm
 tile       264  262            art\tiles\road02.frm
 tile       266  262            art\tiles\road36.frm
 tile       268  262            art\tiles\road02.frm
-tile       270  262            art\tiles\road50.frm
-tile       272  262            art\tiles\road52.frm
+tile       270  262            art\tiles\road50.FRM
+tile       272  262            art\tiles\road52.FRM
 tile       274  262            art\tiles\road02.frm
 tile       276  262            art\tiles\road02.frm
-tile       278  262            art\tiles\road53.frm
+tile       278  262            art\tiles\road53.FRM
 tile       280  262            art\tiles\curb41.frm
 tile       282  262            art\tiles\curb37.frm
 tile       284  262            art\tiles\edg4001.frm
@@ -16014,12 +16014,12 @@ tile       256  264            art\tiles\edg1003.frm
 tile       258  264            art\tiles\edg2000.frm
 tile       260  264            art\tiles\edg1000.frm
 tile       262  264            art\tiles\road28.frm
-tile       264  264            art\tiles\road52.frm
+tile       264  264            art\tiles\road52.FRM
 tile       266  264            art\tiles\road02.frm
-tile       268  264            art\tiles\road50.frm
+tile       268  264            art\tiles\road50.FRM
 tile       270  264            art\tiles\road31.frm
 tile       272  264            art\tiles\road28.frm
-tile       274  264            art\tiles\road52.frm
+tile       274  264            art\tiles\road52.FRM
 tile       276  264            art\tiles\road02.frm
 tile       278  264            art\tiles\road02.frm
 tile       280  264            art\tiles\curb11.frm
@@ -16152,7 +16152,7 @@ tile       256  266            art\tiles\curb28.frm
 tile       258  266            art\tiles\curb29.frm
 tile       260  266            art\tiles\curb37.frm
 tile       262  266            art\tiles\road23.frm
-tile       264  266            art\tiles\road51.frm
+tile       264  266            art\tiles\road51.FRM
 tile       266  266            art\tiles\road02.frm
 tile       268  266            art\tiles\curb14.frm
 tile       270  266            art\tiles\curb13.frm
@@ -16186,7 +16186,9 @@ tile       324  266            art\tiles\road27.frm
 tile       326  266            art\tiles\road02.frm
 tile       114  268            art\tiles\curb16.frm
 tile       116  268            art\tiles\curb16.frm
+roof       116  268            art\tiles\tp019.frm
 tile       118  268            art\tiles\curb16.frm
+roof       118  268            art\tiles\tp020.frm
 tile       120  268            art\tiles\curb16.frm
 roof       120  268            art\tiles\tp019.frm
 tile       122  268            art\tiles\curb22.frm
@@ -16331,7 +16333,9 @@ tile       316  268            art\tiles\curb15.frm
 tile       318  268            art\tiles\road33.frm
 tile       320  268            art\tiles\edg1003.frm
 tile       116  270            art\tiles\tp157.frm
+roof       116  270            art\tiles\tp078.frm
 tile       118  270            art\tiles\tp157.frm
+roof       118  270            art\tiles\tp099.frm
 tile       120  270            art\tiles\tp157.frm
 roof       120  270            art\tiles\tp078.frm
 tile       122  270            art\tiles\tp157.frm
@@ -16474,7 +16478,9 @@ tile       310  270            art\tiles\curb16.frm
 tile       312  270            art\tiles\curb16.frm
 tile       314  270            art\tiles\curb16.frm
 tile       116  272            art\tiles\tp155.frm
+roof       116  272            art\tiles\tp087.frm
 tile       118  272            art\tiles\tp153.frm
+roof       118  272            art\tiles\tp102.frm
 tile       120  272            art\tiles\tp153.frm
 roof       120  272            art\tiles\tp087.frm
 tile       122  272            art\tiles\tp154.frm
@@ -16616,6 +16622,7 @@ tile       308  272            art\tiles\curb16.frm
 tile       310  272            art\tiles\curb16.frm
 tile       118  274            art\tiles\tp156.frm
 tile       120  274            art\tiles\tp156.frm
+roof       120  274            art\tiles\tp095.frm
 tile       122  274            art\tiles\tp155.frm
 roof       122  274            art\tiles\tp095.frm
 tile       124  274            art\tiles\tp153.frm
@@ -17009,7 +17016,7 @@ tile       280  278            art\tiles\curb26.frm
 tile       282  278            art\tiles\edgs003.frm
 tile       284  278            art\tiles\edg4002.frm
 tile       286  278            art\tiles\road25.frm
-tile       288  278            art\tiles\road51.frm
+tile       288  278            art\tiles\road51.FRM
 tile       290  278            art\tiles\curb11.frm
 tile       292  278            art\tiles\curb27.frm
 tile       294  278            art\tiles\edg6005.frm
@@ -17137,7 +17144,7 @@ tile       278  280            art\tiles\curb18.frm
 tile       280  280            art\tiles\curb27.frm
 tile       282  280            art\tiles\edgs000.frm
 tile       284  280            art\tiles\road25.frm
-tile       286  280            art\tiles\road51.frm
+tile       286  280            art\tiles\road51.FRM
 tile       288  280            art\tiles\road02.frm
 tile       290  280            art\tiles\curb11.frm
 tile       292  280            art\tiles\curb26.frm
@@ -17252,7 +17259,7 @@ tile       256  282            art\tiles\curb26.frm
 tile       258  282            art\tiles\edg1000.frm
 tile       260  282            art\tiles\edg4005.frm
 tile       262  282            art\tiles\road25.frm
-tile       264  282            art\tiles\road51.frm
+tile       264  282            art\tiles\road51.FRM
 tile       266  282            art\tiles\road02.frm
 tile       268  282            art\tiles\curb11.frm
 tile       270  282            art\tiles\curb22.frm
@@ -17390,6 +17397,7 @@ tile       286  284            art\tiles\road02.frm
 tile       288  284            art\tiles\road02.frm
 tile       126  286            art\tiles\tp154.frm
 tile       128  286            art\tiles\tp156.frm
+roof       128  286            art\tiles\tp096.frm
 tile       130  286            art\tiles\tp160.frm
 roof       130  286            art\tiles\tp101.frm
 tile       132  286            art\tiles\curb16.frm
@@ -17509,7 +17517,9 @@ tile       282  286            art\tiles\edg1000.frm
 tile       284  286            art\tiles\road27.frm
 tile       126  288            art\tiles\tp154.frm
 tile       128  288            art\tiles\tp156.frm
+roof       128  288            art\tiles\tp098.frm
 tile       130  288            art\tiles\tp160.frm
+roof       130  288            art\tiles\tp189.frm
 tile       132  288            art\tiles\curb16.frm
 tile       134  288            art\tiles\curb22.frm
 tile       136  288            art\tiles\curb23.frm
@@ -17609,7 +17619,9 @@ tile       276  288            art\tiles\curb16.frm
 tile       278  288            art\tiles\curb16.frm
 tile       280  288            art\tiles\curb16.frm
 tile       128  290            art\tiles\tp156.frm
+roof       128  290            art\tiles\tp099.frm
 tile       130  290            art\tiles\tp160.frm
+roof       130  290            art\tiles\tp190.frm
 tile       132  290            art\tiles\curb16.frm
 tile       134  290            art\tiles\curb16.frm
 tile       136  290            art\tiles\curb16.frm
@@ -17692,7 +17704,7 @@ tile       256  290            art\tiles\curb16.frm
 tile       258  290            art\tiles\curb16.frm
 tile       260  290            art\tiles\curb26.frm
 tile       262  290            art\tiles\road28.frm
-tile       264  290            art\tiles\road52.frm
+tile       264  290            art\tiles\road52.FRM
 tile       266  290            art\tiles\road02.frm
 tile       268  290            art\tiles\curb11.frm
 tile       270  290            art\tiles\curb16.frm
@@ -17781,7 +17793,7 @@ tile       256  292            art\tiles\curb16.frm
 tile       258  292            art\tiles\curb16.frm
 tile       260  292            art\tiles\curb27.frm
 tile       262  292            art\tiles\road25.frm
-tile       264  292            art\tiles\road51.frm
+tile       264  292            art\tiles\road51.FRM
 tile       266  292            art\tiles\road02.frm
 tile       268  292            art\tiles\curb11.frm
 tile       270  292            art\tiles\curb16.frm
@@ -24248,8 +24260,8 @@ MapY                 168
 
 MapObjType           2
 ProtoId              3853
-MapX                 168
-MapY                 31
+MapX                 173
+MapY                 34
 Scenery_ToDir        2
 
 MapObjType           2
@@ -24594,8 +24606,8 @@ MapY                 3
 
 MapObjType           2
 ProtoId              3853
-MapX                 174
-MapY                 35
+MapX                 172
+MapY                 28
 Scenery_ToDir        2
 
 MapObjType           2
@@ -26740,14 +26752,14 @@ MapY                 101
 
 MapObjType           2
 ProtoId              3853
-MapX                 197
-MapY                 35
+MapX                 193
+MapY                 33
 Scenery_ToEntire     243
 
 MapObjType           2
 ProtoId              3853
-MapX                 202
-MapY                 35
+MapX                 200
+MapY                 36
 Scenery_ToEntire     243
 
 MapObjType           2
@@ -26758,14 +26770,14 @@ Scenery_ToEntire     243
 
 MapObjType           2
 ProtoId              3853
-MapX                 216
-MapY                 60
+MapX                 218
+MapY                 62
 Scenery_ToEntire     243
 
 MapObjType           2
 ProtoId              3853
-MapX                 192
-MapY                 35
+MapX                 186
+MapY                 30
 Scenery_ToEntire     243
 
 MapObjType           2
@@ -28916,13 +28928,6 @@ MapObjType           2
 ProtoId              5529
 MapX                 236
 MapY                 288
-
-MapObjType           2
-ProtoId              3853
-MapX                 242
-MapY                 285
-Scenery_ToEntire     3
-Scenery_ToDir        5
 
 MapObjType           2
 ProtoId              5497
@@ -32808,7 +32813,7 @@ MapY                 315
 MapObjType           2
 ProtoId              3853
 MapX                 160
-MapY                 313
+MapY                 314
 Scenery_ToEntire     2
 Scenery_ToDir        5
 
@@ -35139,7 +35144,7 @@ MapObjType           2
 ProtoId              4021
 MapX                 120
 MapY                 262
-Scenery_ToMapPid     40
+Scenery_ToMapPid     222
 
 MapObjType           2
 ProtoId              2049
@@ -35333,7 +35338,7 @@ Scenery_ToMapPid     222
 
 MapObjType           2
 ProtoId              3853
-MapX                 128
+MapX                 127
 MapY                 262
 Scenery_ToEntire     1
 Scenery_ToDir        3
@@ -44537,8 +44542,8 @@ Scenery_ToEntire     99
 
 MapObjType           2
 ProtoId              3853
-MapX                 160
-MapY                 26
+MapX                 164
+MapY                 27
 Scenery_ToEntire     243
 
 MapObjType           2
@@ -46034,14 +46039,14 @@ FuncName             _AntiBlock
 
 MapObjType           2
 ProtoId              3853
-MapX                 180
-MapY                 36
+MapX                 177
+MapY                 34
 Scenery_ToDir        2
 
 MapObjType           2
 ProtoId              3853
-MapX                 182
-MapY                 32
+MapX                 180
+MapY                 28
 Scenery_ToDir        2
 
 MapObjType           2
@@ -46058,7 +46063,7 @@ Scenery_ToDir        2
 
 MapObjType           2
 ProtoId              3853
-MapX                 161
+MapX                 162
 MapY                 34
 Scenery_ToEntire     243
 
@@ -46186,28 +46191,28 @@ Scenery_ToDir        2
 
 MapObjType           2
 ProtoId              3853
+MapX                 165
+MapY                 23
+Scenery_ToEntire     220
+Scenery_ToDir        2
+
+MapObjType           2
+ProtoId              3853
+MapX                 162
+MapY                 22
+Scenery_ToEntire     220
+Scenery_ToDir        2
+
+MapObjType           2
+ProtoId              3853
+MapX                 162
+MapY                 19
+Scenery_ToEntire     220
+Scenery_ToDir        2
+
+MapObjType           2
+ProtoId              3853
 MapX                 164
-MapY                 22
-Scenery_ToEntire     220
-Scenery_ToDir        2
-
-MapObjType           2
-ProtoId              3853
-MapX                 160
-MapY                 22
-Scenery_ToEntire     220
-Scenery_ToDir        2
-
-MapObjType           2
-ProtoId              3853
-MapX                 161
-MapY                 20
-Scenery_ToEntire     220
-Scenery_ToDir        2
-
-MapObjType           2
-ProtoId              3853
-MapX                 163
 MapY                 20
 Scenery_ToEntire     220
 Scenery_ToDir        2
@@ -46263,7 +46268,7 @@ Scenery_ToDir        2
 
 MapObjType           2
 ProtoId              3853
-MapX                 194
+MapX                 193
 MapY                 20
 Scenery_ToEntire     220
 Scenery_ToDir        2
@@ -57379,8 +57384,8 @@ MapY                 45
 
 MapObjType           2
 ProtoId              2067
-MapX                 201
-MapY                 46
+MapX                 200
+MapY                 45
 
 MapObjType           2
 ProtoId              2067
@@ -58157,20 +58162,10 @@ MapX                 148
 MapY                 34
 
 MapObjType           2
-ProtoId              2257
-MapX                 157
-MapY                 33
-
-MapObjType           2
 ProtoId              2596
 MapX                 156
 MapY                 34
 Scenery_CanUse       1
-
-MapObjType           2
-ProtoId              2067
-MapX                 157
-MapY                 33
 
 MapObjType           2
 ProtoId              2067
@@ -58231,11 +58226,6 @@ MapObjType           2
 ProtoId              2067
 MapX                 190
 MapY                 208
-
-MapObjType           2
-ProtoId              2067
-MapX                 178
-MapY                 231
 
 MapObjType           2
 ProtoId              2067
@@ -67701,18 +67691,8 @@ MapY                 46
 
 MapObjType           2
 ProtoId              2067
-MapX                 210
-MapY                 44
-
-MapObjType           2
-ProtoId              2067
 MapX                 207
 MapY                 46
-
-MapObjType           2
-ProtoId              2067
-MapX                 210
-MapY                 43
 
 MapObjType           1
 ProtoId              22308
@@ -69972,7 +69952,7 @@ MapObjType           0
 ProtoId              952
 MapX                 179
 MapY                 233
-Dir                  1
+Dir                  2
 Critter_Cond         1
 Critter_Anim1        0
 Critter_Anim2        0
@@ -70044,7 +70024,7 @@ MapY                 107
 
 MapObjType           1
 ProtoId              21400
-MapX                 158
+MapX                 159
 MapY                 21
 Dir                  2
 
@@ -71328,9 +71308,9 @@ MapY                 37
 
 MapObjType           0
 ProtoId              46
-MapX                 197
-MapY                 41
-Dir                  2
+MapX                 196
+MapY                 40
+Dir                  5
 ScriptName           npc_shouter
 FuncName             critter_init
 Critter_Cond         1
@@ -72266,166 +72246,199 @@ MapObjType           2
 ProtoId              4020
 MapX                 118
 MapY                 264
+Scenery_ToMapPid     222
 
 MapObjType           2
 ProtoId              4020
 MapX                 118
 MapY                 266
+Scenery_ToMapPid     222
 
 MapObjType           2
 ProtoId              4020
 MapX                 118
 MapY                 268
+Scenery_ToMapPid     222
 
 MapObjType           2
 ProtoId              4020
 MapX                 118
 MapY                 270
+Scenery_ToMapPid     222
 
 MapObjType           2
 ProtoId              4022
 MapX                 116
 MapY                 257
+Scenery_ToMapPid     222
 
 MapObjType           2
 ProtoId              4022
 MapX                 116
 MapY                 261
+Scenery_ToMapPid     222
 
 MapObjType           2
 ProtoId              4022
 MapX                 114
 MapY                 257
+Scenery_ToMapPid     222
 
 MapObjType           2
 ProtoId              4022
 MapX                 112
 MapY                 257
+Scenery_ToMapPid     222
 
 MapObjType           2
 ProtoId              4022
 MapX                 110
 MapY                 257
+Scenery_ToMapPid     222
 
 MapObjType           2
 ProtoId              4022
 MapX                 114
 MapY                 261
+Scenery_ToMapPid     222
 
 MapObjType           2
 ProtoId              4022
 MapX                 116
 MapY                 265
+Scenery_ToMapPid     222
 
 MapObjType           2
 ProtoId              4022
 MapX                 112
 MapY                 261
+Scenery_ToMapPid     222
 
 MapObjType           2
 ProtoId              4022
 MapX                 108
 MapY                 253
+Scenery_ToMapPid     222
 
 MapObjType           2
 ProtoId              4022
 MapX                 163
 MapY                 328
+Scenery_ToMapPid     224
 
 MapObjType           2
 ProtoId              4022
 MapX                 161
 MapY                 328
+Scenery_ToMapPid     224
 
 MapObjType           2
 ProtoId              4022
 MapX                 159
 MapY                 328
+Scenery_ToMapPid     224
 
 MapObjType           2
 ProtoId              4022
 MapX                 157
 MapY                 328
+Scenery_ToMapPid     224
 
 MapObjType           2
 ProtoId              4022
 MapX                 163
 MapY                 332
+Scenery_ToMapPid     224
 
 MapObjType           2
 ProtoId              4022
 MapX                 161
 MapY                 332
+Scenery_ToMapPid     224
 
 MapObjType           2
 ProtoId              4022
 MapX                 159
 MapY                 332
+Scenery_ToMapPid     224
 
 MapObjType           2
 ProtoId              4022
 MapX                 165
 MapY                 330
+Scenery_ToMapPid     224
 
 MapObjType           2
 ProtoId              4022
 MapX                 165
 MapY                 334
+Scenery_ToMapPid     224
 
 MapObjType           2
 ProtoId              4022
 MapX                 163
 MapY                 336
+Scenery_ToMapPid     224
 
 MapObjType           2
 ProtoId              4022
 MapX                 165
 MapY                 338
+Scenery_ToMapPid     224
 
 MapObjType           2
 ProtoId              4022
 MapX                 167
 MapY                 332
+Scenery_ToMapPid     224
 
 MapObjType           2
 ProtoId              4022
 MapX                 167
 MapY                 336
+Scenery_ToMapPid     224
 
 MapObjType           2
 ProtoId              4022
 MapX                 169
 MapY                 336
+Scenery_ToMapPid     224
 
 MapObjType           2
 ProtoId              4020
 MapX                 167
 MapY                 341
+Scenery_ToMapPid     224
 
 MapObjType           2
 ProtoId              4020
 MapX                 261
 MapY                 296
+Scenery_ToMapPid     223
 
 MapObjType           2
 ProtoId              4020
 MapX                 257
 MapY                 298
+Scenery_ToMapPid     223
 
 MapObjType           2
 ProtoId              4020
 MapX                 253
 MapY                 300
+Scenery_ToMapPid     223
 
 MapObjType           2
 ProtoId              4020
 MapX                 249
 MapY                 302
+Scenery_ToMapPid     223
 
 MapObjType           2
 ProtoId              4020
 MapX                 245
 MapY                 304
+Scenery_ToMapPid     223
 
 MapObjType           2
 ProtoId              4037
@@ -72621,21 +72634,25 @@ MapObjType           2
 ProtoId              4016
 MapX                 171
 MapY                 339
+Scenery_ToMapPid     224
 
 MapObjType           2
 ProtoId              4016
 MapX                 172
 MapY                 340
+Scenery_ToMapPid     224
 
 MapObjType           2
 ProtoId              4022
 MapX                 171
 MapY                 336
+Scenery_ToMapPid     224
 
 MapObjType           2
 ProtoId              4022
 MapX                 171
 MapY                 340
+Scenery_ToMapPid     224
 
 MapObjType           2
 ProtoId              2049
@@ -78900,8 +78917,8 @@ MapY                 27
 
 MapObjType           2
 ProtoId              3853
-MapX                 223
-MapY                 69
+MapX                 224
+MapY                 70
 Scenery_ToEntire     243
 
 MapObjType           1
@@ -81259,11 +81276,6 @@ ProtoId              2067
 MapX                 198
 MapY                 41
 
-MapObjType           2
-ProtoId              2067
-MapX                 197
-MapY                 41
-
 MapObjType           1
 ProtoId              202
 MapX                 199
@@ -81481,35 +81493,35 @@ MapY                 29
 
 MapObjType           2
 ProtoId              3853
-MapX                 128
+MapX                 127
 MapY                 260
 Scenery_ToEntire     1
 Scenery_ToDir        3
 
 MapObjType           2
 ProtoId              3853
-MapX                 128
+MapX                 127
 MapY                 258
 Scenery_ToEntire     1
 Scenery_ToDir        3
 
 MapObjType           2
 ProtoId              3853
-MapX                 126
+MapX                 125
 MapY                 258
 Scenery_ToEntire     1
 Scenery_ToDir        3
 
 MapObjType           2
 ProtoId              3853
-MapX                 126
+MapX                 125
 MapY                 260
 Scenery_ToEntire     1
 Scenery_ToDir        3
 
 MapObjType           2
 ProtoId              3853
-MapX                 126
+MapX                 125
 MapY                 262
 Scenery_ToEntire     1
 Scenery_ToDir        3
@@ -81517,35 +81529,35 @@ Scenery_ToDir        3
 MapObjType           2
 ProtoId              3853
 MapX                 162
-MapY                 313
+MapY                 314
 Scenery_ToEntire     2
 Scenery_ToDir        5
 
 MapObjType           2
 ProtoId              3853
 MapX                 158
-MapY                 313
+MapY                 314
 Scenery_ToEntire     2
 Scenery_ToDir        5
 
 MapObjType           2
 ProtoId              3853
 MapX                 162
-MapY                 311
+MapY                 312
 Scenery_ToEntire     2
 Scenery_ToDir        5
 
 MapObjType           2
 ProtoId              3853
 MapX                 160
-MapY                 311
+MapY                 312
 Scenery_ToEntire     2
 Scenery_ToDir        5
 
 MapObjType           2
 ProtoId              3853
 MapX                 158
-MapY                 311
+MapY                 312
 Scenery_ToEntire     2
 Scenery_ToDir        5
 
@@ -81559,6 +81571,7 @@ MapObjType           2
 ProtoId              3853
 MapX                 186
 MapY                 311
+Scenery_ToEntire     10
 
 MapObjType           2
 ProtoId              3853
@@ -81572,20 +81585,6 @@ ProtoId              3853
 MapX                 192
 MapY                 307
 Scenery_ToEntire     10
-Scenery_ToDir        5
-
-MapObjType           2
-ProtoId              3853
-MapX                 244
-MapY                 285
-Scenery_ToEntire     3
-Scenery_ToDir        5
-
-MapObjType           2
-ProtoId              3853
-MapX                 240
-MapY                 285
-Scenery_ToEntire     3
 Scenery_ToDir        5
 
 MapObjType           2
@@ -81713,5 +81712,79 @@ MapObjType           2
 ProtoId              2067
 MapX                 220
 MapY                 228
+
+MapObjType           2
+ProtoId              3853
+MapX                 228
+MapY                 301
+Scenery_ToEntire     3
+
+MapObjType           2
+ProtoId              3853
+MapX                 228
+MapY                 297
+Scenery_ToEntire     3
+
+MapObjType           2
+ProtoId              4020
+MapX                 118
+MapY                 272
+Scenery_ToMapPid     222
+
+MapObjType           2
+ProtoId              2049
+MapX                 119
+MapY                 267
+Scenery_ToMapPid     222
+
+MapObjType           2
+ProtoId              2049
+MapX                 119
+MapY                 268
+Scenery_ToMapPid     222
+
+MapObjType           2
+ProtoId              2049
+MapX                 120
+MapY                 266
+Scenery_ToMapPid     222
+
+MapObjType           2
+ProtoId              2049
+MapX                 120
+MapY                 267
+Scenery_ToMapPid     222
+
+MapObjType           2
+ProtoId              2049
+MapX                 120
+MapY                 268
+Scenery_ToMapPid     222
+
+MapObjType           2
+ProtoId              2049
+MapX                 120
+MapY                 269
+Scenery_ToMapPid     222
+
+MapObjType           2
+ProtoId              5589
+MapX                 118
+MapY                 269
+
+MapObjType           2
+ProtoId              5588
+MapX                 119
+MapY                 269
+
+MapObjType           2
+ProtoId              5588
+MapX                 117
+MapY                 269
+
+MapObjType           2
+ProtoId              5589
+MapX                 116
+MapY                 269
 
 
