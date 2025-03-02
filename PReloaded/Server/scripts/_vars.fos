@@ -263,9 +263,9 @@
 #define LVAR_hub_inde                       (16169)
 #define LVAR_hub_decision1                  (16184)
 
-/*************************************************************************************
-Id	Type	Name		Start	Min	Max	Flags
-**************************************************************************************
+/**************************************************
+Id Type Name  Start Min Max Flags
+***************************************************
 
 $ 1 0 car_id 0 0 0 4
 **********
@@ -304,9 +304,7 @@ Players can get flagged for illegal behavior in certain towns, they are then fre
 $ 16 2 town_policies 0 0 0 4
 **********
 UVAR for keeping track of policies in all Town Controllable towns. Key = Town ID.
-
 A value of 1 means that the mode is enabled.
-
 0 = Attacking others is illegal
 1 = Stealing is illegal
 2 = Carrying weapons is illegal
@@ -421,7 +419,7 @@ Stores the current task the NPC is at.
 $ 1150 0 sierra_backup_power 0 0 3 0
 **********
 Gvar controlling the power supply in Sierra Army Depot
-0==off, 1==on(not-redirected), 2==redirected to med lab, 3==redirected to ammo facility
+0==off, 1==on(not-redirected), 2==redirected to med lab, 3 ==redirected to ammo facility
 **********
 
 $ 1207 1 killer_admin 0 0 9999 0
@@ -444,25 +442,23 @@ Big bug in aleatory encounter
 **********
 
 $ 1800 1 q_jt_talked 0 0 3 1
-*****************
+**********
 Ford quest 
 0 = not taken
 1 = taken
-2= talked
-3= completed
-*****************
+2 = talked
+3 = completed
+**********
 
 $ 2000 2 reputation 0 0 0 4
 **********
 Describes the reputation of the player as viewed by other player/npc/faction.
 **********
 
-$	2010	2	loyality	0	-50	20	0
+$ 2010 2 loyality 0 -50 20 0
 **********
 Eniieucoaony aey oiai, ?oiau ii?aaaeeou ioiioaiea Iio e Ea?ieo, eioi?ia nei?eeinu o iaai a iineaanoaee ?acaiai?a n Ea?ieii.
-
 5 yoi n?aaiyy eiyeuiinou. 0 - Iio e Ea?ieo iaeiaiaa eiyeai. 10 - iaeaieaa.
-
 Ia iaycaoaeuii caaaenoaiaaou a aeaeiaa ana 11 ninoiyiee ia?aiaiiie. Ii?ii aaanoe e i?eia?o i?iaa?eo oieuei ia <3 e >7 eee <5 e >5, a ii?ii e ana 11 ?anienaou.
 **********
 
@@ -479,7 +475,7 @@ $ 2017 2 interacted 0 0 0 4
 0 - player hasn't interacted with NPC>0 - time when player interacted witn NPC last time(it is for various scripts that has to remember something)
 **********
 
-$	2018	2	acquaintance	0	-1	10	0
+$ 2018 2 acquaintance 0 -1 10 0
 **********
 player's acquaintance with a NPC; this is used by some scripts to determine the degree of an acquaintance
 **********
@@ -504,9 +500,7 @@ Number of brahmin dung player cleaned for that npc.
 $ 2022 1 mod_q_meat_jerky 0 0 2 5
 **********
 This is quest to deliver meat jerkys from Grishem in modoc to the kebab stance in NCR.
-
 Reward: 150 caps and 50 xp
-
 0 - Quest has not been initiated.
 1 - Quest under way.
 2 - Quest completed.
@@ -921,11 +915,11 @@ $ 9004 1 birth_month 0 0 0 4
 Randomly chosen month of birth, valid for all critters
 **********
 
-$	9005	1	npc_name_first	-1	-1	0	4
+$ 9005 1 npc_name_first -1 -1 0 4
 **********
 **********
 
-$	9006	1	npc_name_nick	-1	-1	0	4
+$ 9006 1 npc_name_nick -1 -1 0 4
 **********
 **********
 
@@ -934,7 +928,7 @@ $ 9007 1 npc_name_nicktype 0 0 1 0
 1 == gender nick
 **********
 
-$	9008	1	npc_name_surname	-1	-1	0	4
+$ 9008 1 npc_name_surname -1 -1 0 4
 **********
 **********
 
@@ -952,7 +946,6 @@ $ 9946 1 LVAR_FO2077_Book_Science 0 0 10 0
 ************
 0 - ksiazka nie zostala jeszcze przeczytana
 1 - ksiazka zostala przeczytana
-
 Added by Kilgore 28.01.2011
 ************
 
@@ -991,170 +984,170 @@ $ 11200 2 proximity_check 0 0 1 0
 **********
 
 $ 11801 1 noob_camp_alecquest 0 0 3 1
-*****************
+**********
 Ford quest
 0 = not taken
 1 = taken
-2= talked
-3= completed
-*****************
+2 = talked
+3 = completed
+**********
 
 $ 11802 1 noob_camp_breederquest 0 0 3 1
-*****************
+**********
 Ford quest
 0 = not taken
 1 = taken
-2= talked
-3= completed
-*****************
+2 = talked
+3 = completed
+**********
 
 $ 11803 1 noob_camp_robodog 0 0 3 1
-*****************
+**********
 Ford quest
 0 = not taken
 1 = taken
-2= talked
-3= completed
-*****************
+2 = talked
+3 = completed
+**********
 
 $ 11804 1 noob_camp_edquest 0 0 3 1
-*****************
+**********
 Ford quest
 0 = not taken
 1 = taken
-2= talked
-3= completed
-*****************
+2 = talked
+3 = completed
+**********
 
 $ 11805 1 noob_camp_jessica 0 0 3 1
-*****************
+**********
 Ford quest
 0 = not taken
 1 = taken
-2= talked
-3= completed
-*****************
+2 = talked
+3 = completed
+**********
 
 $ 11806 1 noob_camp_jimmy 0 0 3 1
-*****************
+**********
 Ford quest
 0 = not taken
 1 = taken
-2= talked
-3= completed
-*****************
+2 = talked
+3 = completed
+**********
 
 $ 11807 1 noob_camp_kid 0 0 3 1
-*****************
+**********
 Ford quest
 0 = not taken
 1 = taken
-2= talked
-3= completed
-*****************
+2 = talked
+3 = completed
+**********
 
 $ 11808 1 noob_camp_knife 0 0 3 1
-*****************
+**********
 Ford quest
 0 = not taken
 1 = taken
-2= talked
-3= completed
-*****************
+2 = talked
+3 = completed
+**********
 
 $ 11809 1 noob_camp_lawrence 0 0 3 1
-*****************
+**********
 Ford quest
 0 = not taken
 1 = taken
-2= talked
-3= completed
-*****************
+2 = talked
+3 = completed
+**********
 
 $ 11810 1 noob_camp_trapper 0 0 3 1
-*****************
+**********
 Ford quest
 0 = not taken
 1 = taken
-2= talked
-3= completed
-*****************
+2 = talked
+3 = completed
+**********
 
 $ 11811 1 noob_camp_rebec 0 0 3 1
-*****************
+**********
 Ford quest
 0 = not taken
 1 = taken
-2= talked
-3= completed
-*****************
+2 = talked
+3 = completed
+**********
 
 $ 11812 1 noob_camp_simon 0 0 3 1
-*****************
+**********
 Ford quest
 0 = not taken
 1 = taken
-2= talked
-3= completed
-*****************
+2 = talked
+3 = completed
+**********
 
 $ 11813 1 noob_camp_stanley 0 0 3 1
-*****************
+**********
 Ford quest
 0 = not taken
 1 = taken
-2= talked
-3= completed
-*****************
+2 = talked
+3 = completed
+**********
 
 $ 11814 1 noob_camp_thunderjo 0 0 3 1
-*****************
+**********
 Ford quest
 0 = not taken
 1 = taken
-2= talked
-3= completed
-*****************
+2 = talked
+3 = completed
+**********
 
 $ 11815 1 noob_camp_hunter 0 0 3 1
-*****************
+**********
 Ford quest
 0 = not taken
 1 = taken
-2= talked
-3= completed
-*****************
+2 = talked
+3 = completed
+**********
 
 $ 11816 1 noob_camp_plague 0 0 3 1
-*****************
+**********
 Ford quest
 0 = not taken
 1 = taken
-2= talked
-3= completed
-*****************
+2 = talked
+3 = completed
+**********
 
 $ 11817 1 noob_camp_fetch 0 0 11 1
-*****************
+**********
 Fetch quest
 0= not taken
 1= random1
-2= random2
-3= random3
+2 = random2
+3 = random3
 4= random4
 5= random5
 6= random6
 11= complete
-*****************
+**********
 
 $ 11818 1 noob_camp_armorer 0 0 3 1
-*****************
+**********
 Ford quest
 0 = not taken
 1 = taken
-2= talked
-3= completed
-*****************
+2 = talked
+3 = completed
+**********
 
 $ 12000 0 merc_prices_init 0 0 0 4
 **********
@@ -1340,11 +1333,11 @@ $ 61003 0 gecko_score 0 0 10000000 0
 
 $ 61004 0 brokenhills_score 0 0 10000000 0
 **********
-**********	
+********** 
 
 $ 61005 0 den_score 0 0 10000000 0
 **********
-**********	   
+**********    
 
 $ 61006 0 redding_score 0 0 10000000 0
 **********
@@ -1385,178 +1378,178 @@ $ 1003 1 q_hub_henry_quest 0 -2 2 1
 **********
 
 $ 11900 1 hub_guard1 0 0 3 1
-*****************
+**********
 Ford quest
 0 = not taken
 1 = taken
-2= talked
-3= completed
-*****************
+2 = talked
+3 = completed
+**********
 
 $ 11901 1 hub_guard2 0 0 3 1
-*****************
+**********
 Ford quest
 0 = not taken
 1 = taken
-2= talked
-3= completed
-*****************
+2 = talked
+3 = completed
+**********
 
 $ 11902 1 hub_guard3 0 0 3 1
-*****************
+**********
 Ford quest
 0 = not taken
 1 = taken
-2= talked
-3= completed
-*****************
+2 = talked
+3 = completed
+**********
 
 $ 11903 1 hub_guard4 0 0 3 1
-*****************
+**********
 Ford quest
 0 = not taken
 1 = taken
-2= talked
-3= completed
-*****************
+2 = talked
+3 = completed
+**********
 
 $ 11904 1 hub_guard5 0 0 3 1
-*****************
+**********
 Ford quest
 0 = not taken
 1 = taken
-2= talked
-3= completed
-*****************
+2 = talked
+3 = completed
+**********
 
 $ 11905 1 hub_guard6 0 0 3 1
-*****************
+**********
 Ford quest
 0 = not taken
 1 = taken
-2= talked
-3= completed
-*****************
+2 = talked
+3 = completed
+**********
 
 $ 11908 1 hub_gangers 0 0 17 1
-*****************
+**********
 Ford quest
 0 = not taken
 1 = taken
-2= talked
-3= completed
-*****************
+2 = talked
+3 = completed
+**********
 
 $ 11909 1 hub_gangers1 0 0 3 1
-*****************
+**********
 Ford quest
 0 = not taken
 1 = taken
-2= talked
-3= completed
-*****************
+2 = talked
+3 = completed
+**********
 
 $ 11910 1 hub_gangers2 0 0 3 1
-*****************
+**********
 Ford quest
 0 = not taken
 1 = taken
-2= talked
-3= completed
-*****************
+2 = talked
+3 = completed
+**********
 
 $ 11911 1 hub_gangers3 0 0 3 1
-*****************
+**********
 Ford quest
 0 = not taken
 1 = taken
-2= talked
-3= completed
-*****************
+2 = talked
+3 = completed
+**********
 
 $ 11912 1 hub_gangers4 0 0 3 1
-*****************
+**********
 Ford quest
 0 = not taken
 1 = taken
-2= talked
-3= completed
-*****************
+2 = talked
+3 = completed
+**********
 
 $ 11913 1 hub_heist 0 0 50 1
-*****************
+**********
 Ford quest
 0 = not taken
 1 = taken
-2= talked
-3= completed
-*****************
+2 = talked
+3 = completed
+**********
 
 $ 11914 1 hub_johnavl 0 0 3 1
-*****************
+**********
 Ford quest
 0 = not taken
 1 = taken
-2= talked
-3= completed
-*****************
+2 = talked
+3 = completed
+**********
 
 $ 11915 1 hub_daveavl 0 0 3 1
-*****************
+**********
 Ford quest
 0 = not taken
 1 = taken
-2= talked
-3= completed
-*****************
+2 = talked
+3 = completed
+**********
 
 $ 11916 1 hub_bobavl 0 0 3 1
-*****************
+**********
 Ford quest
 0 = not taken
 1 = taken
-2= talked
-3= completed
-*****************
+2 = talked
+3 = completed
+**********
 
 $ 11917 1 hub_jetavl 0 0 3 1
-*****************
+**********
 Ford quest
 0 = not taken
 1 = taken
-2= talked
-3= completed
-*****************
+2 = talked
+3 = completed
+**********
 
 $ 11918 1 hub_bufavl 0 0 3 1
-*****************
+**********
 Ford quest
 0 = not taken
 1 = taken
-2= talked
-3= completed
-*****************
+2 = talked
+3 = completed
+**********
 
 $ 11919 1 hub_mentavl 0 0 3 1
-*****************
+**********
 Ford quest
 0 = not taken
 1 = taken
-2= talked
-3= completed
-*****************
+2 = talked
+3 = completed
+**********
 
 $ 11920 1 hub_psyavl 0 0 3 1
-*****************
+**********
 Ford quest
 0 = not taken
 1 = taken
-2= talked
-3= completed
-*****************
+2 = talked
+3 = completed
+**********
 
 $ 11921 1 hub_postmanq 0 0 100 1
-*****************
+**********
 Postman quest
 0 = not taken
 1 = Hamilton Library
@@ -1608,160 +1601,160 @@ Postman quest
 98= 150 reward
 99= 500 reward
 100 = 700 reward
-*****************
+**********
 
 $ 11923 1 hub_bringshotty 0 0 3 1
-*****************
+**********
 Ford quest
 0 = not taken
 1 = taken
-2= talked
-3= completed
-*****************
+2 = talked
+3 = completed
+**********
 
 $ 11924 1 hub_bringsurv 0 0 3 1
-*****************
+**********
 Ford quest
 0 = not taken
 1 = taken
-2= talked
-3= completed
-*****************
+2 = talked
+3 = completed
+**********
 
 $ 11922 1 hub_honor 0 0 5 1
-*****************
+**********
 Ford quest
 0 = not taken
 1 = taken
-2= talked
-3= completed
-*****************
+2 = talked
+3 = completed
+**********
 
 $ 11928 1 hub_chefquest 0 0 10 1
-*****************
+**********
 Ford quest
 0 = not taken
 1 = taken
-2= talked
-3= completed
-*****************
+2 = talked
+3 = completed
+**********
 
 $ 11929 1 hub_bombq 0 0 10 1
-*****************
+**********
 Ford quest
 0 = not taken
 1 = taken
-2= talked
-3= completed
-*****************
+2 = talked
+3 = completed
+**********
 
 $ 11931 1 hub_rougam 0 0 100000 1
-*****************
+**********
 Ford quest
 0 = not taken
 1 = taken
-2= talked
-3= completed
-*****************
+2 = talked
+3 = completed
+**********
 
 $ 11932 1 hub_hopeq 0 0 10 1
-*****************
+**********
 Ford quest
 0 = not taken
 1 = taken
-2= talked
-3= completed
-*****************
+2 = talked
+3 = completed
+**********
 
 $ 11933 1 hub_postmanqp 0 0 10 1
-*****************
+**********
 Ford quest
 0 = not taken
 1 = taken
-2= talked
-3= completed
-*****************
+2 = talked
+3 = completed
+**********
 
 $ 11934 1 hub_rouletp 0 0 10 1
-*****************
+**********
 Ford quest
 0 = not taken
 1 = taken
-2= talked
-3= completed
-*****************
+2 = talked
+3 = completed
+**********
 
 $ 11935 1 hub_leatherp 0 0 10 1
-*****************
+**********
 Ford quest
 0 = not taken
 1 = taken
-2= talked
-3= completed
-*****************
+2 = talked
+3 = completed
+**********
 
 $ 11936 1 hub_lightjp 0 0 10 1
-*****************
+**********
 Ford quest
 0 = not taken
 1 = taken
-2= talked
-3= completed
-*****************
+2 = talked
+3 = completed
+**********
 
 $ 11938 1 hub_foundryp 0 0 10 1
-*****************
+**********
 Ford quest
 0 = not taken
 1 = taken
-2= talked
-3= completed
-*****************
+2 = talked
+3 = completed
+**********
 
 $ 11939 1 hub_papaq 0 0 10 1
-*****************
+**********
 Ford quest
 0 = not taken
 1 = taken
-2= talked
-3= completed
-*****************
+2 = talked
+3 = completed
+**********
 
 $ 16000 1 hub_waterjobq 0 0 10 1
-*****************
+**********
 Ford quest
 0 = not taken
 1 = taken
-2= talked
-3= completed
-*****************
+2 = talked
+3 = completed
+**********
 
 $ 16001 1 hub_waterjobden 0 0 10 1
-*****************
+**********
 Ford quest
 0 = not taken
 1 = taken
-2= talked
-3= completed
-*****************
+2 = talked
+3 = completed
+**********
 
 $ 16002 1 hub_waterjobhills 0 0 10 1
-*****************
+**********
 Ford quest
 0 = not taken
 1 = taken
-2= talked
-3= completed
-*****************
+2 = talked
+3 = completed
+**********
 
 $ 16003 1 hub_waterjobsan 0 0 10 1
-*****************
+**********
 Ford quest
 0 = not taken
 1 = taken
-2= talked
-3= completed
-*****************
+2 = talked
+3 = completed
+**********
 
 $ 16014 1 q_hubo 0 0 5 5
 **********
@@ -1784,9 +1777,9 @@ This variable is thieves
 **********
 
 $ 16169 1 hub_inde 0 0 25 1
-*********************
+**************
 inde caravan job
-*********************
+**************
 
 $ 16184 1 hub_decision1 0 0 13 4
 **********
@@ -1862,8 +1855,7 @@ $ 7404 1 q_hub_sad_farmer_locationId  0 0 0 5
 Sad farmer in hub location id.
 **********
 
-**************************************************************************************
-**************************************************************************************
-*************************************************************************************/
+***************************************************
+**************************************************/
 
 #endif
