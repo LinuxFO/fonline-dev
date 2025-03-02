@@ -2,6 +2,7 @@
 !/.gitignore
 
 CrashDump*.txt
+ManualDump*.txt
 
 /Client/*.log
 /Client/data/cache/

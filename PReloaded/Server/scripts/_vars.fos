@@ -262,10 +262,43 @@
 #define LVAR_hub_lockpickq                  (16072)
 #define LVAR_hub_inde                       (16169)
 #define LVAR_hub_decision1                  (16184)
+#define LVAR_camp_evil                             (16294)
+#define LVAR_q_iguana_pete_message                 (7070)
+#define LVAR_q_iguana_pete_ban                     (7071)
+#define LVAR_q_iguana_son_message                  (7072)
+#define LVAR_q_iguana_mutant_message               (7073)
+#define LVAR_q_merchant                            (16236)
 
-/**************************************************
+#define LVAR_z_dailyq1                             (16383)
+#define LVAR_z_dailyq1_locid                       (16384)
+#define LVAR_z_dailyq1timeout                      (16388)
+#define LVAR_q_la_gunr_courier                     (7147)
+#define LVAR_q_la_gunr_courier_reward              (7148)
+#define LVAR_q_packages                            (16298)
+#define LVAR_q_jt_power_house_handy                (7124)
+#define LVAR_q_jt_power_house_handy_talk           (7125)
+#define LVAR_bar_drink                             (7000)
+#define LVAR_give_grenade                          (7001)
+#define LVAR_crimson_caravan_job                   (7003)
+#define LVAR_la_crate1                             (16181)
+#define LVAR_la_crate2                             (16182)
+#define LVAR_la_crate3                             (16183)
+#define LVAR_z_dailyq1                             (16383)
+#define LVAR_z_dailyq1_locid                       (16384)
+#define LVAR_z_dailyq2_locid                       (16385)
+#define LVAR_z_dailyq3_locid                       (16386)
+#define LVAR_z_dailyq4_locid                       (16387)
+#define LVAR_z_dailyq1timeout                      (16388)
+#define LVAR_z_dailyq5_locid                       (16389)
+#define LVAR_z_dailyq6_locid                       (16390)
+#define LVAR_z_dailyq7_locid                       (16391)
+#define LVAR_z_dailyq8_locid                       (16392)
+#define LVAR_q_mutar_locid                         (11995)
+#define LVAR_q_mutar                               (11994)
+
+/*
 Id Type Name  Start Min Max Flags
-***************************************************
+*************************************************
 
 $ 1 0 car_id 0 0 0 4
 **********
@@ -288,7 +321,6 @@ $ 13 1 bos_trainer 0 0 3 0
 $ 14 1 faction_bos_home 0 0 3 0
 **********
 Set to 1, 2, or 3 depending on location after speaking to bos trainer
-
 1- Den
 2-NCR
 3-SF
@@ -419,7 +451,10 @@ Stores the current task the NPC is at.
 $ 1150 0 sierra_backup_power 0 0 3 0
 **********
 Gvar controlling the power supply in Sierra Army Depot
-0==off, 1==on(not-redirected), 2==redirected to med lab, 3 ==redirected to ammo facility
+0==off,
+1==on(not-redirected),
+2==redirected to med lab,
+3 ==redirected to ammo facility
 **********
 
 $ 1207 1 killer_admin 0 0 9999 0
@@ -746,7 +781,6 @@ Supporting variable which is used to update teamid if player wasn't online when 
 $ 4103 1 factions_player_score 1 1 100 0
 **********
 This lvar controlls the faction score of the player. The score can't be higher than 100, no matter how active the player is. Also, it can't be lower than 1, which is the standard value for the newcomers (we might need to divide with this value later, so it's better not to be 0).
-
 Will be changed to player's reputation I think (scyp)
 **********
 
@@ -840,7 +874,7 @@ Is/was inside Hub arena?
 
 $ 5386 1 redding_morton_brothers 0 0 0 4
 **********
-GVAR_REDDING_MORTON_BROTHERS            :=0;    //      (386)
+GVAR_REDDING_MORTON_BROTHERS :=0; // (386)
 **********
 
 $ 6500 2 q_box_unload_status 0 0 0 4
@@ -1855,7 +1889,145 @@ $ 7404 1 q_hub_sad_farmer_locationId  0 0 0 5
 Sad farmer in hub location id.
 **********
 
-***************************************************
-**************************************************/
+$ 16294 1 camp_evil 0 0 30 1
+**********
+var for evil campaign
+**********
+
+$ 7070 1 q_iguana_pete_message 0 0 0 5
+**********
+**********
+
+$ 7071 1 q_iguana_pete_ban 0 0 0 5
+**********
+**********
+
+$ 7072 1 q_iguana_son_message 0 0 0 5
+**********
+**********
+
+$ 7073 1 q_iguana_mutant_message 0 0 0 5
+**********
+**********
+
+$ 16236 1 q_merchant 0 0 250 1
+**********
+bulk order reward score 
+**********
+
+$ 16383 1 z_dailyq1 0 0 100 5
+**********
+var for daily quest lone wanderer
+**********
+
+$ 16384 1 z_dailyq1_locid 0 0 13 4
+**********
+Location id of daily fight 1
+**********
+
+$ 16388 1 z_dailyq1timeout 0 0 100 5
+**********
+var for daily quest lone wanderer in between
+**********
+
+$ 16385 1 z_dailyq2_locid 0 0 13 4
+**********
+Location id of daily fight 2
+**********
+
+$ 16386 1 z_dailyq3_locid 0 0 13 4
+**********
+Location id of daily fight 3
+**********
+
+$ 16387 1 z_dailyq4_locid 0 0 13 4
+**********
+Location id of daily fight 4
+**********
+
+$ 16389 1 z_dailyq5_locid 0 0 13 4
+**********
+Location id of daily fight 5
+**********
+
+$ 16390 1 z_dailyq6_locid 0 0 13 4
+**********
+Location id of daily farm spawn
+**********
+
+$ 16391 1 z_dailyq7_locid 0 0 13 4
+**********
+Location id of daily cop boss spawn
+**********
+
+$ 16392 1 z_dailyq8_locid 0 0 13 4
+**********
+Location id of daily deth spawn
+**********
+
+$ 7147 1 q_la_gunr_courier 0 0 9 1
+**********
+**********
+
+$ 7148 1 q_la_gunr_courier_reward 0 0 6 0
+**********
+**********
+
+$ 16298 1 q_packages 0 0 101 4
+**********
+var for packages job
+**********
+
+$ 7124 1 q_jt_power_house_handy 0 0 4 1
+**********
+0 == inactive
+1 == active
+2 == motivator from Hub
+3 == handy repaired
+4 == quest done
+**********
+
+$ 7125 1 q_jt_power_house_handy_talk 0 0 1 0
+**********
+**********
+
+$ 7000 1 bar_drink 0 0 0 4
+**********
+**********
+
+$ 7001 1 give_grenade 0 0 0 4
+**********
+**********
+
+$ 7003 1 crimson_caravan_job 0 0 0 4
+**********
+**********
+
+$ 16181 1 la_crate1 0 0 13 4
+**********
+la crate quest 
+**********
+
+$ 16182 1 la_crate2 0 0 13 4
+**********
+la crate quest 
+**********
+
+$ 16183 1 la_crate3 0 0 13 4
+**********
+la crate quest 
+**********
+
+$ 11994 1 q_mutar 0 0 5 5
+**********
+This variable is for "rats of hub" quest.
+**********
+
+$ 11995 1 q_mutar_locid 0 0 3 4
+**********
+Location id of hub mutar
+**********
+
+*************************************************/
 
 #endif

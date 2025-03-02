@@ -1,10 +1,3 @@
-//
-// FOnline: 2238
-// Rotators
-//
-// _defines.fos
-//
-
 #ifndef __DEFINES__
 # define __DEFINES__
 
@@ -189,6 +182,10 @@
 #define SLOT_PERK_MOTION_SENSOR                  (0x04) // +20 outdoorsman
 #define SLOT_PERK_STEALTH_BOY                    (0x08) // +20 sneak
 
+// In SendMessage
+#define MESSAGE_TO_VISIBLE_ME                    (0)
+#define MESSAGE_TO_IAM_VISIBLE                   (1)
+#define MESSAGE_TO_ALL_ON_MAP                    (2) 
 // more eng-friendly aliases
 #define SENDMESSAGE_TO_WHO_SEES_ME                   (SENDMESSAGE_TO_VISIBLE_ME)
 #define SENDMESSAGE_TO_I_SEE                         (SENDMESSAGE_TO_IAM_VISIBLE)
