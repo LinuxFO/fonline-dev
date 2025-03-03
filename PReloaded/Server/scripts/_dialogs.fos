@@ -269,5 +269,6 @@
 #define DIALOG_hub_drugdealer            (23230)
 #define DIALOG_hub_pending               (23274)
 #define DIALOG_hub_tower                 (24402)
+#define DIALOG_train_conductor           (10200)
 
 #endif // __DIALOGS__

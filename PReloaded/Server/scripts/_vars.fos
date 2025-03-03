@@ -262,54 +262,63 @@
 #define LVAR_hub_lockpickq                  (16072)
 #define LVAR_hub_inde                       (16169)
 #define LVAR_hub_decision1                  (16184)
-#define LVAR_camp_evil                             (16294)
-#define LVAR_q_iguana_pete_message                 (7070)
-#define LVAR_q_iguana_pete_ban                     (7071)
-#define LVAR_q_iguana_son_message                  (7072)
-#define LVAR_q_iguana_mutant_message               (7073)
-#define LVAR_q_merchant                            (16236)
-#define LVAR_z_dailyq1                             (16383)
-#define LVAR_z_dailyq1_locid                       (16384)
-#define LVAR_z_dailyq1timeout                      (16388)
-#define LVAR_q_la_gunr_courier                     (7147)
-#define LVAR_q_la_gunr_courier_reward              (7148)
-#define LVAR_q_packages                            (16298)
-#define LVAR_q_jt_power_house_handy                (7124)
-#define LVAR_q_jt_power_house_handy_talk           (7125)
-#define LVAR_bar_drink                             (7000)
-#define LVAR_give_grenade                          (7001)
-#define LVAR_crimson_caravan_job                   (7003)
-#define LVAR_la_crate1                             (16181)
-#define LVAR_la_crate2                             (16182)
-#define LVAR_la_crate3                             (16183)
-#define LVAR_z_dailyq1                             (16383)
-#define LVAR_z_dailyq1_locid                       (16384)
-#define LVAR_z_dailyq2_locid                       (16385)
-#define LVAR_z_dailyq3_locid                       (16386)
-#define LVAR_z_dailyq4_locid                       (16387)
-#define LVAR_z_dailyq1timeout                      (16388)
-#define LVAR_z_dailyq5_locid                       (16389)
-#define LVAR_z_dailyq6_locid                       (16390)
-#define LVAR_z_dailyq7_locid                       (16391)
-#define LVAR_z_dailyq8_locid                       (16392)
-#define LVAR_q_mutar_locid                         (11995)
-#define LVAR_q_mutar                               (11994)
-#define LVAR_q_cop_locid                           (11997)
-#define LVAR_q_cop                                 (11996)
-#define LVAR_noire1                                (16148)
-#define LVAR_noire1_locid                          (16149)
-#define LVAR_noire2_locid                          (16150)
-#define LVAR_noire3_locid                          (16151)         
-#define LVAR_noire4_locid                          (16158)
-#define LVAR_noire5                                (16159)
-#define LVAR_noire6_locid                          (16160)
-#define LVAR_noire6                                (16161)
-#define LVAR_noire7_locid                          (16162)
-#define LVAR_noire8_locid                          (16163)
-#define LVAR_noire9_locid                          (16168)
-#define LVAR_z_warrior2                            (16378)
-#define LVAR_q_pending                             (16240)
-#define LVAR_q_pending_locid                       (16241)
+#define LVAR_camp_evil                      (16294)
+#define LVAR_q_iguana_pete_message          (7070)
+#define LVAR_q_iguana_pete_ban              (7071)
+#define LVAR_q_iguana_son_message           (7072)
+#define LVAR_q_iguana_mutant_message        (7073)
+#define LVAR_q_merchant                     (16236)
+#define LVAR_z_dailyq1                      (16383)
+#define LVAR_z_dailyq1_locid                (16384)
+#define LVAR_z_dailyq1timeout               (16388)
+#define LVAR_q_la_gunr_courier              (7147)
+#define LVAR_q_la_gunr_courier_reward       (7148)
+#define LVAR_q_packages                     (16298)
+#define LVAR_q_jt_power_house_handy         (7124)
+#define LVAR_q_jt_power_house_handy_talk    (7125)
+#define LVAR_bar_drink                      (7000)
+#define LVAR_give_grenade                   (7001)
+#define LVAR_crimson_caravan_job            (7003)
+#define LVAR_la_crate1                      (16181)
+#define LVAR_la_crate2                      (16182)
+#define LVAR_la_crate3                      (16183)
+#define LVAR_z_dailyq1                      (16383)
+#define LVAR_z_dailyq1_locid                (16384)
+#define LVAR_z_dailyq2_locid                (16385)
+#define LVAR_z_dailyq3_locid                (16386)
+#define LVAR_z_dailyq4_locid                (16387)
+#define LVAR_z_dailyq1timeout               (16388)
+#define LVAR_z_dailyq5_locid                (16389)
+#define LVAR_z_dailyq6_locid                (16390)
+#define LVAR_z_dailyq7_locid                (16391)
+#define LVAR_z_dailyq8_locid                (16392)
+#define LVAR_q_mutar_locid                  (11995)
+#define LVAR_q_mutar                        (11994)
+#define LVAR_q_cop_locid                    (11997)
+#define LVAR_q_cop                          (11996)
+#define LVAR_noire1                         (16148)
+#define LVAR_noire1_locid                   (16149)
+#define LVAR_noire2_locid                   (16150)
+#define LVAR_noire3_locid                   (16151)
+#define LVAR_noire4_locid                   (16158)
+#define LVAR_noire5                         (16159)
+#define LVAR_noire6_locid                   (16160)
+#define LVAR_noire6                         (16161)
+#define LVAR_noire7_locid                   (16162)
+#define LVAR_noire8_locid                   (16163)
+#define LVAR_noire9_locid                   (16168)
+#define LVAR_z_warrior2                     (16378)
+#define LVAR_q_pending                      (16240)
+#define LVAR_q_pending_locid                (16241)
+#define LVAR_la_caravan                     (16178)
+#define LVAR_la_caravan2                    (16179)
+#define LVAR_q_redd_christopher_good_karma  (1001)
+#define LVAR_q_redd_christopher_bad_karma   (1002)
+#define LVAR_player_farmOwner               (16043)
+#define LVAR_ncr_investigation1             (16047)
+#define LVAR_q_bos_initiatequest_start      (7074)
+#define GVAR_LAW                            (16217)
+#define GVAR_CRIM                           (16218)
 
 /*
 Id Type Name  Start Min Max Flags
@@ -2111,6 +2120,48 @@ Location id of skin job loc 5
 $ 16378 1 z_warrior2 0 0 100 4
 **********
 var for lonestar agency bounty score
+**********
+
+$ 16178 1 la_caravan 0 0 13 4
+**********
+la caravan job 
+**********
+
+$ 16179 1 la_caravan2 0 0 13 4
+**********
+la caravan 2 job 
+**********
+
+$ 1001 1 q_redd_christopher_good_karma 0 -1 3 1
+**********
+**********
+
+$ 1002 1 q_redd_christopher_bad_karma 0 -1 3 1
+**********
+**********
+
+$ 16043 1 player_farmOwner 0 0 10 1
+**********
+player farm ownership
+**********
+
+$ 16047 1 ncr_investigation1 0 0 10 1
+**********
+ncr stark quest 
+**********
+
+$ 7074 1 q_bos_initiatequest_start 0 0 70 1
+**********
+**********
+
+$ 16217 0 LAW 0 0 0 4
+**********
+law 
+**********
+
+$ 16218 0 CRIM 0 0 0 4
+**********
+crime 
 **********
 
 *************************************************/

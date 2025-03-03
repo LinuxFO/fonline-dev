@@ -4,19 +4,101 @@
 #define LOCATION_StartLocation                           (1) // ...
 #define LOCATION_StartVault24                            (2) // 
 #define LOCATION_LandersPoint                            (3) // A camp set up to prepare the Vault 24 dwellers for the wastes.
-#define LOCATION_StartCaravan                            (4) // 
+#define LOCATION_StartCaravan                            (4) //
+#define LOCATION_Gecko                                   (5) // A town of ghouls built around a leaking nuclear power plant.
+#define LOCATION_BrokenHills                             (6) // A town of humans, mutants and ghouls. Racism is rampant.
+#define LOCATION_NewReno                                 (7) // A town of casinos, drugs and debauchery.
+#define LOCATION_Sierra                                  (8) // An old military warehouse.
+#define LOCATION_Vault15                                 (9) // An old Vault. Now home to God knows what.
+#define LOCATION_NCR                                     (10) // Shady Sands, the central government of the New California Republic. The most powerful city in the wastes.
+#define LOCATION_Cathedral                               (11) // An old Cathedral among city ruins, lighted up by burning barrels. People are wandering outside in a large crowd.
+#define LOCATION_MariposaMilitaryBase                    (12) // A military facility built to house the Forced Evolutionary Virus
+#define LOCATION_Redding                                 (13) // A mining town. The primary producer and distributor of gold in the wasteland.
+#define LOCATION_SanFrancisco                            (14) // A high-tech city built by the descendants of a Chinese submarine.
+#define LOCATION_Navarro                                 (15) // An Enclave military base.
+#define LOCATION_Arroyo                                  (16) // A small, isolated tribal village, founded by Vault 13 exiles.
+#define LOCATION_Junktown                                (17) // The town was built after the Great War out of random pieces of junk, mostly of broken cars.
+#define LOCATION_BrotherhoodofSteel                      (18) // The Lost Hills old government bunker is the headquarters of the Brotherhood of Steel.
+#define LOCATION_TheGlow                                 (19) // This ancient West Tek facility was destroyed in the nuclear holocaust of 2077! Leaving behind a gaping hole where there once was so much hope, and progress. Now it's a radioactive museum, full of goodies and old, forgotten treasures.
+#define LOCATION_Golgotha                                (20) // Golgotha.
+#define LOCATION_NewRenoStables                          (21) // The New Reno Stables owned and operated by the Mordinos.
+#define LOCATION_GhostFarm                               (22) // A small farm created by the Slags above their underground settlement.
+#define LOCATION_Vault13                                 (23) // A Vault very well hidden in the mountains.
+#define LOCATION_Necropolis                              (24) // A town built upon the charred remains of Bakersfield; the grim aftermath of Vault 12.
 #define LOCATION_Hub                                     (25) // A major trading city with a large community of traders, gamblers and various other types of scum.
+#define LOCATION_Boneyard                                (26) // Amongst decimated skyscrapers lies the small industrial town named New Adytum. It's doing well, it seems. There's a ton of caravan activity coming in, and out of the city.
+#define LOCATION_Raiders                                 (27) // Northern Raider hideout.
+#define LOCATION_AresRocketSilo                          (28) // In the distance you can see the remains of an old rocket silo. It seems like someone has pitched his camp there a short while ago.
+#define LOCATION_RaidersSouth                            (29) // Southern Raider hideout.
+#define LOCATION_MiningSiteNCR                           (30) // A well guarded NCR quarry.
+#define LOCATION_MiningSiteVC                            (31) // This mining site has been closed many years ago.
+#define LOCATION_MiningSiteKlamath                       (32) // This small mining site is run by a bunch of trappers from Klamath.
+#define LOCATION_MiningSiteSF                            (33) // A small industrial mining site, run by the San Francisco Communist Party.
+#define LOCATION_MiningSitePlayer                        (34) // A small underground mining site.
+#define LOCATION_Crater                                  (35) // The smell of death surrounds you! This is not a good place, stay clear!
+#define LOCATION_Library                                 (36) // The Public Library serves as headquarters for the Followers of the Apocalypse. It's their church, and very sacred ground.
+#define LOCATION_Warehouse                               (37) // An old, dangerous warehouse between the ruins.
+#define LOCATION_Scavenger                               (38) // Downtown is home for the salvagers of the Angel's Boneyard. It's a quiet place, not like it used to be... save for the occasional stealing.
+#define LOCATION_Fortress                                (39) // The Fortress is surrounded by a moat of glowing green goo. This intimidating location is the home of the Gun Runners.
+#define LOCATION_Replication1                            (40) // A small camp for the injured
+#define LOCATION_Replication2                            (41) // A small camp for the injured.
+#define LOCATION_Replication3                            (42) // A small camp for the injured.
+#define LOCATION_Replication4                            (43) // A small camp for the injured
+#define LOCATION_Eventlocation1                          (44) // 
+#define LOCATION_Replication5                            (45) // A small camp for the injured.
+#define LOCATION_Replication6                            (46) // A small camp for the injured.
+#define LOCATION_Replication7                            (47) // A small camp for the injured
+#define LOCATION_Replication8                            (48) // A small camp for the injured.
+#define LOCATION_TeslaTower                              (49) // A wireless  telecommunication tower, in control by the Brotherhood of Steel. Due to this tower, it was possible to greatly increase the general radio reception.
+#define LOCATION_Hinkley                                 (50) // A recreational area consisting of a few combat arenas for relaxation and training.
+#define LOCATION_CrashedHummer                           (51) // A crashed Hummer and it's crew.
+#define LOCATION_Battleground                            (52) // This place has recently seen a battle between few Brotherhood soldiers and a group of Supermutants.
+#define LOCATION_AnOldBunker                             (53) // 
+#define LOCATION_Prison                                  (54) // A New California Republic Correctional Facility.
+#define LOCATION_TrainAmbush_RailRaiders                 (55) // A train ambush!
+#define LOCATION_TrainAmbush_BuriedRails                 (56) // The rails have been buried by rubble piles!
 #define LOCATION_KhanEncounter1                          (57) // 
 #define LOCATION_KhanEncounter2                          (58) // 
 #define LOCATION_KhanEncounter3                          (59) // 
-#define LOCATION_KhanEncounter4                          (60) // 
+#define LOCATION_KhanEncounter4                          (60) //
+#define LOCATION_NCRLAGoldReserve                        (61) // A strash of the NCRs national gold reserve in the Angel's Boneyard.
+#define LOCATION_LAWarehouse                             (62) // Lots of empty and locked warehouses can be found in the industrial park.
+#define LOCATION_CathedralBasement                       (63) // The cathedral cellar.
+#define LOCATION_MutantsHideout                          (64) // A cavern hideout in the mountains. It's occupied by a group of Super Mutant Remnants.
+#define LOCATION_Q_SanFranSubway                         (65) // 
+#define LOCATION_HubTrainyard                            (66) // 
+#define LOCATION_Eventlocation2                          (67) // 
+#define LOCATION_Q_BrahminWillow                         (68) // A brahmin willow from the Westin ranch.
+#define LOCATION_TobaccoFarm                             (69) // Occupying the ruined city streets lies an abandoned tobacco farm with wildly growing plants. It's basking with activity! Looks like people from all around use it as a source of income.
+#define LOCATION_RadscorpionCave                         (70) // Behind a bunch of junked cars you can see a small entrance into the mountain...
 #define LOCATION_Tent2Mountain1                          (71) // 
 #define LOCATION_Tent2Coast1                             (72) // 
 #define LOCATION_Tent2City1                              (73) // 
-#define LOCATION_Tent2Desert1                            (74) // 
+#define LOCATION_Tent2Desert1                            (74) //
+#define LOCATION_CaveHQ                                  (75) // 
+#define LOCATION_BuildingSite                            (76) // 
+#define LOCATION_BlockerLocation                         (77) // 
+#define LOCATION_Q_BrahminRanch                          (78) // A brahmin ranch waiting for herd to be delivered.
+#define LOCATION_RuinedMilitaryBase                      (79) // An abandoned military bunker. You can see the big gates from the distance.
+#define LOCATION_DeadBody                                (80) // You see a dead body under a tree.
 #define LOCATION_OceanEncounter1                         (81) // The wide, dirty ocean.
 #define LOCATION_Q_FirstTent                             (84) // This is the tent that my PipBoy warned me about! I'd better check it out right now! It's obviously the best place to start my journey...
+#define LOCATION_Hospital                                (85) // 
 #define LOCATION_Q_FirstTent2                            (86) // A small, rat-ridden farm.
+#define LOCATION_SpecialEncounter_BusStop                (87) // A bus stop on the highway.
+#define LOCATION_GhostTown                               (88) // Ghost Town, a place of weeping and pking.
+#define LOCATION_SevenFamillies                          (89) // A small village on the desert.
+#define LOCATION_PlayerFarm                              (90) // This part of the wasteland belongs to someone and is privately owned. They've built a farm out of nothing, and hired a few wastelanders to help cultivate it.
+#define LOCATION_PlayerHouse                             (91) // This Safe House was given to you by your Overseer. You can safely store items here, and treat it as a permanent location.
+#define LOCATION_PlayerCinematic                         (92) // This is where I was told to meet with the Brotherhood of Steel Elders to negotiate a temporary alliance between the NCR. Vault 24, and the Bos.
+#define LOCATION_PlayerDungeon                           (93) // The ruins of Ridgecrest are now a safe haven for any, and all would-be criminals trying to escape the law. Do not step foot in here without expecting a serious fight!
+#define LOCATION_PlayerDungeon2                          (94) // There is an old, abandoned Oasis out in the middle of the desert. A once famous watering ground for wayward Caravans, has now become a breeding ground for numerous rodents, and wasteland critters.
+#define LOCATION_PlayerDungeon3                          (95) // This is the ruins of an old Gas Station from before the Great War. It has now become a home for numerous dangerous criminals, and thugs. It would be wise to avoid coming here. The locals aren't too friendly.
+#define LOCATION_PlayerDungeon4                          (96) // There is an old, abandoned police station here, near a small diner and a general store. Rumour has it that there is a tough looking gang living in the area. I should avoid this place unless I'm looking for a serious fight. 
+#define LOCATION_PoliceQuestHouse1                       (97) // My next assignment is to apprehend, and judge the assailants found at this location. God have mercy on their fucking souls.
+#define LOCATION_PoliceQuestHouse2                       (98) // The Sheriff received a radio call about a possible rape, or assault about to take place. My next assignment is to head over here and read these people their final rights.
+#define LOCATION_PoliceHouse3                            (99) // This must be the "Night Rider"... I hope I can find Detective Rockatansky here.
+#define LOCATION_PoliceHouse4                            (100) // A certain mister Bishop Biceon and his family have recently been brutally murdered, and skinned alive. I should investigate the crime scene, and try to find any clues if possible.
 #define LOCATION_DesertEncounter1                        (101) // 
 #define LOCATION_DesertEncounter2                        (102) // 
 #define LOCATION_DesertEncounter3                        (103) // 
@@ -77,13 +159,7 @@
 #define LOCATION_TentMountain1                           (212) // A small tent between mountains.
 #define LOCATION_TentCoast1                              (213) // A small tent at the coast.
 #define LOCATION_TentCity1                               (214) // A small tent in the city.
-#define MAP_HubDowntown                                  (221) // hub, Hub(25)
-#define MAP_HubOldtown                                   (222) // hub_oldtown, map_hub@map_init, Hub(25)
-#define MAP_HubHeights                                   (223) // hub_heights, map_hub@map_init, Hub(25)
-#define MAP_HubWatermerchants                            (224) // hub_water, map_hub@map_init, Hub(25)
-#define MAP_HubUnderground                               (225) // hub_downtown_decker, map_hub@map_init, Hub(25)
-#define MAP_HubUnderground226                            (226) // hub_oldtown_thief, map_hub@map_init, Hub(25)
-#define MAP_HubArena                                     (227) // hub_arena,
+#define LOCATION_Westwood                                (233) // Westwood is an organized society in the middle of wastes
 #define LOCATION_DesertEncounter7                        (300) // 
 #define LOCATION_DesertEncounter8                        (301) // 
 #define LOCATION_DesertEncounter9                        (302) // 
@@ -99,6 +175,47 @@
 #define LOCATION_DesertWater2                            (312) // 
 #define LOCATION_DesertWater3                            (313) // 
 #define LOCATION_DesertEncounter12                       (314) // 
+#define LOCATION_Tipperary                               (349) // 
+#define LOCATION_Warzone                                 (350) // An old gas station, much junk, dead bodies all around. This ain't be a good place.
+#define LOCATION_Warzone2                                (351) // The ruins of the past, the ash is still in the air. Today, this place will burn again...
+#define LOCATION_Trainyard1                              (352) // A busy train station, which can be used for fast traveling to various places.
+#define LOCATION_Trainyard2                              (353) // An old train station, controlled by the Regulators of Adytum and Boneyard. The train station can be used for fast traveling to various places.
+#define LOCATION_Trainyard3                              (354) // A NCR outpost with active train station that can be used for fast traveling to various places.
+#define LOCATION_Trainyard4                              (355) // One of the first new train stations in the north. The train station can be used for fast traveling to various places.
+#define LOCATION_Junkyard                                (356) // A small and old junkyard. You can see the stacked cars already from far away.
+#define LOCATION_Spawnpoint1                             (357) // A place in the dirt.
+#define LOCATION_Spawnpoint2                             (358) // A place in the dirt.
+#define LOCATION_Spawnpoint3                             (359) // A place in the dirt.
+#define LOCATION_AntPit1                                 (360) // A place in the dirt.
+#define LOCATION_Themepark                               (361) // An old abandoned themepark. Oh, boy!
+#define LOCATION_Waterworks                              (362) // An abandoned industrial facility for water purification. Aside from the occasional monster it's an otherwise prime location for old electronic parts.
+#define LOCATION_KlamathToxicCaves                       (363) // A radioactive cave inhabited by Geckos.
+#define LOCATION_GordonsGasStation                       (364) // A small gas station in the middle of the desert.
+#define LOCATION_MiningSiteJunktown                      (365) // A well guarded quarry, run by the Junktown town folks.
+#define LOCATION_MountainPassage                         (366) // A small pathway through the mountains.
+#define LOCATION_SlaverCamp                              (367) // A hidden slaver breakpoint.
+#define LOCATION_FortSeth                                (368) // A military outpost of the NCR, composed of a few barracks and protective walls.
+#define LOCATION_CubikCamp                               (369) // Special location for testing extraordinary new technology and incredible genetically engineered creatures.
+#define LOCATION_BarterGround                            (370) // A small camp of traders.
+#define LOCATION_TalChem                                 (371) // An abandoned compound.
+#define LOCATION_BountyHuntersHQ                         (372) // A hidden base of Bounty Hunters.
+#define LOCATION_Q_SadFarmer                             (373) // Location is attacked by dangerous creatures.
+#define LOCATION_Q_FarmRaiders1                          (374) // Hideout of Raiders.
+#define LOCATION_Q_FarmRaiders2                          (375) // Hideout of Raiders.
+#define LOCATION_Q_FarmRaiders3                          (376) // Hideout of Raiders.
+#define LOCATION_Q_FarmRaiders4                          (377) // Hideout of Raiders.
+#define LOCATION_Q_FarmRaiders5                          (378) // Hideout of Raiders.
+#define LOCATION_InjuredBrahmin                          (382) // You see injured brahmin.
+#define LOCATION_InjuredCaravan                          (383) // You see injured caravan.
+#define LOCATION_SporePlants                             (384) // Several Spore Plants.
+#define LOCATION_BrokenWell                              (385) // Broken well.
+#define LOCATION_Woodsman                                (386) // Some trees and woodsman.
+#define LOCATION_Hell                                    (387) //
+#define LOCATION_VaultCity                               (497) // A high-tech settlement. Established by the inhabitants of Vault 8.
+#define LOCATION_Modoc                                   (498) // A small farming community.
+#define LOCATION_TheDen                                  (499) // A town of junkies and slavers.
+#define LOCATION_Klamath                                 (500) // A small town of trappers. Geckos are the lifeblood of this small community.
+#define LOCATION_NpcScheduleTests                        (999) // 
 
 //************************************************************************/
 //*  94 Maps                                                            */
@@ -176,13 +293,13 @@
 #define MAP_CityEncounter11                              (217) // e_city11, map_encounter@map_init, City Encounter 11(171)
 #define MAP_CityEncounter12                              (218) // e_city12, map_encounter@map_init, City Encounter 12(172)
 #define MAP_CaveEncounterOut6_2                          (219) // e_cave6out2, map_encounter@map_init, Cavern Encounter 5(145)
-#define MAP_Hub_Downtown                                 (221) // hub, map_hub@map_init, Hub(25)
-#define MAP_Hub_Oldtown                                  (222) // hub_oldtown, map_hub@map_init, Hub(25)
-#define MAP_Hub_Heights                                  (223) // hub_heights, map_hub@map_init, Hub(25)
-#define MAP_Hub_Watermerchants                           (224) // hub_water, map_hub@map_init, Hub(25)
-#define MAP_Hub_Underground                              (225) // hub_downtown_decker, map_hub@map_init, Hub(25)
-#define MAP_Hub_Undergroundthief                         (226) // hub_oldtown_thief, map_hub@map_init, Hub(25)
-#define MAP_Hub_Arena                                    (227) // hub_arena, map_hub@map_init, Hub(25)
+#define MAP_HubDowntown                                 (221) // hub, map_hub@map_init, Hub(25)
+#define MAP_HubOldtown                                  (222) // hub_oldtown, map_hub@map_init, Hub(25)
+#define MAP_HubHeights                                  (223) // hub_heights, map_hub@map_init, Hub(25)
+#define MAP_HubWatermerchants                           (224) // hub_water, map_hub@map_init, Hub(25)
+#define MAP_HubUnderground                              (225) // hub_downtown_decker, map_hub@map_init, Hub(25)
+#define MAP_HubUndergroundthief                         (226) // hub_oldtown_thief, map_hub@map_init, Hub(25)
+#define MAP_HubArena                                    (227) // hub_arena, map_hub@map_init, Hub(25)
 #define MAP_BufferMap                                    (228) // npcmap, map_npcmap@map_init, NPC Map(206)
 #define MAP_Tentinthedesert                              (287) // tent_desert, Tent Desert 1(211)
 #define MAP_Tentinthemountains                           (288) // tent_mountain, Tent Mountain 1(212)
