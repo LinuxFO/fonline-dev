@@ -268,7 +268,6 @@
 #define LVAR_q_iguana_son_message                  (7072)
 #define LVAR_q_iguana_mutant_message               (7073)
 #define LVAR_q_merchant                            (16236)
-
 #define LVAR_z_dailyq1                             (16383)
 #define LVAR_z_dailyq1_locid                       (16384)
 #define LVAR_z_dailyq1timeout                      (16388)
@@ -295,6 +294,22 @@
 #define LVAR_z_dailyq8_locid                       (16392)
 #define LVAR_q_mutar_locid                         (11995)
 #define LVAR_q_mutar                               (11994)
+#define LVAR_q_cop_locid                           (11997)
+#define LVAR_q_cop                                 (11996)
+#define LVAR_noire1                                (16148)
+#define LVAR_noire1_locid                          (16149)
+#define LVAR_noire2_locid                          (16150)
+#define LVAR_noire3_locid                          (16151)         
+#define LVAR_noire4_locid                          (16158)
+#define LVAR_noire5                                (16159)
+#define LVAR_noire6_locid                          (16160)
+#define LVAR_noire6                                (16161)
+#define LVAR_noire7_locid                          (16162)
+#define LVAR_noire8_locid                          (16163)
+#define LVAR_noire9_locid                          (16168)
+#define LVAR_z_warrior2                            (16378)
+#define LVAR_q_pending                             (16240)
+#define LVAR_q_pending_locid                       (16241)
 
 /*
 Id Type Name  Start Min Max Flags
@@ -2026,6 +2041,76 @@ This variable is for "rats of hub" quest.
 $ 11995 1 q_mutar_locid 0 0 3 4
 **********
 Location id of hub mutar
+**********
+
+$ 11996 1 q_cop 0 0 5 5
+**********
+This variable is for "criminals of hub" quest.
+**********
+
+$ 11997 1 q_cop_locid 0 0 3 4
+**********
+Location id of hub criminals
+**********
+
+$ 16148 1 noire1 0 0 25 1
+**********
+police quest 3
+**********
+
+$ 16149 1 noire1_locid 0 0 15 4
+**********
+Location id of barricaded loc
+**********
+
+$ 16150 1 noire2_locid 0 0 13 4
+**********
+Location id of barricaded loc
+**********
+
+$ 16151 1 noire3_locid 0 0 13 4
+**********
+Location id of barricaded loc
+**********
+
+$ 16158 1 noire4_locid 0 0 13 4
+**********
+Location id of skin job loc
+**********
+
+$ 16159 1 noire5 0 0 25 1
+**********
+skin job for hub
+**********
+
+$ 16160 1 noire6_locid 0 0 13 4
+**********
+Location id of skin job loc 2
+**********
+
+$ 16161 1 noire6 0 0 25 1
+**********
+skin job for hub 2
+**********
+
+$ 16162 1 noire7_locid 0 0 13 4
+**********
+Location id of skin job loc 3 hq
+**********
+
+$ 16163 1 noire8_locid 0 0 13 4
+**********
+Location id of skin job loc 4 
+**********
+
+$ 16168 1 noire9_locid 0 0 13 4
+**********
+Location id of skin job loc 5 
+**********
+
+$ 16378 1 z_warrior2 0 0 100 4
+**********
+var for lonestar agency bounty score
 **********
 
 *************************************************/
