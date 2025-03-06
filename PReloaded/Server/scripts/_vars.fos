@@ -256,11 +256,8 @@
 #define LVAR_hub_waterjobden                (16001)
 #define LVAR_hub_waterjobhills              (16002)
 #define LVAR_hub_waterjobsan                (16003)
-#define LVAR_q_hubo_locid                   (16015)
-#define LVAR_q_hubo                         (16014)
 #define LVAR_hub_scouting                   (16071)
 #define LVAR_hub_lockpickq                  (16072)
-#define LVAR_hub_inde                       (16169)
 #define LVAR_hub_decision1                  (16184)
 #define LVAR_camp_evil                      (16294)
 #define LVAR_q_iguana_pete_message          (7070)
@@ -319,7 +316,7 @@
 #define LVAR_q_bos_initiatequest_start      (7074)
 #define GVAR_LAW                            (16217)
 #define GVAR_CRIM                           (16218)
-#define	LVAR_q_bring44                      (11907)
+#define LVAR_q_bring44                      (11907)
 #define GVAR_KIDS                           (16225)
 #define LVAR_q_evil_locid                   (11999)
 #define LVAR_q_evil                         (11998)
@@ -338,10 +335,68 @@
 #define LVAR_q_adventurecina5_locid         (16146)
 #define LVAR_q_adventurecina_toxic_locid    (16164)
 #define LVAR_q_adventurecina_bandit_locid   (16166)
+#define LVAR_ncr_investigation2             (16049)
+#define LVAR_q_loan                         (16055)
+#define LVAR_q_loan_locid                   (16056)
+#define LVAR_q_geckoman                     (16144)
+#define LVAR_q_church1                      (16152)
+#define LVAR_q_church2                      (16153)
+#define LVAR_q_inj1                         (16154)
+#define LVAR_q_inj2                         (16155)
+#define LVAR_q_inj3                         (16156)
+#define LVAR_q_inj4                         (16157)
+#define LVAR_waterjobfix                    (16242)
+#define LVAR_dungeon_toxic                  (16165)
+#define LVAR_hub_inde                       (16169)
+#define LVAR_inde1_locid                    (16170)
+#define LVAR_inde2_locid                    (16171)
+#define LVAR_inde3_locid                    (16172)
+#define LVAR_drug_dealing                   (16173)
+#define LVAR_drug1_locid                    (16174)
+#define LVAR_drug2_locid                    (16175)
+#define LVAR_drug3_locid                    (16176)
+#define LVAR_z_survival                     (61009)
+#define LVAR_z_survival_locid               (61010)
+#define LVAR_z_survivalclowns               (61011)
+#define LVAR_z_survivalclowns_locid         (61012)
+#define LVAR_z_survivalgeckos               (61014)
+#define LVAR_z_survivalgeckos_locid         (61015)
+#define LVAR_z_survivalrats                 (61016)
+#define LVAR_z_survivalrats_locid           (61017)
+#define LVAR_z_survivalzombies              (61018)
+#define LVAR_z_survivalzombies_locid        (61019)
+#define LVAR_z_survivalfloat                (61020)
+#define LVAR_z_survivalfloat_locid          (61021)
+#define LVAR_q_hubo_locid                   (16015)
+#define LVAR_q_hubo                         (16014)
+#define LVAR_q_dhar_locid                   (16013)
+#define LVAR_q_dhar                         (16012)
+#define LVAR_q_cris_locid                   (16011)
+#define LVAR_q_cris                         (16010)
+#define LVAR_q_morm_locid                   (16017)
+#define LVAR_q_morm                         (16016)
+#define LVAR_q_renu_locid                   (16019)
+#define LVAR_q_renu                         (16018)
+#define LVAR_q_rev_locid                    (16021)
+#define LVAR_q_rev                          (16020)
+#define LVAR_q_fota_locid                   (16007)
+#define LVAR_q_fota                         (16006)
+#define LVAR_q_cotc_locid                   (16009)
+#define LVAR_q_cotc                         (16008)
+
+#define GVAR_FOTA                           (16004)
+#define GVAR_COTC                           (16005)
+#define GVAR_CRIS                           (16022)
+#define GVAR_DHAR                           (16023)
+#define GVAR_HUBO                           (16024)
+#define GVAR_MORM                           (16025)
+#define GVAR_RENU                           (16026)
+#define GVAR_REV                            (16027)
+#define LLVAR_q_faithpoints                 (16216)
 
 /*
 Id Type Name  Start Min Max Flags
-***********************************
+*************
 
 $ 1 0 car_id 0 0 0 4
 **********
@@ -1833,16 +1888,6 @@ Ford quest
 3 = completed
 **********
 
-$ 16014 1 q_hubo 0 0 5 5
-**********
-This variable is for cotc war quest.
-**********
-
-$ 16015 1 q_hubo_locid 0 0 3 4
-**********
-Location id of cotc war
-**********
-
 $ 16071 1 hub_scouting 0 0 5 5
 **********
 This variable is fargo
@@ -1852,11 +1897,6 @@ $ 16072 1 hub_lockpickq 0 0 5 5
 **********
 This variable is thieves
 **********
-
-$ 16169 1 hub_inde 0 0 25 1
-**************
-inde caravan job
-**************
 
 $ 16184 1 hub_decision1 0 0 13 4
 **********
@@ -2197,91 +2237,381 @@ $ 16225 0 KIDS 0 0 0 4
 now it's dark  
 **********
 
-$ 11998	1 q_evil 0 0 5 5
+$ 11998 1 q_evil 0 0 5 5
 **********
 This variable is for "evils of hub" quest.
 **********
 
-$ 11999	1 q_evil_locid 0 0 3 4
+$ 11999 1 q_evil_locid 0 0 3 4
 **********
 Location id of hub evil
 **********
 
-$ 16129	1 q_adventure 0 0 25 5
+$ 16129 1 q_adventure 0 0 25 5
 **********
 This variable is for story time
 **********
 
-$ 16130	1 q_adventure_locid 0 0 13 4
+$ 16130 1 q_adventure_locid 0 0 13 4
 **********
 Location id of intro loc
 **********
 
-$ 16131	1 q_adventure2_locid 0 0 13 4
+$ 16131 1 q_adventure2_locid 0 0 13 4
 **********
 Location id of intro2 loc
 **********
 
-$ 16132	1 q_adventure3_locid 0 0 13 4
+$ 16132 1 q_adventure3_locid 0 0 13 4
 **********
 Location id of intro3 loc
 **********
 
-$ 16133	1 q_adventure4_locid 0 0 13 4
+$ 16133 1 q_adventure4_locid 0 0 13 4
 **********
 Location id of intro4 loc
 **********
 
-$ 16134	1 q_adventure5_locid 0 0 13 4
+$ 16134 1 q_adventure5_locid 0 0 13 4
 **********
 Location id of intro4 loc
 **********
 
-$ 16135	1 q_adventure6_locid 0 0 13 4
+$ 16135 1 q_adventure6_locid 0 0 13 4
 **********
 Location id of intro4 loc
 **********
 
-$ 16136	1 q_adventure7_locid 0 0 13 4
+$ 16136 1 q_adventure7_locid 0 0 13 4
 **********
 Location id of intro4 loc
 **********
 
-$ 16137	1 q_adventurecina_locid 0 0 13 4
+$ 16137 1 q_adventurecina_locid 0 0 13 4
 **********
 Location id of intro4 loc
 **********
 
-$ 16138	1 q_adventurecina2_locid 0 0 13 4
+$ 16138 1 q_adventurecina2_locid 0 0 13 4
 **********
 Location id of intro4 loc
 **********
 
-$ 16140	1 q_adventurecina3_locid 0 0 13 4
+$ 16140 1 q_adventurecina3_locid 0 0 13 4
 **********
 Location id of intro4 loc
 **********
 
-$ 16142	1 q_adventurecina4_locid 0 0 13 4
+$ 16142 1 q_adventurecina4_locid 0 0 13 4
 **********
 Location id of intro4 loc
 **********
 
-$ 16146	1 q_adventurecina5_locid 0 0 13 4
+$ 16146 1 q_adventurecina5_locid 0 0 13 4
 **********
 Location id of intro4 loc
 **********
 
-$ 16164	1 q_adventurecina_toxic_locid 0 0 13 4
+$ 16164 1 q_adventurecina_toxic_locid 0 0 13 4
 **********
 Location id of toxic camp dung
 **********
 
-$ 16166	1 q_adventurecina_bandit_locid 0 0 13 4
+$ 16166 1 q_adventurecina_bandit_locid 0 0 13 4
 **********
 Location id of bandit camp dung
 **********
 
-***********************************/
+$ 16049 1 ncr_investigation2 0 0 10 1
+**********
+ncr pint quest 
+**********
+
+$ 16055 1 q_loan 0 0 5 5
+**********
+This variable is for hub loan 
+**********
+
+$ 16056 1 q_loan_locid 0 0 3 4
+**********
+Location id of deadbeat
+**********
+
+$ 16144 1 q_geckoman 0 0 25 5
+**********
+This variable is for pelts
+**********
+
+$ 16152 1 q_church1 0 0 25 1
+**********
+hub church
+**********
+
+$ 16153 1 q_church2 0 0 25 1
+**********
+hub doc
+**********
+
+$ 16154 1 inj1 0 0 25 1
+**********
+hub doc
+**********
+
+$ 16155 1 inj2 0 0 25 1
+**********
+hub doc
+**********
+
+$ 16156 1 inj3 0 0 25 1
+**********
+hub doc
+**********
+
+$ 16157 1 inj4 0 0 25 1
+**********
+hub doc
+**********
+
+$ 16242 1 waterjobfix 0 0 13 4
+**********
+fix for wj  
+**********
+
+$ 16165 1 dungeon_toxic 0 0 25 1
+**********
+getting toxic camp
+**********
+
+$ 16169 1 hub_inde 0 0 25 1
+*********************
+inde caravan job
+*********************
+
+$ 16170 1 inde1_locid 0 0 13 4
+**********
+Location id of inde job 1 
+**********
+
+$ 16171 1 inde2_locid 0 0 13 4
+**********
+Location id of inde job 2 
+**********
+
+$ 16172 1 inde3_locid 0 0 13 4
+**********
+Location id of inde job 3 
+**********
+
+$ 16173 1 drug_dealing 0 0 13 4
+**********
+drug dealing escort var 
+**********
+
+$ 16174 1 drug1_locid 0 0 13 4
+**********
+Location id of drug1 job  
+**********
+
+$ 16175 1 drug2_locid 0 0 13 4
+**********
+Location id of drug2 job  
+**********
+
+$ 16176 1 drug3_locid 0 0 13 4
+**********
+Location id of drug3 job  
+**********
+
+$ 61009 1 z_survival 0 0 10 1
+**********
+var for survival mode 1
+**********
+
+$ 61010 1 z_survival_locid 0 0 13 4
+**********
+Location id for survival mode 1 
+**********
+
+$ 61011 1 z_survivalclowns 0 0 10 1
+**********
+var for survival mode 1
+**********
+
+$ 61012 1 z_survivalclowns_locid 0 0 13 4
+**********
+Location id for survival mode 1 
+**********
+
+$ 61014 1 z_survivalgeckos 0 0 10 1
+**********
+var for survival mode 1
+**********
+
+$ 61015 1 z_survivalgeckos_locid 0 0 13 4
+**********
+Location id for survival mode 1 
+**********
+
+$ 61016 1 z_survivalrats 0 0 10 1
+**********
+var for survival mode 1
+**********
+
+$ 61017 1 z_survivalrats_locid 0 0 13 4
+**********
+Location id for survival mode 1 
+**********
+
+$ 61018 1 z_survivalzombies 0 0 10 1
+**********
+var for survival mode 1
+**********
+
+$ 61019 1 z_survivalzombies_locid 0 0 13 4
+**********
+Location id for survival mode 1 
+**********
+
+$ 61020 1 z_survivalfloat 0 0 10 1
+**********
+var for survival mode 1
+**********
+
+$ 61021 1 z_survivalfloat_locid 0 0 13 4
+**********
+Location id for survival mode 1 
+**********
+
+$ 16006 1 q_fota 0 0 5 5
+**********
+This variable is for fota war quest.
+**********
+
+$ 16007 1 q_fota_locid 0 0 3 4
+**********
+Location id of fota war
+**********
+
+$ 16008 1 q_cotc 0 0 5 5
+**********
+This variable is for cotc war quest.
+**********
+
+$ 16009 1 q_cotc_locid 0 0 3 4
+**********
+Location id of cotc war
+**********
+
+$ 16010 1 q_cris 0 0 5 5
+**********
+This variable is for cotc war quest.
+**********
+
+$ 16011 1 q_cris_locid 0 0 3 4
+**********
+Location id of cotc war
+**********
+
+$ 16012 1 q_dhar 0 0 5 5
+**********
+This variable is for cotc war quest.
+**********
+
+$ 16013 1 q_dhar_locid 0 0 3 4
+**********
+Location id of cotc war
+**********
+
+$ 16014 1 q_hubo 0 0 5 5
+**********
+This variable is for cotc war quest.
+**********
+
+$ 16015 1 q_hubo_locid 0 0 3 4
+**********
+Location id of cotc war
+**********
+
+$ 16016 1 q_morm 0 0 5 5
+**********
+This variable is for cotc war quest.
+**********
+
+$ 16017 1 q_morm_locid 0 0 3 4
+**********
+Location id of cotc war
+**********
+
+$ 16018 1 q_renu 0 0 5 5
+**********
+This variable is for cotc war quest.
+**********
+
+$ 16019 1 q_renu_locid 0 0 3 4
+**********
+Location id of cotc war
+**********
+
+$ 16020 1 q_rev 0 0 5 5
+**********
+This variable is for cotc war quest.
+**********
+
+$ 16021 1 q_rev_locid 0 0 3 4
+**********
+Location id of cotc war
+**********
+
+$ 16243 1 z_relig 0 0 13 4
+**********
+fix for relig  
+**********
+
+$ 16004 0 FOTC 0 0 0 4
+**********
+world var for score check
+**********
+
+$ 16005 0 COTC 0 0 0 4
+**********
+world var for score check
+**********
+
+$ 16022 0 CRIS 0 0 0 4
+**********
+world var for score check
+**********
+
+$ 16023 0 DHAR 0 0 0 4
+**********
+world var for score check
+**********
+
+$ 16024 0 HUBO 0 0 0 4
+**********
+world var for score check
+**********
+
+$ 16025 0 MORM 0 0 0 4
+**********
+world var for score check
+**********
+
+$ 16026 0 RENU 0 0 0 4
+**********
+world var for score check
+**********
+
+$ 16027 0 REV 0 0 0 4
+**********
+world var for score check
+**********
+
+$ 16216	1 q_faithpoints 0 0 0 4
+**********
+religious faith points  
+**********
+
+*************/
 
 #endif

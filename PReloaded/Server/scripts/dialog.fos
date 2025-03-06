@@ -2249,6 +2249,82 @@ uint dlg_SayBuyNeedles(Critter& player, Critter@ npc, string@ text)
     return DIALOG_END;
 }
 
+uint dlg_SayBuyJetCan(Critter& player, Critter@ npc, string@ text)
+{
+    if(!IS_DIALOG_SAY_MODE(text))
+        return DIALOG_END;
+
+    uint price = 20;
+    uint cnt = 0;
+    if(!StrToInt(text, cnt))
+        return DIALOG_END;
+
+    if(cnt > 5000)
+    {
+            npc.Say(SAY_NORM_ON_HEAD, "Hold up, you seem to be confusin' Jules with the Super Duper Mart! Let's talk some realistic numbers");
+            return DIALOG_END;
+    }   
+    if(cnt > 0)
+    {
+        if(_CritCountItem(player, PID_BOTTLE_CAPS) >= price*cnt)
+        {
+            _CritDeleteItem(player, PID_BOTTLE_CAPS, (price*cnt));
+            player.AddItem(PID_EMPTY_JET, cnt);
+            npc.Say(SAY_NORM_ON_HEAD, "Put 'em to good use, my friend!");
+        }
+        else
+        {
+            npc.Say(SAY_NORM_ON_HEAD, "Come back with money!");
+            return DIALOG_END;
+        }
+    }
+    return DIALOG_END;
+}
+
+//For water merchant job
+void r_CrateSpawn3(Critter& player, Critter@ npc)
+{
+    player.AddItem(PID_WATER_BARREL, 3);
+}
+
+void r_CrateSpawn(Critter& player, Critter@ npc)
+{
+    player.AddItem(PID_WATER_BARREL, 1);
+}
+
+void r_RemoveCrate(Critter& player, Critter@ npc)
+{
+    _CritDeleteItem(player, PID_WATER_BARREL, 1);
+}
+
+//for war public system between followers and cathedral
+void dlg_WarFC(Critter& player, Critter@ npc, string@ text)    // shows war points for fota vs cotc @lex pointsFOTA@ @lex pointsCOTC@
+{
+    if(!IS_DIALOG_GENERATED(text))
+        return;
+		
+		    Map@ map = player.GetMap();
+ 
+    if( !valid(map) )
+    {
+        player.Say( SAY_NETMSG, "Dialog error, blame random dev." );
+        text = "DIALOG ERROR";
+        return;
+    }
+ 
+    uint locId = map.GetLocation().Id;
+		       
+    text = "$pointsFOTA" + GetGvar( GVAR_FOTA );
+    text += "$pointsCOTC" + GetGvar( GVAR_COTC );
+    text += "$pointsCRIS" + GetGvar( GVAR_CRIS );
+    text += "$pointsDHAR" + GetGvar( GVAR_DHAR );
+    text += "$pointsHUBO" + GetGvar( GVAR_HUBO );
+    text += "$pointsMORM" + GetGvar( GVAR_MORM );
+    text += "$pointsRENU" + GetGvar( GVAR_RENU );
+    text += "$pointsREV"  + GetGvar( GVAR_REV  );
+	text += "$faithpoints" + GetLLvar( locId, LLVAR_q_faithpoints );
+}
+
 //for the dark priest
 void dlg_Kid(Critter& player, Critter@ npc, string@ text)    // shows army stats @lex KidsLeft@
 {
