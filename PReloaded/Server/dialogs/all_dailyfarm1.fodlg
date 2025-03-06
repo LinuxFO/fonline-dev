@@ -1,0 +1,58 @@
+[comment]
+
+
+[data]
+lang=engl
+
+[dialog]
+&
+1 1000 None 0 #
+2 1010 @
+2 2000 None 0 #
+3 2010 D _var p z_dailyq1 = 12 #
+8 2020 D _var p z_dailyq1 = 17 R _var p z_dailyq1 = 18 #
+7 2030 #
+0 2040 @
+3 3000 None 0 #
+4 3010 @
+4 4000 None 0 #
+5 4010 #
+6 4020 #
+7 4030 @
+5 5000 None 0 #
+10 5010 R _var p z_dailyq1 = 13 @
+6 6000 None 0 #
+10 6010 R _var p z_dailyq1 = 14 @
+7 7000 None 0 #
+9 7010 R _script quest_dailyfarm1@r_SpawnLoc 0  R _var p z_dailyq1 = 15 R _param p ST_KARMA - 15 @
+8 8000 None 0 @
+9 9000 Attack 0 @
+10 10000 None 0 &
+
+[engl]
+{100}{}{Community Torchbearer}
+{200}{}{You see the leader of this community.}
+{210}{}{The voice behind the factionless mob. There are many ways to deal with them.}
+{1000}{}{Predialogue installations}
+{1010}{}{Answer text}
+{2000}{}{GET OFF OUR LAND!!!}
+{2010}{}{I'm afraid not. On behalf of the NCR this land is being annexed.}
+{2020}{}{It's done. You are now part of the New California Republic. A representative will arrive shortly.}
+{2030}{}{[Destroy the Farm]}
+{2040}{}{Fine. Goodbye.}
+{3000}{}{What do you mean "is being annexed"?!}
+{3010}{}{I haven't annexed you yet. [Smile]}
+{4000}{}{Wha-- what's going on?!}
+{4010}{}{[Negotiate Surrender]}
+{4020}{}{[Demand Tribute]}
+{4030}{}{[Destroy Farm]}
+{5000}{}{Surrender? To-- to the NCR?! On what terms!}
+{5010}{}{On the terms that you surrender, and capitulate to their rule.}
+{6000}{}{A tribute?! Of what?}
+{6010}{}{I'll decide that on behalf of the NCR.}
+{7000}{}{[You decide to raid the farm, and begin your attack!]}
+{7010}{}{[Prepare your body]}
+{8000}{}{You bastard. You animal. You son of a bitch. You've killed us all.}
+{9000}{}{No! Protect the children!}
+{10000}{}{I can't believe this is happening!}
+

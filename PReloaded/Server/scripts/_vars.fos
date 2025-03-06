@@ -383,7 +383,6 @@
 #define LVAR_q_fota                         (16006)
 #define LVAR_q_cotc_locid                   (16009)
 #define LVAR_q_cotc                         (16008)
-
 #define GVAR_FOTA                           (16004)
 #define GVAR_COTC                           (16005)
 #define GVAR_CRIS                           (16022)
@@ -393,6 +392,36 @@
 #define GVAR_RENU                           (16026)
 #define GVAR_REV                            (16027)
 #define LLVAR_q_faithpoints                 (16216)
+#define LVAR_q_trader                       (16230)
+#define LVAR_boss1_locid		     		 	    (16186)
+#define LVAR_q_boss1			     		 	    (16187)
+#define LVAR_boss2_locid		     		 	    (16188)
+#define LVAR_boss2_locid		     		 	    (16188)
+#define LVAR_q_boss2			     		 	    (16189)
+#define LVAR_boss3_locid		     		 	    (16190)
+#define LVAR_q_boss3			     		 	    (16191)
+#define LVAR_boss4_locid		     		 	    (16192)
+#define LVAR_q_boss4			     		 	    (16193)
+#define LVAR_boss5_locid		     		 	    (16194)
+#define LVAR_q_boss5			     		 	    (16195)
+#define LVAR_boss6_locid		     		 	    (16196)
+#define LVAR_q_boss6			     		 	    (16197)
+#define LVAR_boss7_locid		     		 	    (16198)
+#define LVAR_q_boss7			     		 	    (16199)
+#define LVAR_boss8_locid		     		 	    (16200)
+#define LVAR_q_boss8			     		 	    (16201)
+#define LVAR_boss9_locid		     		 	    (16202)
+#define LVAR_q_boss9			     		 	    (16203)
+#define LVAR_boss10_locid		     		 	    (16204)
+#define LVAR_q_boss10			     		 	    (16205)
+#define LVAR_boss11_locid		     		 	    (16206)
+#define LVAR_q_boss11			     		 	    (16207)
+#define LVAR_boss12_locid		     		 	    (16208)
+#define LVAR_q_boss12			     		 	    (16209)
+#define LVAR_boss13_locid		     		 	    (16210)
+#define LVAR_q_boss13			     		 	    (16211)
+#define LVAR_boss14_locid		     		 	    (16212)
+#define LVAR_q_boss14			     		 	    (16213)
 
 /*
 Id Type Name  Start Min Max Flags
@@ -2610,6 +2639,151 @@ world var for score check
 $ 16216	1 q_faithpoints 0 0 0 4
 **********
 religious faith points  
+**********
+
+$ 16230	1 q_trader 0 0 25 1
+**********
+trade chain  
+**********
+
+$ 16186	1 boss1_locid 0 0 13 4
+**********
+Location id of boss1  
+**********
+
+$ 16187	1 q_boss1 0 0 13 4
+**********
+boss1 for var  
+**********
+
+$ 16188	1 boss2_locid 0 0 13 4
+**********
+Location id of boss2  
+**********
+
+$ 16189	1 q_boss2 0 0 13 4
+**********
+boss2 for var  
+**********
+
+$ 16190	1 boss3_locid 0 0 13 4
+**********
+Location id of boss3  
+**********
+
+$ 16191	1 q_boss3 0 0 13 4
+**********
+boss3 for var  
+**********
+
+$ 16192	1 boss4_locid 0 0 13 4
+**********
+Location id of boss4  
+**********
+
+$ 16193	1 q_boss4 0 0 13 4
+**********
+boss4 for var  
+**********
+
+$ 16194	1 boss5_locid 0 0 13 4
+**********
+Location id of boss5  
+**********
+
+$ 16195	1 q_boss5 0 0 13 4
+**********
+boss5 for var  
+**********
+
+$ 16196	1 boss6_locid 0 0 13 4
+**********
+Location id of boss6  
+**********
+
+$ 16197	1 q_boss6 0 0 13 4
+**********
+boss6 for var  
+**********
+
+$ 16198	1 boss7_locid 0 0 13 4
+**********
+Location id of boss7  
+**********
+
+$ 16199	1 q_boss7 0 0 13 4
+**********
+boss7 for var  
+**********
+
+$ 16200	1 boss8_locid 0 0 13 4
+**********
+Location id of boss8  
+**********
+
+$ 16201	1 q_boss8 0 0 13 4
+**********
+boss8 for var  
+**********
+
+$ 16202	1 boss9_locid 0 0 13 4
+**********
+Location id of boss9  
+**********
+
+$ 16203	1 q_boss9 0 0 13 4
+**********
+boss9 for var  
+**********
+
+$ 16204	1 boss10_locid 0 0 13 4
+**********
+Location id of boss10  
+**********
+
+$ 16205	1 q_boss10 0 0 13 4
+**********
+boss10 for var  
+**********
+
+$ 16206	1 boss11_locid 0 0 13 4
+**********
+Location id of boss11  
+**********
+
+$ 16207	1 q_boss11 0 0 13 4
+**********
+boss11 for var  
+**********
+
+$ 16208	1 boss12_locid 0 0 13 4
+**********
+Location id of boss12  
+**********
+
+$ 16209	1 q_boss12 0 0 13 4
+**********
+boss12 for var  
+**********
+
+$ 16210	1 boss13_locid 0 0 13 4
+**********
+Location id of boss13  
+**********
+
+$ 16211	1 q_boss13 0 0 13 4
+**********
+boss13 for var  
+**********
+
+$ 16212	1 boss14_locid 0 0 13 4
+**********
+Location id of boss14  
+**********
+
+$ 16213	1 q_boss14 0 0 13 4
+**********
+boss14 for var  
 **********
 
 *************/

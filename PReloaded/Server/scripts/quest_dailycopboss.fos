@@ -4,20 +4,21 @@
 #include "npc_planes_h.fos"
 #include "entire.fos"
 #include "_colors.fos"
-
-#define QUEST_ALL_KILLED            (9)  //value of quest lvar in case all dogs are killed
+ 
+ 
+#define QUEST_ALL_KILLED            (22)  //value of quest lvar in case all dogs are killed
 #define QUEST_FAILED                (0)  //value of quest lvar in case of quest failed
  
 #define DIALOG                      (0) //dialog id of npc spawned in location - all_raider
  
-array<uint16> zombPids = { 2003 };   //pids used for vipers (33 - melee thug, 36 - gun thug)
+array<uint16> zombPids = { 2004 };   //pids used for vipers (33 - melee thug, 36 - gun thug)
  
 //function called as request from dialog to spawn quest location
 void r_SpawnLoc(Critter& player, Critter@ npc)
 {
     //roll X,Y value of WM zone index, in this case from 3x2 zones area under Hub
-    uint zoneX = Random(29, 29);    
-    uint zoneY = Random(38, 38);    
+    uint zoneX = Random(34, 34);    
+    uint zoneY = Random(24, 24);    
  
     //get X,Y value of quest location position on WM in zone we picked above
     uint   wx = zoneX * __GlobalMapZoneLength;          //get zone X,Y start value
@@ -33,7 +34,7 @@ void r_SpawnLoc(Critter& player, Critter@ npc)
 //    uint num = zone.GetLocationPids(locationIds);
  
     //version with defined set of maps, comment this one and uncomment lines about to use zone maps
-    array<uint16> locationIds = { 147 };
+    array<uint16> locationIds = { 247 };
     uint num = locationIds.length;
  
     //pick random encounter map
@@ -47,7 +48,7 @@ void r_SpawnLoc(Critter& player, Critter@ npc)
     player.SetKnownLoc(true, loc);
    
     //set location id to quest lvar (used when you need to delete location)
-    GameVar@  locidv = GetLocalVar(LVAR_z_dailyq4_locid, player.Id);
+    GameVar@  locidv = GetLocalVar(LVAR_z_dailyq7_locid, player.Id);
     locidv = loc;
    
     //change location color on WM
@@ -82,7 +83,7 @@ void r_SpawnLoc(Critter& player, Critter@ npc)
     {
         //get map spawn points
         array<Entire> entires;
-        ParseEntires(map, entires, 0);
+        ParseEntires(map, entires, 666);
        
         //pick random entire
         Entire@       ent = random_from_array(entires);
@@ -101,14 +102,14 @@ void r_SpawnLoc(Critter& player, Critter@ npc)
             int[] params =
             {
                 //ST_TEAM_ID, teamid,
-			ST_BAG_ID, 578,
+               ST_BAG_ID, 578,
                 //ST_KILL_EXPERIENCE, 0,
                 //ST_REPLICATION_TIME, REPLICATION_DELETE,
                 //ST_LEVEL, level,
                 ST_DIALOG_ID, DIALOG
             };
  
-            Critter@ zomb = map.AddNpc(npcPid , hx, hy, Random(0, 5), params, null, "quest_boss1sim@critter_init");
+            Critter@ zomb = map.AddNpc(npcPid , hx, hy, Random(0, 5), params, null, "quest_dailycopboss@critter_init");
             if(valid(zomb))
             {
                 spawned = true;
@@ -120,15 +121,15 @@ void r_SpawnLoc(Critter& player, Critter@ npc)
     //here it's 12*60 minutes so 12h
     //if location is deleted this way quest lvar will be set QUEST_FAILED value
     SetQuestGarbager(1 * 60, player.Id, loc, LVAR_z_dailyq1, QUEST_FAILED);
-    DynamicLocationAddLog(player, npc, locidv, "quest_boss1sim");
+    DynamicLocationAddLog(player, npc, locidv, "quest_dailycopboss");
 }
  
 //dialog function used in request to delete quest location (after player report finishing the quest)
 void r_DeleteLoc(Critter& player, Critter@ npc)
 {
-    GameVar@ var = GetLocalVar(LVAR_z_dailyq4_locid, player.Id);
+    GameVar@ var = GetLocalVar(LVAR_z_dailyq7_locid, player.Id);
     DeleteLocation(var.GetValue());
-    DynamicLocationDelLog(player, npc, var, "quest_boss1sim");
+    DynamicLocationDelLog(player, npc, var, "quest_dailycopboss");
 }
  
 //set functions for basic critter events

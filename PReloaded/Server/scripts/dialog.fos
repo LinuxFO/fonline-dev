@@ -2621,4 +2621,127 @@ void r_AddLootSetLevel2 (Critter& player, Critter@ npc)    // use this to spawn 
     }
 }
 
+//MagicItemSpawner - Tier 3 - Hard 
+void r_AddLootSetLevel3 (Critter& player, Critter@ npc)    // use this to spawn high level statted random chance items, gives 1 gun, helmet, armor, and ammo set, potentially with stats
+{
+    //[][]   loot level (0 to 2) + item category (0 = armor 1 = guns 2= misc 3= misc)
+    array<array<array<uint>>> raidersItems = 
+    {
+        {   // easy
+            {   //armors
+                PID_LEATHER_JACKET, PID_LEATHER_JACKET_HELMET, PID_CURED_LEATHER_ARMOR, PID_COMBAT_LEATHER_JACKET_HELMET,
+                PID_LEATHER_ARMOR, PID_LEATHER_ARMOR_HELMET, PID_LEATHER_ARMOR_MK_II, PID_LEATHER_ARMOR_HELMET_MK2, PID_METAL_ARMOR, PID_METAL_HELMET
+            },
+            {   //guns
+                PID_ZIP_GUN, PID_9MM_MAUSER, PID_10MM_PISTOL, PID_DESERT_EAGLE, PID_44_MAGNUM_REVOLVER, PID_LASER_PISTOL,
+                PID_HUNTING_RIFLE, PID_SCOPED_HUNTING_RIFLE, PID_RED_RYDER_BB_GUN, PID_SHOTGUN, PID_10MM_SMG,
+                PID_MOLOTOV_COCKTAIL, PID_THROWING_KNIFE, PID_COMBAT_KNIFE, PID_SWITCHBLADE, PID_SHARP_SPEAR, PID_SLEDGEHAMMER, PID_SPIKED_KNUCKLES
+            },
+            {   //other
+                PID_NUKA_COLA, PID_BEER, PID_GAMMA_GULP_BEER, PID_ROENTGEN_RUM, PID_ROT_GUT, PID_MUTATED_FRUIT, PID_CIGARETTES
+            }
+        },
+        {   //medium
+            {   //armors
+                PID_LEATHER_ARMOR, PID_LEATHER_ARMOR_HELMET, PID_LEATHER_ARMOR_MK_II, PID_LEATHER_ARMOR_HELMET_MK2, PID_METAL_HELMET,
+                PID_METAL_ARMOR, PID_METAL_HELMET, PID_METAL_ARMOR_MK_II, PID_METAL_HELMET_MK2, PID_TESLA_ARMOR, PID_TESLA_HELMET, PID_COMBAT_ARMOR, PID_COMBAT_HELMET
+            },
+            {   //guns
+                PID_14MM_PISTOL, PID_223_PISTOL, PID_GRENADE_PISTOL, PID_TOMMY_GUN, PID_GREASE_GUN, PID_MAGNETO_LASER_PISTOL, PID_PLASMA_PISTOL, 
+                PID_ASSAULT_RIFLE, PID_FN_FAL, PID_HK_P90C, PID_COMBAT_SHOTGUN, PID_HK_CAWS, PID_FLAMER, PID_MINIGUN, PID_M60,
+                PID_FRAG_GRENADE, PID_CATTLE_PROD, PID_POWER_FIST, PID_WAKIZASHI_BLADE, PID_RIPPER
+            },
+            {   //other
+                PID_MENTATS, PID_RADAWAY, PID_RAD_X
+            }
+        },
+        {   //hard
+            {   //armors
+                PID_METAL_ARMOR_MK_II, PID_METAL_HELMET_MK2, PID_TESLA_ARMOR, PID_TESLA_HELMET, PID_COMBAT_ARMOR, PID_COMBAT_HELMET,
+                PID_COMBAT_ARMOR_MK_II, PID_COMBAT_HELMET_MK_II, PID_DESERT_COMBAT_ARMOR, PID_DESERT_COMBAT_HELMET
+            },
+            {   //guns
+                PID_SNIPER_RIFLE, PID_ASSAULT_RIFLE_EXT_MAG, PID_GRENADE_LAUNCHER, PID_HK_CAWS, PID_HK_G11, PID_FN_FAL,
+                PID_IMPROVED_FLAMETHROWER, PID_ROCKET_LAUNCHER, PID_MINIGUN, PID_LIGHT_SUPPORT_WEAPON, 
+                PID_LASER_RIFLE, PID_PLASMA_RIFLE,
+                PID_AVENGER_MINIGUN, PID_SUPER_SLEDGE, PID_SUPER_CATTLE_PROD, PID_MEGA_POWER_FIST
+            },
+            {   //other
+                PID_JET, PID_BUFFOUT, PID_PSYCHO, PID_HYPO
+            }
+        }
+    };
+
+    //gun + ammo
+    uint gunPid = random_from_array(raidersItems[2][1]);
+    uint gunCnt = 1;
+
+    if(gunPid == PID_MOLOTOV_COCKTAIL || gunPid == PID_PLASMA_GRENADE || gunPid == PID_FRAG_GRENADE || gunPid == PID_SHARP_SPEAR || gunPid == PID_THROWING_KNIFE)
+        gunCnt = Random(3, 10);
+
+    Item@ gun = player.AddItem(gunPid, gunCnt);
+
+    player.SetFavoriteItem(SLOT_HAND1, gunPid);
+    if(valid(gun))
+    {
+        if(gun.IsDeteriorable())
+        {
+            uint wear = Random(0, 0);
+            SetMinWear(gun, wear);
+            SetWear(gun, wear);
+        }
+
+        //player.MoveItem(gun.Id, gun.GetCount(), SLOT_HAND1);
+        if(gun.Proto.Weapon_DefaultAmmoPid > 0)
+        {
+            if(gun.Proto.Weapon_DefaultAmmoPid == PID_ROCKET_AP || gun.Proto.Weapon_DefaultAmmoPid == PID_EXPLOSIVE_ROCKET)
+                player.AddItem(gun.Proto.Weapon_DefaultAmmoPid, Random(10, 15)); 
+            else if(gun.Proto.Weapon_DefaultAmmoPid == PID_40MM_GRENADE)
+                player.AddItem(gun.Proto.Weapon_DefaultAmmoPid, Random(15, 25));    
+            else
+            {
+                uint rounds = MAX(gun.Proto.Weapon_Round_0, gun.Proto.Weapon_Round_1);
+                player.AddItem(gun.Proto.Weapon_DefaultAmmoPid, rounds * Random(25, 35));
+            }
+        }
+
+        if(Random(1, 1) == 1)
+            AddSpecialBonusRaidersFarm(gun);
+
+        //armor
+        uint armorPos = Random(0, raidersItems[2][0].length()-1);
+        if(armorPos%2 != 0)
+            --armorPos;
+        uint armorPid = raidersItems[2][0][armorPos];
+        Item@ armor = player.AddItem(armorPid, 1);
+        player.SetFavoriteItem(SLOT_ARMOR, armorPid);
+        if(valid(armor))
+        {
+            uint wear = Random(0, 0);
+            SetMinWear(armor, wear);
+            SetWear(armor, wear);
+            //int crover = ( (player.Stat[ST_GENDER] == GENDER_MALE) ? armor.Proto.Armor_CrTypeMale : armor.Proto.Armor_CrTypeFemale );
+            //player.StatBase[ST_BASE_CRTYPE] = crover;
+            //player.MoveItem(armor.Id, 1, SLOT_ARMOR);
+            if(Random(1, 1) == 1)
+                AddSpecialBonusRaidersFarm(armor);
+        }
+
+        uint helmetPid = raidersItems[2][0][armorPos+1];
+        if(helmetPid > 0)
+        {
+            Item@ helmet = player.AddItem(helmetPid, 1);
+            if(valid(helmet))
+            {
+                uint wear = Random(0, 0);
+                SetMinWear(helmet, wear);
+                SetWear(helmet, wear);
+                //player.MoveItem(helmet.Id, 1, SLOT_HEAD);
+                if(Random(1, 1) == 1)
+                    AddSpecialBonusRaidersFarm(helmet);
+            }
+        }			
+    }
+}
+
 #endif // __DIALOG__ //
