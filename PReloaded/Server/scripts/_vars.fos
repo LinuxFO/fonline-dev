@@ -323,6 +323,21 @@
 #define GVAR_KIDS                           (16225)
 #define LVAR_q_evil_locid                   (11999)
 #define LVAR_q_evil                         (11998)
+#define LVAR_q_adventure                    (16129)
+#define LVAR_q_adventure_locid              (16130)
+#define LVAR_q_adventure2_locid             (16131)
+#define LVAR_q_adventure3_locid             (16132)
+#define LVAR_q_adventure4_locid             (16133)
+#define LVAR_q_adventure5_locid             (16134)
+#define LVAR_q_adventure6_locid             (16135)
+#define LVAR_q_adventure7_locid             (16136)
+#define LVAR_q_adventurecina_locid          (16137)
+#define LVAR_q_adventurecina2_locid         (16138)
+#define LVAR_q_adventurecina3_locid         (16140)
+#define LVAR_q_adventurecina4_locid         (16142)
+#define LVAR_q_adventurecina5_locid         (16146)
+#define LVAR_q_adventurecina_toxic_locid    (16164)
+#define LVAR_q_adventurecina_bandit_locid   (16166)
 
 /*
 Id Type Name  Start Min Max Flags
@@ -2190,6 +2205,81 @@ This variable is for "evils of hub" quest.
 $ 11999	1 q_evil_locid 0 0 3 4
 **********
 Location id of hub evil
+**********
+
+$ 16129	1 q_adventure 0 0 25 5
+**********
+This variable is for story time
+**********
+
+$ 16130	1 q_adventure_locid 0 0 13 4
+**********
+Location id of intro loc
+**********
+
+$ 16131	1 q_adventure2_locid 0 0 13 4
+**********
+Location id of intro2 loc
+**********
+
+$ 16132	1 q_adventure3_locid 0 0 13 4
+**********
+Location id of intro3 loc
+**********
+
+$ 16133	1 q_adventure4_locid 0 0 13 4
+**********
+Location id of intro4 loc
+**********
+
+$ 16134	1 q_adventure5_locid 0 0 13 4
+**********
+Location id of intro4 loc
+**********
+
+$ 16135	1 q_adventure6_locid 0 0 13 4
+**********
+Location id of intro4 loc
+**********
+
+$ 16136	1 q_adventure7_locid 0 0 13 4
+**********
+Location id of intro4 loc
+**********
+
+$ 16137	1 q_adventurecina_locid 0 0 13 4
+**********
+Location id of intro4 loc
+**********
+
+$ 16138	1 q_adventurecina2_locid 0 0 13 4
+**********
+Location id of intro4 loc
+**********
+
+$ 16140	1 q_adventurecina3_locid 0 0 13 4
+**********
+Location id of intro4 loc
+**********
+
+$ 16142	1 q_adventurecina4_locid 0 0 13 4
+**********
+Location id of intro4 loc
+**********
+
+$ 16146	1 q_adventurecina5_locid 0 0 13 4
+**********
+Location id of intro4 loc
+**********
+
+$ 16164	1 q_adventurecina_toxic_locid 0 0 13 4
+**********
+Location id of toxic camp dung
+**********
+
+$ 16166	1 q_adventurecina_bandit_locid 0 0 13 4
+**********
+Location id of bandit camp dung
 **********
 
 ***********************************/
