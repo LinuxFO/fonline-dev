@@ -319,10 +319,14 @@
 #define LVAR_q_bos_initiatequest_start      (7074)
 #define GVAR_LAW                            (16217)
 #define GVAR_CRIM                           (16218)
+#define	LVAR_q_bring44                      (11907)
+#define GVAR_KIDS                           (16225)
+#define LVAR_q_evil_locid                   (11999)
+#define LVAR_q_evil                         (11998)
 
 /*
 Id Type Name  Start Min Max Flags
-*************************************************
+***********************************
 
 $ 1 0 car_id 0 0 0 4
 **********
@@ -2164,6 +2168,30 @@ $ 16218 0 CRIM 0 0 0 4
 crime 
 **********
 
-*************************************************/
+$ 11907 1 q_bring44 0 0 3 1
+**********
+Ford quest 
+0 = not taken
+1 = taken
+2= talked
+3= completed
+**********
+
+$ 16225 0 KIDS 0 0 0 4
+**********
+now it's dark  
+**********
+
+$ 11998	1 q_evil 0 0 5 5
+**********
+This variable is for "evils of hub" quest.
+**********
+
+$ 11999	1 q_evil_locid 0 0 3 4
+**********
+Location id of hub evil
+**********
+
+***********************************/
 
 #endif

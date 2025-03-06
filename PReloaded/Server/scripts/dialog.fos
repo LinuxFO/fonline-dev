@@ -2249,6 +2249,16 @@ uint dlg_SayBuyNeedles(Critter& player, Critter@ npc, string@ text)
     return DIALOG_END;
 }
 
+//for the dark priest
+void dlg_Kid(Critter& player, Critter@ npc, string@ text)    // shows army stats @lex KidsLeft@
+{
+    if(!IS_DIALOG_GENERATED(text))
+        return;
+        
+    text  = "$KidsLeft" + GetGvar( GVAR_KIDS );
+	
+}
+
 bool d_IsAreaScouted(Critter& player, Critter@ npc, int zoneSX, int zoneSY, int zoneEX, int zoneEY)
 {
     bool scouted = true;
