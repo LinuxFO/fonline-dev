@@ -5,6 +5,7 @@ CrashDump*.txt
 ManualDump*.txt
 
 /Client/*.log
+/Client/logs/*
 /Client/data/cache/
 /Client/fallout.dat
 /Client/Mapper/*.log
