@@ -1,0 +1,112 @@
+[comment]
+
+
+[data]
+lang=engl
+
+[dialog]
+&
+1 1000 None 0 #
+3 1010 D _var p name_mem_npc_player = 1 #
+2 1020 D _var p name_mem_npc_player = 0 @
+2 2000 None 0 #
+5 2010 #
+4 2020 @
+3 3000 None 0 #
+16 3010 #
+15 3020 #
+14 3030 #
+11 3040 #
+4 3050 @
+4 4000 None 0 @
+5 5000 None 0 #
+6 5010 @
+6 6000 None 0 #
+7 6010 @
+7 7000 None 0 #
+8 7010 @
+8 8000 None 0 #
+9 8010 @
+9 9000 None 0 #
+10 9010 @
+10 10000 None 0 #
+4 10010 R _var p name_mem_npc_player = 1 @
+11 11000 None 0 #
+12 11010 D _param p ST_INTELLECT > 5 D _item p PID_BOOK > 0 D or D _param p SK_BARTER > 99 D _item p PID_BOOK > 0 #
+3 11020 @
+12 12000 None 0 #
+13 12010 #
+4 12020 @
+13 13000 None 0 #
+13 13010 D _item p PID_BOOK > 0 R _item p PID_BOOK - 1 R _script dialog@r_AddMoney 1 50 #
+13 13020 D _item p PID_BOOK > 4 R _item p PID_BOOK - 5 R _script dialog@r_AddMoney 1 250 #
+13 13030 D _item p PID_BOOK > 9 R _item p PID_BOOK - 10 R _script dialog@r_AddMoney 1 500 #
+13 13040 D _item p PID_BOOK > 14 R _item p PID_BOOK - 15 R _script dialog@r_AddMoney 1 750 #
+13 13050 D _item p PID_BOOK > 19 R _item p PID_BOOK - 20 R _script dialog@r_AddMoney 1 1000 #
+13 13060 D _item p PID_BOOK > 49 R _item p PID_BOOK - 50 R _script dialog@r_AddMoney 1 2500 #
+13 13070 D _item p PID_BOOK > 99 R _item p PID_BOOK - 100 R _script dialog@r_AddMoney 1 5000 #
+3 13080 @
+14 14000 None 0 #
+4 14010 @
+15 15000 None 0 #
+3 15010 @
+16 16000 None 0 #
+17 16010 D _item p PID_BOTTLE_CAPS > 3999 R _item p PID_BOTTLE_CAPS - 4000 R _item p PID_BOOK + 50 #
+3 16020 #
+4 16030 @
+17 17000 None 0 &
+
+[engl]
+{100}{}{Master Historian}
+{200}{}{You see a Master Historian.}
+{210}{}{Their head is planted deep inside a very large pile of ancient literature. It looks so boring that you're falling asleep just watching them.}
+{1000}{}{Predialogue installations}
+{1010}{}{Answer text}
+{1020}{}{Answer text}
+{2000}{}{Ah, a new face. Welcome to my library. Are you a seeker of truth and knowledge as well?}
+{2010}{}{Why, yes! Yes, I am! Do you have the secrets of the universe?}
+{2020}{}{No, not today. Thanks.}
+{3000}{}{Hello again, @pname@. Still seeking whatever it is you're seeking? }
+{3010}{}{Let's trade!}
+{3020}{}{Tell me about buying and selling books.}
+{3030}{}{Can I look at your book collection?}
+{3040}{}{I have some books to sell...}
+{3050}{}{Yup, and no, I haven't found it yet. Goodbye, Cornelius, until we meet again.}
+{4000}{}{In due time, I'm sure. Farewell. }
+{5000}{}{The secrets? No, terribly sorry. But I do have many books! Books so rich in content that your mind will be gasping in awe!}
+{5010}{}{Books? Oh, right, those...}
+{6000}{}{That's right! The very same books! Books that will satisfy the soul! Pray, tell, what is your name? }
+{6010}{}{@pname@. }
+{7000}{}{Well, @pname@, jolly good to meet you! I am Cornelius Thrappenton. A scholar, writer, philosopher, and great thinker!}
+{7010}{}{Nice to meet you too, Cornelius. So, books, eh? Do you sell them?}
+{8000}{}{Why, I most certainly do! But... there hasn't been much demand for a good piece of literature lately. [He looks saddened]}
+{8010}{}{That's too bad. I guess not everyone can appreciate a good book.}
+{9000}{}{No, I guess not. At least not as many these days, what with the whole destruction of human civilization and all.}
+{9010}{}{Hmm, I might be interested in buying some of your books. Maybe I can sell them around? Would you offer me a discount?}
+{10000}{}{Hmm, perhaps. If you bought 50x of my books I could potentially offer you a discount. }
+{10010}{}{Sounds like a deal. I'll be back once I've completely made up my mind. Thanks, Cornelius.}
+{11000}{}{You do? Delightful! However, I do not purchase books, I merely sell them. }
+{11010}{}{Oh, really? You haven't seen my selection yet! Behold! Every great novel since the 20's! Errr-- well, some!}
+{11020}{}{That's too bad. Oh well, let's talk about something else.}
+{12000}{}{Hmm, yes, yes! You do have some great works here! I will give you 50 caps a book! Deal?}
+{12010}{}{Okay, that's fair. Let's trade!}
+{12020}{}{No, thank you though. I'll find a buyer elsewhere.}
+{13000}{}{How many books do you wish to sell? I will buy all your books for 50 caps a book.}
+{13010}{}{[Sell 1x Book]}
+{13020}{}{[Sell 5x Books]}
+{13030}{}{[Sell 10x Books]}
+{13040}{}{[Sell 15x Books]}
+{13050}{}{[Sell 20x Books]}
+{13060}{}{[Sell 50x Books]}
+{13070}{}{[Sell 100x Books]}
+{13080}{}{Nevermind.}
+{14000}{}{No, sorry. It's too fragile and sensitive to let wastelanders gander, frock, or bask in, or around my collection. You'll have to just imagine all my books.}
+{14010}{}{Joy.}
+{15000}{}{Well, @pname@. If you find yourself a large enough collection of books, let's say 50x, then you'll be able to try to sell them across the wasteland! There are many buyers out there, but unfortunately, they won't all pay the same price. It'll be up to you to decide just who you'll sell to. Most towns have a Historian that's willing to purchase pre-war books. You just need to find them.}
+{15010}{}{Okay, thanks. That doesn't sound too bad.}
+{16000}{}{I have more than enough books for sale! But I will only sell them in bulk. You may purchase a minimum of 50x books at a time. I will sell each book for 80 caps. However, it is your responsibility to store them, and care for them properly. They also weight about 2.5 pounds each. Can you carry all these books?}
+{16010}{}{No problem. I'll buy 50x books. Here's your 4000 caps.}
+{16020}{}{Let's talk about something else...}
+{16030}{}{Not right now. But maybe later.}
+{17000}{}{It is done! Enjoy your new found knowledge! Don't read them all in just one sitting!}
+

@@ -422,6 +422,9 @@
 #define LVAR_q_boss13			     		 	    (16211)
 #define LVAR_boss14_locid		     		 	    (16212)
 #define LVAR_q_boss14			     		 	    (16213)
+#define LVAR_z_bookman                              (16332)
+#define LVAR_q_pool1                                (16234)
+#define LVAR_q_pool2                                (16235)
 
 /*
 Id Type Name  Start Min Max Flags
@@ -2784,6 +2787,21 @@ Location id of boss14
 $ 16213	1 q_boss14 0 0 13 4
 **********
 boss14 for var  
+**********
+
+$ 16332 1 z_bookman 0 0 100 4
+**********
+var for book merchant
+**********
+
+$ 16234 1 q_pool1 0 0 25 1
+**********
+pool score yours  
+**********
+
+$ 16235 1 q_pool2 0 0 25 1
+**********
+pool score opponents  
 **********
 
 *************/
