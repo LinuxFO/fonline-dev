@@ -1,434 +1,434 @@
 #ifndef __VARS__
 #define __VARS__
 
-#define GVAR_car_id                         (1)
-#define GVAR_is_first_time                  (2)
-#define LVAR_bos_trainer                    (13)
-#define LVAR_faction_bos_home               (14)
-#define UVAR_guard_illegal_flag             (15)
-#define UVAR_town_policies                  (16)
-#define LVAR_q_bos_hummer                   (17)
-#define UVAR_faction_rank                   (21)
-#define UVAR_faction_status                 (22)
-#define UVAR_faction                        (23)
-#define LLVAR_faction_base_rank_allowed     (24)
-#define LLVAR_faction_base_status_allowed   (25)
-#define LVAR_factions_points_bos            (201)
-#define LVAR_factions_points_enclave        (202)
-#define LVAR_factions_points_ncr            (203)
-#define LVAR_factions_points_raiders        (204)
-#define LVAR_factions_points_unity          (205)
-#define LVAR_factions_points_vc             (206)
-#define LVAR_q_se_nomad_quest               (299)
-#define GVAR_train_station                  (300)
-#define GVAR_train_conductor1               (301)
-#define GVAR_train_conductor2               (302)
-#define GVAR_train_conductor3               (303)
-#define LVAR_q_sidewinder                   (400)
-#define LVAR_q_hub_sidewinder               (401)
-#define LVAR_duel_status                    (500)
-#define LVAR_current_task                   (501)
-#define GVAR_sierra_backup_power            (1150)
-#define LVAR_killer_admin                   (1207)
-#define GVAR_event_status                   (1234)
-#define LVAR_event_outfitted                (1235)
-#define LVAR_extra_speed                    (1337)
-#define UVAR_reputation                     (2000)
-#define UVAR_loyality                       (2010)
-#define UVAR_name_mem_npc_player            (2015)
-#define UVAR_name_mem_player_npc            (2016)
-#define UVAR_interacted                     (2017)
-#define UVAR_acquaintance                   (2018)
-#define UVAR_bounty                         (2019)
-#define UVAR_dung_cleaned                   (2021)
-#define LVAR_mod_q_meat_jerky               (2022)
-#define UVAR_quest_timeout                  (2023)
-#define UVAR_enc_timeout                    (2024)
-#define LVAR_common_timeout                 (2025)
-#define UVAR_questpool_quest                (2030)
-#define UVAR_factions_q_vc_questionnaire_u  (2203)
-#define LVAR_cutscene_flags                 (2222)
-#define GVAR_trader_zaius_ore               (2500)
-#define LVAR_tracking_id                    (3001)
-#define LVAR_renting_id                     (3002)
-#define LVAR_renting_balance                (3003)
-#define LVAR_renting_period                 (3004)
-#define LVAR_tent_id                        (3005)
-#define LVAR_caravan_id                     (3006)
-#define LVAR_renting_event                  (3007)
-#define LVAR_mine_id                        (3008)
-#define LVAR_mine_bought_time               (3009)
-#define LVAR_zone_x                         (3010)
-#define LVAR_zone_y                         (3011)
-#define LVAR_zone_world                     (3012)
-#define LVAR_workbench                      (3020)
-#define LVAR_terminal_current               (3029)
-#define LVAR_sex_exp                        (3030)
-#define LVAR_alco_cnt                       (3031)
-#define LVAR_bank_money                     (3099)
-#define LVAR_tent_id1                       (3100)
-#define LVAR_tent_id2                       (3101)
-#define LVAR_tent_id3                       (3102)
-#define LVAR_tent_id4                       (3103)
-#define LVAR_tent_id5                       (3104)
-#define LVAR_tent_id6                       (3105)
-#define LVAR_tent_id7                       (3106)
-#define LVAR_tent_id8                       (3107)
-#define LVAR_tent_id9                       (3108)
-#define LVAR_tent_id10                      (3109)
-#define LLVAR_tent_owner                    (3110)
-#define LLVAR_tent_version                  (3111)
-#define LVAR_den_narc_comm_member           (3147)
-#define LVAR_klam_sally_pay                 (3200)
-#define LVAR_klam_bakner_beer               (3202)
-#define LVAR_klam_gold_beer                 (3203)
-#define LVAR_nr_catspaw_paid                (3707)
-#define GVAR_bank_interest_event            (4000)
-#define GVAR_economy_event                  (4005)
-#define LVAR_economy_prices                 (4006)
-#define LVAR_economy_prices_count           (4007)
-#define LVAR_economy_prices_last_count      (4008)
-#define LVAR_virtual_money                  (4050)
-#define LVAR_factions_player_faction        (4101)
-#define LVAR_factions_player_rank           (4102)
-#define LVAR_factions_player_score          (4103)
-#define LVAR_factions_npc_gave_leadership   (4105)
-#define LVAR_base_buildsite                 (4110)
-#define LVAR_gm_reportevent                 (4119)
-#define LVAR_auth_level                     (4120)
-#define LVAR_gm_credit                      (4121)
-#define LVAR_gm_npc                         (4122)
-#define LVAR_gm_help_timeout                (4123)
-#define LVAR_command_tracking               (4124)
-#define LVAR_authed_char                    (4125)
-#define LVAR_factions_q_vc_parts            (4201)
-#define LVAR_factions_q_vc_scoutsf          (4202)
-#define LVAR_factions_q_vc_questionnaire    (4203)
-#define LVAR_factions_q_vc_exam             (4204)
-#define LVAR_factions_q_vc_skill            (4205)
-#define LVAR_factions_q_vc_kohl_books       (4206)
-#define LVAR_factions_q_nav_mfc             (4207)
-#define LVAR_hub_arena_inside               (4212)
-#define LVAR_redding_morton_brothers        (5386)
-#define UVAR_q_box_unload_status            (6500)
-#define UVAR_q_box_unload_count             (6501)
-#define LVAR_q_spawn_hub                    (7032)
-#define LVAR_q_spawn_hub_water              (7034)
-#define LVAR_free_slave                     (7053)
-#define LVAR_faction_farmer                 (7085)
-#define LVAR_ncr_gold_exchange              (7119)
-#define LVAR_q_nr_corsican_tattoo           (7301)
-#define LVAR_q_first_tent                   (7322)
-#define LVAR_q_first_tent_loc1_id           (7323)
-#define LVAR_q_first_tent_loc2_id           (7324)
-#define LVAR_nc_inlair                      (8000)
-#define LVAR_blood_type                     (9001)
-#define LVAR_birth_year                     (9002)
-#define LVAR_birth_day                      (9003)
-#define LVAR_birth_month                    (9004)
-#define LVAR_npc_name_first                 (9005)
-#define LVAR_npc_name_nick                  (9006)
-#define LVAR_npc_name_nicktype              (9007)
-#define LVAR_npc_name_surname               (9008)
-#define GVAR_last_registered                (9009)
-#define LIVAR_npc_wpn_owner                 (9010)
-#define LVAR_Book_Science                   (9946)
-#define LVAR_Book_Repair                    (9947)
-#define LVAR_Book_Outdoorsman               (9949)
-#define LVAR_Book_Barter                    (9950)
-#define LVAR_Book_FirstAid                  (9951)
-#define LVAR_Book_SmallGuns                 (9952)
-#define LVAR_current_followers              (10010)
-#define LVAR_patrol_currentnode             (10100)
-#define UVAR_proximity_check                (11200)
-#define LVAR_noob_camp_alecquest            (11801)
-#define LVAR_noob_camp_breederquest         (11802)
-#define LVAR_noob_camp_robodog              (11803)
-#define LVAR_noob_camp_edquest              (11804)
-#define LVAR_noob_camp_jessica              (11805)
-#define LVAR_noob_camp_jimmy                (11806)
-#define LVAR_noob_camp_kid                  (11807)
-#define LVAR_noob_camp_knife                (11808)
-#define LVAR_noob_camp_lawrence             (11809)
-#define LVAR_noob_camp_trapper              (11810)
-#define LVAR_noob_camp_rebec                (11811)
-#define LVAR_noob_camp_simon                (11812)
-#define LVAR_noob_camp_stanley              (11813)
-#define LVAR_noob_camp_thunderjo            (11814)
-#define LVAR_noob_camp_hunter               (11815)
-#define LVAR_noob_camp_plague               (11816)
-#define LLVAR_noob_camp_fetch               (11817)
-#define LVAR_noob_camp_armorer              (11818)
-#define GVAR_merc_prices_init               (12000)
-#define GVAR_merc_prices_event              (12002)
-#define LVAR_influence_buffer               (12003)
-#define LVAR_arena_gear_count               (12010)
-#define LVAR_arena_gear_timeout             (12011)
-#define LVAR_warzone_terminal_destination   (12012)
-#define LVAR_warzone_terminal_policy        (12013)
-#define LVAR_trigger_antiblock              (12100)
-#define LIVAR_tool_supplies_count           (15000)
-#define LVAR_q_tourist                      (16214)
-#define UVAR_q_rq_fetcher_status            (20000)
-#define UVAR_q_rq_fetcher_pid               (20001)
-#define UVAR_q_rq_fetcher_count             (20002)
-#define UVAR_q_rq_fetcher_node              (20003)
-#define UVAR_q_rq_cave_status               (20010)
-#define UVAR_q_rq_cave_pid                  (20011)
-#define UVAR_q_rq_cave_node                 (20012)
-#define UVAR_q_rq_cave_loc                  (20013)
-#define LVAR_domination_role                (20020)
-#define LIVAR_bos_hummer                    (30000)
-#define LIVAR_car_owner_id                  (30020)
-#define LIVAR_mhex_id                       (30040)
-#define LVAR_greet_ncr                      (50000)
-#define LVAR_greet_redding                  (50001)
-#define LVAR_greet_train1                   (50002)
-#define LVAR_greet_train2                   (50003)
-#define LVAR_greet_train3                   (50004)
-#define LVAR_greet_train4                   (50005)
-#define LVAR_greet_q_ncr_brahmin            (50006)
-#define LVAR_greet_hub                      (50007)
-#define LVAR_greet_gunrunner                (50008)
-#define LVAR_greet_adytum                   (50009)
-#define LVAR_greet_library                  (50010)
-#define GVAR_madness                        (54321)
-#define LVAR_online_stats                   (60000)
-#define LVAR_drug_fix                       (60001)
-#define LVAR_kamikaze_fix                   (60002)
-#define LVAR_wm_idle                        (60003)
-#define LVAR_wm_idle_chance                 (60004)
-#define LLVAR_combat_zone                   (60005)
-#define LVAR_tb_turn_time                   (60006)
-#define GVAR_modoc_score                    (61001)
-#define GVAR_klamath_score                  (61002)
-#define GVAR_gecko_score                    (61003)
-#define GVAR_brokenhills_score              (61004)
-#define GVAR_den_score                      (61005)
-#define GVAR_redding_score                  (61006)
-#define LVAR_q_hub_henry_quest              (1003)
-#define LVAR_q_hub_sadwife                  (7008)
-#define LVAR_q_hub_wasteland_band           (7009)
-#define LVAR_hub_job_waterboy               (7109)
-#define LVAR_q_hub_watertaxes               (7120)
-#define LVAR_q_hub_gunrunner_supplies       (7128)
-#define LVAR_q_hub_gunrunner_supplies_deal  (7129)
+#define GVAR_car_id (1)
+#define GVAR_is_first_time (2)
+#define LVAR_bos_trainer (13)
+#define LVAR_faction_bos_home (14)
+#define UVAR_guard_illegal_flag (15)
+#define UVAR_town_policies (16)
+#define LVAR_q_bos_hummer (17)
+#define UVAR_faction_rank (21)
+#define UVAR_faction_status (22)
+#define UVAR_faction (23)
+#define LLVAR_faction_base_rank_allowed (24)
+#define LLVAR_faction_base_status_allowed (25)
+#define LVAR_factions_points_bos (201)
+#define LVAR_factions_points_enclave (202)
+#define LVAR_factions_points_ncr (203)
+#define LVAR_factions_points_raiders (204)
+#define LVAR_factions_points_unity (205)
+#define LVAR_factions_points_vc (206)
+#define LVAR_q_se_nomad_quest (299)
+#define GVAR_train_station (300)
+#define GVAR_train_conductor1 (301)
+#define GVAR_train_conductor2 (302)
+#define GVAR_train_conductor3 (303)
+#define LVAR_q_sidewinder (400)
+#define LVAR_q_hub_sidewinder (401)
+#define LVAR_duel_status (500)
+#define LVAR_current_task (501)
+#define LVAR_q_redd_christopher_good_karma (1001)
+#define LVAR_q_redd_christopher_bad_karma (1002)
+#define LVAR_q_hub_henry_quest (1003)
+#define GVAR_sierra_backup_power (1150)
+#define LVAR_killer_admin (1207)
+#define GVAR_event_status (1234)
+#define LVAR_event_outfitted (1235)
+#define LVAR_extra_speed (1337)
+#define UVAR_reputation (2000)
+#define UVAR_loyality (2010)
+#define UVAR_name_mem_npc_player (2015)
+#define UVAR_name_mem_player_npc (2016)
+#define UVAR_interacted (2017)
+#define UVAR_acquaintance (2018)
+#define UVAR_bounty (2019)
+#define UVAR_dung_cleaned (2021)
+#define LVAR_mod_q_meat_jerky (2022)
+#define UVAR_quest_timeout (2023)
+#define UVAR_enc_timeout (2024)
+#define LVAR_common_timeout (2025)
+#define UVAR_questpool_quest (2030)
+#define UVAR_factions_q_vc_questionnaire_u (2203)
+#define LVAR_cutscene_flags (2222)
+#define GVAR_trader_zaius_ore (2500)
+#define LVAR_tracking_id (3001)
+#define LVAR_renting_id (3002)
+#define LVAR_renting_balance (3003)
+#define LVAR_renting_period (3004)
+#define LVAR_tent_id (3005)
+#define LVAR_caravan_id (3006)
+#define LVAR_renting_event (3007)
+#define LVAR_mine_id (3008)
+#define LVAR_mine_bought_time (3009)
+#define LVAR_zone_x (3010)
+#define LVAR_zone_y (3011)
+#define LVAR_zone_world (3012)
+#define LVAR_workbench (3020)
+#define LVAR_terminal_current (3029)
+#define LVAR_sex_exp (3030)
+#define LVAR_alco_cnt (3031)
+#define LVAR_bank_money (3099)
+#define LVAR_tent_id1 (3100)
+#define LVAR_tent_id2 (3101)
+#define LVAR_tent_id3 (3102)
+#define LVAR_tent_id4 (3103)
+#define LVAR_tent_id5 (3104)
+#define LVAR_tent_id6 (3105)
+#define LVAR_tent_id7 (3106)
+#define LVAR_tent_id8 (3107)
+#define LVAR_tent_id9 (3108)
+#define LVAR_tent_id10 (3109)
+#define LLVAR_tent_owner (3110)
+#define LLVAR_tent_version (3111)
+#define LVAR_den_narc_comm_member (3147)
+#define LVAR_klam_sally_pay (3200)
+#define LVAR_klam_bakner_beer (3202)
+#define LVAR_klam_gold_beer (3203)
+#define LVAR_nr_catspaw_paid (3707)
+#define GVAR_bank_interest_event (4000)
+#define GVAR_economy_event (4005)
+#define LVAR_economy_prices (4006)
+#define LVAR_economy_prices_count (4007)
+#define LVAR_economy_prices_last_count (4008)
+#define LVAR_virtual_money (4050)
+#define LVAR_factions_player_faction (4101)
+#define LVAR_factions_player_rank (4102)
+#define LVAR_factions_player_score (4103)
+#define LVAR_factions_npc_gave_leadership (4105)
+#define LVAR_base_buildsite (4110)
+#define LVAR_gm_reportevent (4119)
+#define LVAR_auth_level (4120)
+#define LVAR_gm_credit (4121)
+#define LVAR_gm_npc (4122)
+#define LVAR_gm_help_timeout (4123)
+#define LVAR_command_tracking (4124)
+#define LVAR_authed_char (4125)
+#define LVAR_factions_q_vc_parts (4201)
+#define LVAR_factions_q_vc_scoutsf (4202)
+#define LVAR_factions_q_vc_questionnaire (4203)
+#define LVAR_factions_q_vc_exam (4204)
+#define LVAR_factions_q_vc_skill (4205)
+#define LVAR_factions_q_vc_kohl_books (4206)
+#define LVAR_factions_q_nav_mfc (4207)
+#define LVAR_hub_arena_inside (4212)
+#define LVAR_redding_morton_brothers (5386)
+#define UVAR_q_box_unload_status (6500)
+#define UVAR_q_box_unload_count (6501)
+#define LVAR_bar_drink (7000)
+#define LVAR_give_grenade (7001)
+#define LVAR_crimson_caravan_job (7003)
+#define LVAR_q_hub_sadwife (7008)
+#define LVAR_q_hub_wasteland_band (7009)
+#define LVAR_q_spawn_hub (7032)
+#define LVAR_q_spawn_hub_water (7034)
+#define LVAR_free_slave (7053)
+#define LVAR_q_iguana_pete_message (7070)
+#define LVAR_q_iguana_pete_ban (7071)
+#define LVAR_q_iguana_son_message (7072)
+#define LVAR_q_iguana_mutant_message (7073)
+#define LVAR_q_bos_initiatequest_start (7074)
+#define LVAR_faction_farmer (7085)
+#define LVAR_hub_job_waterboy (7109)
+#define LVAR_ncr_gold_exchange (7119)
+#define LVAR_q_hub_watertaxes (7120)
+#define LVAR_q_jt_power_house_handy (7124)
+#define LVAR_q_jt_power_house_handy_talk (7125)
+#define LVAR_q_hub_gunrunner_supplies (7128)
+#define LVAR_q_hub_gunrunner_supplies_deal (7129)
 #define LVAR_q_hub_gunrunner_supplies_parts (7130)
-#define LVAR_q_hub_noe                      (7400)
-#define LVAR_q_hub_neo                      (7401)
-#define LVAR_q_hub_ron                      (7402)
-#define LVAR_q_hub_sad_farmer               (7403)
-#define LVAR_q_hub_sad_farmer_locationId    (7404)
-#define LVAR_hub_guard1                     (11900)
-#define LVAR_hub_guard2                     (11901)
-#define LVAR_hub_guard3                     (11902)
-#define LVAR_hub_guard4                     (11903)
-#define LVAR_hub_guard5                     (11904)
-#define LVAR_hub_guard6                     (11905)
-#define LVAR_hub_gangers                    (11908)
-#define LVAR_hub_gangers1                   (11909)
-#define LVAR_hub_gangers2                   (11910)
-#define LVAR_hub_gangers3                   (11911)
-#define LVAR_hub_gangers4                   (11912)
-#define LVAR_hub_heist                      (11913)
-#define LVAR_hub_johnavl                    (11914)
-#define LVAR_hub_daveavl                    (11915)
-#define LVAR_hub_bobavl                     (11916)
-#define LVAR_hub_jetavl                     (11917)
-#define LVAR_hub_bufavl                     (11918)
-#define LVAR_hub_mentavl                    (11919)
-#define LVAR_hub_psyavl                     (11920)
-#define LVAR_hub_postmanq                   (11921)
-#define LVAR_hub_honor                      (11922)
-#define LVAR_hub_bringshotty                (11923)
-#define LVAR_hub_bringsurv                  (11924)
-#define LVAR_hub_chefquest                  (11928)
-#define LVAR_hub_bombq                      (11929)
-#define LVAR_hub_rougam                     (11931)
-#define LVAR_hub_hopeq                      (11932)
-#define LVAR_hub_postmanqp                  (11933)
-#define LVAR_hub_rouletp                    (11934)
-#define LVAR_hub_leatherp                   (11935)
-#define LVAR_hub_lightjp                    (11936)
-#define LVAR_hub_foundryp                   (11938)
-#define LVAR_hub_papaq                      (11939)
-#define LVAR_hub_waterjobq                  (16000)
-#define LVAR_hub_waterjobden                (16001)
-#define LVAR_hub_waterjobhills              (16002)
-#define LVAR_hub_waterjobsan                (16003)
-#define LVAR_hub_scouting                   (16071)
-#define LVAR_hub_lockpickq                  (16072)
-#define LVAR_hub_decision1                  (16184)
-#define LVAR_camp_evil                      (16294)
-#define LVAR_q_iguana_pete_message          (7070)
-#define LVAR_q_iguana_pete_ban              (7071)
-#define LVAR_q_iguana_son_message           (7072)
-#define LVAR_q_iguana_mutant_message        (7073)
-#define LVAR_q_merchant                     (16236)
-#define LVAR_z_dailyq1                      (16383)
-#define LVAR_z_dailyq1_locid                (16384)
-#define LVAR_z_dailyq1timeout               (16388)
-#define LVAR_q_la_gunr_courier              (7147)
-#define LVAR_q_la_gunr_courier_reward       (7148)
-#define LVAR_q_packages                     (16298)
-#define LVAR_q_jt_power_house_handy         (7124)
-#define LVAR_q_jt_power_house_handy_talk    (7125)
-#define LVAR_bar_drink                      (7000)
-#define LVAR_give_grenade                   (7001)
-#define LVAR_crimson_caravan_job            (7003)
-#define LVAR_la_crate1                      (16181)
-#define LVAR_la_crate2                      (16182)
-#define LVAR_la_crate3                      (16183)
-#define LVAR_z_dailyq1                      (16383)
-#define LVAR_z_dailyq1_locid                (16384)
-#define LVAR_z_dailyq2_locid                (16385)
-#define LVAR_z_dailyq3_locid                (16386)
-#define LVAR_z_dailyq4_locid                (16387)
-#define LVAR_z_dailyq1timeout               (16388)
-#define LVAR_z_dailyq5_locid                (16389)
-#define LVAR_z_dailyq6_locid                (16390)
-#define LVAR_z_dailyq7_locid                (16391)
-#define LVAR_z_dailyq8_locid                (16392)
-#define LVAR_q_mutar_locid                  (11995)
-#define LVAR_q_mutar                        (11994)
-#define LVAR_q_cop_locid                    (11997)
-#define LVAR_q_cop                          (11996)
-#define LVAR_noire1                         (16148)
-#define LVAR_noire1_locid                   (16149)
-#define LVAR_noire2_locid                   (16150)
-#define LVAR_noire3_locid                   (16151)
-#define LVAR_noire4_locid                   (16158)
-#define LVAR_noire5                         (16159)
-#define LVAR_noire6_locid                   (16160)
-#define LVAR_noire6                         (16161)
-#define LVAR_noire7_locid                   (16162)
-#define LVAR_noire8_locid                   (16163)
-#define LVAR_noire9_locid                   (16168)
-#define LVAR_z_warrior2                     (16378)
-#define LVAR_q_pending                      (16240)
-#define LVAR_q_pending_locid                (16241)
-#define LVAR_la_caravan                     (16178)
-#define LVAR_la_caravan2                    (16179)
-#define LVAR_q_redd_christopher_good_karma  (1001)
-#define LVAR_q_redd_christopher_bad_karma   (1002)
-#define LVAR_player_farmOwner               (16043)
-#define LVAR_ncr_investigation1             (16047)
-#define LVAR_q_bos_initiatequest_start      (7074)
-#define GVAR_LAW                            (16217)
-#define GVAR_CRIM                           (16218)
-#define LVAR_q_bring44                      (11907)
-#define GVAR_KIDS                           (16225)
-#define LVAR_q_evil_locid                   (11999)
-#define LVAR_q_evil                         (11998)
-#define LVAR_q_adventure                    (16129)
-#define LVAR_q_adventure_locid              (16130)
-#define LVAR_q_adventure2_locid             (16131)
-#define LVAR_q_adventure3_locid             (16132)
-#define LVAR_q_adventure4_locid             (16133)
-#define LVAR_q_adventure5_locid             (16134)
-#define LVAR_q_adventure6_locid             (16135)
-#define LVAR_q_adventure7_locid             (16136)
-#define LVAR_q_adventurecina_locid          (16137)
-#define LVAR_q_adventurecina2_locid         (16138)
-#define LVAR_q_adventurecina3_locid         (16140)
-#define LVAR_q_adventurecina4_locid         (16142)
-#define LVAR_q_adventurecina5_locid         (16146)
-#define LVAR_q_adventurecina_toxic_locid    (16164)
-#define LVAR_q_adventurecina_bandit_locid   (16166)
-#define LVAR_ncr_investigation2             (16049)
-#define LVAR_q_loan                         (16055)
-#define LVAR_q_loan_locid                   (16056)
-#define LVAR_q_geckoman                     (16144)
-#define LVAR_q_church1                      (16152)
-#define LVAR_q_church2                      (16153)
-#define LVAR_q_inj1                         (16154)
-#define LVAR_q_inj2                         (16155)
-#define LVAR_q_inj3                         (16156)
-#define LVAR_q_inj4                         (16157)
-#define LVAR_waterjobfix                    (16242)
-#define LVAR_dungeon_toxic                  (16165)
-#define LVAR_hub_inde                       (16169)
-#define LVAR_inde1_locid                    (16170)
-#define LVAR_inde2_locid                    (16171)
-#define LVAR_inde3_locid                    (16172)
-#define LVAR_drug_dealing                   (16173)
-#define LVAR_drug1_locid                    (16174)
-#define LVAR_drug2_locid                    (16175)
-#define LVAR_drug3_locid                    (16176)
-#define LVAR_z_survival                     (61009)
-#define LVAR_z_survival_locid               (61010)
-#define LVAR_z_survivalclowns               (61011)
-#define LVAR_z_survivalclowns_locid         (61012)
-#define LVAR_z_survivalgeckos               (61014)
-#define LVAR_z_survivalgeckos_locid         (61015)
-#define LVAR_z_survivalrats                 (61016)
-#define LVAR_z_survivalrats_locid           (61017)
-#define LVAR_z_survivalzombies              (61018)
-#define LVAR_z_survivalzombies_locid        (61019)
-#define LVAR_z_survivalfloat                (61020)
-#define LVAR_z_survivalfloat_locid          (61021)
-#define LVAR_q_hubo_locid                   (16015)
-#define LVAR_q_hubo                         (16014)
-#define LVAR_q_dhar_locid                   (16013)
-#define LVAR_q_dhar                         (16012)
-#define LVAR_q_cris_locid                   (16011)
-#define LVAR_q_cris                         (16010)
-#define LVAR_q_morm_locid                   (16017)
-#define LVAR_q_morm                         (16016)
-#define LVAR_q_renu_locid                   (16019)
-#define LVAR_q_renu                         (16018)
-#define LVAR_q_rev_locid                    (16021)
-#define LVAR_q_rev                          (16020)
-#define LVAR_q_fota_locid                   (16007)
-#define LVAR_q_fota                         (16006)
-#define LVAR_q_cotc_locid                   (16009)
-#define LVAR_q_cotc                         (16008)
-#define GVAR_FOTA                           (16004)
-#define GVAR_COTC                           (16005)
-#define GVAR_CRIS                           (16022)
-#define GVAR_DHAR                           (16023)
-#define GVAR_HUBO                           (16024)
-#define GVAR_MORM                           (16025)
-#define GVAR_RENU                           (16026)
-#define GVAR_REV                            (16027)
-#define LLVAR_q_faithpoints                 (16216)
-#define LVAR_q_trader                       (16230)
-#define LVAR_boss1_locid		     		 	    (16186)
-#define LVAR_q_boss1			     		 	    (16187)
-#define LVAR_boss2_locid		     		 	    (16188)
-#define LVAR_boss2_locid		     		 	    (16188)
-#define LVAR_q_boss2			     		 	    (16189)
-#define LVAR_boss3_locid		     		 	    (16190)
-#define LVAR_q_boss3			     		 	    (16191)
-#define LVAR_boss4_locid		     		 	    (16192)
-#define LVAR_q_boss4			     		 	    (16193)
-#define LVAR_boss5_locid		     		 	    (16194)
-#define LVAR_q_boss5			     		 	    (16195)
-#define LVAR_boss6_locid		     		 	    (16196)
-#define LVAR_q_boss6			     		 	    (16197)
-#define LVAR_boss7_locid		     		 	    (16198)
-#define LVAR_q_boss7			     		 	    (16199)
-#define LVAR_boss8_locid		     		 	    (16200)
-#define LVAR_q_boss8			     		 	    (16201)
-#define LVAR_boss9_locid		     		 	    (16202)
-#define LVAR_q_boss9			     		 	    (16203)
-#define LVAR_boss10_locid		     		 	    (16204)
-#define LVAR_q_boss10			     		 	    (16205)
-#define LVAR_boss11_locid		     		 	    (16206)
-#define LVAR_q_boss11			     		 	    (16207)
-#define LVAR_boss12_locid		     		 	    (16208)
-#define LVAR_q_boss12			     		 	    (16209)
-#define LVAR_boss13_locid		     		 	    (16210)
-#define LVAR_q_boss13			     		 	    (16211)
-#define LVAR_boss14_locid		     		 	    (16212)
-#define LVAR_q_boss14			     		 	    (16213)
-#define LVAR_z_bookman                              (16332)
-#define LVAR_q_pool1                                (16234)
-#define LVAR_q_pool2                                (16235)
+#define LVAR_q_la_gunr_courier (7147)
+#define LVAR_q_la_gunr_courier_reward (7148)
+#define LVAR_q_nr_corsican_tattoo (7301)
+#define LVAR_q_first_tent (7322)
+#define LVAR_q_first_tent_loc1_id (7323)
+#define LVAR_q_first_tent_loc2_id (7324)
+#define LVAR_q_hub_noe (7400)
+#define LVAR_q_hub_neo (7401)
+#define LVAR_q_hub_ron (7402)
+#define LVAR_q_hub_sad_farmer (7403)
+#define LVAR_q_hub_sad_farmer_locationId (7404)
+#define LVAR_nc_inlair (8000)
+#define LVAR_blood_type (9001)
+#define LVAR_birth_year (9002)
+#define LVAR_birth_day (9003)
+#define LVAR_birth_month (9004)
+#define LVAR_npc_name_first (9005)
+#define LVAR_npc_name_nick (9006)
+#define LVAR_npc_name_nicktype (9007)
+#define LVAR_npc_name_surname (9008)
+#define GVAR_last_registered (9009)
+#define LIVAR_npc_wpn_owner (9010)
+#define LVAR_Book_Science (9946)
+#define LVAR_Book_Repair (9947)
+#define LVAR_Book_Outdoorsman (9949)
+#define LVAR_Book_Barter (9950)
+#define LVAR_Book_FirstAid (9951)
+#define LVAR_Book_SmallGuns (9952)
+#define LVAR_current_followers (10010)
+#define LVAR_patrol_currentnode (10100)
+#define UVAR_proximity_check (11200)
+#define LVAR_noob_camp_alecquest (11801)
+#define LVAR_noob_camp_breederquest (11802)
+#define LVAR_noob_camp_robodog (11803)
+#define LVAR_noob_camp_edquest (11804)
+#define LVAR_noob_camp_jessica (11805)
+#define LVAR_noob_camp_jimmy (11806)
+#define LVAR_noob_camp_kid (11807)
+#define LVAR_noob_camp_knife (11808)
+#define LVAR_noob_camp_lawrence (11809)
+#define LVAR_noob_camp_trapper (11810)
+#define LVAR_noob_camp_rebec (11811)
+#define LVAR_noob_camp_simon (11812)
+#define LVAR_noob_camp_stanley (11813)
+#define LVAR_noob_camp_thunderjo (11814)
+#define LVAR_noob_camp_hunter (11815)
+#define LVAR_noob_camp_plague (11816)
+#define LLVAR_noob_camp_fetch (11817)
+#define LVAR_noob_camp_armorer (11818)
+#define LVAR_hub_guard1 (11900)
+#define LVAR_hub_guard2 (11901)
+#define LVAR_hub_guard3 (11902)
+#define LVAR_hub_guard4 (11903)
+#define LVAR_hub_guard5 (11904)
+#define LVAR_hub_guard6 (11905)
+#define LVAR_q_bring44 (11907)
+#define LVAR_hub_gangers (11908)
+#define LVAR_hub_gangers1 (11909)
+#define LVAR_hub_gangers2 (11910)
+#define LVAR_hub_gangers3 (11911)
+#define LVAR_hub_gangers4 (11912)
+#define LVAR_hub_heist (11913)
+#define LVAR_hub_johnavl (11914)
+#define LVAR_hub_daveavl (11915)
+#define LVAR_hub_bobavl (11916)
+#define LVAR_hub_jetavl (11917)
+#define LVAR_hub_bufavl (11918)
+#define LVAR_hub_mentavl (11919)
+#define LVAR_hub_psyavl (11920)
+#define LVAR_hub_postmanq (11921)
+#define LVAR_hub_honor (11922)
+#define LVAR_hub_bringshotty (11923)
+#define LVAR_hub_bringsurv (11924)
+#define LVAR_hub_chefquest (11928)
+#define LVAR_hub_bombq (11929)
+#define LVAR_hub_rougam (11931)
+#define LVAR_hub_hopeq (11932)
+#define LVAR_hub_postmanqp (11933)
+#define LVAR_hub_rouletp (11934)
+#define LVAR_hub_leatherp (11935)
+#define LVAR_hub_lightjp (11936)
+#define LVAR_hub_foundryp (11938)
+#define LVAR_hub_papaq (11939)
+#define LVAR_q_mutar (11994)
+#define LVAR_q_mutar_locid (11995)
+#define LVAR_q_cop (11996)
+#define LVAR_q_cop_locid (11997)
+#define LVAR_q_evil (11998)
+#define LVAR_q_evil_locid (11999)
+#define GVAR_merc_prices_init (12000)
+#define GVAR_merc_prices_event (12002)
+#define LVAR_influence_buffer (12003)
+#define LVAR_arena_gear_count (12010)
+#define LVAR_arena_gear_timeout (12011)
+#define LVAR_warzone_terminal_destination (12012)
+#define LVAR_warzone_terminal_policy (12013)
+#define LVAR_trigger_antiblock (12100)
+#define LIVAR_tool_supplies_count (15000)
+#define LVAR_hub_waterjobq (16000)
+#define LVAR_hub_waterjobden (16001)
+#define LVAR_hub_waterjobhills (16002)
+#define LVAR_hub_waterjobsan (16003)
+#define GVAR_FOTA (16004)
+#define GVAR_COTC (16005)
+#define LVAR_q_fota (16006)
+#define LVAR_q_fota_locid (16007)
+#define LVAR_q_cotc (16008)
+#define LVAR_q_cotc_locid (16009)
+#define LVAR_q_cris (16010)
+#define LVAR_q_cris_locid (16011)
+#define LVAR_q_dhar (16012)
+#define LVAR_q_dhar_locid (16013)
+#define LVAR_q_hubo (16014)
+#define LVAR_q_hubo_locid (16015)
+#define LVAR_q_morm (16016)
+#define LVAR_q_morm_locid (16017)
+#define LVAR_q_renu (16018)
+#define LVAR_q_renu_locid (16019)
+#define LVAR_q_rev (16020)
+#define LVAR_q_rev_locid (16021)
+#define GVAR_CRIS (16022)
+#define GVAR_DHAR (16023)
+#define GVAR_HUBO (16024)
+#define GVAR_MORM (16025)
+#define GVAR_RENU (16026)
+#define GVAR_REV (16027)
+#define LVAR_player_farmOwner (16043)
+#define LVAR_ncr_investigation1 (16047)
+#define LVAR_ncr_investigation2 (16049)
+#define LVAR_q_loan (16055)
+#define LVAR_q_loan_locid (16056)
+#define LVAR_hub_scouting (16071)
+#define LVAR_hub_lockpickq (16072)
+#define LVAR_q_adventure (16129)
+#define LVAR_q_adventure_locid (16130)
+#define LVAR_q_adventure2_locid (16131)
+#define LVAR_q_adventure3_locid (16132)
+#define LVAR_q_adventure4_locid (16133)
+#define LVAR_q_adventure5_locid (16134)
+#define LVAR_q_adventure6_locid (16135)
+#define LVAR_q_adventure7_locid (16136)
+#define LVAR_q_adventurecina_locid (16137)
+#define LVAR_q_adventurecina2_locid (16138)
+#define LVAR_q_adventurecina3_locid (16140)
+#define LVAR_q_adventurecina4_locid (16142)
+#define LVAR_q_geckoman (16144)
+#define LVAR_q_adventurecina5_locid (16146)
+#define LVAR_noire1 (16148)
+#define LVAR_noire1_locid (16149)
+#define LVAR_noire2_locid (16150)
+#define LVAR_noire3_locid (16151)
+#define LVAR_q_church1 (16152)
+#define LVAR_q_church2 (16153)
+#define LVAR_q_inj1 (16154)
+#define LVAR_q_inj2 (16155)
+#define LVAR_q_inj3 (16156)
+#define LVAR_q_inj4 (16157)
+#define LVAR_noire4_locid (16158)
+#define LVAR_noire5 (16159)
+#define LVAR_noire6_locid (16160)
+#define LVAR_noire6 (16161)
+#define LVAR_noire7_locid (16162)
+#define LVAR_noire8_locid (16163)
+#define LVAR_q_adventurecina_toxic_locid (16164)
+#define LVAR_dungeon_toxic (16165)
+#define LVAR_q_adventurecina_bandit_locid (16166)
+#define LVAR_noire9_locid (16168)
+#define LVAR_hub_inde (16169)
+#define LVAR_inde1_locid (16170)
+#define LVAR_inde2_locid (16171)
+#define LVAR_inde3_locid (16172)
+#define LVAR_drug_dealing (16173)
+#define LVAR_drug1_locid (16174)
+#define LVAR_drug2_locid (16175)
+#define LVAR_drug3_locid (16176)
+#define LVAR_la_caravan (16178)
+#define LVAR_la_caravan2 (16179)
+#define LVAR_la_crate1 (16181)
+#define LVAR_la_crate2 (16182)
+#define LVAR_la_crate3 (16183)
+#define LVAR_hub_decision1 (16184)
+#define LVAR_boss1_locid (16186)
+#define LVAR_q_boss1 (16187)
+#define LVAR_boss2_locid (16188)
+#define LVAR_boss2_locid (16188)
+#define LVAR_q_boss2 (16189)
+#define LVAR_boss3_locid (16190)
+#define LVAR_q_boss3 (16191)
+#define LVAR_boss4_locid (16192)
+#define LVAR_q_boss4 (16193)
+#define LVAR_boss5_locid (16194)
+#define LVAR_q_boss5 (16195)
+#define LVAR_boss6_locid (16196)
+#define LVAR_q_boss6 (16197)
+#define LVAR_boss7_locid (16198)
+#define LVAR_q_boss7 (16199)
+#define LVAR_boss8_locid (16200)
+#define LVAR_q_boss8 (16201)
+#define LVAR_boss9_locid (16202)
+#define LVAR_q_boss9 (16203)
+#define LVAR_boss10_locid (16204)
+#define LVAR_q_boss10 (16205)
+#define LVAR_boss11_locid (16206)
+#define LVAR_q_boss11 (16207)
+#define LVAR_boss12_locid (16208)
+#define LVAR_q_boss12 (16209)
+#define LVAR_boss13_locid (16210)
+#define LVAR_q_boss13 (16211)
+#define LVAR_boss14_locid (16212)
+#define LVAR_q_boss14 (16213)
+#define LVAR_q_tourist (16214)
+#define LLVAR_q_faithpoints (16216)
+#define GVAR_LAW (16217)
+#define GVAR_CRIM (16218)
+#define GVAR_KIDS (16225)
+#define LVAR_q_trader (16230)
+#define LVAR_q_pool1 (16234)
+#define LVAR_q_pool2 (16235)
+#define LVAR_q_merchant (16236)
+#define LVAR_q_pending (16240)
+#define LVAR_q_pending_locid (16241)
+#define LVAR_waterjobfix (16242)
+#define LVAR_camp_evil (16294)
+#define LVAR_q_packages (16298)
+#define LVAR_z_bookman (16332)
+#define LVAR_z_warrior2 (16378)
+#define LVAR_z_dailyq1 (16383)
+#define LVAR_z_dailyq1 (16383)
+#define LVAR_z_dailyq1_locid (16384)
+#define LVAR_z_dailyq1_locid (16384)
+#define LVAR_z_dailyq2_locid (16385)
+#define LVAR_z_dailyq3_locid (16386)
+#define LVAR_z_dailyq4_locid (16387)
+#define LVAR_z_dailyq1timeout (16388)
+#define LVAR_z_dailyq1timeout (16388)
+#define LVAR_z_dailyq5_locid (16389)
+#define LVAR_z_dailyq6_locid (16390)
+#define LVAR_z_dailyq7_locid (16391)
+#define LVAR_z_dailyq8_locid (16392)
+#define UVAR_q_rq_fetcher_status (20000)
+#define UVAR_q_rq_fetcher_pid (20001)
+#define UVAR_q_rq_fetcher_count (20002)
+#define UVAR_q_rq_fetcher_node (20003)
+#define UVAR_q_rq_cave_status (20010)
+#define UVAR_q_rq_cave_pid (20011)
+#define UVAR_q_rq_cave_node (20012)
+#define UVAR_q_rq_cave_loc (20013)
+#define LVAR_domination_role (20020)
+#define LIVAR_bos_hummer (30000)
+#define LIVAR_car_owner_id (30020)
+#define LIVAR_mhex_id (30040)
+#define LVAR_greet_ncr (50000)
+#define LVAR_greet_redding (50001)
+#define LVAR_greet_train1 (50002)
+#define LVAR_greet_train2 (50003)
+#define LVAR_greet_train3 (50004)
+#define LVAR_greet_train4 (50005)
+#define LVAR_greet_q_ncr_brahmin (50006)
+#define LVAR_greet_hub (50007)
+#define LVAR_greet_gunrunner (50008)
+#define LVAR_greet_adytum (50009)
+#define LVAR_greet_library (50010)
+#define GVAR_madness (54321)
+#define LVAR_online_stats (60000)
+#define LVAR_drug_fix (60001)
+#define LVAR_kamikaze_fix (60002)
+#define LVAR_wm_idle (60003)
+#define LVAR_wm_idle_chance (60004)
+#define LLVAR_combat_zone (60005)
+#define LVAR_tb_turn_time (60006)
+#define GVAR_modoc_score (61001)
+#define GVAR_klamath_score (61002)
+#define GVAR_gecko_score (61003)
+#define GVAR_brokenhills_score (61004)
+#define GVAR_den_score (61005)
+#define GVAR_redding_score (61006)
+#define LVAR_z_survival (61009)
+#define LVAR_z_survival_locid (61010)
+#define LVAR_z_survivalclowns (61011)
+#define LVAR_z_survivalclowns_locid (61012)
+#define LVAR_z_survivalgeckos (61014)
+#define LVAR_z_survivalgeckos_locid (61015)
+#define LVAR_z_survivalrats (61016)
+#define LVAR_z_survivalrats_locid (61017)
+#define LVAR_z_survivalzombies (61018)
+#define LVAR_z_survivalzombies_locid (61019)
+#define LVAR_z_survivalfloat (61020)
+#define LVAR_z_survivalfloat_locid (61021)
 
 /*
 Id Type Name  Start Min Max Flags
-*************
+**********
 
 $ 1 0 car_id 0 0 0 4
 **********
@@ -1041,6 +1041,17 @@ var for dialog, nothing big.
 
 $ 7301 1 q_nr_corsican_tattoo 0 0 3 1
 **********
+**********
+
+$ 7322 1 q_first_tent 0 0 0 5
+**********
+State of the First Tent quest.
+0: Quest not started
+1: Tent location spawned (quest started)
+2: Farmhouse location spawned (quest accepted)
+3: Rats in farmhouse killed
+4: Quest finished
+5: Quest failed (family tent garbaged)
 **********
 
 $ 7323 1 q_first_tent_loc1_id 0 0 0 5
@@ -2639,152 +2650,152 @@ $ 16027 0 REV 0 0 0 4
 world var for score check
 **********
 
-$ 16216	1 q_faithpoints 0 0 0 4
+$ 16216 1 q_faithpoints 0 0 0 4
 **********
 religious faith points  
 **********
 
-$ 16230	1 q_trader 0 0 25 1
+$ 16230 1 q_trader 0 0 25 1
 **********
 trade chain  
 **********
 
-$ 16186	1 boss1_locid 0 0 13 4
+$ 16186 1 boss1_locid 0 0 13 4
 **********
 Location id of boss1  
 **********
 
-$ 16187	1 q_boss1 0 0 13 4
+$ 16187 1 q_boss1 0 0 13 4
 **********
 boss1 for var  
 **********
 
-$ 16188	1 boss2_locid 0 0 13 4
+$ 16188 1 boss2_locid 0 0 13 4
 **********
 Location id of boss2  
 **********
 
-$ 16189	1 q_boss2 0 0 13 4
+$ 16189 1 q_boss2 0 0 13 4
 **********
 boss2 for var  
 **********
 
-$ 16190	1 boss3_locid 0 0 13 4
+$ 16190 1 boss3_locid 0 0 13 4
 **********
 Location id of boss3  
 **********
 
-$ 16191	1 q_boss3 0 0 13 4
+$ 16191 1 q_boss3 0 0 13 4
 **********
 boss3 for var  
 **********
 
-$ 16192	1 boss4_locid 0 0 13 4
+$ 16192 1 boss4_locid 0 0 13 4
 **********
 Location id of boss4  
 **********
 
-$ 16193	1 q_boss4 0 0 13 4
+$ 16193 1 q_boss4 0 0 13 4
 **********
 boss4 for var  
 **********
 
-$ 16194	1 boss5_locid 0 0 13 4
+$ 16194 1 boss5_locid 0 0 13 4
 **********
 Location id of boss5  
 **********
 
-$ 16195	1 q_boss5 0 0 13 4
+$ 16195 1 q_boss5 0 0 13 4
 **********
 boss5 for var  
 **********
 
-$ 16196	1 boss6_locid 0 0 13 4
+$ 16196 1 boss6_locid 0 0 13 4
 **********
 Location id of boss6  
 **********
 
-$ 16197	1 q_boss6 0 0 13 4
+$ 16197 1 q_boss6 0 0 13 4
 **********
 boss6 for var  
 **********
 
-$ 16198	1 boss7_locid 0 0 13 4
+$ 16198 1 boss7_locid 0 0 13 4
 **********
 Location id of boss7  
 **********
 
-$ 16199	1 q_boss7 0 0 13 4
+$ 16199 1 q_boss7 0 0 13 4
 **********
 boss7 for var  
 **********
 
-$ 16200	1 boss8_locid 0 0 13 4
+$ 16200 1 boss8_locid 0 0 13 4
 **********
 Location id of boss8  
 **********
 
-$ 16201	1 q_boss8 0 0 13 4
+$ 16201 1 q_boss8 0 0 13 4
 **********
 boss8 for var  
 **********
 
-$ 16202	1 boss9_locid 0 0 13 4
+$ 16202 1 boss9_locid 0 0 13 4
 **********
 Location id of boss9  
 **********
 
-$ 16203	1 q_boss9 0 0 13 4
+$ 16203 1 q_boss9 0 0 13 4
 **********
 boss9 for var  
 **********
 
-$ 16204	1 boss10_locid 0 0 13 4
+$ 16204 1 boss10_locid 0 0 13 4
 **********
 Location id of boss10  
 **********
 
-$ 16205	1 q_boss10 0 0 13 4
+$ 16205 1 q_boss10 0 0 13 4
 **********
 boss10 for var  
 **********
 
-$ 16206	1 boss11_locid 0 0 13 4
+$ 16206 1 boss11_locid 0 0 13 4
 **********
 Location id of boss11  
 **********
 
-$ 16207	1 q_boss11 0 0 13 4
+$ 16207 1 q_boss11 0 0 13 4
 **********
 boss11 for var  
 **********
 
-$ 16208	1 boss12_locid 0 0 13 4
+$ 16208 1 boss12_locid 0 0 13 4
 **********
 Location id of boss12  
 **********
 
-$ 16209	1 q_boss12 0 0 13 4
+$ 16209 1 q_boss12 0 0 13 4
 **********
 boss12 for var  
 **********
 
-$ 16210	1 boss13_locid 0 0 13 4
+$ 16210 1 boss13_locid 0 0 13 4
 **********
 Location id of boss13  
 **********
 
-$ 16211	1 q_boss13 0 0 13 4
+$ 16211 1 q_boss13 0 0 13 4
 **********
 boss13 for var  
 **********
 
-$ 16212	1 boss14_locid 0 0 13 4
+$ 16212 1 boss14_locid 0 0 13 4
 **********
 Location id of boss14  
 **********
 
-$ 16213	1 q_boss14 0 0 13 4
+$ 16213 1 q_boss14 0 0 13 4
 **********
 boss14 for var  
 **********
@@ -2804,6 +2815,6 @@ $ 16235 1 q_pool2 0 0 25 1
 pool score opponents  
 **********
 
-*************/
+**********/
 
 #endif
