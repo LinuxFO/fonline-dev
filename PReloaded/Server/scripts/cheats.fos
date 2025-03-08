@@ -283,7 +283,14 @@ void RefreshAliases(Critter& player, int, int, int)   // ~runscript cheats Refre
 void SetAliases()
 {
     // Fallout 1
-    //SetMapId("junktown",    MAP_Junktown);    
+    SetMapId("hub", MAP_HubDowntown);
+
+    // Special maps
+    SetMapId("lpcamp", MAP_LandersPoint_Camp);
+
+    // @todo add 0 ent hex in maps
+    //SetMapId("lpfields", MAP_LandersPoint_Fields);
+    //SetMapId("lpcave", MAP_LandersPoint_Cave);
 }
 
 class CNPC
