@@ -21,12 +21,16 @@ ManualDump*.txt
 /Server/scripts/**/*.fosp
 /Server/cache_fail
 
-/Tools/WorldEditor/WorldEditor.user.cfg
-
 Server/extensions/Debug/
 Server/extensions/Release/
 Server/extensions/**/Debug/
 Server/extensions/**/Release/
+
+/Tools/WorldEditor/WorldEditor.user.cfg
+/Tools/FOCommon/obj
+/Tools/ScriptHost/obj
+/Tools/WorldEditor/obj
+
 .vs
 *.opensdf
 *.sdf
