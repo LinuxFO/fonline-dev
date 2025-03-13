@@ -2,8 +2,8 @@
 Version              4
 MaxHexX              163
 MaxHexY              144
-WorkHexX             50
-WorkHexY             62
+WorkHexX             92
+WorkHexY             64
 ScriptModule         map_hub
 ScriptFunc           map_init
 NoLogOut             0
@@ -10164,7 +10164,7 @@ MapY                 58
 MapObjType           2
 ProtoId              3853
 MapX                 70
-MapY                 70
+MapY                 69
 Scenery_ToEntire     1
 Scenery_ToDir        2
 
@@ -11490,13 +11490,6 @@ ScriptName           spawner_town
 FuncName             MakeSpawnerTown
 
 MapObjType           1
-ProtoId              180
-MapX                 93
-MapY                 73
-ScriptName           spawner_town
-FuncName             MakeSpawnerTown
-
-MapObjType           1
 ProtoId              204
 MapX                 95
 MapY                 67
@@ -12483,96 +12476,6 @@ MapY                 38
 MapObjType           2
 ProtoId              2067
 MapX                 99
-MapY                 39
-
-MapObjType           2
-ProtoId              2067
-MapX                 99
-MapY                 40
-
-MapObjType           2
-ProtoId              2067
-MapX                 100
-MapY                 40
-
-MapObjType           2
-ProtoId              2067
-MapX                 100
-MapY                 41
-
-MapObjType           2
-ProtoId              2067
-MapX                 100
-MapY                 42
-
-MapObjType           2
-ProtoId              2067
-MapX                 100
-MapY                 43
-
-MapObjType           2
-ProtoId              2067
-MapX                 100
-MapY                 44
-
-MapObjType           2
-ProtoId              2067
-MapX                 100
-MapY                 45
-
-MapObjType           2
-ProtoId              2067
-MapX                 100
-MapY                 46
-
-MapObjType           2
-ProtoId              2067
-MapX                 99
-MapY                 46
-
-MapObjType           2
-ProtoId              2067
-MapX                 98
-MapY                 46
-
-MapObjType           2
-ProtoId              2067
-MapX                 97
-MapY                 46
-
-MapObjType           2
-ProtoId              2067
-MapX                 97
-MapY                 45
-
-MapObjType           2
-ProtoId              2067
-MapX                 97
-MapY                 44
-
-MapObjType           2
-ProtoId              2067
-MapX                 97
-MapY                 43
-
-MapObjType           2
-ProtoId              2067
-MapX                 97
-MapY                 42
-
-MapObjType           2
-ProtoId              2067
-MapX                 97
-MapY                 41
-
-MapObjType           2
-ProtoId              2067
-MapX                 97
-MapY                 40
-
-MapObjType           2
-ProtoId              2067
-MapX                 98
 MapY                 39
 
 MapObjType           2
@@ -16543,11 +16446,6 @@ MapObjType           2
 ProtoId              5530
 MapX                 24
 MapY                 88
-
-MapObjType           2
-ProtoId              5526
-MapX                 19
-MapY                 89
 
 MapObjType           2
 ProtoId              5519
@@ -21525,12 +21423,12 @@ FuncName             MakeSpawnerTown
 MapObjType           1
 ProtoId              22304
 MapX                 67
-MapY                 70
+MapY                 71
 
 MapObjType           1
 ProtoId              22305
 MapX                 67
-MapY                 71
+MapY                 72
 
 MapObjType           2
 ProtoId              2067
@@ -21576,5 +21474,119 @@ MapObjType           2
 ProtoId              3853
 MapX                 122
 MapY                 54
+
+MapObjType           2
+ProtoId              5621
+MapX                 100
+MapY                 46
+
+MapObjType           2
+ProtoId              5621
+MapX                 100
+MapY                 45
+
+MapObjType           2
+ProtoId              5621
+MapX                 100
+MapY                 44
+
+MapObjType           2
+ProtoId              5621
+MapX                 100
+MapY                 43
+
+MapObjType           2
+ProtoId              5621
+MapX                 100
+MapY                 42
+
+MapObjType           2
+ProtoId              5621
+MapX                 100
+MapY                 41
+
+MapObjType           2
+ProtoId              5621
+MapX                 100
+MapY                 40
+
+MapObjType           2
+ProtoId              5621
+MapX                 99
+MapY                 40
+
+MapObjType           2
+ProtoId              5621
+MapX                 98
+MapY                 39
+
+MapObjType           2
+ProtoId              5621
+MapX                 97
+MapY                 40
+
+MapObjType           2
+ProtoId              5621
+MapX                 97
+MapY                 46
+
+MapObjType           2
+ProtoId              5621
+MapX                 98
+MapY                 46
+
+MapObjType           2
+ProtoId              5621
+MapX                 99
+MapY                 46
+
+MapObjType           2
+ProtoId              5621
+MapX                 97
+MapY                 44
+
+MapObjType           2
+ProtoId              5621
+MapX                 97
+MapY                 43
+
+MapObjType           2
+ProtoId              5621
+MapX                 97
+MapY                 42
+
+MapObjType           2
+ProtoId              5621
+MapX                 97
+MapY                 41
+
+MapObjType           2
+ProtoId              5621
+MapX                 97
+MapY                 45
+
+MapObjType           2
+ProtoId              2067
+MapX                 69
+MapY                 79
+
+MapObjType           2
+ProtoId              2067
+MapX                 67
+MapY                 81
+
+MapObjType           2
+ProtoId              3853
+MapX                 68
+MapY                 69
+Scenery_ToEntire     1
+Scenery_ToDir        2
+
+MapObjType           2
+ProtoId              3853
+MapX                 69
+MapY                 71
+Scenery_ToEntire     1
+Scenery_ToDir        2
 
 
