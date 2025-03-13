@@ -176,11 +176,28 @@
 #define BONUS_ARMOR_CARRY_WEIGHT				(122)
 #define BONUS_ARMOR_HEALING_RATE				(123)
 
+// Grid Types
+#define GRID_EXITGRID                            (1)
+#define GRID_STAIRS                              (2)
+#define GRID_LADDERBOT                           (3)
+#define GRID_LADDERTOP                           (4)
+#define GRID_ELEVATOR                            (5)
+
 #define CRIPPLED_EYE                             (0x00000001)
 #define CRIPPLED_RIGHT_ARM                       (0x00000002)
 #define CRIPPLED_LEFT_ARM                        (0x00000004)
 #define CRIPPLED_RIGHT_LEG                       (0x00000008)
 #define CRIPPLED_LEFT_LEG                        (0x00000010)
+
+// Damage types
+#define DAMAGE_UNCALLED                          (0)
+#define DAMAGE_NORMAL                            (1)
+#define DAMAGE_LASER                             (2)
+#define DAMAGE_FIRE                              (3)
+#define DAMAGE_PLASMA                            (4)
+#define DAMAGE_ELECTR                            (5)
+#define DAMAGE_EMP                               (6)
+#define DAMAGE_EXPLODE                           (7)
 
 // 2238-specific
 #define CRITTER_EVENT_EXT_MAP_IN                 (0)

@@ -1,0 +1,104 @@
+[comment]
+
+
+[data]
+lang=engl
+
+[dialog]
+&
+1 1000 None 0 #
+2 1010 @
+2 2000 None 0 #
+3 2010 D _var p z_jarokq = 3 @
+3 3000 None 0 #
+4 3010 @
+4 4000 None 0 #
+5 4010 @
+5 5000 None 0 #
+6 5010 @
+6 6000 None 0 #
+7 6010 @
+7 7000 None 0 #
+8 7010 @
+8 8000 None 0 #
+9 8010 @
+9 9000 None 0 #
+10 9010 @
+10 10000 None 0 #
+11 10010 @
+11 11000 None 0 #
+12 11010 #
+20 11020 @
+12 12000 None 0 #
+13 12010 @
+13 13000 None 0 #
+14 13010 @
+14 14000 None 0 #
+15 14010 @
+15 15000 None 0 #
+16 15010 @
+16 16000 None 0 #
+17 16010 @
+17 17000 None 0 #
+18 17010 @
+18 18000 None 0 #
+19 18010 @
+19 19000 None 0 #
+0 19010 R _var p z_jarokq = 4 R _script dialog@r_TeleportToMap 2 70 0 @
+20 20000 None 0 #
+21 20010 @
+21 21000 None 0 #
+22 21010 @
+22 22000 None 0 #
+0 22010 R _var p z_jarokq = 5 R _script dialog@r_TeleportToMap 2 70 0 &
+
+[engl]
+{100}{}{Trap Man}
+{200}{}{You see Trap Man.}
+{210}{}{The vile piece of shit himself.}
+{1000}{}{Predialogue installations}
+{1010}{}{Answer text}
+{2000}{}{Who in the fuck are you?!}
+{2010}{}{Jeff sent me. He got his Jet. }
+{3000}{}{Who the fuck is Jeff?!}
+{3010}{}{Some ass hat.}
+{4000}{}{[He laughs!] Yeah! You got that right! Sending me fresh meat without a leash! }
+{4010}{}{Who's the kid?}
+{5000}{}{Which one? Heh...}
+{5010}{}{The girl. }
+{6000}{}{Why? You like what you see?}
+{6010}{}{Maybe.}
+{7000}{}{You got caps?}
+{7010}{}{Yeah.}
+{8000}{}{You wanna spend some time... *alone*... with her?}
+{8010}{}{Actually, I'm here to bring her back to her father.}
+{9000}{}{[He looks put off by your statement] Wha--!!}
+{9010}{}{[Walk over to the door and lock it]}
+{10000}{}{What the fuck do you think you're doing?!}
+{10010}{}{Having some fun. You ever skull fucked somebody before?}
+{11000}{}{[Trap Man isn't quite sure what is going to happen next, and neither are you. What's your plan of action?]}
+{11010}{}{[Kill Trap Man, rescue the children, and burn the farm to the ground]}
+{11020}{}{[Join Trap Man in his nefarious activities]}
+{12000}{}{[You run over to Trap Man and begin torturing him in the name of Lady Justice. After a few moments of inflicting pain , he lies before you, helpless, begging, screaming, and crying]}
+{12010}{}{[Lean over, look deep into his eyes and cut off his head while he is still alive] I hope you don't die too quick.}
+{13000}{}{[Gurgle!]}
+{13010}{}{[Start sawing]}
+{14000}{}{[Trap Man is twitching like crazy as blood begins to pool everywhere!]}
+{14010}{}{[Keep sawing]}
+{15000}{}{[Trap Man's legs begin to shake and twitch! You are covered in blood!]}
+{15010}{}{[Sever the bone in his neck] Just... a little... bit... more!}
+{16000}{}{[The head of the infamous child rapist Trap Man falls and rolls around the floor! A large trail of blood follows!]}
+{16010}{}{[You are drenched in blood!] }
+{17000}{}{[Sandy is mortified and is sitting in the corner half naked, crying! You walk up to her drenched in Trap Man's blood!]}
+{17010}{}{I'm... sorry... you had to see that, hun. But he was a bad man, and he got what was coming to him. I'm not proud of what I've done, and probably never will be. But at least... and the end of the day... you kids are safe.}
+{18000}{}{[Sandy struggles to wipe her tears away] Did... my daddy send you?}
+{18010}{}{Yes, Sandy, William sent me to find you. Come on, I'm taking you back home to Junktown. }
+{19000}{}{[You take Sandy by the hand and help her get dressed. After searching the farm for any remaining children, you and the survivors return to Junktown. You pick up Trap Man's head and bring it with you]}
+{19010}{}{[Travel to Junktown covered in the blood of your enemies]}
+{20000}{}{[You and Trap Man begin a drunken, drugged up, and deranged spree of rape and murder. You spend hours performing sick, and cruel acts against the children!]}
+{20010}{}{[Several hours pass]}
+{21000}{}{Shit. I've never seen brains get fucked out like that before! You're a goddamn fucking champion at this! Where'd you learn to fuck so hard?!}
+{21010}{}{Oh, I've got my secrets! Heh. }
+{22000}{}{Me too! Let's never talk about this again! I've got a little something something for you though! As a... souvenir! Here, take it! I've gotta scram! Before anybody finds out just what the fuck we did here!}
+{22010}{}{[Leave this place behind]}
+

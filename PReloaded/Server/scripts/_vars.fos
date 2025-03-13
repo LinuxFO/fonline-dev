@@ -122,6 +122,7 @@
 #define LVAR_q_hub_wasteland_band (7009)
 #define LVAR_q_spawn_hub (7032)
 #define LVAR_q_spawn_hub_water (7034)
+#define LVAR_q_la_waterpump (7042)
 #define LVAR_free_slave (7053)
 #define LVAR_q_iguana_pete_message (7070)
 #define LVAR_q_iguana_pete_ban (7071)
@@ -130,15 +131,25 @@
 #define LVAR_q_bos_initiatequest_start (7074)
 #define LVAR_faction_farmer (7085)
 #define LVAR_hub_job_waterboy (7109)
+#define LVAR_q_la_gunrunners_caravan (7112)
+#define LVAR_q_la_gunrunners_caravan_locid (7113)
+#define LVAR_q_la_gunrunners_team (7114)
+#define LVAR_q_la_gunrunners_box (7115)
 #define LVAR_ncr_gold_exchange (7119)
 #define LVAR_q_hub_watertaxes (7120)
+#define LVAR_q_la_library_book (7121)
 #define LVAR_q_jt_power_house_handy (7124)
 #define LVAR_q_jt_power_house_handy_talk (7125)
 #define LVAR_q_hub_gunrunner_supplies (7128)
 #define LVAR_q_hub_gunrunner_supplies_deal (7129)
 #define LVAR_q_hub_gunrunner_supplies_parts (7130)
+#define LVAR_q_la_gunrunners_facility_access (7136)
+#define LVAR_q_la_gunrunners_facility_inside (7137)
+#define LVAR_q_la_gunr_courier (7147)
 #define LVAR_q_la_gunr_courier (7147)
 #define LVAR_q_la_gunr_courier_reward (7148)
+#define LVAR_q_la_gunr_courier_reward (7148)
+#define LVAR_q_la_junk_merchant (7150)
 #define LVAR_q_nr_corsican_tattoo (7301)
 #define LVAR_q_first_tent (7322)
 #define LVAR_q_first_tent_loc1_id (7323)
@@ -362,20 +373,24 @@
 #define LVAR_camp_evil (16294)
 #define LVAR_q_packages (16298)
 #define LVAR_z_bookman (16332)
+#define LVAR_z_jarokq (16372)
+#define LVAR_jarokfarm_locid (16373)
+#define LVAR_jarokbar_locid (16374)
 #define LVAR_z_warrior2 (16378)
 #define LVAR_z_dailyq1 (16383)
-#define LVAR_z_dailyq1 (16383)
-#define LVAR_z_dailyq1_locid (16384)
 #define LVAR_z_dailyq1_locid (16384)
 #define LVAR_z_dailyq2_locid (16385)
 #define LVAR_z_dailyq3_locid (16386)
 #define LVAR_z_dailyq4_locid (16387)
 #define LVAR_z_dailyq1timeout (16388)
-#define LVAR_z_dailyq1timeout (16388)
 #define LVAR_z_dailyq5_locid (16389)
 #define LVAR_z_dailyq6_locid (16390)
 #define LVAR_z_dailyq7_locid (16391)
 #define LVAR_z_dailyq8_locid (16392)
+#define LVAR_z_ladungeon (16395)
+#define LVAR_z_ladungeonspn_locid (16396)
+#define LVAR_z_ladungeoncity (16397)
+#define LVAR_z_ladungeonspncity_locid (16398)
 #define UVAR_q_rq_fetcher_status (20000)
 #define UVAR_q_rq_fetcher_pid (20001)
 #define UVAR_q_rq_fetcher_count (20002)
@@ -2813,6 +2828,94 @@ pool score yours
 $ 16235 1 q_pool2 0 0 25 1
 **********
 pool score opponents  
+**********
+
+$ 16372 1 z_jarokq 0 0 100 4
+**********
+var for jaroks quest
+**********
+
+$ 16373 1 jarokfarm_locid 0 0 13 4
+**********
+Location id of jarok farm for j quest   
+**********
+
+$ 16374 1 jarokbar_locid 0 0 13 4
+**********
+Location id of jarok bar for j quest   
+**********
+
+$ 7112 1 q_la_gunrunners_caravan 0 0 8 1
+**********
+quest variable for caravan robbery.
+0 == Inactive
+1 == Active
+2 == Squad together
+3 == Box given to Gun Runners
+4 == Box given to BoS
+5 == Box given to Khans
+6 == Mutants left their base, box can't be obtained now.
+7 == The box is lost.
+8 == If box given to Gun Runners, reward at Ralph chosen.
+**********
+
+$ 7113 1 q_la_gunrunners_caravan_locid 0 0 0 4
+**********
+**********
+
+$ 16395 1 z_ladungeon 0 0 100 5
+**********
+var for la gold reserve
+**********
+
+$ 16396 1 z_ladungeonspn_locid 0 0 13 4
+**********
+Location id of la gold reserve
+**********
+
+$ 16397 1 z_ladungeoncity 0 0 100 5
+**********
+var for la city 1 spawner
+**********
+
+$ 16398 1 z_ladungeonspncity_locid 0 0 13 4
+**********
+Location id of la city 1
+**********
+
+$ 7136 1 q_la_gunrunners_facility_access 0 0 2 0
+**********
+0 == not allowed to enter gun runner facility
+1 == allowed
+2 == second talk
+**********
+
+$ 7137 1 q_la_gunrunners_facility_inside 0 0 1 0
+**********
+0 == outside
+1 == inside
+**********
+
+$ 7149 1 perk_junk_merchant 0 0 1 0
+**********
+**********
+
+$ 7121 1 q_la_library_book 0 0 3 0
+**********
+quest var for mini quest.
+**********
+
+$ 7115 1 q_la_gunrunners_box 0 0 1 0
+**********
+**********
+
+$ 7150 1 q_la_junk_merchant 0 0 10 0
+**********
+**********
+
+$ 7042 1 q_la_waterpump 0 0 5 1
+**********
+This variable is for "fix water pump!" in boneyard.
 **********
 
 **********/

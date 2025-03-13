@@ -623,19 +623,19 @@ tile       54   38             art\tiles\cav4008.frm
 tile       56   38             art\tiles\cav4010.frm
 tile       58   38             art\tiles\cav4009.frm
 tile       60   38             art\tiles\cav4011.frm
-tile_l     62   38           3 art\tiles\cav3004.frm
-tile_l     64   38           3 art\tiles\cav4007.frm
-tile_l     66   38           3 art\tiles\cav4001.frm
-tile_l     68   38           3 art\tiles\cav4004.frm
+tile       62   38             art\tiles\cav3004.frm
+tile       64   38             art\tiles\cav4007.frm
+tile       66   38             art\tiles\cav4001.frm
+tile       68   38             art\tiles\cav4004.frm
 tile       70   38             art\tiles\cav1001.frm
 tile       72   38             art\tiles\cav1001.frm
 tile       74   38             art\tiles\cav1001.frm
 tile       76   38             art\tiles\cav1001.frm
 tile       78   38             art\tiles\cav3004.frm
-tile_l     80   38           3 art\tiles\cav3000.frm
+tile       80   38             art\tiles\cav3000.frm
 tile       82   38             art\tiles\cav1000.frm
 tile       84   38             art\tiles\cav1000.frm
-tile_l     86   38           3 art\tiles\cav3004.frm
+tile       86   38             art\tiles\cav3004.frm
 tile       88   38             art\tiles\cav4008.frm
 tile       90   38             art\tiles\cav4010.frm
 tile       92   38             art\tiles\cav4009.frm
@@ -676,19 +676,19 @@ tile       54   40             art\tiles\cav4011.frm
 tile       56   40             art\tiles\cav4010.frm
 tile       58   40             art\tiles\cav4009.frm
 tile       60   40             art\tiles\cav4011.frm
-tile_l     62   40           3 art\tiles\cav4005.frm
-tile_l     64   40           3 art\tiles\cav4000.frm
-tile_l     66   40           3 art\tiles\cav4000.frm
-tile_l     68   40           3 art\tiles\cav3000.frm
+tile       62   40             art\tiles\cav4005.frm
+tile       64   40             art\tiles\cav4000.frm
+tile       66   40             art\tiles\cav4000.frm
+tile       68   40             art\tiles\cav3000.frm
 tile       70   40             art\tiles\cav1003.frm
 tile       72   40             art\tiles\cav1003.frm
 tile       74   40             art\tiles\cav1003.frm
 tile       76   40             art\tiles\cav1003.frm
 tile       78   40             art\tiles\cav3005.frm
-tile_l     80   40           3 art\tiles\cav3001.frm
+tile       80   40             art\tiles\cav3001.frm
 tile       82   40             art\tiles\cav1003.frm
 tile       84   40             art\tiles\cav1001.frm
-tile_l     86   40           3 art\tiles\cav3004.frm
+tile       86   40             art\tiles\cav3004.frm
 tile       88   40             art\tiles\cav4008.frm
 tile       90   40             art\tiles\cav4010.frm
 tile       92   40             art\tiles\cav4008.frm
@@ -731,18 +731,18 @@ tile       56   42             art\tiles\cav4011.frm
 tile       58   42             art\tiles\cav4009.frm
 tile       60   42             art\tiles\cav4009.frm
 tile       62   42             art\tiles\cav1003.frm
-tile_l     64   42           3 art\tiles\cav3004.frm
-tile_l     66   42           3 art\tiles\cav4000.frm
-tile_l     68   42           3 art\tiles\cav3001.frm
+tile       64   42             art\tiles\cav3004.frm
+tile       66   42             art\tiles\cav4000.frm
+tile       68   42             art\tiles\cav3001.frm
 tile       70   42             art\tiles\cav1000.frm
-tile_l     72   42           3 art\tiles\cav4004.frm
+tile       72   42             art\tiles\cav4004.frm
 tile       74   42             art\tiles\cav1000.frm
 tile       76   42             art\tiles\cav1000.frm
 tile       78   42             art\tiles\cav3004.frm
-tile_l     80   42           3 art\tiles\cav3000.frm
+tile       80   42             art\tiles\cav3000.frm
 tile       82   42             art\tiles\cav1001.frm
 tile       84   42             art\tiles\cav1003.frm
-tile_l     86   42           3 art\tiles\cav3005.frm
+tile       86   42             art\tiles\cav3005.frm
 tile       88   42             art\tiles\cav4009.frm
 tile       90   42             art\tiles\cav4009.frm
 tile       92   42             art\tiles\cav4010.frm
@@ -789,15 +789,15 @@ tile       62   44             art\tiles\cav4011.frm
 tile       64   44             art\tiles\cav4009.frm
 tile       66   44             art\tiles\cav4011.frm
 tile       68   44             art\tiles\cav4011.frm
-tile_l     70   44           3 art\tiles\cav4000.frm
-tile_l     72   44           3 art\tiles\cav3001.frm
+tile       70   44             art\tiles\cav4000.frm
+tile       72   44             art\tiles\cav3001.frm
 tile       74   44             art\tiles\cav3005.frm
 tile       76   44             art\tiles\cav4003.frm
-tile_l     78   44           3 art\tiles\cav4000.frm
-tile_l     80   44           3 art\tiles\cav3001.frm
+tile       78   44             art\tiles\cav4000.frm
+tile       80   44             art\tiles\cav3001.frm
 tile       82   44             art\tiles\cav1000.frm
 tile       84   44             art\tiles\cav1000.frm
-tile_l     86   44           3 art\tiles\cav3004.frm
+tile       86   44             art\tiles\cav3004.frm
 tile       88   44             art\tiles\cav4008.frm
 tile       90   44             art\tiles\cav4010.frm
 tile       92   44             art\tiles\cav4009.frm
@@ -843,15 +843,15 @@ tile       62   46             art\tiles\cav4011.frm
 tile       64   46             art\tiles\cav4010.frm
 tile       66   46             art\tiles\cav4009.frm
 tile       68   46             art\tiles\cav4011.frm
-tile_l     70   46           3 art\tiles\cav4000.frm
-tile_l     72   46           3 art\tiles\cav3000.frm
+tile       70   46             art\tiles\cav4000.frm
+tile       72   46             art\tiles\cav3000.frm
 tile       74   46             art\tiles\cav3004.frm
 tile       76   46             art\tiles\cav4000.frm
-tile_l     78   46           3 art\tiles\cav3003.frm
-tile_l     80   46           3 art\tiles\cav4006.frm
+tile       78   46             art\tiles\cav3003.frm
+tile       80   46             art\tiles\cav4006.frm
 tile       82   46             art\tiles\cav1001.frm
 tile       84   46             art\tiles\cav1000.frm
-tile_l     86   46           3 art\tiles\cav3005.frm
+tile       86   46             art\tiles\cav3005.frm
 tile       88   46             art\tiles\cav4008.frm
 tile       90   46             art\tiles\cav4010.frm
 tile       92   46             art\tiles\cav4008.frm
@@ -898,15 +898,15 @@ tile       62   48             art\tiles\cav4009.frm
 tile       64   48             art\tiles\cav4011.frm
 tile       66   48             art\tiles\cav4009.frm
 tile       68   48             art\tiles\cav4009.frm
-tile_l     70   48           3 art\tiles\cav3001.frm
-tile_l     72   48           3 art\tiles\cav4004.frm
+tile       70   48             art\tiles\cav3001.frm
+tile       72   48             art\tiles\cav4004.frm
 tile       74   48             art\tiles\cav1001.frm
-tile_l     76   48           3 art\tiles\cav3005.frm
-tile_l     78   48           3 art\tiles\cav4000.frm
-tile_l     80   48           3 art\tiles\cav4001.frm
+tile       76   48             art\tiles\cav3005.frm
+tile       78   48             art\tiles\cav4000.frm
+tile       80   48             art\tiles\cav4001.frm
 tile       82   48             art\tiles\cav1003.frm
 tile       84   48             art\tiles\cav1000.frm
-tile_l     86   48           3 art\tiles\cav3004.frm
+tile       86   48             art\tiles\cav3004.frm
 tile       88   48             art\tiles\cav4009.frm
 tile       90   48             art\tiles\cav4009.frm
 tile       92   48             art\tiles\cav4010.frm
@@ -953,15 +953,15 @@ tile       62   50             art\tiles\cav4011.frm
 tile       64   50             art\tiles\cav4009.frm
 tile       66   50             art\tiles\cav4011.frm
 tile       68   50             art\tiles\cav4011.frm
-tile_l     70   50           3 art\tiles\cav4000.frm
-tile_l     72   50           3 art\tiles\cav3000.frm
+tile       70   50             art\tiles\cav4000.frm
+tile       72   50             art\tiles\cav3000.frm
 tile       74   50             art\tiles\cav1000.frm
-tile_l     76   50           3 art\tiles\cav3005.frm
-tile_l     78   50           3 art\tiles\cav4000.frm
-tile_l     80   50           3 art\tiles\cav4003.frm
-tile_l     82   50           3 art\tiles\cav3001.frm
-tile_l     84   50           3 art\tiles\cav4007.frm
-tile_l     86   50           3 art\tiles\cav3005.frm
+tile       76   50             art\tiles\cav3005.frm
+tile       78   50             art\tiles\cav4000.frm
+tile       80   50             art\tiles\cav4003.frm
+tile       82   50             art\tiles\cav3001.frm
+tile       84   50             art\tiles\cav4007.frm
+tile       86   50             art\tiles\cav3005.frm
 tile       88   50             art\tiles\cav4008.frm
 tile       90   50             art\tiles\cav4010.frm
 tile       92   50             art\tiles\cav4009.frm
@@ -1007,15 +1007,15 @@ tile       62   52             art\tiles\cav4011.frm
 tile       64   52             art\tiles\cav4010.frm
 tile       66   52             art\tiles\cav4009.frm
 tile       68   52             art\tiles\cav4011.frm
-tile_l     70   52           3 art\tiles\cav4003.frm
-tile_l     72   52           3 art\tiles\cav3001.frm
-tile_l     74   52           3 art\tiles\cav1001.frm
-tile_l     76   52           3 art\tiles\cav4005.frm
-tile_l     78   52           3 art\tiles\cav3003.frm
-tile_l     80   52           3 art\tiles\cav3002.frm
+tile       70   52             art\tiles\cav4003.frm
+tile       72   52             art\tiles\cav3001.frm
+tile       74   52             art\tiles\cav1001.frm
+tile       76   52             art\tiles\cav4005.frm
+tile       78   52             art\tiles\cav3003.frm
+tile       80   52             art\tiles\cav3002.frm
 tile       82   52             art\tiles\cav1000.frm
-tile_l     84   52           3 art\tiles\cav3005.frm
-tile_l     86   52           3 art\tiles\cav4000.frm
+tile       84   52             art\tiles\cav3005.frm
+tile       86   52             art\tiles\cav4000.frm
 tile       88   52             art\tiles\cav4008.frm
 tile       90   52             art\tiles\cav4010.frm
 tile       92   52             art\tiles\cav4008.frm
@@ -1062,15 +1062,15 @@ tile       62   54             art\tiles\cav4009.frm
 tile       64   54             art\tiles\cav4011.frm
 tile       66   54             art\tiles\cav4009.frm
 tile       68   54             art\tiles\cav4009.frm
-tile_l     70   54           3 art\tiles\cav4000.frm
-tile_l     72   54           3 art\tiles\cav3000.frm
-tile_l     74   54           3 art\tiles\cav1001.frm
-tile_l     76   54           3 art\tiles\cav4007.frm
-tile_l     78   54           3 art\tiles\cav4002.frm
-tile_l     80   54           3 art\tiles\cav4004.frm
-tile_l     82   54           3 art\tiles\cav3004.frm
-tile_l     84   54           3 art\tiles\cav4003.frm
-tile_l     86   54           3 art\tiles\cav4000.frm
+tile       70   54             art\tiles\cav4000.frm
+tile       72   54             art\tiles\cav3000.frm
+tile       74   54             art\tiles\cav1001.frm
+tile       76   54             art\tiles\cav4007.frm
+tile       78   54             art\tiles\cav4002.frm
+tile       80   54             art\tiles\cav4004.frm
+tile       82   54             art\tiles\cav3004.frm
+tile       84   54             art\tiles\cav4003.frm
+tile       86   54             art\tiles\cav4000.frm
 tile       88   54             art\tiles\cav4009.frm
 tile       90   54             art\tiles\cav4009.frm
 tile       92   54             art\tiles\cav4010.frm
@@ -1117,15 +1117,15 @@ tile       62   56             art\tiles\cav4011.frm
 tile       64   56             art\tiles\cav4009.frm
 tile       66   56             art\tiles\cav4011.frm
 tile       68   56             art\tiles\cav4011.frm
-tile_l     70   56           3 art\tiles\cav4000.frm
-tile_l     72   56           3 art\tiles\cav4006.frm
-tile_l     74   56           3 art\tiles\cav4007.frm
-tile_l     76   56           3 art\tiles\cav4003.frm
-tile_l     78   56           3 art\tiles\cav4000.frm
-tile_l     80   56           3 art\tiles\cav3001.frm
-tile_l     82   56           3 art\tiles\cav4005.frm
-tile_l     84   56           3 art\tiles\cav3002.frm
-tile_l     86   56           3 art\tiles\cav3004.frm
+tile       70   56             art\tiles\cav4000.frm
+tile       72   56             art\tiles\cav4006.frm
+tile       74   56             art\tiles\cav4007.frm
+tile       76   56             art\tiles\cav4003.frm
+tile       78   56             art\tiles\cav4000.frm
+tile       80   56             art\tiles\cav3001.frm
+tile       82   56             art\tiles\cav4005.frm
+tile       84   56             art\tiles\cav3002.frm
+tile       86   56             art\tiles\cav3004.frm
 tile       88   56             art\tiles\cav4008.frm
 tile       90   56             art\tiles\cav4010.frm
 tile       92   56             art\tiles\cav4009.frm
@@ -1166,20 +1166,20 @@ tile       52   58             art\tiles\cav4009.frm
 tile       54   58             art\tiles\cav4008.frm
 tile       56   58             art\tiles\cav4010.frm
 tile       58   58             art\tiles\cav4009.frm
-tile_l     60   58           3 art\tiles\cav4000.frm
-tile_l     62   58           3 art\tiles\cav3002.frm
-tile_l     64   58           3 art\tiles\cav3003.frm
-tile_l     66   58           3 art\tiles\cav3002.frm
-tile_l     68   58           3 art\tiles\cav3003.frm
-tile_l     70   58           3 art\tiles\cav4006.frm
+tile       60   58             art\tiles\cav4000.frm
+tile       62   58             art\tiles\cav3002.frm
+tile       64   58             art\tiles\cav3003.frm
+tile       66   58             art\tiles\cav3002.frm
+tile       68   58             art\tiles\cav3003.frm
+tile       70   58             art\tiles\cav4006.frm
 tile       72   58             art\tiles\cav1000.frm
-tile_l     74   58           3 art\tiles\cav4005.frm
-tile_l     76   58           3 art\tiles\cav3003.frm
-tile_l     78   58           3 art\tiles\cav3002.frm
-tile_l     80   58           3 art\tiles\cav4006.frm
+tile       74   58             art\tiles\cav4005.frm
+tile       76   58             art\tiles\cav3003.frm
+tile       78   58             art\tiles\cav3002.frm
+tile       80   58             art\tiles\cav4006.frm
 tile       82   58             art\tiles\cav1000.frm
 tile       84   58             art\tiles\cav1000.frm
-tile_l     86   58           3 art\tiles\cav3005.frm
+tile       86   58             art\tiles\cav3005.frm
 tile       88   58             art\tiles\cav4008.frm
 tile       90   58             art\tiles\cav4010.frm
 tile       92   58             art\tiles\cav4009.frm
@@ -1221,20 +1221,20 @@ tile       52   60             art\tiles\cav4009.frm
 tile       54   60             art\tiles\cav4008.frm
 tile       56   60             art\tiles\cav4010.frm
 tile       58   60             art\tiles\cav4008.frm
-tile_l     60   60           3 art\tiles\cav3001.frm
+tile       60   60             art\tiles\cav3001.frm
 tile       62   60             art\tiles\cav1003.frm
 tile       64   60             art\tiles\cav1001.frm
 tile       66   60             art\tiles\cav1000.frm
-tile_l     68   60           3 art\tiles\cav2001.frm
-tile_l     70   60           3 art\tiles\cav2000.frm
+tile       68   60             art\tiles\cav2001.frm
+tile       70   60             art\tiles\cav2000.frm
 tile       72   60             art\tiles\cav1000.frm
-tile_l     74   60           3 art\tiles\cav1001.frm
-tile_l     76   60           2 art\tiles\cav1000.frm
-tile_l     78   60           2 art\tiles\cav1000.frm
+tile       74   60             art\tiles\cav1001.frm
+tile       76   60             art\tiles\cav1000.frm
+tile       78   60             art\tiles\cav1000.frm
 tile       80   60             art\tiles\cav1000.frm
-tile_l     82   60           2 art\tiles\cav4001.frm
-tile_l     84   60           2 art\tiles\cav4001.frm
-tile_l     86   60           2 art\tiles\cav4000.frm
+tile       82   60             art\tiles\cav4001.frm
+tile       84   60             art\tiles\cav4001.frm
+tile       86   60             art\tiles\cav4000.frm
 tile       88   60             art\tiles\cav4008.frm
 tile       90   60             art\tiles\cav4010.frm
 tile       92   60             art\tiles\cav4008.frm
@@ -1276,20 +1276,20 @@ tile       52   62             art\tiles\cav4009.frm
 tile       54   62             art\tiles\cav4009.frm
 tile       56   62             art\tiles\cav4009.frm
 tile       58   62             art\tiles\cav4010.frm
-tile_l     60   62           3 art\tiles\cav3000.frm
+tile       60   62             art\tiles\cav3000.frm
 tile       62   62             art\tiles\cav1001.frm
 tile       64   62             art\tiles\cav1000.frm
 tile       66   62             art\tiles\cav1000.frm
-tile_l     68   62           3 art\tiles\cav1009.frm
-tile_l     70   62           3 art\tiles\cav1008.frm
+tile       68   62             art\tiles\cav1009.frm
+tile       70   62             art\tiles\cav1008.frm
 tile       72   62             art\tiles\cav1000.frm
-tile_l     74   62           2 art\tiles\cav1002.frm
-tile_l     76   62           2 art\tiles\cav1002.frm
-tile_l     78   62           2 art\tiles\cav1001.frm
-tile_l     80   62           2 art\tiles\cav3005.frm
-tile_l     82   62           2 art\tiles\cav4000.frm
-tile_l     84   62           2 art\tiles\cav4000.frm
-tile_l     86   62           2 art\tiles\cav4000.frm
+tile       74   62             art\tiles\cav1002.frm
+tile       76   62             art\tiles\cav1002.frm
+tile       78   62             art\tiles\cav1001.frm
+tile       80   62             art\tiles\cav3005.frm
+tile       82   62             art\tiles\cav4000.frm
+tile       84   62             art\tiles\cav4000.frm
+tile       86   62             art\tiles\cav4000.frm
 tile       88   62             art\tiles\cav4009.frm
 tile       90   62             art\tiles\cav4009.frm
 tile       92   62             art\tiles\cav4010.frm
@@ -1297,11 +1297,11 @@ tile       94   62             art\tiles\cav4009.frm
 tile       96   62             art\tiles\cav4011.frm
 tile       98   62             art\tiles\cav4009.frm
 tile       100  62             art\tiles\cav4009.frm
-tile_l     102  62           3 art\tiles\cav3003.frm
-tile_l     104  62           3 art\tiles\cav3002.frm
-tile_l     106  62           3 art\tiles\cav3003.frm
-tile_l     108  62           3 art\tiles\cav4000.frm
-tile_l     110  62           3 art\tiles\cav4008.frm
+tile       102  62             art\tiles\cav3003.frm
+tile       104  62             art\tiles\cav3002.frm
+tile       106  62             art\tiles\cav3003.frm
+tile       108  62             art\tiles\cav4000.frm
+tile       110  62             art\tiles\cav4008.frm
 tile       112  62             art\tiles\cav4009.frm
 tile       114  62             art\tiles\cav4009.frm
 tile       116  62             art\tiles\cav4011.frm
@@ -1330,32 +1330,32 @@ tile       52   64             art\tiles\cav4011.frm
 tile       54   64             art\tiles\cav4008.frm
 tile       56   64             art\tiles\cav4010.frm
 tile       58   64             art\tiles\cav4009.frm
-tile_l     60   64           3 art\tiles\cav3001.frm
+tile       60   64             art\tiles\cav3001.frm
 tile       62   64             art\tiles\cav1000.frm
-tile_l     64   64           3 art\tiles\cav3004.frm
-tile_l     66   64           3 art\tiles\cav4007.frm
-tile_l     68   64           3 art\tiles\cav4001.frm
-tile_l     70   64           3 art\tiles\cav4004.frm
+tile       64   64             art\tiles\cav3004.frm
+tile       66   64             art\tiles\cav4007.frm
+tile       68   64             art\tiles\cav4001.frm
+tile       70   64             art\tiles\cav4004.frm
 tile       72   64             art\tiles\cav1000.frm
-tile_l     74   64           2 art\tiles\cav1003.frm
-tile_l     76   64           2 art\tiles\cav1002.frm
-tile_l     78   64           2 art\tiles\cav4007.frm
-tile_l     80   64           2 art\tiles\cav4003.frm
-tile_l     82   64           2 art\tiles\cav4000.frm
-tile_l     84   64           2 art\tiles\cav4000.frm
-tile_l     86   64           2 art\tiles\cav4000.frm
+tile       74   64             art\tiles\cav1003.frm
+tile       76   64             art\tiles\cav1002.frm
+tile       78   64             art\tiles\cav4007.frm
+tile       80   64             art\tiles\cav4003.frm
+tile       82   64             art\tiles\cav4000.frm
+tile       84   64             art\tiles\cav4000.frm
+tile       86   64             art\tiles\cav4000.frm
 tile       88   64             art\tiles\cav4008.frm
 tile       90   64             art\tiles\cav4010.frm
 tile       92   64             art\tiles\cav4009.frm
 tile       94   64             art\tiles\cav4011.frm
-tile_l     96   64           3 art\tiles\cav4000.frm
-tile_l     98   64           3 art\tiles\cav4000.frm
-tile_l     100  64           3 art\tiles\cav4000.frm
-tile_l     102  64           3 art\tiles\cav3001.frm
-tile_l     104  64           3 art\tiles\cav4001.frm
-tile_l     106  64           3 art\tiles\cav4004.frm
-tile_l     108  64           3 art\tiles\cav3002.frm
-tile_l     110  64           3 art\tiles\cav4000.frm
+tile       96   64             art\tiles\cav4000.frm
+tile       98   64             art\tiles\cav4000.frm
+tile       100  64             art\tiles\cav4000.frm
+tile       102  64             art\tiles\cav3001.frm
+tile       104  64             art\tiles\cav4001.frm
+tile       106  64             art\tiles\cav4004.frm
+tile       108  64             art\tiles\cav3002.frm
+tile       110  64             art\tiles\cav4000.frm
 tile       112  64             art\tiles\cav4011.frm
 tile       114  64             art\tiles\cav4011.frm
 tile       116  64             art\tiles\cav4009.frm
@@ -1385,32 +1385,32 @@ tile       52   66             art\tiles\cav4009.frm
 tile       54   66             art\tiles\cav4008.frm
 tile       56   66             art\tiles\cav4010.frm
 tile       58   66             art\tiles\cav4008.frm
-tile_l     60   66           3 art\tiles\cav3000.frm
+tile       60   66             art\tiles\cav3000.frm
 tile       62   66             art\tiles\cav1001.frm
-tile_l     64   66           3 art\tiles\cav4005.frm
-tile_l     66   66           3 art\tiles\cav4000.frm
-tile_l     68   66           3 art\tiles\cav4000.frm
-tile_l     70   66           3 art\tiles\cav3000.frm
+tile       64   66             art\tiles\cav4005.frm
+tile       66   66             art\tiles\cav4000.frm
+tile       68   66             art\tiles\cav4000.frm
+tile       70   66             art\tiles\cav3000.frm
 tile       72   66             art\tiles\cav1000.frm
-tile_l     74   66           2 art\tiles\cav2001.frm
-tile_l     76   66           2 art\tiles\cav2000.frm
-tile_l     78   66           2 art\tiles\cav3005.frm
-tile_l     80   66           2 art\tiles\cav4000.frm
-tile_l     82   66           2 art\tiles\cav4000.frm
+tile       74   66             art\tiles\cav2001.frm
+tile       76   66             art\tiles\cav2000.frm
+tile       78   66             art\tiles\cav3005.frm
+tile       80   66             art\tiles\cav4000.frm
+tile       82   66             art\tiles\cav4000.frm
 tile       84   66             art\tiles\cav1000.frm
 tile       86   66             art\tiles\cav1000.frm
-tile_l     88   66           2 art\tiles\cav4000.frm
-tile_l     90   66           2 art\tiles\cav3002.frm
+tile       88   66             art\tiles\cav4000.frm
+tile       90   66             art\tiles\cav3002.frm
 tile       92   66             art\tiles\cav3003.frm
-tile_l     94   66           3 art\tiles\cav3002.frm
-tile_l     96   66           3 art\tiles\cav3003.frm
-tile_l     98   66           3 art\tiles\cav3002.frm
-tile_l     100  66           3 art\tiles\cav3003.frm
-tile_l     102  66           3 art\tiles\cav3002.frm
-tile_l     104  66           3 art\tiles\cav4000.frm
-tile_l     106  66           3 art\tiles\cav3001.frm
-tile_l     108  66           3 art\tiles\cav3005.frm
-tile_l     110  66           3 art\tiles\cav4000.frm
+tile       94   66             art\tiles\cav3002.frm
+tile       96   66             art\tiles\cav3003.frm
+tile       98   66             art\tiles\cav3002.frm
+tile       100  66             art\tiles\cav3003.frm
+tile       102  66             art\tiles\cav3002.frm
+tile       104  66             art\tiles\cav4000.frm
+tile       106  66             art\tiles\cav3001.frm
+tile       108  66             art\tiles\cav3005.frm
+tile       110  66             art\tiles\cav4000.frm
 tile       112  66             art\tiles\cav4008.frm
 tile       114  66             art\tiles\cav4011.frm
 tile       116  66             art\tiles\cav4010.frm
@@ -1440,32 +1440,32 @@ tile       52   68             art\tiles\cav4009.frm
 tile       54   68             art\tiles\cav4008.frm
 tile       56   68             art\tiles\cav4010.frm
 tile       58   68             art\tiles\cav4008.frm
-tile_l     60   68           3 art\tiles\cav3001.frm
-tile_l     62   68           3 art\tiles\cav3001.frm
+tile       60   68             art\tiles\cav3001.frm
+tile       62   68             art\tiles\cav3001.frm
 tile       64   68             art\tiles\cav1003.frm
-tile_l     66   68           3 art\tiles\cav3004.frm
-tile_l     68   68           3 art\tiles\cav4000.frm
-tile_l     70   68           3 art\tiles\cav3001.frm
+tile       66   68             art\tiles\cav3004.frm
+tile       68   68             art\tiles\cav4000.frm
+tile       70   68             art\tiles\cav3001.frm
 tile       72   68             art\tiles\cav1000.frm
-tile_l     74   68           2 art\tiles\cav1007.frm
-tile_l     76   68           2 art\tiles\cav1006.frm
-tile_l     78   68           2 art\tiles\cav3005.frm
-tile_l     80   68           2 art\tiles\cav4000.frm
-tile_l     82   68           2 art\tiles\cav4000.frm
+tile       74   68             art\tiles\cav1007.frm
+tile       76   68             art\tiles\cav1006.frm
+tile       78   68             art\tiles\cav3005.frm
+tile       80   68             art\tiles\cav4000.frm
+tile       82   68             art\tiles\cav4000.frm
 tile       84   68             art\tiles\cav1000.frm
-tile_l     86   68           2 art\tiles\cav4000.frm
-tile_l     88   68           2 art\tiles\cav4000.frm
-tile_l     90   68           2 art\tiles\cav3002.frm
+tile       86   68             art\tiles\cav4000.frm
+tile       88   68             art\tiles\cav4000.frm
+tile       90   68             art\tiles\cav3002.frm
 tile       92   68             art\tiles\cav1000.frm
 tile       94   68             art\tiles\cav1001.frm
 tile       96   68             art\tiles\cav1003.frm
 tile       98   68             art\tiles\cav1000.frm
-tile_l     100  68           3 art\tiles\cav4007.frm
-tile_l     102  68           3 art\tiles\cav4003.frm
-tile_l     104  68           3 art\tiles\cav3000.frm
-tile_l     106  68           3 art\tiles\cav4000.frm
-tile_l     108  68           3 art\tiles\cav3004.frm
-tile_l     110  68           3 art\tiles\cav4000.frm
+tile       100  68             art\tiles\cav4007.frm
+tile       102  68             art\tiles\cav4003.frm
+tile       104  68             art\tiles\cav3000.frm
+tile       106  68             art\tiles\cav4000.frm
+tile       108  68             art\tiles\cav3004.frm
+tile       110  68             art\tiles\cav4000.frm
 tile       112  68             art\tiles\cav4010.frm
 tile       114  68             art\tiles\cav4009.frm
 tile       116  68             art\tiles\cav4011.frm
@@ -1495,32 +1495,32 @@ tile       52   70             art\tiles\cav4011.frm
 tile       54   70             art\tiles\cav4009.frm
 tile       56   70             art\tiles\cav4009.frm
 tile       58   70             art\tiles\cav4010.frm
-tile_l     60   70           3 art\tiles\cav4000.frm
-tile_l     62   70           3 art\tiles\cav4006.frm
-tile_l     64   70           3 art\tiles\cav4004.frm
-tile_l     66   70           3 art\tiles\cav4005.frm
-tile_l     68   70           3 art\tiles\cav3003.frm
-tile_l     70   70           3 art\tiles\cav4006.frm
+tile       60   70             art\tiles\cav4000.frm
+tile       62   70             art\tiles\cav4006.frm
+tile       64   70             art\tiles\cav4004.frm
+tile       66   70             art\tiles\cav4005.frm
+tile       68   70             art\tiles\cav3003.frm
+tile       70   70             art\tiles\cav4006.frm
 tile       72   70             art\tiles\cav1000.frm
-tile_l     74   70           2 art\tiles\cav1009.frm
-tile_l     76   70           2 art\tiles\cav1008.frm
-tile_l     78   70           2 art\tiles\cav4005.frm
-tile_l     80   70           2 art\tiles\cav3004.frm
-tile_l     82   70           2 art\tiles\cav4000.frm
-tile_l     84   70           2 art\tiles\cav4000.frm
-tile_l     86   70           2 art\tiles\cav4000.frm
-tile_l     88   70           2 art\tiles\cav3002.frm
+tile       74   70             art\tiles\cav1009.frm
+tile       76   70             art\tiles\cav1008.frm
+tile       78   70             art\tiles\cav4005.frm
+tile       80   70             art\tiles\cav3004.frm
+tile       82   70             art\tiles\cav4000.frm
+tile       84   70             art\tiles\cav4000.frm
+tile       86   70             art\tiles\cav4000.frm
+tile       88   70             art\tiles\cav3002.frm
 tile       90   70             art\tiles\cav1000.frm
 tile       92   70             art\tiles\cav1000.frm
 tile       94   70             art\tiles\cav1000.frm
 tile       96   70             art\tiles\cav1000.frm
 tile       98   70             art\tiles\cav1000.frm
-tile_l     100  70           3 art\tiles\cav4005.frm
-tile_l     102  70           3 art\tiles\cav3001.frm
-tile_l     104  70           3 art\tiles\cav4004.frm
-tile_l     106  70           3 art\tiles\cav3002.frm
-tile_l     108  70           3 art\tiles\cav3005.frm
-tile_l     110  70           3 art\tiles\cav4000.frm
+tile       100  70             art\tiles\cav4005.frm
+tile       102  70             art\tiles\cav3001.frm
+tile       104  70             art\tiles\cav4004.frm
+tile       106  70             art\tiles\cav3002.frm
+tile       108  70             art\tiles\cav3005.frm
+tile       110  70             art\tiles\cav4000.frm
 tile       112  70             art\tiles\cav4009.frm
 tile       114  70             art\tiles\cav4011.frm
 tile       116  70             art\tiles\cav4009.frm
@@ -1551,32 +1551,32 @@ tile       52   72             art\tiles\cav4009.frm
 tile       54   72             art\tiles\cav4008.frm
 tile       56   72             art\tiles\cav4010.frm
 tile       58   72             art\tiles\cav4009.frm
-tile_l     60   72           3 art\tiles\cav4000.frm
-tile_l     62   72           3 art\tiles\cav4000.frm
-tile_l     64   72           3 art\tiles\cav4003.frm
-tile_l     66   72           3 art\tiles\cav4002.frm
-tile_l     68   72           3 art\tiles\cav4001.frm
-tile_l     70   72           3 art\tiles\cav4002.frm
-tile_l     72   72           3 art\tiles\cav4001.frm
+tile       60   72             art\tiles\cav4000.frm
+tile       62   72             art\tiles\cav4000.frm
+tile       64   72             art\tiles\cav4003.frm
+tile       66   72             art\tiles\cav4002.frm
+tile       68   72             art\tiles\cav4001.frm
+tile       70   72             art\tiles\cav4002.frm
+tile       72   72             art\tiles\cav4001.frm
 tile       74   72             art\tiles\cav4002.frm
-tile_l     76   72           2 art\tiles\cav4001.frm
-tile_l     78   72           2 art\tiles\cav4004.frm
-tile_l     80   72           2 art\tiles\cav1003.frm
-tile_l     82   72           2 art\tiles\cav3004.frm
-tile_l     84   72           2 art\tiles\cav4000.frm
-tile_l     86   72           2 art\tiles\cav4000.frm
-tile_l     88   72           2 art\tiles\cav3001.frm
+tile       76   72             art\tiles\cav4001.frm
+tile       78   72             art\tiles\cav4004.frm
+tile       80   72             art\tiles\cav1003.frm
+tile       82   72             art\tiles\cav3004.frm
+tile       84   72             art\tiles\cav4000.frm
+tile       86   72             art\tiles\cav4000.frm
+tile       88   72             art\tiles\cav3001.frm
 tile       90   72             art\tiles\cav4002.frm
 tile       92   72             art\tiles\cav4001.frm
-tile_l     94   72           3 art\tiles\cav4002.frm
-tile_l     96   72           3 art\tiles\cav4001.frm
-tile_l     98   72           3 art\tiles\cav4002.frm
-tile_l     100  72           3 art\tiles\cav4001.frm
-tile_l     102  72           3 art\tiles\cav4003.frm
-tile_l     104  72           3 art\tiles\cav4005.frm
-tile_l     106  72           3 art\tiles\cav4006.frm
-tile_l     108  72           3 art\tiles\cav3004.frm
-tile_l     110  72           3 art\tiles\cav4000.frm
+tile       94   72             art\tiles\cav4002.frm
+tile       96   72             art\tiles\cav4001.frm
+tile       98   72             art\tiles\cav4002.frm
+tile       100  72             art\tiles\cav4001.frm
+tile       102  72             art\tiles\cav4003.frm
+tile       104  72             art\tiles\cav4005.frm
+tile       106  72             art\tiles\cav4006.frm
+tile       108  72             art\tiles\cav3004.frm
+tile       110  72             art\tiles\cav4000.frm
 tile       112  72             art\tiles\cav4009.frm
 tile       114  72             art\tiles\cav4011.frm
 tile       116  72             art\tiles\cav4010.frm
@@ -1614,24 +1614,24 @@ tile       68   74             art\tiles\cav4008.frm
 tile       70   74             art\tiles\cav4010.frm
 tile       72   74             art\tiles\cav4008.frm
 tile       74   74             art\tiles\cav4008.frm
-tile_l     76   74           2 art\tiles\cav4000.frm
-tile_l     78   74           2 art\tiles\cav4000.frm
-tile_l     80   74           2 art\tiles\cav4004.frm
+tile       76   74             art\tiles\cav4000.frm
+tile       78   74             art\tiles\cav4000.frm
+tile       80   74             art\tiles\cav4004.frm
 tile       82   74             art\tiles\cav1000.frm
-tile_l     84   74           2 art\tiles\cav3003.frm
-tile_l     86   74           2 art\tiles\cav3002.frm
-tile_l     88   74           2 art\tiles\cav4000.frm
-tile_l     90   74           2 art\tiles\cav4000.frm
+tile       84   74             art\tiles\cav3003.frm
+tile       86   74             art\tiles\cav3002.frm
+tile       88   74             art\tiles\cav4000.frm
+tile       90   74             art\tiles\cav4000.frm
 tile       92   74             art\tiles\cav4008.frm
 tile       94   74             art\tiles\cav4008.frm
 tile       96   74             art\tiles\cav4010.frm
-tile_l     98   74           3 art\tiles\cav4001.frm
-tile_l     100  74           3 art\tiles\cav4002.frm
-tile_l     102  74           3 art\tiles\cav4001.frm
-tile_l     104  74           3 art\tiles\cav4002.frm
-tile_l     106  74           3 art\tiles\cav4001.frm
-tile_l     108  74           3 art\tiles\cav4003.frm
-tile_l     110  74           3 art\tiles\cav4000.frm
+tile       98   74             art\tiles\cav4001.frm
+tile       100  74             art\tiles\cav4002.frm
+tile       102  74             art\tiles\cav4001.frm
+tile       104  74             art\tiles\cav4002.frm
+tile       106  74             art\tiles\cav4001.frm
+tile       108  74             art\tiles\cav4003.frm
+tile       110  74             art\tiles\cav4000.frm
 tile       112  74             art\tiles\cav4008.frm
 tile       114  74             art\tiles\cav4009.frm
 tile       116  74             art\tiles\cav4011.frm
@@ -1669,24 +1669,24 @@ tile       68   76             art\tiles\cav4009.frm
 tile       70   76             art\tiles\cav4009.frm
 tile       72   76             art\tiles\cav4010.frm
 tile       74   76             art\tiles\cav4009.frm
-tile_l     76   76           2 art\tiles\cav4011.frm
-tile_l     78   76           2 art\tiles\cav4011.frm
-tile_l     80   76           2 art\tiles\cav3001.frm
+tile       76   76             art\tiles\cav4011.frm
+tile       78   76             art\tiles\cav4011.frm
+tile       80   76             art\tiles\cav3001.frm
 tile       82   76             art\tiles\cav1000.frm
-tile_l     84   76           2 art\tiles\cav1000.frm
-tile_l     86   76           2 art\tiles\cav3005.frm
-tile_l     88   76           2 art\tiles\cav4000.frm
-tile_l     90   76           2 art\tiles\cav4000.frm
+tile       84   76             art\tiles\cav1000.frm
+tile       86   76             art\tiles\cav3005.frm
+tile       88   76             art\tiles\cav4000.frm
+tile       90   76             art\tiles\cav4000.frm
 tile       92   76             art\tiles\cav4010.frm
 tile       94   76             art\tiles\cav4009.frm
 tile       96   76             art\tiles\cav4009.frm
 tile       98   76             art\tiles\cav4010.frm
-tile_l     100  76           3 art\tiles\cav4000.frm
-tile_l     102  76           3 art\tiles\cav4000.frm
-tile_l     104  76           3 art\tiles\cav4000.frm
-tile_l     106  76           3 art\tiles\cav4000.frm
-tile_l     108  76           3 art\tiles\cav4000.frm
-tile_l     110  76           3 art\tiles\cav4000.frm
+tile       100  76             art\tiles\cav4000.frm
+tile       102  76             art\tiles\cav4000.frm
+tile       104  76             art\tiles\cav4000.frm
+tile       106  76             art\tiles\cav4000.frm
+tile       108  76             art\tiles\cav4000.frm
+tile       110  76             art\tiles\cav4000.frm
 tile       112  76             art\tiles\cav4010.frm
 tile       114  76             art\tiles\cav4011.frm
 tile       116  76             art\tiles\cav4009.frm
@@ -1726,10 +1726,10 @@ tile       72   78             art\tiles\cav4009.frm
 tile       74   78             art\tiles\cav4008.frm
 tile       76   78             art\tiles\cav4010.frm
 tile       78   78             art\tiles\cav4009.frm
-tile_l     80   78           2 art\tiles\cav3001.frm
+tile       80   78             art\tiles\cav3001.frm
 tile       82   78             art\tiles\cav1000.frm
-tile_l     84   78           2 art\tiles\cav1000.frm
-tile_l     86   78           2 art\tiles\cav3005.frm
+tile       84   78             art\tiles\cav1000.frm
+tile       86   78             art\tiles\cav3005.frm
 tile       88   78             art\tiles\cav4008.frm
 tile       90   78             art\tiles\cav4010.frm
 tile       92   78             art\tiles\cav4009.frm
@@ -1781,10 +1781,10 @@ tile       72   80             art\tiles\cav4009.frm
 tile       74   80             art\tiles\cav4011.frm
 tile       76   80             art\tiles\cav4010.frm
 tile       78   80             art\tiles\cav4009.frm
-tile_l     80   80           3 art\tiles\cav3000.frm
-tile_l     82   80           3 art\tiles\cav4001.frm
-tile_l     84   80           3 art\tiles\cav4004.frm
-tile_l     86   80           3 art\tiles\cav3004.frm
+tile       80   80             art\tiles\cav3000.frm
+tile       82   80             art\tiles\cav4001.frm
+tile       84   80             art\tiles\cav4004.frm
+tile       86   80             art\tiles\cav3004.frm
 tile       88   80             art\tiles\cav4011.frm
 tile       90   80             art\tiles\cav4010.frm
 tile       92   80             art\tiles\cav4009.frm
@@ -1836,11 +1836,11 @@ tile       72   82             art\tiles\cav4009.frm
 tile       74   82             art\tiles\cav4009.frm
 tile       76   82             art\tiles\cav4011.frm
 tile       78   82             art\tiles\cav4009.frm
-tile_l     80   82           3 art\tiles\cav3000.frm
-tile_l     82   82           3 art\tiles\cav4003.frm
-tile_l     84   82           3 art\tiles\cav3000.frm
-tile_l     86   82           3 art\tiles\cav4005.frm
-tile_l     88   82           3 art\tiles\cav4000.frm
+tile       80   82             art\tiles\cav3000.frm
+tile       82   82             art\tiles\cav4003.frm
+tile       84   82             art\tiles\cav3000.frm
+tile       86   82             art\tiles\cav4005.frm
+tile       88   82             art\tiles\cav4000.frm
 tile       90   82             art\tiles\cav4011.frm
 tile       92   82             art\tiles\cav4009.frm
 tile       94   82             art\tiles\cav4009.frm
@@ -1891,11 +1891,11 @@ tile       72   84             art\tiles\cav4011.frm
 tile       74   84             art\tiles\cav4011.frm
 tile       76   84             art\tiles\cav4009.frm
 tile       78   84             art\tiles\cav4011.frm
-tile_l     80   84           3 art\tiles\cav4000.frm
-tile_l     82   84           3 art\tiles\cav4003.frm
-tile_l     84   84           3 art\tiles\cav3001.frm
-tile_l     86   84           3 art\tiles\cav4007.frm
-tile_l     88   84           3 art\tiles\cav4003.frm
+tile       80   84             art\tiles\cav4000.frm
+tile       82   84             art\tiles\cav4003.frm
+tile       84   84             art\tiles\cav3001.frm
+tile       86   84             art\tiles\cav4007.frm
+tile       88   84             art\tiles\cav4003.frm
 tile       90   84             art\tiles\cav4009.frm
 tile       92   84             art\tiles\cav4011.frm
 tile       94   84             art\tiles\cav4011.frm
@@ -1946,11 +1946,11 @@ tile       72   86             art\tiles\cav4009.frm
 tile       74   86             art\tiles\cav4010.frm
 tile       76   86             art\tiles\cav4011.frm
 tile       78   86             art\tiles\cav4008.frm
-tile_l     80   86           3 art\tiles\cav4000.frm
-tile_l     82   86           3 art\tiles\cav4003.frm
-tile_l     84   86           3 art\tiles\cav3000.frm
-tile_l     86   86           3 art\tiles\cav3005.frm
-tile_l     88   86           3 art\tiles\cav4003.frm
+tile       80   86             art\tiles\cav4000.frm
+tile       82   86             art\tiles\cav4003.frm
+tile       84   86             art\tiles\cav3000.frm
+tile       86   86             art\tiles\cav3005.frm
+tile       88   86             art\tiles\cav4003.frm
 tile       90   86             art\tiles\cav4008.frm
 tile       92   86             art\tiles\cav4008.frm
 tile       94   86             art\tiles\cav4011.frm
@@ -2001,12 +2001,12 @@ tile       72   88             art\tiles\cav4009.frm
 tile       74   88             art\tiles\cav4011.frm
 tile       76   88             art\tiles\cav4008.frm
 tile       78   88             art\tiles\cav4010.frm
-tile_l     80   88           3 art\tiles\cav3001.frm
-tile_l     82   88           3 art\tiles\cav4003.frm
-tile_l     84   88           3 art\tiles\cav4006.frm
-tile_l     86   88           3 art\tiles\cav4005.frm
-tile_l     88   88           3 art\tiles\cav3002.frm
-tile_l     90   88           3 art\tiles\cav4003.frm
+tile       80   88             art\tiles\cav3001.frm
+tile       82   88             art\tiles\cav4003.frm
+tile       84   88             art\tiles\cav4006.frm
+tile       86   88             art\tiles\cav4005.frm
+tile       88   88             art\tiles\cav3002.frm
+tile       90   88             art\tiles\cav4003.frm
 tile       92   88             art\tiles\cav4009.frm
 tile       94   88             art\tiles\cav4009.frm
 tile       96   88             art\tiles\cav4011.frm
@@ -2056,12 +2056,12 @@ tile       72   90             art\tiles\cav4011.frm
 tile       74   90             art\tiles\cav4009.frm
 tile       76   90             art\tiles\cav4011.frm
 tile       78   90             art\tiles\cav4009.frm
-tile_l     80   90           3 art\tiles\cav3005.frm
-tile_l     82   90           3 art\tiles\cav4000.frm
-tile_l     84   90           3 art\tiles\cav3001.frm
-tile_l     86   90           3 art\tiles\cav1001.frm
-tile_l     88   90           3 art\tiles\cav3005.frm
-tile_l     90   90           3 art\tiles\cav4000.frm
+tile       80   90             art\tiles\cav3005.frm
+tile       82   90             art\tiles\cav4000.frm
+tile       84   90             art\tiles\cav3001.frm
+tile       86   90             art\tiles\cav1001.frm
+tile       88   90             art\tiles\cav3005.frm
+tile       90   90             art\tiles\cav4000.frm
 tile       92   90             art\tiles\cav4011.frm
 tile       94   90             art\tiles\cav4011.frm
 tile       96   90             art\tiles\cav4009.frm
@@ -2111,13 +2111,13 @@ tile       72   92             art\tiles\cav4009.frm
 tile       74   92             art\tiles\cav4009.frm
 tile       76   92             art\tiles\cav4008.frm
 tile       78   92             art\tiles\cav4011.frm
-tile_l     80   92           3 art\tiles\cav4005.frm
-tile_l     82   92           3 art\tiles\cav3002.frm
-tile_l     84   92           3 art\tiles\cav4006.frm
-tile_l     86   92           3 art\tiles\cav1002.frm
-tile_l     88   92           3 art\tiles\cav3004.frm
-tile_l     90   92           3 art\tiles\cav4003.frm
-tile_l     92   92           3 art\tiles\cav4003.frm
+tile       80   92             art\tiles\cav4005.frm
+tile       82   92             art\tiles\cav3002.frm
+tile       84   92             art\tiles\cav4006.frm
+tile       86   92             art\tiles\cav1002.frm
+tile       88   92             art\tiles\cav3004.frm
+tile       90   92             art\tiles\cav4003.frm
+tile       92   92             art\tiles\cav4003.frm
 tile       94   92             art\tiles\cav4011.frm
 tile       96   92             art\tiles\cav4010.frm
 tile       98   92             art\tiles\cav4009.frm
@@ -2166,13 +2166,13 @@ tile       72   94             art\tiles\cav4009.frm
 tile       74   94             art\tiles\cav4008.frm
 tile       76   94             art\tiles\cav4010.frm
 tile       78   94             art\tiles\cav4008.frm
-tile_l     80   94           3 art\tiles\cav1001.frm
-tile_l     82   94           3 art\tiles\cav1002.frm
+tile       80   94             art\tiles\cav1001.frm
+tile       82   94             art\tiles\cav1002.frm
 tile       84   94             art\tiles\cav1001.frm
 tile       86   94             art\tiles\cav1000.frm
-tile_l     88   94           3 art\tiles\cav3004.frm
-tile_l     90   94           3 art\tiles\cav4001.frm
-tile_l     92   94           3 art\tiles\cav4001.frm
+tile       88   94             art\tiles\cav3004.frm
+tile       90   94             art\tiles\cav4001.frm
+tile       92   94             art\tiles\cav4001.frm
 tile       94   94             art\tiles\cav4009.frm
 tile       96   94             art\tiles\cav4011.frm
 tile       98   94             art\tiles\cav4009.frm
@@ -2221,15 +2221,15 @@ tile       72   96             art\tiles\cav4011.frm
 tile       74   96             art\tiles\cav4009.frm
 tile       76   96             art\tiles\cav4009.frm
 tile       78   96             art\tiles\cav4010.frm
-tile_l     80   96           3 art\tiles\cav3000.frm
+tile       80   96             art\tiles\cav3000.frm
 tile       82   96             art\tiles\cav1001.frm
 tile       84   96             art\tiles\cav1003.frm
-tile_l     86   96           3 art\tiles\cav2001.frm
-tile_l     88   96           3 art\tiles\cav2000.frm
+tile       86   96             art\tiles\cav2001.frm
+tile       88   96             art\tiles\cav2000.frm
 tile       90   96             art\tiles\cav4009.frm
-tile_l     90   96           3 art\tiles\cav4003.frm
+tile       90   96             art\tiles\cav4003.frm
 tile       92   96             art\tiles\cav4009.frm
-tile_l     92   96           3 art\tiles\cav4003.frm
+tile       92   96             art\tiles\cav4003.frm
 tile       94   96             art\tiles\cav4011.frm
 tile       96   96             art\tiles\cav4009.frm
 tile       98   96             art\tiles\cav4011.frm
@@ -2278,15 +2278,15 @@ tile       72   98             art\tiles\cav4009.frm
 tile       74   98             art\tiles\cav4008.frm
 tile       76   98             art\tiles\cav4010.frm
 tile       78   98             art\tiles\cav4009.frm
-tile_l     80   98           3 art\tiles\cav3001.frm
+tile       80   98             art\tiles\cav3001.frm
 tile       82   98             art\tiles\cav1000.frm
 tile       84   98             art\tiles\cav1000.frm
-tile_l     86   98           3 art\tiles\cav1009.frm
-tile_l     88   98           3 art\tiles\cav1008.frm
+tile       86   98             art\tiles\cav1009.frm
+tile       88   98             art\tiles\cav1008.frm
 tile       90   98             art\tiles\cav4009.frm
-tile_l     90   98           3 art\tiles\cav3002.frm
+tile       90   98             art\tiles\cav3002.frm
 tile       92   98             art\tiles\cav4009.frm
-tile_l     92   98           3 art\tiles\cav3002.frm
+tile       92   98             art\tiles\cav3002.frm
 tile       94   98             art\tiles\cav4008.frm
 tile       96   98             art\tiles\cav4010.frm
 tile       98   98             art\tiles\cav4009.frm
@@ -2335,16 +2335,16 @@ tile       72   100            art\tiles\cav4009.frm
 tile       74   100            art\tiles\cav4008.frm
 tile       76   100            art\tiles\cav4010.frm
 tile       78   100            art\tiles\cav4008.frm
-tile_l     80   100          3 art\tiles\cav3001.frm
+tile       80   100            art\tiles\cav3001.frm
 tile       82   100            art\tiles\cav1003.frm
 tile       84   100            art\tiles\cav1001.frm
 tile       86   100            art\tiles\cav1001.frm
 tile       88   100            art\tiles\cav4008.frm
-tile_l     88   100          2 art\tiles\cav2001.frm
+tile       88   100            art\tiles\cav2001.frm
 tile       90   100            art\tiles\cav4010.frm
-tile_l     90   100          2 art\tiles\cav2000.frm
+tile       90   100            art\tiles\cav2000.frm
 tile       92   100            art\tiles\cav4008.frm
-tile_l     92   100          3 art\tiles\cav3005.frm
+tile       92   100            art\tiles\cav3005.frm
 tile       94   100            art\tiles\cav4011.frm
 tile       96   100            art\tiles\cav4010.frm
 tile       98   100            art\tiles\cav4009.frm
@@ -2394,16 +2394,16 @@ tile       72   102            art\tiles\cav4009.frm
 tile       74   102            art\tiles\cav4009.frm
 tile       76   102            art\tiles\cav4009.frm
 tile       78   102            art\tiles\cav4010.frm
-tile_l     80   102          3 art\tiles\cav3000.frm
+tile       80   102            art\tiles\cav3000.frm
 tile       82   102            art\tiles\cav1001.frm
 tile       84   102            art\tiles\cav1003.frm
 tile       86   102            art\tiles\cav1003.frm
 tile       88   102            art\tiles\cav4009.frm
-tile_l     88   102          2 art\tiles\cav1007.frm
+tile       88   102            art\tiles\cav1007.frm
 tile       90   102            art\tiles\cav4009.frm
-tile_l     90   102          2 art\tiles\cav1006.frm
+tile       90   102            art\tiles\cav1006.frm
 tile       92   102            art\tiles\cav4010.frm
-tile_l     92   102          3 art\tiles\cav3004.frm
+tile       92   102            art\tiles\cav3004.frm
 tile       94   102            art\tiles\cav4009.frm
 tile       96   102            art\tiles\cav4011.frm
 tile       98   102            art\tiles\cav4009.frm
@@ -2453,16 +2453,16 @@ tile       72   104            art\tiles\cav4011.frm
 tile       74   104            art\tiles\cav4008.frm
 tile       76   104            art\tiles\cav4010.frm
 tile       78   104            art\tiles\cav4009.frm
-tile_l     80   104          3 art\tiles\cav3001.frm
+tile       80   104            art\tiles\cav3001.frm
 tile       82   104            art\tiles\cav1000.frm
 tile       84   104            art\tiles\cav1000.frm
 tile       86   104            art\tiles\cav1000.frm
 tile       88   104            art\tiles\cav4008.frm
-tile_l     88   104          2 art\tiles\cav1009.frm
+tile       88   104            art\tiles\cav1009.frm
 tile       90   104            art\tiles\cav4010.frm
-tile_l     90   104          2 art\tiles\cav1008.frm
+tile       90   104            art\tiles\cav1008.frm
 tile       92   104            art\tiles\cav4009.frm
-tile_l     92   104          3 art\tiles\cav3005.frm
+tile       92   104            art\tiles\cav3005.frm
 tile       94   104            art\tiles\cav4011.frm
 tile       96   104            art\tiles\cav4009.frm
 tile       98   104            art\tiles\cav4011.frm
@@ -2511,17 +2511,17 @@ tile       72   106            art\tiles\cav4009.frm
 tile       74   106            art\tiles\cav4008.frm
 tile       76   106            art\tiles\cav4010.frm
 tile       78   106            art\tiles\cav4008.frm
-tile_l     80   106          3 art\tiles\cav3000.frm
-tile_l     82   106          3 art\tiles\cav2001.frm
-tile_l     84   106          3 art\tiles\cav2000.frm
+tile       80   106            art\tiles\cav3000.frm
+tile       82   106            art\tiles\cav2001.frm
+tile       84   106            art\tiles\cav2000.frm
 tile       86   106            art\tiles\cav1000.frm
 tile       88   106            art\tiles\cav1001.frm
-tile_l     90   106          3 art\tiles\cav3002.frm
-tile_l     92   106          3 art\tiles\cav4005.frm
-tile_l     94   106          3 art\tiles\cav3002.frm
-tile_l     96   106          3 art\tiles\cav3003.frm
-tile_l     98   106          3 art\tiles\cav3002.frm
-tile_l     100  106          3 art\tiles\cav4003.frm
+tile       90   106            art\tiles\cav3002.frm
+tile       92   106            art\tiles\cav4005.frm
+tile       94   106            art\tiles\cav3002.frm
+tile       96   106            art\tiles\cav3003.frm
+tile       98   106            art\tiles\cav3002.frm
+tile       100  106            art\tiles\cav4003.frm
 tile       102  106            art\tiles\cav4000.frm
 tile       104  106            art\tiles\cav4000.frm
 tile       106  106            art\tiles\cav3002.frm
@@ -2567,17 +2567,17 @@ tile       72   108            art\tiles\cav4009.frm
 tile       74   108            art\tiles\cav4008.frm
 tile       76   108            art\tiles\cav4010.frm
 tile       78   108            art\tiles\cav4008.frm
-tile_l     80   108          3 art\tiles\cav3001.frm
-tile_l     82   108          3 art\tiles\cav1009.frm
-tile_l     84   108          3 art\tiles\cav1008.frm
+tile       80   108            art\tiles\cav3001.frm
+tile       82   108            art\tiles\cav1009.frm
+tile       84   108            art\tiles\cav1008.frm
 tile       86   108            art\tiles\cav1000.frm
 tile       88   108            art\tiles\cav1001.frm
 tile       90   108            art\tiles\cav1003.frm
 tile       92   108            art\tiles\cav1000.frm
 tile       94   108            art\tiles\cav1001.frm
 tile       96   108            art\tiles\cav1003.frm
-tile_l     98   108          3 art\tiles\cav4005.frm
-tile_l     100  108          3 art\tiles\cav3002.frm
+tile       98   108            art\tiles\cav4005.frm
+tile       100  108            art\tiles\cav3002.frm
 tile       102  108            art\tiles\cav3003.frm
 tile       104  108            art\tiles\cav1003.frm
 tile       106  108            art\tiles\cav1000.frm
@@ -2625,7 +2625,7 @@ tile       72   110            art\tiles\cav4011.frm
 tile       74   110            art\tiles\cav4009.frm
 tile       76   110            art\tiles\cav4009.frm
 tile       78   110            art\tiles\cav4010.frm
-tile_l     80   110          3 art\tiles\cav3000.frm
+tile       80   110            art\tiles\cav3000.frm
 tile       82   110            art\tiles\cav1000.frm
 tile       84   110            art\tiles\cav1000.frm
 tile       86   110            art\tiles\cav1000.frm
@@ -2682,17 +2682,17 @@ tile       72   112            art\tiles\cav4009.frm
 tile       74   112            art\tiles\cav4008.frm
 tile       76   112            art\tiles\cav4010.frm
 tile       78   112            art\tiles\cav4009.frm
-tile_l     80   112          3 art\tiles\cav4003.frm
-tile_l     82   112          3 art\tiles\cav4002.frm
-tile_l     84   112          3 art\tiles\cav4001.frm
-tile_l     86   112          3 art\tiles\cav4002.frm
-tile_l     88   112          3 art\tiles\cav4001.frm
-tile_l     90   112          3 art\tiles\cav4002.frm
-tile_l     92   112          3 art\tiles\cav4001.frm
-tile_l     94   112          3 art\tiles\cav4001.frm
-tile_l     96   112          3 art\tiles\cav4001.frm
-tile_l     98   112          3 art\tiles\cav4002.frm
-tile_l     100  112          3 art\tiles\cav4001.frm
+tile       80   112            art\tiles\cav4003.frm
+tile       82   112            art\tiles\cav4002.frm
+tile       84   112            art\tiles\cav4001.frm
+tile       86   112            art\tiles\cav4002.frm
+tile       88   112            art\tiles\cav4001.frm
+tile       90   112            art\tiles\cav4002.frm
+tile       92   112            art\tiles\cav4001.frm
+tile       94   112            art\tiles\cav4001.frm
+tile       96   112            art\tiles\cav4001.frm
+tile       98   112            art\tiles\cav4002.frm
+tile       100  112            art\tiles\cav4001.frm
 tile       102  112            art\tiles\cav4006.frm
 tile       104  112            art\tiles\cav1003.frm
 tile       106  112            art\tiles\cav1000.frm
@@ -2805,8 +2805,8 @@ tile       94   116            art\tiles\cav4009.frm
 tile       96   116            art\tiles\cav4009.frm
 tile       98   116            art\tiles\cav4011.frm
 tile       100  116            art\tiles\cav4009.frm
-tile_l     102  116          3 art\tiles\cav4001.frm
-tile_l     104  116          3 art\tiles\cav4002.frm
+tile       102  116            art\tiles\cav4001.frm
+tile       104  116            art\tiles\cav4002.frm
 tile       106  116            art\tiles\cav4009.frm
 tile       108  116            art\tiles\cav4009.frm
 tile       110  116            art\tiles\cav4009.frm
