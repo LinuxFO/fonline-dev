@@ -15516,31 +15516,26 @@ MapObjType           2
 ProtoId              5598
 MapX                 52
 MapY                 12
-FuncName             ~hub~hub
 
 MapObjType           2
 ProtoId              5559
 MapX                 76
 MapY                 19
-FuncName             ^hub_heights^hub_heights
 
 MapObjType           2
 ProtoId              5559
 MapX                 76
 MapY                 14
-FuncName             ^hub_heights^hub_heights^
 
 MapObjType           2
 ProtoId              5559
 MapX                 76
 MapY                 9
-FuncName             ^hub_heights^hub_heights^
 
 MapObjType           2
 ProtoId              5559
 MapX                 76
 MapY                 4
-FuncName             ^hub_heights^hub_heights^
 
 MapObjType           2
 ProtoId              2295
