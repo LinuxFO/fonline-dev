@@ -122,6 +122,7 @@
 #define LVAR_q_hub_wasteland_band (7009)
 #define LVAR_q_spawn_hub (7032)
 #define LVAR_q_spawn_hub_water (7034)
+#define LVAR_q_la_waterpump (7042)
 #define LVAR_free_slave (7053)
 #define LVAR_q_iguana_pete_message (7070)
 #define LVAR_q_iguana_pete_ban (7071)
@@ -2910,6 +2911,11 @@ $ 7115 1 q_la_gunrunners_box 0 0 1 0
 
 $ 7150 1 q_la_junk_merchant 0 0 10 0
 **********
+**********
+
+$ 7042 1 q_la_waterpump 0 0 5 1
+**********
+This variable is for "fix water pump!" in boneyard.
 **********
 
 **********/
