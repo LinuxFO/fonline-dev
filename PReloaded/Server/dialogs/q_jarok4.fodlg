@@ -1,0 +1,90 @@
+[comment]
+
+
+[data]
+lang=engl
+
+[dialog]
+&
+1 1000 None 0 #
+2 1010 @
+2 2000 None 0 #
+3 2010 D _var p z_jarokq = 2 @
+3 3000 None 0 #
+4 3010 #
+4 3020 #
+4 3030 #
+4 3040 #
+4 3050 #
+0 3060 @
+4 4000 None 0 #
+5 4010 @
+5 5000 None 0 #
+6 5010 D _item p PID_BOTTLE_CAPS > 399 R _item p PID_BOTTLE_CAPS - 400 #
+7 5020 @
+6 6000 None 0 #
+8 6010 @
+7 7000 None 0 #
+65507 7010 @
+8 8000 None 0 #
+9 8010 @
+9 9000 None 0 #
+10 9010 @
+10 10000 None 0 #
+11 10010 @
+11 11000 None 0 #
+12 11010 @
+12 12000 None 0 #
+13 12010 @
+13 13000 None 0 #
+15 13010 D _item p PID_JET > 0 R _item p PID_JET - 1 #
+14 13020 @
+14 14000 None 0 @
+15 15000 None 0 #
+16 15010 @
+16 16000 None 0 #
+0 16010 R _var p z_jarokq = 3 R _script quest_jarok1@r_SpawnLoc 0  &
+
+[engl]
+{100}{}{Jeff}
+{200}{}{You see Jeff, a mean looking drunk with scars all over his face.}
+{210}{}{He appears drunk, high on jet, foul mouthed, and absolutely reeking of sweat and sex.}
+{1000}{}{Predialogue installations}
+{1010}{}{Answer text}
+{2000}{}{*Hic*}
+{2010}{}{[Sit down and order a drink]}
+{3000}{}{[The shady looking bartender walks up to you, leans in close, and asks what you want]}
+{3010}{}{[Order a Beer]}
+{3020}{}{[Order some Booze]}
+{3030}{}{[Order a Gamma]}
+{3040}{}{[Order a Rotgut]}
+{3050}{}{[Order a Roentgen]}
+{3060}{}{Nothin'.}
+{4000}{}{[The bartender hands you your order] That'll be 200 caps. Pay me now, or get lost.}
+{4010}{}{Two-hundred--?!}
+{5000}{}{[Jeff lets out a loud, disgusting belch, and screams] What're ya?! A bum! Pay the *hic* man! And get me a double! Or else I'll *hic* give you a double-dose of my *hic* barrels!}
+{5010}{}{Fine. Get this guy whatever he wants. I'll pay for it. [Give the bartender 400 caps]}
+{5020}{}{Pfft! Get lost, barfly. }
+{6000}{}{[Jeff spits all over himself, screaming] Oh, boy! Get me some Jet you fat fucker! Right goddamn now! Boys! We're flying high!}
+{6010}{}{[Watch him inhale a mouth full of foamy Jet]}
+{7000}{}{Barfly?! Boys! Let's show this fucker how we *fly*! Get'm'!}
+{7010}{}{[Pull out your weapon and start spilling blood!]}
+{8000}{}{[Jeff is delirious and barely coherent] Hmmmmmm, daddy like that. [He giggles like a man-child] Daddy like that a lot! Hmmmm! Mmmmmm!}
+{8010}{}{Yeah, that's right, bud. Eat all the peanut butter. }
+{9000}{}{[Jeff's eyes roll back into his head as he just sits there drooling]}
+{9010}{}{You look like what I feel like doing to a bitch.}
+{10000}{}{[He's rambling on] Bitches... bitches... and money... hmmmm. Got... got me... got me a bitch... hmmmmm, mmmmmhmmm!}
+{10010}{}{Yeah? How fresh?}
+{11000}{}{[Jeff's eyes widen up in terror] Cops?! You a cop?! Boys! This-- This a cop?!!}
+{11010}{}{[Slap him] Don't call me a fucking cop, punk! I've spent enough days in fucking prison. I ain't no goddamn rump roast!}
+{12000}{}{*Hic!* [He slobbers all over himself and looks surprised] NCR*Hic!* cops *Hic!* got *Hic!* nothing on *Hic!* me! }
+{12010}{}{Yeah, bud. So where's this pussy? I've got an itch that the cat house just can't scratch.}
+{13000}{}{[He for a few moments he doesn't say anything, and you begin to feel frustrated. But after a while of just staring at him he mumbles] Gimme some Jet.}
+{13010}{}{Fine. Here's a hit of Jet.}
+{13020}{}{No way. I'm not giving you anything else.}
+{14000}{}{Then you ain't getting what you want. }
+{15000}{}{Oh, man! This is wicked! You're getting me so *high*! Okay! I'll let you in on a little secret!!}
+{15010}{}{What is it? }
+{16000}{}{A guy I know, Trap Man... he's, heh. He's a pimp. Deals out in kids, pets, you name it. He's got everything. Used to run with the Slaver's Guild until they kicked him out. He's famous! Runs his shit out of an old farm house near the Hub. I'll mark the location on your map! Tell him "Jeff got his Jet"!}
+{16010}{}{[Leave]}
+

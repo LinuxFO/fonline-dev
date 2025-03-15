@@ -1,6 +1,6 @@
-[2/23/2025 7:36:44 PM] Starting in C:\Games\fodev\fonline-dev\PReloaded\Tools\WorldEditor
-[2/23/2025 7:36:44 PM] Loading config
-[2/23/2025 7:36:44 PM]    OS version: Microsoft Windows NT 6.2.9200.0 64-bit
+[3/15/2025 6:49:02 PM] Starting in C:\Games\fodev\fonline-dev\PReloaded\Tools\WorldEditor
+[3/15/2025 6:49:02 PM] Loading config
+[3/15/2025 6:49:02 PM]    OS version: Microsoft Windows NT 6.2.9200.0 64-bit
    .NET CLR version: 4.0.30319.42000
    .NET installed versions:
        2.0 (SP 2) - 2.0.50727.4927
@@ -9,19 +9,19 @@
        4.0 Client Profile
        4.0 Full Profile
 
-[2/23/2025 7:36:44 PM] Loading UI Settings
-[2/23/2025 7:36:44 PM] Loaded UI Settings
-[2/23/2025 7:36:44 PM] Starting script thread...
-[2/23/2025 7:36:44 PM] Loading resources sequentially...
-[2/23/2025 7:36:46 PM] Loading zones from ..\..\Server\maps\worldmap.fowm...
-[2/23/2025 7:36:46 PM] Loaded maps and location data.
-[2/23/2025 7:36:46 PM] Found 959 PIDs in ITEMPID.H
-[2/23/2025 7:36:46 PM] Loading param defines.
-[2/23/2025 7:36:46 PM] Loading graphics\worldmap.png
-[2/23/2025 7:36:46 PM] Loading ITEMPID.H
-[2/23/2025 7:36:46 PM] Loaded game data.
-[2/23/2025 7:36:46 PM] Clearing controls
-[2/23/2025 7:36:46 PM] Main form loaded.
-[2/23/2025 7:42:43 PM] Launching QuitPrompt()
-[2/23/2025 7:42:43 PM] Saving UI Settings
-[2/23/2025 7:42:43 PM] Saved UI Settings
+[3/15/2025 6:49:02 PM] Loading UI Settings
+[3/15/2025 6:49:02 PM] Loaded UI Settings
+[3/15/2025 6:49:02 PM] Starting script thread...
+[3/15/2025 6:49:02 PM] Loading resources sequentially...
+[3/15/2025 6:49:02 PM] Loading zones from ..\..\Server\maps\worldmap.fowm...
+[3/15/2025 6:49:02 PM] Loaded maps and location data.
+[3/15/2025 6:49:02 PM] Found 959 PIDs in ITEMPID.H
+[3/15/2025 6:49:02 PM] Loading param defines.
+[3/15/2025 6:49:02 PM] Loading graphics\worldmap.png
+[3/15/2025 6:49:02 PM] Loading ITEMPID.H
+[3/15/2025 6:49:02 PM] Loaded game data.
+[3/15/2025 6:49:02 PM] Clearing controls
+[3/15/2025 6:49:02 PM] Main form loaded.
+[3/15/2025 6:52:28 PM] Launching QuitPrompt()
+[3/15/2025 6:52:28 PM] Saving UI Settings
+[3/15/2025 6:52:28 PM] Saved UI Settings

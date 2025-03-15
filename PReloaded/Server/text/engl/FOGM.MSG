@@ -57,6 +57,11 @@
 {185}{}{12junktn}
 {186}{}{gustwind:20, gustwin1:20, rattle:15, rattle1:15, vulture:15, vulture1:15}
 
+# Map 40, base 410
+{410}{}{Gun Runners}
+{415}{}{10labone}
+{416}{}{gntlwin1:25, gntlwind:25, gustwind:10, rattle:15, rattle1:15, vulture:10}
+
 # Map 69, base 700
 {700}{}{Safe house in the city}
 {705}{}{07desert}
@@ -527,6 +532,11 @@
 {2290}{}{Buffer Map}
 {2296}{}{}
 
+# Map 279, base 2800
+{2800}{}{Gunrunner}
+{2805}{}{10labone}
+{2806}{}{gntlwin1:25, gntlwind:25, gustwind:10, rattle:15, rattle1:15, vulture:10}
+
 # Map 287, base 2880
 {2880}{}{Tent in the desert}
 {2885}{}{07desert}
@@ -761,6 +771,16 @@
 {125141}{}{Water Merchants}
 {125142}{}{198}
 {125143}{}{210}
+
+# Gun Runners, pid 39, base 139000
+{139000}{}{Gun Runners}
+{139005}{}{The Fortress is surrounded by a moat of glowing green goo. This intimidating location is the home of the Gun Runners.}
+{139010}{}{8}
+{139020}{}{art\intrface\Twnmap10.frm}
+{139090}{}{1}
+{139101}{}{Gun Runners}
+{139102}{}{358}
+{139103}{}{120}
 
 # Khan Mountains, pid 57, base 157000
 {157000}{}{Khan Mountains}

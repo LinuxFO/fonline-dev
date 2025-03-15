@@ -1,0 +1,78 @@
+[comment]
+
+
+[data]
+lang=engl
+
+[dialog]
+&
+1 1000 None 0 #
+2 1010 @
+2 2000 None 0 #
+3 2010 D _var p z_jarokq = 0 D _param p ST_LEVEL > 11 #
+11 2020 D _var p z_jarokq = 4 #
+14 2030 D _var p z_jarokq = 5 #
+0 2040 @
+3 3000 None 0 #
+4 3010 @
+4 4000 None 0 #
+5 4010 @
+5 5000 None 0 #
+6 5010 @
+6 6000 None 0 #
+7 6010 @
+7 7000 None 0 #
+8 7010 @
+8 8000 None 0 #
+9 8010 @
+9 9000 None 0 #
+10 9010 @
+10 10000 None 0 #
+0 10010 R _var p z_jarokq = 1 @
+11 11000 None 0 #
+12 11010 @
+12 12000 None 0 #
+13 12010 @
+13 13000 None 0 #
+0 13010 R _param p ST_EXPERIENCE + 5000 R _script dialog@r_AddMoney 1 3000 R _param p ST_KARMA + 8 R _param p REPUTATION_NCR_RANGERS + 500 R _param p REPUTATION_BOUNTY_HUNTERS + 500 R _param p REPUTATION_JUNKTOWN + 500 R _param p REPUTATION_HUB + 500 R _param p REPUTATION_NCR + 500 R _param p REPUTATION_GUNRUNNERS + 150 R _item p PID_BLUEPRINT_STIMPAK + 1 R _script quest_jarok@r_DeleteLoc 0  R _script quest_jarok1@r_DeleteLoc 0  R _var p z_jarokq = 6 @
+14 14000 None 0 #
+15 14010 R _param p ST_EXPERIENCE + 10000 R _script dialog@r_AddMoney 1 5000 R _param p ST_KARMA - 333 R _script dialog@r_NinjaKillNpc 1 100 R _param p REPUTATION_LA - 1000 R _param p REPUTATION_HUB - 1000 R _param p REPUTATION_JUNKTOWN - 1000 R _param p REPUTATION_REDDING - 1000 R _param p REPUTATION_GUNRUNNERS - 1000 R _param p REPUTATION_BOUNTY_HUNTERS - 1000 R _param p REPUTATION_NCR - 1000 R _param p REPUTATION_NCR_RANGERS - 1000 R _item p PID_BLACK_ROBE + 1 R _item p PID_223_PISTOL + 1 R _script quest_jarok1@r_DeleteLoc 0  R _script quest_jarok@r_DeleteLoc 0  R _var p z_jarokq = 7 @
+15 15000 None 0 &
+
+[engl]
+{100}{}{William}
+{200}{}{You see William, a sad looking man.}
+{210}{}{It appears that he has a gunshot wound to the leg, and is drowning himself in beer.}
+{1000}{}{Predialogue installations}
+{1010}{}{Answer text}
+{2000}{}{Can't you see I'm drinking here? I'd like to be left alone...}
+{2010}{}{What's troubling you? }
+{2020}{}{Recognize anybody? [Smile]}
+{2030}{}{[Smile, and describe in full detail what happened to Sandy and the rest of the children]}
+{2040}{}{[Walk away]}
+{3000}{}{*Sigh* It's my daughter... she's... *sobs*}
+{3010}{}{Something happen to her?}
+{4000}{}{She's been fucking kidnapped! God! }
+{4010}{}{What? By who?}
+{5000}{}{My little girl! *wheeps* Sandy was taken by some punk slaver! [He slams his fist onto the counter] Bald guy with a slaver tat on his goddamn forehead! You know what that means right?!}
+{5010}{}{Nothing good...}
+{6000}{}{*He cries heavily* She's probably out there right now! Getting fucking raped! You... you've got to help me! Haven't you heard the rumours?!}
+{6010}{}{Uh... no, what rumours?}
+{7000}{}{There's a new gang out there, ran by some jack-off bald guy! They've been kidnapping kids! For weeks now! You haven't heard?!  }
+{7010}{}{Oh? Are you sure? Have you tried looking for your daughter?}
+{8000}{}{Of course I have, moron! How the hell do you think I got shot in the leg?! You've gotta *hic* help me!}
+{8010}{}{Can't promise anything... but you've got my attention.}
+{9000}{}{"Got your attention"?! My fucking daughter is out there! Probably being RAPED!!!!!!}
+{9010}{}{What do you expect me to do about it?}
+{10000}{}{I want you to find the bastard responsible, and cut off his *hic* fucking head! That's what! An old friend of mine, James, is a guard over in the Boneyard. He works for the Gun Runners. He... he might know more about this *hic* bastard gang! He's a tall, old guy. You can't miss him.}
+{10010}{}{Alright... I'll... see what I can do... hang in there.}
+{11000}{}{[He begins to wheep with joy!] Sandy! Oh my God! Sandy! I... I can't believe it's really you! My sweet little angel! I'll never let you out of my sight again! Are--! Are you going to be *okay*?!}
+{11010}{}{[You gve William and Sandy a moment to themselves before showing William the bloodied, severed head of Trap Man]}
+{12000}{}{[He cries and says nothing. For a while you simply watch his facial reactions unfold. Over time, he eventually hands you a sack of items and walks away with his daughter]}
+{12010}{}{[Stare at your hands and clothes for a while, and then walk away]}
+{13000}{}{I'll never forget this! Thank you! You're a bloody, fucking hero.}
+{13010}{}{... I guess... }
+{14000}{}{[Before William can say anything he violently grabs his chests and starts moaning in pain!] Heart--!!}
+{14010}{}{Awww! I heart you too, bud.}
+{15000}{}{*collapses and dies!*}
+

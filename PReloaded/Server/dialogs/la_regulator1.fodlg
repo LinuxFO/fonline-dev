@@ -1,0 +1,26 @@
+[comment]
+
+
+[data]
+lang=engl
+
+[dialog]
+&
+1 1000 None 0 #
+2 1010 @
+2 2000 None 0 #
+3 2010 D _var p z_ladungeon = 0 D _param p ST_LEVEL > 29 D _script dialog@d_CommonTimeoutReady 0  D _script dialog@d_IsWearingScaryHelmet 0  R _param p ST_KARMA - 30 R _param p REPUTATION_LA - 2000 R _param p REPUTATION_HUB - 1000 R _param p REPUTATION_JUNKTOWN - 1000 R _param p REPUTATION_NCR - 1000 R _param p REPUTATION_VAULT_CITY - 1000 R _param p REPUTATION_REGULATORS - 1000 R _param p REPUTATION_NCR_RANGERS - 1000 R _param p REPUTATION_FLC - 1000 R _param p REPUTATION_FREE_TRADERS - 1000 R _param p REPUTATION_BOUNTY_HUNTERS - 1000 R _var p z_ladungeon = 1 R _script player_dungeonla@r_SpawnLoc 0  R _script dialog@r_CommonTimeout 1 12 @
+3 3000 None 0 #
+65507 3010 &
+
+[engl]
+{100}{}{Regulator}
+{200}{}{You see a Regulator.}
+{210}{}{You see a regulator.}
+{1000}{}{Predialogue installations}
+{1010}{}{normal}
+{2000}{}{We are cleaning up here.@@We don't have any time for you.@@Go away or you get a bullet.@@Move along.@@Go away.@@What? Move!@@You are annoying.@@Go to Adytum if you want to trade.@@Go to the Gun Runners if you need a big weapon.@@The whole boneyard is a mess.}
+{2010}{}{Give me the coordinates to the nearest Gold Reserve, or I'll eat your fucking face off! NOWWWWW!!}
+{3000}{}{HOLY CHRIST! SOMEBODY HELP ME!}
+{3010}{}{[Grab his map!]}
+
