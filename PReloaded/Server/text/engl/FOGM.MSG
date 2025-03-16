@@ -802,6 +802,11 @@
 {160005}{}{}
 {160010}{}{6}
 
+# Mutants Hideout, pid 64, base 164000
+{164000}{}{Mutants Hideout}
+{164005}{}{A cavern hideout in the mountains. It's occupied by a group of Super Mutant Remnants.}
+{164010}{}{6}
+
 # Safe House, pid 71, base 171000
 {171000}{}{Safe House}
 {171005}{}{}
