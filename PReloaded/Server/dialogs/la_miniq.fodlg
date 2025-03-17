@@ -1,0 +1,68 @@
+[comment]
+
+
+[data]
+lang=engl
+
+[dialog]
+&
+1 1000 None 0 #
+2 1010 @
+2 2000 None 0 #
+3 2010 D _var p la_mini1 = 0 #
+0 2020 D _var p la_mini1 = 0 #
+6 2030 D _var p la_mini1 = 2 D _item p PID_FLOWER > 0 #
+8 2040 D _var p la_mini1 = 4 D _item p PID_FROZEN_DINNER > 0 R _var p la_mini1 = 5 R _item p PID_FROZEN_DINNER - 1 #
+9 2050 D _var p la_mini1 = 6 D _item p PID_ROCK > 0 #
+10 2060 D _var p la_mini1 = 8 #
+12 2070 D _var p la_mini1 = 9 @
+3 3000 None 0 #
+4 3010 @
+4 4000 None 0 #
+5 4010 R _var p la_mini1 = 1 @
+5 5000 None 0 @
+6 6000 None 0 #
+7 6010 R _var p la_mini1 = 3 R _item p PID_FLOWER - 1 @
+7 7000 None 0 @
+8 8000 None 0 @
+9 9000 None 0 #
+0 9010 R _var p la_mini1 = 7 R _item p PID_ROCK - 1 @
+10 10000 None 0 #
+11 10010 R _var p la_mini1 = 9 @
+11 11000 None 0 @
+12 12000 None 0 #
+13 12010 R _var p la_mini1 = 10 R _script dialog@r_AddExperience 1 1000 R _script dialog@r_BulkOrderRewardInde 0  R _script dialog@r_NinjaKillNpc 1 100 @
+13 13000 None 0 &
+
+[engl]
+{100}{}{Kara}
+{200}{}{You see Kara, a hopeless romantic.}
+{210}{}{With stars and love in her eyes she stares deeply into the eyes of someone who isn't you.}
+{1000}{}{Predialogue installations}
+{1010}{}{Answer text}
+{2000}{}{That damn fool...@@Oh, my love...@@When will he ever learn?@@Only fools...@@Careful, you're treading on my dreams...@@When will the rain, wash away... all my pain...}
+{2010}{}{What's the matter?}
+{2020}{}{I'll leave you to it.}
+{2030}{}{Here, it's from Monk.}
+{2040}{}{[Say nothing, and hand her the TV Dinner]}
+{2050}{}{You wanna' rock? It's from Monk.}
+{2060}{}{[Ponder about what Monk said]}
+{2070}{}{[Hand her the vial] It's from Monk, not me. Drink it.}
+{3000}{}{Monk, my love, he has wronged me with another. But I want only his heart into mine. He just... doesn't understand.}
+{3010}{}{Well, shit. Have you tried just telling him how you feel?}
+{4000}{}{[She seems insulted by your comment] Love is not a game of words! It's a feeling! If he can't understand my feelings, than he will never understand me!!!}
+{4010}{}{Until he dies in the wasteland randomly, and leaves you to grieve alone...}
+{5000}{}{How dare you! How dare you! How... Dare! You! }
+{6000}{}{A flower? A simple flower? He defines his emotion! His LOVE for ME! He compares that, to a mere FLOWER?! Monk! You're pathetic!}
+{6010}{}{Playing hard to get, eh? Even with all this death? So easy all of us could die...}
+{7000}{}{Go away! This is between me, and Monk! You shoo! But leave the flower!}
+{8000}{}{First he gives me a Flower, then a TV Dinner... how is this supposed to define his love for me!}
+{9000}{}{Oh! Finally! I finally get it! The flower as a spice for the TV Dinner, and the rock for mashing up the flower! Wow! He's sooooo clever!}
+{9010}{}{Hmm... I... nevermind...}
+{10000}{}{[What Monk whispered to your ear was a horrible secret, and a small vial of strange smelling liquid slipped into your hand. He has given you the power of life and death over these two individuals and is now letting you decide each of their fates. Do you poison the art lover Monk, or poison the ignorant Kara? Careful now, the gods are watching]}
+{10010}{}{Hmm...}
+{11000}{}{What are you huming about?}
+{12000}{}{Yes! Oh, how I will! I will enjoy ever so muchly! [She drinks it]}
+{12010}{}{I bet you will. Goodbye. Also, when you're gone, I'll be going through your pockets.}
+{13000}{}{Oh, hello floor.}
+

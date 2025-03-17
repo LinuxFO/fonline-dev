@@ -1,0 +1,74 @@
+[comment]
+
+
+[data]
+lang=engl
+
+[dialog]
+&
+1 1000 None 0 #
+2 1010 @
+2 2000 None 0 #
+3 2010 #
+6 2020 #
+5 2030 D _var p trophy_rats = 0 D _param p KILL_RAT > 999 R _var p trophy_rats = 1 R _script dialog@r_AddExperience 1 10000 R _item p PID_TROPHY_OF_RECOGNITION + 1 #
+5 2040 D _var p trophy_geckos = 0 D _param p KILL_GECKO > 999 R _var p trophy_geckos = 1 R _script dialog@r_AddExperience 1 10000 R _item p PID_TROPHY_OF_RECOGNITION + 1 #
+5 2050 D _var p trophy_scorps = 0 D _param p KILL_RADSCORPION > 999 R _var p trophy_scorps = 1 R _script dialog@r_AddExperience 1 10000 R _item p PID_TROPHY_OF_RECOGNITION + 1 #
+5 2060 D _var p trophy_ghouls = 0 D _param p KILL_GHOUL > 999 R _var p trophy_ghouls = 1 R _script dialog@r_AddExperience 1 10000 R _item p PID_TROPHY_OF_RECOGNITION + 1 #
+5 2070 D _var p trophy_mutants = 0 D _param p KILL_SUPER_MUTANT > 999 R _var p trophy_mutants = 1 R _script dialog@r_AddExperience 1 10000 R _item p PID_TROPHY_OF_RECOGNITION + 1 #
+5 2080 D _var p trophy_brahmin = 0 D _param p KILL_BRAHMIN > 999 R _var p trophy_brahmin = 1 R _script dialog@r_AddExperience 1 10000 R _item p PID_TROPHY_OF_RECOGNITION + 1 #
+5 2090 D _var p trophy_dogs = 0 D _param p KILL_DOG > 999 R _var p trophy_dogs = 1 R _script dialog@r_AddExperience 1 10000 R _item p PID_TROPHY_OF_RECOGNITION + 1 #
+5 2100 D _var p trophy_floaters = 0 D _param p KILL_FLOATER > 999 R _var p trophy_floaters = 1 R _script dialog@r_AddExperience 1 10000 R _item p PID_TROPHY_OF_RECOGNITION + 1 #
+5 2110 D _var p trophy_centaurs = 0 D _param p KILL_CENTAUR > 999 R _var p trophy_centaurs = 1 R _script dialog@r_AddExperience 1 10000 R _item p PID_TROPHY_OF_RECOGNITION + 1 #
+5 2120 D _var p trophy_men = 0 D _param p KILL_MEN > 999 R _var p trophy_men = 1 R _script dialog@r_AddExperience 1 10000 R _item p PID_TROPHY_OF_RECOGNITION + 1 #
+5 2130 D _var p trophy_women = 0 D _param p KILL_WOMEN > 999 R _var p trophy_women = 1 R _script dialog@r_AddExperience 1 10000 R _item p PID_TROPHY_OF_RECOGNITION + 1 #
+5 2140 D _var p trophy_children = 0 D _param p KILL_CHILDREN > 999 R _var p trophy_children = 1 R _script dialog@r_AddExperience 1 10000 R _item p PID_TROPHY_OF_RECOGNITION + 1 #
+5 2150 D _var p trophy_aliens = 0 D _param p KILL_ALIEN > 999 R _var p trophy_aliens = 1 R _script dialog@r_AddExperience 1 10000 R _item p PID_TROPHY_OF_RECOGNITION + 1 #
+5 2160 D _var p trophy_plants = 0 D _param p KILL_PLANT > 999 R _var p trophy_plants = 1 R _script dialog@r_AddExperience 1 10000 R _item p PID_TROPHY_OF_RECOGNITION + 1 #
+5 2170 D _var p trophy_mantis = 0 D _param p KILL_MANTI > 999 R _var p trophy_mantis = 1 R _script dialog@r_AddExperience 1 10000 R _item p PID_TROPHY_OF_RECOGNITION + 1 #
+5 2180 D _var p trophy_ant = 0 D _param p KILL_GIANT_ANT > 999 R _var p trophy_ant = 1 R _script dialog@r_AddExperience 1 10000 R _item p PID_TROPHY_OF_RECOGNITION + 1 #
+5 2190 D _var p trophy_robot = 0 D _param p KILL_ROBOT > 999 R _var p trophy_robot = 1 R _script dialog@r_AddExperience 1 10000 R _item p PID_TROPHY_OF_RECOGNITION + 1 #
+5 2200 D _var p trophy_deathclaw = 0 D _param p KILL_DEADCLAW > 999 R _var p trophy_deathclaw = 1 R _script dialog@r_AddExperience 1 10000 R _item p PID_TROPHY_OF_RECOGNITION + 1 #
+0 2210 @
+3 3000 None 0 #
+4 3010 @
+4 4000 None 0 @
+5 5000 None 0 @
+6 6000 None 0 #
+4 6010 &
+
+[engl]
+{100}{}{Curator}
+{200}{}{You see the museum of natural achievement curator.}
+{210}{}{Whatever that means.}
+{1000}{}{Predialogue installations}
+{1010}{}{Answer text}
+{2000}{}{Welcome to the museum of wonders, and natural achievement. Do you have a wonderful thing to declare?}
+{2010}{}{This is a... museum?}
+{2020}{}{What's considered an achievement?}
+{2030}{}{I've killed at least a thousand Rats.}
+{2040}{}{I've killed at least a thousand Geckos.}
+{2050}{}{I've killed at least a thousand Scorpions.}
+{2060}{}{I've killed at least a thousand Ghouls.}
+{2070}{}{I've killed at least a thousand Mutants.}
+{2080}{}{I've killed at least a thousand Brahmin.}
+{2090}{}{I've killed at least a thousand Dogs.}
+{2100}{}{I've killed at least a thousand Floaters.}
+{2110}{}{I've killed at least a thousand Centaurs.}
+{2120}{}{I've killed at least a thousand Men.}
+{2130}{}{I've killed at least a thousand Women.}
+{2140}{}{I've killed at least a thousand Children.}
+{2150}{}{I've killed at least a thousand Aliens.}
+{2160}{}{I've killed at least a thousand Plants.}
+{2170}{}{I've killed at least a thousand Mantis.}
+{2180}{}{I've killed at least a thousand Ants.}
+{2190}{}{I've killed at least a thousand Robots.}
+{2200}{}{I've killed at least a thousand Deathclaw.}
+{2210}{}{No, not today. Maybe tomorrow.}
+{3000}{}{Yes, a museum of natural wonder, and achievements! It's a metaphorical museum, of course! Full of wonderful stories about adventure, and despair!}
+{3010}{}{Uh... okay.}
+{4000}{}{Did you know that Johnny Dangercat once killed over a dozen deathclaw?@@Did you know that David Pencilfirst once strangled a super mutant with a radscorpion tail?@@Did you know that Miss Kettleworm once beat over eight aliens to death with her bare hands?@@Did you know that Albert Everyman once shot a vault overseer?@@Did you know that General Banik Rodriquez killed over six hundred rats?@@Did you know that James Elmoric once moved a mountain with a rock?@@Did you know that Clementine Lee once killed over twenty five ghouls?@@Did you know that Sergeant Kor Osive killed over two hundred and eighty four enclave agents?@@Did you know that Penalope Mckurick killed over seven hundred children?@@Did you know that the Chosen One killed over nine hundred and four men?@@Did you know that Judge Dayes has killed three hundred and forty two dogs?}
+{5000}{}{Behold! A trophy! Welcome to the hall of natural achievement!}
+{6000}{}{Hunting a thousand of any living creature, now that's an achievement!}
+{6010}{}{I see...}
+

@@ -1263,6 +1263,14 @@ const uint[][][] RewardBOPuppetGuns =
     }	
 };
 
+void r_DogsQuestReward(Critter& player, Critter@ npc)
+{
+    ProcessRewardTable( player, RewardDogs );
+
+    if(Random(1, 100) == 1)
+        player.AddItem(PID_HOWITZER_SHELL, 1);
+}
+
 void ProcessRewardTable( Critter& player, const uint[][][]& table )
 {
     if( !player.IsPlayer() )

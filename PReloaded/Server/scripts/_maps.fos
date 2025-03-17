@@ -159,7 +159,10 @@
 #define LOCATION_TentMountain1                           (212) // A small tent between mountains.
 #define LOCATION_TentCoast1                              (213) // A small tent at the coast.
 #define LOCATION_TentCity1                               (214) // A small tent in the city.
+#define LOCATION_Hideout                                 (224) // A small camp fire is burning in the distance.
 #define LOCATION_Westwood                                (233) // Westwood is an organized society in the middle of wastes
+#define MAP_Adytum                                       (280) // la_ady1, map_boneyard@map_init, Boneyard(26)
+#define MAP_AdytumSub                                    (281) // la_ady2, map_boneyard@map_init, Boneyard(26)
 #define LOCATION_DesertEncounter7                        (300) // 
 #define LOCATION_DesertEncounter8                        (301) // 
 #define LOCATION_DesertEncounter9                        (302) // 

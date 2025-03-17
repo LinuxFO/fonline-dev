@@ -270,6 +270,8 @@ void SetAliases()
     SetMapId("gr", MAP_Gunrunner);
     SetMapId("gunrunners", MAP_Gunrunner);
     SetMapId("fortress", MAP_Gunrunner);
+    SetMapId("adytum", MAP_Adytum);
+    SetMapId("library", MAP_Library);
 
     // Special maps
     SetMapId("lpcamp", MAP_LandersPoint_Camp);
