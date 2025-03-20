@@ -537,6 +537,16 @@
 {2805}{}{10labone}
 {2806}{}{gntlwin1:25, gntlwind:25, gustwind:10, rattle:15, rattle1:15, vulture:10}
 
+# Map 283, base 2840
+{2840}{}{Library}
+{2845}{}{16follow}
+{2846}{}{gntlwin1:25, gntlwind:25, gustwind:10, rattle:15, rattle1:15, vulture:10}
+
+# Map 284, base 2850
+{2850}{}{Library Level 1}
+{2855}{}{16follow}
+{2856}{}{gntlwin1:25, gntlwind:25, gustwind:10, rattle:15, rattle1:15, vulture:10}
+
 # Map 287, base 2880
 {2880}{}{Tent in the desert}
 {2885}{}{07desert}
@@ -771,6 +781,16 @@
 {125141}{}{Water Merchants}
 {125142}{}{198}
 {125143}{}{210}
+
+# Library, pid 36, base 136000
+{136000}{}{Library}
+{136005}{}{The Public Library serves as headquarters for the Followers of the Apocalypse. It's their church, and very sacred ground.}
+{136010}{}{8}
+{136020}{}{art\intrface\Twnmap10.frm}
+{136090}{}{1}
+{136101}{}{Library}
+{136102}{}{158}
+{136103}{}{120}
 
 # Gun Runners, pid 39, base 139000
 {139000}{}{Gun Runners}
