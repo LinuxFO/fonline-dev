@@ -537,6 +537,16 @@
 {2805}{}{10labone}
 {2806}{}{gntlwin1:25, gntlwind:25, gustwind:10, rattle:15, rattle1:15, vulture:10}
 
+# Map 280, base 2810
+{2810}{}{Adytum}
+{2815}{}{10labone}
+{2816}{}{gntlwin1:25, gntlwind:25, gustwind:10, rattle:15, rattle1:15, vulture:10}
+
+# Map 281, base 2820
+{2820}{}{Adytum Sub}
+{2825}{}{10labone}
+{2826}{}{gntlwin1:25, gntlwind:25, gustwind:10, rattle:15, rattle1:15, vulture:10}
+
 # Map 283, base 2840
 {2840}{}{Library}
 {2845}{}{16follow}
@@ -781,6 +791,17 @@
 {125141}{}{Water Merchants}
 {125142}{}{198}
 {125143}{}{210}
+
+# New Adytum, pid 26, base 126000
+{126000}{}{New Adytum}
+{126005}{}{Amongst decimated skyscrapers lies the small industrial town named New Adytum. It's doing well, it seems. There's a ton of caravan activity coming in, and out of the city.}
+{126010}{}{12}
+{126020}{}{art\intrface\Twnmap10.frm}
+{126030}{}{art\intrface\Wm_10.frm}
+{126090}{}{1}
+{126101}{}{Adytum}
+{126102}{}{288}
+{126103}{}{245}
 
 # Library, pid 36, base 136000
 {136000}{}{Library}
