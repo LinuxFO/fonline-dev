@@ -57,6 +57,11 @@
 {185}{}{12junktn}
 {186}{}{gustwind:20, gustwin1:20, rattle:15, rattle1:15, vulture:15, vulture1:15}
 
+# Map 23, base 240
+{240}{}{LA Warehouse}
+{245}{}{08vats}
+{246}{}{gntlwin1:25, gntlwind:25, animal1:20, animal:20, gustwind:5, gustwin1:5}
+
 # Map 40, base 410
 {410}{}{Gun Runners}
 {415}{}{10labone}
@@ -547,6 +552,11 @@
 {2825}{}{10labone}
 {2826}{}{gntlwin1:25, gntlwind:25, gustwind:10, rattle:15, rattle1:15, vulture:10}
 
+# Map 282, base 2830
+{2830}{}{Blade}
+{2835}{}{16Follow}
+{2836}{}{gntlwin1:25, gntlwind:25, gustwind:10, rattle:15, rattle1:15, vulture:10}
+
 # Map 283, base 2840
 {2840}{}{Library}
 {2845}{}{16follow}
@@ -556,6 +566,16 @@
 {2850}{}{Library Level 1}
 {2855}{}{16follow}
 {2856}{}{gntlwin1:25, gntlwind:25, gustwind:10, rattle:15, rattle1:15, vulture:10}
+
+# Map 285, base 2860
+{2860}{}{Ripper}
+{2865}{}{10labone}
+{2866}{}{gntlwin1:25, gntlwind:25, gustwind:10, rattle:15, rattle1:15, vulture:10}
+
+# Map 286, base 2870
+{2870}{}{Ripper Sub}
+{2875}{}{10labone}
+{2876}{}{gntlwin1:25, gntlwind:25, gustwind:10, rattle:15, rattle1:15, vulture:10}
 
 # Map 287, base 2880
 {2880}{}{Tent in the desert}
@@ -812,6 +832,32 @@
 {136101}{}{Library}
 {136102}{}{158}
 {136103}{}{120}
+
+# Warehouse, pid 37, base 137000
+{137000}{}{Warehouse}
+{137005}{}{An old, dangerous warehouse between the ruins. |0xFF0000 High Level Dungeon!}
+{137010}{}{6}
+{137020}{}{art\intrface\Twnmap10.frm}
+{137090}{}{3}
+{137101}{}{West Side}
+{137102}{}{297}
+{137103}{}{165}
+{137111}{}{East Side}
+{137112}{}{397}
+{137113}{}{165}
+{137121}{}{Southeast}
+{137122}{}{397}
+{137123}{}{225}
+
+# Salvagers, pid 38, base 138000
+{138000}{}{Salvagers}
+{138005}{}{Downtown is home for the salvagers of the Angel's Boneyard. It's a quiet place, not like it used to be... save for the occasional stealing.}
+{138010}{}{8}
+{138020}{}{art\intrface\Twnmap10.frm}
+{138090}{}{1}
+{138101}{}{Boneyard Downtown}
+{138102}{}{241}
+{138103}{}{201}
 
 # Gun Runners, pid 39, base 139000
 {139000}{}{Gun Runners}
