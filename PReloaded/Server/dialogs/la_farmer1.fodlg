@@ -1,0 +1,44 @@
+[comment]
+
+
+[data]
+lang=engl
+
+[dialog]
+&
+1 1000 None 0 #
+2 1010 @
+2 2000 None 0 #
+3 2010 #
+6 2020 D _var p la_crate1 = 0 R _var p la_crate1 = 1 R _item p PID_CARAVAN_BOX + 1 #
+7 2030 D _var p la_crate1 = 2 R _var p la_crate1 = 0 R _script dialog@r_AddExperience 1 500 R _script dialog@r_AddMoney 1 125 R _param p REPUTATION_FREE_TRADERS + 6 #
+0 2040 @
+3 3000 None 0 #
+5 3010 D _item p PID_BOTTLE_CAPS > 4 R _item p PID_BOTTLE_CAPS - 5 R _param p ST_CURRENT_HP - 3 R _param p ST_RADIATION_LEVEL + 4 #
+4 3020 @
+4 4000 None 0 @
+5 5000 None 0 #
+0 5010 @
+6 6000 None 0 @
+7 7000 None 0 &
+
+[engl]
+{100}{}{Farmer}
+{200}{}{You see a farmer.}
+{210}{}{Standing inside the farmer's market you can smell the warm, fresh scent of life brewing again.}
+{1000}{}{Predialogue installations}
+{1010}{}{Answer text}
+{2000}{}{Corn for sale! Corn for sale! Come get yer corn! }
+{2010}{}{One corn please!}
+{2020}{}{Need any crates delivered?}
+{2030}{}{I've succesfully delivered your crate to the Hub. Payment please.}
+{2040}{}{[Walk away]}
+{3000}{}{That'll be five caps.}
+{3010}{}{Here you go! Yum! Delicious corn!}
+{3020}{}{For irradiated corn? No way!}
+{4000}{}{Yer loss. Corn for sale! Come get yer corn!}
+{5000}{}{[You are handed a strange, and grostesque looking piece of corn. Upon eating it, you feel a bit sick]}
+{5010}{}{Ewwyck!}
+{6000}{}{This crate needs to go to the Hub's General Store. I'll pay you when you get back, just bring me the receipt.}
+{7000}{}{Nice working with you. Come back anytime.}
+

@@ -1,0 +1,92 @@
+[comment]
+
+
+[data]
+lang=engl
+
+[dialog]
+&
+1 1000 None 0 #
+2 1010 D _param p REPUTATION_LA } 0 #
+6 1020 D _param p REPUTATION_LA { 0 @
+2 2000 None 0 #
+2 2010 D _item p PID_9MM_MAUSER > 0 R _item p PID_9MM_MAUSER - 1 R _item p PID_PUMP_PARTS + 2 #
+2 2020 D _item p PID_10MM_PISTOL > 0 R _item p PID_10MM_PISTOL - 1 R _item p PID_PUMP_PARTS + 1 R _item p PID_METAL_PARTS + 1 #
+2 2030 D _item p PID_SHOTGUN > 0 R _item p PID_SHOTGUN - 1 R _item p PID_METAL_PARTS + 2 #
+2 2040 D _item p PID_HUNTING_RIFLE > 0 R _item p PID_HUNTING_RIFLE - 1 R _item p PID_METAL_PARTS + 2 R _item p PID_PUMP_PARTS + 1 #
+2 2050 D _item p PID_10MM_SMG > 0 R _item p PID_10MM_SMG - 1 R _item p PID_METAL_PARTS + 2 R _item p PID_ALLOYS + 1 #
+2 2060 D _item p PID_44_MAGNUM_REVOLVER > 0 R _item p PID_44_MAGNUM_REVOLVER - 1 R _item p PID_METAL_PARTS + 2 R _item p PID_PUMP_PARTS + 1 #
+2 2070 D _item p PID_DESERT_EAGLE > 0 R _item p PID_DESERT_EAGLE - 1 R _item p PID_METAL_PARTS + 2 R _item p PID_PUMP_PARTS + 1 #
+2 2080 D _item p PID_COMBAT_SHOTGUN > 0 R _item p PID_COMBAT_SHOTGUN - 1 R _item p PID_METAL_PARTS + 3 #
+2 2090 D _item p PID_14MM_PISTOL > 0 R _item p PID_14MM_PISTOL - 1 R _item p PID_METAL_PARTS + 2 R _item p PID_PUMP_PARTS + 2 R _item p PID_ALLOYS + 2 #
+2 2100 D _item p PID_GREASE_GUN > 0 R _item p PID_GREASE_GUN - 1 R _item p PID_METAL_PARTS + 2 R _item p PID_PUMP_PARTS + 2 #
+2 2110 D _item p PID_LASER_PISTOL > 0 R _item p PID_LASER_PISTOL - 1 R _item p PID_ALLOYS + 1 R _item p PID_ELECTRONIC_PARTS + 1 #
+2 2120 D _item p PID_MAGNETO_LASER_PISTOL > 0 R _item p PID_MAGNETO_LASER_PISTOL - 1 R _item p PID_ELECTRONIC_PARTS + 2 #
+2 2130 D _item p PID_NEEDLER_PISTOL > 0 R _item p PID_NEEDLER_PISTOL - 1 R _item p PID_ALLOYS + 4 #
+2 2140 D _item p PID_TOMMY_GUN > 0 R _item p PID_TOMMY_GUN - 1 R _item p PID_PUMP_PARTS + 4 #
+2 2150 D _item p PID_FLAMER > 0 R _item p PID_FLAMER - 1 R _item p PID_METAL_PARTS + 4 #
+3 2160 #
+4 2170 #
+5 2180 #
+7 2190 D _var p la_caravan2 = 0 #
+8 2200 D _item p PID_CARAVAN_BOX > 0 D _var p la_caravan2 = 2 R _script dialog@r_AddExperience 1 500 R _item p PID_CARAVAN_BOX - 1 R _var p la_caravan2 = 0 R _script dialog@r_AddMoney 1 125 R _param p REPUTATION_LA + 7 #
+9 2210 D _var p la_caravan2 = 2 D _item p PID_CARAVAN_BOX = 0 R _var p la_caravan2 = 0 #
+0 2220 @
+3 3000 None 0 #
+2 3010 @
+4 4000 None 0 #
+2 4010 @
+5 5000 None 0 #
+2 5010 @
+6 6000 None 0 @
+7 7000 None 0 #
+10 7010 R _var p la_caravan2 = 1 #
+0 7020 @
+8 8000 None 0 @
+9 9000 None 0 @
+10 10000 None 0 &
+
+[engl]
+{100}{}{Professional Salvager}
+{200}{}{You see a junker.}
+{210}{}{This is what wastelanders call a "junker", a professional salvager. Whatever you want to call them, they're better at dismantling than you'll ever be.}
+{1000}{}{Predialogue installations}
+{1010}{}{good rep}
+{1020}{}{bad rep}
+{2000}{}{I've gots tons of resources, if you's gots guns 'ta trade.}
+{2010}{}{Trade 1x Mauser.}
+{2020}{}{Trade 1x 10mm Pistol.}
+{2030}{}{Trade 1x Shotgun.}
+{2040}{}{Trade 1x Hunting Rifle.}
+{2050}{}{Trade 1x 10mm SMG.}
+{2060}{}{Trade 1x .44 Magnum.}
+{2070}{}{Trade 1x Desert Eagle.}
+{2080}{}{Trade 1x Combat Shotgun.}
+{2090}{}{Trade 1x 14mm Pistol.}
+{2100}{}{Trade 1x Grease Gun.}
+{2110}{}{Trade 1x Laser Pistol.}
+{2120}{}{Trade 1x Magneto Laser Pistol.}
+{2130}{}{Trade 1x Needler.}
+{2140}{}{Trade 1x Tommy Gun.}
+{2150}{}{Trade 1x Flamer.}
+{2160}{}{What kind of resources are we talking about?}
+{2170}{}{You aren't looking for any armour?}
+{2180}{}{Know where I can make some real money selling guns?}
+{2190}{}{Got any work?@@Need anything done?@@Can I help you with anything?}
+{2200}{}{Here's your crate of "special" parts.}
+{2210}{}{Sorry, I lost your crate of "special" parts.}
+{2220}{}{Nothing today, sorry.}
+{3000}{}{I's gots plenty of Metal Parts, Junk, Electronic Parts, and Alloys. I's is a masters at dismantling. Bring me most o' any small gun, and I'll break hers downs real good, give you half.I's even take a lookin' at a Flamer, or two.}
+{3010}{}{Hmm, alright.}
+{4000}{}{No siree Bob. Der's a darn fine, fancy tanner in's 'da Hub, she buys dat real good.}
+{4010}{}{A tanner, you say? Interesting.}
+{5000}{}{I's hearin' that San Francisco gots some good deals. But they ain't talkin' 'ta me. Hub cops need guns too, I hear.}
+{5010}{}{Might have to poke around there later.}
+{6000}{}{Why don't you's go's hang from a branch? Twit, twit. Nobody likes you's.}
+{7000}{}{Yes'siree Bob! I's be needing a crate of "special" parts from the Far Go Traders. They's got what I need. Take this receipt, and go fetch me that box. I's be paying, when you's be bringin' the boxin', yeah?}
+{7010}{}{Sure, hand me that receipt.}
+{7020}{}{Nah, not right now.  But maybe later.}
+{8000}{}{Lookin' good. Here's yer moulah. But I's be needin' way more than this...}
+{9000}{}{You's lost my special box?! You's shit! Get's out's me's face!}
+{10000}{}{Don'ts be too's long now...}
+

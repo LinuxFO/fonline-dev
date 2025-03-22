@@ -1,0 +1,30 @@
+[comment]
+
+
+[data]
+lang=engl
+
+[dialog]
+&
+1 1000 None 0 #
+4 1010 D _var p name_mem_npc_player = 1 #
+2 1020 D _var p name_mem_npc_player = 0 @
+2 2000 None 0 #
+3 2010 D _item p PID_ROPE > 4 R _item p PID_ROPE - 5 R _script dialog@r_AddExperience 1 1000 R _param p ST_KARMA + 1 R _var p name_mem_npc_player = 1 #
+0 2020 @
+3 3000 None 0 @
+4 4000 None 0 &
+
+[engl]
+{100}{}{Ranch Hand}
+{200}{}{You see a ranch hand.}
+{210}{}{He's filthy, but it's an honest living, that's for sure.}
+{1000}{}{Predialogue installations}
+{1010}{}{Done}
+{1020}{}{Unknown}
+{2000}{}{Excuse me, @sex@|Sonny.||Missy.| You wouldn't happen to have any spare rope would ya? I need 5 pieces, one for each of me brahmins.}
+{2010}{}{Sure do, always be prepared!}
+{2020}{}{Sorry, can't help you.}
+{3000}{}{Perfect, these will do just fine. Thanks.}
+{4000}{}{Thanks for the rope.}
+

@@ -1,0 +1,64 @@
+[comment]
+
+
+[data]
+lang=engl
+
+[dialog]
+&
+1 1000 None 0 #
+2 1010 D _var p name_mem_npc_player = 0 D _param p ST_LEVEL } 12 #
+6 1020 D _var p name_mem_npc_player = 1 #
+7 1030 D _param p ST_LEVEL { 12 D _var p name_mem_npc_player = 0 @
+2 2000 None 0 #
+3 2010 #
+0 2020 @
+3 3000 None 0 #
+4 3010 @
+4 4000 None 0 #
+5 4010 @
+5 5000 None 0 #
+0 5010 R _var p name_mem_npc_player = 1 R _var p q_floaters = 1 @
+6 6000 None 0 #
+9 6010 D _var p q_floaters = 1 #
+8 6020 D _var p q_floaters = 3 R _script dialog@r_AddExperience 1 3000 R _script dialog@r_AddMoney 1 3000 R _param p ST_KARMA + 1 R _param p REPUTATION_LA + 7 R _param p REPUTATION_SCAVENGERS + 7 R _param p REPUTATION_REGULATORS + 7 R _param p REPUTATION_FOLLOWERS + 7 R _script dialog@r_BulkOrderRewardHub 0  R _script dialog@r_BulkOrderRewardJunk 0  R _script dialog@r_QuestTimeout 1 2 R _var p q_floaters = 4 R _script quest_floaters@r_DeleteLoc 0  R _script dialog@r_AddLootSetLevel2 0  R _script dialog@r_AddLootSetLevel3 0  #
+10 6030 D _script dialog@d_QuestTimeoutReady 0  D _var p q_floaters = 4 #
+0 6040 @
+7 7000 None 0 @
+8 8000 None 0 @
+9 9000 None 0 #
+0 9010 R _var p q_floaters = 2 R _script quest_floaters@r_SpawnLoc 0  @
+10 10000 None 0 #
+9 10010 #
+0 10020 &
+
+[engl]
+{100}{}{Noringo}
+{200}{}{You see a worried looking Regulator.}
+{210}{}{Something is clearly bothering him.}
+{1000}{}{Predialogue installations}
+{1010}{}{Answer text}
+{1020}{}{2}
+{1030}{}{3}
+{2000}{}{They're coming out of the goddamn walls!@@Ooooh! That Crater!@@Need some sentry guns. Like in Vault City.@@Fucking monsters.@@You ever seen a Floater jump? Scary stuff.@@You shouldn't be talking to me. You should be out there.@@Wish they'd send more reinforcements.}
+{2010}{}{What's your problem?}
+{2020}{}{Whatever.}
+{3000}{}{Have you been to that crater? I don't know what's down there, but I think there's an army of centaurs and floaters living near it. }
+{3010}{}{This whole area is infested with them. Who cares?}
+{4000}{}{Hah! There's an army of them on their way here, right now. The scouts spotted them a few minutes ago. We can handle it. But a lot of my friends might die today. Care to help?}
+{4010}{}{Yeah, okay. Maybe.}
+{5000}{}{If you think you're tough enough to handle it, then okay. I got a job for you. Every couple of hours a new wave forms of those things, and heads over here. They don't always attack, but a group of them that size is just too dangerous to ignore. I'll pay you to wipe out the group so we don't have to. Come back whenever you're interested.}
+{5010}{}{Sure. I'll think about it.}
+{6000}{}{Came back? Good. Look, there's like... thirty to fourty of those things out there. You think you can handle it? Hope you brought plenty of ammo. These are some mean looking Centaurs and Floaters.}
+{6010}{}{I'm ready. Show me the location.}
+{6020}{}{They're all dead. Break out the caps.}
+{6030}{}{Has another group formed yet?}
+{6040}{}{I'll be back when I'm ready.}
+{7000}{}{What a chump. Beat it.}
+{8000}{}{They'll be back. They always do. Be ready in a few hours.}
+{9000}{}{Good luck. [Type /combatmode tb for Turn Based combat. Do this before continuing]}
+{9010}{}{Let's do this.}
+{10000}{}{Yeah, my scouts reported one just a few minutes ago. Do you want to take it out?}
+{10010}{}{Sure.}
+{10020}{}{Not yet.}
+
