@@ -67,6 +67,10 @@
 {415}{}{10labone}
 {416}{}{gntlwin1:25, gntlwind:25, gustwind:10, rattle:15, rattle1:15, vulture:10}
 
+# Map 47, base 480
+{480}{}{Den BoS}
+{486}{}{blank:10}
+
 # Map 69, base 700
 {700}{}{Safe house in the city}
 {705}{}{07desert}
@@ -755,6 +759,11 @@
 {5985}{}{18modoc}
 {5986}{}{}
 
+# Map 1116, base 11170
+{11170}{}{Den Business}
+{11175}{}{05raider}
+{11176}{}{dogbark:10, dogbark1:10, gntlwind:20, gntlwin1:20, blank:40}
+
 #
 # Global map
 #
@@ -1293,6 +1302,26 @@
 {414000}{}{Desert 12}
 {414005}{}{}
 {414010}{}{6}
+
+# The Den, pid 499, base 599000
+{599000}{}{The Den}
+{599005}{}{A town of junkies and slavers.}
+{599010}{}{24}
+{599020}{}{art\intrface\twnden.frm}
+{599030}{}{art\intrface\WM_DEN.FRM}
+{599090}{}{4}
+{599101}{}{Downtown}
+{599102}{}{124}
+{599103}{}{293}
+{599111}{}{East Side}
+{599112}{}{262}
+{599113}{}{330}
+{599121}{}{South Side}
+{599122}{}{205}
+{599123}{}{357}
+{599131}{}{Southwest}
+{599132}{}{135}
+{599133}{}{347}
 
 #
 # Worldmap Encounter messages

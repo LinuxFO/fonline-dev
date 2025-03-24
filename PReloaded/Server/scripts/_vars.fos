@@ -113,6 +113,7 @@
 #define LVAR_factions_q_nav_mfc (4207)
 #define LVAR_hub_arena_inside (4212)
 #define LVAR_redding_morton_brothers (5386)
+#define LVAR_q_den_becky_table (6200)
 #define UVAR_q_box_unload_status (6500)
 #define UVAR_q_box_unload_count (6501)
 #define LVAR_bar_drink (7000)
@@ -3241,6 +3242,10 @@ $ 7111 1 q_la_warehouse_dialog_status 0 0 0 4
 **********
 
 $ 7151 1 player_is_raped 0 0 1 0
+**********
+**********
+
+$ 6200 1 q_den_becky_table 0 0 5 1
 **********
 **********
 
