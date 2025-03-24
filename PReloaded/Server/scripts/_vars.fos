@@ -113,6 +113,11 @@
 #define LVAR_factions_q_nav_mfc (4207)
 #define LVAR_hub_arena_inside (4212)
 #define LVAR_redding_morton_brothers (5386)
+#define LVAR_q_mordinos_metzger_delivery (6054)
+#define LVAR_q_klam_bob_thehole (6120)
+#define LVAR_q_den_becky_table (6200)
+#define LVAR_q_den_becky_clubs (6201)
+#define LVAR_q_den_mom_orphanage (6202)
 #define UVAR_q_box_unload_status (6500)
 #define UVAR_q_box_unload_count (6501)
 #define LVAR_bar_drink (7000)
@@ -123,6 +128,7 @@
 #define LVAR_q_hub_sadwife (7008)
 #define LVAR_q_hub_wasteland_band (7009)
 #define LVAR_boneyard_train_trader_story (7010)
+#define LVAR_den_metzger_blind (7012)
 #define LVAR_train_coc_mad (7016)
 #define LVAR_q_coc_train (7017)
 #define LVAR_q_vc_train_doc (7018)
@@ -148,6 +154,8 @@
 #define LVAR_q_la_train_caesar_leg (7048)
 #define LVAR_q_la_dogs_locid (7049)
 #define LVAR_free_slave (7053)
+#define LVAR_se_bosbattleground (7056)
+#define LVAR_se_boscrashedhummer (7057)
 #define LVAR_q_la_ady_lorraine_pistol (7060)
 #define LVAR_q_la_ady_lorraine_fornication (7061)
 #define LVAR_q_la_ady_lorraine_science (7062)
@@ -156,7 +164,10 @@
 #define LVAR_q_iguana_son_message (7072)
 #define LVAR_q_iguana_mutant_message (7073)
 #define LVAR_q_bos_initiatequest_start (7074)
+#define LVAR_faction_bos_quartermaster (7076)
 #define LVAR_faction_farmer (7085)
+#define LVAR_q_bos_initiatequest_start_key (7090)
+#define LVAR_q_bosbunker_locid (7100)
 #define LVAR_q_la_warehouse_locid (7101)
 #define LVAR_q_la_warehouse (7102)
 #define LVAR_q_la_warehouse_fuck_loop (7103)
@@ -211,6 +222,17 @@
 #define LVAR_Book_SmallGuns (9952)
 #define LVAR_current_followers (10010)
 #define LVAR_patrol_currentnode (10100)
+#define LVAR_slaverun_status (11100)
+#define LVAR_slaverun_current_loctype (11101)
+#define LVAR_slaverun_current_loc (11102)
+#define LVAR_slaverun_last_time (11103)
+#define LVAR_slaverun_hostiles (11104)
+#define LVAR_slaverun_normals (11105)
+#define LVAR_slaverun_slavers (11106)
+#define LVAR_slaverun_hostiles_killed (11107)
+#define LVAR_slaverun_normals_killed (11108)
+#define LVAR_slaverun_slavers_killed (11109)
+#define LVAR_slaverun_eventnum (11110)
 #define UVAR_proximity_check (11200)
 #define LVAR_noob_camp_alecquest (11801)
 #define LVAR_noob_camp_breederquest (11802)
@@ -254,6 +276,7 @@
 #define LVAR_hub_honor (11922)
 #define LVAR_hub_bringshotty (11923)
 #define LVAR_hub_bringsurv (11924)
+#define LVAR_den_momstew (11925)
 #define LVAR_hub_chefquest (11928)
 #define LVAR_hub_bombq (11929)
 #define LVAR_hub_rougam (11931)
@@ -419,6 +442,9 @@
 #define GVAR_CRIM (16218)
 #define GVAR_KIDS (16225)
 #define LVAR_q_trader (16230)
+#define LVAR_q_bos1 (16231)
+#define LVAR_q_bos2 (16232)
+#define LVAR_q_bos3 (16233)
 #define LVAR_q_pool1 (16234)
 #define LVAR_q_pool2 (16235)
 #define LVAR_q_merchant (16236)
@@ -428,10 +454,15 @@
 #define LVAR_camp_evil (16294)
 #define LVAR_q_packages (16298)
 #define LVAR_z_bookman (16332)
+#define LVAR_z_mutantq (16336)
 #define LVAR_z_jarokq (16372)
 #define LVAR_jarokfarm_locid (16373)
 #define LVAR_jarokbar_locid (16374)
 #define LVAR_z_warrior2 (16378)
+#define LVAR_z_docandun1 (16379)
+#define LVAR_z_docandun1_locid (16380)
+#define LVAR_z_docandun2 (16381)
+#define LVAR_z_docandun2_locid (16382)
 #define LVAR_z_dailyq1 (16383)
 #define LVAR_z_dailyq1_locid (16384)
 #define LVAR_z_dailyq2_locid (16385)
@@ -2496,9 +2527,9 @@ getting toxic camp
 **********
 
 $ 16169 1 hub_inde 0 0 25 1
-*********************
+**************
 inde caravan job
-*********************
+**************
 
 $ 16170 1 inde1_locid 0 0 13 4
 **********
@@ -2974,13 +3005,13 @@ This variable is for "fix water pump!" in boneyard.
 **********
 
 $ 11937 1 la_scrapp 0 0 10 1
-*****************
+**********
 Ford quest 
 0 = not taken
 1 = taken
 2= talked
 3= completed
-*****************
+**********
 
 $ 16091 1 trophy_rats 0 0 15 5
 **********
@@ -3242,6 +3273,162 @@ $ 7111 1 q_la_warehouse_dialog_status 0 0 0 4
 
 $ 7151 1 player_is_raped 0 0 1 0
 **********
+**********
+
+$ 6200 1 q_den_becky_table 0 0 5 1
+**********
+**********
+
+$ 11925 1 den_momstew 0 0 10 1
+**********
+Ford quest 
+0 = not taken
+1 = taken
+2= talked
+3= completed
+**********
+
+$ 6201 1 q_den_becky_clubs 0 0 4 1
+**********
+**********
+
+$ 6202 1 q_den_mom_orphanage 0 0 4 1
+**********
+**********
+
+$ 6120 1 q_klam_bob_thehole 0 0 5 1
+**********
+quest to deliver a message from whiskey bob to frankie in the hole
+0 - not assigned
+1 - Bob has asked you to deliver a message to Frankie in the Den
+2 - You have successfully delivered the message and need go back to bob
+Quest repeatable
+**********
+
+$ 6001 1 q_raiders_induction 0 0 0 5
+**********
+the fucking variable for the fucking quest to join the fucking raiders
+**********
+
+$ 6002 1 q_raiders_induction_locid 0 0 0 4
+**********
+**********
+
+$ 7076 1 faction_bos_quartermaster 0 0 10 0
+**********
+Used in various parts of BoS quartermaster dialog.
+**********
+
+$ 16379 1 z_docandun1 0 0 100 4
+**********
+var for docan's dungeon 1
+**********
+
+$ 16380 1 z_docandun1_locid 0 0 13 4
+**********
+Location id of docan's dungeon 1
+**********
+
+$ 16381 1 z_docandun2 0 0 100 4
+**********
+var for docan's dungeon 2
+**********
+
+$ 16382 1 z_docandun2_locid 0 0 13 4
+**********
+Location id of docan's dungeon 2
+**********
+
+$ 11100 1 slaverun_status 0 0 0 4
+**********
+**********
+
+$ 11101 1 slaverun_current_loctype 0 0 0 4
+**********
+**********
+
+$ 11102 1 slaverun_current_loc 0 0 0 4
+**********
+**********
+
+$ 11103 1 slaverun_last_time 0 0 0 4
+**********
+**********
+
+$ 11104 1 slaverun_hostiles 0 0 0 4
+**********
+**********
+
+$ 11105 1 slaverun_normals 0 0 0 4
+**********
+**********
+
+$ 11106 1 slaverun_slavers 0 0 0 4
+**********
+**********
+
+$ 11107 1 slaverun_hostiles_killed 0 0 0 4
+**********
+**********
+
+$ 11108 1 slaverun_normals_killed 0 0 0 4
+**********
+**********
+
+$ 11109 1 slaverun_slavers_killed 0 0 0 4
+**********
+**********
+
+$ 11110 1 slaverun_eventnum 0 0 0 4
+**********
+**********
+
+$ 7100 1 q_bosbunker_locid 0 0 0 4
+**********
+**********
+
+$ 7056 1 se_bosbattleground 0 0 0 4
+**********
+0 = Not encountered
+>0 = Location Id
+**********
+
+$ 7057 1 se_boscrashedhummer 0 0 0 4
+**********
+0 = Not encountered
+>0 = Location Id
+**********
+
+$ 7090 1 q_bos_initiatequest_start_key 0 0 0 4
+**********
+**********
+
+$ 6054 1 q_mordinos_metzger_delivery 0 0 0 5
+**********
+**********
+
+$ 16231 1 q_bos1 0 0 25 1
+**********
+bos bunker report  
+**********
+
+$ 16232 1 q_bos2 0 0 25 1
+**********
+bos bunker report  
+**********
+
+$ 16233 1 q_bos3 0 0 25 1
+**********
+bos bunker report  
+**********
+
+$ 7012 1 den_metzger_blind 0 0 1 0
+**********
+**********
+
+$ 16336 1 z_mutantq 0 0 100 4
+**********
+var for becoming mutant
 **********
 
 **********/

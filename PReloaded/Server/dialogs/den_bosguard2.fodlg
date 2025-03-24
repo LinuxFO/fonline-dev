@@ -1,0 +1,59 @@
+[comment]
+
+
+[data]
+lang=engl
+
+[dialog]
+&
+1 1000 None 0 #
+5 1010 D _param p ST_LEVEL { 24 #
+2 1020 D _param p ST_LEVEL } 24 @
+2 2000 None 0 #
+3 2010 D _var p z_docandun2 = 0 #
+10 2020 D _var p z_docandun2 = 2 #
+8 2030 D _var p z_docandun2 = 3 #
+0 2040 @
+3 3000 None 0 #
+4 3010 @
+4 4000 None 0 #
+6 4010 @
+5 5000 None 0 @
+6 6000 None 0 #
+7 6010 @
+7 7000 None 0 #
+8 7010 @
+8 8000 None 0 #
+9 8010 R _script quest_skyt@r_SpawnLoc 0  R _var p z_docandun2 = 1 @
+9 9000 None 0 @
+10 10000 None 0 #
+0 10010 R _script quest_skyt@r_DeleteLoc 0  R _var p z_docandun2 = 3 R _param p ST_EXPERIENCE + 10000 R _item p PID_BOTTLE_CAPS + 3000 &
+
+[engl]
+{100}{}{Fox Mcluud}
+{200}{}{You see Paladin Fox Mcluud.}
+{210}{}{You see an aging warrior for the Brotherhood of Steel.}
+{210}{}{You see an aging warrior for the Brotherhood of Steel.}
+{1000}{}{Predialogue installations}
+{1010}{}{start}
+{1020}{}{Answer text}
+{2000}{}{You there! You look tough! I've got a mission for you, if you want it.}
+{2010}{}{A mission? Sure, let's hear it.}
+{2020}{}{[Reserved]}
+{2030}{}{[Reserved]}
+{2040}{}{[Walk away]}
+{3000}{}{Brotherhood is testing the natives. There's a huge skyscraper nearby occupied by the wasteland's finest scumbags. Anybody who can clear it out is getting a BoS worthy reward. Think you can handle it? }
+{3010}{}{I don't know, how many people are there?}
+{4000}{}{Probably not enough for you, heh. }
+{4010}{}{How much are you paying?}
+{5000}{}{Look at this wimp! If you want a mission you'd better get tougher!}
+{6000}{}{Over five thousand caps, and a little more.}
+{6010}{}{What's the catch?}
+{7000}{}{Do you even care?}
+{7010}{}{...}
+{8000}{}{[She hands you an old, worn out map and walks away. Part of you doesn't believe the reward, and rather more so the part of the Brotherhood testing the locals. In your opinion, this looks more like a map to a new dungeon, which you can explore at your own leisure]}
+{8010}{}{...}
+{9000}{}{...}
+{10000}{}{You did? You killed them all? It's never enough though... I know more places like that, come back later.}
+{10010}{}{We'll see.}
+

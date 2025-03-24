@@ -161,8 +161,12 @@
 #define LOCATION_TentCity1                               (214) // A small tent in the city.
 #define LOCATION_Hideout                                 (224) // A small camp fire is burning in the distance.
 #define LOCATION_Westwood                                (233) // Westwood is an organized society in the middle of wastes
-#define MAP_Adytum                                       (280) // la_ady1, map_boneyard@map_init, Boneyard(26)
-#define MAP_AdytumSub                                    (281) // la_ady2, map_boneyard@map_init, Boneyard(26)
+#define LOCATION_Slaverun1                               (271) // A tribal camp
+#define LOCATION_Slaverun2                               (272) // A tribal camp
+#define LOCATION_Slaverun3                               (273) // A resting caravan
+#define LOCATION_Slaverun4                               (274) // A small farm
+#define LOCATION_Slaverun5                               (275) // A highway gas station
+#define LOCATION_Slaverun6                               (276) // A house full of junkies
 #define LOCATION_DesertEncounter7                        (300) // 
 #define LOCATION_DesertEncounter8                        (301) // 
 #define LOCATION_DesertEncounter9                        (302) // 
@@ -232,10 +236,19 @@
 #define MAP_MountainsEncounterKhans2                     (10) // e_khans2, map_encounter@map_init, Khan Encounter 2(58)
 #define MAP_MountainsEncounterKhans3                     (14) // e_khans3, map_encounter@map_init, Khan Encounter 3(59)
 #define MAP_DesertEncounterKhans4                        (17) // e_khans4, map_encounter@map_init, Khan Encounter 4(60)
+#define MAP_LAWarehouse                                  (23) // q_la_warehouses, LA Warehouse(62)
+#define MAP_GunRunners                                   (40) // la_gunrunner2, map_boneyard@map_init, Fortress(39)
+#define MAP_DenBoS                                       (47) // den_bos, The Den(499)
 #define MAP_Safehouseinthecity                           (69) // tent2_city, Tent 2 City 1(73)
 #define MAP_Safehouseonthecoast                          (72) // tent2_coast, Tent 2 Coast 1(72)
 #define MAP_Safehouseinthedesert                         (73) // tent2_desert, Tent 2 Desert 1(74)
 #define MAP_Safehouseinthemountains                      (74) // tent2_mountain, Tent 2 Mountain 1(71)
+#define MAP_Crater                                       (84) // cathdead, map_cathdead@map_init, Crater(35)
+#define MAP_LostHills_Entrance                           (85) // bos_lh_0, map_bos_lh@map_init, Brotherhood of Steel(18)
+#define MAP_LostHills_Level1                             (86) // bos_lh_1, map_bos_lh@map_init, Brotherhood of Steel(18)
+#define MAP_LostHills_Level2                             (87) // bos_lh_2, map_bos_lh@map_init, Brotherhood of Steel(18)
+#define MAP_LostHills_Level3                             (88) // bos_lh_3, map_bos_lh@map_init, Brotherhood of Steel(18)
+#define MAP_LostHills_Level4                             (89) // bos_lh_4, map_bos_lh@map_init, Brotherhood of Steel(18)
 #define MAP_Ocean                                        (107) // e_ocean1, Ocean Encounter 1(81)
 #define MAP_DesertEncounter1                             (160) // e_desert1, map_encounter@map_init, Desert Encounter 1(101)
 #define MAP_DesertEncounter2                             (161) // e_desert2, map_encounter@map_init, Desert Encounter 2(102)
@@ -296,13 +309,13 @@
 #define MAP_CityEncounter11                              (217) // e_city11, map_encounter@map_init, City Encounter 11(171)
 #define MAP_CityEncounter12                              (218) // e_city12, map_encounter@map_init, City Encounter 12(172)
 #define MAP_CaveEncounterOut6_2                          (219) // e_cave6out2, map_encounter@map_init, Cavern Encounter 5(145)
-#define MAP_HubDowntown                                 (221) // hub, map_hub@map_init, Hub(25)
-#define MAP_HubOldtown                                  (222) // hub_oldtown, map_hub@map_init, Hub(25)
-#define MAP_HubHeights                                  (223) // hub_heights, map_hub@map_init, Hub(25)
-#define MAP_HubWatermerchants                           (224) // hub_water, map_hub@map_init, Hub(25)
-#define MAP_HubUnderground                              (225) // hub_downtown_decker, map_hub@map_init, Hub(25)
-#define MAP_HubUndergroundthief                         (226) // hub_oldtown_thief, map_hub@map_init, Hub(25)
-#define MAP_HubArena                                    (227) // hub_arena, map_hub@map_init, Hub(25)
+#define MAP_HubDowntown                                  (221) // hub, map_hub@map_init, Hub(25)
+#define MAP_HubOldtown                                   (222) // hub_oldtown, map_hub@map_init, Hub(25)
+#define MAP_HubHeights                                   (223) // hub_heights, map_hub@map_init, Hub(25)
+#define MAP_HubWatermerchants                            (224) // hub_water, map_hub@map_init, Hub(25)
+#define MAP_HubUnderground                               (225) // hub_downtown_decker, map_hub@map_init, Hub(25)
+#define MAP_HubUndergroundthief                          (226) // hub_oldtown_thief, map_hub@map_init, Hub(25)
+#define MAP_HubArena                                     (227) // hub_arena, map_hub@map_init, Hub(25)
 #define MAP_BufferMap                                    (228) // npcmap, map_npcmap@map_init, NPC Map(206)
 #define MAP_Gunrunner                                    (279) // la_gunrunner, map_boneyard@map_init, Fortress(39)
 #define MAP_Adytum                                       (280) // la_ady1, map_boneyard@map_init, Boneyard(26)
@@ -339,5 +352,6 @@
 #define MAP_LandersPoint_Camp                            (595) // landersp_camp, Landers Point(3)
 #define MAP_LandersPoint_Fields                          (596) // landersp_fields, Landers Point(3)
 #define MAP_LandersPoint_Cave                            (597) // landersp_cave, Landers Point(3)
+#define MAP_DenBusiness                                  (1116) // den, map_denbus@map_init, The Den(499)
 
 #endif // __MAPS__
