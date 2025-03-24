@@ -1,0 +1,199 @@
+[comment]
+05.03.2009 -marvi
+- 25 iiuoa ca aii?in i?i i?ec?aea
+
+[data]
+lang=engl
+
+[dialog]
+&
+1 1000 None 0 #
+8 1010 D _param p ST_CHARISMA > 99 #
+2 1020 D _var p name_mem_npc_player = 0 @
+2 2000 None 0 #
+4 2010 #
+30 2020 D _script dialog@d_QuestTimeoutReady 0  #
+6 2030 #
+7 2040 D _var p mod_q_meat_jerky = 1 D _item p PID_MEAT_BAG > 0 R _var p mod_q_meat_jerky = 2 R _item p PID_MEAT_BAG - 1 R _script dialog@r_AddExperience 1 525 R _script dialog@r_AddMoney 1 225 #
+65506 2050 #
+0 2060 D _var p hub_postmanq = 38 R _var p hub_postmanq = 99 #
+9 2070 D _param p ST_LEVEL > 23 D _param p SK_SPEECH > 99 D _param p ST_CHARISMA > 3 D _var p den_momstew = 0 #
+13 2080 D _var p den_momstew = 1 #
+15 2090 D _var p den_momstew = 2 #
+17 2100 D _var p den_momstew = 3 #
+19 2110 D _var p den_momstew = 4 #
+21 2120 D _var p den_momstew = 5 #
+23 2130 D _var p den_momstew = 6 #
+0 2140 @
+3 3000 None 0 #
+4 3010 #
+65506 3020 #
+6 3030 #
+0 3040 #
+0 3050 D _var p hub_postmanq = 38 R _var p hub_postmanq = 99 @
+4 4000 None 0 #
+5 4010 @
+5 5000 None 0 #
+3 5010 #
+0 5020 @
+6 6000 None 0 #
+3 6010 #
+0 6020 @
+7 7000 None 0 #
+0 7010 @
+8 8000 None 0 #
+0 8010 D _var p hub_postmanq = 38 R _var p hub_postmanq = 99 @
+9 9000 None 0 #
+10 9010 #
+11 9020 #
+12 9030 #
+2 9040 @
+10 10000 None 0 #
+0 10010 R _var p den_momstew = 1 @
+11 11000 None 0 #
+9 11010 @
+12 12000 None 0 #
+9 12010 @
+13 13000 None 0 #
+14 13010 D _item p PID_IGUANA_ON_A_STICK > 4 R _item p PID_IGUANA_ON_A_STICK - 5 R _var p den_momstew = 2 #
+2 13020 @
+14 14000 None 0 #
+0 14010 @
+15 15000 None 0 #
+16 15010 D _item p PID_XANDER_ROOT > 7 D _item p PID_BROC_FLOWER > 11 R _item p PID_XANDER_ROOT - 8 R _item p PID_BROC_FLOWER - 12 R _var p den_momstew = 3 #
+2 15020 @
+16 16000 None 0 #
+0 16010 @
+17 17000 None 0 #
+18 17010 D _item p PID_FLOWER > 1 R _item p PID_FLOWER - 2 R _var p den_momstew = 4 #
+2 17020 @
+18 18000 None 0 #
+0 18010 @
+19 19000 None 0 #
+20 19010 D _item p PID_MEAT_JERKY > 4 R _item p PID_MEAT_JERKY - 5 R _var p den_momstew = 5 #
+2 19020 @
+20 20000 None 0 #
+0 20010 @
+21 21000 None 0 #
+22 21010 D _item p PID_ROT_GUT > 1 D _item p PID_BEER > 0 R _item p PID_BEER - 1 R _item p PID_ROT_GUT - 2 R _var p den_momstew = 6 #
+2 21020 @
+22 22000 None 0 #
+0 22010 @
+23 23000 None 0 #
+24 23010 D _item p PID_BOX_OF_NOODLES > 0 R _item p PID_BOX_OF_NOODLES - 1 R _var p den_momstew = 7 #
+2 23020 @
+24 24000 None 0 #
+25 24010 R _script dialog@r_AddExperience 1 3500 R _param p ST_MAX_LIFE + 5 R _param p ST_CURRENT_HP + 5 R _var p den_momstew = 8 @
+25 25000 None 0 #
+0 25010 @
+30 26000 None 0 #
+65506 26010 #
+31 26020 D _item p PID_BOTTLE_CAPS > 74 D _script dialog@d_QuestTimeoutReady 0  R _item p PID_BOTTLE_CAPS - 75 R _script dialog@r_AddExperience 1 1250 R _param p ST_CURRENT_HP + 30 R _param p ST_POISONING_LEVEL - 30 R _script dialog@r_QuestTimeout 1 150 #
+31 26030 D _item p PID_BOTTLE_CAPS > 74 D _script dialog@d_QuestTimeoutReady 0  R _item p PID_BOTTLE_CAPS - 75 R _script dialog@r_AddExperience 1 1250 R _param p ST_CURRENT_HP + 30 R _param p DAMAGE_LEFT_LEG = 0 R _script dialog@r_QuestTimeout 1 150 #
+31 26040 D _item p PID_BOTTLE_CAPS > 74 D _script dialog@d_QuestTimeoutReady 0  R _item p PID_BOTTLE_CAPS - 75 R _script dialog@r_AddExperience 1 1250 R _param p ST_CURRENT_HP + 30 R _param p DAMAGE_EYE = 0 R _script dialog@r_QuestTimeout 1 150 #
+31 26050 D _item p PID_BOTTLE_CAPS > 74 D _script dialog@d_QuestTimeoutReady 0  R _item p PID_BOTTLE_CAPS - 75 R _script dialog@r_AddExperience 1 1250 R _param p ST_CURRENT_HP + 30 R _param p ST_RADIATION_LEVEL - 30 R _script dialog@r_QuestTimeout 1 150 #
+0 26060 @
+31 27000 None 0 &
+
+[engl]
+{100}{}{Mom}
+{200}{}{You see a kindly-looking older woman.}
+{210}{}{You see Mom, busily cooking and cleaning.}
+{210}{}{You see a robust older woman, with a cheerful smile on her face.}
+{1000}{}{Predialogue installations}
+{1010}{}{ugly}
+{1020}{}{Unknown}
+{2000}{}{Hello there, my name's Mom and I run this place. Got the best food north of New Reno, too.}
+{2010}{}{You're not my mom.}
+{2020}{}{What do you have to eat around here?}
+{2030}{}{I noticed there are a lot of orphans around town.}
+{2040}{}{Grisham sent me, Mom. I've got a big bag o' jerky with your name on it.}
+{2050}{}{Got anything to trade, Mom?@@Care to trade, Mom?}
+{2060}{}{[Deliver Letter]}
+{2070}{}{Hey mom! What's that smell? You making stew?}
+{2080}{}{Hey mom! I've got some ingredients for your stew.}
+{2090}{}{Hey mom! I've got some ingredients for your stew.}
+{2100}{}{Hey mom! I've got some ingredients for your stew.}
+{2110}{}{Hey mom! I've got some ingredients for your stew.}
+{2120}{}{Hey mom! I've got some ingredients for your stew.}
+{2130}{}{Hey mom! I've got some ingredients for your stew.}
+{2140}{}{I should go, goodbye.}
+{3000}{}{What did you want to talk to Mom about?}
+{3010}{}{You're not my mom.}
+{3020}{}{What do you have to eat here?}
+{3030}{}{I noticed there are a lot of orphans around town.}
+{3040}{}{I should go, goodbye.}
+{3050}{}{[Deliver Letter]}
+{4000}{}{I know that. But everyone calls me that. Heck, I even treat people like they're my kin - long as you obey my rules that is.}
+{4010}{}{Rules?}
+{5000}{}{That's right. No stealing, no cursing, and no fighting - not in my shop you don't. 'Cause if'n you do, out you'll go. I like things peaceful here.}
+{5010}{}{I see. Let me ask you something else.}
+{5020}{}{That makes sense. See you later, Mom.}
+{6000}{}{Yes, isn't it a shame? These children have no home and many steal for a living...it's terrible. I had an idea some years back to start an orphanage but no one was really that interested. It's a shame really. Children are our future...}
+{6010}{}{It is a shame. Let me ask you something else.}
+{6020}{}{Maybe you will someday, bye.}
+{7000}{}{Oh, you're a dear. Maybe Grisham'll send you back my way some other time. Here's a couple caps, go get yourself a nice hot meal.}
+{7010}{}{Thanks Mom!}
+{8000}{}{I'll leave you some scraps out back.@@Oh, you poor thing.@@Please! Folks, it's rude to stare!@@I'm sorry, they can't quit staring.}
+{8010}{}{[Deliver Letter]}
+{9000}{}{Why yes I am! Metzger loves my "Survivor Stew" so much he gives it to all his men at night. He claims that it fills them with enough energy to beat fatigue. It's almost impossible to keep stocked up though, I'm having a lot of problems finding the ingredients. }
+{9010}{}{Maybe I can help? What do you need?}
+{9020}{}{What's in it?}
+{9030}{}{Sure smells good! That's for sure!}
+{9040}{}{Hmm, too bad. I'd help out but I'm too busy. Maybe later.}
+{10000}{}{Really? You're a dear! Let's start by gathering some Iguana-on-a-stick, I need five of them to be exact. Could you bring me some please?}
+{10010}{}{Sure, I'll be back. }
+{11000}{}{Oh just the usual: Iguana, Xander, Broc, White Flower, Jerky, Rotgut, Beer, and some Noodles. }
+{11010}{}{Interesting.}
+{12000}{}{Thanks! It's a family tradition. My parents used to make it using the extra ingredients you can find around the wastes. People loved it so much I had to take it off the menu. Just can't keep enough of it in the back.}
+{12010}{}{Interesting.}
+{13000}{}{Oh that's good, I'll need five Iguana-on-a-stick.}
+{13010}{}{I've got 5x guana-on-a-stick right here.}
+{13020}{}{Okay, I'll be back.}
+{14000}{}{These look fresh, thanks! Now I'll need some Xander Root and Broc Flower. Eight Xander Root, and twelve Broc Flower to be exact.}
+{14010}{}{Alrighty, I'll be back.}
+{15000}{}{Okay! Got all those Xander Roots, and Broc Flowers? I still need 8x Xander Root, and 12x Broc Flower.}
+{15010}{}{I've got it all right here.}
+{15020}{}{Okay, I'll be back.}
+{16000}{}{Good job, these look great! Now I'll need some White Flowers. Two of them for taste, it's too bad they're rare and hard to find. But I hear the Children of the Cathedral are growing them somehow. }
+{16010}{}{Uh, okay. I'll be back.}
+{17000}{}{You found the two White Flowers? Hope it wasn't too hard, not many plants growing out there. }
+{17010}{}{Yup, here you go.}
+{17020}{}{Not yet, I'll be back.}
+{18000}{}{Wow, you actually did it, thanks! Okay Chef, now we'll need five pieces of Jerky. }
+{18010}{}{Sure, no problem. Back in a jiffy.}
+{19000}{}{That's good, I didn't think it would be too hard to find five pieces of Jerky. }
+{19010}{}{Here you go.}
+{19020}{}{It's harder than you think. I'll be back.}
+{20000}{}{Wow! Did you make these yourself? Anywho, I'll need some Rotgut and Beer now. Two full bottles of Rotgut, and a single Beer. }
+{20010}{}{Sure, be right back.}
+{21000}{}{You lush you, didn't take you too long to find some booze out there, eh? [She smiles] Got the two bottles of Rotgut, and the single Beer?}
+{21010}{}{Yes ma'am, here you go.}
+{21020}{}{Not yet.}
+{22000}{}{Looks good, but I hope it isn't that radioactive stuff from Gecko. One final ingredient left: A box of Pre-War Noodles. Think you can find one of those? It's the only real ingredient I have the most trouble finding. }
+{22010}{}{I'll do my best.}
+{23000}{}{You found a box of pre-war noodles?! Where on Earth did you find it? Oh, it doesn't matter, great job! }
+{23010}{}{Here you go.}
+{23020}{}{Uh, no not yet. }
+{24000}{}{You did a great job, stranger. I really appreciate it! The soup's just about ready. Here, have a bowl for your troubles, I guarantee that you won't regret it. My soup is famous around here! }
+{24010}{}{Wow! Thanks mom! Looks delicious.}
+{25000}{}{[You devour Mom's famous stew. After a while you can feel the hearty effects of the radioactive goop flowing through your veins. God, you hope this doesn't cause cancer! You've gain +5 Maximum HP!] }
+{25010}{}{[You feel full. Quest Complete!]}
+{26000}{}{Is your tummy grumbling? Here's what I've got on the menu:
+
+ 1. Iguana Stir-Fry with Apples
+ 2. Molerat, and Mashed Xander
+ 3. Roasted Gecko with Skin
+ 4. Brahmin Steak, and Broc Flower Mix
+
+ Each dish costs 75 caps.}
+{26010}{}{Let's just Barter.}
+{26020}{}{A number one, please.}
+{26030}{}{A number two, please.}
+{26040}{}{A number three, please.}
+{26050}{}{A number four, please.}
+{26060}{}{On second thought, nevermind. I'm full.}
+{27000}{}{Give Mom just a moment now... et, voila!
+
+}
+

@@ -161,8 +161,12 @@
 #define LOCATION_TentCity1                               (214) // A small tent in the city.
 #define LOCATION_Hideout                                 (224) // A small camp fire is burning in the distance.
 #define LOCATION_Westwood                                (233) // Westwood is an organized society in the middle of wastes
-#define MAP_Adytum                                       (280) // la_ady1, map_boneyard@map_init, Boneyard(26)
-#define MAP_AdytumSub                                    (281) // la_ady2, map_boneyard@map_init, Boneyard(26)
+#define LOCATION_Slaverun1                               (271) // A tribal camp
+#define LOCATION_Slaverun2                               (272) // A tribal camp
+#define LOCATION_Slaverun3                               (273) // A resting caravan
+#define LOCATION_Slaverun4                               (274) // A small farm
+#define LOCATION_Slaverun5                               (275) // A highway gas station
+#define LOCATION_Slaverun6                               (276) // A house full of junkies
 #define LOCATION_DesertEncounter7                        (300) // 
 #define LOCATION_DesertEncounter8                        (301) // 
 #define LOCATION_DesertEncounter9                        (302) // 
