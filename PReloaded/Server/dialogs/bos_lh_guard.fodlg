@@ -1,0 +1,45 @@
+[comment]
+
+
+[data]
+lang=engl
+
+[dialog]
+&
+1 1000 None 0 #
+2 1010 @
+2 2000 None 0 #
+3 2010 D _var p q_adventure = 45 D _var p name_mem_npc_player = 0 R _script player_cinematic@r_DeleteLoc 0  @
+3 3000 None 0 #
+4 3010 @
+4 4000 None 0 #
+5 4010 @
+5 5000 None 0 #
+6 5010 R _script player_cinematic@r_SpawnLoc 0  R _var p name_mem_npc_player = 1 @
+6 6000 None 0 &
+
+[engl]
+{100}{}{Brotherhood Guard}
+{200}{}{You see a Brotherhood Guard.}
+{210}{}{You see a Paladin of the Brotherhood of Steel.}
+{240}{}{You see a dead Brotherhood Guard.}
+{260}{}{You see a slain Brotherhood Guard.}
+{1000}{}{Predialogue installations}
+{1010}{}{-}
+{2000}{}{The wasteland is a dangerous place.@@We can maybe talk later, but now.@@I am not allowed to talk to you.}
+{2010}{}{Uh... Hi! My name is @pname@. You probably aren't going to believe this, but I'm here on behalf of Vault 24, and the NCR to negotiate a temporary alliance in order to get rid of the Enclave presence in California once, and for all.}
+{3000}{}{You're right, @pname@. I do not believe you.}
+{3010}{}{I know it sounds crazy, but I'm telling you the truth. Just look at my Pip Boy, and Vault Suit. I'm really from a vault, and the Enclave is hunting my people down, trying to find it's location.}
+{4000}{}{Go on...}
+{4010}{}{I've already convinced the NCR to help us out, but we won't be able to take out the Enclave without the Brotherhood of Steel. Please! This is serious! I'm on official business from the NCR. Let me speak with your leaders.}
+{5000}{}{Alright, @pname@. I'll escort you to the Elders. But be on your best behaviour. We will kill you if you try anything foolish.}
+{5010}{}{Thanks. I won't. I just hope that I can convince you guys to help.}
+{6000}{}{Command. Come in. Meet at Echo 9. Over. Roger. Here is a location, @pname@. Go there. An Elder will meet with you.}
+{100000001}{}{Welcome back, brother.}
+{100000002}{}{Hello wastelander, you are not allowed to enter this building. Please leave this place.}
+{100000003}{}{You are not allowed to be here. This is our last warning.}
+{100000004}{}{You were warned. Now you will be dealt with.}
+{100000005}{}{Brother, you are not allowed to enter the storage room.}
+{100000006}{}{Initiate, you are not allowed to enter the computer room.}
+{100000007}{}{You've been warned. . .}
+

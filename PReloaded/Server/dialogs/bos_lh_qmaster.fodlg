@@ -1,0 +1,294 @@
+[comment]
+
+
+[data]
+lang=engl
+
+[dialog]
+&
+1 1000 None 0 #
+3 1010 D _var p q_bos_initiatequest_start } 28 #
+2 1020 @
+2 2000 None 0 @
+3 3000 None 0 #
+4 3010 D _var p q_bos_initiatequest_start = 28 #
+8 3020 D _var p q_bos_initiatequest_start = 29 D _var p q_bos1 = 1 D _var p q_bos2 = 1 D _var p q_bos3 = 1 #
+10 3030 D _var p q_bos_initiatequest_start = 30 D _script dialog@d_IsAreaScouted 4 37 50 39 52 #
+13 3040 D _var p q_bos_initiatequest_start = 33 R _var p q_bos_initiatequest_start = 34 R _script dialog@r_AddExperience 1 7000 R _var p factions_points_bos + 500 #
+14 3050 D _var p q_bos_initiatequest_start = 34 #
+14 3060 D _var p q_bos_initiatequest_start = 35 D _var p q_bosm1 = 4 #
+24 3070 D _var p q_bosm1 = 2 D _var p q_bos_initiatequest_start = 35 #
+31 3080 D _var p q_bos_initiatequest_start = 36 #
+33 3090 D _var p q_bos_initiatequest_start = 38 #
+33 3100 D _var p q_bosm2 = 4 D _var p q_bos_initiatequest_start = 39 #
+36 3110 D _var p q_bos_initiatequest_start = 39 D _var p q_bosm2 = 2 #
+38 3120 D _var p q_bos_initiatequest_start = 40 #
+42 3130 D _var p q_bos_initiatequest_start = 42 #
+47 3140 D _var p q_bos_initiatequest_start = 43 D _item p PID_HYPO > 6 R _item p PID_HYPO - 7 #
+56 3150 D _var p q_bos_initiatequest_start = 44 #
+57 3160 D _var p q_bos_initiatequest_start = 46 #
+60 3170 D _var p q_bos_initiatequest_start = 47 D _item p PID_ENCLAVE_COMBAT_ARMOR > 0 #
+62 3180 D _var p q_bos_initiatequest_start = 48 #
+65 3190 D _var p q_bos_initiatequest_start = 51 @
+4 4000 None 0 #
+5 4010 @
+5 5000 None 0 #
+6 5010 R _var p q_bos_initiatequest_start = 29 R _var p factions_points_bos + 500 @
+6 6000 None 0 #
+7 6010 @
+7 7000 None 0 #
+0 7010 @
+8 8000 None 0 #
+9 8010 @
+9 9000 None 0 #
+0 9010 R _var p factions_points_bos + 500 R _var p q_bos_initiatequest_start = 30 R _script dialog@r_AddExperience 1 4000 @
+10 10000 None 0 #
+11 10010 @
+11 11000 None 0 #
+12 11010 @
+12 12000 None 0 #
+0 12010 R _var p q_bos_initiatequest_start = 31 R _script dialog@r_AddExperience 1 5000 R _var p factions_points_bos + 500 @
+13 13000 None 0 @
+14 14000 None 0 #
+15 14010 @
+15 15000 None 0 #
+16 15010 @
+16 16000 None 0 #
+17 16010 @
+17 17000 None 0 #
+18 17010 @
+18 18000 None 0 #
+19 18010 @
+19 19000 None 0 #
+20 19010 @
+20 20000 None 0 #
+21 20010 @
+21 21000 None 0 #
+22 21010 @
+22 22000 None 0 #
+23 22010 R _var p q_bos_initiatequest_start = 35 R _script quest_bos1@r_SpawnLoc 0  R _var p q_bosm1 = 1 @
+23 23000 None 0 @
+24 24000 None 0 #
+25 24010 @
+25 25000 None 0 #
+26 25010 @
+26 26000 None 0 #
+27 26010 @
+27 27000 None 0 #
+28 27010 @
+28 28000 None 0 #
+29 28010 @
+29 29000 None 0 #
+30 29010 R _var p q_bos_initiatequest_start = 36 R _script quest_bos1@r_DeleteLoc 0  R _var p factions_points_bos + 1000 R _script dialog@r_AddExperience 1 10000 @
+30 30000 None 0 @
+31 31000 None 0 #
+32 31010 R _var p q_bos_initiatequest_start = 37 @
+32 32000 None 0 @
+33 33000 None 0 #
+34 33010 @
+34 34000 None 0 #
+35 34010 R _var p q_bos_initiatequest_start = 39 R _script quest_bos2@r_SpawnLoc 0  R _var p q_bosm2 = 1 @
+35 35000 None 0 @
+36 36000 None 0 #
+37 36010 @
+37 37000 None 0 #
+0 37010 R _var p q_bos_initiatequest_start = 40 R _script dialog@r_AddExperience 1 10000 R _var p factions_points_bos + 1200 R _param p REPUTATION_BOS + 250 R _script quest_bos2@r_DeleteLoc 0  @
+38 38000 None 0 #
+39 38010 @
+39 39000 None 0 #
+40 39010 @
+40 40000 None 0 #
+41 40010 R _var p q_bos_initiatequest_start = 41 @
+41 41000 None 0 @
+42 42000 None 0 #
+43 42010 @
+43 43000 None 0 #
+44 43010 @
+44 44000 None 0 #
+45 44010 @
+45 45000 None 0 #
+46 45010 @
+46 46000 None 0 #
+0 46010 R _var p q_bos_initiatequest_start = 43 @
+47 47000 None 0 #
+48 47010 @
+48 48000 None 0 #
+49 48010 R _param p ST_CURRENT_HP = 1 R _param p ST_CURRENT_AP = 1 @
+49 49000 None 0 #
+50 49010 @
+50 50000 None 0 #
+51 50010 @
+51 51000 None 0 #
+52 51010 @
+52 52000 None 0 #
+53 52010 @
+53 53000 None 0 #
+54 53010 R _param p DAMAGE_EYE = 1 R _param p DAMAGE_RIGHT_ARM = 1 R _param p DAMAGE_LEFT_ARM = 1 R _param p DAMAGE_RIGHT_LEG = 1 R _param p DAMAGE_LEFT_LEG = 1 R _param p ST_CURRENT_HP = 1 R _param p ST_CURRENT_AP = 1 R _item p PID_BALL_GAG + 1 R _item p PID_BROTHERHOOD_COMBAT_ARMOR + 1 R _item p PID_BROTHERHOOD_HELMET + 1 R _script dialog@r_AddExperience 1 20000 R _var p factions_points_bos + 7500 R _var p q_bos_initiatequest_start = 44 @
+54 54000 None 0 #
+55 54010 @
+55 55000 None 0 @
+56 56000 None 0 #
+0 56010 R _script quest_sky@r_SpawnLoc 0  R _var p q_bos_initiatequest_start = 45 R _script dialog@r_TeleportToMap 2 296 0 R _var p q_bos_initiatequest_start = 46 @
+57 57000 None 0 #
+58 57010 @
+58 58000 None 0 #
+59 58010 R _script dialog@r_AddExperience 1 10000 R _var p factions_points_bos + 2500 R _var p q_bos_initiatequest_start = 47 R _script quest_sky@r_DeleteLoc 0  @
+59 59000 None 0 @
+60 60000 None 0 #
+61 60010 R _var p factions_points_bos + 3500 R _script dialog@r_AddExperience 1 15000 R _var p q_bos_initiatequest_start = 48 R _item p PID_ENCLAVE_COMBAT_ARMOR - 1 @
+61 61000 None 0 @
+62 62000 None 0 #
+63 62010 @
+63 63000 None 0 #
+64 63010 @
+64 64000 None 0 #
+0 64010 R _var p q_bos_initiatequest_start = 49 @
+65 65000 None 0 #
+0 65010 R _var p q_bos_initiatequest_start = 52 R _script dialog@r_AddExperience 1 30000 R _var p factions_points_bos + 30000 R _param p REPUTATION_BOS + 3000 R _param p ST_BODY_TYPE = 30 R _script quest_bos3@r_DeleteLoc 0  R _script dialog@r_TeleportToMap 2 252 0 R _script dialog@r_ShowLocation 1 173 &
+
+[engl]
+{100}{}{Quartermaster}
+{200}{}{You see the quartermaster.}
+{210}{}{You see the quartermaster of the Brotherhood of Steel.}
+{240}{}{You see the dead quartermaster.}
+{260}{}{You see a slain quartermaster.}
+{1000}{}{Predialogue installations}
+{1010}{}{Bunker investigation completed.}
+{1020}{}{-}
+{2000}{}{Hello brother.@@I don't have time for you now.@@Checking for news, eh?@@Here is nothing new to see.}
+{3000}{}{Hello brother.}
+{3010}{}{Sir! I'm back from the Necropolis bunker!}
+{3020}{}{Sir! I'm back with the reports from all three bunkers.}
+{3030}{}{Sir! Here is my report on the Glow. It is highly radiated and protected by strange renegade robots, sir!}
+{3040}{}{Mission complete, sir. The Gun Runners will provide us with whatever we need. Here is the receipt for claiming the equipment.}
+{3050}{}{I'm ready for my next mission, sir!}
+{3060}{}{Where was that camp again? I can't seem to find it.}
+{3070}{}{Camp destroyed, sir!}
+{3080}{}{Ready for the next mission, sir.}
+{3090}{}{The Water Merchants have agreed to our demands, sir.}
+{3100}{}{What were the coordinates for that ambush party again?}
+{3110}{}{Camp defeated, sir. Those mutants are ice scream.}
+{3120}{}{Junior Knight reporting for duty, sir!}
+{3130}{}{Delta Squad has been found, sir! But the news isn't good.}
+{3140}{}{I have your 7 Medical Hypos, sir! It was my honour!}
+{3150}{}{Knight, ready for duty, sir.}
+{3160}{}{That was... something... sir. Reporting for new orders.}
+{3170}{}{I don't want to get rid of this, but here. Take this damn armour away from me, and choke on it. I couldn't get the helmet.}
+{3180}{}{Ready for duty, sir!}
+{3190}{}{It's done. The scientist is dead, but I got his data from a merchant. It was surprisingly very easy.}
+{4000}{}{Ah, I was wandering who went down there, heard it was some new blood taking names and earning stripes. It's good to see that men and women like you. Ehem. What do you have to report? And what's the personel status?}
+{4010}{}{The station was empty, apart from a few robo-brains. They where active, I think they might have killed the men stationed there.}
+{5000}{}{Goddamn it! I never believed the stories about that place.. Well maybe they are true after all.. I'm going to see how soon we'll have that place reinforced. I want you to keep your mouth shut about what happened there, am I making myself clear?}
+{5010}{}{Yes, Sir! I was told to deliver this to you. It's all the data I found on the main computer.}
+{6000}{}{Good, dismissed! Oh, and..Welcome to the Brotherhood! You've been promoted to Senior Initiate. Here's 500 Faction Points.}
+{6010}{}{Thank you, sir!}
+{7000}{}{Wait a minute! Now that you're a Senior Initiate, it's time for your next damn assignment! I'm not wasting fresh meat! Go to the Den, San Fran, and the NCR bunkers to collect their damn reports. They're late! Get to it! NOW! You can start at either bunker I don't care! Just do it!}
+{7010}{}{Yessir!}
+{8000}{}{Good news to hear, Senior Initiate. Hand me the reports. }
+{8010}{}{Here you are.}
+{9000}{}{Hmm, I see. Well done. You've earned these 500 Faction Points. But these reports make me wonder. Go patrol around the Glow for us. Scan the 8 sectors and report back. Go! Now! }
+{9010}{}{Yessir!}
+{10000}{}{Well done! You've been very impressive lately. I'm promoting you to Squire. Here are 500 Faction Points. Are you ready for your next task? Good! Listen to me now...}
+{10010}{}{Yes, sir!}
+{11000}{}{All these new hazards you've reported, they are starting to concern the Brotherhood of Steel. We are going to need a larger than usual supply of ammunition, microfusion cells, and super stimpaks. In order to achieve this, we will need to make deals with the outside. The Gun Runners for example have plenty of equipment necessary for our cause. }
+{11010}{}{Of course, sir!}
+{12000}{}{Go to the Gun Runners and make a deal with them on behalf of the Brotherhood of Steel. You're a Squire now, so prove it. Use any means necessary to achieve your objective. We have a balance available of 100,000 caps, but would not like to spend more than 10,000. It is your job to figure this out. Come report back to me after this is done.}
+{12010}{}{Yes, sir!}
+{13000}{}{Great work. Here is 500 Faction Points. Take a break, you've earned it. Come back when you are ready for your next task.}
+{14000}{}{Attention! Squire! If you want to make it through the ranks as an outsider you'll need to act like a goddamn soldier! Stand up straight! Button your collar! Wipe those boots! And shut you mouth!}
+{14010}{}{Sir, yes, sir!}
+{15000}{}{Shut up when I'm talking to you, Squire! You will only speak when spoken to!}
+{15010}{}{[Say nothing]}
+{16000}{}{WHAT WAS THAT?! Did you not just hear me, Squire?!}
+{16010}{}{Sir, yes, sir! I understand, sir!}
+{17000}{}{What did I just say?! No talking! Now, get down and give me 258 push ups, pronto! NOW!}
+{17010}{}{Ugh! [Start to do push ups]}
+{18000}{}{[Time passes while you're pushing yourself off the floor]}
+{18010}{}{*Huff!* *Puff!*}
+{19000}{}{THAT'S ENOUGH, SQUIRE! Your muscles are strong, but they're still flabby! You expect to accomplish anything while being this weak?! Pathetic! Get up! Now!}
+{19010}{}{... *Huff!* *Puff!* ... }
+{20000}{}{DID I GIVE YOU PERMISSION TO SPEAK?! NO!}
+{20010}{}{... ... ...}
+{21000}{}{Good! Now you're getting it, Squire! You're almost ready for your next assignment, aren't you! Sound off!}
+{21010}{}{Sir, yes, sir!}
+{22000}{}{Well, it's about damn time! Your next task is to head to sector 448-12, and perform a search and destroy. There's a large group of undesirables making camp at that location, and it's up to YOU to eliminate the threat, and report back to me, pronto! HEAD ON OUT, Squire! Move it! Move it! Move it!}
+{22010}{}{Sir, yes, sir! I'm on it, sir! Moving out now!}
+{23000}{}{YOU DO NOT HAVE PERMISSION TO DIE! Do you understand that, Squire?! Return to me as soon as the threat has been eliminated, or I will make damn sure you dead body comes back here for absolute punishment!!!}
+{24000}{}{OUTSTANDING WORK, MAGGOT!}
+{24010}{}{Uh? Thank you, sir?!!!}
+{25000}{}{NOW GET DOWN AND GIVE ME 200 PUSH UPS! PRONTO! MOVE IT! MOVE IT!}
+{25010}{}{Fuck! I mean! Yes, sir! [Assume the position]}
+{26000}{}{YES! YES!! Push off the ground, yes, yes. That pleases me greatly, maggot! You want to make it to Senior Squire?! You'll have to do a lot of kissing my ass! DO YOU HEAR ME, MAGGOT?!}
+{26010}{}{Sir, yes, sir! Anything for you, sir!}
+{27000}{}{YES!!!! YES!!! That's right, that's right. You'll please the Brotherhood or die trying, won't you? THAT'S fucking dedication, Squire! ISN'T IT?!!!}
+{27010}{}{Yes, sir! Yes, sir! }
+{28000}{}{Good, good.}
+{28010}{}{Can I stop now, sir?}
+{29000}{}{No.}
+{29010}{}{*shrug* Thank you, sir!}
+{30000}{}{It was a good job you did, Squire. You've earned the title of Senior Squire. Congratulations. You've been promoted. Enjoy these 1000 Faction Points. Get up off that floor, and come report to me whenever ready.}
+{31000}{}{Welcome back to duty, Senior Squire. Relax, this one is a breeze. We don't want to over strain your mental capacities. Head over to the Water Merchants, and tell them to send a shipment of water to the Alpha Bunker. We need it to arrive within the next three weeks. Here's the payment acquisition form. Simple. See you around, Senior Squire.}
+{31010}{}{Ten four.}
+{32000}{}{Next mission will be hell, remember that.}
+{33000}{}{Don't worry about that! One of our patrols just got back! Well, barely! He's missing a leg! But he managed to scout out the position of a large group of Mutants coming to wipe out our water supplies!}
+{33010}{}{I'll stop them, sir!}
+{34000}{}{You damn right you will! Here are their coordinates! Go out there and give them hell! We're counting on you, Senior Squire! If you can survive this, we'll promote you to Junior Knight! That's a bloody excellent honour! Move it! Move it!}
+{34010}{}{Sir, yes, sir! I'll murder them like it's their birthday, and the cake just picked up a knife and said "Fuck it!".}
+{35000}{}{WHAT THE FUCKING HELL ARE YOU TALKING ABOUT, SENIOR SQUIRE?! GET THE FUCK OUT OF MY FACE! YOU CRAZY FUCK!}
+{36000}{}{You are hereby PROMOTED! Outstanding fucking work, Junior Knight! By God! You're a wonderful soldier! Just look at you! All those push ups really paid off, eh?! ANSWER ME. JUNIOR KNIGHT!!}
+{36010}{}{Sir, yes, sir! Thank you, sir! My arms feel great! [Lie]}
+{37000}{}{Enjoy your 1200 Faction Points. Come back when you're ready for your next mission. I've got some pretty interesting briefings to go through with you. Get some rest, you'll need it. Dismissed! *Salutes*}
+{37010}{}{*Salute*}
+{38000}{}{Good, you're ready for another mission! Have you ever heard of Delta Squad?}
+{38010}{}{Can't say that I have, sir! Were they the ones with the BFG's?}
+{39000}{}{THE BIGGEST! But now they're probably DEAD! Do you hear me, Junior Knight?! DEAD! And that's now YOUR problem! Get out of my face and report to the Cathedral in L.A! That was their last known position! Someone over there must know something! }
+{39010}{}{Uh... but, sir! Ca--}
+{40000}{}{YOUR GUESS IS AS GOOD AS MINE! NOW GET OUT OF HERE! YOU HAVE YOUR ORDERS!}
+{40010}{}{Sir, yes, sir! Head to the Cathedral and investigate the disappearance of Delta Squad! Over, and out!}
+{41000}{}{Godspeed, outsider. Don't die on your brotherhood just yet!}
+{42000}{}{I assume that they've been killed by mutants?}
+{42010}{}{Affirmitive, sir. The Cathedral has been housing mutants for quite some time. There is an underground facility still present in that location.}
+{43000}{}{Hmm, interesting. We can't risk destroying the facility and starting a war with the NCR. But you may re-visit that location when you desire and flush out the mutants. Consider it your new vacation spot. Well done, Junior Knight.}
+{43010}{}{Thank you, sir! It was my duty. I am ready for more orders when the brotherhood is ready to supply them.}
+{44000}{}{Good. Return to us with 7 Medical Hypos. We require them for our research. Find them using ANY means. If you can complete such a pitiful task in enough time, you will be rewarded greatly! CARRY ON!}
+{44010}{}{What--?! Where--}
+{45000}{}{I SAID CARRY ON!!!!}
+{45010}{}{Sir, yes, sir! In the mean time, I might just check out that Cathedral Base...}
+{46000}{}{Do not return to me unless you have acquire the 7 Hypos. Over, and out. Let's see if you outsiders are worthy of real promotion...}
+{46010}{}{Yes, sir! You can count on me, sir!}
+{47000}{}{Hmmpf! I honestly never expected to see you again, Junior Knight. Well done. }
+{47010}{}{Uh... why not, sir?}
+{48000}{}{BECAUSE YOU'RE A PIECE OF SHIT OUTSIDER!!! THAT'S WHY!!!! *he strikes you across the face!*}
+{48010}{}{Ommmpf!!! }
+{49000}{}{[You are beaten severely. You feel as if most of your bones could be possibly broken. But you are in too much pain to make any sense of anything right now]}
+{49010}{}{[Lie motionless in a pool of your own blood, sweat, tears, and urine]}
+{50000}{}{Well, take a look at you! You're a real soldier now! Get up, Junior Knight! You've just been promoted to... HEY! Are you listening?!}
+{50010}{}{Ughhhhhh... yes, sir... can... I... have... another... please...}
+{51000}{}{WHAT?!! No, you may not! Look at you, Junior Knight! You've had enough! What are you sick in the goddamn head?! You're lying in a pool of your own blood and piss! And you WANT ANOTHER beating? }
+{51010}{}{Sir... yes... sir...}
+{52000}{}{Now THAT'S dedication! Get up, soldier! You've just been promoted to Knight! I'll be seeing you, Knight. Come back when you're ready to continue this journey of discipline.}
+{52010}{}{... thank you... sir...}
+{53000}{}{Don't thank me yet, Knight. You're in the Brotherhood of Steel now. You're going places fast. Trust me.}
+{53010}{}{... everything hurts... so... very... much...}
+{54000}{}{Enjoy your welcoming package. I'll leave it by your broken legs. [20,000 XP + 7,500 Faction Points, 2x Combat Armour + Helmets gained!]}
+{54010}{}{... I... think... I'm... going... to... die...}
+{55000}{}{Do it quietly, please.}
+{56000}{}{This mission is top secret, Knight. Something awfully strange crashed in the wasteland. Enclave is all over it. Report to this location, and recover whatever valuable intel you can. DO NOT SPEAK OF THIS TO ANYONE! WE WILL FUCKING KILL YOU!!!! Now, get to it! This is your one and only chance to prove your trust. Don't fuck up.}
+{56010}{}{Uh... yes, sir?... Moving out, sir.}
+{57000}{}{Ah, good. This one is going to be a challenge, Knight. We need...}
+{57010}{}{Yes, sir, what is it? I'll bring back anything!}
+{58000}{}{We heard some radio chatter the other day about the Enclave, and their new combat armour... Looks like they've recently made some modifications to it. I need you to recover a set. ANYWAY possible. I don't know how you get a set, or where you get a set. But I want one full suit of Enclave Combat Armor, that INCLUDES the helmet!}
+{58010}{}{Fuck off!}
+{59000}{}{DON'T COME BACK UNLESS YOU HAVE THAT ARMOUR, ASSHOLE!!! GO SPY ON THE NCR!}
+{60000}{}{This earns you a promotion to Senior Knight. Wow! Look at this. I can't believe you just gave that up! You're dedicated! You're a real brother! Damn, man. I'm so proud of you! Come here and give your quartermaster a fucking hug! }
+{60010}{}{Thank you, sir! May I have another?}
+{61000}{}{No, come back later for your next assignment.}
+{62000}{}{At ease, Senior Knight. You've proven yourself already. }
+{62010}{}{It's all for the Brotherhood, sir. }
+{63000}{}{Yes, I can see that. Powerful organizations such as us always end up inspiring much good, and much bad.}
+{63010}{}{Affirmitive, sir. Has there been an incident?}
+{64000}{}{*Sigh* Our head scientist, the brain behind the future of clean water has dissapeared, Looks like they've been possibly kidnapped. Not much is known. That's why you're going to investigate. I'm sending you over to San Francisco. Infiltrate and investigate the communist regime. We are almost certain that they know SOMETHING about this.}
+{64010}{}{I won't fail you, brother. }
+{65000}{}{You're being promoted to Junior Paladin. That is all. You will now have access to our main base, and there, you will report to your real Commander. You've made me proud, @pname@! *Salutes* Now get over to the Alpha Bunker and meet Elder Maxson! That's an order!}
+{65010}{}{*Salute*}
+
