@@ -67,9 +67,23 @@
 {415}{}{10labone}
 {416}{}{gntlwin1:25, gntlwind:25, gustwind:10, rattle:15, rattle1:15, vulture:10}
 
+# Map 42, base 430
+{430}{}{NCR Residental Area}
+{435}{}{01hub}
+{436}{}{gntlwin1:25, gntlwind:25, brdchir1:10, brdchirp:10, blank:30}
+
+# Map 45, base 460
+{460}{}{NCR}
+{465}{}{01hub}
+{466}{}{gntlwin1:25, gntlwind:25, brdchir1:10, brdchirp:10, blank:30}
+
 # Map 47, base 480
 {480}{}{Den BoS}
 {486}{}{blank:10}
+
+# Map 48, base 490
+{490}{}{NCR BoS}
+{496}{}{blank:10}
 
 # Map 69, base 700
 {700}{}{Safe house in the city}
@@ -797,6 +811,23 @@
 {104000}{}{Start Caravan}
 {104005}{}{}
 {104010}{}{6}
+
+# NCR, pid 10, base 110000
+{110000}{}{NCR}
+{110005}{}{Shady Sands, the capital city and central government of the New California Republic. The most powerful city in the wasteland.}
+{110010}{}{24}
+{110020}{}{art\intrface\twnncr.frm}
+{110030}{}{art\intrface\WM_NCR.FRM}
+{110090}{}{3}
+{110101}{}{Bazaar}
+{110102}{}{258}
+{110103}{}{175}
+{110111}{}{Vortis Holding Center}
+{110112}{}{183}
+{110113}{}{134}
+{110121}{}{Residence}
+{110122}{}{318}
+{110123}{}{241}
 
 # Hub, pid 25, base 125000
 {125000}{}{Hub}
