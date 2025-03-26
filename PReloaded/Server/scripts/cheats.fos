@@ -284,25 +284,25 @@ void SetAliases()
     SetMapId("den", MAP_DenBusiness);
 
     // SetMapId("arroyo", MAP_ArroyoTemple);
-    // SetMapId("klamath", MAP_KlamathDowntown);
+    SetMapId("klamath", MAP_KlamathDowntown);
     // SetMapId("klamcave", MAP_KlamathToxicCaves1);
-    // SetMapId("modoc", MAP_ModocLarge);
+    SetMapId("modoc", MAP_ModocLarge);
     // SetMapId("vc", MAP_VaultCityDowntown);
-    // SetMapId("gecko", MAP_GeckoSettlement);
-    // SetMapId("bh", MAP_BrokenHills);
-    // SetMapId("broken", MAP_BrokenHills);
+    SetMapId("gecko", MAP_GeckoSettlement);
+    SetMapId("bh", MAP_BrokenHills);
+    SetMapId("broken", MAP_BrokenHills);
     // SetMapId("nr", MAP_NewReno1);
     // SetMapId("gasstation", MAP_NewRenoChopShop);
     // SetMapId("tray", MAP_NewRenoChopShop);
     // SetMapId("t-ray", MAP_NewRenoChopShop);
     // SetMapId("sad", MAP_SierraArmyDepot_TheBattlefield);
     // SetMapId("v15", MAP_Vault15Surface);
-    // SetMapId("ncr", MAP_NCR);
-    // SetMapId("shady", MAP_NCR);
-    // SetMapId("shadysands", MAP_NCR);
+    SetMapId("ncr", MAP_NCR);
+    SetMapId("shady", MAP_NCR);
+    SetMapId("shadysands", MAP_NCR);
     // SetMapId("cathedral", MAP_Cathedral_Enter);
     // SetMapId("mariposa", MAP_MilitaryBaseEntrance);
-    // SetMapId("redding", MAP_Redding);
+    SetMapId("redding", MAP_Redding);
     // SetMapId("sf", MAP_SanFranChina);
     // SetMapId("navarro", MAP_Navarro);
     // SetMapId("golgotha", MAP_NewReno_Golgotha);
@@ -325,7 +325,8 @@ void SetAliases()
     // @todo add 0 ent hex in maps
     // SetMapId("lpfields", MAP_LandersPoint_Fields);
     // SetMapId("lpcave", MAP_LandersPoint_Cave);
-    // SetMapId("npcmap", MAP_BufferMap);
+
+    SetMapId("npcmap", MAP_BufferMap);
     // SetMapId("jail", MAP_Jail);
     // SetMapId("bg", MAP_BarterGround);
     // SetMapId("barterground", MAP_BarterGround);

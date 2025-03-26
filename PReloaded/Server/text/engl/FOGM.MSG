@@ -36,6 +36,16 @@
 {85}{}{12junktn}
 {86}{}{gntlwin1:25, gntlwind:25, gustwind:10, rattle:15, rattle1:15, vulture:10}
 
+# Map 8, base 90
+{90}{}{Klamath Canyon}
+{95}{}{03wrldmp}
+{96}{}{gntlwin1:30, gntlwind:30, gustwin1:10, gustwind:10, vulture:10, vulture1:10}
+
+# Map 9, base 100
+{100}{}{Klamath Downtown}
+{105}{}{03wrldmp}
+{106}{}{laughter:10, laughte1:10, gntlwind:30, gntlwin1:20, brdchir1:10, brdchirp:20}
+
 # Map 10, base 110
 {110}{}{Mountains Encounter Khans 2}
 {115}{}{07desert}
@@ -57,19 +67,68 @@
 {185}{}{12junktn}
 {186}{}{gustwind:20, gustwin1:20, rattle:15, rattle1:15, vulture:15, vulture1:15}
 
-# Map 23, base 240
-{240}{}{LA Warehouse}
-{245}{}{08vats}
-{246}{}{gntlwin1:25, gntlwind:25, animal1:20, animal:20, gustwind:5, gustwin1:5}
+# Map 18, base 190
+{190}{}{Modoc Large}
+{195}{}{18modoc}
+{196}{}{brdchir1:25, brdchirp:25, chimes:15, chimes1:15, dogbark:10, dogbark1:10}
+
+# Map 31, base 320
+{320}{}{Gecko Settlement}
+{325}{}{12junktn}
+{326}{}{electri1:20, electric:20, gntlwind:20, gntlwin1:20, steam:20, steam1:20}
+
+# Map 32, base 330
+{330}{}{Gecko Power Plant}
+{335}{}{12junktn}
+{336}{}{electri1:15, electric:15, elevator:20, elevato1:15, steam:20, steam:15}
 
 # Map 40, base 410
 {410}{}{Gun Runners}
 {415}{}{10labone}
 {416}{}{gntlwin1:25, gntlwind:25, gustwind:10, rattle:15, rattle1:15, vulture:10}
 
+# Map 41, base 420
+{420}{}{Q Gun Runners Caravan 1}
+{425}{}{12junktn}
+{426}{}{gntlwin1:25, gntlwind:25, gustwind:10, rattle:15, rattle1:15, vulture:10}
+
+# Map 42, base 430
+{430}{}{NCR Residental Area}
+{435}{}{01hub}
+{436}{}{gntlwin1:25, gntlwind:25, brdchir1:10, brdchirp:10, blank:30}
+
+# Map 43, base 440
+{440}{}{Q Gun Runners Caravan 2}
+{445}{}{13carvrn}
+{446}{}{gntlwin1:25, gntlwind:25, gustwind:10, rattle:15, animal1:15, animal:10}
+
+# Map 45, base 460
+{460}{}{NCR}
+{465}{}{01hub}
+{466}{}{gntlwin1:25, gntlwind:25, brdchir1:10, brdchirp:10, blank:30}
+
 # Map 47, base 480
 {480}{}{Den BoS}
 {486}{}{blank:10}
+
+# Map 48, base 490
+{490}{}{NCR BoS}
+{496}{}{blank:10}
+
+# Map 62, base 630
+{630}{}{Redding}
+{635}{}{24redd}
+{636}{}{saloon:25, saloon1:25, gustwind:10, laughter:20, footste1:10, footstep:10}
+
+# Map 63, base 640
+{640}{}{Redding Mine}
+{645}{}{24redd}
+{646}{}{animal1:20, animal:20, elevator:15, ore:15, mechpump:20, ore1:10}
+
+# Map 64, base 650
+{650}{}{Wanamingo Mine Entrance}
+{655}{}{24redd}
+{656}{}{animal1:20, animal:20, elevator:15, ore:15, mechpump:20, ore1:10}
 
 # Map 69, base 700
 {700}{}{Safe house in the city}
@@ -92,10 +151,40 @@
 {755}{}{07desert}
 {756}{}{gntlwin1:25, gntlwind:25, gustwind:10, rattle:15, rattle1:15, vulture:10}
 
+# Map 84, base 850
+{850}{}{Crater}
+{855}{}{16follow}
+{856}{}{gntlwind:20, gntlwin1:20, gntlwind:20, gntlwin1:20, gustwind:10, blank:10}
+
+# Map 96, base 970
+{970}{}{HQ: Building Site}
+{975}{}{12junktn}
+{976}{}{gntlwin1:25, gntlwind:25, brdchir1:10, brdchirp:10, blank:30}
+
 # Map 107, base 1080
 {1080}{}{Ocean}
 {1085}{}{14necro}
 {1086}{}{seawind1:25, seawind:25, blank:20}
+
+# Map 115, base 1160
+{1160}{}{Broken Hills}
+{1165}{}{08vats}
+{1166}{}{brdchir1:20, brdchirp:20, gntlwind:20, gntlwin1:20, gustwind:10, blank:10}
+
+# Map 116, base 1170
+{1170}{}{Broken Hills Basement}
+{1175}{}{08vats}
+{1176}{}{brdchir1:20, brdchirp:20, gntlwind:20, gntlwin1:20, gustwind:10, blank:10}
+
+# Map 117, base 1180
+{1180}{}{Broken Hills Mine}
+{1185}{}{08vats}
+{1186}{}{brdchir1:20, brdchirp:20, gntlwind:20, gntlwin1:20, gustwind:10, blank:10}
+
+# Map 118, base 1190
+{1190}{}{Broken Hills Dungeon}
+{1195}{}{08vats}
+{1196}{}{brdchir1:20, brdchirp:20, gntlwind:20, gntlwin1:20, gustwind:10, blank:10}
 
 # Map 160, base 1610
 {1610}{}{Desert Encounter 1}
@@ -541,6 +630,75 @@
 {2290}{}{Buffer Map}
 {2296}{}{}
 
+# Map 230, base 2310
+{2310}{}{HQ: Camp}
+{2315}{}{07desert}
+{2315}{}{05raider}
+{2316}{}{gntlwin1:25, gntlwind:25, brdchir1:10, brdchirp:10, blank:30}
+
+# Map 231, base 2320
+{2320}{}{HQ: Khans}
+{2325}{}{07desert}
+{2325}{}{05raider}
+{2326}{}{gntlwin1:25, gntlwind:25, brdchir1:10, brdchirp:10, blank:30}
+
+# Map 232, base 2330
+{2330}{}{HQ: Blades}
+{2335}{}{07desert}
+{2335}{}{16follow}
+{2335}{}{10labone}
+{2336}{}{gntlwin1:25, gntlwind:25, brdchir1:10, brdchirp:10, blank:30}
+
+# Map 233, base 2340
+{2340}{}{HQ: Scrapheap}
+{2345}{}{07desert}
+{2345}{}{18modoc}
+{2346}{}{gntlwin1:25, gntlwind:25, brdchir1:10, brdchirp:10, blank:30}
+
+# Map 234, base 2350
+{2350}{}{HQ: Depot}
+{2355}{}{07desert}
+{2355}{}{05raider}
+{2355}{}{10labone}
+{2356}{}{gntlwin1:25, gntlwind:25, brdchir1:10, brdchirp:10, blank:30}
+
+# Map 235, base 2360
+{2360}{}{HQ: Cave Inside}
+{2365}{}{13carvrn}
+{2366}{}{animal:20, pebble:15, pebble1:15, water1:20, water:20, blank:15}
+
+# Map 236, base 2370
+{2370}{}{HQ: Cave Outside}
+{2375}{}{07desert}
+{2375}{}{18modoc}
+{2376}{}{gntlwin1:25, gntlwind:25, brdchir1:10, brdchirp:10, blank:30}
+
+# Map 237, base 2380
+{2380}{}{HQ: Bunker Indoor}
+{2385}{}{14necro}
+{2385}{}{08vats}
+{2386}{}{elevato1:25, elevator:25, electri1:15, electric:15, clank:10, clank1:10}
+
+# Map 238, base 2390
+{2390}{}{HQ: Bunker Outdoor}
+{2395}{}{07desert}
+{2395}{}{05raider}
+{2395}{}{10labone}
+{2395}{}{14necro}
+{2396}{}{gntlwin1:25, gntlwind:25, gustwind:10, rattle:15, rattle1:15, vulture:10}
+
+# Map 239, base 2400
+{2400}{}{HQ: Gasstation}
+{2405}{}{07desert}
+{2405}{}{10labone}
+{2406}{}{gntlwin1:25, gntlwind:25, gustwind:10, rattle:15, rattle1:15, vulture:10}
+
+# Map 251, base 2520
+{2520}{}{HQ: Trader Mansion}
+{2525}{}{07desert}
+{2525}{}{18modoc}
+{2526}{}{gntlwin1:25, gntlwind:25, brdchir1:10, brdchirp:10, blank:30}
+
 # Map 279, base 2800
 {2800}{}{Gunrunner}
 {2805}{}{10labone}
@@ -633,6 +791,12 @@
 {3495}{}{12junktn}
 {3495}{}{24redd}
 {3496}{}{gntlwin1:25, gntlwind:25, gustwind:10, rattle:15, rattle1:15, vulture:10}
+
+# Map 385, base 3860
+{3860}{}{HQ: Tents}
+{3865}{}{07desert}
+{3865}{}{17arroyo}
+{3866}{}{gntlwin1:25, gntlwind:25, gustwind:10, rattle:15, rattle1:15, vulture:10}
 
 # Map 400, base 4010
 {4010}{}{Cave Encounter In 7}
@@ -744,6 +908,18 @@
 {5155}{}{07desert}
 {5156}{}{gustwind:30, gustwin1:30, rattle:10, rattle1:20, vulture:10, vulture1:10}
 
+# Map 572, base 5730
+{5730}{}{Klamath Rat1}
+{5736}{}{}
+
+# Map 573, base 5740
+{5740}{}{Klamath Rat2}
+{5746}{}{}
+
+# Map 574, base 5750
+{5750}{}{Klamath Rat3}
+{5756}{}{}
+
 # Map 595, base 5960
 {5960}{}{Landers Point: Camp}
 {5965}{}{01hub}
@@ -798,6 +974,83 @@
 {104005}{}{}
 {104010}{}{6}
 
+# Gecko, pid 5, base 105000
+{105000}{}{Gecko}
+{105005}{}{A town of ghouls built around a leaking nuclear power plant.}
+{105010}{}{24}
+{105020}{}{art\intrface\twngecko.frm}
+{105030}{}{art\intrface\WM_GECKO.FRM}
+{105090}{}{4}
+{105101}{}{Settlement}
+{105102}{}{155}
+{105103}{}{246}
+{105111}{}{South West}
+{105112}{}{40}
+{105113}{}{156}
+{105121}{}{Scrapyard}
+{105122}{}{279}
+{105123}{}{169}
+{105131}{}{Reactor}
+{105132}{}{168}
+{105133}{}{147}
+
+# Broken Hills, pid 6, base 106000
+{106000}{}{Broken Hills}
+{106005}{}{A town of humans, mutants and ghouls. Racism is rampant.}
+{106010}{}{24}
+{106020}{}{art\intrface\twnbrokn.frm}
+{106030}{}{art\intrface\WM_HILLS.FRM}
+{106090}{}{4}
+{106101}{}{Downtown}
+{106102}{}{125}
+{106103}{}{276}
+{106111}{}{Residental}
+{106112}{}{367}
+{106113}{}{284}
+{106121}{}{South Side}
+{106122}{}{246}
+{106123}{}{359}
+{106131}{}{North Side}
+{106132}{}{230}
+{106133}{}{201}
+
+# NCR, pid 10, base 110000
+{110000}{}{NCR}
+{110005}{}{Shady Sands, the capital city and central government of the New California Republic. The most powerful city in the wasteland.}
+{110010}{}{24}
+{110020}{}{art\intrface\twnncr.frm}
+{110030}{}{art\intrface\WM_NCR.FRM}
+{110090}{}{3}
+{110101}{}{Bazaar}
+{110102}{}{258}
+{110103}{}{175}
+{110111}{}{Vortis Holding Center}
+{110112}{}{183}
+{110113}{}{134}
+{110121}{}{Residence}
+{110122}{}{318}
+{110123}{}{241}
+
+# Redding, pid 13, base 113000
+{113000}{}{Redding}
+{113005}{}{A mining town. The primary producer and distributor of gold in the wasteland.}
+{113010}{}{24}
+{113020}{}{art\intrface\twnredng.frm}
+{113030}{}{art\intrface\WM_RED.FRM}
+{113090}{}{4}
+{113101}{}{Downtown}
+{113102}{}{160}
+{113103}{}{231}
+{113111}{}{South Side}
+{113112}{}{82}
+{113113}{}{304}
+{113121}{}{Mine}
+{113122}{}{115}
+{113123}{}{204}
+{113131}{}{Wanamingo}
+{113132}{}{64}
+{113133}{}{252}
+
 # Hub, pid 25, base 125000
 {125000}{}{Hub}
 {125005}{}{A major trading city with a large community of traders, gamblers and various other types of scum.}
@@ -831,6 +1084,11 @@
 {126101}{}{Adytum}
 {126102}{}{288}
 {126103}{}{245}
+
+# Crater, pid 35, base 135000
+{135000}{}{Crater}
+{135005}{}{}
+{135010}{}{6}
 
 # Library, pid 36, base 136000
 {136000}{}{Library}
@@ -922,6 +1180,11 @@
 {174000}{}{Safe House}
 {174005}{}{}
 {174010}{}{6}
+
+# Building Site, pid 76, base 176000
+{176000}{}{Building Site}
+{176005}{}{}
+{176010}{}{6}
 
 # Ocean 1, pid 81, base 181000
 {181000}{}{Ocean 1}
@@ -1203,10 +1466,45 @@
 {288005}{}{}
 {288010}{}{6}
 
+# Outpost, pid 202, base 302000
+{302000}{}{Outpost}
+{302005}{}{A big-sized base with a house and temporary walls.}
+{302010}{}{6}
+
+# Cabin, pid 203, base 303000
+{303000}{}{Cabin}
+{303005}{}{A medium-sized base with a house and a few tents.}
+{303010}{}{6}
+
+# House Ruins, pid 204, base 304000
+{304000}{}{House Ruins}
+{304005}{}{A medium-sized building with smaller buildings around it.}
+{304010}{}{6}
+
+# Scrapheap, pid 205, base 305000
+{305000}{}{Scrapheap}
+{305005}{}{A medium-sized building with a lot of junk around it.}
+{305010}{}{6}
+
 # NPC Map, pid 206, base 306000
 {306000}{}{NPC Map}
 {306005}{}{Good luck trying to get out of here.}
 {306010}{}{6}
+
+# Secret Cave, pid 207, base 307000
+{307000}{}{Secret Cave}
+{307005}{}{A small secret cave hideout.}
+{307010}{}{6}
+
+# Old Bunker, pid 208, base 308000
+{308000}{}{Old Bunker}
+{308005}{}{A abandoned bunker, hidden in the mountains.}
+{308010}{}{6}
+
+# Depot, pid 210, base 310000
+{310000}{}{Depot}
+{310005}{}{An old car depot with its own power generator.}
+{310010}{}{6}
 
 # Tent, pid 211, base 311000
 {311000}{}{Tent}
@@ -1227,6 +1525,21 @@
 {314000}{}{Tent}
 {314005}{}{A small tent in the city.}
 {314010}{}{6}
+
+# Trader Mansion, pid 215, base 315000
+{315000}{}{Trader Mansion}
+{315005}{}{Big mansion designed for group of traders.}
+{315010}{}{6}
+
+# Gasstation HQ, pid 216, base 316000
+{316000}{}{Gasstation HQ}
+{316005}{}{}
+{316010}{}{6}
+
+# Trapper Camp, pid 246, base 346000
+{346000}{}{Trapper Camp}
+{346005}{}{A small-sized tent camp with fireplaces.}
+{346010}{}{6}
 
 # Desert 7, pid 300, base 400000
 {400000}{}{Desert 7}
@@ -1303,6 +1616,23 @@
 {414005}{}{}
 {414010}{}{6}
 
+# Modoc, pid 498, base 598000
+{598000}{}{Modoc}
+{598005}{}{A small farming community.}
+{598010}{}{24}
+{598020}{}{art\intrface\twnmodoc.frm}
+{598030}{}{art\intrface\WM_MODOC.FRM}
+{598090}{}{3}
+{598101}{}{South}
+{598102}{}{312}
+{598103}{}{212}
+{598111}{}{North}
+{598112}{}{258}
+{598113}{}{69}
+{598121}{}{East}
+{598122}{}{360}
+{598123}{}{136}
+
 # The Den, pid 499, base 599000
 {599000}{}{The Den}
 {599005}{}{A town of junkies and slavers.}
@@ -1322,6 +1652,26 @@
 {599131}{}{Southwest}
 {599132}{}{135}
 {599133}{}{347}
+
+# Klamath, pid 500, base 600000
+{600000}{}{Klamath}
+{600005}{}{A small town of trappers. Geckos are the lifeblood of this small community.}
+{600010}{}{24}
+{600020}{}{art\intrface\twnklama.frm}
+{600030}{}{art\intrface\WM_KLAM.FRM}
+{600090}{}{4}
+{600101}{}{Downtown}
+{600102}{}{363}
+{600103}{}{186}
+{600111}{}{Hunting Ground}
+{600112}{}{377}
+{600113}{}{297}
+{600121}{}{Trapper Town}
+{600122}{}{191}
+{600123}{}{320}
+{600131}{}{Forest}
+{600132}{}{207}
+{600133}{}{134}
 
 #
 # Worldmap Encounter messages

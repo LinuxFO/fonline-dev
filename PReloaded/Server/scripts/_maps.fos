@@ -60,7 +60,7 @@
 #define LOCATION_KhanEncounter1                          (57) // 
 #define LOCATION_KhanEncounter2                          (58) // 
 #define LOCATION_KhanEncounter3                          (59) // 
-#define LOCATION_KhanEncounter4                          (60) //
+#define LOCATION_KhanEncounter4                          (60) // 
 #define LOCATION_NCRLAGoldReserve                        (61) // A strash of the NCRs national gold reserve in the Angel's Boneyard.
 #define LOCATION_LAWarehouse                             (62) // Lots of empty and locked warehouses can be found in the industrial park.
 #define LOCATION_CathedralBasement                       (63) // The cathedral cellar.
@@ -75,13 +75,14 @@
 #define LOCATION_Tent2Coast1                             (72) // 
 #define LOCATION_Tent2City1                              (73) // 
 #define LOCATION_Tent2Desert1                            (74) //
-#define LOCATION_CaveHQ                                  (75) // 
 #define LOCATION_BuildingSite                            (76) // 
 #define LOCATION_BlockerLocation                         (77) // 
 #define LOCATION_Q_BrahminRanch                          (78) // A brahmin ranch waiting for herd to be delivered.
 #define LOCATION_RuinedMilitaryBase                      (79) // An abandoned military bunker. You can see the big gates from the distance.
 #define LOCATION_DeadBody                                (80) // You see a dead body under a tree.
 #define LOCATION_OceanEncounter1                         (81) // The wide, dirty ocean.
+#define LOCATION_SpecialEncounter_OldWarehouse           (82) // Old warehouse, perhaps there is still something valuable inside.
+#define LOCATION_OldFactory                              (83) // 
 #define LOCATION_Q_FirstTent                             (84) // This is the tent that my PipBoy warned me about! I'd better check it out right now! It's obviously the best place to start my journey...
 #define LOCATION_Hospital                                (85) // 
 #define LOCATION_Q_FirstTent2                            (86) // A small, rat-ridden farm.
@@ -98,7 +99,7 @@
 #define LOCATION_PoliceQuestHouse1                       (97) // My next assignment is to apprehend, and judge the assailants found at this location. God have mercy on their fucking souls.
 #define LOCATION_PoliceQuestHouse2                       (98) // The Sheriff received a radio call about a possible rape, or assault about to take place. My next assignment is to head over here and read these people their final rights.
 #define LOCATION_PoliceHouse3                            (99) // This must be the "Night Rider"... I hope I can find Detective Rockatansky here.
-#define LOCATION_PoliceHouse4                            (100) // A certain mister Bishop Biceon and his family have recently been brutally murdered, and skinned alive. I should investigate the crime scene, and try to find any clues if possible.
+#define LOCATION_PoliceHouse4                            (100) // A certain mister Bishop Biceon and his family have recently been brutally murdered, and skinned alive. I should investigate the crime scene, and try to find any clues if possible. 
 #define LOCATION_DesertEncounter1                        (101) // 
 #define LOCATION_DesertEncounter2                        (102) // 
 #define LOCATION_DesertEncounter3                        (103) // 
@@ -129,6 +130,20 @@
 #define LOCATION_CavernEncounter4                        (144) // 
 #define LOCATION_CavernEncounter5                        (145) // 
 #define LOCATION_CavernEncounter6                        (146) // 
+#define LOCATION_BossFight1                              (147) // Rumour has it that one of your fellow vault dwellers has been terrorizing the locals. The NCR has placed a bounty on their head, and you are coming to collect.
+#define LOCATION_BossFight2                              (148) // Who runs this town?! Me! Not these damn Blood Vipers. It's time to go tear down the pieces to someones crappy game.
+#define LOCATION_BossFight3                              (149) // A large, shadowy crater awaits you. The last known location of the legendary Tyrate. Slayer of heroes, and villains alike.
+#define LOCATION_BossFight4                              (150) // Somewhere out there is a hunter. A hunter that hunts men, and tares their body to pieces. If I can kill it, I'll be known as a conquerer of the impossible!
+#define LOCATION_BossFight5                              (151) // When man abandons his faith, a dark world looms. In time, as it always has been, and always will be, an avenger will come and claim the bounty of the darkness. May it be me.
+#define LOCATION_BossFight6                              (152) // Near a cold, dark crater, a lonely man stalks the ground. Preaching his madness, he enlightens no one, but leaves their bloody carcass for the birds. Time to burn his church to the ground.
+#define LOCATION_BossFight7                              (153) // This part of the state belongs to a crooked, highly intelligent, evil man. Look out! It's the Embassador of Pain! Highly reknown for his many victories, the bodies of the many lie scattered in pieces.
+#define LOCATION_BossFight8                              (154) // A tomb fit for a king... or should I say, Doctor? Another spawn from the wicked fires awaits me here, and for once in my life... I feel truly afraid.
+#define LOCATION_BossFight9                              (155) // Beyond the radiation, and mutation, there sometimes exists true fear. You can find that here, waiting for you, in all of its glory, and great legend. Victory here, is what dreams are made of.
+#define LOCATION_BossFight10                             (156) // Come here to die, and feed the beast your souls...
+#define LOCATION_BossFight11                             (157) // Who plays the Jester, the Queen, and the King, all within the pacing of the Ace of Spades. The court of The Desert King. 
+#define LOCATION_BossFight12                             (158) // A strange name, for someting that is merely just a dog... yet you can't help but feel trumendous fear. Something wicked awaits...
+#define LOCATION_BossFight13                             (159) // There is no beast more worthy of battle than the Great Emperor. The Emperor is a mutated creature like no other, and is probably one of the most powerful critters that walk these lands. Be warned.
+#define LOCATION_BossFight14                             (160) // A man, and a crate full of puppets visited this place. In due time, there should come the devil. The dark lord of all nightmares. The legendary Puppet Man has been summoned! God help us all!
 #define LOCATION_CityEncounter1                          (161) // 
 #define LOCATION_CityEncounter2                          (162) // 
 #define LOCATION_CityEncounter3                          (163) // 
@@ -155,18 +170,26 @@
 #define LOCATION_CityCoastEncounter2                     (187) // 
 #define LOCATION_CityCoastEncounter3                     (188) // 
 #define LOCATION_NPCMap                                  (206) // Good luck trying to get out of here.
+#define LOCATION_CaveHQ                                  (207) // A small secret cave hideout.
+#define LOCATION_BunkerHQ                                (208) // A abandoned bunker, hidden in the mountains.
+#define LOCATION_Caravans                                (209) // 
+#define LOCATION_Depot                                   (210) // An old car depot with its own power generator.
 #define LOCATION_TentDesert1                             (211) // A small tent in the desert.
 #define LOCATION_TentMountain1                           (212) // A small tent between mountains.
 #define LOCATION_TentCoast1                              (213) // A small tent at the coast.
 #define LOCATION_TentCity1                               (214) // A small tent in the city.
+#define LOCATION_TraderMansionHQ                         (215) // Big mansion designed for group of traders.
 #define LOCATION_Hideout                                 (224) // A small camp fire is burning in the distance.
 #define LOCATION_Westwood                                (233) // Westwood is an organized society in the middle of wastes
+#define LOCATION_GasstationHQ                            (245) // A small-sized base with a house and temporary tents.
+#define LOCATION_TrapperTentsHQ                          (246) // A small-sized tent camp with fireplaces.
 #define LOCATION_Slaverun1                               (271) // A tribal camp
 #define LOCATION_Slaverun2                               (272) // A tribal camp
 #define LOCATION_Slaverun3                               (273) // A resting caravan
 #define LOCATION_Slaverun4                               (274) // A small farm
 #define LOCATION_Slaverun5                               (275) // A highway gas station
 #define LOCATION_Slaverun6                               (276) // A house full of junkies
+#define LOCATION_Jail                                    (280) // Damnit! You're trapped here!
 #define LOCATION_DesertEncounter7                        (300) // 
 #define LOCATION_DesertEncounter8                        (301) // 
 #define LOCATION_DesertEncounter9                        (302) // 
@@ -233,13 +256,27 @@
 #define MAP_StartVault                                   (2) // start_vault, Start Vault24(2)
 #define MAP_StartCaravan                                 (6) // start_caravan, map_starter@map_init, Start Caravan(4)
 #define MAP_DesertEncounterKhans1                        (7) // e_khans1, map_encounter@map_init, Khan Encounter 1(57)
+#define MAP_KlamathCanyon                                (8) // klamath_canyon, Klamath(500)
+#define MAP_KlamathDowntown                              (9) // klamath, map_klamath@map_init, Klamath(500)
 #define MAP_MountainsEncounterKhans2                     (10) // e_khans2, map_encounter@map_init, Khan Encounter 2(58)
 #define MAP_MountainsEncounterKhans3                     (14) // e_khans3, map_encounter@map_init, Khan Encounter 3(59)
 #define MAP_DesertEncounterKhans4                        (17) // e_khans4, map_encounter@map_init, Khan Encounter 4(60)
+#define MAP_ModocLarge                                   (18) // modoc, map_modoc@map_init, Modoc(498)
 #define MAP_LAWarehouse                                  (23) // q_la_warehouses, LA Warehouse(62)
+#define MAP_GeckoSettlement                              (31) // gecko_settlement, map_gecko@map_init, Gecko(5)
+#define MAP_GeckoPowerPlant                              (32) // gecko_power_plant, Gecko(5)
 #define MAP_GunRunners                                   (40) // la_gunrunner2, map_boneyard@map_init, Fortress(39)
+#define MAP_QGunRunnersCaravan1                          (41) // q_gunrunner_caravan1, Mutants Hideout(64)
+#define MAP_NCRResidentalArea                            (42) // ncr_residence, map_ncr_downtown@map_init, NCR(10)
+#define MAP_QGunRunnersCaravan2                          (43) // q_gunrunner_caravan2, Mutants Hideout(64)
+#define MAP_NCR                                          (45) // ncr, map_ncr_downtown@map_init, NCR(10)
 #define MAP_DenBoS                                       (47) // den_bos, The Den(499)
+#define MAP_NCRBoS                                       (48) // ncr_bos, NCR(10)
+#define MAP_Redding                                      (62) // redding, map_redding@map_init, Redding(13)
+#define MAP_ReddingMine                                  (63) // redding_mine, map_redding_mine@map_init, Redding(13)
+#define MAP_WanamingoMineEntrance                        (64) // redding_lost, map_redding_lost@map_init, Redding(13)
 #define MAP_Safehouseinthecity                           (69) // tent2_city, Tent 2 City 1(73)
+#define MAP_Junktown                                     (70) // junktown, map_junktown@map_init, Junktown(17)
 #define MAP_Safehouseonthecoast                          (72) // tent2_coast, Tent 2 Coast 1(72)
 #define MAP_Safehouseinthedesert                         (73) // tent2_desert, Tent 2 Desert 1(74)
 #define MAP_Safehouseinthemountains                      (74) // tent2_mountain, Tent 2 Mountain 1(71)
@@ -249,7 +286,16 @@
 #define MAP_LostHills_Level2                             (87) // bos_lh_2, map_bos_lh@map_init, Brotherhood of Steel(18)
 #define MAP_LostHills_Level3                             (88) // bos_lh_3, map_bos_lh@map_init, Brotherhood of Steel(18)
 #define MAP_LostHills_Level4                             (89) // bos_lh_4, map_bos_lh@map_init, Brotherhood of Steel(18)
+#define MAP_HQ_CaveInside                                (94) // hq_cave2in, Cave HQ(75)
+#define MAP_HQ_CaveOutside                               (95) // hq_cave2out, Cave HQ(75)
+#define MAP_HQ_BuildingSite                              (96) // hq_buildside, Building Site(76)
+#define MAP_BlockersMap                                  (97) // blockermap, Blocker Location(77)
 #define MAP_Ocean                                        (107) // e_ocean1, Ocean Encounter 1(81)
+#define MAP_BrokenHills                                  (115) // broken, map_broken@map_init, Broken Hills(6)
+#define MAP_BrokenHillsBasement                          (116) // broken_basement, Broken Hills(6)
+#define MAP_BrokenHillsMine                              (117) // broken_mine, Broken Hills(6)
+#define MAP_BrokenHillsDungeon                           (118) // broken_dungeon, Broken Hills(6)
+#define MAP_NecropolisPump                               (143) // necropolis_pump, Necropolis(24)
 #define MAP_DesertEncounter1                             (160) // e_desert1, map_encounter@map_init, Desert Encounter 1(101)
 #define MAP_DesertEncounter2                             (161) // e_desert2, map_encounter@map_init, Desert Encounter 2(102)
 #define MAP_DesertEncounter3                             (162) // e_desert3, map_encounter@map_init, Desert Encounter 3(103)
@@ -317,6 +363,17 @@
 #define MAP_HubUndergroundthief                          (226) // hub_oldtown_thief, map_hub@map_init, Hub(25)
 #define MAP_HubArena                                     (227) // hub_arena, map_hub@map_init, Hub(25)
 #define MAP_BufferMap                                    (228) // npcmap, map_npcmap@map_init, NPC Map(206)
+#define MAP_Caravans                                     (229) // caravans, Caravans(209)
+#define MAP_HQ_Camp                                      (230) // hq_camp, Camp HQ(202)
+#define MAP_HQ_Khans                                     (231) // hq_khans, Khans HQ(203)
+#define MAP_HQ_Blades                                    (232) // hq_blades, Blades HQ(204)
+#define MAP_HQ_Scrapheap                                 (233) // hq_scrapheap, Scrapheap HQ(205)
+#define MAP_HQ_Depot                                     (234) // hq_depot, Depot(210)
+#define MAP_HQ_CaveInside235                             (235) // hq_cave1in, Cave HQ(207)
+#define MAP_HQ_CaveOutside236                            (236) // hq_cave1out, Cave HQ(207)
+#define MAP_HQ_BunkerIndoor                              (237) // hq_vault1in, Bunker HQ(208)
+#define MAP_HQ_BunkerOutdoor                             (238) // hq_vault1out, Bunker HQ(208)
+#define MAP_HQ_Gasstation                                (239) // hq_gasstation, Gasstation HQ(245)
 #define MAP_Gunrunner                                    (279) // la_gunrunner, map_boneyard@map_init, Fortress(39)
 #define MAP_Adytum                                       (280) // la_ady1, map_boneyard@map_init, Boneyard(26)
 #define MAP_AdytumSub                                    (281) // la_ady2, map_boneyard@map_init, Boneyard(26)
@@ -333,8 +390,25 @@
 #define MAP_DesertEncounter6346                          (346) // e_desert_tree6, map_encounter@map_init, Desert Tree Encounter 6(112)
 #define MAP_Highway1                                     (347) // e_highway1, map_encounter@map_init, Desert Highway 1(113)
 #define MAP_Highway2                                     (348) // e_highway2, map_encounter@map_init, Desert Highway 2(114)
+#define MAP_Cloudtower_Enter                             (352) // cloudtower_enter, Skyscraper(237)
+#define MAP_Cloudtower_floor1                            (353) // cloudtower_1, Skyscraper(237)
+#define MAP_Cloudtower_floor2                            (354) // cloudtower_2, Skyscraper(237)
+#define MAP_Cloudtower_floor3                            (355) // cloudtower_3, Skyscraper(237)
+#define MAP_Cloudtower_floor4                            (356) // cloudtower_4, Skyscraper(237)
+#define MAP_Cloudtower_floor5                            (357) // cloudtower_5, Skyscraper(237)
+#define MAP_Cloudtower_floor6                            (358) // cloudtower_6, Skyscraper(237)
+#define MAP_Cloudtower_floor7                            (359) // cloudtower_7, Skyscraper(237)
+#define MAP_Cloudtower_floor8                            (360) // cloudtower_8, Skyscraper(237)
+#define MAP_NCRMiningSite                                (376) // ncr_mine, map_public_mines@map_init, Mining Site NCR(30)
+#define MAP_HQ_Tents                                     (385) // hq_tents, Trapper / Tents HQ(246)
 #define MAP_CaveEncounterIn7                             (400) // e_cave7in, map_random_cave@map_init, Cavern Encounter 6(146)
 #define MAP_CaveEncounterOut7                            (401) // e_cave7out, map_encounter@map_init, Cavern Encounter 6(146)
+#define MAP_Slaverun1                                    (450) // slaverun1, map_slaverun@map_init, Slaverun 1(271)
+#define MAP_Slaverun2                                    (451) // slaverun2, map_slaverun@map_init, Slaverun 2(272)
+#define MAP_Slaverun3                                    (452) // slaverun3, map_slaverun@map_init, Slaverun 3(273)
+#define MAP_Slaverun4                                    (453) // slaverun4, map_slaverun@map_init, Slaverun 4(274)
+#define MAP_Slaverun5                                    (454) // slaverun5, map_slaverun@map_init, Slaverun 5(275)
+#define MAP_Slaverun6                                    (455) // slaverun6, map_slaverun@map_init, Slaverun 6(276)
 #define MAP_DesertEncounter7                             (500) // e_desert7, map_encounter@map_init, Desert Encounter 7(300)
 #define MAP_DesertEncounter8                             (501) // e_desert8, map_encounter@map_init, Desert Encounter 8(301)
 #define MAP_DesertEncounter9                             (502) // e_desert9, map_encounter@map_init, Desert Encounter 9(302)
@@ -349,6 +423,10 @@
 #define MAP_DesertEncounterWater2                        (512) // e_desert_water2, map_encounter@map_init, Desert Water 2(312)
 #define MAP_DesertEncounterWater3                        (513) // e_desert_water3, map_encounter@map_init, Desert Water 3(313)
 #define MAP_DesertEncounter12                            (514) // e_desert12, map_encounter@map_init, Desert Encounter 12(314)
+#define MAP_NCRTrainStation                              (554) // ul_trainyard3, map_trainyard@map_init, Trainyard 3(354)
+#define MAP_KlamathRat1                                  (572) // klam_rat1, Klamath(500)
+#define MAP_KlamathRat2                                  (573) // klam_rat2, Klamath(500)
+#define MAP_KlamathRat3                                  (574) // klam_rat3, Klamath(500)
 #define MAP_LandersPoint_Camp                            (595) // landersp_camp, Landers Point(3)
 #define MAP_LandersPoint_Fields                          (596) // landersp_fields, Landers Point(3)
 #define MAP_LandersPoint_Cave                            (597) // landersp_cave, Landers Point(3)

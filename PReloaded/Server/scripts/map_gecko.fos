@@ -1,0 +1,30 @@
+//
+// FOnline: 2238
+// Rotators
+//
+// map_gecko.fos
+//
+
+#include "_macros.fos"
+#include "_town.fos"
+#include "mapdata_h.fos"
+#include "logging_h.fos"
+
+import bool AddMilitia(Map@ map) from "town";
+import void SpawnInitMilitia(Map@ map) from "town";
+
+void map_init(Map& map, bool firstTime)
+{
+    map.SetData(MAP_DATA_TOWN, TOWN_GECKO);
+
+    if(firstTime)
+        SpawnInitMilitia(map);
+
+    map.SetEvent(MAP_EVENT_FINISH, "_Finish");
+}
+
+void _Finish(Map& map, bool deleted)
+{
+	if(deleted)
+		FLog(LOG_DYNAMIC_LOC, "GECKO IS GOING TO BE DELETED!");
+}
