@@ -189,6 +189,7 @@
 #define LVAR_q_hub_gunrunner_supplies_parts (7130)
 #define LVAR_q_la_gunrunners_facility_access (7136)
 #define LVAR_q_la_gunrunners_facility_inside (7137)
+#define LVAR_q_ncr_westin_wpump (7138)
 #define LVAR_q_la_ady_lorraine_magazine (7145)
 #define LVAR_q_la_gunr_courier (7147)
 #define LVAR_q_la_gunr_courier_reward (7148)
@@ -3429,6 +3430,12 @@ $ 7012 1 den_metzger_blind 0 0 1 0
 $ 16336 1 z_mutantq 0 0 100 4
 **********
 var for becoming mutant
+**********
+
+$ 7138 1 q_ncr_westin_wpump 0 0 1 0
+**********
+0 == not fixed
+1 == fixed
 **********
 
 **********/
