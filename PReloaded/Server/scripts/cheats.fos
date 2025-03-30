@@ -289,8 +289,8 @@ void SetAliases()
     // SetMapId("modoc", MAP_ModocLarge);
     // SetMapId("vc", MAP_VaultCityDowntown);
     SetMapId("gecko", MAP_GeckoSettlement);
-    // SetMapId("bh", MAP_BrokenHills);
-    // SetMapId("broken", MAP_BrokenHills);
+    SetMapId("bh", MAP_BrokenHills);
+    SetMapId("broken", MAP_BrokenHills);
     // SetMapId("nr", MAP_NewReno1);
     // SetMapId("gasstation", MAP_NewRenoChopShop);
     // SetMapId("tray", MAP_NewRenoChopShop);

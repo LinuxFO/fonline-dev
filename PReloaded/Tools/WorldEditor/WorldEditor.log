@@ -1,6 +1,6 @@
-[3/30/2025 3:29:17 PM] Starting in C:\Games\fodev\fonline-dev\PReloaded\Tools\WorldEditor
-[3/30/2025 3:29:17 PM] Loading config
-[3/30/2025 3:29:17 PM]    OS version: Microsoft Windows NT 6.2.9200.0 64-bit
+[3/30/2025 3:53:04 PM] Starting in C:\Games\fodev\fonline-dev\PReloaded\Tools\WorldEditor
+[3/30/2025 3:53:04 PM] Loading config
+[3/30/2025 3:53:04 PM]    OS version: Microsoft Windows NT 6.2.9200.0 64-bit
    .NET CLR version: 4.0.30319.42000
    .NET installed versions:
        2.0 (SP 2) - 2.0.50727.4927
@@ -9,20 +9,20 @@
        4.0 Client Profile
        4.0 Full Profile
 
-[3/30/2025 3:29:17 PM] Loading UI Settings
-[3/30/2025 3:29:17 PM] Loaded UI Settings
-[3/30/2025 3:29:17 PM] Starting script thread...
-[3/30/2025 3:29:17 PM] Loading resources sequentially...
-[3/30/2025 3:29:17 PM] Loading zones from ..\..\Server\maps\worldmap.fowm...
-[3/30/2025 3:29:17 PM] Loaded maps and location data.
-[3/30/2025 3:29:17 PM] Found 959 PIDs in ITEMPID.H
-[3/30/2025 3:29:17 PM] Loading param defines.
-[3/30/2025 3:29:17 PM] Loading graphics\worldmap.png
-[3/30/2025 3:29:17 PM] Loading ITEMPID.H
-[3/30/2025 3:29:17 PM] Loaded game data.
-[3/30/2025 3:29:17 PM] Clearing controls
-[3/30/2025 3:29:17 PM] Main form loaded.
-[3/30/2025 3:30:00 PM] Saving zones to ..\..\Server\maps\worldmap.fowm...
-[3/30/2025 3:30:04 PM] Launching QuitPrompt()
-[3/30/2025 3:30:04 PM] Saving UI Settings
-[3/30/2025 3:30:04 PM] Saved UI Settings
+[3/30/2025 3:53:04 PM] Loading UI Settings
+[3/30/2025 3:53:04 PM] Loaded UI Settings
+[3/30/2025 3:53:04 PM] Starting script thread...
+[3/30/2025 3:53:04 PM] Loading resources sequentially...
+[3/30/2025 3:53:04 PM] Loading zones from ..\..\Server\maps\worldmap.fowm...
+[3/30/2025 3:53:04 PM] Loaded maps and location data.
+[3/30/2025 3:53:04 PM] Found 959 PIDs in ITEMPID.H
+[3/30/2025 3:53:04 PM] Loading param defines.
+[3/30/2025 3:53:04 PM] Loading graphics\worldmap.png
+[3/30/2025 3:53:05 PM] Loading ITEMPID.H
+[3/30/2025 3:53:05 PM] Loaded game data.
+[3/30/2025 3:53:05 PM] Clearing controls
+[3/30/2025 3:53:05 PM] Main form loaded.
+[3/30/2025 3:54:13 PM] Saving zones to ..\..\Server\maps\worldmap.fowm...
+[3/30/2025 3:54:18 PM] Launching QuitPrompt()
+[3/30/2025 3:54:18 PM] Saving UI Settings
+[3/30/2025 3:54:18 PM] Saved UI Settings

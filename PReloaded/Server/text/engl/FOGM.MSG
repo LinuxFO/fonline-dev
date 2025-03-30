@@ -136,6 +136,26 @@
 {1085}{}{14necro}
 {1086}{}{seawind1:25, seawind:25, blank:20}
 
+# Map 115, base 1160
+{1160}{}{Broken Hills}
+{1165}{}{08vats}
+{1166}{}{brdchir1:20, brdchirp:20, gntlwind:20, gntlwin1:20, gustwind:10, blank:10}
+
+# Map 116, base 1170
+{1170}{}{Broken Hills Basement}
+{1175}{}{08vats}
+{1176}{}{brdchir1:20, brdchirp:20, gntlwind:20, gntlwin1:20, gustwind:10, blank:10}
+
+# Map 117, base 1180
+{1180}{}{Broken Hills Mine}
+{1185}{}{08vats}
+{1186}{}{brdchir1:20, brdchirp:20, gntlwind:20, gntlwin1:20, gustwind:10, blank:10}
+
+# Map 118, base 1190
+{1190}{}{Broken Hills Dungeon}
+{1195}{}{08vats}
+{1196}{}{brdchir1:20, brdchirp:20, gntlwind:20, gntlwin1:20, gustwind:10, blank:10}
+
 # Map 160, base 1610
 {1610}{}{Desert Encounter 1}
 {1615}{}{07desert}
@@ -931,6 +951,26 @@
 {105131}{}{Reactor}
 {105132}{}{168}
 {105133}{}{147}
+
+# Broken Hills, pid 6, base 106000
+{106000}{}{Broken Hills}
+{106005}{}{A town of humans, mutants and ghouls. Racism is rampant.}
+{106010}{}{24}
+{106020}{}{art\intrface\twnbrokn.frm}
+{106030}{}{art\intrface\WM_HILLS.FRM}
+{106090}{}{4}
+{106101}{}{Downtown}
+{106102}{}{125}
+{106103}{}{276}
+{106111}{}{Residental}
+{106112}{}{367}
+{106113}{}{284}
+{106121}{}{South Side}
+{106122}{}{246}
+{106123}{}{359}
+{106131}{}{North Side}
+{106132}{}{230}
+{106133}{}{201}
 
 # NCR, pid 10, base 110000
 {110000}{}{NCR}

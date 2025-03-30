@@ -6,6 +6,10 @@
 0|..\..\Server\maps\landerspoint_cave.fomap|3/30/2025 2:20:04 PM|-|-|-1|0
 0|..\..\Server\maps\gecko_settlement.fomap|1/9/2025 9:33:37 PM|map_init|map_gecko|-1|1
 0|..\..\Server\maps\gecko_power_plant.fomap|1/9/2025 9:33:37 PM|-|-|-1|1
+0|..\..\Server\maps\broken.fomap|1/9/2025 9:33:33 PM|map_init|map_broken|-1|1
+0|..\..\Server\maps\broken_basement.fomap|1/9/2025 9:33:33 PM|-|-|0|0
+0|..\..\Server\maps\broken_mine.fomap|1/9/2025 9:33:33 PM|-|-|0|1
+0|..\..\Server\maps\broken_dungeon.fomap|1/9/2025 9:33:33 PM|-|-|0|0
 0|..\..\Server\maps\ncr.fomap|3/30/2025 2:20:04 PM|map_init|map_ncr_downtown|-1|0
 0|..\..\Server\maps\ncr_residence.fomap|3/30/2025 2:20:04 PM|map_init|map_ncr_downtown|-1|0
 0|..\..\Server\maps\ncr_bos.fomap|3/30/2025 2:20:04 PM|-|-|720|0
