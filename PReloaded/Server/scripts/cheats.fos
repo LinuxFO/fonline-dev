@@ -288,7 +288,7 @@ void SetAliases()
     // SetMapId("klamcave", MAP_KlamathToxicCaves1);
     // SetMapId("modoc", MAP_ModocLarge);
     // SetMapId("vc", MAP_VaultCityDowntown);
-    // SetMapId("gecko", MAP_GeckoSettlement);
+    SetMapId("gecko", MAP_GeckoSettlement);
     // SetMapId("bh", MAP_BrokenHills);
     // SetMapId("broken", MAP_BrokenHills);
     // SetMapId("nr", MAP_NewReno1);
@@ -326,7 +326,7 @@ void SetAliases()
     // SetMapId("lpfields", MAP_LandersPoint_Fields);
     // SetMapId("lpcave", MAP_LandersPoint_Cave);
 
-    // SetMapId("npcmap", MAP_BufferMap);
+    SetMapId("npcmap", MAP_BufferMap);
     // SetMapId("jail", MAP_Jail);
     // SetMapId("bg", MAP_BarterGround);
     // SetMapId("barterground", MAP_BarterGround);

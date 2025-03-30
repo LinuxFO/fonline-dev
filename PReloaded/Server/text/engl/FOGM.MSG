@@ -57,6 +57,16 @@
 {185}{}{12junktn}
 {186}{}{gustwind:20, gustwin1:20, rattle:15, rattle1:15, vulture:15, vulture1:15}
 
+# Map 31, base 320
+{320}{}{Gecko Settlement}
+{325}{}{12junktn}
+{326}{}{electri1:20, electric:20, gntlwind:20, gntlwin1:20, steam:20, steam1:20}
+
+# Map 32, base 330
+{330}{}{Gecko Power Plant}
+{335}{}{12junktn}
+{336}{}{electri1:15, electric:15, elevator:20, elevato1:15, steam:20, steam:15}
+
 # Map 40, base 410
 {410}{}{Gun Runners}
 {415}{}{10labone}
@@ -901,6 +911,26 @@
 {104000}{}{Start Caravan}
 {104005}{}{}
 {104010}{}{6}
+
+# Gecko, pid 5, base 105000
+{105000}{}{Gecko}
+{105005}{}{A town of ghouls built around a leaking nuclear power plant.}
+{105010}{}{24}
+{105020}{}{art\intrface\twngecko.frm}
+{105030}{}{art\intrface\WM_GECKO.FRM}
+{105090}{}{4}
+{105101}{}{Settlement}
+{105102}{}{155}
+{105103}{}{246}
+{105111}{}{South West}
+{105112}{}{40}
+{105113}{}{156}
+{105121}{}{Scrapyard}
+{105122}{}{279}
+{105123}{}{169}
+{105131}{}{Reactor}
+{105132}{}{168}
+{105133}{}{147}
 
 # NCR, pid 10, base 110000
 {110000}{}{NCR}
