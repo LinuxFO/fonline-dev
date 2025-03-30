@@ -286,7 +286,7 @@ void SetAliases()
     // SetMapId("arroyo", MAP_ArroyoTemple);
     // SetMapId("klamath", MAP_KlamathDowntown);
     // SetMapId("klamcave", MAP_KlamathToxicCaves1);
-    // SetMapId("modoc", MAP_ModocLarge);
+    SetMapId("modoc", MAP_ModocLarge);
     // SetMapId("vc", MAP_VaultCityDowntown);
     SetMapId("gecko", MAP_GeckoSettlement);
     SetMapId("bh", MAP_BrokenHills);

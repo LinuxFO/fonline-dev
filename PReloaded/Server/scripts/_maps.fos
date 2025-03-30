@@ -260,6 +260,7 @@
 #define MAP_MountainsEncounterKhans2                     (10) // e_khans2, map_encounter@map_init, Khan Encounter 2(58)
 #define MAP_MountainsEncounterKhans3                     (14) // e_khans3, map_encounter@map_init, Khan Encounter 3(59)
 #define MAP_DesertEncounterKhans4                        (17) // e_khans4, map_encounter@map_init, Khan Encounter 4(60)
+#define MAP_ModocLarge                                   (18) // modoc, map_modoc@map_init, Modoc(498)
 #define MAP_LAWarehouse                                  (23) // q_la_warehouses, LA Warehouse(62)
 #define MAP_GeckoSettlement                              (31) // gecko_settlement, map_gecko@map_init, Gecko(5)
 #define MAP_GeckoPowerPlant                              (32) // gecko_power_plant, Gecko(5)

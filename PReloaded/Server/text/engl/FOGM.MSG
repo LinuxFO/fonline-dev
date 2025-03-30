@@ -57,6 +57,11 @@
 {185}{}{12junktn}
 {186}{}{gustwind:20, gustwin1:20, rattle:15, rattle1:15, vulture:15, vulture1:15}
 
+# Map 18, base 190
+{190}{}{Modoc Large}
+{195}{}{18modoc}
+{196}{}{brdchir1:25, brdchirp:25, chimes:15, chimes1:15, dogbark:10, dogbark1:10}
+
 # Map 31, base 320
 {320}{}{Gecko Settlement}
 {325}{}{12junktn}
@@ -1588,6 +1593,23 @@
 {414000}{}{Desert 12}
 {414005}{}{}
 {414010}{}{6}
+
+# Modoc, pid 498, base 598000
+{598000}{}{Modoc}
+{598005}{}{A small farming community.}
+{598010}{}{24}
+{598020}{}{art\intrface\twnmodoc.frm}
+{598030}{}{art\intrface\WM_MODOC.FRM}
+{598090}{}{3}
+{598101}{}{South}
+{598102}{}{312}
+{598103}{}{212}
+{598111}{}{North}
+{598112}{}{258}
+{598113}{}{69}
+{598121}{}{East}
+{598122}{}{360}
+{598123}{}{136}
 
 # The Den, pid 499, base 599000
 {599000}{}{The Den}

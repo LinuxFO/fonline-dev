@@ -141,5 +141,6 @@
 0|..\..\Server\maps\e_desert_water2.fomap|2/22/2025 11:11:50 PM|map_init|map_encounter|-1|0
 0|..\..\Server\maps\e_desert_water3.fomap|2/22/2025 11:11:50 PM|map_init|map_encounter|-1|0
 0|..\..\Server\maps\e_desert12.fomap|2/22/2025 11:11:50 PM|map_init|map_encounter|-1|0
+0|..\..\Server\maps\modoc.fomap|1/9/2025 9:33:38 PM|map_init|map_modoc|-1|1
 0|..\..\Server\maps\den.fomap|3/30/2025 2:20:04 PM|map_init|map_denbus|-1|1
 0|..\..\Server\maps\den_bos.fomap|3/30/2025 2:20:04 PM|-|-|720|0
