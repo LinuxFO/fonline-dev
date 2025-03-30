@@ -57,30 +57,30 @@
 {185}{}{12junktn}
 {186}{}{gustwind:20, gustwin1:20, rattle:15, rattle1:15, vulture:15, vulture1:15}
 
-# Map 23, base 240
-{240}{}{LA Warehouse}
-{245}{}{08vats}
-{246}{}{gntlwin1:25, gntlwind:25, animal1:20, animal:20, gustwind:5, gustwin1:5}
-
 # Map 40, base 410
 {410}{}{Gun Runners}
 {415}{}{10labone}
 {416}{}{gntlwin1:25, gntlwind:25, gustwind:10, rattle:15, rattle1:15, vulture:10}
+
+# Map 41, base 420
+{420}{}{Q Gun Runners Caravan 1}
+{425}{}{12junktn}
+{426}{}{gntlwin1:25, gntlwind:25, gustwind:10, rattle:15, rattle1:15, vulture:10}
 
 # Map 42, base 430
 {430}{}{NCR Residental Area}
 {435}{}{01hub}
 {436}{}{gntlwin1:25, gntlwind:25, brdchir1:10, brdchirp:10, blank:30}
 
+# Map 43, base 440
+{440}{}{Q Gun Runners Caravan 2}
+{445}{}{13carvrn}
+{446}{}{gntlwin1:25, gntlwind:25, gustwind:10, rattle:15, animal1:15, animal:10}
+
 # Map 45, base 460
 {460}{}{NCR}
 {465}{}{01hub}
 {466}{}{gntlwin1:25, gntlwind:25, brdchir1:10, brdchirp:10, blank:30}
-
-# Map 46, base 470
-{470}{}{Hub Trainyard}
-{475}{}{01hub}
-{476}{}{gntlwin1:25, gntlwind:25, brdchir1:10, brdchirp:10, blank:30}
 
 # Map 47, base 480
 {480}{}{Den BoS}
@@ -116,18 +116,6 @@
 {855}{}{16follow}
 {856}{}{gntlwind:20, gntlwin1:20, gntlwind:20, gntlwin1:20, gustwind:10, blank:10}
 
-# Map 94, base 950
-{950}{}{HQ: Cave Inside}
-{955}{}{13carvrn}
-{956}{}{animal:20, pebble:15, pebble1:15, water1:20, water:20, blank:15}
-
-# Map 95, base 960
-{960}{}{HQ: Cave Outside}
-{965}{}{12junktn}
-{965}{}{07desert}
-{965}{}{05raider}
-{966}{}{gntlwin1:25, gntlwind:25, brdchir1:10, brdchirp:10, blank:30}
-
 # Map 96, base 970
 {970}{}{HQ: Building Site}
 {975}{}{12junktn}
@@ -137,26 +125,6 @@
 {1080}{}{Ocean}
 {1085}{}{14necro}
 {1086}{}{seawind1:25, seawind:25, blank:20}
-
-# Map 108, base 1090
-{1090}{}{Old Warehouse}
-{1095}{}{16follow}
-{1096}{}{gntlwin1:25, gntlwind:25, gustwind:10, rattle:15, rattle1:15, vulture:10}
-
-# Map 112, base 1130
-{1130}{}{Khans Cave Entrance}
-{1135}{}{14necro}
-{1136}{}{gntlwin1:25, gntlwind:25, gustwind:10, blank:40}
-
-# Map 113, base 1140
-{1140}{}{Khans Cave}
-{1145}{}{14necro}
-{1146}{}{gntlwin1:25, gntlwind:25, gustwind:10, blank:40}
-
-# Map 114, base 1150
-{1150}{}{Khans HQ}
-{1155}{}{14necro}
-{1156}{}{gntlwin1:25, gntlwind:25, gustwind:10, blank:40}
 
 # Map 160, base 1610
 {1610}{}{Desert Encounter 1}
@@ -602,11 +570,6 @@
 {2290}{}{Buffer Map}
 {2296}{}{}
 
-# Map 229, base 2300
-{2300}{}{Caravans}
-{2305}{}{}
-{2306}{}{}
-
 # Map 230, base 2310
 {2310}{}{HQ: Camp}
 {2315}{}{07desert}
@@ -768,51 +731,6 @@
 {3495}{}{12junktn}
 {3495}{}{24redd}
 {3496}{}{gntlwin1:25, gntlwind:25, gustwind:10, rattle:15, rattle1:15, vulture:10}
-
-# Map 352, base 3530
-{3530}{}{Cloudtower: Enter}
-{3536}{}{}
-
-# Map 353, base 3540
-{3540}{}{Cloudtower: floor1}
-{3546}{}{}
-
-# Map 354, base 3550
-{3550}{}{Cloudtower: floor 2}
-{3556}{}{}
-
-# Map 355, base 3560
-{3560}{}{Cloudtower: floor 3}
-{3566}{}{}
-
-# Map 356, base 3570
-{3570}{}{Cloudtower: floor 4}
-{3576}{}{}
-
-# Map 357, base 3580
-{3580}{}{Cloudtower: floor 5}
-{3586}{}{}
-
-# Map 358, base 3590
-{3590}{}{Cloudtower: floor 6}
-{3596}{}{}
-
-# Map 359, base 3600
-{3600}{}{Cloudtower: floor 7}
-{3606}{}{}
-
-# Map 360, base 3610
-{3610}{}{Cloudtower: floor 8}
-{3616}{}{}
-
-# Map 376, base 3770
-{3770}{}{NCR Mining Site}
-{3775}{}{01hub}
-{3776}{}{gntlwin1:25, gntlwind:25, gustwind:10, brdchirp:10, rattle1:15, vulture:10}
-
-# Map 381, base 3820
-{3820}{}{JailOld}
-{3826}{}{}
 
 # Map 385, base 3860
 {3860}{}{HQ: Tents}
@@ -1035,10 +953,10 @@
 {126102}{}{288}
 {126103}{}{245}
 
-# Quarry, pid 30, base 130000
-{130000}{}{Quarry}
-{130005}{}{A well guarded NCR quarry.}
-{130010}{}{9}
+# Crater, pid 35, base 135000
+{135000}{}{Crater}
+{135005}{}{}
+{135010}{}{6}
 
 # Library, pid 36, base 136000
 {136000}{}{Library}
@@ -1086,16 +1004,6 @@
 {139102}{}{358}
 {139103}{}{120}
 
-# An Old Bunker, pid 53, base 153000
-{153000}{}{An Old Bunker}
-{153005}{}{}
-{153010}{}{6}
-
-# Prison, pid 54, base 154000
-{154000}{}{Prison}
-{154005}{}{A New California Republic Correctional Facility.}
-{154010}{}{10}
-
 # Khan Mountains, pid 57, base 157000
 {157000}{}{Khan Mountains}
 {157005}{}{}
@@ -1141,11 +1049,6 @@
 {174005}{}{}
 {174010}{}{6}
 
-# Cave HQ, pid 75, base 175000
-{175000}{}{Cave HQ}
-{175005}{}{}
-{175010}{}{6}
-
 # Building Site, pid 76, base 176000
 {176000}{}{Building Site}
 {176005}{}{}
@@ -1155,11 +1058,6 @@
 {181000}{}{Ocean 1}
 {181005}{}{The wide, dirty ocean.}
 {181010}{}{24}
-
-# A lonely tent in the wasteland, pid 84, base 184000
-{184000}{}{A lonely tent in the wasteland}
-{184005}{}{This is the tent that my PipBoy warned me about! I'd better check it out right now! It's obviously the best place to start my journey...}
-{184010}{}{6}
 
 # Desert 1, pid 101, base 201000
 {201000}{}{Desert 1}
@@ -1471,11 +1369,6 @@
 {308005}{}{A abandoned bunker, hidden in the mountains.}
 {308010}{}{6}
 
-# Caravans, pid 209, base 309000
-{309000}{}{Caravans}
-{309005}{}{}
-{309010}{}{6}
-
 # Depot, pid 210, base 310000
 {310000}{}{Depot}
 {310005}{}{An old car depot with its own power generator.}
@@ -1506,60 +1399,15 @@
 {315005}{}{Big mansion designed for group of traders.}
 {315010}{}{6}
 
-# Rail Line Gang, pid 222, base 322000
-{322000}{}{Rail Line Gang}
-{322005}{}{The camping place of the Horatius rail line gang.}
-{322010}{}{6}
-
-# The Sky Tower, pid 237, base 337000
-{337000}{}{The Sky Tower}
-{337005}{}{The old remains of the infamous Richfield Tower. Built in the late 1930's by oil barons, now a standing grave, plumb, and juicy! Ready for the taking.}
-{337010}{}{12}
-
-# Gasstation Camp, pid 245, base 345000
-{345000}{}{Gasstation Camp}
-{345005}{}{A small-sized base with a house and temporary tents.}
-{345010}{}{6}
+# Gasstation HQ, pid 216, base 316000
+{316000}{}{Gasstation HQ}
+{316005}{}{}
+{316010}{}{6}
 
 # Trapper Camp, pid 246, base 346000
 {346000}{}{Trapper Camp}
 {346005}{}{A small-sized tent camp with fireplaces.}
 {346010}{}{6}
-
-# Slaverun 1, pid 271, base 371000
-{371000}{}{Slaverun 1}
-{371005}{}{A tribal camp}
-{371010}{}{6}
-
-# Slaverun 2, pid 272, base 372000
-{372000}{}{Slaverun 2}
-{372005}{}{A tribal camp}
-{372010}{}{6}
-
-# Slaverun 3, pid 273, base 373000
-{373000}{}{Slaverun 3}
-{373005}{}{A resting caravan}
-{373010}{}{6}
-
-# Slaverun 4, pid 274, base 374000
-{374000}{}{Slaverun 4}
-{374005}{}{A small farm}
-{374010}{}{6}
-
-# Slaverun 5, pid 275, base 375000
-{375000}{}{Slaverun 5}
-{375005}{}{A highway gas station}
-{375010}{}{6}
-
-# Slaverun 6, pid 276, base 376000
-{376000}{}{Slaverun 6}
-{376005}{}{A house full of junkies}
-{376010}{}{6}
-
-# Jail, pid 280, base 380000
-{380000}{}{Jail}
-{380005}{}{Damnit! You're trapped here!}
-{380010}{}{6}
 
 # Desert 7, pid 300, base 400000
 {400000}{}{Desert 7}
@@ -1635,26 +1483,6 @@
 {414000}{}{Desert 12}
 {414005}{}{}
 {414010}{}{6}
-
-# Boneyard Train Station, pid 353, base 453000
-{453000}{}{Boneyard Train Station}
-{453005}{}{An old train station, controlled by the Regulators of Adytum and Boneyard. The train station can be used for fast traveling to various places.}
-{453010}{}{9}
-
-# NCR Train Station, pid 354, base 454000
-{454000}{}{NCR Train Station}
-{454005}{}{A NCR outpost with active train station that can be used for fast traveling to various places.}
-{454010}{}{9}
-
-# Slaver Camp, pid 367, base 467000
-{467000}{}{Slaver Camp}
-{467005}{}{A hidden slaver breakpoint.}
-{467010}{}{8}
-
-# Fort Seth, pid 368, base 468000
-{468000}{}{Fort Seth}
-{468005}{}{A military outpost of the NCR, composed of a few barracks and protective walls.}
-{468010}{}{8}
 
 # The Den, pid 499, base 599000
 {599000}{}{The Den}

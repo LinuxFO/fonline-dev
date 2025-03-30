@@ -74,8 +74,7 @@
 #define LOCATION_Tent2Mountain1                          (71) // 
 #define LOCATION_Tent2Coast1                             (72) // 
 #define LOCATION_Tent2City1                              (73) // 
-#define LOCATION_Tent2Desert1                            (74) // 
-#define LOCATION_CaveHQ                                  (75) // 
+#define LOCATION_Tent2Desert1                            (74) //
 #define LOCATION_BuildingSite                            (76) // 
 #define LOCATION_BlockerLocation                         (77) // 
 #define LOCATION_Q_BrahminRanch                          (78) // A brahmin ranch waiting for herd to be delivered.
@@ -171,7 +170,7 @@
 #define LOCATION_CityCoastEncounter2                     (187) // 
 #define LOCATION_CityCoastEncounter3                     (188) // 
 #define LOCATION_NPCMap                                  (206) // Good luck trying to get out of here.
-#define LOCATION_CaveHQ207                               (207) // A small secret cave hideout.
+#define LOCATION_CaveHQ                                  (207) // A small secret cave hideout.
 #define LOCATION_BunkerHQ                                (208) // A abandoned bunker, hidden in the mountains.
 #define LOCATION_Caravans                                (209) // 
 #define LOCATION_Depot                                   (210) // An old car depot with its own power generator.
