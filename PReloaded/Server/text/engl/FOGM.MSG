@@ -36,6 +36,16 @@
 {85}{}{12junktn}
 {86}{}{gntlwin1:25, gntlwind:25, gustwind:10, rattle:15, rattle1:15, vulture:10}
 
+# Map 8, base 90
+{90}{}{Klamath Canyon}
+{95}{}{03wrldmp}
+{96}{}{gntlwin1:30, gntlwind:30, gustwin1:10, gustwind:10, vulture:10, vulture1:10}
+
+# Map 9, base 100
+{100}{}{Klamath Downtown}
+{105}{}{03wrldmp}
+{106}{}{laughter:10, laughte1:10, gntlwind:30, gntlwin1:20, brdchir1:10, brdchirp:20}
+
 # Map 10, base 110
 {110}{}{Mountains Encounter Khans 2}
 {115}{}{07desert}
@@ -898,6 +908,18 @@
 {5155}{}{07desert}
 {5156}{}{gustwind:30, gustwin1:30, rattle:10, rattle1:20, vulture:10, vulture1:10}
 
+# Map 572, base 5730
+{5730}{}{Klamath Rat1}
+{5736}{}{}
+
+# Map 573, base 5740
+{5740}{}{Klamath Rat2}
+{5746}{}{}
+
+# Map 574, base 5750
+{5750}{}{Klamath Rat3}
+{5756}{}{}
+
 # Map 595, base 5960
 {5960}{}{Landers Point: Camp}
 {5965}{}{01hub}
@@ -1630,6 +1652,26 @@
 {599131}{}{Southwest}
 {599132}{}{135}
 {599133}{}{347}
+
+# Klamath, pid 500, base 600000
+{600000}{}{Klamath}
+{600005}{}{A small town of trappers. Geckos are the lifeblood of this small community.}
+{600010}{}{24}
+{600020}{}{art\intrface\twnklama.frm}
+{600030}{}{art\intrface\WM_KLAM.FRM}
+{600090}{}{4}
+{600101}{}{Downtown}
+{600102}{}{363}
+{600103}{}{186}
+{600111}{}{Hunting Ground}
+{600112}{}{377}
+{600113}{}{297}
+{600121}{}{Trapper Town}
+{600122}{}{191}
+{600123}{}{320}
+{600131}{}{Forest}
+{600132}{}{207}
+{600133}{}{134}
 
 #
 # Worldmap Encounter messages

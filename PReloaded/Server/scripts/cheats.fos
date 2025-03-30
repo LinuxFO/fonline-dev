@@ -284,7 +284,7 @@ void SetAliases()
     SetMapId("den", MAP_DenBusiness);
 
     // SetMapId("arroyo", MAP_ArroyoTemple);
-    // SetMapId("klamath", MAP_KlamathDowntown);
+    SetMapId("klamath", MAP_KlamathDowntown);
     // SetMapId("klamcave", MAP_KlamathToxicCaves1);
     SetMapId("modoc", MAP_ModocLarge);
     // SetMapId("vc", MAP_VaultCityDowntown);
