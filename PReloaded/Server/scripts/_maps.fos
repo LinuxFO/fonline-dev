@@ -271,6 +271,8 @@
 #define MAP_DenBoS                                       (47) // den_bos, The Den(499)
 #define MAP_NCRBoS                                       (48) // ncr_bos, NCR(10)
 #define MAP_Redding                                      (62) // redding, map_redding@map_init, Redding(13)
+#define MAP_ReddingMine                                  (63) // redding_mine, map_redding_mine@map_init, Redding(13)
+#define MAP_WanamingoMineEntrance                        (64) // redding_lost, map_redding_lost@map_init, Redding(13)
 #define MAP_Safehouseinthecity                           (69) // tent2_city, Tent 2 City 1(73)
 #define MAP_Junktown                                     (70) // junktown, map_junktown@map_init, Junktown(17)
 #define MAP_Safehouseonthecoast                          (72) // tent2_coast, Tent 2 Coast 1(72)

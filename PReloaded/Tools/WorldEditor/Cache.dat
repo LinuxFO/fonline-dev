@@ -13,6 +13,9 @@
 0|..\..\Server\maps\ncr.fomap|3/30/2025 2:20:04 PM|map_init|map_ncr_downtown|-1|0
 0|..\..\Server\maps\ncr_residence.fomap|3/30/2025 2:20:04 PM|map_init|map_ncr_downtown|-1|0
 0|..\..\Server\maps\ncr_bos.fomap|3/30/2025 2:20:04 PM|-|-|720|0
+0|..\..\Server\maps\redding.fomap|1/9/2025 9:33:40 PM|map_init|map_redding|-1|1
+0|..\..\Server\maps\redding_lost.fomap|1/9/2025 9:33:40 PM|map_init|map_redding_lost|-1|0
+0|..\..\Server\maps\redding_mine.fomap|1/9/2025 9:33:40 PM|map_init|map_redding_mine|0|1
 0|..\..\Server\maps\hub.fomap|3/30/2025 2:20:04 PM|map_init|map_hub|-1|0
 0|..\..\Server\maps\hub_oldtown.fomap|3/30/2025 2:20:04 PM|map_init|map_hub|-1|0
 0|..\..\Server\maps\hub_heights.fomap|3/30/2025 2:20:04 PM|map_init|map_hub|-1|0

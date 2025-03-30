@@ -100,6 +100,21 @@
 {490}{}{NCR BoS}
 {496}{}{blank:10}
 
+# Map 62, base 630
+{630}{}{Redding}
+{635}{}{24redd}
+{636}{}{saloon:25, saloon1:25, gustwind:10, laughter:20, footste1:10, footstep:10}
+
+# Map 63, base 640
+{640}{}{Redding Mine}
+{645}{}{24redd}
+{646}{}{animal1:20, animal:20, elevator:15, ore:15, mechpump:20, ore1:10}
+
+# Map 64, base 650
+{650}{}{Wanamingo Mine Entrance}
+{655}{}{24redd}
+{656}{}{animal1:20, animal:20, elevator:15, ore:15, mechpump:20, ore1:10}
+
 # Map 69, base 700
 {700}{}{Safe house in the city}
 {705}{}{07desert}
@@ -988,6 +1003,26 @@
 {110121}{}{Residence}
 {110122}{}{318}
 {110123}{}{241}
+
+# Redding, pid 13, base 113000
+{113000}{}{Redding}
+{113005}{}{A mining town. The primary producer and distributor of gold in the wasteland.}
+{113010}{}{24}
+{113020}{}{art\intrface\twnredng.frm}
+{113030}{}{art\intrface\WM_RED.FRM}
+{113090}{}{4}
+{113101}{}{Downtown}
+{113102}{}{160}
+{113103}{}{231}
+{113111}{}{South Side}
+{113112}{}{82}
+{113113}{}{304}
+{113121}{}{Mine}
+{113122}{}{115}
+{113123}{}{204}
+{113131}{}{Wanamingo}
+{113132}{}{64}
+{113133}{}{252}
 
 # Hub, pid 25, base 125000
 {125000}{}{Hub}

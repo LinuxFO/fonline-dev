@@ -302,7 +302,7 @@ void SetAliases()
     SetMapId("shadysands", MAP_NCR);
     // SetMapId("cathedral", MAP_Cathedral_Enter);
     // SetMapId("mariposa", MAP_MilitaryBaseEntrance);
-    // SetMapId("redding", MAP_Redding);
+    SetMapId("redding", MAP_Redding);
     // SetMapId("sf", MAP_SanFranChina);
     // SetMapId("navarro", MAP_Navarro);
     // SetMapId("golgotha", MAP_NewReno_Golgotha);
