@@ -2,8 +2,8 @@
 Version              4
 MaxHexX              135
 MaxHexY              120
-WorkHexX             64
-WorkHexY             65
+WorkHexX             115
+WorkHexY             23
 ScriptModule         -
 ScriptFunc           -
 NoLogOut             0
@@ -4636,7 +4636,7 @@ MapObjType           1
 ProtoId              188
 MapX                 68
 MapY                 58
-ScriptName           spawner_town
+ScriptName           spawner_ntown
 FuncName             MakeSpawnerNTown
 
 MapObjType           1
@@ -5090,5 +5090,25 @@ MapObjType           2
 ProtoId              2067
 MapX                 61
 MapY                 59
+
+MapObjType           2
+ProtoId              2067
+MapX                 66
+MapY                 58
+
+MapObjType           2
+ProtoId              2067
+MapX                 68
+MapY                 58
+
+MapObjType           2
+ProtoId              2067
+MapX                 70
+MapY                 59
+
+MapObjType           2
+ProtoId              2067
+MapX                 59
+MapY                 66
 
 
