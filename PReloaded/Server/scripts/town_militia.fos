@@ -45,7 +45,12 @@ void r_BecomeMilitia(Critter& player, Critter@ cr)
 uint GetMilitiaTeamByLoc(Location@ loc)
 {
     uint locpid = loc.GetProtoId();
-    return ReputationIndex(locpid);
+    if(locpid == LOCATION_BrokenHills)
+        return FACTION_BH_MUTANTS;
+    else if(locpid == LOCATION_TheDen)
+        return FACTION_SLAVERS_GUILD;
+    else
+        return ReputationIndex(locpid);
 }
 
 void AssignMilitiaTeam(Critter& cr)
@@ -153,10 +158,9 @@ void _Idle(Critter& cr)
     if(Random(0, 99) == 0)
         MilitiaMoveToFreeHex(cr);
 
-/*
     ITown@ town = RetrieveTown(cr);
 
-    if(!town.IsLaw(TOWN_LAW_CARRYING_WEAPONS))
+   /* if(!town.IsLaw(TOWN_LAW_CARRYING_WEAPONS))
         return;
 
     array<Critter@> crits;
@@ -170,7 +174,7 @@ void _Idle(Critter& cr)
         if((GetCrittersDistantion(cr, crits[i]) < 15))
             CheckForWeapons(cr, crits[i]);
     }
-*/
+	*/
 }
 
 bool _Attacked(Critter& follower, Critter& attacker)

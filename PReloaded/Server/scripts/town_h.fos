@@ -60,7 +60,6 @@ shared interface ITown
     ITown@ SetInfluenceMemberRequirement(uint number);
     ITown@ SetNearbyMemberRequirement(uint number);
     ITown@ SetTotalMemberRequirement(uint number);
-	ITown@ SetControlMemberRequirement(uint number);
     ITown@ SetLimboContainer(Item@ container);
     ITown@ SetRewardContainer(Item@ container);
     ITown@ SetTownLeader(Critter@ leader);
@@ -104,7 +103,6 @@ shared interface ITown
     void        SendCountdownTime(Critter& player);
     uint        GetMemberNearbyRequirement();
     uint        GetMemberTotalRequirement();
-    uint        GetMemberControlRequirement();
     Item@       GetLimboContainer();
     Item@       GetRewardContainer();
     uint        GetTownLeaderId();
@@ -124,8 +122,6 @@ shared interface ITown
     void        UpdateCountdown();
     void        UpdateTick();
     void        TownCheck();
-    void        ControlCheck();
-    void        AddReward(uint itemPid, int count);
 
     bool IsLaw(uint law);
     void SetLaw(uint law, bool enabled);
