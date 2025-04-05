@@ -4636,7 +4636,7 @@ MapObjType           1
 ProtoId              188
 MapX                 68
 MapY                 58
-ScriptName           spawner_town
+ScriptName           spawner_ntown
 FuncName             MakeSpawnerNTown
 
 MapObjType           1
