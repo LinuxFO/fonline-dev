@@ -23,7 +23,7 @@
 #define TOWN_DEN                                 (5)
 #define TOWN_REDDING                             (6)
 
-#define TOWN_COUNT                               (6)
+#define TOWN_COUNT                               (0)
 
 #define TOWN_CONTROL_TIME                        (REAL_MINUTE(15))     // How much time you need to defend town before you gain control
 #define TOWN_CONTROL_TIME_BONUS                  (REAL_SECOND(3))     // Decrease time by this amount for each additional captor above capture_total_requirement
@@ -52,13 +52,13 @@
 
 #define TOWN_UPDATE_TICK                         (REAL_SECOND(10))
 
-#define TOWN_MILITIA_START_NUM                   (6)  // How many militia at first generation of map
+#define TOWN_MILITIA_START_NUM                   (0)  // How many militia at first generation of map
 #define TOWN_MILITIA_COST                        (1000)
-#define TOWN_MILITIA_START_MAX                   (6)  // Max militia after taking town
-#define TOWN_MILITIA_MAX                         (6) // and can grow to this number with time
+#define TOWN_MILITIA_START_MAX                   (0)  // Max militia after taking town
+#define TOWN_MILITIA_MAX                         (8) // and can grow to this number with time
 
 #define TOWN_CAPTOR_LEVEL_REQ                    (12)  // Need to be this level to capture
-#define TOWN_CAPTOR_ARMOR_WEAR_REQ               (80) // If armor breakage % is higher than this value, deny captor.
+#define TOWN_CAPTOR_ARMOR_WEAR_REQ               (50) // If armor breakage % is higher than this value, deny captor.
 #define TOWN_CAPTOR_WEAPON_LEVEL_REQ             (1)  // Weapon must be this level or higher
 #define TOWN_CAPTOR_WEAPON_WEAR_REQ              (75) // If weapon breakage % is higher than this value, deny captor.
 
@@ -71,6 +71,7 @@
 #define TOWN_VERSION_CAPTURE_COUNTDOWN           (0)  // Capture town at any time from leaders.
 #define TOWN_VERSION_CAPTURE_COUNTDOWN_WINDOW    (1)  // As above, but with timewindow, set in towns.fos
 #define TOWN_VERSION_INFLUENCE                   (2)  // Uses influence system
+#define TOWN_VERSION_CONTROL                     (3)  // Capture town instantly, need to stay in town to have control over it
 
 #define TOWN_MILITIA_FREE_REINFORCEMENTS // There's a chance of reinforcements being spawned each hour
 #define TOWN_MILITIA_INITIAL_MILITIA     // Spawn initial neutral militia when TC maps are created.
