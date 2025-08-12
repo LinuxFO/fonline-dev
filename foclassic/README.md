@@ -52,4 +52,4 @@ Included tasks:
 * Building all targets
 
 * Preparing release package  
-  All files are placed in [build.dir]/FOClassic-v[version]/ and compressed to FOClassic-v[version].zip
+  All files are placed in `[build.dir]/FOClassic-v[version]/` and compressed to `FOClassic-v[version].zip`
