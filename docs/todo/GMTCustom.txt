@@ -1,0 +1,36 @@
+;;
+;;Standard devmenu
+;; <flags separated by comma>; <button name>; command <command> <args> || runscript_unsafe <script> <args>
+;;
+
+ONITEM,ONGROUND;Teleport;runscript_unsafe dev_menu@unsafe_Teleport 0 $[HexX] $[HexY]
+ONNPC;Teleport To NPC;command goto -n $[Critter.NpcId] -s -f
+
+ONCHOSEN,ONITEM,ONGROUND;Revive All;command reviveall
+
+
+ONCHOSEN,ONPLAYER;Slap Player;command slap -p $[Critter.Id] -a 10
+ONNPC;Slap NPC;command slap -n $[Critter.NpcId] -a 10
+
+
+ONPLAYER,ONNPC;Trade;runscript_unsafe dev_menu@unsafe_Trade $[Critter.Id] 0 0
+
+
+ONPLAYER,ONNPC,ISALIVE;Kill;runscript_unsafe dev_menu@unsafe_KillCritter $[Critter.Id] 0 0
+ONPLAYER,ONNPC,ISKNOCK;Kill;runscript_unsafe dev_menu@unsafe_KillCritter $[Critter.Id] 0 0
+ONCHOSEN,ONPLAYER,ONNPC,ISDEAD;Revive;runscript_unsafe dev_menu@unsafe_KillCritter $[Critter.Id] 0 0
+
+
+ONPLAYER,ONNPC;[NPC] Possess;internal possess
+ONITEM,ISPOSSESS;[NPC] Pick Item;runscript_unsafe dev_menu@unsafe_PickItem $[Possessed.Id] $[Item.Id] 0
+ONPLAYER,ONNPC,ISPOSSESS;[NPC] Attack;runscript_unsafe dev_menu@unsafe_Attack $[Possessed.Id] $[Critter.Id] 0
+ONGROUND,ISPOSSESS;[NPC] Move;runscript_unsafe dev_menu@unsafe_MoveTo $[Possessed.Id] $[HexX] $[HexY]
+
+
+ONCHOSEN,ONPLAYER;Heal Player;command heal -p $[Critter.Id]
+ONNPC;Heal NPC;command heal -n $[Critter.NpcId]
+
+ONNPC;[NPC] Say;command say -m Hey everyone! -n $[Critter.NpcId]
+
+ONCHOSEN,ONPLAYER;Critter Info;command critterinfo -p $[Critter.Id]
+ONNPC;[NPC] Critter Info;command critterinfo -n $[Critter.NpcId]

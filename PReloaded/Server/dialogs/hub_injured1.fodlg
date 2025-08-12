@@ -1,0 +1,32 @@
+[comment]
+
+
+[data]
+lang=engl
+
+[dialog]
+&
+1 1000 None 0 #
+2 1010 @
+2 2000 None 0 #
+3 2010 D _param p SK_DOCTOR > 59 D _var p name_mem_npc_player = 0 R _var p name_mem_npc_player = 1 #
+4 2020 D _var p inj1 = 0 D _var p q_church2 = 1 @
+3 3000 None 0 @
+4 4000 None 0 #
+5 4010 R _var p inj1 = 1 R _script dialog@r_AddExperience 1 1000 R _param p ST_KARMA + 1 R _param p REPUTATION_HUB + 7 @
+5 5000 None 0 &
+
+[engl]
+{100}{}{Hubber}
+{200}{}{You see a man with a faint limp.}
+{210}{}{He appears to have an old wound that hasn't properly healed. He favours one leg greatly.}
+{1000}{}{Predialogue installations}
+{1010}{}{Answer text}
+{2000}{}{Hey there, sorry I can't talk.@@How are you doing? Nice day, isn't it?@@Sorry, got to go.@@Oh, hey. Can I help you, stranger?@@Why are you staring at me like that?@@Hey pal... oh, nevermind.@@New here? Have you checked out the bar yet? Nice place@@Watch yourself around the Heights...}
+{2010}{}{Say, about your leg... that looks might painful. Could I take a look at it? I know a thing or two about medicine...}
+{2020}{}{Hey, you know Doctor Burhnefletch is willing to take a look at your leg... in fact, he told me that he'd do it for free. Why don't you go over there?}
+{3000}{}{What? No way. I don't let nobody touch me unless I want them to. Get bent, weirdo.}
+{4000}{}{I'm not letting a fucking ghoul touch me! Are you insane? Those people are disgusting! They'll give me fuckin' gang green! Get away from me!}
+{4010}{}{If you want to spend the rest of your life walking like a freak, then by all means, help yourself. But don't ever say you didn't get offered the chance at being normal again. More than what most people get.}
+{5000}{}{Ah shucks... Yea... you're right, aren't you... damn... maybe I'll go see him. I don't know...}
+

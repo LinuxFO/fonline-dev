@@ -1,0 +1,41 @@
+[comment]
+
+
+[data]
+lang=engl
+
+[dialog]
+&
+1 1000 None 0 #
+2 1010 @
+2 2000 None 0 #
+3 2010 #
+3 2020 #
+3 2030 #
+5 2040 #
+3 2050 #
+3 2060 @
+3 3000 None 0 @
+4 4000 None 0 @
+5 5000 None 0 #
+4 5010 &
+
+[engl]
+{100}{}{Mysterious Stranger!}
+{200}{}{You see a psychotic looking ghoul dressed in a suit made out of human skin!}
+{210}{}{You are going to kill this man, so much! Your heart is racing with every passing moment that your hands are not around his feeble neck!
+}
+{1000}{}{Predialogue installations}
+{1010}{}{Answer text}
+{2000}{}{Looks... like... the... jig... is... up...@@Looks... like... you... caught... me...@@Don't... get... too ... confident... }
+{2010}{}{I'm going to kill you, you know that right? This is the end for you.}
+{2020}{}{You'll get yours.}
+{2030}{}{I'll untie you! Run!}
+{2040}{}{[Shoot him]}
+{2050}{}{Guess your fate is up to the Sheriff now.}
+{2060}{}{It's too bad, the party was just getting started.}
+{3000}{}{No... We... are... coming...}
+{4000}{}{Remember... that... we... are... coming...}
+{5000}{}{[Sheriff Hayden stops you from firing] Leave him alone. There's time for that later.}
+{5010}{}{[Walk away]}
+

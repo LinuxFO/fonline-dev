@@ -1,0 +1,98 @@
+[comment]
+
+
+[data]
+lang=engl
+
+[dialog]
+&
+1 1000 None 0 #
+2 1010 D _var p hub_lockpickq = 0 #
+9 1020 D _var p hub_lockpickq = 1 #
+12 1030 D _var p hub_lockpickq = 2 @
+2 2000 None 0 #
+3 2010 D _var p hub_hopeq = 7 #
+5 2020 #
+4 2030 D _param p SK_LOCKPICK > 49 #
+0 2040 @
+3 3000 None 0 #
+65507 3010 #
+5 3020 #
+0 3030 @
+4 4000 None 0 #
+7 4010 #
+7 4020 D _item p PID_LOCKPICKS > 0 #
+0 4030 @
+5 5000 None 0 #
+6 5010 @
+6 6000 None 0 #
+4 6010 @
+7 7000 None 0 #
+8 7010 @
+8 8000 None 0 #
+0 8010 R _var p hub_lockpickq = 1 @
+9 9000 None 0 #
+10 9010 D _item p PID_LOCKPICKS > 0 #
+65507 9020 #
+0 9030 @
+10 10000 None 0 #
+11 10010 R _item p PID_LOCKPICKS - 1 R _script dialog@r_AddExperience 1 300 R _var p hub_lockpickq = 2 R _item p PID_MULTI_TOOL + 1 R _script dialog@r_AddExperience 1 500 #
+11 10020 R _item p PID_LOCKPICKS - 1 R _script dialog@r_AddExperience 1 300 R _var p hub_lockpickq = 2 R _item p PID_WRENCH + 1 R _script dialog@r_AddExperience 1 500 #
+11 10030 R _item p PID_LOCKPICKS - 1 R _script dialog@r_AddExperience 1 300 R _var p hub_lockpickq = 2 R _item p PID_10MM_PISTOL + 1 R _script dialog@r_AddExperience 1 500 #
+11 10040 R _item p PID_LOCKPICKS - 1 R _script dialog@r_AddExperience 1 300 R _var p hub_lockpickq = 2 R _item p PID_SHOTGUN + 1 R _script dialog@r_AddExperience 1 500 #
+11 10050 R _item p PID_LOCKPICKS - 1 R _script dialog@r_AddExperience 1 300 R _var p hub_lockpickq = 2 R _item p PID_DESERT_EAGLE + 1 R _script dialog@r_AddExperience 1 500 #
+11 10060 R _item p PID_LOCKPICKS - 1 R _script dialog@r_AddExperience 1 300 R _var p hub_lockpickq = 2 R _item p PID_LASER_PISTOL + 1 R _script dialog@r_AddExperience 1 500 #
+11 10070 R _item p PID_LOCKPICKS - 1 R _script dialog@r_AddExperience 1 300 R _var p hub_lockpickq = 2 R _item p PID_LEATHER_JACKET + 1 R _script dialog@r_AddExperience 1 500 #
+11 10080 R _item p PID_LOCKPICKS - 1 R _script dialog@r_AddExperience 1 300 R _var p hub_lockpickq = 2 R _item p PID_DOCTORS_BAG + 1 R _script dialog@r_AddExperience 1 500 #
+11 10090 R _var p hub_lockpickq = 2 R _script dialog@r_AddExperience 1 500 R _item p PID_LOCKPICKS - 1 R _param p ST_KARMA + 1 R _script dialog@r_AddExperience 1 500 @
+11 11000 None 0 #
+0 11010 @
+12 12000 None 0 &
+
+[engl]
+{100}{}{Thief}
+{200}{}{You see a wannabe thief.}
+{210}{}{It looks like he's trying to open that door...}
+{1000}{}{Predialogue installations}
+{1010}{}{Answer text}
+{1020}{}{done}
+{1030}{}{final}
+{2000}{}{Goddamnit! Will you just fucking open already?! }
+{2010}{}{Hub Police! Stop right there!}
+{2020}{}{Hi! What's inside that room?}
+{2030}{}{You know... if you'd use a set of lockpicks, that would be a lot easier...}
+{2040}{}{[Just leave]}
+{3000}{}{Oh shit! It's the fuzz! You'll never take me alive, copper!}
+{3010}{}{We'll see about that! Hands up!}
+{3020}{}{Haha! I'm just teasing you. What are you doing? What's inside that room?}
+{3030}{}{I'll be right back with some friends, don't you move!}
+{4000}{}{Yeah, you're right. But I don't have a set on me. Do you?}
+{4010}{}{No. But I could find you one. What's in it for me if I do?}
+{4020}{}{Yeah. You want to trade?}
+{4030}{}{Get bent. I'm outta here.}
+{5000}{}{What? I don't know! Why do you think I'm trying to open it?}
+{5010}{}{Well what do you think is inside?}
+{6000}{}{Fuckin' treasure, I don't know! }
+{6010}{}{Maybe if you had some lockpicks this would be easier?}
+{7000}{}{Hmm... }
+{7010}{}{"Hmm" what? I don't have all day, you know.}
+{8000}{}{I'm thinking! I'm thinking! Geezsus! I've got a bunch of crap, I'll let you pick through it, okay?}
+{8010}{}{Yeah, alright. I'll be back when I've made a decision.}
+{9000}{}{Don't shoot! Oh it's you! You almost gave me a heart attack! }
+{9010}{}{I have some lockpicks. Let's trade.}
+{9020}{}{I could shoot you if you'd like...}
+{9030}{}{Yup. Still haven't cracked open the mystery room yet, eh? Well, keep at it. Maybe one day.}
+{10000}{}{Cool. I've got a Multi-tool, Wrench, 10mm Pistol, Shotgun, Desert Eagle, Laser Pistol, or Leather Jacket. Oh, and a Doctor's Bag. What do you want for the lockpicks?}
+{10010}{}{Give me the Multi-Tool.}
+{10020}{}{Give me the Wrench.}
+{10030}{}{Give me the 10mm Pistol.}
+{10040}{}{Give me the Shotgun.}
+{10050}{}{Give me the Desert Eagle.}
+{10060}{}{Give me the Laser Pistol.}
+{10070}{}{Give me the Leather Jacket.}
+{10080}{}{Give me the Doctor's Bag.}
+{10090}{}{Nothing. I just wanted to help... I guess.}
+{11000}{}{Sounds like a good trade to me. These are some fine lookin' picks. Come back later, maybe I'll have this thing open...}
+{11010}{}{Goodluck. Remember that this is a felony. Don't get caught.}
+{12000}{}{Almost got it... I think.}
+

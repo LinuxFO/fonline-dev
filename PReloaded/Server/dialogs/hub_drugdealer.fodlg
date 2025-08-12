@@ -1,0 +1,48 @@
+[comment]
+
+
+[data]
+lang=engl
+
+[dialog]
+&
+1 1000 None 0 #
+2 1010 D _var p drug_dealing = 0 #
+3 1020 D _var p drug_dealing = 1 #
+4 1030 D _var p drug_dealing = 2 #
+4 1040 D _var p drug_dealing = 3 @
+2 2000 None 0 #
+0 2010 D _var p drug_dealing = 0 D _script dialog@d_CommonTimeoutReady 0  R _var p drug_dealing = 1 R _script quest_drug1@r_SpawnLoc 0  R _script dialog@r_TeleportToMap 2 220 666 R _script dialog@r_CommonTimeout 1 8 #
+0 2020 D _script dialog@d_CommonTimeoutNotReady 0  #
+0 2030 @
+3 3000 None 0 #
+3 3010 R _script dialog@r_JumpToRandomNode 3 1 2 10 @
+10 4000 None 0 #
+0 4010 R _var p drug_dealing = 2 R _script quest_drug2@r_SpawnLoc 0  R _script dialog@r_TeleportToMap 2 248 666 R _script quest_drug1@r_DeleteLoc 0  @
+20 5000 None 0 #
+0 5010 R _var p drug_dealing = 3 R _script quest_drug3@r_SpawnLoc 0  R _script dialog@r_TeleportToMap 2 249 666 R _script quest_drug1@r_DeleteLoc 0  @
+4 6000 None 0 #
+0 6010 R _param p ST_KARMA - 1 R _param p REPUTATION_HUB_CRIMINALS + 7 R _var p drug_dealing = 0 R _script dialog@r_CommonTimeout 1 1 R _script dialog@r_TeleportToMap 2 221 666 R _script quest_drug3@r_DeleteLoc 0  R _script quest_drug2@r_DeleteLoc 0  R _var p CRIM + 1 R _script dialog@r_AddExperience 1 300 R _script dialog@r_AddMoney 1 100 &
+
+[engl]
+{100}{}{Two-bit Dealer}
+{200}{}{You see a young, ambitious punk.}
+{210}{}{Like the many that come and go across the wastes, this one will most likely die here, or on his way to Reno.}
+{1000}{}{Predialogue installations}
+{1010}{}{not started}
+{1020}{}{started}
+{1030}{}{went sour}
+{1040}{}{went well}
+{2000}{}{Tally ho, friend! Care to assist me with some rather unnatural endeavors? Quite the deal I've got ready to trade, but alas, I need a guard. Care to escort me? I shall reward you handsomely!@@Yo, bud, I need a guard. You want to score? I'll pay you a handful if you back me up. But we gotta move now, ya dig?@@Howdy, padner! You look like a might fine lookin' gun for hire, you wanna watch my back while I rustle something up? There's coin in it for ya!@@Me need guard. Me meet shady people in dark alley. Me pay you if me survive. You want escort me fast, fast?@@Yo bitch, you want to make some monay? I need a trigger. But we movin' now. You follow me?@@Hola, you want to make some money? We sell lots of happy stuff to the gangsters, si! You want to protect my ass?@@Hey! Fuck face! Fucking follow me, or fuck off!@@If these goddamn Mexicans fuck me again, I'll pay you to murder them! You down?}
+{2010}{}{Yeah, sure. Let's head out.}
+{2020}{}{Hmm, I'll have to come back later. Maybe in an hour, or something.}
+{2030}{}{Not right now, but maybe later.}
+{3000}{}{Let's make a drug deal!}
+{3010}{}{I'm ready!}
+{4000}{}{[The deal went sour! Prepare yourselves!]}
+{4010}{}{[Continue]}
+{5000}{}{[The deal went well, great success!]}
+{5010}{}{[Continue]}
+{6000}{}{Scatter! Here's your money! Don't say you never got paid! I'm outta here!}
+{6010}{}{[Follow him back to the Hub]}
+

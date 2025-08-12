@@ -1,0 +1,76 @@
+[comment]
+
+
+[data]
+lang=engl
+
+[dialog]
+&
+1 1000 None 0 #
+2 1010 @
+2 2000 None 0 #
+3 2010 D _var p la_mini1 = 1 #
+8 2020 D _var p la_mini1 = 3 #
+10 2030 D _var p la_mini1 = 5 #
+13 2040 D _var p la_mini1 = 7 #
+15 2050 D _var p la_mini1 = 9 @
+3 3000 None 0 #
+4 3010 @
+4 4000 None 0 #
+5 4010 @
+5 5000 None 0 #
+6 5010 @
+6 6000 None 0 #
+7 6010 R _var p la_mini1 = 2 R _item p PID_FLOWER + 1 @
+7 7000 None 0 @
+8 8000 None 0 #
+9 8010 R _var p la_mini1 = 4 R _item p PID_FROZEN_DINNER + 1 @
+9 9000 None 0 @
+10 10000 None 0 #
+11 10010 @
+11 11000 None 0 #
+12 11010 R _var p la_mini1 = 6 R _item p PID_ROCK + 1 @
+12 12000 None 0 @
+13 13000 None 0 #
+14 13010 R _var p la_mini1 = 8 @
+14 14000 None 0 @
+15 15000 None 0 #
+16 15010 R _var p la_mini1 = 10 R _script dialog@r_AddExperience 1 1000 R _script dialog@r_BulkOrderRewardInde 0  R _script dialog@r_NinjaKillNpc 1 100 @
+16 16000 None 0 &
+
+[engl]
+{100}{}{Monk}
+{200}{}{You see Monk, a hopeless romantic.}
+{210}{}{With stars and love in his eyes he stares deeply into the eyes of someone who isn't you.}
+{1000}{}{Predialogue installations}
+{1010}{}{Answer text}
+{2000}{}{How can I... oh, nevermind.@@Maybe... no, no.@@Oh, well... no, maybe not.@@Oh, uh, hi.@@I... don't, know...@@...don't tread on my dreams...}
+{2010}{}{Are you Monk? I talked to your crazy ex.}
+{2020}{}{Well, she didn't take it well. I'm sure you heard it all...}
+{2030}{}{What the hell were you thinking? Whatever it was, it obviously didn't damn work.}
+{2040}{}{Okay, so--}
+{2050}{}{[Grab the vial, and force the contents down his throat!]}
+{3000}{}{Kara? Yeah... she's... something.}
+{3010}{}{Do you love her?}
+{4000}{}{More than I can express in words...}
+{4010}{}{Have you ever seen death?}
+{5000}{}{[He says nothing, shocked]}
+{5010}{}{Everybody dies. But you don't have to die alone. Remember that.}
+{6000}{}{Yes... yes, you're right. Please, @sex@|man||lady|, give her this for me.}
+{6010}{}{Uh... sure. Ah, that's cute. A pretty little flower. Maybe she'll love it.}
+{7000}{}{She will, trust me. Thanks. Don't freakin' lose it though... please!}
+{8000}{}{Yea... not well... My love for her was, oh well. Give her this. This'll work wonders, I'm sure.}
+{8010}{}{This is a TV Dinner...}
+{9000}{}{So? It's romantic. Just give it to her!}
+{10000}{}{Goddamnit, she doesn't get it, does she? The flower symbolizes... oh, nevermind. Some people just don't get art.}
+{10010}{}{What do you see in her anyways? In a world this fragile, love is way too dangerous of a thing to get involved with.}
+{11000}{}{Yea... I know... Give her this. This one HAS to work. If she can't get this, than, well... I don't know...}
+{11010}{}{Riiight.}
+{12000}{}{I'll be listening.}
+{13000}{}{I heard it! That bitch... She really doesn't get it, does she?! Here, get her this! [He leans closer, and whispers something into your ear that only you can hear]}
+{13010}{}{Oh, golly! Okay, mister. But just this once...}
+{14000}{}{Haha!}
+{15000}{}{*Gasp!* *Cough!* *Cough!* Is... this... poetic... justiiiice--}
+{15010}{}{Shh! No tears, only dreams. Oh, what's this in your pockets?}
+{16000}{}{Oh, hello floor...}
+

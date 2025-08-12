@@ -1,0 +1,239 @@
+[comment]
+Aaoe eiiiaioa?ee / Your comments.
+
+[data]
+lang=engl russ
+
+[dialog]
+&
+1 1000 None 0 #
+2 1010 D _var p q_jt_talked = 0 #
+4 1020 D _var p q_jt_talked = 1 #
+17 1030 D _var p q_jt_talked = 3 @
+2 2000 None 0 #
+3 2010 @
+3 3000 None 0 @
+4 4000 None 0 #
+5 4010 #
+5 4020 #
+5 4030 D _param p SK_BARTER } 50 #
+5 4040 D _param p SK_SPEECH } 50 #
+0 4050 @
+5 5000 None 0 #
+7 5010 @
+7 6000 None 0 #
+8 6010 @
+8 7000 None 0 #
+9 7010 @
+9 8000 None 0 #
+10 8010 @
+10 9000 None 0 #
+11 9010 #
+11 9020 @
+11 10000 None 0 #
+12 10010 @
+12 11000 None 0 #
+13 11010 #
+14 11020 #
+15 11030 #
+16 11040 @
+13 12000 None 0 #
+15 12010 #
+14 12020 #
+16 12030 @
+14 13000 None 0 #
+15 13010 #
+13 13020 #
+16 13030 @
+15 14000 None 0 #
+14 14010 #
+13 14020 #
+16 14030 @
+16 15000 None 0 #
+0 15010 R _script dialog@r_AddExperience 1 250 R _var p q_jt_talked = 2 R _var p name_mem_player_npc = 1 R _param p ST_KARMA + 1 @
+17 16000 None 0 #
+21 16010 D _item p PID_HUNTING_RIFLE > 5 R _script dialog@r_AddExperience 1 1000 R _item p PID_HUNTING_RIFLE - 6 R _script dialog@r_AddMoney 1 1000 R _script dialog@r_BulkOrderRewardHub 0  R _script dialog@r_BulkOrderRewardLow 0  R _var p q_merchant + 1 #
+21 16020 D _item p PID_ASSAULT_RIFLE > 5 R _script dialog@r_AddExperience 1 1000 R _item p PID_ASSAULT_RIFLE - 6 R _script dialog@r_AddMoney 1 1000 R _script dialog@r_BulkOrderRewardHub 0  R _script dialog@r_BulkOrderRewardLow 0  R _var p q_merchant + 1 #
+21 16030 D _item p PID_10MM_SMG > 5 R _script dialog@r_AddExperience 1 1000 R _item p PID_10MM_SMG - 6 R _script dialog@r_AddMoney 1 1000 R _script dialog@r_BulkOrderRewardHub 0  R _script dialog@r_BulkOrderRewardLow 0  R _var p q_merchant + 1 #
+21 16040 D _item p PID_COMBAT_SHOTGUN > 5 R _item p PID_COMBAT_SHOTGUN - 6 R _script dialog@r_AddExperience 1 1000 R _script dialog@r_AddMoney 1 1000 R _script dialog@r_BulkOrderRewardHub 0  R _script dialog@r_BulkOrderRewardLow 0  R _var p q_merchant + 1 #
+21 16050 D _item p PID_METAL_ARMOR > 5 R _item p PID_METAL_ARMOR - 6 R _script dialog@r_AddExperience 1 1000 R _script dialog@r_AddMoney 1 1000 R _script dialog@r_BulkOrderRewardHub 0  R _script dialog@r_BulkOrderRewardLow 0  R _var p q_merchant + 1 #
+21 16060 D _item p PID_44_MAGNUM_JHP > 499 R _item p PID_44_MAGNUM_JHP - 500 R _script dialog@r_AddExperience 1 300 R _script dialog@r_AddMoney 1 200 R _script dialog@r_BulkOrderRewardJunk 0  #
+21 16070 D _item p PID_10MM_JHP > 499 R _item p PID_10MM_JHP - 500 R _script dialog@r_AddExperience 1 300 R _script dialog@r_AddMoney 1 200 R _script dialog@r_BulkOrderRewardJunk 0  #
+21 16080 D _item p PID_SHOTGUN_SHELLS > 499 R _item p PID_SHOTGUN_SHELLS - 500 R _script dialog@r_AddExperience 1 300 R _script dialog@r_AddMoney 1 200 R _script dialog@r_BulkOrderRewardJunk 0  #
+21 16090 D _item p PID_5MM_JHP > 499 R _item p PID_5MM_JHP - 500 R _script dialog@r_AddExperience 1 300 R _script dialog@r_AddMoney 1 200 R _script dialog@r_BulkOrderRewardJunk 0  #
+18 16100 #
+19 16110 #
+20 16120 #
+0 16130 @
+18 17000 None 0 #
+20 17010 #
+19 17020 #
+0 17030 @
+19 18000 None 0 #
+20 18010 #
+18 18020 #
+0 18030 @
+20 19000 None 0 #
+19 19010 #
+18 19020 #
+0 19030 @
+21 20000 None 0 #
+0 20010 &
+
+[engl]
+{100}{}{Durango}
+{200}{}{You see Durango.}
+{210}{}{You see a man with a short temper. He's sitting behind a desk, angrily writing a letter. He looks more like an accountant than a cop. }
+{1000}{}{Predialogue installations}
+{1010}{}{greetnoquest}
+{1020}{}{greetquest}
+{1030}{}{final}
+{2000}{}{[The man looks up and shouts] What is it?!}
+{2010}{}{Nothing, sorry to have disturbed you.}
+{3000}{}{You're kidding?! You came in here just to bother me?!}
+{4000}{}{[The man looks up and shouts] What is it?!}
+{4010}{}{Hello Durango, my name is @pname@, and I've come on behalf of Ford Crystler over in Junktown...}
+{4020}{}{Ford sent me...}
+{4030}{}{How much would you pay to solve your differences with Junktown?}
+{4040}{}{Careful, I'm holding all the cards...}
+{4050}{}{Oh. nothing. Wrong room.}
+{5000}{}{What the hell are you talking about?! [He pulls a gun out from under the table] Get on with it!}
+{5010}{}{Ford sent me here with a deal that can end your caravan conflict.}
+{6000}{}{What?! Why would you even give a shit about this?}
+{6010}{}{This isn't how civilized societies should act. Ford says that he forgives you, and everything that's happened between the Hub and Junktown. He says to tell you that, "Politics is more than just caps." If both cities keep bidding for supplies you'll both starve. He is offering all of their spare parts, in exchange for a third of the food, water, and ammunition, you would normally bid over. }
+{7000}{}{Jesus, that is a good deal... Let's say, for, just a second that I believe you, why on Earth would you be doing this?}
+{7010}{}{Out of the goodness of my own heart of course!}
+{8000}{}{Bullshit, Ford's been sending me people all fucking day with the same damn story. We made that deal weeks ago and solved all of our problems. What did you want out of this? Money? Fame? Guns? Slaves? Tell me.}
+{8010}{}{Uh...I was hoping for a reward actually. I'm just trying to find my place in the world.}
+{9000}{}{That's exactly why Ford sent you over to me, we need people that can be trusted. People who'll do things, whatever it takes to fill their pockets, that's loyalty. Hell, you can call it whatever you'd like, but Ford and I both see it as a quality that can be admired. You chose to try to help out a small community for a reward, so your heart must be in the right place. }
+{9010}{}{Sure}
+{9020}{}{Sure [Lie]}
+{10000}{}{Good, well we need runners, scouts, patrolmen, traders, charismatic leaders, whatever skills you got really, as long as we can trust you we'll have work for you. Same thing applies with you and Junktown, as long as your reputation stays intact you can keep coming back to me or Ford for minor jobs. }
+{10010}{}{Tell me about these minor jobs with the Hub.}
+{11000}{}{We're always looking for bullets, guns, and armor. If you fancy yourself a crafter you can make quite the living working for the Hub, or even Junktown. Both of our cities need bulk order work done constantly. If you're not too dandy with your hands, than I guess you can just bring us whatever it is you find out there, or take from the people outside of these walls. I really don't care where the goods come from, just as long as they are in bulk.  }
+{11010}{}{What kind of ammo do you want?}
+{11020}{}{What kind of guns do you need?}
+{11030}{}{What kind of armor are you looking for?}
+{11040}{}{I'll keep this in mind, goodbye.}
+{12000}{}{I need crates of 9mm, 10mm, 12 ga, and 5mm JHP. Five hundred of each to be exact, all day, every day. I won't be able to pay much for them but I can guarantee you that I'll be able to PAY for them.   }
+{12010}{}{What kind of armor are you looking for?}
+{12020}{}{What kind of guns do you need?}
+{12030}{}{I'll keep this in mind, goodbye.}
+{13000}{}{I need some mid level firearms, the Gun Runners are great and all but I'm tired of paying Gun Runner prices. I can get a better deal buying half-crates of Assault Rifles, Hunting Rifles, Combat Shotguns, and 10mm SMG's off you. Come back with a dozen of any of these rifles and I'll give you a pretty good price for them.   }
+{13010}{}{What kind of armor are you looking for?}
+{13020}{}{What kind of ammo do you want?}
+{13030}{}{I'll keep this in mind, goodbye.}
+{14000}{}{I need a lot of Metal Armor, we break it down and use it as the first layer of protection for our Hub Police uniforms. I'll buy them buy the half-dozen, if you can actually get me that many.  }
+{14010}{}{What kind of guns do you need?}
+{14020}{}{What kind of ammo do you want?}
+{14030}{}{I'll keep this in mind, goodbye.}
+{15000}{}{Hey! Before you forget, report back to Ford! Radio chatter says he's looking for you. }
+{15010}{}{[Walk away]}
+{16000}{}{@pname@. Got any crates to sell me? I wasn't lying when I said that it wasn't going to be easy. }
+{16010}{}{6x Hunting Rifles.}
+{16020}{}{6x Assault Rifles.}
+{16030}{}{6x 10mm SMG's.}
+{16040}{}{6x Combat Shotguns.}
+{16050}{}{6x Metal Armor.}
+{16060}{}{I've got 500x .44 JHP ammo.}
+{16070}{}{I've got 500x 10mm ammo.}
+{16080}{}{I've got 500x 12ga ammo.}
+{16090}{}{I've got 500x 5mm JHP ammo.}
+{16100}{}{What kind of ammo do you want?}
+{16110}{}{What kind of guns do you need?}
+{16120}{}{What kind of armor are you looking for?}
+{16130}{}{Nothing today, sorry.}
+{17000}{}{I need crates of .44mm JHP, 10mm JHP, 12 ga, and 5mm JHP. Five hundred of each to be exact, all day, every day. I won't be able to pay much for them but I can guarantee you that I'll be able to PAY for them.}
+{17010}{}{What kind of armor are you looking for?}
+{17020}{}{What kind of guns do you need?}
+{17030}{}{I'll keep this in mind, goodbye.}
+{18000}{}{I need some mid level firearms, the Gun Runners are great and all but I'm tired of paying Gun Runner prices. I can get a better deal buying crates of Assault Rifles, Hunting Rifles, Combat Shotguns, and 10mm SMG's off you. Come back with a half dozen of any of these rifles and I'll give you a pretty good price for them. }
+{18010}{}{What kind of armor are you looking for?}
+{18020}{}{What kind of ammo do you want?}
+{18030}{}{I'll keep this in mind, goodbye.}
+{19000}{}{I need a lot of Metal Armor, we break it down and use it as the first layer of protection for our Hub Police uniforms. I'll buy them buy the half dozen, if you can actually get me that many. }
+{19010}{}{What kind of guns do you need?}
+{19020}{}{What kind of ammo do you want?}
+{19030}{}{I'll keep this in mind, goodbye.}
+{20000}{}{Great job thanks! Here's your caps, an honest day's pay for an honest day's work. Come back anytime @pname@, I'll always have work for you.}
+{20010}{}{Thanks, goodbye.}
+
+[russ]
+{100}{}{Алкоголик}
+{200}{}{Вы видите пьяницу.}
+{210}{}{Вы видите шатающегося из стороны в сторону пьяного человека в лохмотьях. Лицо его распухло, нос синющий как слива. А аромат рядом с ним такой, что свалит брамина насмерть. Он что-то бормочет про себя и иногда громко поет песни.}
+{210}{}{Вы видите алкаша. Он весьма грязен - кажется, он повалялся в луже, но не особо этим расстроен.}
+{1000}{}{I?aaaeaeiaiaua onoaiiaee}
+{1010}{}{Answer text}
+{1020}{}{greetquest}
+{1030}{}{final}
+{2000}{}{@@Urp.@@Glug-glug-glug.@@I needed that.@@Mmm-hmmm.@@How dry I amпїЅ (whistles)@@99 bottles of beer on the wall, 99 bottles of beerпїЅ@@What're you looking at?@@Hic... hic...@@Quit hassling me, you're bringing my buzz down.}
+{2010}{}{Nothing, nothing to have disturb you.}
+{3000}{}{You're kidding?! You came in here just to bother me?!}
+{4000}{}{[He looks up] What is it?!}
+{4010}{}{Hello Durango, my name is @pname@, I've come on behalf of Ford Crystler over in Junktown...}
+{4020}{}{Ford sent me...}
+{4030}{}{Careful, I'm holding all the cards...}
+{4040}{}{Careful, I'm holding all the cards...}
+{4050}{}{Oh. nothing. Wrong room.}
+{5000}{}{What the hell are you talking about?!}
+{5010}{}{That's more like it, I almost gave you the wrong information. Ford sent me here with a deal that can end your caravan conflict.}
+{6000}{}{What?! Why would you even give a shit about this?}
+{6010}{}{This isn't how civilzed societies should act, Ford says that he forgives you and everything that's happened between the Hub and Junktown. He says to tell you that, "Politics is more than just caps." If both cities keep bidding for supplies you'll both starve. He is offering all of their spare parts in exchange for a third of the food, water and ammunition you would normally bid over. }
+{7000}{}{Jesus, that is a good deal... let's say for just a second that I believe you, why on Earth would you be doing this? What do you want? }
+{7010}{}{Out of the goodness of my own heart of course!}
+{8000}{}{Bullshit, Ford's been sending me people all fucking day with the same damn story. We made that deal weeks ago and solved all of our problems. What did you want out of this? Money? Fame? Guns? Slaves? Tell me.}
+{8010}{}{Uh...I was hoping for a reward actually. I'm just trying to find my place in the world.}
+{9000}{}{That's exactly why Ford sent you over to me, we need people that can be trusted. People who'll do things, whatever it takes to fill their  pockets, that's loyalty. Hell, you can call it whatever you'd like but Ford and I both see it as a quality that can be admired. You chose to try to help out a small community for a reward so your heart must be in the right place. }
+{9010}{}{Sure}
+{9020}{}{Sure [Lie]}
+{10000}{}{Good, well we need runners, scouts, patrolmen, traders, charismatic leaders, whatever skills you got really as long as we can trust you we'll have work for you. Same thing applies with you and Junktown, as long as your reputation stays intact you can keep coming back to me or Ford for minor jobs. }
+{10010}{}{Tell me about these minor jobs with the Hub.}
+{11000}{}{We're always looking for bullets, guns, and armor. If you fancy yourself a crafter you can make quite the living working for the Hub, or even Junktown. Both of our cities need bulk order work done constantly. If your not too dandy with your hands than I guess you can just bring us whatever it is you find out there, or take from the people outside of these walls. I really don't care where the goods come from just as long as they are in bulk.  }
+{11010}{}{What kind of ammo do you want?}
+{11020}{}{What kind of guns do you need?}
+{11030}{}{What kind of armor are you looking for?}
+{11040}{}{I'll keep this in mind, goodbye.}
+{12000}{}{I need crates of 9mm, 10mm, 12 ga, and 5mm JHP. Five hundred of each to be exact, all day, every day. I won't be able to pay much for them but I can guarantee you that I'll be able to PAY for them.   }
+{12010}{}{What kind of armor are you looking for?}
+{12020}{}{What kind of guns do you need?}
+{12030}{}{I'll keep this in mind, goodbye.}
+{13000}{}{I need some mid level firearms, the Gun Runners are great and all but I'm tired of paying Gun Runner prices. I can get a better deal buying crates of Assault Rifles, Hunting Rifles, Combat Shotguns, and 10mm SMG's off you. Come back with a dozen of any of these rifles and I'll give you a pretty good price for them.   }
+{13010}{}{What kind of armor are you looking for?}
+{13020}{}{What kind of ammo do you want?}
+{13030}{}{I'll keep this in mind, goodbye.}
+{14000}{}{I need a lot of Metal Armor, we break it down and use it as the first layer of protection for our Hub Police uniforms. I'll buy them buy the dozen, if you can actually get me that many.  }
+{14010}{}{What kind of guns do you need?}
+{14020}{}{What kind of ammo do you want?}
+{14030}{}{I'll keep this in mind, goodbye.}
+{15000}{}{Hey! Before you forget report back to Ford! Radio chatter says he's looking for you. }
+{15010}{}{[Walk away]}
+{16000}{}{Howdy, got any crates to sell me?}
+{16010}{}{Millions}
+{16020}{}{I've got a dozen Assault Rifles.}
+{16030}{}{I've got a dozen 10mm SMG's.}
+{16040}{}{I've got a dozen Combat Shotguns.}
+{16050}{}{I've got a dozen Metal Armors.}
+{16060}{}{I've got 500x 9mm ammo.}
+{16070}{}{I've got 500x 10mm ammo.}
+{16080}{}{I've got 500x 12ga ammo.}
+{16090}{}{I've got 500x 5mm JHP ammo.}
+{16100}{}{What kind of ammo do you want?}
+{16110}{}{What kind of guns do you need?}
+{16120}{}{What kind of armor are you looking for?}
+{16130}{}{Nothing today, sorry.}
+{17000}{}{I need crates of 9mm, 10mm, 12 ga, and 5mm JHP. Five hundred of each to be exact, all day, every day. I won't be able to pay much for them but I can guarantee you that I'll be able to PAY for them.}
+{17010}{}{What kind of armor are you looking for?}
+{17020}{}{What kind of guns do you need?}
+{17030}{}{I'll keep this in mind, goodbye.}
+{18000}{}{I need some mid level firearms, the Gun Runners are great and all but I'm tired of paying Gun Runner prices. I can get a better deal buying crates of Assault Rifles, Hunting Rifles, Combat Shotguns, and 10mm SMG's off you. Come back with a dozen of any of these rifles and I'll give you a pretty good price for them. }
+{18010}{}{What kind of armor are you looking for?}
+{18020}{}{What kind of ammo do you want?}
+{18030}{}{I'll keep this in mind, goodbye.}
+{19000}{}{I need a lot of Metal Armor, we break it down and use it as the first layer of protection for our Hub Police uniforms. I'll buy them buy the dozen, if you can actually get me that many. }
+{19010}{}{What kind of guns do you need?}
+{19020}{}{What kind of ammo do you want?}
+{19030}{}{I'll keep this in mind, goodbye.}
+{20000}{}{Great job thanks! Honest day's pay for an honest day's work. }
+{20010}{}{thanks, goodbye.}
+

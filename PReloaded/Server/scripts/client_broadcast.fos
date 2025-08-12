@@ -47,7 +47,7 @@ class CBroadcast
 
         BroadcastDebugMessage("New: type<" + type + "> time<" + time + "> message<" + message + "> extra<" + extra + ">");
     }
-	
+
 	CBroadcast(int type, int time, string message, uint extra, uint kind)
     {
         this.type                       = type;
@@ -476,7 +476,7 @@ void _Receive(int type, int time, int setup, string@ message, array<int>@ data)
             // string faction = GetMsgStr(TEXTMSG_TEXT, data[1]);  // faction, maybe later
 			uint kind = data[1];
 			string description;
-			
+
 			switch(kind)
 			{
 				case EVENT_TYPE_TOWN_REINFORCEMENTS_1: description = "1st wave of reinforcements is comming to location";break;

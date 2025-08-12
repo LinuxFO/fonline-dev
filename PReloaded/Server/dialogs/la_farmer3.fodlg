@@ -1,0 +1,46 @@
+[comment]
+
+
+[data]
+lang=engl
+
+[dialog]
+&
+1 1000 None 0 #
+2 1010 @
+2 2000 None 0 #
+3 2010 #
+6 2020 D _var p la_crate3 = 0 R _var p la_crate3 = 1 R _item p PID_CARAVAN_BOX + 1 #
+7 2030 D _var p la_crate3 = 2 R _var p la_crate3 = 0 R _script dialog@r_AddExperience 1 500 R _script dialog@r_AddMoney 1 125 R _param p REPUTATION_FREE_TRADERS + 6 #
+0 2040 @
+3 3000 None 0 #
+5 3010 D _item p PID_BOTTLE_CAPS > 4 R _item p PID_BOTTLE_CAPS - 5 R _param p ST_CURRENT_HP - 3 R _param p ST_RADIATION_LEVEL + 4 #
+4 3020 @
+4 4000 None 0 @
+5 5000 None 0 #
+0 5010 @
+6 6000 None 0 #
+0 6010 @
+7 7000 None 0 &
+
+[engl]
+{100}{}{Farmer}
+{200}{}{You see a farmer.}
+{210}{}{Standing inside the farmer's market you can smell the warm, fresh scent of life brewing again.}
+{1000}{}{Predialogue installations}
+{1010}{}{Answer text}
+{2000}{}{Tomatoes for sale! Tomatoes for sale! Fresh, healthy tomatoes!}
+{2010}{}{One tomato please!}
+{2020}{}{Got any deliveries needing to get done?}
+{2030}{}{The Hub got your shipment. Here's the receipt. I'm here for the payment.}
+{2040}{}{[Walk away]}
+{3000}{}{That'll be five caps.}
+{3010}{}{Here you go! Yum! What a juicy looking tomato!}
+{3020}{}{For an irradiated tomato? No way!}
+{4000}{}{Suit yourself. Tomatoes for sale! Juicy, plump tomatoes!}
+{5000}{}{[You are handed a strange, and grostesque looking tomato. Upon eating it, you feel a bit sick]}
+{5010}{}{Ewwyck!}
+{6000}{}{Yes! Take this crate to the Far Go caravan. Bring me the receipt, and I'll bring you your money.}
+{6010}{}{Sounds good.}
+{7000}{}{Excellent! Great work. Come back anytime.}
+

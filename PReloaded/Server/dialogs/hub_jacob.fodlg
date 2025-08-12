@@ -1,0 +1,211 @@
+[comment]
+
+
+[data]
+lang=engl
+
+[dialog]
+&
+1 1000 None 0 #
+3 1010 @
+3 2000 None 0 #
+65506 2010 #
+4 2020 #
+7 2030 D _var p q_hub_gunrunner_supplies = 0 #
+13 2040 D _var p q_hub_gunrunner_supplies > 0 D _var p q_hub_gunrunner_supplies < 6 #
+5 2050 D _var n name_mem_npc_player = 0 R _var n name_mem_npc_player = 1 #
+80 2060 D _var n name_mem_npc_player = 1 D _param p PE_PROFESSION_GUNSMITH_B < 2 #
+30 2070 D _item p PID_Q_GUNRUNNER_COURIER_BOX > 0 D _var p q_la_gunr_courier = 2 R _param p REPUTATION_HUB + 2 R _var p q_la_gunr_courier = 7 R _item p PID_Q_GUNRUNNER_COURIER_BOX - 1 #
+70 2080 #
+2 2090 D _var p q_packages = 5 D _item p PID_CARAVAN_BOX > 0 R _var p q_packages = 98 R _item p PID_CARAVAN_BOX - 1 #
+0 2100 @
+4 3000 None 0 #
+65506 3010 #
+5 3020 D _var n name_mem_npc_player = 0 R _var n name_mem_npc_player = 1 #
+80 3030 D _var n name_mem_npc_player = 1 D _param p PE_PROFESSION_GUNSMITH_B < 2 #
+0 3040 @
+5 4000 None 0 #
+80 4010 #
+65506 4020 #
+0 4030 @
+80 5000 None 0 #
+81 5010 D _script dialog@d_CheckProfession 1 0 D _script dialog@d_CheckGunsmithB0 1 0 #
+82 5020 D _script dialog@d_CheckGunsmithB1 1 0 #
+0 5030 @
+81 6000 None 0 #
+83 6010 D _item p PID_BOTTLE_CAPS > 1499 R _item p PID_GUNS_AND_BULLETS + 1 R _param p PE_PROFESSION_GUNSMITH_B = 1 R _script dialog@r_RemoveMoney 1 1500 #
+0 6020 @
+82 7000 None 0 #
+84 7010 D _item p PID_BOTTLE_CAPS > 2999 R _param p PE_PROFESSION_GUNSMITH_B = 2 R _script dialog@r_RemoveMoney 1 3000 #
+0 7020 @
+83 8000 None 0 #
+0 8010 @
+84 9000 None 0 #
+0 9010 @
+6 10000 None 0 @
+7 11000 None 0 #
+65506 11010 #
+8 11020 @
+8 12000 None 0 #
+9 12010 @
+9 13000 None 0 #
+10 13010 @
+10 14000 None 0 #
+11 14010 #
+11 14020 @
+11 15000 None 0 #
+12 15010 D _script dialog@d_IsLocationNotVisible 1 39 R _script dialog@r_ShowLocation 1 39 #
+0 15020 R _var p q_hub_gunrunner_supplies = 1 @
+12 16000 None 0 #
+0 16010 R _var p q_hub_gunrunner_supplies = 1 @
+13 17000 None 0 #
+12 17010 D _script dialog@d_IsLocationNotVisible 1 39 R _script dialog@r_ShowLocation 1 39 #
+18 17020 D _var p q_hub_gunrunner_supplies = 5 D _var p q_hub_gunrunner_supplies_deal = 2 R _var p q_hub_gunrunner_supplies = 6 R _script dialog@r_AddMoney 1 400 R _param p REPUTATION_HUB + 50 R _item p PID_10MM_AP + 50 R _script dialog@r_AddExperience 1 750 R _item p PID_10MM_JHP + 150 #
+19 17030 D _var p q_hub_gunrunner_supplies_deal = 3 D _var p q_hub_gunrunner_supplies = 5 R _var p q_hub_gunrunner_supplies = 6 R _script dialog@r_AddMoney 1 600 R _param p REPUTATION_HUB + 50 R _item p PID_10MM_AP + 100 R _item p PID_BLUEPRINT_METAL_HELMET_MK2 + 1 R _script dialog@r_AddExperience 1 1000 #
+17 17040 D _var p q_hub_gunrunner_supplies_deal = 4 D _var p q_hub_gunrunner_supplies = 5 R _var p q_hub_gunrunner_supplies = 6 R _script dialog@r_AddMoney 1 400 R _param p REPUTATION_HUB + 50 R _item p PID_10MM_AP + 100 R _item p PID_BLUEPRINT_METAL_HELMET_MK2 + 1 R _script dialog@r_AddExperience 1 500 #
+14 17050 D _var p q_hub_gunrunner_supplies = 2 #
+0 17060 @
+14 18000 None 0 #
+15 18010 R _script dialog@r_SkillRoll 3 Speech -60 16 #
+0 18020 R _var p q_hub_gunrunner_supplies = 3 @
+15 19000 None 0 #
+0 19010 R _var p q_hub_gunrunner_supplies = 3 @
+16 20000 None 0 #
+20 20010 R _var p q_hub_gunrunner_supplies = 6 R _param p REPUTATION_HUB + 50 R _script dialog@r_AddMoney 1 300 R _item p PID_BLUEPRINT_METAL_HELMET_MK2 + 1 R _item p PID_10MM_AP + 30 R _script dialog@r_AddExperience 1 750 @
+17 21000 None 0 #
+0 21010 @
+18 22000 None 0 #
+0 22010 @
+19 23000 None 0 #
+0 23010 @
+20 24000 None 0 #
+0 24010 #
+21 24020 D _param p SK_BARTER < 55 #
+22 24030 D _param p SK_BARTER } 55 R _script dialog@r_AddMoney 1 100 @
+21 25000 None 0 #
+0 25010 @
+22 26000 None 0 #
+0 26010 @
+30 27000 None 0 #
+0 27010 @
+70 28000 None 0 #
+71 28010 D _item p PID_BOTTLE_CAPS > 24999 R _script dialog@r_RemoveMoney 1 25000 R _item p PID_BLUEPRINT_ASSAULT_RIFLE + 1 #
+71 28020 D _item p PID_BOTTLE_CAPS > 19999 R _script dialog@r_RemoveMoney 1 20000 R _item p PID_BLUEPRINT_FN_FAL + 1 #
+71 28030 D _item p PID_BOTTLE_CAPS > 24999 R _script dialog@r_RemoveMoney 1 25000 R _item p PID_BLUEPRINT_SNIPER_RIFLE + 1 #
+71 28040 D _item p PID_BOTTLE_CAPS > 5999 R _script dialog@r_RemoveMoney 1 6000 R _item p PID_BLUEPRINT_14MM_PISTOL + 1 #
+71 28050 D _item p PID_BOTTLE_CAPS > 24999 R _script dialog@r_RemoveMoney 1 25000 R _item p PID_BLUEPRINT_223_PISTOL + 1 #
+71 28060 D _item p PID_BOTTLE_CAPS > 29999 R _script dialog@r_RemoveMoney 1 30000 R _item p PID_BLUEPRINT_HK_CAWS + 1 #
+71 28070 D _item p PID_BOTTLE_CAPS > 19999 R _script dialog@r_RemoveMoney 1 20000 R _item p PID_BLUEPRINT_P90 + 1 #
+71 28080 D _item p PID_BOTTLE_CAPS > 39999 R _script dialog@r_RemoveMoney 1 40000 R _item p PID_BLUEPRINT_MINIGUN + 1 #
+71 28090 D _item p PID_BOTTLE_CAPS > 24999 R _script dialog@r_RemoveMoney 1 25000 R _item p PID_BLUEPRINT_ROCKET_LAUNCHER + 1 #
+71 28100 D _item p PID_BOTTLE_CAPS > 24999 R _script dialog@r_RemoveMoney 1 25000 R _item p PID_BLUEPRINT_LIGHT_SUPPORT_WEAPON + 1 #
+71 28110 D _item p PID_BOTTLE_CAPS > 24999 R _script dialog@r_RemoveMoney 1 25000 R _item p PID_BLUEPRINT_IMPROVED_FLAMETHROWER + 1 #
+0 28120 @
+71 29000 None 0 #
+0 29010 @
+2 30000 None 0 &
+
+[engl]
+{100}{}{Jacob}
+{200}{}{You see Jacob, the arms dealer.}
+{210}{}{He looks very self-confident.}
+{210}{}{You see a burly old mutant with a weary cast to his face. He still looks vigorous and tough.}
+{1000}{}{Predialogue installations}
+{1010}{}{Normal}
+{2000}{}{Hi! Welcome to Jake's. I've got some great merchandise in stock. Feel free to look around.}
+{2010}{}{Enough of window shopping, let's deal!}
+{2020}{}{What are you selling here?}
+{2030}{}{From where do you get your weapons?}
+{2040}{}{About the Gun Runners.}
+{2050}{}{Do you provide any other services?}
+{2060}{}{Let's talk about big guns.}
+{2070}{}{I've got your Gun Runners shipment with me.}
+{2080}{}{Do you have any blueprints for sale?}
+{2090}{}{[Deliver Package]}
+{2100}{}{Maybe I'll check out your stuff later. Bye.}
+{3000}{}{I deal with high end arms. The best stuff you can find this side of the Brotherhood, and since the Brotherhood doesn't deal with outsiders, I've gotta say I'm the best. I have a contact who can get me sniper rifles, and you would be hard pressed to find Flame Thrower fuel anywhere else in the wastes. On yeah... I sometimes get Geiger counters, too. Very rare.}
+{3010}{}{Let's deal then!}
+{3020}{}{Do you provide any other services?}
+{3030}{}{Let's talk about big guns.}
+{3040}{}{Very informative. Gotta go, bye!}
+{4000}{}{Well, I'll tinker with big guns from time to time. If you got any questions about them, I should be the first one in the Hub you should ask.}
+{4010}{}{Great, I was just looking for a person like you! I had some questions, you see...}
+{4020}{}{I think I'll take a look at your merchandise first.}
+{4030}{}{Right, I'll keep that in mind. Bye!}
+{5000}{}{What's on your mind?}
+{5010}{}{I would like to know how they work, what they're made of... technical stuff.}
+{5020}{}{I thought you could clarify some things about the construction and usage of big guns to me.}
+{5030}{}{Erhm... Actually, nothing right now. I better be going.}
+{6000}{}{I really hope you know what you're talking about, otherwise it'll be a waste of time. And I need something in return. I'm always short on caps, maybe you could bring me... Let's say $1500.}
+{6010}{}{Okay, I think I've got fifteen hundred right here. Why don't you take it, so we can start right away? [Give him $1500]}
+{6020}{}{Too bad, I don't have that much on me right now. Maybe some other time then.}
+{7000}{}{Yeah, I see you're already skilled with those, so it shouldn't take too long. But, you see, I recently ran into some financial problems... How about you get me $3000 and I show you everything I know?}
+{7010}{}{It wasn't easy to find that many caps ... It better be worth it! [Give him $3000]}
+{7020}{}{Too bad, I don't have that much on me right now. Maybe some other time then.}
+{8000}{}{Very well, it's a deal then. [Jacob starts explaining. In the end he gives you a magazine about weapons and ammunition.]}
+{8010}{}{Thanks for everything Jacob, that's exectly what I wanted to know. See you!}
+{9000}{}{Very well, it's a deal then. [Jacob starts explaining]}
+{9010}{}{Thanks Jacob, that was really something new for me. I have to go now, bye.}
+{10000}{}{Get out of here.@@You're scaring off my customers.@@Door's right behind you.}
+{11000}{}{Why do you want to know? I mean, like everyone else, I got several sources from all around the area... A good piece of stock comes from exchanging wares with other customers and the main stock comes from the Gun Runners.}
+{11010}{}{Interesting, but I would like it more to do some shopping instead of talking!}
+{11020}{}{Tell me about the Gun Runners.}
+{12000}{}{You can call them the major players in southern californias gun trade. Hell, see that combat shotgun over here? [He shows you a brand new looking Winchester City-Killer model behind a fenced locker.] That's pre-war tech, but it's not 200 years old! It was manufactured in one of their facilities...}
+{12010}{}{How does it come, the Gun Runners can produce such hardware?}
+{13000}{}{They have the blueprints and manufacturing tools and all that stuff and they sit on it like hungry coyotes. If they would at least send me my ordered wares faster...}
+{13010}{}{Got a supply shortage?}
+{14000}{}{Not only the shortage. I need more ammo and weapons in the next deliveries. Tell me, do you have anything fancy to do? I could need someone to check out why it's taking so long.}
+{14010}{}{I could do it.}
+{14020}{}{Sure, wanted to visit the Gun Runners anyway.}
+{15000}{}{Good! My contact is Marshal. Talk to him and tell him, that I am sending you.}
+{15010}{}{Where can I find the Gun Runners?}
+{15020}{}{I am on my way.}
+{16000}{}{Their headquarter is in the Angel's Boneyard, south of the Hub. You can't really miss it. Lot's of caravans and even rail lines are heading to that place.}
+{16010}{}{I am on my way.}
+{17000}{}{I am listening.}
+{17010}{}{Where can I find the Gun Runners again?}
+{17020}{}{You've got a new deal with the Gun Runners, but Marshal can't send the next delivery faster than usual.}
+{17030}{}{You've got a new deal with the Gun Runners and Marshal will send the next delivery a bit faster than usual.}
+{17040}{}{You've got a new deal with the Gun Runners.}
+{17050}{}{The Gun Runners want to have more money.}
+{17060}{}{Goodbye.}
+{18000}{}{Damnit. Good, fine. They want more money, they get more money. But tell them to send the next delivery faster or I simply cannot supply all my customers!}
+{18010}{}{The Gun Runners are manufacturing high quality weaponry, which takes it's time. If they need more time, you should respect that.}
+{18020}{}{I will talk to Marshal about it.}
+{19000}{}{High quality is good 'n stuff, but my customers want their weapons and I have to deliver them!}
+{19010}{}{I will talk to Marshal about it.}
+{20000}{}{Guess you are right. I should give them the time needed... but hell, it gets expensive a lot...}
+{20010}{}{You've got yourself a new deal, now let's talk about my payment.}
+{21000}{}{Thanks for your help. It's not the best and what I've hoped for, but oh well... The next delivery should run good on the marked, so I'll give you 400 hubbucks, some spare 10mm AP ammunition and this blueprint that I don't have any real use for.}
+{21010}{}{Goodbye.}
+{22000}{}{Thanks for your help. Would be good, if I could get the next delivery faster, but in any case the wares should run well on the marked. So, here... I'll give you 400 hubbucks and some spare 10mm ammunition that I don't have any real use for.}
+{22010}{}{Goodbye.}
+{23000}{}{Really thanks for your help! It's a better deal than I've hoped for and as the next delivery should run really good on the marked, I'll give you 600 hubbucks, some spare 10mm AP ammunition and this blueprint that I don't have any real use for.}
+{23010}{}{Goodbye.}
+{24000}{}{The next delivery should run good on the marked, so I'll give you 300 hubbucks, some spare 10mm AP ammunition and this blueprint that I don't have any real use for.}
+{24010}{}{Thanks and goodbye.}
+{24020}{}{That's all? I've been running around a lot, it for sure could give me some more money.}
+{24030}{}{That's all? I've been running around a lot, it for sure could give me some more money.}
+{25000}{}{The new deal you've got me is good, but not *that* good. Especially because I still have to wait for my delivery. So be happy with what you got... }
+{25010}{}{Goodbye.}
+{26000}{}{You are a stubborn one, eh? Fine, you'll get another 100 hubbucks.}
+{26010}{}{Goodbye.}
+{27000}{}{Man, it's about time! Give it to me, had been waiting for the delivery since weeks!@@About time! Give me the package and thanks.@@Thanks for the delivery, @sex@|boy||girl|, it's about time!@@Ah, finally! Hand it over, I'll take care from now on.}
+{27010}{}{Goodbye.}
+{28000}{}{Yeah, I've got some blueprints right here. Assault Rifle for 25.000, FN FAL for 20.000, Sniper Rifle for 25.000, 14mm Pistol for 6.000, .223 Pistol for 25.000, Minigun for 40.000, Incinerator for 25.000, Rocket Launcher 25.000, Light Support Weapon for 25.000, H&K P90c for 20.000 and H&K CAWS for 30.000 caps. Are you interested?}
+{28010}{}{I'd like Assault Rifle blueprint.}
+{28020}{}{I'd like FN FAL blueprint.}
+{28030}{}{I'd like Sniper Rifle blueprint.}
+{28040}{}{I'd like 14mm Pistol blueprint.}
+{28050}{}{I'd like .223 Pistol blueprint.}
+{28060}{}{I'd like H&K CAWS blueprint.}
+{28070}{}{I'd like H&K P90c blueprint.}
+{28080}{}{I'd like Minigun blueprint.}
+{28090}{}{I'd like Rocket Launcher blueprint.}
+{28100}{}{I'd like Light Support Weapon blueprint.}
+{28110}{}{I'd like Incinerator blueprint.}
+{28120}{}{Maybe some other time.}
+{29000}{}{Here's your blueprint. Come back if you need another one.}
+{29010}{}{Sure. Thanks!}
+{30000}{}{Hot dog! Finally! Thanks a lot.}
+

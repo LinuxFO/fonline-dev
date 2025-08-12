@@ -1,0 +1,154 @@
+[comment]
+
+
+[data]
+lang=engl
+
+[dialog]
+&
+1 1000 None 0 #
+11 1010 D _var n name_mem_npc_player = 1 #
+10 1020 D _param p SK_SMALL_GUNS < 50 D _param p SK_BIG_GUNS < 50 D _param p SK_ENERGY_WEAPONS < 50 D _param p SK_UNARMED < 50 #
+2 1030 D _var n name_mem_npc_player = 0 @
+2 2000 None 0 #
+4 2010 D _param p ST_STRENGTH > 9 #
+12 2020 D _var p q_la_gunrunners_caravan = 3 #
+5 2030 D _param p ST_INTELLECT > 1000 #
+65506 2040 #
+70 2050 #
+15 2060 #
+16 2070 D _var p q_bos_initiatequest_start = 31 #
+24 2080 D _var p q_bos_initiatequest_start = 32 D _script dialog@d_IsAreaScouted 4 30 39 32 41 D _script dialog@d_IsAreaScouted 4 30 35 32 37 D _script dialog@d_IsAreaScouted 4 29 44 31 46 D _script dialog@d_IsAreaScouted 4 33 26 35 28 D _script dialog@d_IsAreaScouted 4 9 25 11 27 D _script dialog@d_IsAreaScouted 4 13 10 15 12 D _script dialog@d_IsAreaScouted 4 28 16 30 18 R _var p q_bos_initiatequest_start = 33 R _script dialog@r_AddExperience 1 5000 R _script dialog@r_AddMoney 1 2500 R _param p REPUTATION_GUNRUNNERS + 100 #
+6 2090 #
+0 2100 D _var p hub_postmanq = 32 R _var p hub_postmanq = 98 @
+4 3000 None 0 #
+65507 3010 D _param p ST_INTELLECT > 1000 R _var n name_mem_npc_player = 1 R _script dialog@r_GunRunnerInsult 0  #
+65506 3020 #
+6 3030 @
+5 4000 None 0 #
+2 4010 @
+6 5000 None 0 @
+9 6000 None 0 @
+10 7000 None 0 #
+0 7010 D _var p hub_postmanq = 32 R _var p hub_postmanq = 98 @
+11 8000 Attack 0 #
+0 8010 D _var p hub_postmanq = 32 R _var p hub_postmanq = 98 @
+12 9000 None 0 #
+13 9010 R _item p PID_COMBAT_ARMOR + 1 R _item p PID_TESLA_ARMOR + 1 R _item p PID_METAL_ARMOR_MK_II + 2 R _script quest_la_gunr_caravan@r_QuestCD 0  #
+13 9020 R _item p PID_LIGHT_SUPPORT_WEAPON + 1 R _item p PID_LASER_RIFLE + 1 R _item p PID_14MM_PISTOL + 1 R _item p PID_FN_FAL + 1 R _script quest_la_gunr_caravan@r_QuestCD 0  #
+13 9030 R _item p PID_5MM_AP + 1000 R _item p PID_223_FMJ + 300 R _item p PID_MICRO_FUSION_CELL + 400 R _item p PID_7_62MM_AMMO + 300 R _script quest_la_gunr_caravan@r_QuestCD 0  @
+13 10000 None 0 #
+0 10010 @
+14 11000 None 1 #
+4 11010 #
+12 11020 D _var p q_la_gunrunners_caravan = 3 #
+65506 11030 #
+0 11040 @
+70 12000 None 0 #
+71 12010 D _item p PID_BOTTLE_CAPS > 19999 R _script dialog@r_RemoveMoney 1 20000 R _item p PID_BLUEPRINT_LASER_RIFLE + 1 #
+71 12020 D _item p PID_BOTTLE_CAPS > 19999 R _script dialog@r_RemoveMoney 1 20000 R _item p PID_BLUEPRINT_LASER_SMG + 1 #
+71 12030 D _item p PID_BOTTLE_CAPS > 17499 R _script dialog@r_RemoveMoney 1 17500 R _item p PID_BLUEPRINT_PLASMA_PISTOL + 1 #
+71 12040 D _item p PID_BOTTLE_CAPS > 24999 R _script dialog@r_RemoveMoney 1 25000 R _item p PID_BLUEPRINT_PLASMA_RIFLE + 1 #
+71 12050 D _item p PID_BOTTLE_CAPS > 24999 R _script dialog@r_RemoveMoney 1 25000 R _item p PID_BLUEPRINT_PULSE_PISTOL + 1 #
+71 12060 D _item p PID_BOTTLE_CAPS > 6999 R _script dialog@r_RemoveMoney 1 7000 R _item p PID_BLUEPRINT_RIPPER + 1 #
+71 12070 D _item p PID_BOTTLE_CAPS > 7499 R _script dialog@r_RemoveMoney 1 7500 R _item p PID_BLUEPRINT_SUPER_SLEDGE + 1 #
+71 12080 D _item p PID_BOTTLE_CAPS > 9999 R _script dialog@r_RemoveMoney 1 10000 R _item p PID_BLUEPRINT_SUPER_CATTLE_PROD + 1 #
+71 12090 D _item p PID_BOTTLE_CAPS > 14999 R _script dialog@r_RemoveMoney 1 15000 R _item p PID_BLUEPRINT_MEGA_POWER_FIST + 1 #
+0 12100 @
+71 13000 None 0 #
+0 13010 @
+15 14000 None 0 #
+0 14010 D _item p PID_BOTTLE_CAPS > 1999 R _item p PID_BOTTLE_CAPS - 2000 R _item p PID_ELECTRONIC_PARTS2 + 1 #
+0 14020 D _item p PID_BOTTLE_CAPS > 19999 R _item p PID_BOTTLE_CAPS - 20000 R _item p PID_ELECTRONIC_PARTS2 + 10 #
+0 14030 @
+16 15000 None 0 #
+17 15010 @
+17 16000 None 0 #
+18 16010 @
+18 17000 None 0 #
+19 17010 @
+19 18000 None 0 #
+20 18010 @
+20 19000 None 0 #
+22 19010 @
+22 20000 None 0 #
+23 20010 @
+23 21000 None 0 #
+0 21010 R _var p q_bos_initiatequest_start = 32 @
+24 22000 None 0 &
+
+[engl]
+{100}{}{Ralph}
+{200}{}{You see Ralph.}
+{210}{}{You see Ralph, the public trader for the gun runners.}
+{1000}{}{Predialogue installations}
+{1010}{}{Insulted}
+{1020}{}{No gun skills}
+{1030}{}{Not talked to}
+{2000}{}{Hi, I'm Ralph. You want to buy equipment? Let me see what you have to trade.}
+{2010}{}{I'm not showing you shit.}
+{2020}{}{Marshal told me to talk to you about my payment.}
+{2030}{}{Could you upgrade my weapons? [Upgrade] *DEV NOTE: Taken out for now*}
+{2040}{}{Show me what you've got. [Barter]}
+{2050}{}{Do you have any blueprints for sale?}
+{2060}{}{Got any of those fancy electronic parts?}
+{2070}{}{I am a Squire, with the Brotherhood of Steel, and we require a large shipment of ammunition, microfusion cells, and super stimpaks. I am here to negotiate a deal.}
+{2080}{}{The job is done. Here are my reports. I will be reporting my success to the Brotherhood now. Goodbye.}
+{2090}{}{I think I should leave... [Exit]}
+{2100}{}{[Deliver Letter]}
+{3000}{}{I see. Let me put it this way. Do you want to buy or do you want your face blown off?}
+{3010}{}{I think I'd like you to blow me! *DEV NOTE: Taken ouf for now*}
+{3020}{}{Err... This is what I've got. [Barter]}
+{3030}{}{Sorry, I think I should leave! [Exit]}
+{4000}{}{Of course I could. Will I? Hell no.}
+{4010}{}{...}
+{5000}{}{... next time buy something...}
+{6000}{}{You're an ugly little beast ain't ya? Why'd they let you in here?@@Go on, be a good little freak and fuck off now, would you?@@You're getting drool on the floor, asshole.}
+{7000}{}{Seriously? Come back when you can use a gun.}
+{7010}{}{[Deliver Letter]}
+{8000}{}{You came back? You're a bigger idiot than I thought!}
+{8010}{}{[Deliver Letter]}
+{9000}{}{'Heard about it already. Got something here, tell me what you want to have... [He shows you various objects of high quality on a table.] Tell me what you want to have and you can keep it.}
+{9010}{}{[1 Combat Armor, 1 Tesla Armor and 2 Metal Armor Mark 2.]}
+{9020}{}{[1 Light Support Weapon, 1 Laser Rifle, 1 14mm pistol and 1 FN FAL.]}
+{9030}{}{[1000 5mm AP, 300 .223 FMJ, 400 MFC and 300 7.62mm.]}
+{10000}{}{That's it, then take it.}
+{10010}{}{Goodbye.}
+{11000}{}{You here again? You want to buy some equipment?}
+{11010}{}{I'm not here to make chit-chat.}
+{11020}{}{It may be boring but Marshal again told me to talk to you about my payment.}
+{11030}{}{I'd like to make shopping, NOW!.}
+{11040}{}{Sorry, bro. I've just to go make something more important... (you move away quickly in the direction of toilet).}
+{12000}{}{Yeah, I've got some blueprints right here. Laser Rifle for 20.000, Laser SMG for 20.000, Plasma Pistol for 17.500, Plasma Rifle for 25.000, Pulse Pistol for 25.000, Ripper for 7.000, Super Sledge for 7.500, Super Cattle Prod for 10.000 and Mega Power Fist for 15.000. Are you interested?}
+{12010}{}{I'd like Laser Rifle blueprint.}
+{12020}{}{I'd like a Laser SMG blueprint.}
+{12030}{}{I'd like Plasma Pistol blueprint.}
+{12040}{}{I'd like Plasma Rifle blueprint.}
+{12050}{}{I'd like a Pulse Pistol blueprint.}
+{12060}{}{I'd like Ripper blueprint.}
+{12070}{}{I'd like Super Sledge blueprint.}
+{12080}{}{I'd like Super Cattle Prod blueprint.}
+{12090}{}{I'd like Mega Power Fist blueprint.}
+{12100}{}{Maybe some other time.}
+{13000}{}{Here's your blueprint. Come back if you need another one.}
+{13010}{}{Thanks! Goodbye.}
+{14000}{}{Yeah, 2000$ Got a whole crate back here. }
+{14010}{}{Give me one.}
+{14020}{}{I'll take ten.}
+{14030}{}{Good to know, see ya.}
+{15000}{}{Yeah, that's nice. You got caps? Or... }
+{15010}{}{The Brotherhood of Steel has much more than caps. But yes. We are prepared to pay.}
+{16000}{}{Good. We've got everything you need in the back and then some. Total price for your army, larger than a thousand men I'm guessing. That's... two million caps, fifteen hummers, twenty five sets of power armour, and three hundred bozars. [He holds out his hand with a smirk]}
+{16010}{}{Negative. You will do this for a hundred thousand caps. Or the Brotherhood of Steel will come down here with their army of three thousand men and burn this whole fucking place to the goddamn ground.}
+{17000}{}{No way! No fucking way! You get the hell out of here! I've got enough men here to take on a fucking army of faggots like you! [He spits]}
+{17010}{}{Perhaps we can come to another agreement then?}
+{18000}{}{Like fucking what, dipshit? After you insult me in my own house?!}
+{18010}{}{Yes. You can have the one hundred thousand caps, and I will perform any duties you deem necessary to properly represent the "aid" you receive from the Brotherhood of Steel.}
+{19000}{}{Hmm... well... the super mutants have been getting pretty restless lately...}
+{19010}{}{Is there a threat you need eliminated?}
+{20000}{}{Nothing you could take on yourself. But you could go off and scout a few places for us.}
+{20010}{}{Very well. If you accept my terms I will perform your duties, and both parties will be pleased.}
+{21000}{}{Okay. It's a deal. I need a ton of areas scouted. Two million caps worth of exploration. [He laughs] Make damn sure you come back with new maps of super mutant activity near The Hub, Junktown, L.A, NCR, San Francisco, Redding, and Broken Hills. Once all those areas have been scounted come back to me, and I'll make the deal official. Oh, and for San Fran... I need the southern sectors, not the northern, or western ones.}
+{21010}{}{Fine. Goodbye.}
+{22000}{}{Thanks a million. Here's your receipt, and a couple of thousand caps for your trouble. You're a great soldier, I'll tell everyone. }
+

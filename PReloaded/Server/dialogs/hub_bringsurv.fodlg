@@ -1,0 +1,106 @@
+[comment]
+bring gear = xp doc bag etc
+
+[data]
+lang=engl russ
+
+[dialog]
+&
+1 1000 None 0 #
+4 1010 D _var p name_mem_npc_player = 0 D _var p hub_bringsurv = 0 #
+7 1020 D _var p name_mem_npc_player = 1 D _var p hub_bringsurv = 1 #
+5 1030 D _var p hub_bringsurv = 2 @
+4 2000 None 0 #
+2 2010 #
+0 2020 @
+2 3000 None 0 #
+6 3010 #
+0 3020 @
+5 4000 None 0 @
+6 5000 None 0 #
+0 5010 R _var p name_mem_npc_player = 1 R _var p hub_bringsurv = 1 #
+0 5020 R _var p name_mem_npc_player = 1 R _var p hub_bringsurv = 1 @
+7 6000 None 0 #
+9 6010 D _item p PID_9MM_MAUSER > 0 D _item p PID_9MM_BALL > 49 D _item p PID_LEATHER_JACKET > 0 D _item p PID_LEATHER_JACKET_HELMET > 0 D _item p PID_STIMPAK > 0 R _item p PID_9MM_MAUSER - 1 R _item p PID_9MM_BALL - 50 R _item p PID_LEATHER_JACKET - 1 R _item p PID_LEATHER_JACKET_HELMET - 1 R _item p PID_STIMPAK - 1 R _item p PID_DOCTORS_BAG + 1 R _item p PID_HYPODERMIC_NEEDLE + 2 R _item p PID_HN_NEEDLER_CARTRIDGE + 1 R _item p PID_FIRST_AID_KIT + 1 R _var p hub_bringsurv = 2 R _param p ST_KARMA + 1 R _param p REPUTATION_HUB + 30 R _var p CRIM + 1 R _script dialog@r_AddExperience 1 3000 R _item p PID_LIGHTER + 2 R _script dialog@r_BulkOrderRewardLow 0  R _script dialog@r_AddLootSetLevel1 0  #
+8 6020 #
+0 6030 @
+8 7000 None 0 #
+0 7010 @
+9 8000 None 0 #
+0 8010 &
+
+[engl]
+{100}{}{Billie}
+{200}{}{You see an inexperienced young woman.}
+{210}{}{She looks inexperienced, but very eager to get out into the wasteland.}
+{1000}{}{Predialogue installations}
+{1010}{}{not known}
+{1020}{}{known}
+{1030}{}{done}
+{2000}{}{[She looks at you as you approach] Hi, stranger. Got a minute?}
+{2010}{}{Sure, what's up?}
+{2020}{}{No. Goodbye.}
+{3000}{}{[She looks very frustrated, and embarrassed] I keep hearing all these cool stories about adventures, bandits, super mutants. And I really want to experience it for myself! But I have no idea where to start. You want to take me under your wing? Help me get started?}
+{3010}{}{Yeah okay.}
+{3020}{}{No, see ya.}
+{4000}{}{Thanks again! I'm almost ready to get out of here.}
+{5000}{}{[She smiles] Okay, cool! I guess I'll need some gear first, like... A Leather Jacket, A Leather Cap, A 9mm Mauser with 50x rounds, and a Stimpak! Yeah, that's it. If I had that I could just run out there and find my own adventure. Will you bring these items to me? Please? I'll give you all of my old medical gear. }
+{5010}{}{Sure, no problem. I'll be right back. }
+{5020}{}{Nah, maybe later.}
+{6000}{}{[She's just patiently waiting] Hi again, that was a big list eh? I'm really excited to get a hold of my first pistol! Any luck? Or did you forget what I needed?}
+{6010}{}{Get ready! I've got it all.}
+{6020}{}{Tell me what you needed again.}
+{6030}{}{Nothing yet, see ya. }
+{7000}{}{[She smiles] Okay, cool! I guess I'll need some gear first, like... A Leather Jacket, A Leather Cap, A 9mm Mauser with 50x rounds, and a Stimpak! Yeah, that's it. If I had that I could just run out there and find my own adventure. Will you bring these items to me? Please? I'll give you all of my old medical gear. }
+{7010}{}{Alright. See ya. }
+{8000}{}{[She smiles] Wow, thanks! This looks great, I'll be ready in no time. Wish me luck stranger! Here, have all of my old medical supplies. }
+{8010}{}{Thanks, goodbye.}
+{100000001}{}{Better wash the counter again...}
+{100000002}{}{That's 5 caps buddy. Hey did you hear me? Cough em' up.}
+{100000003}{}{Better change the keg...}
+{100000004}{}{RotGut? You drink that shit?}
+{100000005}{}{Domestic? I got B.E.E.R buddy, do you want one or not?}
+{100000006}{}{Fuckin' dust is getting everywhere. Hey close the fuckin' door!}
+{100000007}{}{I swear if the next asshole doesn't tip. Ima' shoot somebody!}
+{100000008}{}{I got bottles, I got shots, and I got a bat behind the counter for the retards. Your not a retard are you?}
+{100000009}{}{Uh-huh, yeah that's nice buddy. You don't say...What? Of course I'm listening...}
+{100000010}{}{That's 5 caps. FIVE CAPS Tribal! F.I.V.E! }
+{100000011}{}{Shut up and order a fuckin' beer already!}
+{100000012}{}{I swear if I have to serve another drunk, I'm getting the shotgun!}
+{100000013}{}{Look the keg went dry, and it's going to be another month until the caravan shows up again.}
+{100000014}{}{Really? You don't say, buy another drink or get out!}
+{100000015}{}{What? I'm on break.}
+{100000016}{}{Be right with ya'}
+{100000017}{}{Have a sit stranger. I'll be with you in a moment.}
+{100000018}{}{When do we close? Uh, when the place get's shot up, that's when!}
+{100000019}{}{We're fresh outta' cold beer, sorry. You'll just have to drink it warm.}
+{100000020}{}{RotGut? No man, go make that shit yourself! I wouldn't drink it!}
+
+[russ]
+{100}{}{Алкоголик}
+{200}{}{Вы видите пьяницу.}
+{210}{}{Вы видите шатающегося из стороны в сторону пьяного человека в лохмотьях. Лицо его распухло, нос синющий как слива. А аромат рядом с ним такой, что свалит брамина насмерть. Он что-то бормочет про себя и иногда громко поет песни.}
+{210}{}{Вы видите алкаша. Он весьма грязен - кажется, он повалялся в луже, но не особо этим расстроен.}
+{1000}{}{I?aaaeaeiaiaua onoaiiaee}
+{1010}{}{Answer text}
+{1020}{}{known}
+{1030}{}{done}
+{2000}{}{Thank you! Thank you! }
+{2010}{}{Head to the camp}
+{2020}{}{No. Goodbye.}
+{3000}{}{[This man is very sad] Hey again. Did you want to trade a shotgun for my old helmet? I'll got some shells here, just no gun. }
+{3010}{}{Yeah okay.}
+{3020}{}{No, see ya.}
+{4000}{}{Thanks again! You solved my problem.}
+{5000}{}{[She smiles] Okay, cool! I guess I'll need some gear first, like... A Leather Jacket, A Leather Cap, A 9mm Mauser with 50x rounds, and a Stimpak! Yeah, that's it. If I had that I could just run out there and find my own adventure. Will you bring these items for me? Please? I'll give you all of my old medical gear. }
+{5010}{}{Sure, no problem. I'll be right back. }
+{5020}{}{Nah, maybe later.}
+{6000}{}{[She's just patiently waiting] Hi again, that was a big list eh? I'm really excited to get a hold of my first pistol! Any luck? Or did you forget what I needed?}
+{6010}{}{Get ready! I've got it all.}
+{6020}{}{Tell me what you needed again.}
+{6030}{}{Nothing yet, see ya. }
+{7000}{}{[She smiles] Okay, cool! I guess I'll need some gear first, like... A Leather Jacket, A Leather Cap, A 9mm Mauser with 50x rounds, and a Stimpak! Yeah, that's it. If I had that I could just run out there and find my own adventure. Will you bring these items to me? Please? I'll give you all of my old medical gear. }
+{7010}{}{Alright. See ya. }
+{8000}{}{[She smiles] Wow, thanks! This looks great, I'll be ready in no time. Wish me luck stranger! Here, have all of my old medical supplies. }
+{8010}{}{Thanks, goodbye.}
+

@@ -1,0 +1,105 @@
+[comment]
+
+
+[data]
+lang=engl
+
+[dialog]
+&
+1 1000 None 0 #
+2 1010 D _var p q_hub_neo = 0 #
+3 1020 D _var p q_hub_neo = 1 #
+13 1030 D _var p q_hub_neo = 2 #
+4 1040 D _var p q_hub_neo = 3 #
+14 1050 D _var p q_hub_neo = 4 #
+5 1060 D _var p q_hub_neo = 5 #
+15 1070 D _var p q_hub_neo = 6 #
+6 1080 D _var p q_hub_neo = 7 #
+16 1090 D _var p q_hub_neo = 8 #
+8 1100 @
+2 2000 None 0 #
+3 2010 R _var p q_hub_neo = 1 #
+0 2020 @
+3 3000 None 0 #
+0 3010 R _var p q_hub_neo = 2 #
+0 3020 @
+4 4000 None 0 #
+0 4010 R _var p q_hub_neo = 4 #
+0 4020 @
+5 5000 None 0 #
+0 5010 R _var p q_hub_neo = 6 #
+0 5020 @
+6 6000 None 0 #
+0 6010 R _var p q_hub_neo = 8 #
+0 6020 @
+8 7000 None 0 @
+13 8000 None 0 #
+20 8010 D _item p PID_SHARPENED_POLE } 20 R _var p q_hub_neo = 3 R _script dialog@r_AddExperience 1 400 R _item p PID_LEATHER_JACKET + 1 R _item p PID_LEATHER_JACKET_HELMET + 1 R _item p PID_SHARPENED_POLE - 20 #
+0 8020 @
+14 9000 None 0 #
+20 9010 D _item p PID_ROPE } 5 R _var p q_hub_neo = 5 R _script dialog@r_AddExperience 1 300 R _item p PID_SHOTGUN_SHELLS + 40 R _item p PID_ROPE - 5 #
+0 9020 @
+15 10000 None 0 #
+20 10010 D _item p PID_METAL_PARTS } 10 R _var p q_hub_neo = 7 R _script dialog@r_AddExperience 1 350 R _item p PID_STIMPAK + 3 R _item p PID_METAL_PARTS - 10 #
+0 10020 @
+16 11000 None 0 #
+20 11010 D _item p PID_ALLOYS } 5 R _var p q_hub_neo = 9 R _script dialog@r_AddExperience 1 450 R _item p PID_SAWED_OFF_SHOTGUN + 1 R _item p PID_ALLOYS - 5 #
+0 11020 @
+20 12000 None 0 #
+4 12010 D _var p q_hub_neo = 3 #
+5 12020 D _var p q_hub_neo = 5 #
+6 12030 D _var p q_hub_neo = 7 #
+0 12040 &
+
+[engl]
+{100}{}{Neo Jr.}
+{200}{}{You see a Neo Jr.}
+{210}{}{This is no ordinary child.}
+{1000}{}{Predialogue installations}
+{1010}{}{Didn't take quest.}
+{1020}{}{Took quest 0/5.}
+{1030}{}{Took quest 1/5.}
+{1040}{}{Done quest 1/5.}
+{1050}{}{Took quest 2/5.}
+{1060}{}{Done quest 2/5.}
+{1070}{}{Took quest 3/5.}
+{1080}{}{Done quest 3/5.}
+{1090}{}{Took quest 4/5.}
+{1100}{}{Done}
+{2000}{}{Hello stranger! I`m Neo Jr. Noe`s older brother. Ya know, we had a party last night and let me tell ya, we bought the stuff in Reno and Noe  have seen some shit after last dose. He says that Rat God will flood the Earth with shit or something and i belive him. I`m helping him with the boat and i need few things. So, if you have free time I could use some help.}
+{2010}{}{Hmm, you sound crazy, but I think I'll help you.}
+{2020}{}{Fuck off!}
+{3000}{}{Ok, I need 20 sharpened poles, don't ask what for, just get them for me! I hope you know how to craft it... [Smiles]}
+{3010}{}{20? I hope I'll get rewarded.}
+{3020}{}{It's not for me.}
+{4000}{}{The boat will be awesome but i need some ropes, get me 5 and do it quickly!}
+{4010}{}{I`ll get them as soon as possible!}
+{4020}{}{Ropes, another fix-shit? I'm out of here!}
+{5000}{}{Ever heard about the quarry? I hope You did coz i need 10 metal parts. Bring me 10 and you wont regret it!}
+{5010}{}{I`ll craft metal parts with the iron from the quarry.}
+{5020}{}{Quarry? It`s not my place, cu.}
+{6000}{}{We are almost done with the boat, Last thing I need is alloys. Find 5 and come back to me!}
+{6010}{}{Will do it with plesure.}
+{6020}{}{All-yours? Fuck off!}
+{7000}{}{Row, row, row your boat,
+Gently down the stream.
+Merrily, merrily, merrily, merrily,
+Life is but a dream.}
+{8000}{}{Do you have 20 sharpened poles for me?}
+{8010}{}{Yes, got it all here.}
+{8020}{}{Nope, still working on that.}
+{9000}{}{Do you have 5 ropes for me?}
+{9010}{}{Yes, got it all here.}
+{9020}{}{Nope, still working on that.}
+{10000}{}{Do you have 10 metal parts for me?}
+{10010}{}{Yes, got it all here.}
+{10020}{}{Nope, still working on that.}
+{11000}{}{Do you have 5 alloys for me?}
+{11010}{}{Yes, got it all here.}
+{11020}{}{Nope, still working on that.}
+{12000}{}{Thanks for all the stuff, here's your reward.}
+{12010}{}{Do you have some other job for me?}
+{12020}{}{Do you have some other job for me?}
+{12030}{}{Do you have some other job for me?}
+{12040}{}{Good luck with your boat boy!}
+

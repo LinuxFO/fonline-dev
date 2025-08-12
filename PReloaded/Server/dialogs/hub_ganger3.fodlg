@@ -1,0 +1,202 @@
+[comment]
+dialog puzzle for hub
+
+[data]
+lang=engl russ
+
+[dialog]
+&
+1 1000 None 0 #
+2 1010 D _var p name_mem_npc_player = 0 D _var p hub_bombq = 0 #
+21 1020 D _var p hub_bombq = 1 #
+23 1030 D _var p hub_bombq = 5 #
+24 1040 D _var p hub_bombq = 10 #
+26 1050 #
+28 1060 D _var p hub_bombq = 7 #
+30 1070 D _var p hub_bombq = 8 @
+2 2000 None 0 #
+3 2010 #
+4 2020 #
+5 2030 D _param p ST_CHARISMA > 4 #
+6 2040 #
+0 2050 @
+3 3000 None 0 #
+4 3010 @
+4 4000 None 0 #
+5 4010 @
+5 5000 None 0 #
+7 5010 @
+6 6000 None 0 #
+7 6010 @
+7 7000 None 0 #
+8 7010 @
+8 8000 None 0 #
+9 8010 @
+9 9000 None 0 #
+10 9010 #
+0 9020 @
+10 10000 None 0 #
+0 10010 R _var p hub_bombq = 1 @
+20 11000 None 0 @
+21 12000 None 0 #
+22 12010 #
+0 12020 @
+22 13000 None 0 #
+0 13010 @
+23 14000 None 0 #
+27 14010 #
+29 14020 #
+29 14030 #
+27 14040 #
+27 14050 @
+24 15000 None 0 #
+25 15010 @
+25 16000 None 0 #
+0 16010 R _var p hub_bombq = 6 R _script dialog@r_AddExperience 1 500 @
+26 17000 None 0 @
+27 18000 None 0 #
+0 18010 R _var p hub_bombq = 7 R _script dialog@r_AddExperience 1 1250 R _item p PID_LEATHER_ARMOR + 1 @
+28 19000 None 0 @
+29 20000 None 0 #
+0 20010 R _var p hub_bombq = 8 R _script dialog@r_AddExperience 1 1500 R _item p PID_LEATHER_ARMOR + 1 R _item p PID_10MM_SMG + 1 R _item p PID_STIMPAK + 2 R _param p REPUTATION_HUB + 10 R _param p ST_KARMA + 1 @
+30 21000 None 0 &
+
+[engl]
+{100}{}{Crooked Old Man}
+{200}{}{You see a crooked old man.}
+{210}{}{This guy looks like he belongs out in the woods somewhere. His shirt is stained with booze. }
+{1000}{}{Predialogue installations}
+{1010}{}{not known}
+{1020}{}{known}
+{1030}{}{done}
+{1040}{}{fail}
+{1050}{}{fail final}
+{1060}{}{done mad}
+{1070}{}{done }
+{2000}{}{How d'you do there padner? Sure happen to fancy yourself to be a silver tongued devil, would ya? Great with ladies, and the gents? Know what I mean? Know what I mean? }
+{2010}{}{Well golly sir! I'm not a flit! }
+{2020}{}{Just what in the hell are you rambling on about?}
+{2030}{}{I'm pretty charismatic, why do you ask?}
+{2040}{}{No, I don't know what you mean. }
+{2050}{}{I gotta go. }
+{3000}{}{Now there padner, I ain't calling no one a flint or nothin', just trying to make some conversation here now. }
+{3010}{}{Oh, well gee mister I guess that's alright.}
+{4000}{}{Oh, I'm just asking bout' everyone I come across, that's'all. You look like one of them adventurer typers, figured you could get gone doing me a favour?  }
+{4010}{}{What kind of favour?}
+{5000}{}{Yeah'r you look like a pretty feller, I tell you. Must been nice growing up with them looker looks. But can ya use yer words all pretty like too? I mean'r sure you could just show em' yer ass or sumting, but this'r'l take more than that. }
+{5010}{}{What do you want?}
+{6000}{}{Yeah, you know what I mean, don't you lie.}
+{6010}{}{No, I seriously have no idea what you're talking about.}
+{7000}{}{I need'r someone that can get me a darn job done, one that ain't so much involving yer big arms, or tits. One that'r'l need to test yer wits and talker skills. One of them francy talky talk jobs, you know what I'm saying? }
+{7010}{}{Uh huh, go on...}
+{8000}{}{I got me a situation over at that bar over 'der, been a while since I've had a drink and a good time, know what I mean? Know what I mean?}
+{8010}{}{Yeah, so?}
+{9000}{}{Well if ye fancy yerself 'ta be a fancy fucker witch 'yer words. then I want'sta give yer ass a job. Ya just need to go over der to that damn bar, and tell the jerk in the leather jacket to see his boss. Now, he won't let ya in, but you gotta tell him "Dead Flowers". Ya say that, and yer in. }
+{9010}{}{Ok, sure. What's in it for me?}
+{9020}{}{This is starting to sound sketchy, I'm out.}
+{10000}{}{I got this 'ere 10mm SMG, and Leather Armor I ain't using, I'll give you that. You do a real fine job, and I'll throw in a little extra, but you do a bad job, and I'll take away the armor. Now this guy is a real tough guy, I would'nt mess with him. So don't do or say anything you'll regret. You remember to tell him "Dead Flowers" and he'll take you downstairs, to a bunch of boxes. A red one, a blue one, and a yellow one. You open one of them boxes, look inside and go from there. Easy, but don't pick the wrong box... It'll probably KILL you.}
+{10010}{}{What the hell am I getting myself into? I'd better stash my valuables before I head to the bar.}
+{11000}{}{Boy, howdy! You sure ain't no good witch 'yer talky talk!}
+{12000}{}{Oy, you don't look like you been gone doing that thing with the boxes! What gives?}
+{12010}{}{Just what the hell did you need me to do again?}
+{12020}{}{Whoops, completely forgot.}
+{13000}{}{Me an one of dem damn thugs got into a peculiar situation over at the Maltese. Go figure, he thinks his brain is more working than mine! Challenged me to a wit game! Smart me, I bought you! Go see em' down at the bar. Tell him "Dead Flowers" and I'll give you these 'ere travelling gear. Loser get's blown up, I reckon. }
+{13010}{}{Oh, right. }
+{14000}{}{Well boy, howdy! You look like you just been through Hell and right back! Yup! Yup! What's the news? What's the news!}
+{14010}{}{I'm going to fucking kill you!}
+{14020}{}{You never told me that I'd have to disarm a goddamn bomb! Then play Russian Roulette!}
+{14030}{}{Your explosive situation has been taken care of. For a game of wits it wasn't that hard. I'm just lucky to have survived the Russian Roulette!}
+{14040}{}{I want double the reward! Right. Now!}
+{14050}{}{You son of a bitch! I've got nothing but bad things to shout at you! So I'll just start shouting out curse words! [Verbally Abuse the man]}
+{15000}{}{What the hell happened to you?! Don't tell me! You got blowed up, didn't you?! Well goddamnit! Looks like I lose the goddamn contest!}
+{15010}{}{You lost the contest?! I'm lucky to be alive! Where's my damn reward?}
+{16000}{}{Ya thinkin' you deserve a reward for getting blown? Here! Have the damn gun, and get lost!}
+{16010}{}{Screw you!}
+{17000}{}{Ya def' blew it! Shoo!}
+{18000}{}{What?! You survived didn't ya? Here's your damn reward! Get lost!}
+{18010}{}{Screw you!}
+{19000}{}{Talk about an explosive situation, eh? }
+{20000}{}{They made you play Russian Roulette? Holy crap! That game is a challenge! You're lucky to be alive, ya know? I'd say you did a fine ass job solving my situation. We sure did beat that jerk at a game of wits, didn't we? Here! Have the gun, armor, and a little extra! Thanks again padner.}
+{20010}{}{Hey, thanks! Good luck out there.}
+{21000}{}{Pal! Been drinkin' all day! Thanks 'ta you's!}
+{100000001}{}{Better wash the counter again...}
+{100000002}{}{That's 5 caps buddy. Hey did you hear me? Cough em' up.}
+{100000003}{}{Better change the keg...}
+{100000004}{}{RotGut? You drink that shit?}
+{100000005}{}{Domestic? I got B.E.E.R buddy, do you want one or not?}
+{100000006}{}{Fuckin' dust is getting everywhere. Hey close the fuckin' door!}
+{100000007}{}{I swear if the next asshole doesn't tip. Ima' shoot somebody!}
+{100000008}{}{I got bottles, I got shots, and I got a bat behind the counter for the retards. Your not a retard are you?}
+{100000009}{}{Uh-huh, yeah that's nice buddy. You don't say...What? Of course I'm listening...}
+{100000010}{}{That's 5 caps. FIVE CAPS Tribal! F.I.V.E! }
+{100000011}{}{Shut up and order a fuckin' beer already!}
+{100000012}{}{I swear if I have to serve another drunk, I'm getting the shotgun!}
+{100000013}{}{Look the keg went dry, and it's going to be another month until the caravan shows up again.}
+{100000014}{}{Really? You don't say, buy another drink or get out!}
+{100000015}{}{What? I'm on break.}
+{100000016}{}{Be right with ya'}
+{100000017}{}{Have a sit stranger. I'll be with you in a moment.}
+{100000018}{}{When do we close? Uh, when the place get's shot up, that's when!}
+{100000019}{}{We're fresh outta' cold beer, sorry. You'll just have to drink it warm.}
+{100000020}{}{RotGut? No man, go make that shit yourself! I wouldn't drink it!}
+
+[russ]
+{100}{}{Алкоголик}
+{200}{}{Вы видите пьяницу.}
+{210}{}{Вы видите шатающегося из стороны в сторону пьяного человека в лохмотьях. Лицо его распухло, нос синющий как слива. А аромат рядом с ним такой, что свалит брамина насмерть. Он что-то бормочет про себя и иногда громко поет песни.}
+{210}{}{Вы видите алкаша. Он весьма грязен - кажется, он повалялся в луже, но не особо этим расстроен.}
+{1000}{}{I?aaaeaeiaiaua onoaiiaee}
+{1010}{}{Answer text}
+{1020}{}{known}
+{1030}{}{done}
+{1040}{}{fail}
+{1050}{}{fail final}
+{1060}{}{done mad}
+{1070}{}{done }
+{2000}{}{Thank you! Thank you! }
+{2010}{}{Head to the camp}
+{2020}{}{Exit into the wasteland}
+{2030}{}{Answer 3}
+{2040}{}{Answer 4}
+{2050}{}{I gotta go. }
+{3000}{}{Now there padner, I ain't calling no one a flint or nothin', but trying to make some conversation here now. }
+{3010}{}{Oh, well gee mister I guess that's alright.}
+{4000}{}{Oh, I'm just asking bout' everyone I come across, that's'all. You look like one of them adventurer typers, figured you could me gone doing me a favour?  }
+{4010}{}{What kind of favor?}
+{5000}{}{Yeah'r you look like a pretty feller, I tell you. Must been nice growing up with them looker looks. But can ya use yer words all pretty like too? I mean'r sure you could just show em' yer ass or sumting, but this'r'l take more than that. }
+{5010}{}{What do you want?}
+{6000}{}{Yeah, you know what I mean, don't you lie.}
+{6010}{}{No, I seriously have no idea what you're talking about.}
+{7000}{}{I need'r someone that can get me a darn job done, one that ain't so much involving yer big arms, or tits. One that'r'l need to test yer wits and talker skills. One of them talky talk jobs, you know what I'm saying? }
+{7010}{}{Uh huh, go on...}
+{8000}{}{That's all I got}
+{8010}{}{Yeah, so?}
+{9000}{}{Well if ye fancy yerself 'ta be a fancy fucker witch 'yer words. then I want'sta give yer ass a job. Ya just need to go over der to that damn bar, and tell the jerk in the leather jacket to see his boss. Now, he won't let ya in, but you gotta tell him "Dead Flowers". Ya say that, and yer in. }
+{9010}{}{Ok, sure. What's in it for me?}
+{9020}{}{This is starting to sound sketchy, I'm out.}
+{10000}{}{I got this 'ere 10mm SMG, and Leather Armor I ain't using, I'll give you that. You do a real fine job, and I'll throw in a little extra, but you do a bad job, and I'll take away the armor. Now this guy is a real tough guy, I would'nt mess with him. So don't do or say anything you'll regret. You remember to tell him "Dead Flowers" and he'll take you downstairs, to a bunch of boxes. A red one, a blue one, and a yellow one. You open one of them boxes, look inside and go from there. Easy, but don't pick the wrong box... It'll probably KILL you.}
+{10010}{}{What the hell am I getting myself into? I'd better stash my valuables before I head to the bar.}
+{11000}{}{Boy, howdy! You sure ain't no good witch 'yer talky talk!}
+{12000}{}{Oy, you don't look like you been gone doing that thing with the boxes! What gives?}
+{12010}{}{Just what the hell did you need me to do again?}
+{12020}{}{Whoops, completely forgot.}
+{13000}{}{Me an one of dem damn thugs got into a peculiar situation over at the Maltese. Go figure, he thinks his brain is more working than mine! Challenged me to a wit game! Smart me, I bought you! Go see em' down at the bar. Tell him "Dead Flowers" and I'll give you these 'ere travelling gear. }
+{13010}{}{Oh, right. }
+{14000}{}{Well boy, howdy! You look like you just been through Hell and right back! Yup! Yup! What's the news? What's the news!}
+{14010}{}{I'm going to fucking kill you!}
+{14020}{}{You never told me that I'd have to disarm a goddamn bomb!}
+{14030}{}{Your explosive situation has been taken care of. For a game of wits it wasn't that hard. I'm just lucky to have survived the Russian Roulette!}
+{14040}{}{I want double the reward! Right. Now!}
+{14050}{}{You son of a bitch! I've got nothing but bad things to shout at you! So I'll just start shouting out curse words! [Verbally Abuse the man]}
+{15000}{}{What the hell happened to you?! Don't tell me! You got blowed up, didn't you?! Well goddamnit! Looks like I lose the goddamn contest!}
+{15010}{}{You lost the contest?! I'm lucky to be alive! Where's my damn reward?}
+{16000}{}{Ya thinkin' you deserve a reward for getting blown? Here! Have the damn gun, and get lost!}
+{16010}{}{Screw you!}
+{17000}{}{Ya def' blew it! Shoo!}
+{18000}{}{What?! You survived didn't ya? Here's your damn reward! Get lost!}
+{18010}{}{Screw you!}
+{19000}{}{Talk about an explosive situation, eh? }
+{20000}{}{They made you plau Russian Roulette? Holy crap! That game is a challenge! You're lucky to be alive, ya know? I'd say you did a fine ass job solving my situation. We sure did beat that jerk at a game of wits, didn't we? Here! Have the gun, armor, and a little extra! Thanks again padner.}
+{20010}{}{Hey, thanks! Good luck out there.}
+{21000}{}{Pal! Been drinkin' all day! Thanks ta' you's!}
+

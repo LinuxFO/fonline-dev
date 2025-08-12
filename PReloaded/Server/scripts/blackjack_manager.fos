@@ -1,0 +1,60 @@
+/**<
+ *  Manager class for Blackjack module.
+ */
+ 
+#ifndef __BLACKJACK_MANAGER__
+#define __BLACKJACK_MANAGER__
+ 
+#include "blackjack.fos"
+ 
+class CBlackjackManager
+{
+    private array<CBlackjack@> games;
+ 
+    CBlackjackManager()
+    {
+        //  This will show that this is called twice for some reason, needs to be fixed, not sure how. Probably put constructor call somewhere to when the server starts?
+        //Log("BlackjackManager constructor called." + GetNumberOfGamesAvailable());
+        games = array<CBlackjack@>(0);
+    }
+ 
+    CBlackjack@ GetPlayerGame(uint playerId)
+    {
+        for (uint i = 0; i < games.length(); i++)
+        {
+            if (games[i].GetPlayerId() == playerId)
+            {
+                return games[i];
+            }
+        }
+        return null;
+    }
+ 
+    CBlackjack@ CreateNewGame(uint playerId, uint dealerId, int numberOfDecksInShoe)
+    {
+        CBlackjack bj = CBlackjack(playerId, dealerId, numberOfDecksInShoe);
+        games.insertLast(bj);
+        return bj;
+    }
+ 
+    void RemovePlayerGame(uint playerId)
+    {
+        for (uint i = 0; i < games.length(); i++)
+        {
+            if (games[i].GetPlayerId() == playerId)
+            {
+                games.removeAt(i);
+            }
+        }
+    }
+ 
+    int GetNumberOfGamesAvailable()
+    {
+        return games.length();
+    }
+};
+ 
+/**< I moved this here, but need to find a place for it, where it will run only once. */
+CBlackjackManager blackjackManager = CBlackjackManager();
+ 
+#endif // __BLACKJACK_MANAGER__

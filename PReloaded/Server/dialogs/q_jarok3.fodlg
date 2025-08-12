@@ -1,0 +1,72 @@
+[comment]
+
+
+[data]
+lang=engl
+
+[dialog]
+&
+1 1000 None 0 #
+2 1010 @
+2 2000 None 0 #
+3 2010 D _var p z_jarokq = 2 @
+3 3000 None 0 #
+4 3010 #
+5 3020 #
+10 3030 D _item p PID_BOTTLE_CAPS > 499 R _item p PID_BOTTLE_CAPS - 500 #
+6 3040 D _item p PID_BOTTLE_CAPS > 999 R _item p PID_BOTTLE_CAPS - 1000 #
+11 3050 D _item p PID_BOTTLE_CAPS > 1999 R _item p PID_BOTTLE_CAPS - 2000 #
+10 3060 D _item p PID_BOOZE > 0 D _item p PID_JET > 0 R _item p PID_BOOZE - 1 R _item p PID_JET - 1 #
+9 3070 #
+15 3080 @
+4 4000 None 0 #
+7 4010 @
+5 5000 None 0 #
+65507 5010 @
+6 6000 None 0 #
+8 6010 @
+7 7000 None 0 @
+8 8000 None 0 #
+0 8010 R _script dialog@r_TeleportToMap 2 350 666 @
+9 9000 None 0 #
+3 9010 @
+10 10000 None 0 @
+11 11000 None 0 #
+12 11010 R _script dialog@r_TeleportToMap 2 350 666 @
+12 12000 None 0 @
+15 13000 Attack 0 &
+
+[engl]
+{100}{}{Rick}
+{200}{}{You see Rick, the bouncer.}
+{210}{}{He's a big bald black man with a hooker by his side. He looks like he loves trouble.}
+{1000}{}{Predialogue installations}
+{1010}{}{Answer text}
+{2000}{}{What the-- Who the fuck are you, man?@@You smell pig? I can smell pig. What'chu want, bucko?@@I don't see no tat, beat it.@@This is a *private* party, and I don't see no damn invitation.@@The fuck we have here?}
+{2010}{}{I'm here for the party. Got cleaned up, and everything.}
+{3000}{}{[He gives you a menacing look over, and holds out his hand]}
+{3010}{}{[Shake it]}
+{3020}{}{[Punch him]}
+{3030}{}{[Hand him 500 caps]}
+{3040}{}{[Pull it towards you, and slap 1000 caps into his hand]}
+{3050}{}{[Throw a bag of 2000 caps at him, and walk inside]}
+{3060}{}{[Give him a bottle of booze, and a hit of Jet]}
+{3070}{}{What do you want?}
+{3080}{}{[Walk away]}
+{4000}{}{[He doesn't look impressed] Are you some kind of idiot, or something?}
+{4010}{}{Uh... no?}
+{5000}{}{[You barely make a dent attempting to move this massive mountain of a man. He reaches for his weapon, and the guards begin to do the same!]}
+{5010}{}{[Get ready for a fight!]}
+{6000}{}{Yeah! Now we're talkin'! Come right in, and take a load off! Enjoy the girls. I know I do. [He chuckles]}
+{6010}{}{Can't wait. I am here to party after all. }
+{7000}{}{Get the fuck out of my face before I start stabbing!}
+{8000}{}{Just don't fuck around. Stick to the main rooms, and don't go wandering if you know what's good for you. }
+{8010}{}{I'll do my best. }
+{9000}{}{The fuck? What the hell do you think, retard? I want some goddamn caps! Or... some Jet... AND! Some booze. Then I'll let you in.}
+{9010}{}{Hmm...}
+{10000}{}{Yeah, thanks for the loot. But it ain't enough. Beat it, sucker!}
+{11000}{}{[You throw the bag of caps at him and it tares open. Bottle caps fly everywhere. As Rick, and the hooker fumble around to pick them all up, you walk inside the bar]}
+{11010}{}{[Walk inside]}
+{12000}{}{Damnit, Cindy! Those are *mine*! Get your cum stained hands off my money!}
+{13000}{}{Where ya think you goin'?}
+

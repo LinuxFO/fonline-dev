@@ -1,0 +1,44 @@
+# Created on 17.10.2007 Cvet  
+
+#
+#
+#
+
+{4}{}{%d. }
+{5}{}{Current progress: }
+
+#
+# Number
+# Name
+#
+
+#
+# Number formula:
+#	VariableId * 1000 + Value (1-100) - The text that appears at a given value of the variable (current objective).
+#	VariableId * 1000 + 101 - Name of quest tab.
+#	VariableId * 1000 + 102 - Permanent quest description.
+
+#=======================================
+# 7112
+# Boneyard, Gun Runners Caravan
+#=======================================
+{7112001}{}{Marshall from the Gun Runners got a job for me. It's about a package that has been stolen by a group of Super Mutant remnants. He suggested to get a team of at least three people. It's dangerous but should be worth it.}
+{7112002}{}{The deal is clear: Marshall from the Gun Runners told me to bring him back the Gun Runners metal box with weapon manufacturing plans inside. The metal case is rigged with explosives, so we shouldn't touch them or it goes BOOM! He also told me that nobody else should get the package... Not the Brotherhood and not the Khans, not anyone else. 
+
+The mutants are using some heavy weaponry- our group should prepare for that.}
+{7112003}{}{The Gun Runners got their weapon manufacturing plans back. Marshall told me to visit Ralph for our payment.}
+{7112004}{}{The weapon manufacturing plans have been given to the Brotherhood of Steel. They made angry faces and played assholes, but at least they paid for it.
+
+:: Quest Completed ::}
+{7112005}{}{The weapon manufacturing plans have been given to the Khans. They seemed to be very happy about it.
+
+:: Quest Completed ::}
+{7112006}{}{The Super Mutant Remnants have abandoned their hideout. If we couldn't have picked up the Gun Runners package before, it is now gone forever.}
+{7112007}{}{The package is lost, quest failed.
+
+:: Quest Failed ::}
+{7112008}{}{I've got the payment from the Gun Runners, the job is done.
+
+:: Quest Completed ::}
+{7112101}{}{Boneyard: Gun Runners Caravan Package}
+{7112102}{}{Gun Runners Caravan Package}

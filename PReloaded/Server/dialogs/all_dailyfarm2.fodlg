@@ -1,0 +1,256 @@
+[comment]
+
+
+[data]
+lang=engl
+
+[dialog]
+&
+1 1000 None 0 #
+2 1010 @
+2 2000 None 0 #
+4 2010 D _var p z_dailyq1 = 13 D _script dialog@d_CommonTimeoutReady 0  R _script dialog@r_CommonTimeout 1 1 #
+5 2020 D _var p z_dailyq1 = 14 D _script dialog@d_CommonTimeoutReady 0  R _script dialog@r_CommonTimeout 1 1 #
+3 2030 D _var p z_dailyq1timeout = 0 #
+93 2040 D _var p z_dailyq1timeout = 1 D _item p PID_FIREWOOD > 4 R _var p z_dailyq1timeout = 4 R _item p PID_FIREWOOD - 5 R _param p ST_EXPERIENCE + 1000 R _param p ST_KARMA + 1 #
+93 2050 D _var p z_dailyq1timeout = 2 D _item p PID_METAL_PARTS > 1 R _var p z_dailyq1timeout = 4 R _item p PID_METAL_PARTS - 2 R _param p ST_EXPERIENCE + 1000 R _param p ST_KARMA + 1 #
+93 2060 D _var p z_dailyq1timeout = 3 D _item p PID_MEAT > 11 R _var p z_dailyq1timeout = 4 R _item p PID_MEAT - 12 R _param p ST_EXPERIENCE + 1000 R _param p ST_KARMA + 1 #
+92 2070 D _var p z_dailyq1 = 16 D _item p PID_WATER_BARREL > 0 R _var p z_dailyq1 = 17 R _param p ST_EXPERIENCE + 1000 R _item p PID_WATER_BARREL - 1 #
+0 2080 @
+3 3000 None 0 #
+3 3010 R _script dialog@r_JumpToRandomNode 3 1 3 10 @
+10 4000 None 0 #
+0 4010 R _var p z_dailyq1timeout = 1 @
+20 5000 None 0 #
+0 5010 R _var p z_dailyq1timeout = 2 @
+30 6000 None 0 #
+0 6010 R _var p z_dailyq1timeout = 3 @
+4 7000 None 0 #
+5 7010 R _script dialog@r_JumpToRandomNode 3 6 7 10 @
+5 8000 None 0 #
+5 8010 R _script dialog@r_JumpToRandomNode 3 8 9 10 @
+60 9000 None 0 @
+70 10000 None 0 #
+91 10010 @
+80 11000 None 0 @
+90 12000 None 0 #
+94 12010 @
+91 13000 None 0 #
+0 13010 R _var p z_dailyq1 = 16 @
+92 14000 None 0 @
+93 15000 None 0 @
+94 16000 None 0 #
+95 16010 D _item p PID_RADIO > 1 R _item p PID_RADIO - 1 #
+0 16020 @
+95 17000 None 0 #
+96 17010 #
+97 17020 #
+98 17030 #
+99 17040 @
+96 18000 None 0 #
+100 18010 @
+97 19000 None 0 #
+100 19010 @
+98 20000 None 0 #
+100 20010 @
+99 21000 None 0 #
+100 21010 @
+100 22000 None 0 #
+102 22010 R _script dialog@r_Roll 4 1 3 3 101 @
+101 23000 None 0 #
+104 23010 @
+102 24000 None 0 #
+103 24010 R _script dialog@r_NinjaKillNpc 1 119 @
+103 25000 None 0 @
+104 26000 None 0 #
+105 26010 #
+106 26020 #
+107 26030 #
+108 26040 @
+105 27000 None 0 #
+109 27010 R _script dialog@r_Roll 4 1 3 3 110 @
+106 28000 None 0 #
+109 28010 R _script dialog@r_Roll 4 1 3 3 111 @
+107 29000 None 0 #
+109 29010 R _script dialog@r_Roll 4 1 3 3 112 @
+108 30000 None 0 #
+109 30010 R _script dialog@r_Roll 4 1 3 3 113 @
+109 31000 None 0 @
+110 32000 None 0 #
+115 32010 R _script dialog@r_Roll 4 1 2 2 114 @
+111 33000 None 0 #
+115 33010 R _script dialog@r_Roll 4 1 2 2 114 @
+112 34000 None 0 #
+115 34010 R _script dialog@r_Roll 4 1 2 2 114 @
+113 35000 None 0 #
+116 35010 R _script dialog@r_Roll 4 1 2 2 117 @
+114 36000 None 0 #
+116 36010 R _var p z_dailyq1timeout = 1 @
+115 37000 None 0 #
+116 37010 @
+116 38000 None 0 #
+118 38010 R _script dialog@r_NinjaKillNpc 1 119 @
+117 39000 None 0 #
+119 39010 @
+118 40000 None 0 @
+119 41000 None 0 #
+120 41010 D _var p z_dailyq1timeout = 0 #
+121 41020 D _var p z_dailyq1timeout = 1 @
+120 42000 None 0 #
+123 42010 R _script dialog@r_Roll 4 1 2 2 122 @
+121 43000 None 0 #
+123 43010 R _script dialog@r_Roll 4 1 2 2 122 @
+122 44000 None 0 #
+124 44010 R _var p z_dailyq1 = 17 R _var p z_dailyq1timeout = 0 #
+125 44020 R _var p z_dailyq1 = 17 R _param p ST_EXPERIENCE + 1000 R _item p PID_BOTTLE_CAPS + 500 R _var p z_dailyq1timeout = 0 R _script dialog@r_BulkOrderRewardGuns 0  @
+123 45000 None 0 #
+103 45010 R _script dialog@r_NinjaKillNpc 1 119 @
+124 46000 None 0 @
+125 47000 None 0 &
+
+[engl]
+{100}{}{Unsettled}
+{200}{}{You see the unsettled.}
+{210}{}{Another slave without a master.}
+{1000}{}{Predialogue installations}
+{1010}{}{Answer text}
+{2000}{}{You don't belong here!@@You can't tell us what to do!@@You'll never stop us!@@You can't stop us!@@We don't need your help!@@Go away! This is our land!@@I don't think we're going to get along!@@No! You must leave at once!@@Get out of here, you land stealer!@@Why are you invading us?!@@Bring us Food! Then we'll join!@@Bring us Wood! Then we'll join!@@Bring us Metal Parts! Then we'll join!}
+{2010}{}{Time to negotiate the terms of your surrender.}
+{2020}{}{It's time for you to pay tribute to the NCR.}
+{2030}{}{What's it going to take for you to join the NCR?}
+{2040}{}{Here, on behalf of the NCR! 5 Wood.}
+{2050}{}{Here, on behalf of the NCR! 2 Metal Parts.}
+{2060}{}{Here, on behalf of the NCR! 12 Meat.}
+{2070}{}{Here. Your Water Crate. Welcome to the NCR.}
+{2080}{}{Fine. I'm leaving.}
+{3000}{}{I'd gladly join the NCR, even pay their taxes! If they can show me that they're actually here to help.}
+{3010}{}{That's fair. What kind of help do you need?}
+{4000}{}{I can't keep chopping Wood alone. If you think this NCR is worth my time, then how about you bring me 5 Wood?}
+{4010}{}{Fine. I'll be back.}
+{5000}{}{This place is falling apart! The NCR is rich, aren't they? Well! How about you bring me 2 Metal Parts?}
+{5010}{}{Fine. I'll be back.}
+{6000}{}{We're starving! If you're such heroes, help us! We need 12 Meat!}
+{6010}{}{Fine. I'll be back.}
+{7000}{}{Surrender?! Why should we do that?! We'll fight you!}
+{7010}{}{I've shown you already that the NCR is here to help! Give me your weapons! Right now!}
+{8000}{}{Tribute?! But we're poor! We have nothing!}
+{8010}{}{You can farm, can't you! You are to provide a quarter of your produce to the NCR. Starting immediately.}
+{9000}{}{No! Not from my cold dead hands! You'll never convince me!}
+{10000}{}{Fine! You've convinced us, okay! We surrender!}
+{10010}{}{Good. I'll let President Tandi know personally.}
+{11000}{}{No! Please! You can't do this! We'll die!}
+{12000}{}{Fine! We'll just starve then! Thank you, NCR!}
+{12010}{}{How about I teach you guys how to barter, scavenge, and survive out there?}
+{13000}{}{Can you at least bring back a water crate? From the Hub? We need one... please...}
+{13010}{}{Fine. I'll be back shortly.}
+{14000}{}{... yeah, thanks...}
+{15000}{}{Wow! It's a start! On behalf of everyone, thank you! So much!}
+{16000}{}{Uh... really? You'd do that? Sure, I guess! If I could learn how to better handle myself out there, then I guess I'd have nothing to fear, and would be a lot richer. Teach away. Do you have a Radio?}
+{16010}{}{Yup! Here you go!! Let's start your training!}
+{16020}{}{Uh... no, I'll be right back with a Radio for you, and myself.}
+{17000}{}{[You are attempting to train a Settler in order to better serve the NCR. Where would you like to start? You can only train them in up to one faculty]
+
+Settler Overview
+
+Health: 100%
+Small Guns: 50%
+Barter: 50%
+Outdoorsman: 50%
+Scavenging: 50%}
+{17010}{}{[Provide Weapons Training]}
+{17020}{}{[Provide Outdoorsman Training]}
+{17030}{}{[Provide Barter Training]}
+{17040}{}{[Provide Scavenging Training]}
+{18000}{}{[You have trained the Settler in the art of Combat]
+
+Settler Overview
+
+Health: 75%
+Small Guns: 75%
+Barter: 50%
+Outdoorsman: 50%
+Scavenging: 50%}
+{18010}{}{[Continue]}
+{19000}{}{[You have trained the Settler in the art of Merchantilism]
+
+Settler Overview
+
+Health: 75%
+Small Guns: 50%
+Barter: 75%
+Outdoorsman: 50%
+Scavenging: 50%}
+{19010}{}{[Continue]}
+{20000}{}{[You have trained the Settler in the art of the Scout]
+
+Settler Overview
+
+Health: 75%
+Small Guns: 50%
+Barter: 50%
+Outdoorsman: 75%
+Scavenging: 50%}
+{20010}{}{[Continue]}
+{21000}{}{[You have trained the Settler in the art of the Scavenger]
+
+Settler Overview
+
+Health: 75%
+Small Guns: 50%
+Barter: 50%
+Outdoorsman: 50%
+Scavenging: 75%}
+{21010}{}{[Continue]}
+{22000}{}{[Now that this Settler has been trained, they are ready to be sent out into the wasteland]}
+{22010}{}{[Wish them luck on their journey]}
+{23000}{}{[The Settler waves to you as they vanish into the wasteland]}
+{23010}{}{[Wait]}
+{24000}{}{[The Settler waves to you as they vanish into the wasteland]}
+{24010}{}{[Wait]}
+{25000}{}{**All of a sudden the Settler is killed by a stray bullet! They quickly fall to the ground, and the other Settlers are in shock!**}
+{26000}{}{[You must decide the actions of this Settler whilst they journey across the wasteland]}
+{26010}{}{[Order them to Scavenge the nearest location]}
+{26020}{}{[Order them to begin a Hunt]}
+{26030}{}{[Order them to Explore a place of interest]}
+{26040}{}{[Order them to not take any chances, and proceed straight to Town]}
+{27000}{}{"Ten-Four Rubber-Ducky! Scavenging the nearest location!"}
+{27010}{}{[Stand by]}
+{28000}{}{"You bet'cha! Beginning a Hunt!"}
+{28010}{}{[Stand by]}
+{29000}{}{"Gee-golly! If you say so! Wish me luck!"}
+{29010}{}{[Stand by]}
+{30000}{}{"You don't have to tell me twice! Heading straight to Town!"}
+{30010}{}{[Stand by]}
+{31000}{}{**Oh, God! What is that?! WHAT IS THA--!!**}
+{32000}{}{"Ten-Four Rubber-Ducky! Scavenging the nearest location!"}
+{32010}{}{[Stand by]}
+{33000}{}{"You bet'cha! Beginning a Hunt!"}
+{33010}{}{[Stand by]}
+{34000}{}{"Gee-golly! If you say so! Wish me luck!"}
+{34010}{}{[Stand by]}
+{35000}{}{"You don't have to tell me twice! Heading straight to Town!"}
+{35010}{}{[Stand by]}
+{36000}{}{"Hey, boss! I found something worth trading!"}
+{36010}{}{That's great! Now head over to Town!}
+{37000}{}{"Hmm, doesn't look like I found anything interesting"}
+{37010}{}{Damn! Okay, that's fine. Just head to Town.}
+{38000}{}{"Okay, boss! Found the road..."}
+{38010}{}{[Stand by]}
+{39000}{}{"Okay, boss! Found the road..."}
+{39010}{}{[Stand by]}
+{40000}{}{**all you can hear are gunshots over the radio**}
+{41000}{}{"Hey, Town! Awesome!"}
+{41010}{}{[Stand by]}
+{41020}{}{[Stand by]}
+{42000}{}{"Wish I had something to trade though. I'm heading back now!"}
+{42010}{}{Okay, see you soon.}
+{43000}{}{"After I sell what I found out there, I'll head right back!"}
+{43010}{}{Okay, see you soon.}
+{44000}{}{"I'm here, coming back to meet you. But I'm keeping the Radio, sorry."}
+{44010}{}{Okay, see you soon.}
+{44020}{}{Okay, see you soon.}
+{45000}{}{"I'm here, coming back to meet you. But I'm keeping the Radio, sorry."}
+{45010}{}{Okay, see you soon.}
+{46000}{}{Hi! Thanks for all your help! I didn't make any money, but I sure did learn a lot!}
+{47000}{}{Wow! That was great! I even made a profit! Thanks for all your help, @pname@!}
+

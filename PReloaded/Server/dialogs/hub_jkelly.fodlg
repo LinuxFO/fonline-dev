@@ -1,0 +1,273 @@
+[comment]
+
+
+[data]
+lang=engl
+
+[dialog]
+&
+1 1000 None 0 #
+2 1010 @
+2 2000 None 0 #
+43 2010 D _var p z_dailyq1 = 9 R _var p z_dailyq1 = 10 R _script quest_boss1sim@r_DeleteLoc 0  R _param p ST_EXPERIENCE + 2000 R _script dialog@r_AddMoney 1 2000 R _param p REPUTATION_HUB + 300 R _param p ST_KARMA + 5 R _script dialog@r_BulkOrderRewardGuns 0  #
+41 2020 D _var p z_dailyq1 = 1 #
+3 2030 D _var p q_tourist = 1 #
+3 2040 D _var p q_tourist = 1 #
+18 2050 D _var p q_mutar = 2 R _var p q_mutar = 3 R _script quest_mutar@r_DeleteLoc 0  R _param p ST_KARMA + 1 R _param p REPUTATION_HUB + 18 R _script dialog@r_AddMoney 1 250 R _script dialog@r_AddExperience 1 350 R _script dialog@r_CommonTimeout 1 1 R _script dialog@r_AddLootSetLevel1 0  #
+19 2060 D _var p q_mutar = 3 D _script dialog@d_CommonTimeoutReady 0  #
+14 2070 #
+0 2080 @
+3 3000 None 0 #
+4 3010 R _var p q_tourist = 2 R _script dialog@r_AddExperience 1 125 R _item p PID_10MM_AP + 4 R _item p PID_STIMPAK + 1 @
+4 4000 None 0 #
+40 4010 D _var p q_tourist = 2 #
+5 4020 #
+6 4030 #
+7 4040 #
+15 4050 #
+0 4060 @
+5 5000 None 0 #
+6 5010 #
+8 5020 #
+12 5030 #
+9 5040 #
+11 5050 #
+10 5060 #
+20 5070 #
+25 5080 #
+0 5090 @
+6 6000 None 0 #
+0 6010 D _var p q_mutar = 0 R _var p q_mutar = 1 R _script quest_mutar@r_SpawnLoc 0  #
+14 6020 @
+7 7000 None 0 #
+33 7010 #
+14 7020 @
+8 8000 None 0 #
+14 8010 @
+9 9000 None 0 #
+34 9010 #
+35 9020 #
+14 9030 @
+10 10000 None 0 #
+14 10010 @
+11 11000 None 0 #
+27 11010 @
+12 12000 None 0 #
+36 12010 #
+14 12020 @
+14 13000 None 0 #
+5 13010 #
+6 13020 #
+7 13030 #
+15 13040 #
+16 13050 #
+0 13060 @
+15 14000 None 0 #
+14 14010 #
+0 14020 @
+16 15000 None 0 #
+8 15010 #
+12 15020 #
+9 15030 #
+11 15040 #
+17 15050 #
+10 15060 #
+20 15070 #
+25 15080 #
+21 15090 #
+0 15100 @
+17 16000 None 0 #
+37 16010 #
+0 16020 @
+18 17000 None 0 #
+0 17010 @
+19 18000 None 0 #
+0 18010 R _var p q_mutar = 1 R _script quest_mutar@r_SpawnLoc 0  #
+0 18020 @
+20 19000 None 0 #
+21 19010 #
+14 19020 @
+21 20000 None 0 #
+22 20010 @
+22 21000 None 0 #
+23 21010 @
+23 22000 None 0 #
+24 22010 @
+24 23000 None 0 #
+14 23010 @
+25 24000 None 0 #
+26 24010 @
+26 25000 None 0 #
+14 25010 #
+0 25020 @
+27 26000 None 0 #
+28 26010 @
+28 27000 None 0 #
+29 27010 @
+29 28000 None 0 #
+30 28010 @
+30 29000 None 0 #
+31 29010 @
+31 30000 None 0 #
+32 30010 @
+32 31000 None 0 #
+14 31010 @
+33 32000 None 0 #
+14 32010 @
+34 33000 None 0 #
+14 33010 @
+35 34000 None 0 #
+14 34010 @
+36 35000 None 0 #
+14 35010 @
+37 36000 None 0 #
+38 36010 @
+38 37000 None 0 #
+39 37010 @
+39 38000 None 0 #
+14 38010 @
+40 39000 None 0 #
+14 39010 R _var p q_tourist = 3 R _script dialog@r_AddExperience 1 75 @
+41 40000 None 0 #
+42 40010 @
+42 41000 None 0 #
+0 41010 R _var p z_dailyq1 = 2 R _script quest_mutarsim@r_SpawnLoc 0  @
+43 42000 None 0 &
+
+[engl]
+{100}{}{Joe Kelly}
+{200}{}{You see Joe Kelly.}
+{210}{}{You see Joe Kelly, a Hub police officer.}
+{240}{}{You see Joe Kelly. He is dead.}
+{250}{}{You see Joe Kelly, a Hub police officer and damn, he is dead.}
+{260}{}{You see Joe Kelly. He is really dead.}
+{270}{}{You see Joe Kelly, a Hub police officer and damn, he is dead.}
+{1000}{}{Predialogue installations}
+{1010}{}{-}
+{2000}{}{Hello, fellow wanderer! Seems like you're new here in the Hub, eh? And from a vault as well.}
+{2010}{}{Well, Kelly, looks like my job here is complete. I took out that swarm of mutated rats, killed the dead beat, claimed a bounty, and took out a vault dweller.}
+{2020}{}{Howdy, Kelly, it's that time again. How's the city going? How's civilization coming along?}
+{2030}{}{Yeah, how can you tell?}
+{2040}{}{Where am I? What is this place?}
+{2050}{}{I took care of that swarm of mutated rats.}
+{2060}{}{Got any more rats to kill?}
+{2070}{}{Can I ask you something?}
+{2080}{}{Uhm, no I'm not from a vault. I... need to go now.}
+{3000}{}{This is where I hang out. I see everyone coming and going. But not everyone is wearing a silly looking jumpsuit. Actually, I've been seeing hundreds of you fools lately. What gives?}
+{3010}{}{I guess I can trust you, you're a cop after all. My vault just opened up. Something to do with a malfunction, I don't know. They sent us all out in droves. Now here I am. Wherever I am.}
+{4000}{}{You're in the Hub. It's a trade center for the wastes. It's the biggest city I know of - you can find just about any thing you could want here.  And if you're lookin' for work this is the place to be. It seems like just about everyone here is lookin' to hire you for somethin' be it legal or not. But the illegal stuff doesn't stay around for long. Here, have a few bullets and a Stimpak as my way of saying, "hello". I bet Custos sent ya, eh?}
+{4010}{}{You know Custos?}
+{4020}{}{What are all of these carts doing here?}
+{4030}{}{Where would I go to get a job?}
+{4040}{}{You are a cop, right? There's still cops out here?}
+{4050}{}{You said this was a trade center? Where can I buy something?}
+{4060}{}{Huh, thanks a lot. I'll be going now.}
+{5000}{}{Those are the caravans. They cart goods to just about every corner of the wastes, heh. Junktown, the Brotherhood, the NCR, Reno, or Redding, and numerous other places. Don't know all of 'em though. Necropolis and the Glow are the only areas they steer clear of, I think.}
+{5010}{}{Where would I need to go to get a job?}
+{5020}{}{The Brotherhood? Is that some sort of cult?}
+{5030}{}{What the hell is a junk town?}
+{5040}{}{Reno? The biggest little city in the world? I saw a billboard out there the other day. That place is still around?}
+{5050}{}{NCR sounds like something you shouldn't eat.}
+{5060}{}{What's a Red Ding?}
+{5070}{}{Necropolis? That like some sort of cemetary?}
+{5080}{}{The Glow? That sounds scary.}
+{5090}{}{Huh, thanks a lot. I'll be going now.}
+{6000}{}{You could just about ask any one here in the Hub. Or you can check one of the job bulletin boards, but no one's updated those in months. There are a few of them around the Hub. Definitely more jobs than people here. Actually, I've got a job for you if you think you can handle it. There's an infestation of mutated rats harassing my patrols. If you can take em' out I'll pay you 350 caps. [If you want to play this mission in Turn Based Mode make sure you set your default Combat Mode to it before accepting the job. To do this push enter and type "/combatmode tb"]
+}
+{6010}{}{Sure, show me where these rats are.}
+{6020}{}{I'll think about it, but there's something else I wanted to ask you instead.}
+{7000}{}{[He laughs] Yeah, we still got police, watch out. Civilization is trying to pull itself back together. My grandfather used to talk about how things were before. Sure glad they ain't as bad. You ever heard of a super mutant? [You give him a puzzled look] Nevermind. I'm the captain of the Hub Police, and my beat is the whole north of the city. All around the entrance area down towards the center. I'll keep you safe, don't you worry.}
+{7010}{}{What's a super mutant?}
+{7020}{}{Mind if I ask you another question?}
+{8000}{}{That place is to the northwest of here. They're a bunch of techno freaks who worship technology. Very spooky people. They might be interested in a vault dweller though. You could go over there and have a chat with them I'm sure. They're a lot friendlier than they were that's for sure. Used to just shoot everybody that found their camp, no shit.}
+{8010}{}{Can I ask you something else?}
+{9000}{}{The biggest little city in the world, man! With casinos, gambling, hookers, and drug addicts, heh. It's a rough place, but it's still around. Ain't nobody going to tare that place down. It's famous. Almost as famous as Nevada.}
+{9010}{}{Nevada?}
+{9020}{}{So who made the billboard?}
+{9030}{}{Sounds like fun, honestly. Can I ask you another question?}
+{10000}{}{No, no, Redding. One word. It's a mining town up north. The caravans are always off there. Huge gold rush happened a few years back. HUGE. The whole area was a massacre. Never seen so many idiots just fighting for resources before, damn. It was bad. But it should be a lot quieter now, I hope.}
+{10010}{}{Hmm. I've got some more questions...}
+{11000}{}{Oh no, the ... NEW California Republic! [He paints a big circle with his arms] It was some kind of small village years ago, but pretty recently it's been built up to be a pretty big city, almost as big as the Hub. Got themselves an... official President of this entire state. Can you believe that? Get a bunch of tribals together, give em' some fucking suits, guns, money, and BAM! They call themselves a government. Not a lot of people are happy about it. NCR likes to just show up, and start claiming ownership. Look out.}
+{11010}{}{Wow. This was a lot more than what I was expecting. I really thought I would be walking into a destroyed, abandoned world, but there's so much more to it than I thought.}
+{12000}{}{Junktown's in the north. It's the town made of junk, heh. Heard they built the town out of random pieces of junk, mostly broken cars and stuff. It looks basically like you'd expect. Some good people there, but they've got some big problems of their own as well. Some kind of monst... nevermind.}
+{12010}{}{Monst?}
+{12020}{}{There's something else I'd like to ask you.}
+{13000}{}{Ask away, I've pretty much got all day... at least until a fight breaks out, or someone starts stealing.}
+{13010}{}{What are all of these carts doing here?}
+{13020}{}{Where can I get a job? The Hub seems like a good place to work.}
+{13030}{}{You are a cop, right? There's still cops out here?}
+{13040}{}{You said this was a trade center? Where can I buy something?}
+{13050}{}{Let's talk about some of the cities out there.}
+{13060}{}{Ah nevermind, I need to go...}
+{14000}{}{Go down the road to the Merchant Market. It's a huge area, you can head in any direction and find something of interest. You can probably get whatever you want there too.  Within limits, of course. Like a said before, the Hub can be shifty, but we don't allow in your face crime like in some cities.}
+{14010}{}{I still have a few more questions...}
+{14020}{}{Well, thanks for the info. Bye.}
+{15000}{}{Yeah?}
+{15010}{}{The Brotherhood.}
+{15020}{}{Junktown.}
+{15030}{}{New Reno.}
+{15040}{}{The NCR.}
+{15050}{}{The Hub.}
+{15060}{}{Redding.}
+{15070}{}{Necropolis. Cemetary, right?}
+{15080}{}{The Glow.}
+{15090}{}{San Francisco.}
+{15100}{}{That's all what I wanted to know. Thanks.}
+{16000}{}{What do you want to know?}
+{16010}{}{So who's in charge around here? You guys got an Overseer?}
+{16020}{}{That's all for now. Thanks.}
+{17000}{}{Glad to hear, wanderer. Here's your caps. There's always rats poking their noses around the Hub, so if you want another contract come back in an hour, and just let me know. }
+{17010}{}{Thanks, I'll let you know.}
+{18000}{}{In a place like the Hub? Of course. I can give you another location if you're interested in going hunting.}
+{18010}{}{Sure, show me.}
+{18020}{}{Nah, not right now.}
+{19000}{}{Something like that. It's full of ghouls [He waits for you to give him a dumbfounded look. Which you do] They're irradiated humans, lost most of their skin. But some of them are still people deep down. Sad place, but I hear San Francisco wants to rebuild it.}
+{19010}{}{San Francisco?}
+{19020}{}{Interesting. Another question, if I may?}
+{20000}{}{San Francisco! It's where the Chinese landed!}
+{20010}{}{The Chinese? Didn't we... nuke them?}
+{21000}{}{Yeah, we sure did! [He laughs] But whatever was left of them immigrated here.}
+{21010}{}{Where is San Francisco?}
+{22000}{}{Far, far to the West. Near the ocean. It's a long journey, I wouldn't recommend it. Not much law and order around there either. Mercenaries, cults, and... Chinese.}
+{22010}{}{You don't trust the Chinese? What's going on over there?}
+{23000}{}{Eugh... not my place to say. Just odd how they start a damn war, and move here after they lose it. Who knows what they're planning. Maybe nothing at all. Maybe they're just a bunch of poor, lost men, and women looking for a new place to call home.}
+{23010}{}{Hmpf. What else do you know?}
+{24000}{}{*Sigh* Big crater. Big fucking hole. Nothing there, but the smell of burnt flesh. A nuke landed during the war, or something. Gotta stay clear from it. The radiation is still a hazard. Might be something down there though, who knows. I heard it used to be a secret military base before the war.}
+{24010}{}{I wonder how many more craters are out there?}
+{25000}{}{Not many around here. Who knows. Something else you want to know?}
+{25010}{}{Sure.}
+{25020}{}{No, not right now. Thanks.}
+{26000}{}{World changed since the bombs. The librarian used to say that dozens of vaults already opened up too. Lots of people came out, and made an impact on the world. You ever heard of THE Vault Dweller?}
+{26010}{}{THE Vault Dweller? You mean there was an original?}
+{27000}{}{Well, no, not exactly. There's a statue dedicated to him, and his legacy over in the NCR. Bastard inspired an entire generation. }
+{27010}{}{Doing what? Coming out of a vault?}
+{28000}{}{No. He was the man that came out of Vault 13.}
+{28010}{}{Vault 13? I've heard of that before. Our Overseer used to catch the odd recording from the surface. Something to do with a water chip, or something.}
+{29000}{}{What the hell is a water chip? The Vault Dweller stopped an army of super mutants from killing off this entire country. He was a hero.}
+{29010}{}{Oh, THAT Vault Dweller. Yeah I've heard of him. }
+{30000}{}{True hero, he was. Didn't care who he was helping, just... wanted to help. }
+{30010}{}{You realize it's probably just some stupid story, right? There's no such thing as a "hero". Look at this world. I see starving, sick, dying children left and right. You can't hide the frailty of it all from me. If there were any heroes out here, they wouldn't let any of this happen.}
+{31000}{}{You've got some big shoes to fill, bud. There's a lot about this world you need to see, and understand for yourself. The Vault Dweller was real. The things he did were real. Let's see you try to do something with yourself. In the same way the Dweller did.}
+{31010}{}{Enough about this damn Vault Dweller. Let's talk about something else.}
+{32000}{}{Your worse nightmare. Nevermind, I don't really want to talk about it.}
+{32010}{}{Oh, okay. Tell me about...}
+{33000}{}{There's a big freakin' city in Nevada. Or, so I hear. I've never been there. For all I know it don't even exist. I never made it further than California. Radiation gets too bad to walk it. But I've heard things over the radio. This whole country might be boomin' with life, who knows.}
+{33010}{}{I wonder what the Overseer would say if he found out? Let's talk about something else...}
+{34000}{}{Billboards have been up since before the bombs, I think. I really don't know. Good question.}
+{34010}{}{Yeah, weird. Can I ask you another question? Please?}
+{35000}{}{Monster! [He laughs] Crazy assholes in Junktown think their town is haunted, or something. Pretty funny. Probably some local kids playing a prank if you ask me.}
+{35010}{}{That's pretty funny. I guess. Can I ask you something else?}
+{36000}{}{An Overseer? Oh man! That's fresh! You're killing me with your lingo, you know that right? }
+{36010}{}{Well golly mister. I didn't mean nothing.}
+{37000}{}{Haha! There you go again! Oh man. You're alright.}
+{37010}{}{Seriously, who's in charge around here?}
+{38000}{}{That would be Sheriff Andrew Hayden, and his partner Durango. They maintain the law and order. But the heads of the caravan companies take care of all the paper work, and money counting. It's a joint process really. They might bicker here and there, but it's a real democracy. None of that NCR shit.}
+{38010}{}{Thanks, can I ask you something else?}
+{39000}{}{Sure do. He's on the run! [He laughs] But that's a long story, don't worry about it. Women, you know? Speaking of that... my cousin is a dead beat dad, and his little girl is over in old town probably all by herself. If you got the time can you head over there and check up on her for me?}
+{39010}{}{I don't even know where Old Town is, but I'll think about it. Can I ask you another question?}
+{40000}{}{Well, @pname@, despite your actions out there... good, or bad... things are looking up. We've got enough resources to keep up the struggle, but crime is still a problem. That, and rats, ghouls, and roaming deathclaw.}
+{40010}{}{As long as you aren't trying to arrest me I'm willing to help out. I like the few luxuries we still have left. Would be a shame if the city fell.}
+{41000}{}{Alright, listen up then. This one is a bonus to all of us, despite the... sacrifice. I need you to help me take out a squad of rats, get rid of a dead beat for the FLC, take care of a local bounty, and kill that Vault Dweller I keep hearing about in Old Town. In that order, actually. I'll have the usual waiting for you when you get back. But these are all extremely tougher than usual.}
+{41010}{}{[Get to work]}
+{42000}{}{Heh, yeah, you sure did some damage out there. Good work. I'd say you've earned this. Come back tomorrow, and let's do it again, eh?}
+

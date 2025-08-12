@@ -1,0 +1,54 @@
+[comment]
+
+
+[data]
+lang=engl
+
+[dialog]
+&
+1 1000 None 0 #
+2 1010 @
+2 2000 None 0 #
+3 2010 D _var p z_jarokq = 1 @
+3 3000 None 0 #
+4 3010 @
+4 4000 None 0 #
+5 4010 @
+5 5000 None 0 #
+6 5010 @
+6 6000 None 0 #
+7 6010 @
+7 7000 None 0 #
+8 7010 @
+8 8000 None 0 #
+9 8010 @
+9 9000 None 0 #
+10 9010 @
+10 10000 None 0 #
+0 10010 R _var p z_jarokq = 2 R _script quest_jarok@r_SpawnLoc 0  &
+
+[engl]
+{100}{}{James}
+{200}{}{You see James, a veteran guard of the Gun Runners. }
+{210}{}{He looks tired of your shit. }
+{1000}{}{Predialogue installations}
+{1010}{}{Answer text}
+{2000}{}{Why are you talking to me? The store's inside, bud.@@Yeah, so? I don't care. Get inside, or get lost.@@This is the Gun Runners. I hope you got caps.@@Get out of my face, punk.@@This ain't the Hub, remember that! We shoot people here.}
+{2010}{}{James? You know a Will? Over in Junktown?}
+{3000}{}{Yeah, so? What happened to him? The crazy bastard finally get himself killed?}
+{3010}{}{No, but his daughter might've.}
+{4000}{}{Sandy? Fuck off! Don't joke about that shit. It's not funny.}
+{4010}{}{Nah, I wish I was joking. Will's drowning himself in booze over in Junktown trying to find somebody to help him look for the kid.}
+{5000}{}{Ah, shit. Fuck... fuck... fuck... }
+{5010}{}{What? You know something Will doesn't?}
+{6000}{}{Fuck, man. Couple of weeks ago some punk slavers came by to unload an ass load of weapons. I overheard a couple of them talking about some bar they "kept girls in". }
+{6010}{}{Huh... interesting. What else do you remember?}
+{7000}{}{Too much. You want to go check the place out? I'd go with, but I'm stuck here. My contract is super strict. Don't get me wrong, I love Sandy, and would do just as much as her father to see her home safe and sound. But I really can't get out of this.}
+{7010}{}{Fine. Give me the location. I'll have a look, or something.}
+{8000}{}{Across the mountains, near where the roads meet. There's no life anywhere, except his one building just outside of city ruins. I've been hearing about it for a while now, but those punk slavers def' came from there. I'm positive. Burn it to the ground, for all I care. }
+{8010}{}{Sounds like a real dive. }
+{9000}{}{Might be fun, you never know. But if they're really selling kids off come back here, and tell me. I know a few detectives interested in stopping the sex trade.}
+{9010}{}{Yeah, me too. Vice, and sin, it's everywhere. }
+{10000}{}{[He marks the general location on your map, and you spend a few minutes trying to accurately pinpoint the location] The worse of the worse might be here though... I'd bring some firepower with me. Just a heads up. }
+{10010}{}{Everywhere is the same, I'll be fine. Thanks for the info, James.}
+

@@ -1,0 +1,97 @@
+[comment]
+
+
+[data]
+lang=engl
+
+[dialog]
+&
+1 1000 None 0 #
+2 1010 @
+2 2000 None 0 #
+3 2010 @
+3 3000 None 0 #
+4 3010 @
+4 4000 None 0 #
+5 4010 @
+5 5000 None 0 #
+6 5010 @
+6 6000 None 0 #
+7 6010 @
+7 7000 None 0 #
+8 7010 @
+8 8000 None 0 #
+9 8010 @
+9 9000 None 0 #
+10 9010 @
+10 10000 None 0 #
+11 10010 @
+11 11000 None 0 #
+12 11010 @
+12 12000 None 0 #
+13 12010 @
+13 13000 None 0 #
+14 13010 @
+14 14000 None 0 #
+15 14010 R _var p hub_decision1 = 1 #
+16 14020 R _var p hub_decision1 = 2 @
+15 15000 None 0 #
+16 15010 @
+16 16000 None 0 #
+17 16010 @
+17 17000 None 0 #
+18 17010 @
+18 18000 None 0 #
+19 18010 @
+19 19000 None 0 #
+20 19010 @
+20 20000 None 0 #
+0 20010 R _script dialog@r_AddExperience 1 5000 R _var p noire5 = 6 R _script quest_noire8@r_SpawnLoc 0  R _script dialog@r_TeleportToMap 2 153 666 R _script quest_noire5@r_DeleteLoc 0  R _script quest_noire6@r_DeleteLoc 0  R _script quest_noire7@r_DeleteLoc 0  &
+
+[engl]
+{100}{}{Mysterious Stranger!}
+{200}{}{You see a psychotic looking ghoul dressed in a suit made out of human skin!}
+{210}{}{You are going to kill this man, so much! Your heart is racing with every passing moment that your hands are not around his feeble neck!
+}
+{1000}{}{Predialogue installations}
+{1010}{}{Answer text}
+{2000}{}{You... awaken...}
+{2010}{}{What kind of sick darkness brought you into this world?}
+{3000}{}{The... darkness... inside... the... heart... of... man... We've... changed... with... this... world... Evolved... where... man... could... not... The... skin... keeps... us... whole... gives... us... a... body... We... cannot... feel... the... light... without... a... body...}
+{3010}{}{What are you going to do with me? Why haven't you killed me yet?}
+{4000}{}{Your... skin... is... so... precious... we... should... not... spoil... it... just... yet... With... your... body... we... will... make... the... perfect... suit... One... so... radiant... in... its... beauty... so... pure... of... heart... perfection...}
+{4010}{}{You people make me sick. But I'm curious... why hide behind a mask?}
+{5000}{}{Nobody... cared... for... who... we... were... until... we... put... on... the... masks... you... may... have... seen... the... light... but... by... the... time... it... reached... us... it... was... merely... blinding... A... new... glow... came... from... the... East... so... we... rise... again! Inspired... by... its... beauty!}
+{5010}{}{Light this, light that, yeah, yeah. It's always a psychological thing, isn't it? Ya'll are just a bunch of crazy fanatics, cutting up little kids, and wearing them as hats. I get it, I get it. We all want some attention now and again. It's okay, kiddo. Lighten up, will ya?}
+{6000}{}{[He slides out a very, very sharp looking knife and pulls it towards you, creeping in closer, and closer with every spoken word] I... am... becoming... death... des... tro... yer... of... *cough* *cough!*... worlds... when... we... wear... the... flesh... we... feel... the... sun...light... we... live... again... we... are... one... again... we ... are... whole... again... we... are... human!... Again!}
+{6010}{}{[Pull off his grotesque human mask]}
+{7000}{}{[The crazed ghoul screams out in agony] My... face!... Give... me... back... my... face!.... You... don't... understand!... You... still... have... your... skin! You... still... have... human... skin!... You... still... have... it!... You... don't... under... stand!}
+{7010}{}{[Pull the grotesque human mask over your face, and wear it]}
+{8000}{}{[A cold, dark feeling overcomes you, and you drift off into another world. A world where you can feel warm again. For what seems like an eternity. time passes as you remember all the people you've ever lost, and how much you miss them]}
+{8010}{}{[Rip the mask off your face and scream!]}
+{9000}{}{[Something tears at you, clawing at your soul with each second that the mask is not over your face. You can feel the urge to vomit rise up inside the pit of your stomach, and all over the desert sand of the Californian wasteland]}
+{9010}{}{[Vomit violently, gasping for breath!]}
+{10000}{}{[The crazed ghoul seems surprised, and is trying to smile behind his decaying, bloodied gray eyes] Now... you... know... what... it... is... like... human...}
+{10010}{}{You people are fucking animals! You!... You can't bring back the old world by wearing someone's fucking skin! It doesn't... it just doesn't work that way!}
+{11000}{}{Did... you... not... feel... what... we... feel... under... the... skin?}
+{11010}{}{No... I... I... felt...}
+{12000}{}{Do... not... deny... this... bond... we... have... created... The... skin... has... chosen... you...}
+{12010}{}{Yes... maybe... just... one... more... time... [Reach for the mask]}
+{13000}{}{[The ghoul kicks the mask towards you as you stumble closer to its landing] Go... on... [Says the ghoul] Feel... the... light... one... more... time...}
+{13010}{}{[Pick up the mask]}
+{14000}{}{Yes... yes... behold... your... new... face...}
+{14010}{}{No, no! This isn't right! This isn't right at all! I'd rather be wearing a ghoul mask! Your... skin... is... so... precious! Give it to me!}
+{14020}{}{[Pull the mask over your face, and wear it]}
+{15000}{}{[Almost a dozen ghouls wearing human suits rush towards you, and pin you down. Their leader picks up the mask and pulls it over your face, forcing you to wear it despite your best efforts to resist]}
+{15010}{}{No! No! Not again! Please! No!}
+{16000}{}{[A cold, dark feeling overcomes you, and you drift off into another world. A world where you can feel warm again. For what seems like an eternity. time passes as you remember all the people you've ever lost, and how much you miss them]}
+{16010}{}{Cira! Cira!! Ciraaaaaa!!!}
+{17000}{}{[You are young again. Back in the Vault. Your best friend Cira in your arms. You are playing a game you can't remember, but you are happy playing it. It's safe there. But you have no parents, and that makes you sad]}
+{17010}{}{Why... am... I... so... alone... }
+{18000}{}{[Darkness looms over you, but feels warm to the touch. You are safe here, burning. Everyone you have ever loved is dead, and you are completely alone. You are happy giving yourself up to the nothingness that is the void, because it is all you have left]}
+{18010}{}{Just... kill... me... please... you... you... can... have... the... skin...}
+{19000}{}{[You feel warm, and happy. You are dying here. Alone. Afraid. You can hear the whispering wings of death approaching from the darkness. You are ready. You are eager to let it all go, and surrender to the black]}
+{19010}{}{Yes... I... am... becoming... death... des... tro... yer... of... worlds...}
+{20000}{}{[A sharp blade pierces its way into your stomach, and you can feel the warm blood spilling out from your gut. You are happy here, dying. Because everyone you have ever loved is dead. It is warm here, and you are alone]}
+{20010}{}{[Go into the darkness]}
+

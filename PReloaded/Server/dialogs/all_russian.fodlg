@@ -1,0 +1,36 @@
+[comment]
+
+
+[data]
+lang=engl
+
+[dialog]
+&
+1 1000 None 0 #
+2 1010 @
+2 2000 None 0 #
+2 2010 D _item p PID_BOTTLE_CAPS > 9999 R _script dialog@r_JumpToRandomNode 3 1 2 10 R _item p PID_BOTTLE_CAPS - 10000 #
+0 2020 @
+10 3000 None 0 #
+4 3010 R _script dialog@r_ToDead 1 117 R _script dialog@r_PlaySoundGun 1 2 @
+20 4000 None 0 #
+3 4010 R _script dialog@r_AddMoney 1 20000 R _script dialog@r_PlaySoundGun 1 3 R _param p ST_KARMA - 3 @
+3 5000 None 0 @
+4 6000 None 0 &
+
+[engl]
+{100}{}{American Roulette Party}
+{200}{}{You see an opportunity to gamble!}
+{210}{}{I can gamble here! Hooray!}
+{1000}{}{Predialogue installations}
+{1010}{}{Answer text}
+{2000}{}{Care for a game of American Roulette? Fifty/Fifty chance at either double your money, or drawing a Picasso all over the wall over there. High rollers only. Min bet ten grand.}
+{2010}{}{Let's do it. Shoot me.}
+{2020}{}{No way! I'm gone.}
+{3000}{}{Roll the cylinder!}
+{3010}{}{[Gamble your life away]}
+{4000}{}{Roll the cylinder!}
+{4010}{}{[Gamble your life away]}
+{5000}{}{*click*}
+{6000}{}{*You hear the silent whisper of a bullet penetrating someone's brain!*}
+

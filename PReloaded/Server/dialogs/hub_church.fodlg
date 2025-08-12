@@ -1,0 +1,126 @@
+[comment]
+
+
+[data]
+lang=engl
+
+[dialog]
+&
+1 1000 None 0 #
+2 1010 @
+2 2000 None 0 #
+27 2010 D _var p camp_evil = 1 #
+22 2020 D _var p q_tourist = 7 #
+19 2030 D _var p q_church1 = 2 #
+3 2040 D _param p ST_KARMA } 0 D _var p q_church1 = 0 #
+0 2050 D _param p ST_KARMA } 0 @
+3 3000 None 0 #
+4 3010 @
+4 4000 None 0 #
+5 4010 @
+5 5000 None 0 #
+6 5010 @
+6 6000 None 0 #
+7 6010 @
+7 7000 None 0 #
+8 7010 @
+8 8000 None 0 #
+9 8010 @
+9 9000 None 0 #
+10 9010 @
+10 10000 None 0 #
+11 10010 @
+11 11000 None 0 #
+12 11010 @
+12 12000 None 0 #
+13 12010 @
+13 13000 None 0 #
+14 13010 @
+14 14000 None 0 #
+15 14010 @
+15 15000 None 0 #
+16 15010 @
+16 16000 None 0 #
+17 16010 @
+17 17000 None 0 #
+18 17010 R _var p q_church1 = 1 @
+18 18000 None 0 @
+19 19000 None 0 #
+20 19010 @
+20 20000 None 0 #
+21 20010 R _var p q_church1 = 3 R _script dialog@r_AddExperience 1 3500 R _param p ST_KARMA + 2 R _param p REPUTATION_HUB + 7 R _param p REPUTATION_JUNKTOWN + 7 R _param p REPUTATION_NCR + 7 R _item p PID_TENT + 1 @
+21 21000 None 0 @
+22 22000 None 0 #
+23 22010 @
+23 23000 None 0 #
+24 23010 @
+24 24000 None 0 #
+25 24010 @
+25 25000 None 0 #
+26 25010 @
+26 26000 None 0 #
+26 26010 #
+0 26020 R _var p q_tourist = 8 R _script dialog@r_AddExperience 1 500 R _item p PID_FLOWER + 1 R _item p PID_STIMPAK + 1 R _script dialog@r_AddLootSetLevel1 0  @
+27 27000 None 0 &
+
+[engl]
+{100}{}{Father O'shaughnessy}
+{200}{}{You see a phlegmatic priest.}
+{210}{}{Too much blood and broken bones.}
+{1000}{}{Predialogue installations}
+{1010}{}{Answer text}
+{2000}{}{Blessed is he who, in the name of charity and good will, shepherds the weak through the valley of the darkness.@@The path of the righteous man is beset on all sides by the inequities of the selfish and the tyranny of evil men.@@I will give you a new heart and put a new spirit in you; I will remove from you your heart of stone and give you a heart of flesh.@@The hand of the LORD was on me, and he brought me out by the Spirit of the LORD and set me in the middle of a valley; it was full of bones.@@The one who sins is the one who will die. The child will not share the guilt of the parent, nor will the parent share the guilt of the child. The righteousness of the righteous will be credited to them, and the wickedness of the wicked will be charged against them.@@Now this was the sin of your sister Sodom: She and her daughters were arrogant, overfed and unconcerned; they did not help the poor and needy.}
+{2010}{}{Do you know where I can find a spaceship?}
+{2020}{}{Is... is this a real church? What's with all the people outside? Screaming...?}
+{2030}{}{I did as you asked, Father. There is a man on his way to see you from Redding. He will show you what you want to know.}
+{2040}{}{Hello, Father.}
+{2050}{}{Sorry, I have to go.}
+{3000}{}{Yet you ask, 'Why does the son not share the guilt of his father?' Since the son has done what is just and right and has been careful to keep all my decrees, he will surely live.@@Say to them, 'As surely as I live, declares the Sovereign LORD, I take no pleasure in the death of the wicked, but rather that they turn from their ways and live. Turn! Turn from your evil ways! Why will you die...@@And in the fire was what looked like four living creatures. In appearance their form was human...@@Under their wings on their four sides they had human hands. All four of them had faces and wings@@When the living creatures moved, the wheels beside them moved; and when the living creatures rose from the ground, the wheels also rose.}
+{3010}{}{What's wrong with you?}
+{4000}{}{The Lord said that he would come again, like a fire... but where is this Lord? I see nothing but darkness. Each day the bodies of the many pile high, and I put them back with the Mother. I am so very tired... so very tired.}
+{4010}{}{You can't spend your whole life waiting for something supernatural to happen, Father.}
+{5000}{}{I don't even believe in God. I am here for moral support. Maybe I can teach these animals how to stop killing each other. People used to bury their dead, put them in wooden boxes. Coffins. Now they just throw them in a hole, with everything they still had in their pockets.}
+{5010}{}{Are you saying that there's loot in those graves?}
+{6000}{}{I fucking guess so. If you want to taint whatever is left of your soul, why don't you go grab an old shovel and dig some up? You fucking animals...}
+{6010}{}{Wow! Why don't you relax, Father? I'm not your enemy. }
+{7000}{}{Enemy, maybe not to me. But to mankind. How many have you killed? How can you people justify it? It's a curse, you know... Killing, just killing... for the sake of just killing. I read somewhere that there used to be rules... tradition... Help me bring this back! Please!}
+{7010}{}{How could I possibly do that?}
+{8000}{}{By at least trying! Damn you wastelanders! You care for nothing but caps! Bottle caps drive your wicked heart! They fuel the horrible fire! BOTTLE CAPS!}
+{8010}{}{Not always. Sometimes I want to help just for the experience.}
+{9000}{}{Help... is that even a word you can understand? }
+{9010}{}{I've done more than you'll ever know... and much worse than I'll tell. But I see a broken world that needs fixing. I wouldn't be offering if I didn't care.}
+{10000}{}{Do you know how hard it was for me to convince even a small amount of wastelanders to start burying their dead? I... don't even know how to dig a grave... I... just figured... it could... help... these.. .people.}
+{10010}{}{Is that what that smell is? Decaying bodies?}
+{11000}{}{Yes, it is... the pounds of flesh taken by force for some twisted tale of justice. I tried digging deeper, but it still doesn't stop the smell.}
+{11010}{}{What do you need from me anyways? You want me to dig you some better graves?}
+{12000}{}{No... I... want you to find out how to dig a proper grave. I hear there is a man up north, somewhere, who knows more about proper burial. }
+{12010}{}{Somewhere up north? That's pretty vague, Father. You want me to scour the wastes looking for a stranger that might not even exist?}
+{13000}{}{If willing, God will guide you... so they say. }
+{13010}{}{I don't care much for Gods, there, Father.}
+{14000}{}{God. There is only one. It isn't several. It is above us. That is all you should accept. If man did not see God as a higher being, man would be considered god.}
+{14010}{}{Man isn't worthy of being a god.}
+{15000}{}{Not yet anyway... but perhaps... you, and I... we can change things? Everything starts from a beginning. The end is merely a conclusion.}
+{15010}{}{[Stare out into the void] I tell myself that everyday, Father. I want to help, I really do. But how? Running around looking for some stupid grave design isn't going to do shit.}
+{16000}{}{You don't have to understand! You just have to be willing to help me! Can't you see?! It isn't the actions that define us! It's what we feel in our hearts! This world just needs more people thinking with their heart, and not their wallets! Or their mouths! Or their goddamn genitals!}
+{16010}{}{You... you're right, Father. I'll keep this in mind. But what do you need exactly?}
+{17000}{}{Please, find out how to properly bury the dead. Without that awful stench. There is a man up north, somewhere, who can help you. But it is only a rumour. Someone out there must know how to deal with a man's last breath...}
+{17010}{}{Last breath? Hmm... Well, Father, I'll be back, I guess... Good luck with your dreams, Padre.}
+{18000}{}{Only when it is right, will we meet again. Farewell, wastelander.}
+{19000}{}{He calleth me to you, child. As you were called upon me. Have you felt the good light shine above you? Felt the heat upon your face? From the rising of the sun to its setting? Their line has gone out through all the earth, and their utterances to the end of the world in them, he has placed a tent for the sun as thanks.}
+{19010}{}{Uh... thanks?}
+{20000}{}{Should the weak thank the strong? Or the strong thank the weak? There is no need for that here, child. You may thank me when this new world has changed. When the children smile again, and all water is pure to drink. But that time will never come. And so, we should part our ways. Take my blessing, but it is up to you if you wish to carry on. Goodbye, wanderer.}
+{20010}{}{[Feel cold, and empty]}
+{21000}{}{For we are sojourners before You, and tenants, as all our fathers were; our days on the earth are like a shadow, and there is no hope.}
+{22000}{}{The world is sick, diseased beyond cure. These people all flock to the voice of God, and cry out, hoping for a saviour; an answer. Is that not why you came as well? I can see it in your eyes, newcomer, the same look we all once had. The look of the wanderer. Lost, and so very afraid.}
+{22010}{}{I... I'm from a vault, I spent my whole life inside it, and now, I'm here. It's all too much for me, father! How could... God do this to us? To all of us?}
+{23000}{}{There are some things beyond the power of God. The Lord did not destroy the world, man did. God is just watching us crawl through the mud of our own deserving Hell. It will take a thousand years to repay all the blood our ancestors once shed. May you begin your sentence in peace, and not aggression. }
+{23010}{}{I'll be the judge of my own actions! Not you, or some man in the sky! Don't preach to me about evil, my journey's just begun. }
+{24000}{}{Yes, it has, hasn't it, @pname@? You've been introducing yourself around, and word has spread well it seems. You aren't the first of your kind to arrive, and will not be the last. I will admit that some of you are kind, but most, are not. Which one shall you be, @pname@? A new saint to walk the earth, or another sinner to die in the gutter.}
+{24010}{}{I don't know yet, father. But when I figure it out, you'll be the first one I visit.}
+{25000}{}{Very well then, now that you've introduced yourself a bit around town, is there anything you would like to know?}
+{25010}{}{Where can I find some work? I could use a bit of whatever people are calling currency now-a-days.}
+{26000}{}{The Police Station is investigating a recent murder, and their main suspect, a misses Hope asked me a few days ago to pray for her. Perhaps you could look into it, and show this "man in the sky" where your heart really lies.@@There is a man in the market, he owns a very sick dog. I heard God might be with him, but who knows. Maybe there's something you could do? Hmm?@@Durango, our beloved bureaucratic police man has been having issues with the Junktown supply lines. Maybe you could look into that, if you're interested. I would start in Junktown, and ask around the old casino.@@Old Town has plenty of troubles nothing a blessing could cure, what a pity. But there's always a light shining somewhere, and often enough, it can make its way to the darkest part of any place.@@The old ghoul, Burhnefletch, he needs patients. God bless him, how he tries.@@I might have something for you, hmm, if your heart is pure, of course. Ask me later.@@One of the guards is looking for lighters, I don't know why.@@The Far Go Traders need a scout, they'll hire you, I'm sure.@@The Water Merchants are always hiring, they have several jobs available for people like you.@@Stay away from the old church on the south side of town. Do not trust the priest. He is the devil in disguise. All of my holy water evaporates upon entering that... horrific building!@@I know that there is sin all over this city... you will find it if you look. We have many drug addicts, and gangs roaming around.@@The Bunker Bar is not for the faint of heart. Stay away from there, unless you wish that the darkness finds you.@@You might appreciate the old world, unlike some. The Post Office is the perfect profession for a good ol' @sex@|boy||gal| like you!@@Make sure you check out Junktown, Adytum, and the NCR before going too far North of California. It gets deadlier the more you travel North. This place ain't no Canada, that's for sure.@@Have you seen that tent out in the wasteland yet? With the sad folks? I heard someone you used to know is looking for you, said to meet you there or something...  [Your PipBoy buzzes and hums in a way you've never seen before... how odd]@@There's something horrible haunting Junktown! God help them!@@Who... who is the Puppet Man?@@Stay away from the local story tellers, their legends are nothing but trouble!@@Who are you anyways? Why did you come to me? Why did your vault open? Why aren't you searching for answers?! Why are you bothering me! Go! Go! Become the Vault Dweller you were always meant to be! Avenge them, @sex@|James!||Catherine|! Avenge them all!@@The caravan guards north of the market, I hear they could use a hand or two. You could check with them, and help where you can.@@Some tool vendors have opened up shop around the wasteland. Junktown, the Hub, Adytum, and the NCR all have new craftsmen about. I hope that helps.@@Don't be afraid to knock before entering people's homes. You'd be surprised who out there needs a helping hand.@@There are some new independant caravan companies that have recently starting operating inside the Hub, I'm sure they could use a guard, or seven.@@The Junktown mine is hiring labourers for mining, scavenging, and resource hunting. Why don't you go help out the community that way?@@There is a vicious, haunting game disturbing the people of the Hub. It is south of Beth's store. Inside the abandoned building. Do not play it. For God's sake! Do not be tempted! It is the work of the devil!@@It is time to become who you were always meant to become, @pname@. Start here, in the Hub. Ask around, look around, you'll find something.@@A few wastelanders out there can direct you to some pretty difficult locations. Don't ask them for the locations unless you're ready for a serious ass kicking.@@You can get two puppets in the Hub. But the rest are scattered across the wasteland, for our sake.@@Fear the Puppet Man.@@Do not seek the Puppet Man.@@The Puppet Man is real. It is found within legends. Where old civilizations meet.}
+{26010}{}{I'll think about it, anything else?}
+{26020}{}{I should be going now. Thank you for your time, father, I'm sure when we meet again I'll be a completely different person. Goodbye, father, I think it's time I experience the new world for myself. }
+{27000}{}{One does not need wings in order to have faith. Maybe you should rethink what God is all about?}
+

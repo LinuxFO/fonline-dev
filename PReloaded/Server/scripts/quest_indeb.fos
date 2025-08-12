@@ -1,0 +1,177 @@
+#include "quest_killmobs_h.fos"
+#include "utils_h.fos"
+#include "worldmap_h.fos"
+#include "npc_planes_h.fos"
+#include "entire.fos"
+#include "_colors.fos"
+ 
+#define QUEST_ALL_KILLED            (4)  //value of quest lvar in case all dogs are killed
+#define QUEST_FAILED                (0)  //value of quest lvar in case of quest failed
+ 
+#define DIALOG                      (0) //dialog id of npc spawned in location - all_raider
+ 
+array<uint16> clawPids = { 80, 81, 83, 86, 16, 7, 8, 404, 9, 82, 12, 216, 382, 383 };   //pids used for vipers (33 - melee thug, 36 - gun thug)
+ 
+//function called as request from dialog to spawn quest location
+void r_SpawnLoc(Critter& player, Critter@ npc)
+{
+    //roll X,Y value of WM zone index, in this case from 3x2 zones area under Hub
+    uint zoneX = Random(32, 37);    
+    uint zoneY = Random(37, 43);    
+ 
+    //get X,Y value of quest location position on WM in zone we picked above
+    uint   wx = zoneX * __GlobalMapZoneLength;          //get zone X,Y start value
+    uint   wy = zoneY * __GlobalMapZoneLength;
+    wx += Random(0, __GlobalMapZoneLength);             //add random value from 0 to zone size
+    wy += Random(0, __GlobalMapZoneLength);
+ 
+    //get Id value of locations in current zone (encounters maps id)
+   
+    //commented for now because random maps are ugly and empty
+//    array<uint16> locationIds;
+//    IZone@ zone = GetZone(wx, wy);
+//    uint num = zone.GetLocationPids(locationIds);
+ 
+    //version with defined set of maps, comment this one and uncomment lines about to use zone maps
+    array<uint16> locationIds = { 135};
+    uint num = locationIds.length;
+ 
+    //pick random encounter map
+    uint16        locPid = locationIds[Random(0, num - 1)];
+   
+    //create quest location
+    Critter@[] crits = { player };
+    int           loc = CreateLocation(locPid, wx, wy, crits);
+    if(loc == 0)
+        return;
+    player.SetKnownLoc(true, loc);
+   
+    //set location id to quest lvar (used when you need to delete location)
+    GameVar@  locidv = GetLocalVar(LVAR_inde2_locid, player.Id);
+    locidv = loc;
+   
+    //change location color on WM
+    Location@ location = GetLocation(loc);
+    location.Color = COLOR_WM_QUEST;
+    location.Update();
+ 
+    //set TB combat mode if needed
+    if(player.Mode[MODE_DEFAULT_COMBAT] == COMBAT_MODE_TURN_BASED)
+        SetTurnBasedAvailability(location);
+ 
+    //player can die and come back
+    location.AutoGarbage = false;
+ 
+    //dissable default encounter's script and functions
+    array<Map@> maps;
+    uint        mapcount = location.GetMaps(maps);
+    for(uint c = 0; c < mapcount; c++)
+    {
+        maps[c].SetScript(null);
+        maps[c].SetEvent(MAP_EVENT_IN_CRITTER, null);
+        maps[c].SetEvent(MAP_EVENT_CRITTER_DEAD, null);
+    }
+ 
+    //set player as owner of the map
+    Map@ map = GetLocation(loc).GetMapByIndex(0);
+    SetOwnerId(map, player.Id);
+ 
+    //spawn Vipers
+    bool spawned = false;
+    while(!spawned)
+    {
+        //get map spawn points
+        array<Entire> entires;
+        ParseEntires(map, entires, 0);
+       
+        //pick random entire
+        Entire@       ent = random_from_array(entires);
+        uint16        hx = ent.HexX;
+        uint16        hy = ent.HexY;
+        map.GetHexCoord(ent.HexX, ent.HexY, hx, hy, Random(0, 359), Random(3, 7));
+ 
+        //spawn 5-10 Vipers
+        for(uint i = 0, j = Random(6, 9); i < j; i++)
+        {
+            uint8 dir = Random(0, 5);
+            uint step = Random(1, 5);
+            map.MoveHexByDir(hx, hy, dir, step);
+            uint16 npcPid = clawPids[Random(0, clawPids.length()-1)];
+            //set npc spawning parameters
+            int[] params =
+            {
+                //ST_TEAM_ID, teamid,
+				ST_BAG_ID, 0,
+                //ST_KILL_EXPERIENCE, 0,
+                ST_REPLICATION_TIME, REPLICATION_DELETE,
+                //ST_LEVEL, level,
+                ST_DIALOG_ID, DIALOG
+            };
+ 
+            Critter@ claw = map.AddNpc(npcPid , hx, hy, Random(0, 5), params, null, "quest_inde2@critter_init");
+            if(valid(claw))
+            {
+                spawned = true;
+            }
+        }
+    }
+ 
+    //set time after which location will be removed and quest will count as failed
+    //here it's 12*60 minutes so 12h
+    //if location is deleted this way quest lvar will be set QUEST_FAILED value
+    SetQuestGarbager(1 * 60, player.Id, loc, LVAR_hub_inde, QUEST_FAILED);
+    DynamicLocationAddLog(player, npc, locidv, "quest_indeb");
+}
+ 
+//dialog function used in request to delete quest location (after player report finishing the quest)
+void r_DeleteLoc(Critter& player, Critter@ npc)
+{
+    GameVar@ var = GetLocalVar(LVAR_inde2_locid, player.Id);
+    DeleteLocation(var.GetValue());
+    DynamicLocationDelLog(player, npc, var, "quest_indeb");
+}
+ 
+//set functions for basic critter events
+void critter_init(Critter& cr, bool firstTime)
+{
+    cr.StatBase[ST_REPLICATION_TIME] = REPLICATION_DELETE;
+    cr.SetEvent(CRITTER_EVENT_DEAD, "_clawDead");
+    cr.SetEvent(CRITTER_EVENT_ATTACKED, "_clawAttacked");
+    cr.SetEvent(CRITTER_EVENT_MESSAGE, "_clawOnMessage");
+    cr.SetEvent(CRITTER_EVENT_IDLE, "_clawIdle");
+    cr.SetEvent(CRITTER_EVENT_SHOW_CRITTER, "_clawShowCritter");
+ 
+    _CritSetExtMode(cr, MODE_EXT_MOB);
+}
+ 
+void _clawIdle(Critter& mob)
+{
+    MobIdle(mob);
+}
+ 
+void _clawShowCritter(Critter& mob, Critter& showCrit)
+{
+    if(_IsFollower(showCrit) || showCrit.IsPlayer())
+        AddAttackPlane(mob, AI_PLANE_ATTACK_PRIORITY, showCrit);
+}
+ 
+//check if all Vipers are killed, if yes, than set quest lvar to QUEST_ALL_KILLED value
+void _clawDead(Critter& cr, Critter@ killer)
+{
+    Map@ map = cr.GetMap();
+    if(MobsDead(map, clawPids))
+    {
+        GameVar@ var = GetLocalVar(LVAR_hub_inde, GetOwnerId(map));
+        var = QUEST_ALL_KILLED;
+    }
+}
+ 
+bool _clawAttacked(Critter& cr, Critter& attacker)
+{
+    return MobAttacked(cr, attacker);
+}
+ 
+void _clawOnMessage(Critter& cr, Critter& fromCr, int message, int value)
+{
+    MobOnMessage(cr, fromCr, message, value);
+}

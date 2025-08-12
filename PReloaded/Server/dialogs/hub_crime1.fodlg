@@ -1,0 +1,80 @@
+[comment]
+
+
+[data]
+lang=engl
+
+[dialog]
+&
+1 1000 None 0 #
+2 1010 D _var p name_mem_npc_player = 0 #
+13 1020 D _var p name_mem_npc_player = 1 @
+2 2000 None 0 #
+3 2010 #
+4 2020 D _var p noire1 = 5 @
+3 3000 None 0 @
+4 4000 None 0 #
+5 4010 #
+6 4020 #
+7 4030 R _script dialog@r_PlaySoundGun 1 2 #
+8 4040 @
+5 5000 None 0 #
+6 5010 #
+8 5020 #
+7 5030 R _script dialog@r_PlaySoundGun 1 2 @
+6 6000 None 0 #
+8 6010 #
+7 6020 R _script dialog@r_PlaySoundGun 1 2 @
+7 7000 None 0 #
+9 7010 @
+8 8000 None 0 #
+6 8010 @
+9 9000 None 0 #
+10 9010 R _script dialog@r_PlaySoundGun 1 2 @
+10 10000 None 0 #
+11 10010 R _script dialog@r_PlaySoundGun 1 2 @
+11 11000 None 0 #
+12 11010 @
+12 12000 None 0 #
+0 12010 R _var p noire1 = 6 R _param p ST_KARMA + 3 R _script dialog@r_AddExperience 1 3000 R _script dialog@r_AddMoney 1 1000 R _item p PID_SWITCHBLADE + 1 R _item p PID_RIPPER + 1 R _var p name_mem_npc_player = 1 R _script dialog@r_NinjaKillNpc 1 117 R _script dialog@r_PlaySoundGun 1 2 R _script dialog@r_PlaySoundGun 1 2 @
+13 13000 None 0 #
+0 13010 &
+
+[engl]
+{100}{}{Scum Bag}
+{200}{}{You see a suspicious looking individual.}
+{210}{}{What a scumbag.}
+{1000}{}{Predialogue installations}
+{1010}{}{Answer text}
+{1020}{}{2}
+{2000}{}{Beat it! Or your next!@@Get the fuck out of here!!@@You want to get stabbed in the throat, bitch?!@@Mind your own fucking business, hero!}
+{2010}{}{Hey! What are you doing?!}
+{2020}{}{Hub Police! Get on the ground, and put your fucking hands behind your head! Or I'll blow your fucking balls off!}
+{3000}{}{Beat it! Or your next!@@Get the fuck out of here!!@@You want to get stabbed in the throat, bitch?!@@Mind your own fucking business, hero!}
+{4000}{}{[The suspect does not comply]}
+{4010}{}{[Shout again]}
+{4020}{}{[Restrain the suspect]}
+{4030}{}{[Shoot the suspect]}
+{4040}{}{[Start punching the suspect]}
+{5000}{}{[You shout the same directives over again, but the suspect continues to commit his heinous crime]}
+{5010}{}{[Restrain the suspect]}
+{5020}{}{[Punch the suspect]}
+{5030}{}{[Shoot the suspect]}
+{6000}{}{[You attempt to restrain the suspect, but he resists you. You are struck in the face numerous times as you attempt to restrain him]}
+{6010}{}{[Punch the suspect]}
+{6020}{}{[Shoot the suspect]}
+{7000}{}{[You shoot the suspect in the leg, and he stumbles around in confusion and pain. Adrenaline has kicked in, and he charges towards as if you never shot him at all!]}
+{7010}{}{Don't make me shoot you again, buyo! Get on the ground! Now!}
+{8000}{}{[You start punching the suspect, and eventually he collapses in pain]}
+{8010}{}{Stay down! Get on your stomach! Now! Hands behind your head!}
+{9000}{}{[The suspect does not comply and reaches towards your weapon!]}
+{9010}{}{[Shoot the suspect in the chest]}
+{10000}{}{Ugh! [The suspect shouts out in agony, and falls back. But he continues charging towards your weapon!]}
+{10010}{}{It's judgement day! [Shoot the suspect in the face]}
+{11000}{}{[This is a gruesome scene. There's blood everywhere, and pieces of torn flesh scattered across the area. What will you file this as in your report?]}
+{11010}{}{Justice served.}
+{12000}{}{[Looks like you've managed to stop at least one crime from happening inside of the Hub. Good job, Detective. But there's a few more crimes happening as we speak. You should investigate more]}
+{12010}{}{I'll get someone to clean this up later. Time for me to hit the streets again.}
+{13000}{}{[This is just the memory of someone that you once killed. Let it go]}
+{13010}{}{How many more people have to die... until we finally get things right?}
+

@@ -1,0 +1,24 @@
+[comment]
+
+
+[data]
+lang=engl
+
+[dialog]
+&
+1 1000 None 0 #
+3 1010 D _script dialog@d_CheckNight 0  #
+2 1020 @
+2 2000 None 0 @
+3 3000 None 0 &
+
+[engl]
+{100}{}{Adytum Citizen}
+{200}{}{You see an inhabitant of Adytum.}
+{210}{}{You see a rather run down looking inhabitant of Adytum}
+{1000}{}{Predialogue installations}
+{1010}{}{dark outside}
+{1020}{}{normal}
+{2000}{}{Looks like it's raining... as always.@@Sorry, I have to go. Got work to do.@@We don't get many outsiders around here.@@Gotta get back to work.@@Good day... if that is what you can call it.@@Yeah... whatever. Crops been growing, so who cares?@@Hope the rain ain't glowin' like yesterday.@@Looks like we're going to have too much food again. Times are getting better.@@Been a long time since we could all smile, and laugh together.@@Good times, I tell you.@@No one expected this year to be so bountiful.@@Something's in the soil, but it's working on our favour!@@That glow... hate to say it... grows a lot of veggies.@@Don't think I've ever seen it this prosperous before. Come to think of it, damn, I'm glad.}
+{3000}{}{Dark outside, as always is the night.@@Sorry, I have to go. Got work to do, you know?@@We don't get many outsiders here. Especially in the night.@@Gotta get back to work tomorrow.@@Good night... if that is what you can call it.@@Yeah... whatever. Crops been growing, so who cares?@@Hope the rain tomorrow ain't glowin' like yesterday.@@Looks like we're going to have too much food again. Times are getting better.@@Been a long time since we could all smile, and laugh together.@@Good times, I tell you.@@No one expected this year to be so bountiful.@@Something's in the soil, but it's working on our favour!@@That glow... hate to say it... grows a lot of veggies.@@Don't think I've ever seen it this prosperous before. Come to think of it, damn, I'm glad.}
+

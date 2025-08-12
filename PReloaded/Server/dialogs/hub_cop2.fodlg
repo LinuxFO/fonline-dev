@@ -1,0 +1,20 @@
+[comment]
+
+
+[data]
+lang=engl
+
+[dialog]
+&
+1 1000 None 0 #
+2 1010 @
+2 2000 None 0 &
+
+[engl]
+{100}{}{Detective Spade}
+{200}{}{You see Detective Spade.}
+{210}{}{Saved by the boys, and girls in blue... }
+{1000}{}{Predialogue installations}
+{1010}{}{Answer text}
+{2000}{}{What's with that mask anyways? We almost thought you were one of them...}
+

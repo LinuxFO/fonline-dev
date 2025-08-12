@@ -1,0 +1,698 @@
+[comment]
+
+
+[data]
+lang=engl
+
+[dialog]
+&
+1 1000 None 0 #
+2 1010 D _var p hub_postmanqp = 0 R _var p hub_postmanqp = 1 #
+2 1020 D _var p hub_postmanqp = 1 @
+2 2000 None 0 #
+3 2010 #
+4 2020 #
+5 2030 #
+8 2040 D _param p KARMA_SLAVER { 0 D _var p hub_postmanq = 0 D _param p ST_KARMA > -1 #
+99 2050 D _param p KARMA_SLAVER = 1 #
+99 2060 D _param p ST_KARMA < -1 #
+11 2070 D _var p hub_postmanq = 98 #
+12 2080 D _var p hub_postmanq = 99 #
+13 2090 D _var p hub_postmanq = 100 #
+14 2100 D _var p hub_postmanq > 0 D _var p hub_postmanq < 97 #
+7 2110 #
+102 2120 D _var p q_packages = 9 D _item p PID_CARAVAN_BOX > 0 R _item p PID_CARAVAN_BOX - 1 R _var p q_packages = 98 #
+0 2130 @
+3 3000 None 0 #
+2 3010 @
+4 4000 None 0 #
+66 4010 D _var p q_adventure = 14 #
+2 4020 @
+5 5000 None 0 #
+103 5010 D _var p z_dailyq1 = 50 R _var p z_dailyq1 = 51 R _script dialog@r_BulkOrderRewardGuns 0  R _script dialog@r_AddMoney 1 3000 R _param p ST_EXPERIENCE + 3500 R _item p PID_GAMMA_GULP_BEER + 6 R _item p PID_ROENTGEN_RUM + 6 R _param p ST_KARMA + 1 R _param p REPUTATION_LA + 300 R _param p REPUTATION_HUB + 300 R _param p REPUTATION_JUNKTOWN + 300 R _param p REPUTATION_NCR + 300 #
+6 5020 D _var p camp_evil = 0 #
+2 5030 D _var p camp_evil = 0 #
+101 5040 D _var p camp_evil > 0 @
+6 6000 None 0 #
+67 6010 D _var p q_adventure = 15 #
+75 6020 D _var p q_adventure = 18 #
+83 6030 D _var p q_adventure = 30 #
+91 6040 D _var p q_adventure = 35 #
+98 6050 D _var p q_adventure = 42 #
+2 6060 @
+7 7000 None 0 #
+2 7010 @
+8 8000 None 0 #
+8 8010 D _var p camp_evil = 0 R _script dialog@r_JumpToRandomNode 3 1 46 10 #
+2 8020 D _var p camp_evil = 0 #
+2 8030 D _var p camp_evil > 0 @
+9 9000 None 0 #
+0 9010 @
+10 10000 None 0 #
+9 10010 R _var p hub_postmanq = 1 #
+8 10020 @
+20 11000 None 0 #
+9 11010 R _var p hub_postmanq = 2 #
+8 11020 @
+30 12000 None 0 #
+9 12010 R _var p hub_postmanq = 3 #
+8 12020 @
+40 13000 None 0 #
+9 13010 R _var p hub_postmanq = 4 #
+8 13020 @
+50 14000 None 0 #
+9 14010 R _var p hub_postmanq = 5 #
+8 14020 @
+60 15000 None 0 #
+9 15010 R _var p hub_postmanq = 6 #
+8 15020 @
+70 16000 None 0 #
+9 16010 R _var p hub_postmanq = 7 #
+8 16020 @
+80 17000 None 0 #
+9 17010 R _var p hub_postmanq = 8 #
+8 17020 @
+90 18000 None 0 #
+9 18010 R _var p hub_postmanq = 9 #
+8 18020 @
+100 19000 None 0 #
+9 19010 R _var p hub_postmanq = 10 #
+8 19020 @
+110 20000 None 0 #
+9 20010 R _var p hub_postmanq = 11 #
+8 20020 @
+120 21000 None 0 #
+9 21010 R _var p hub_postmanq = 12 #
+8 21020 @
+130 22000 None 0 #
+9 22010 R _var p hub_postmanq = 13 #
+8 22020 @
+140 23000 None 0 #
+9 23010 R _var p hub_postmanq = 14 #
+8 23020 @
+150 24000 None 0 #
+9 24010 R _var p hub_postmanq = 15 #
+8 24020 @
+160 25000 None 0 #
+9 25010 R _var p hub_postmanq = 16 #
+8 25020 @
+170 26000 None 0 #
+9 26010 R _var p hub_postmanq = 17 #
+8 26020 @
+180 27000 None 0 #
+9 27010 R _var p hub_postmanq = 18 #
+8 27020 @
+190 28000 None 0 #
+9 28010 R _var p hub_postmanq = 19 #
+8 28020 @
+200 29000 None 0 #
+9 29010 R _var p hub_postmanq = 20 #
+8 29020 @
+210 30000 None 0 #
+9 30010 R _var p hub_postmanq = 21 #
+8 30020 @
+220 31000 None 0 #
+9 31010 R _var p hub_postmanq = 22 #
+8 31020 @
+230 32000 None 0 #
+9 32010 R _var p hub_postmanq = 23 #
+8 32020 @
+240 33000 None 0 #
+9 33010 R _var p hub_postmanq = 24 #
+8 33020 @
+250 34000 None 0 #
+9 34010 R _var p hub_postmanq = 25 #
+8 34020 @
+260 35000 None 0 #
+9 35010 R _var p hub_postmanq = 26 #
+8 35020 @
+270 36000 None 0 #
+9 36010 R _var p hub_postmanq = 27 #
+8 36020 @
+280 37000 None 0 #
+9 37010 R _var p hub_postmanq = 28 #
+8 37020 @
+290 38000 None 0 #
+9 38010 R _var p hub_postmanq = 29 #
+8 38020 @
+300 39000 None 0 #
+9 39010 R _var p hub_postmanq = 30 #
+8 39020 @
+310 40000 None 0 #
+9 40010 R _var p hub_postmanq = 31 #
+8 40020 @
+320 41000 None 0 #
+9 41010 R _var p hub_postmanq = 32 #
+8 41020 @
+330 42000 None 0 #
+9 42010 R _var p hub_postmanq = 33 #
+8 42020 @
+340 43000 None 0 #
+9 43010 R _var p hub_postmanq = 34 #
+8 43020 @
+350 44000 None 0 #
+9 44010 R _var p hub_postmanq = 35 #
+8 44020 @
+360 45000 None 0 #
+9 45010 R _var p hub_postmanq = 36 #
+8 45020 @
+370 46000 None 0 #
+9 46010 R _var p hub_postmanq = 37 #
+8 46020 @
+380 47000 None 0 #
+9 47010 R _var p hub_postmanq = 38 #
+8 47020 @
+390 48000 None 0 #
+9 48010 R _var p hub_postmanq = 39 #
+8 48020 @
+400 49000 None 0 #
+9 49010 R _var p hub_postmanq = 40 #
+8 49020 @
+410 50000 None 0 #
+9 50010 R _var p hub_postmanq = 41 #
+8 50020 @
+420 51000 None 0 #
+9 51010 R _var p hub_postmanq = 42 #
+8 51020 @
+430 52000 None 0 #
+9 52010 R _var p hub_postmanq = 43 #
+8 52020 @
+440 53000 None 0 #
+9 53010 R _var p hub_postmanq = 44 #
+8 53020 @
+450 54000 None 0 #
+9 54010 R _var p hub_postmanq = 45 #
+8 54020 @
+460 55000 None 0 #
+9 55010 R _var p hub_postmanq = 46 #
+8 55020 @
+11 56000 None 0 #
+2 56010 R _script dialog@r_AddExperience 1 150 R _script dialog@r_AddMoney 1 150 R _var p hub_postmanq = 0 R _param p ST_KARMA + 1 @
+12 57000 None 0 #
+2 57010 R _script dialog@r_AddExperience 1 500 R _script dialog@r_AddMoney 1 500 R _var p hub_postmanq = 0 R _param p ST_KARMA + 1 R _script dialog@r_BulkOrderRewardLow 0  R _script dialog@r_AddLootSetLevel1 0  @
+13 58000 None 0 #
+2 58010 R _script dialog@r_AddExperience 1 700 R _script dialog@r_AddMoney 1 700 R _var p hub_postmanq = 0 R _param p ST_KARMA + 1 R _script dialog@r_BulkOrderRewardLow 0  R _script dialog@r_AddLootSetLevel1 0  @
+14 59000 None 0 #
+15 59010 D _var p hub_postmanq = 1 #
+16 59020 D _var p hub_postmanq = 2 #
+17 59030 D _var p hub_postmanq = 3 #
+18 59040 D _var p hub_postmanq = 4 #
+19 59050 D _var p hub_postmanq = 5 #
+21 59060 D _var p hub_postmanq = 6 #
+22 59070 D _var p hub_postmanq = 7 #
+23 59080 D _var p hub_postmanq = 8 #
+24 59090 D _var p hub_postmanq = 9 #
+25 59100 D _var p hub_postmanq = 10 #
+26 59110 D _var p hub_postmanq = 11 #
+27 59120 D _var p hub_postmanq = 12 #
+28 59130 D _var p hub_postmanq = 13 #
+29 59140 D _var p hub_postmanq = 14 #
+31 59150 D _var p hub_postmanq = 15 #
+32 59160 D _var p hub_postmanq = 16 #
+33 59170 D _var p hub_postmanq = 17 #
+34 59180 D _var p hub_postmanq = 18 #
+35 59190 D _var p hub_postmanq = 19 #
+36 59200 D _var p hub_postmanq = 20 #
+37 59210 D _var p hub_postmanq = 21 #
+38 59220 D _var p hub_postmanq = 22 #
+39 59230 D _var p hub_postmanq = 23 #
+41 59240 D _var p hub_postmanq = 24 #
+42 59250 D _var p hub_postmanq = 25 #
+43 59260 D _var p hub_postmanq = 26 #
+44 59270 D _var p hub_postmanq = 27 #
+45 59280 D _var p hub_postmanq = 28 #
+46 59290 D _var p hub_postmanq = 29 #
+47 59300 D _var p hub_postmanq = 30 #
+48 59310 D _var p hub_postmanq = 31 #
+49 59320 D _var p hub_postmanq = 32 #
+51 59330 D _var p hub_postmanq = 33 #
+52 59340 D _var p hub_postmanq = 34 #
+53 59350 D _var p hub_postmanq = 35 #
+54 59360 D _var p hub_postmanq = 36 #
+55 59370 D _var p hub_postmanq = 37 #
+56 59380 D _var p hub_postmanq = 38 #
+57 59390 D _var p hub_postmanq = 39 #
+58 59400 D _var p hub_postmanq = 40 #
+59 59410 D _var p hub_postmanq = 41 #
+61 59420 D _var p hub_postmanq = 42 #
+62 59430 D _var p hub_postmanq = 43 #
+63 59440 D _var p hub_postmanq = 44 #
+64 59450 D _var p hub_postmanq = 45 #
+65 59460 D _var p hub_postmanq = 46 @
+15 60000 None 0 @
+16 61000 None 0 @
+17 62000 None 0 @
+18 63000 None 0 @
+19 64000 None 0 @
+21 65000 None 0 @
+22 66000 None 0 @
+23 67000 None 0 @
+24 68000 None 0 @
+25 69000 None 0 @
+26 70000 None 0 @
+27 71000 None 0 @
+28 72000 None 0 @
+29 73000 None 0 @
+31 74000 None 0 @
+32 75000 None 0 @
+33 76000 None 0 @
+34 77000 None 0 @
+35 78000 None 0 @
+36 79000 None 0 @
+37 80000 None 0 @
+38 81000 None 0 @
+39 82000 None 0 @
+41 83000 None 0 @
+42 84000 None 0 @
+43 85000 None 0 @
+44 86000 None 0 @
+45 87000 None 0 @
+46 88000 None 0 @
+47 89000 None 0 @
+48 90000 None 0 @
+49 91000 None 0 @
+51 92000 None 0 @
+52 93000 None 0 @
+53 94000 None 0 @
+54 95000 None 0 @
+55 96000 None 0 @
+56 97000 None 0 @
+57 98000 None 0 @
+58 99000 None 0 @
+59 100000 None 0 @
+61 101000 None 0 @
+62 102000 None 0 @
+63 103000 None 0 @
+64 104000 None 0 @
+65 105000 None 0 @
+66 106000 None 0 #
+2 106010 R _var p q_adventure = 15 R _script dialog@r_AddExperience 1 1000 @
+67 107000 None 0 #
+68 107010 @
+68 108000 None 0 #
+69 108010 @
+69 109000 None 0 #
+71 109010 @
+71 110000 None 0 #
+72 110010 @
+72 111000 None 0 #
+73 111010 @
+73 112000 None 0 #
+74 112010 @
+74 113000 None 0 #
+0 113010 R _var p q_adventure = 16 R _script dialog@r_AddExperience 1 1500 R _item p PID_10MM_SMG + 1 R _item p PID_COMBAT_LEATHER_JACKET_HELMET + 1 R _item p PID_STIMPAK + 2 R _item p PID_HEALING_POWDER + 4 R _item p PID_10MM_JHP + 60 R _item p PID_COMBAT_KNIFE + 1 R _item p PID_LEATHER_JACKET + 1 R _script quest_advent3@r_SpawnLoc 0  @
+75 114000 None 0 #
+76 114010 @
+76 115000 None 0 #
+77 115010 @
+77 116000 None 0 #
+78 116010 @
+78 117000 None 0 #
+79 117010 @
+79 118000 None 0 #
+81 118010 @
+81 119000 None 0 #
+82 119010 R _var p q_adventure = 19 R _script dialog@r_AddExperience 1 2000 R _item p PID_FLOWER + 12 R _item p PID_FUZZY_PAINTING + 1 R _item p PID_ROPE + 1 R _item p PID_GREEN_CONDOM + 1 R _item p PID_14MM_PISTOL + 1 R _item p PID_14MM_AP + 30 R _item p PID_STIMPAK + 3 R _item p PID_SUPER_STIMPAK + 1 R _item p PID_PARAMEDICS_BAG + 1 R _item p PID_POWER_FIST + 1 R _item p PID_MAGNETO_LASER_PISTOL + 1 R _script dialog@r_AddMoney 1 1000 R _item p PID_SMALL_ENERGY_CELL + 60 @
+82 120000 None 0 @
+83 121000 None 0 #
+84 121010 @
+84 122000 None 0 #
+85 122010 @
+85 123000 None 0 #
+86 123010 @
+86 124000 None 0 #
+87 124010 @
+87 125000 None 0 #
+88 125010 @
+88 126000 None 0 #
+89 126010 @
+89 127000 None 0 #
+0 127010 R _script player_house@r_SpawnLoc 0  R _script dialog@r_AddExperience 1 3000 R _var p q_adventure = 31 R _item p PID_ASSAULT_RIFLE_EXT_MAG + 1 R _item p PID_5MM_AP + 120 R _item p PID_SUPER_STIMPAK + 6 R _item p PID_PLASMA_GRENADE + 3 R _item p PID_FRAG_GRENADE + 2 R _item p PID_POWER_FIST + 1 R _script quest_advent5@r_DeleteLoc 0  @
+91 128000 None 0 #
+92 128010 @
+92 129000 None 0 #
+93 129010 @
+93 130000 None 0 #
+94 130010 @
+94 131000 None 0 #
+95 131010 @
+95 132000 None 0 #
+96 132010 @
+96 133000 None 0 #
+97 133010 @
+97 134000 None 0 #
+0 134010 R _var p q_adventure = 36 R _script dialog@r_AddExperience 1 3000 R _item p PID_14MM_PISTOL + 1 R _item p PID_COMBAT_HELMET + 1 R _item p PID_SUPER_STIMPAK + 4 R _item p PID_14MM_AP + 120 R _item p PID_10MM_AP + 120 R _item p PID_5MM_AP + 120 @
+98 135000 None 0 #
+0 135010 R _var p q_adventure = 43 R _script dialog@r_AddExperience 1 3000 R _script quest_advent7@r_DeleteLoc 0  @
+99 136000 None 0 @
+101 137000 None 0 @
+102 138000 None 0 @
+103 139000 None 0 &
+
+[engl]
+{100}{}{Head Postman}
+{200}{}{You see the Head Postman.}
+{210}{}{He's the head courier for the New Californian Postal Exchange. A dedicated group of men and women who can't help but deliver the mail on time.}
+{1000}{}{Predialogue installations}
+{1010}{}{generic}
+{1020}{}{generic2}
+{2000}{}{Hello, and welcome to the New Californian Postal Exchange. How can I help you today?}
+{2010}{}{What can you tell me about the NCPE?}
+{2020}{}{I'd like to send a letter.}
+{2030}{}{Do I have any mail?}
+{2040}{}{Got any work?}
+{2050}{}{You jack-offs got any fuckin' work?}
+{2060}{}{You jack-offs got any fuckin' work?}
+{2070}{}{Delivery completed, sir.}
+{2080}{}{Delivery completed, sir.}
+{2090}{}{Delivery completed, sir.}
+{2100}{}{I forgot where this letter was going.}
+{2110}{}{What are your rates?}
+{2120}{}{[Deliver Package]}
+{2130}{}{Nothing today, thanks.}
+{3000}{}{The New Californian Postal Exchange delivers letters all over California. It was established in 2238 by a man named Mr. A. T. Om, after the great Redding gold rush. Due to the rising prosperity of the wasteland, Mr. A. T. Om decided that it was time to restore one of America's oldest traditions: The Postman. No rain, snow, radiation, or super mutant will ever stop a true Postman from delivering the mail on time. It's something we all take pride in. I, myself included.}
+{3010}{}{Thanks.}
+{4000}{}{And to whom would you like to send a letter to?}
+{4010}{}{I don't know... I have this book...}
+{4020}{}{Nevermind.}
+{5000}{}{Ah, let me check. Your name?}
+{5010}{}{@pname@. It's from the Junktown Brewery.}
+{5020}{}{@pname@.}
+{5030}{}{Nevermind.}
+{5040}{}{MY WHAT?! HOW DARE YOU!!! THAT'S PRIVATE INFORMATION!!!}
+{6000}{}{Nothing for you today, maybe tomorrow.}
+{6010}{}{Didn't you just say that I had some mail waiting for me?}
+{6020}{}{[Grab the man by the collar, and press his face into the desk] Why don't you check again?}
+{6030}{}{Check again, dipshit.}
+{6040}{}{[Say nothing, and stare at the man]}
+{6050}{}{Nothing? Are you sure? You haven't see any vault dwellers come by lately?}
+{6060}{}{Thanks.}
+{7000}{}{We charge 50 caps to send a letter, and our Postmen make anywhere from 150-700 caps a trip. We also offer a bonus for those extra long trips.}
+{7010}{}{Thanks.}
+{8000}{}{We're always looking for new couriers. Are you interested in delivering a letter?}
+{8010}{}{Sure.}
+{8020}{}{No, not right now.}
+{8030}{}{Deliver the mail?! Are you mad?! The only thing I would deliver would be a bomb! Or some anthrax! Get the hell out of here! Stupid reporter man! Geezsus! The nerve of some potatoes!}
+{9000}{}{Great! Here's the letter, keep it safe! [You tuck the letter somewhere safe] Come back here after you've delivered it to get your payment. }
+{9010}{}{Will do! }
+{10000}{}{I've got a letter here that needs to go to a Mr. Hammilton. He's in the Library, with the Followers of the Apocalypse. I'll pay you 150 caps.}
+{10010}{}{I'll do it. }
+{10020}{}{Anything else?}
+{11000}{}{I've got a letter here that needs to go to a Mr. Marshall, of the Gun Runners. I'll pay you 150 caps.}
+{11010}{}{I'll do it. }
+{11020}{}{Anything else?}
+{12000}{}{I've got a letter here that needs to go to a Mr. Montag, of Adytum. I'll pay you 150 caps.}
+{12010}{}{I'll do it. }
+{12020}{}{Anything else?}
+{13000}{}{I've got a letter here that needs to go to a Ms. Lorraine, of Adytum. I'll pay you 150 caps.}
+{13010}{}{I'll do it. }
+{13020}{}{Anything else?}
+{14000}{}{I've got a letter here that needs to go to a Mr. Chuck, of Adytum. I'll pay you 150 caps.}
+{14010}{}{I'll do it. }
+{14020}{}{Anything else?}
+{15000}{}{I've got a letter here that needs to go to a Mr. Metzger, of the Den. I'll pay you 500 caps.}
+{15010}{}{I'll do it. }
+{15020}{}{Anything else?}
+{16000}{}{I've got a letter here that needs to go to a Ms. Becky, of the Den. I'll pay you 500 caps.}
+{16010}{}{I'll do it. }
+{16020}{}{Anything else?}
+{17000}{}{I've got a letter here that needs to go to a Mr. Darkwater, of Junktown. I'll pay you 150 caps.}
+{17010}{}{I'll do it. }
+{17020}{}{Anything else?}
+{18000}{}{I've got a letter here that needs to go to a Mr. Meloy, of Klamath. I'll pay you 500 caps.}
+{18010}{}{I'll do it. }
+{18020}{}{Anything else?}
+{19000}{}{I've got a letter here that needs to go to a Mr. Skeeter, of Gecko. I'll pay you 500 caps.}
+{19010}{}{I'll do it. }
+{19020}{}{Anything else?}
+{20000}{}{I've got a letter here that needs to go to a Mr. Elmer, of Necropolis. I'll pay you 500 caps.}
+{20010}{}{I'll do it. }
+{20020}{}{Anything else?}
+{21000}{}{I've got a letter here that needs to go to a Mr. Little Jesus, of New Reno. I'll pay you 500 caps.}
+{21010}{}{I'll do it. }
+{21020}{}{Anything else?}
+{22000}{}{I've got a letter here that needs to go to a Mr. Jules, of New Reno. I'll pay you 500 caps.}
+{22010}{}{I'll do it. }
+{22020}{}{Anything else?}
+{23000}{}{I've got a letter here that needs to go to a Mr. Doc Johnson, of Redding. I'll pay you 500 caps.}
+{23010}{}{I'll do it. }
+{23020}{}{Anything else?}
+{24000}{}{I've got a letter here that needs to go to a Mr. Dangerous Dan, of Redding. I'll pay you 500 caps.}
+{24010}{}{I'll do it. }
+{24020}{}{Anything else?}
+{25000}{}{I've got a letter here that needs to go to a Mr. Dr. Fung, of San Francisco. I'll pay you 700 caps.}
+{25010}{}{I'll do it. }
+{25020}{}{Anything else?}
+{26000}{}{I've got a letter here that needs to go to a Mr. Dusty, of NCR. I'll pay you 150 caps.}
+{26010}{}{I'll do it. }
+{26020}{}{Anything else?}
+{27000}{}{I've got a letter here that needs to go to Ms. Mira, of NCR. I'll pay you 150 caps.}
+{27010}{}{I'll do it. }
+{27020}{}{Anything else?}
+{28000}{}{I've got a letter here that needs to go to a Mr. Harry, of Vault City. I'll pay you 500 caps.}
+{28010}{}{I'll do it. }
+{28020}{}{Anything else?}
+{29000}{}{I've got a letter here that needs to go to a Ms. Lydia, of Vault City. I'll pay you 500 caps.}
+{29010}{}{I'll do it. }
+{29020}{}{Anything else?}
+{30000}{}{I've got a letter here that needs to go to a Mr. Jargo, of Boneyard. I'll pay you 150 caps.}
+{30010}{}{I'll do it. }
+{30020}{}{Anything else?}
+{31000}{}{I've got a letter here that needs to go to a Ms. Liz, of Broken Hills. I'll pay you 500 caps.}
+{31010}{}{I'll do it. }
+{31020}{}{Anything else?}
+{32000}{}{I've got a letter here that needs to go to a Mr. Phil, of Broken Hills. I'll pay you 500 caps.}
+{32010}{}{I'll do it. }
+{32020}{}{Anything else?}
+{33000}{}{I've got a letter here that needs to go to a Mr. Doc Holiday, of Broken Hills. I'll pay you 500 caps.}
+{33010}{}{I'll do it. }
+{33020}{}{Anything else?}
+{34000}{}{I've got a letter here that needs to go to a Mr. Tubby, of the Den. I'll pay you 500 caps.}
+{34010}{}{I'll do it. }
+{34020}{}{Anything else?}
+{35000}{}{I've got a letter here that needs to go to a Mr. Harold, of Gecko. I'll pay you 500 caps.}
+{35010}{}{I'll do it. }
+{35020}{}{Anything else?}
+{36000}{}{I've got a letter here that needs to go to a Mr. Gordon, of Gordon's Gas Station. I'll pay you 500 caps.}
+{36010}{}{I'll do it. }
+{36020}{}{Anything else?}
+{37000}{}{I've got a letter here that needs to go to a Mr. Trader Jo, of Modoc. I'll pay you 500 caps.}
+{37010}{}{I'll do it. }
+{37020}{}{Anything else?}
+{38000}{}{I've got a letter here that needs to go to a Mr. Eldridge, of New Reno. I'll pay you 500 caps.}
+{38010}{}{I'll do it. }
+{38020}{}{Anything else?}
+{39000}{}{I've got a letter here that needs to go to a Ms. Jenna, of The Tanker. I'll pay you 700 caps.}
+{39010}{}{I'll do it. }
+{39020}{}{Anything else?}
+{40000}{}{I've got a letter here that needs to go to a Mr. Jacob, of Broken Hills. I'll pay you 500 caps.}
+{40010}{}{I'll do it. }
+{40020}{}{Anything else?}
+{41000}{}{I've got a letter here that needs to go to a Mr. Ralph, of the Gun Runners. I'll pay you 150 caps.}
+{41010}{}{I'll do it. }
+{41020}{}{Anything else?}
+{42000}{}{I've got a letter here that needs to go to a Ms. Veronia. She's at the Library, with the Followers of the Apocalypse. I'll pay you 150 caps.}
+{42010}{}{I'll do it. }
+{42020}{}{Anything else?}
+{43000}{}{I've got a letter here that needs to go to a Mr. Bill, of Broken Hills. I'll pay you 500 caps.}
+{43010}{}{I'll do it. }
+{43020}{}{Anything else?}
+{44000}{}{I've got a letter here that needs to go to a Mr. Zaius, of Broken Hills. I'll pay you 500 caps.}
+{44010}{}{I'll do it. }
+{44020}{}{Anything else?}
+{45000}{}{I've got a letter here that needs to go to a Mr. Flick, of the Den. I'll pay you 500 caps.}
+{45010}{}{I'll do it. }
+{45020}{}{Anything else?}
+{46000}{}{I've got a letter here that needs to go to a Mr. Frankie, of the Den. I'll pay you 500 caps.}
+{46010}{}{I'll do it. }
+{46020}{}{Anything else?}
+{47000}{}{I've got a letter here that needs to go to a Ms. Mom, of the Den. I'll pay you 500 caps.}
+{47010}{}{I'll do it. }
+{47020}{}{Anything else?}
+{48000}{}{I've got a letter here that needs to go to a Ms. Buckner of Klamath. I'll pay you 500 caps.}
+{48010}{}{I'll do it. }
+{48020}{}{Anything else?}
+{49000}{}{I've got a letter here that needs to go to a Mr. Balthas of Modoc. I'll pay you 500 caps.}
+{49010}{}{I'll do it. }
+{49020}{}{Anything else?}
+{50000}{}{I've got a letter here that needs to go to a Mr. Grisham of Modoc. I'll pay you 500 caps.}
+{50010}{}{I'll do it. }
+{50020}{}{Anything else?}
+{51000}{}{I've got a letter here that needs to go to a Mr. Renesco of New Reno. I'll pay you 500 caps.}
+{51010}{}{I'll do it. }
+{51020}{}{Anything else?}
+{52000}{}{I've got a letter here that needs to go to a Mr. Lou of Redding. I'll pay you 500 caps.}
+{52010}{}{I'll do it. }
+{52020}{}{Anything else?}
+{53000}{}{I've got a letter here that needs to go to a Mr. Randal of Vault City. I'll pay you 500 caps.}
+{53010}{}{I'll do it. }
+{53020}{}{Anything else?}
+{54000}{}{I've got a letter here that needs to go to a Mr. McRae of Vault City. I'll pay you 500 caps.}
+{54010}{}{I'll do it. }
+{54020}{}{Anything else?}
+{55000}{}{I've got a letter here that needs to go to a Ms. Sassy Givins of Junktown. I'll pay you 150 caps.}
+{55010}{}{I'll do it. }
+{55020}{}{Anything else?}
+{56000}{}{Excellent! Please hand me the client's receipt. Ah yes, everything seems to be in order, here is your payment of 150 caps. I've got some more letters that need delivering, let me know if you're interested.}
+{56010}{}{[Quest Completed!]}
+{57000}{}{Excellent! Please hand me the client's receipt. Ah yes, everything seems to be in order, here is your payment of 500 caps. I've got some more letters that need delivering, let me know if you're interested.}
+{57010}{}{[Quest Completed!]}
+{58000}{}{Excellent! Please hand me the client's receipt. Ah yes, everything seems to be in order, here is your payment of 700 caps. I've got some more letters that need delivering, let me know if you're interested.}
+{58010}{}{[Quest Completed!]}
+{59000}{}{You haven't delivered it yet?! Let me check the books...}
+{59010}{}{[Wait]}
+{59020}{}{[Wait]}
+{59030}{}{[Wait]}
+{59040}{}{[Wait]}
+{59050}{}{[Wait]}
+{59060}{}{[Wait]}
+{59070}{}{[Wait]}
+{59080}{}{[Wait]}
+{59090}{}{[Wait]}
+{59100}{}{[Wait]}
+{59110}{}{[Wait]}
+{59120}{}{[Wait]}
+{59130}{}{[Wait]}
+{59140}{}{[Wait]}
+{59150}{}{[Wait]}
+{59160}{}{[Wait]}
+{59170}{}{[Wait]}
+{59180}{}{[Wait]}
+{59190}{}{[Wait]}
+{59200}{}{[Wait]}
+{59210}{}{[Wait]}
+{59220}{}{[Wait]}
+{59230}{}{[Wait]}
+{59240}{}{[Wait]}
+{59250}{}{[Wait]}
+{59260}{}{[Wait]}
+{59270}{}{[Wait]}
+{59280}{}{[Wait]}
+{59290}{}{[Wait]}
+{59300}{}{[Wait]}
+{59310}{}{[Wait]}
+{59320}{}{[Wait]}
+{59330}{}{[Wait]}
+{59340}{}{[Wait]}
+{59350}{}{[Wait]}
+{59360}{}{[Wait]}
+{59370}{}{[Wait]}
+{59380}{}{[Wait]}
+{59390}{}{[Wait]}
+{59400}{}{[Wait]}
+{59410}{}{[Wait]}
+{59420}{}{[Wait]}
+{59430}{}{[Wait]}
+{59440}{}{[Wait]}
+{59450}{}{[Wait]}
+{59460}{}{[Wait]}
+{60000}{}{Mr. Hammilton. He's in the Library, with the Followers of the Apocalypse. I'm paying you 150 caps!}
+{61000}{}{Mr. Marshall, of the Gun Runners. I'm paying you 150 caps!}
+{62000}{}{Mr. Montag, of Adytum. I'm paying you 150 caps!}
+{63000}{}{Ms. Lorraine, of Adytum. I'm paying you 150 caps!}
+{64000}{}{Mr. Chuck, of Adytum. I'm paying you 150 caps!}
+{65000}{}{Mr. Metzger, of the Den. I'm paying you 500 caps!}
+{66000}{}{Ms. Becky, of the Den. I'm paying you 500 caps!}
+{67000}{}{Mr. Darkwater, of Junktown. I'm paying you 150 caps!}
+{68000}{}{Mr. Meloy, of Klamath. I'm paying you 500 caps!}
+{69000}{}{Mr. Skeeter, of Gecko. I'm paying you 500 caps!}
+{70000}{}{Mr. Elmer, of Necropolis. I'm paying you 500 caps!}
+{71000}{}{Mr. Little Jesus, of New Reno. I'm paying you 500 caps!}
+{72000}{}{Mr. Jules, of New Reno. I'm paying you 500 caps!}
+{73000}{}{Mr. Doc Johnson, of Redding. I'm paying you 500 caps!}
+{74000}{}{Mr. Dangerous Dan, of Redding. I'm paying you 500 caps!}
+{75000}{}{Mr. Dr. Fung, of San Francisco. I'm paying you 700 caps!}
+{76000}{}{Mr. Dusty, of NCR. I'm paying you 150 caps!}
+{77000}{}{Ms. Mira, of NCR. I'm paying you 150 caps!}
+{78000}{}{Mr. Harry, of Vault City. I'm paying you 500 caps!}
+{79000}{}{Ms. Lydia, of Vault City. I'm paying you 500 caps!}
+{80000}{}{Mr. Jargo, of Boneyard. I'm paying you 150 caps!}
+{81000}{}{Ms. Liz, of Broken Hills. I'm paying you 500 caps!}
+{82000}{}{Mr. Phil, of Broken Hills. I'm paying you 500 caps!}
+{83000}{}{Mr. Doc Holiday, of Broken Hills. I'm paying you 500 caps!}
+{84000}{}{Mr. Tubby, of the Den. I'm paying you 500 caps!}
+{85000}{}{Mr. Harold, of Gecko. I'm paying you 500 caps!}
+{86000}{}{Mr. Gordon, of Gordon's Gas Station. I'm paying you 500 caps!}
+{87000}{}{Mr. Trader Jo, of Modoc. I'm paying you 500 caps!}
+{88000}{}{Mr. Eldridge, of New Reno. I'm paying you 500 caps!}
+{89000}{}{Ms. Jenna, of San Francisco. I'm paying you 700 caps!}
+{90000}{}{Mr. Jacob, of Broken Hills. I'm paying you 500 caps!}
+{91000}{}{Mr. Ralph, of the Gun Runners. I'm paying you 150 caps!}
+{92000}{}{Ms. Veronica. She's at the Library, with the Followers of the Apocalypse. I'm paying you 150 caps!}
+{93000}{}{Mr. Bill, of Broken Hills. I'm paying you 500 caps!}
+{94000}{}{Mr. Zaius, of Broken Hills. I'm paying you 500 caps!}
+{95000}{}{Mr. Flick, of the Den. I'm paying you 500 caps!}
+{96000}{}{Mr. Frankie, of the Den. I'm paying you 500 caps!}
+{97000}{}{Ms. Mom, of the Den. I'm paying you 500 caps!}
+{98000}{}{Ms. Buckner, of Klamath. I'm paying you 500 caps!}
+{99000}{}{Mr. Balthas, of Modoc. I'm paying you 500 caps!}
+{100000}{}{Mr. Grisham, of Modoc. I'm paying you 500 caps!}
+{101000}{}{Mr. Renesco, of New Reno. I'm paying you 500 caps!}
+{102000}{}{Mr. Lou, of Redding. I'm paying you 500 caps!}
+{103000}{}{Mr. Randal, of Vault City. I'm paying you 500 caps!}
+{104000}{}{Mr. McRae, of Vault City. I'm paying you 500 caps!}
+{105000}{}{Ms. Sassy Givins, of Junktown. I'm paying you 150 caps!}
+{106000}{}{Very well. Hand it over. Thank you, @pname@. You should check your mail...}
+{106010}{}{Uhm... okay.}
+{107000}{}{Yes, I did. Here. Here is your mail. Have a nice day. Tell your Overseer that he's an asshole.}
+{107010}{}{[Read the Letter]}
+{108000}{}{["Jolly good show, ol' chap! Well done indeed! Such a marvelous maneuver swindling the ol' Vault City goons! Well played! Well played indeed! I've enclosed a little something for you as well. But, duty calls, duty calls!"]}
+{108010}{}{[Continue]}
+{109000}{}{["I had thought at first why our vault doors opened, but I really couldn't figure it out! You know it wasn't my doing, no! Not at all. They just... opened. Scariest thing in the world! We could have stayed inside the vault forever, we could have, yes! I thought that maybe Vault City would have had some answers.... rather sorry I made you plant that virus, but what choice did we have? Well played, @pname@. You're quite the hero, aren't you? Well... a hero to someone!"]}
+{109010}{}{[Continue]}
+{110000}{}{["Unfortunately, Vault City gave us nothing. I figured if we invented a little charade we could have manipulated Vault City into giving us some answers, but alas, nothing good came of it. You ended up murdering some strange vault dwellers, what a shame! How horrible you must feel! Oh well. The wasteland is harsh, so I hear. Thanks for the part though, that little chip bought us some time. However, we have a little situation now..."]}
+{110010}{}{[Continue]}
+{111000}{}{["You see, there's a rather... angry fellow following you around, it seems. A certain someone you might know... and he's rather angry with you! You might want to watch out, @pname@! Be very. very careful from now on..."]}
+{111010}{}{[Continue]}
+{112000}{}{["Well, @pname@, that's all I have for you now. The data you sent us was useful, but didn't answer any of our questions. There are six vaults in California. We have the data from the surrounding vaults, but the others are simply too far to be of any interest. We still have no clue why the vault doors opened. Sit tight. I'll contact you soon. Stay alive, @pname@, and good luck out there."]}
+{112010}{}{[Someone taps you on the shoulder]}
+{113000}{}{[You turn around and see an old memory standing before you. But they run off into the wasteland before you get a good look at them. Looks like you'll have to chase them! Better hurry!] [Type /combatmode tb for Turn Based Combat]}
+{113010}{}{Wait! Stop! [Collect your new gear before you leave]}
+{114000}{}{Yes, that's right [He takes his face off the desk] I have a letter for you, @pname@. Here you are.}
+{114010}{}{Thank you, sir. [Read the Letter]}
+{115000}{}{["@pname@, I noticed that your cousin's vitals have gone silent. I'm sorry to say it, but he's dead, @pname@. I knew you had your differences, but he was part of your family. I hope you take it well. Ol' chap, I found out who was dabbling into our computers. It was the same people that were dabbling into the other vaults as well!"]}
+{115010}{}{[Continue]}
+{116000}{}{["By the looks of their code, it appears that they were of Asian descent. Chinese, Korean, Japanese, who knows. Some rather peculiar endeavors, eh, @pname@? Well, ol' chap! That got me thinking! Maybe San Francisco tried to open our doors? I hear that, that city is the last home of those... Chinese."]}
+{116010}{}{[Continue]}
+{117000}{}{["At first I thought that it was a great idea! Mystery solved! But no, alas, @pname@, it can not be so simple, can it? There is no way that the Chinese have enough technology to hack into a vault! Only the vaults were equipped with enough technology for that. Vault City's mainframe had never been touched before us. I'm sure if the Chinese had the tech to do it, they'd of bloody well done it by now!"]}
+{117010}{}{[Continue]}
+{118000}{}{["Vault City had so much strategic information against San Francisco, it was ridiculous! It had to of been someone bigger than a vault! Something much more wicked! I think that we were hacked by the United States Government! @pname@! I'm not too sure. But you need to go to San Francisco!"]}
+{118010}{}{[Continue]}
+{119000}{}{["Go to San Francisco and find a computer! Let's see what happens when you run the same backdoor virus as last time! Ol' chap, this is going to be some bloody fucking research! Godspeed, @pname@! But do not let yourself get caught! Good luck. I'll have a jolly good ol' package waiting for you when you get back."]}
+{119010}{}{Guess I'm going to San Francisco. What the hell does the U.S Government want with my vault? I didn't even know that there was a U.S Government left! It's chaos out here... Cira was proof of it.}
+{120000}{}{Don't forget your other package, @pname@. Here.}
+{121000}{}{Okay, okay! Just please don't hurt me, @pname@! I've got a letter from your Overseer for you! Here, take it!}
+{121010}{}{Thanks. [Read the Letter]}
+{122000}{}{["@pname@. If you're reading this, then those goddamn Chinese have been utterly conquered! Well done! I'm just going to assume that you've survived! Wicked awesome show, lad! I'm sure you've seen the last of those damn... Chinese!"]}
+{122010}{}{[Continue]}
+{123000}{}{["But @pname@! This... this undying battle... of extinction... Who could believe... in sanctuary? I can't help but frown whenever I think of what it's been like for you out there. So much darkness... so much... madness. I must thank you, @pname@. For what you've done for this... country... You're a hero, @pname@. No matter what happens... always remember... you were... my hero. You've done so much... Be proud, lad. Be very, very proud."]}
+{123010}{}{[Continue]}
+{124000}{}{["But duty will always call. That is the nature of the hero. You're born, and you die. But in between that, it's your bloody actions that will bloody well define you! In between living, and dying... there is the journey. The journey you must face. The path of the hero. The path of the righteous. The path of the new age forming. You are to guide this new age, @pname@. You and all your people."]}
+{124010}{}{[Continue]}
+{125000}{}{["When I bloody thought about God! You know what I imagined?! A messiah! A saint to come down, cleanse this world of all the broken bones, and sinners that walked it's dust. I dreamt of people just like you, @pname@. People that could save this world! For the better! People who wanted to do nothing but what was right!"]}
+{125010}{}{[Continue]}
+{126000}{}{["Maybe our vault doors opened to prove a bloody point, lad? Maybe this government of ours wants us to rebuild this... society! Into something better! It is your destiny, @pname@! Let us walk into the future together! As one!"]}
+{126010}{}{[Continue]}
+{127000}{}{["Listen, @pname@! You should rest! I've had Captain Jason Stone set up a Safe House for you somewhere near. You should head over there, and take a rest. Consider it a new home. You will be safe there, and can sleep easy knowing that no one else will find it. I've written down the coordinates for you. I'll contact you soon."] [For Turn Based Combat write /combatmode tb before continuing]}
+{127010}{}{Hmm... my own Safe House. Interesting.}
+{128000}{}{Don't hit me! I've got two letters for you this time! But... something is different! Normally, a man in a vault suit drops by with your letters. But this time it was someone different. He gave me two letters for you. Here. }
+{128010}{}{Two letters? What, from different people? Let's have a look see.}
+{129000}{}{["@pname@. NCR. Videocom. Overseer."]}
+{129010}{}{Odd. I guess I'll head over to the NCR after this. Now, let's read the other letter, shall we?}
+{130000}{}{["My God, @pname@! Shortly after I gave you the whereabouts of that Safe House, Captain Jason Stone's vital went silent! Have you seen him?! Do you know what's happened to him?! He was my main scout out there, and vital source of information! He helped the others get as far as you did! But he hasn't reported in for days!"]}
+{130010}{}{[Continue]}
+{131000}{}{["You need to start being EVEN MORE careful from now on! Someone is hunting my vault dwellers! If this... "Enclave" gets a hold of one of our PipBoys, that could mean the end of Vault 24! I've initiated the self-destruction sequence on both Felix, and Captain Jason Stone's PipBoys! I hope to God that you aren't anywhere near one of them! You'll die instantly!']}
+{131010}{}{[Continue]}
+{132000}{}{["It's done, @pname@! I hope that you're still alive! Listen, laddy! Someone must have infiltrated our bloody operation here! Either Captain Stone has betrayed us, or it was you! But how can I be sure?! @pname@! Please! Do not betray your vault! You are like a @sex@|son||daughter| to me! I... love you!"]}
+{132010}{}{[Continue]}
+{133000}{}{["There's a Vault-Tek Videocom in the NCR. It's ancient technology, but I need you to go over there, and find it. You'll need to find some Pre-War American Dollars, however, to place a call. I need you to head over there, and tell it to call Vault 24 directly. Ask to speak with the Overseer. I'll answer the phone. It should still work! Captain Jason Stone used it numerous times to contact me!"] }
+{133010}{}{[Continue]}
+{134000}{}{["Help me, @pname@! You're my only hope. Your Father would be very proud of you if he were still alive! I'll be waiting near the Videocom. Please hurry to NCR and call me directly. Your vault needs you!"] }
+{134010}{}{Looks like I'm heading back to the NCR. Who have I been speaking with over there? My Overseer? Or this... United States Government?}
+{135000}{}{No, sorry. Just the usual. Are you expecting something? Maybe it just hasn't arrived yet? Caravan troubles, dying Brahmin... who knows.}
+{135010}{}{Yeah... I guess. Okay, thanks.}
+{136000}{}{The NCPE currently has zero openings. Sorry.}
+{137000}{}{Please leave... before I call the guards.}
+{138000}{}{Ah, a fellow courier! Thanks for the package! Did you know that we're hiring too?}
+{139000}{}{Why, yes.  Yes, you do. Please sign here, and enjoy your package. Remember, if you're lying we'll hunt you down and kill you.}
+

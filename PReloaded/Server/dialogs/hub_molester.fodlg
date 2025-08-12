@@ -1,0 +1,295 @@
+[comment]
+
+
+[data]
+lang=engl russ
+
+[dialog]
+&
+1 1000 None 0 #
+2 1010 D _var p name_mem_npc_player = 0 #
+31 1020 D _var p name_mem_npc_player = 1 @
+2 2000 None 0 #
+3 2010 D _var p ncr_investigation2 = 1 #
+0 2020 #
+0 2030 @
+3 3000 None 0 #
+4 3010 @
+4 4000 None 0 #
+5 4010 @
+5 5000 None 0 #
+6 5010 @
+6 6000 None 0 #
+7 6010 @
+7 7000 None 0 #
+9 7010 #
+9 7020 #
+9 7030 #
+9 7040 #
+9 7050 #
+9 7060 #
+8 7070 #
+9 7080 #
+8 7090 #
+11 7100 #
+13 7110 #
+12 7120 #
+13 7130 #
+9 7140 #
+9 7150 #
+13 7160 #
+9 7170 #
+10 7180 #
+9 7190 #
+11 7200 #
+10 7210 #
+10 7220 @
+8 8000 None 0 #
+14 8010 @
+9 9000 None 0 @
+10 10000 None 0 @
+11 11000 None 0 @
+12 12000 None 0 @
+13 13000 None 0 @
+14 14000 None 0 #
+15 14010 @
+15 15000 None 0 #
+16 15010 @
+16 16000 None 0 #
+17 16010 @
+17 17000 None 0 #
+18 17010 R _script dialog@r_PlaySoundGun 1 2 R _param n DAMAGE_RIGHT_LEG = 1 @
+18 18000 None 0 #
+19 18010 @
+19 19000 None 0 #
+20 19010 @
+20 20000 None 0 #
+21 20010 R _var p ncr_investigation2 = 2 R _var p name_mem_npc_player = 1 R _script dialog@r_PlaySoundGun 1 2 #
+22 20020 R _var p ncr_investigation2 = 2 R _var p name_mem_npc_player = 1 R _script dialog@r_PlaySoundGun 1 2 #
+23 20030 R _var p ncr_investigation2 = 2 R _var p name_mem_npc_player = 1 R _script dialog@r_PlaySoundGun 1 2 #
+24 20040 R _var p ncr_investigation2 = 3 R _var p name_mem_npc_player = 1 R _script dialog@r_PlaySoundGun 1 2 #
+25 20050 R _var p ncr_investigation2 = 4 R _param p ST_KARMA + 1 R _var p name_mem_npc_player = 1 R _var p LAW + 1 @
+21 21000 None 0 #
+27 21010 R _script dialog@r_PlaySoundGun 1 2 R _param n DAMAGE_LEFT_ARM = 1 @
+22 22000 None 0 #
+26 22010 R _script dialog@r_PlaySoundGun 1 2 R _param n DAMAGE_LEFT_LEG = 1 @
+23 23000 None 0 #
+28 23010 R _script dialog@r_PlaySoundGun 1 2 R _param n DAMAGE_EYE = 1 @
+24 24000 None 0 #
+0 24010 R _var p CRIM - 1 R _script dialog@r_NinjaKillNpc 1 117 R _script dialog@r_PlaySoundGun 1 2 @
+25 25000 None 0 #
+29 25010 R _script dialog@r_PlaySoundGun 1 2 @
+26 26000 None 0 #
+30 26010 @
+27 27000 None 0 #
+30 27010 @
+28 28000 None 0 #
+30 28010 @
+29 29000 None 0 #
+30 29010 @
+30 30000 None 0 #
+0 30010 @
+31 31000 None 0 #
+0 31010 &
+
+[engl]
+{100}{}{Dirty old man}
+{200}{}{You see a dirty looking old man.}
+{210}{}{He doesn't seem to be up to any good. But hey, what can you do? }
+{1000}{}{Predialogue installations}
+{1010}{}{base}
+{1020}{}{2}
+{2000}{}{Hehehe, you like girls? How about boys? Hehehe.}
+{2010}{}{Uh...}
+{2020}{}{Fuck you, creep!}
+{2030}{}{[Just leave]}
+{3000}{}{You like to watch? You want to watch something with me? Hehehe.}
+{3010}{}{You got something fresh?}
+{4000}{}{@sex@|Man!||Girl!| I got something so fresh it'll make you wet. }
+{4010}{}{Yeah? I could use something "fresh"...}
+{5000}{}{[He leans closer] You a cop?}
+{5010}{}{Would it matter?}
+{6000}{}{[He gives you a hefty push] Of course it matters! Ah, maybe I said too much. Maybe you should scatter.}
+{6010}{}{Nah man, what's up? You got me interested. You selling something hot?}
+{7000}{}{[He smiles] You could say that. What'chu lookin' for?}
+{7010}{}{Guns.}
+{7020}{}{Cars.}
+{7030}{}{Stolen Merchandise.}
+{7040}{}{Drugs.}
+{7050}{}{Joining a gang.}
+{7060}{}{Robbing a bank.}
+{7070}{}{I want to fuck some kids.}
+{7080}{}{Hookers.}
+{7090}{}{A little girl.}
+{7100}{}{A little boy.}
+{7110}{}{A two headed midget with a strap on.}
+{7120}{}{A gay clown.}
+{7130}{}{Some sort of comfortable chair.}
+{7140}{}{A vacation.}
+{7150}{}{Justice.}
+{7160}{}{I want to kill you.}
+{7170}{}{A life.}
+{7180}{}{Love.}
+{7190}{}{A new hat.}
+{7200}{}{I want to own my own casino!}
+{7210}{}{I just want you to hold me!}
+{7220}{}{[Give the man a big hug]}
+{8000}{}{[He laughs maniacally] I love your style!}
+{8010}{}{You're going to love me. I have a strong feeling that you and I are about to get real close.}
+{9000}{}{You sure you ain't a goddamn cop? Get the fuck out of my face!}
+{10000}{}{Hey, what the fuck? I ain't into you oldies!}
+{11000}{}{You ain't for me. Beat it.}
+{12000}{}{Just no!}
+{13000}{}{What the holy sam fucking shit have you been smoking? Jet?}
+{14000}{}{[He seems a little put off by your comment] Uh, yeah sure! Look if you got the caps, I know a little shack with a hot piece of little ass in it! She only been touched a few times, but she's still tight. You know what I'm saying? Two hundred caps and I'll let you in on the secret.}
+{14010}{}{[You're about ready to explode, but you've got to get some more information before blowing this guy's balls off!] I... I... like the color red...}
+{15000}{}{[He smiles] Yeah me too! That's why we picked this bitch, hehehe.}
+{15010}{}{Melinda. Her name... is Melinda. }
+{16000}{}{[He's getting nervous] Ugh? What? }
+{16010}{}{The little girl you stole from the NCR. Her name is Melinda. She's only twelve years old.}
+{17000}{}{[The man takes off running]}
+{17010}{}{[Shoot his leg off]}
+{18000}{}{[With a single well placed shot of your standard issue .44 magnum given to you when you became a police officer, you blast off a large chunk of the man's right leg. He stumbles around in confusion, and pain. He's bleeding heavily, but still trying to crawl away]}
+{18010}{}{[Walk up to the child molester]}
+{19000}{}{[He turns over on his back and flails his arms around] Please! Please! I'll show you where the kid is! Just please don't kill me!}
+{19010}{}{Killing? Who said anything about that? I'm going to *murder* you!}
+{20000}{}{[He pleads for his life, for mercy. That look on his face says it all. Says everything you need to know. It's a reminder of everything you hate, not just the killing, but the fact that it's the only answer. These things... they just never change. He eventually tells you where the girl is] }
+{20010}{}{[Blast off his hand]}
+{20020}{}{[Blast off his foot]}
+{20030}{}{[Blast off his ear]}
+{20040}{}{[Blast off his balls]}
+{20050}{}{Get up! You're coming with me!}
+{21000}{}{[You shoot off a large chunk of his left hand, and the man screams. There's blood everywhere and the people outside are screaming. The police, knowing you, leave you to your business]}
+{21010}{}{[Fire your weapon and cauterize his wound with it]}
+{22000}{}{[You shoot off a large chunk of his left foot, and the man screams. There's blood everywhere and the people outside are screaming. The police, knowing you, leave you to your business]}
+{22010}{}{[Fire your weapon and cauterize his wound with it]}
+{23000}{}{[You shoot off a large chunk of his left ear, and the man screams. There's blood everywhere and the people outside are screaming. The police, knowing you, leave you to your business]}
+{23010}{}{[Fire your weapon and cauterize his wound with it]}
+{24000}{}{[You shoot off the man's testicles and shatter his body into a inhumane pile of wrong, and the man dies. There's blood everywhere and the people outside are screaming. The police, knowing you, leave you to your business but they don't seem too proud of it]}
+{24010}{}{[Shoot him a few more times]}
+{25000}{}{[The man tries to stand up but tries to balance on his wounded foot, and collapses in pain] AGGGH!!!! I need a doctor!}
+{25010}{}{[Fire your weapon and cauterize his wound with it]}
+{26000}{}{[He cries] You paralyzed me! I'm a fucking cripple now! Just kill me! Please!}
+{26010}{}{Don't worry. They'll hang you in the NCR.}
+{27000}{}{[He cries]  I'm a fucking cripple now! Just kill me! Please!}
+{27010}{}{Don't worry. They'll hang you in the NCR.}
+{28000}{}{[He cries]  I'm a fucking freak now! Just kill me! Please!}
+{28010}{}{Don't worry. They'll hang you in the NCR.}
+{29000}{}{[He cries]  Thank you! Thank you!}
+{29010}{}{For what? They'll hang you in the NCR. }
+{30000}{}{Oh.}
+{30010}{}{I might even watch. [Smile]}
+{31000}{}{[How much more blood must be spilt... If anything, may the rain wash all our sins away]}
+{31010}{}{[Spit in disgust]}
+{100000001}{}{Better wash the counter again...}
+{100000002}{}{That's 5 caps buddy. Hey did you hear me? Cough em' up.}
+{100000003}{}{Better change the keg...}
+{100000004}{}{RotGut? You drink that shit?}
+{100000005}{}{Domestic? I got B.E.E.R buddy, do you want one or not?}
+{100000006}{}{Fuckin' dust is getting everywhere. Hey close the fuckin' door!}
+{100000007}{}{I swear if the next asshole doesn't tip. Ima' shoot somebody!}
+{100000008}{}{I got bottles, I got shots, and I got a bat behind the counter for the retards. Your not a retard are you?}
+{100000009}{}{Uh-huh, yeah that's nice buddy. You don't say...What? Of course I'm listening...}
+{100000010}{}{That's 5 caps. FIVE CAPS Tribal! F.I.V.E! }
+{100000011}{}{Shut up and order a fuckin' beer already!}
+{100000012}{}{I swear if I have to serve another drunk, I'm getting the shotgun!}
+{100000013}{}{Look the keg went dry, and it's going to be another month until the caravan shows up again.}
+{100000014}{}{Really? You don't say, buy another drink or get out!}
+{100000015}{}{What? I'm on break.}
+{100000016}{}{Be right with ya'}
+{100000017}{}{Have a sit stranger. I'll be with you in a moment.}
+{100000018}{}{When do we close? Uh, when the place get's shot up, that's when!}
+{100000019}{}{We're fresh outta' cold beer, sorry. You'll just have to drink it warm.}
+{100000020}{}{RotGut? No man, go make that shit yourself! I wouldn't drink it!}
+
+[russ]
+{100}{}{Алкоголик}
+{200}{}{Вы видите пьяницу.}
+{210}{}{Вы видите шатающегося из стороны в сторону пьяного человека в лохмотьях. Лицо его распухло, нос синющий как слива. А аромат рядом с ним такой, что свалит брамина насмерть. Он что-то бормочет про себя и иногда громко поет песни.}
+{210}{}{Вы видите алкаша. Он весьма грязен - кажется, он повалялся в луже, но не особо этим расстроен.}
+{1000}{}{I?aaaeaeiaiaua onoaiiaee}
+{1010}{}{base}
+{1020}{}{2}
+{2000}{}{Dialog text}
+{2010}{}{Uh...}
+{2020}{}{Fuck you, creep!}
+{2030}{}{[Leave]}
+{3000}{}{You like to watch? You want to watch something with me? Hehehe.}
+{3010}{}{You got something fresh?}
+{4000}{}{@sex@|Man!||Girl!| I got something so fresh it'll make you wet. }
+{4010}{}{Yeah? I could use something "fresh"...}
+{5000}{}{[He leans closer] You a cop?}
+{5010}{}{Would it matter?}
+{6000}{}{[He gives you a hefty push] Of course it matters! Ah, maybe I said too much. Maybe you should scatter.}
+{6010}{}{Nah man, what's up? You got me interested. You selling something hot?}
+{7000}{}{[He smiles] You could say that. What'chu lookin' for?}
+{7010}{}{Guns.}
+{7020}{}{Cars.}
+{7030}{}{Stolen Merchandise.}
+{7040}{}{Drugs.}
+{7050}{}{Joining a gang.}
+{7060}{}{Robbing a bank.}
+{7070}{}{I want to fuck some kids.}
+{7080}{}{Hookers.}
+{7090}{}{A little girl.}
+{7100}{}{A little boy.}
+{7110}{}{A two headed midget with a strap on.}
+{7120}{}{A gay clown.}
+{7130}{}{Some sort of comfortable chair.}
+{7140}{}{A vacation.}
+{7150}{}{Justice.}
+{7160}{}{I want to kill you.}
+{7170}{}{A life.}
+{7180}{}{Love.}
+{7190}{}{A new hat.}
+{7200}{}{I want to own my own casino!}
+{7210}{}{I just want you to hold me!}
+{7220}{}{[Give the man a big hug]}
+{8000}{}{[He laughs maniacally] I love your style!}
+{8010}{}{You're going to love me. I have a strong feeling that you and I are about to get real close.}
+{9000}{}{You sure you ain't a goddamn cop? Get the fuck out of my face!}
+{10000}{}{Hey, what the fuck? I ain't into you oldies!}
+{11000}{}{You ain't for me. Beat it.}
+{12000}{}{Just no!}
+{13000}{}{What the holy sam fucking shit have you been smoking? Jet?}
+{14000}{}{[He seems a little put off by your comment] Uh, yeah sure! Look if you the caps, I know a little shack with a hot piece of little ass in it! She only been touched a few times, but she's still tight. You know what I'm saying? Two hundred caps and I'll let you in on the secret.}
+{14010}{}{[You're about ready to explode, but you've got to get some more information before blowing this guy's balls off!] I... I... like the color red...}
+{15000}{}{[He smiles] Yeah me too! That's why we picked this bitch, hehehe.}
+{15010}{}{Melinda. Her name... is Melinda. }
+{16000}{}{[He's getting nervous] Ugh? What? }
+{16010}{}{The little girl you stole from NCR. Her name is Melinda. She's only twelve years old.}
+{17000}{}{[The man takes off running]}
+{17010}{}{[Shoot his leg off]}
+{18000}{}{[With a single well placed shot of your standard issue .44 magnum given to you when you became a police officer, you blast off a large chunk of the man's right leg. He stumbles around in confusion, and pain. He's bleeding heavily, but still trying to crawl away]}
+{18010}{}{[Walk up to the child molester]}
+{19000}{}{[He turns over on his back and flails his arms around] Please! Please! I'll show you where the kid is! Just please don't kill me!}
+{19010}{}{Killing? Who said anything about that? I'm going to *murder* you!}
+{20000}{}{[He pleads for his life, for mercy. That look on his face says it all. Says everything you need to know. It's a reminder of everything you hate, not just the killing, but the fact that it's the only answer. These things... they just never change] }
+{20010}{}{[Blast off his hand]}
+{20020}{}{[Blast off his foot]}
+{20030}{}{[Blast off his ear]}
+{20040}{}{[Blast off his balls]}
+{20050}{}{Get up! You're coming with me!}
+{21000}{}{[You shoot off a large chunk of his left hand, and the man screams. There's blood everywhere and the people outside are screaming. The police, knowing you, leave you to your business]}
+{21010}{}{[Fire your weapon and cauterize his wound with it]}
+{22000}{}{[You shoot off a large chunk of his left foot, and the man screams. There's blood everywhere and the people outside are screaming. The police, knowing you, leave you to your business]}
+{22010}{}{[Fire your weapon and cauterize his wound with it]}
+{23000}{}{[You shoot off a large chunk of his left ear, and the man screams. There's blood everywhere and the people outside are screaming. The police, knowing you, leave you to your business]}
+{23010}{}{[Fire your weapon and cauterize his wound with it]}
+{24000}{}{[You shoot off the man's testicles and shatter his body into a inhumane pile of wrong, and the man dies. There's blood everywhere and the people outside are screaming. The police, knowing you, leave you to your business but they don't seem too proud of it]}
+{24010}{}{[Shoot him a few more times]}
+{25000}{}{[The man tries to stand up but tries to balance on his wounded foot, and collapses in pain] AGGGH!!!! I need a doctor!}
+{25010}{}{[Fire your weapon and cauterize his wound with it]}
+{26000}{}{[He cries] You paralyzed me! I'm a fucking cripple now! Just kill me! Please!}
+{26010}{}{Don't worry. They'll hang you in the NCR.}
+{27000}{}{[He cries]  I'm a fucking cripple now! Just kill me! Please!}
+{27010}{}{Don't worry. They'll hang you in the NCR.}
+{28000}{}{[He cries]  I'm a fucking freak now! Just kill me! Please!}
+{28010}{}{Don't worry. They'll hang you in the NCR.}
+{29000}{}{[He cries]  Thank you! Thank you!}
+{29010}{}{For what? They'll hang you in the NCR. }
+{30000}{}{Oh}
+{30010}{}{I might even watch.}
+{31000}{}{[How much more blood must be spilt... If anything, may the rain wash all our sins away]}
+{31010}{}{[Spit in disgust]}
+

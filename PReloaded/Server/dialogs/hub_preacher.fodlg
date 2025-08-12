@@ -1,0 +1,32 @@
+[comment]
+
+
+[data]
+lang=engl
+
+[dialog]
+&
+1 1000 None 0 #
+5 1010 D _param p ST_KARMA > 0 D _param p ST_KARMA < 99 #
+3 1020 D _param p ST_KARMA > 99 #
+4 1030 D _param p ST_KARMA < 0 #
+2 1040 D _param p ST_KARMA = 0 @
+2 2000 None 0 @
+3 3000 None 0 @
+4 4000 None 0 @
+5 5000 None 0 &
+
+[engl]
+{100}{}{Preacher Daniels}
+{200}{}{You see Preacher Daniels.}
+{210}{}{This guy's had way too much to drink. Or... wait? Maybe he's just nuts. You aren't quite sure.}
+{1000}{}{Predialogue installations}
+{1010}{}{wanabe}
+{1020}{}{saint}
+{1030}{}{evil}
+{1040}{}{neut}
+{2000}{}{...And the lord sent seven angels dressed in the blood of their enemies, to lay waste to this unholy ground!@@In their wake they watched the tears of the wretched beasts that crawl this Earth, fall onto the ground, and bring life...@@Life to the trees, to the plants, to the small critters that walk the terre!@@And through this fire that burnt, a new age began!@@An age of demons walking the world, watching over the cowards who call themselves strong!@@You!! You are one of those cowards!@@Kneel and may the lord strike you down with a thousand hammers of justice!@@You! Who has strayed from the path!@@You shall all be judged! Because do you know what day it is?!@@It's Judgement Day!}
+{3000}{}{...And so walks in a hero... A saint! A blessing among the sheep!@@The leader of God's forsaken children stands before us! Stand in awe! At the true Vault Dweller!@@Where there was darkness, a greater light than you, or me, rose up from the ashes! Here stands our last bastion of hope! The Post-Apocalyptic Messiah!@@Hero! Look at you! How you've grown!@@Here is what the bible spoke of! This one here! I will die for you if you'd let me! Please! Let me die for you!@@Saints are not born, they are the men and women who strive for what's right, honourable, and just. May you all find wings, like this great fellow has!}
+{4000}{}{Even I, a man of the cloth, has nothing but bad things to say to you.@@Hah! Look at this pitiful weakling! Apox on ye! And all of your children! The lord knows of your sin, and shall soon strike you down. Watch everyone! This fool is about to die!@@The children cry because of you.@@I bet you killed my son! You fucking bastard! You'll find Hell! Don't anyone worry!@@You are the pinnacle of sin. Get out of here before I vomit.@@One must never think about the horrific things that you have done. If I were you, I would fall to my knees and cry.@@You call yourself a "Vault Dweller?" pathetic!@@Did you rape those people before, or after you killed them? Something, or someone will find you. I promise. They'll show you the same pains.@@We're trying to save the world! But people like you can only destroy it! Get out!}
+{5000}{}{At least you're trying to be good. I can see great potential in you. I am proud to call you friend.@@You may walk the path, but for how long I wonder...@@There is always darkness, may it always be that way. For that is the only way good men shall ever find the light.  You must continue to follow that fire, for it will never die.@@Heaven send Hell away, times are gone for honest men. But you and I, we can change things. Can't we?@@I preach the word, you follow the gun. In the right hands we can bring good, but never forget what you're fighting for: Tomorrow.@@Justice... never forget what it stands for. You could be a hero someday, just like the Vault Dweller.@@Keep it up, and they might make a statue of you some day.@@I see your wings are growing... One day. Maybe.@@I bet the Devil is starting to fear you. Great power you hold in your hands. Do not let it go to waste.}
+

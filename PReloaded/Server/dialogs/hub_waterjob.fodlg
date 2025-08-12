@@ -1,0 +1,190 @@
+[comment]
+demas quest
+
+[data]
+lang=engl russ
+
+[dialog]
+&
+1 1000 None 0 #
+2 1010 D _var p hub_waterjobq = 0 #
+11 1020 D _var p hub_waterjobq = 1 #
+11 1030 D _var p hub_waterjobq = 4 #
+8 1040 D _var p hub_waterjobq = 3 D _param p REPUTATION_WATER_MERCHANTS > -1 #
+15 1050 D _var p hub_waterjobq = 3 D _param p REPUTATION_WATER_MERCHANTS < -1 @
+2 2000 None 0 #
+3 2010 #
+3 2020 #
+3 2030 #
+0 2040 @
+3 3000 None 0 #
+5 3010 #
+5 3020 #
+4 3030 @
+4 4000 None 0 @
+5 5000 None 0 #
+7 5010 D _param p ST_STRENGTH > 5 #
+6 5020 #
+6 5030 @
+6 6000 None 0 #
+8 6010 @
+7 7000 None 0 #
+8 7010 @
+8 8000 None 0 #
+9 8010 #
+0 8020 @
+9 9000 None 0 #
+10 9010 R _var p hub_waterjobq = 4 R _script dialog@r_CrateSpawn3 0  R _var p waterjobfix = 1 #
+10 9020 R _var p hub_waterjobq = 1 R _script dialog@r_CrateSpawn 0  @
+10 10000 None 0 @
+11 11000 None 0 #
+12 11010 D _item p PID_WATER_BARREL = 0 R _var p hub_waterjobq = 0 R _param p REPUTATION_WATER_MERCHANTS - 10 R _var p waterjobfix = 0 #
+13 11020 D _var p hub_waterjobsan = 1 D _var p waterjobfix = 0 R _var p hub_waterjobsan = 2 R _script dialog@r_CrateSpawn 0  #
+13 11030 D _var p hub_waterjobden = 1 D _var p waterjobfix = 0 R _var p hub_waterjobden = 2 R _script dialog@r_CrateSpawn 0  #
+13 11040 D _var p hub_waterjobhills = 1 D _var p waterjobfix = 0 R _var p hub_waterjobhills = 2 R _script dialog@r_CrateSpawn 0  #
+14 11050 D _var p hub_waterjobden = 2 D _var p hub_waterjobhills = 2 D _var p hub_waterjobsan = 2 D _var p hub_waterjobq = 1 D _var p waterjobfix = 0 R _var p hub_waterjobden = 0 R _var p hub_waterjobhills = 0 R _var p hub_waterjobsan = 0 R _var p hub_waterjobq = 3 R _param p REPUTATION_WATER_MERCHANTS + 350 R _script dialog@r_BulkOrderRewardJunk 0  R _script dialog@r_RemoveCrate 0  R _param p ST_KARMA + 5 R _script dialog@r_BulkOrderRewardHub 0  R _script dialog@r_AddExperience 1 2500 R _script dialog@r_AddMoney 1 2500 R _script dialog@r_AddLootSetLevel1 0  #
+14 11060 D _var p hub_waterjobq = 4 D _var p hub_waterjobden = 1 D _var p hub_waterjobhills = 1 D _var p hub_waterjobsan = 1 R _var p hub_waterjobsan = 0 R _var p hub_waterjobden = 0 R _var p hub_waterjobhills = 0 R _var p hub_waterjobq = 3 R _script dialog@r_BulkOrderRewardJunk 0  R _param p REPUTATION_HUB + 125 R _param p REPUTATION_WATER_MERCHANTS + 350 R _param p ST_KARMA + 5 R _script dialog@r_BulkOrderRewardHub 0  R _var p waterjobfix = 0 R _script dialog@r_AddExperience 1 3000 R _script dialog@r_AddMoney 1 3000 R _script dialog@r_AddLootSetLevel1 0  #
+0 11070 @
+12 12000 None 0 @
+13 13000 None 0 @
+14 14000 None 0 #
+0 14010 @
+15 15000 None 0 #
+16 15010 D _param p ST_CHARISMA > 1 #
+0 15020 @
+16 16000 None 0 #
+0 16010 D _param p SK_BARTER > 64 D _item p PID_BOTTLE_CAPS > 499 R _item p PID_BOTTLE_CAPS - 500 R _param p REPUTATION_WATER_MERCHANTS + 10 #
+0 16020 D _item p PID_BOTTLE_CAPS > 999 R _item p PID_BOTTLE_CAPS - 1000 R _param p REPUTATION_WATER_MERCHANTS + 10 #
+0 16030 &
+
+[engl]
+{100}{}{Mere}
+{200}{}{You see Mere, the water supplier.}
+{210}{}{You see a very muscular little man, he appears to be looking over a supply of fresh water.}
+{1000}{}{Predialogue installations}
+{1010}{}{not known}
+{1020}{}{accepted =1}
+{1030}{}{accept =4}
+{1040}{}{return = 3}
+{1050}{}{return = 3 bad rep}
+{2000}{}{[As you walk up to the man he doesn't seem to take notice. He doesn't appear to be interested in speaking with you either] Driver, or runner?}
+{2010}{}{Sorry, what?}
+{2020}{}{Driver.}
+{2030}{}{Runner.}
+{2040}{}{Sorry, neither. I'll just be going.}
+{3000}{}{[He finally looks up to greet you] Hmm, neither it seems. You looking for a job? What do you want?}
+{3010}{}{Well that depends, what kind of job?}
+{3020}{}{Sure.}
+{3030}{}{No, not really.}
+{4000}{}{Okay, skedaddle then.}
+{5000}{}{[He gives you a quick glance over] How strong are you? Think you can carry a water crate?}
+{5010}{}{Of course.}
+{5020}{}{Well... probably not.}
+{5030}{}{Who cares?}
+{6000}{}{[He seems pretty disappointed] Ah, that's too bad... You'll need a brahmin, car, or cart... something. I could still hand you a crate if you want, but it's going to be a pain getting it where I want it to go.}
+{6010}{}{We'll see, tell me more.}
+{7000}{}{[He seems pleased] Good! Of course, it'll be easier if you had a brahmin, car, or cart... something. I could still hand you a crate if you want, but it's going to be a pain getting it where I want it to go.}
+{7010}{}{We'll see, tell me more.}
+{8000}{}{[He hands you a list] I need to make three shipments across California. One to Lao Chou in San Francisco, one to the Den for Frankie, and one to Broken Hills for Marcus. The other runners I hire keep getting killed, so if you want the damn job it's yours. I'll pay you 2500 caps to get this done, and a little something from the shelves.}
+{8010}{}{Alright. Hand me the crates.}
+{8020}{}{I'll think about it. See ya.}
+{9000}{}{[He laughs] You mean crate? If you don't have something to carry these for me then I'm only giving you one at a time.}
+{9010}{}{No, no, give me all three. I'll be fine.}
+{9020}{}{Damn, alright. I'll take one and come back for the others.}
+{10000}{}{Good! Don't get yourself killed out there, water ain't too easy to come by these days.}
+{11000}{}{[The little man is smiling like a jackal] Runner! You're back, what's the good news?}
+{11010}{}{I lost the crates, sorry.}
+{11020}{}{I delivered a crate to San Francisco. Now I need another.}
+{11030}{}{I delivered a crate to the Den. Now I need another.}
+{11040}{}{I delivered a crate to Broken Hills. Now I need another.}
+{11050}{}{I delivered those crates for you. Where's my money?}
+{11060}{}{That was quite the haul! But I'm done. Where's my money?}
+{11070}{}{Not much. See ya.}
+{12000}{}{You what?! You moron! Get out of here! You're fired!}
+{13000}{}{Great news! Here's another crate! Go get it delivered!}
+{14000}{}{[He smiles like a jackal] Outstanding work! You did so well, I think I'll keep you employed! Keep this up and I'll always have work for you. Mess up and it's over though... I dunno... Maybe... Get out of here unless you want some more work.}
+{14010}{}{Okay, thanks! See ya.}
+{15000}{}{Sorry. You got a bad rep around here. I won't deal with you unless you fix it. Go talk to the other guys.}
+{15010}{}{There must be something I can do to fix my reputation?}
+{15020}{}{Fuck you then!}
+{16000}{}{[He thinks] Hmm... Give me 1000 caps.}
+{16010}{}{500!}
+{16020}{}{Fine. Here.}
+{16030}{}{Okay, I'll be right back.}
+{100000001}{}{Better wash the counter again...}
+{100000002}{}{That's 5 caps buddy. Hey did you hear me? Cough em' up.}
+{100000003}{}{Better change the keg...}
+{100000004}{}{RotGut? You drink that shit?}
+{100000005}{}{Domestic? I got B.E.E.R buddy, do you want one or not?}
+{100000006}{}{Fuckin' dust is getting everywhere. Hey close the fuckin' door!}
+{100000007}{}{I swear if the next asshole doesn't tip. Ima' shoot somebody!}
+{100000008}{}{I got bottles, I got shots, and I got a bat behind the counter for the retards. Your not a retard are you?}
+{100000009}{}{Uh-huh, yeah that's nice buddy. You don't say...What? Of course I'm listening...}
+{100000010}{}{That's 5 caps. FIVE CAPS Tribal! F.I.V.E! }
+{100000011}{}{Shut up and order a fuckin' beer already!}
+{100000012}{}{I swear if I have to serve another drunk, I'm getting the shotgun!}
+{100000013}{}{Look the keg went dry, and it's going to be another month until the caravan shows up again.}
+{100000014}{}{Really? You don't say, buy another drink or get out!}
+{100000015}{}{What? I'm on break.}
+{100000016}{}{Be right with ya'}
+{100000017}{}{Have a sit stranger. I'll be with you in a moment.}
+{100000018}{}{When do we close? Uh, when the place get's shot up, that's when!}
+{100000019}{}{We're fresh outta' cold beer, sorry. You'll just have to drink it warm.}
+{100000020}{}{RotGut? No man, go make that shit yourself! I wouldn't drink it!}
+
+[russ]
+{100}{}{Алкоголик}
+{200}{}{Вы видите пьяницу.}
+{210}{}{Вы видите шатающегося из стороны в сторону пьяного человека в лохмотьях. Лицо его распухло, нос синющий как слива. А аромат рядом с ним такой, что свалит брамина насмерть. Он что-то бормочет про себя и иногда громко поет песни.}
+{210}{}{Вы видите алкаша. Он весьма грязен - кажется, он повалялся в луже, но не особо этим расстроен.}
+{1000}{}{I?aaaeaeiaiaua onoaiiaee}
+{1010}{}{not known}
+{1020}{}{accepted =1}
+{1030}{}{accept =4}
+{1040}{}{return = 3}
+{1050}{}{return = 3 bad rep}
+{2000}{}{Thank you! Thank you! }
+{2010}{}{Sorry, what?}
+{2020}{}{Driver.}
+{2030}{}{Runner.}
+{2040}{}{[Just leave]}
+{3000}{}{[He finally looks up to greet you] Hmm, neither it seems. You looking for a job? What do you want?}
+{3010}{}{Well that depends, what kind of job?}
+{3020}{}{Sure.}
+{3030}{}{No, not really.}
+{4000}{}{Okay, skedaddle then.}
+{5000}{}{[He gives you a quick glance over] How strong are you? Think you can carry a water crate?}
+{5010}{}{Of course.}
+{5020}{}{Well... probably not.}
+{5030}{}{Who cares?}
+{6000}{}{[He seems pretty disappointed] Ah, that's too bad... You'll need a brahmin, car, or cart... something. I could still hand you a crate if you want, but it's going to be a pain getting it where I want it to go.}
+{6010}{}{We'll see, tell me more.}
+{7000}{}{[He seems pleased] Good! Of course, it'll be easier if you had a brahmin, car, or cart... something. I could still hand you a crate if you want, but it's going to be a pain getting it where I want it to go.}
+{7010}{}{We'll see, tell me more.}
+{8000}{}{[He hands you a list] I need to make three shipments across California. One to San Francisco, one to the Den, and one to Broken Hills. The other runners I hire keep getting killed, so if you want the damn job it's yours. I'll pay you 3000 caps to get this done.}
+{8010}{}{Alright. Hand me the crates.}
+{8020}{}{I'll think about it. See ya.}
+{9000}{}{[He laughs] You crate? If you don't have something to carry these for me than I'm only giving you one at a time.}
+{9010}{}{No, no, give me all three. I'll be fine.}
+{9020}{}{Damn, alright. I'll take one and come back for the others.}
+{10000}{}{Good! Don't get yourself killed out there, water ain't too easy to come by these days.}
+{11000}{}{[The little man is smiling like a jackal] Runner! You're back, what's the good news?}
+{11010}{}{I lost the crates, sorry.}
+{11020}{}{I delivered a crate to San Francisco. Now I need another.}
+{11030}{}{I delivered a crate to the Den. Now I need another.}
+{11040}{}{I delivered a crate to Broken Hills. Now I need another.}
+{11050}{}{I delivered those crates for you. Where's my money?}
+{11060}{}{That was quite the haul! But I'm done. Where's my money?}
+{11070}{}{Not much. See ya.}
+{12000}{}{You what?! You moron! Get out of here! You're fired!}
+{13000}{}{Great news! Here's another crate! Go get it delivered!}
+{14000}{}{[He smiles like a jackal] Outstanding work! You did so well, I think I'll keep you employed! Keep this up and I'll always have work for you. Mess up and it's over though... I dunno... Maybe... Get out of here unless you want some more work.}
+{14010}{}{Okay, thanks! See ya.}
+{15000}{}{Sorry. You got a bad rep around here. I won't deal with you unless you fix it.}
+{15010}{}{There must be something I can do to fix my reputation?}
+{15020}{}{Fuck you then!}
+{16000}{}{Hmm... Give me 1000 caps.}
+{16010}{}{500!}
+{16020}{}{Fine. Here.}
+{16030}{}{Okay, I'll be right back.}
+

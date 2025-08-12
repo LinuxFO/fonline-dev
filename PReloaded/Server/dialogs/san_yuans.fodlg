@@ -1,0 +1,60 @@
+[comment]
+
+
+[data]
+lang=engl
+
+[dialog]
+&
+1 1000 None 0 #
+2 1010 @
+2 2000 None 0 #
+3 2010 #
+8 2020 @
+3 3000 None 0 #
+4 3010 #
+8 3020 @
+4 4000 None 0 #
+5 4010 #
+6 4020 #
+8 4030 @
+5 5000 None 0 #
+7 5010 #
+8 5020 @
+6 6000 None 0 #
+7 6010 #
+8 6020 @
+7 7000 None 0 #
+9 7010 @
+9 8000 None 0 #
+8 8010 @
+8 9000 None 0 &
+
+[engl]
+{100}{}{Yuan Shikai}
+{200}{}{You see Yuan Shikai.}
+{210}{}{You see a extremly frustrated man, he is very focused on the machine in front of him.}
+{1000}{}{Predialogue installations}
+{1010}{}{Intro}
+{2000}{}{I am in a forest... I am in a forest... I AM IN A GOD DAMN FOREST!}
+{2010}{}{Woah! What's going on?}
+{2020}{}{[Walk away]}
+{3000}{}{[He kicks the machine] It's this damn forsaken game!}
+{3010}{}{A game!? You're all worked up over a game?}
+{3020}{}{Well then, carry on.}
+{4000}{}{[With a crazed look in his eye] It's not just any game, no, it's DarkWeek's Forest Adventure...}
+{4010}{}{I see, what can you tell me about this game?}
+{4020}{}{Who's DarkWeek?}
+{4030}{}{[Slowly walk away]}
+{5000}{}{You are in a forest trying to get out, one wrong turn and you're right back where you started. I've been at it for ages now.}
+{5010}{}{If it's so frustrating why are you doing it?}
+{5020}{}{That doesn't really sound like what I would consider fun, I'll let you get back to it.}
+{6000}{}{I don't know, but he must be one sick, sick sadistic son of a bitch to have come up with this damn game. It's most likely just some software company from before the bombs. }
+{6010}{}{If it's so frustrating why are you doing it?}
+{6020}{}{Wow, that bad? Well good luck.}
+{7000}{}{[He throws his hands up] The prize! The prize that awaits you at the end!}
+{7010}{}{There's a prize? What kind of prize are we talking about?}
+{8000}{}{Something so magical,  it must be worth something!}
+{8010}{}{Right. Maybe I'll give it a try.}
+{9000}{}{I am in a forest...}
+

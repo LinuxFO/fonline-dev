@@ -1,0 +1,62 @@
+[comment]
+
+
+[data]
+lang=engl
+
+[dialog]
+&
+1 1000 None 0 #
+2 1010 @
+2 2000 None 0 #
+3 2010 D _var p noire5 = 4 @
+3 3000 None 0 #
+4 3010 @
+4 4000 None 0 #
+5 4010 @
+5 5000 None 0 #
+6 5010 @
+6 6000 None 0 #
+7 6010 @
+7 7000 None 0 #
+8 7010 @
+8 8000 None 0 #
+9 8010 @
+9 9000 None 0 #
+10 9010 #
+11 9020 @
+10 10000 None 0 #
+11 10010 @
+11 11000 None 0 #
+0 11010 R _var p noire5 = 5 R _script dialog@r_AddExperience 1 5000 R _script quest_noire7@r_SpawnLoc 0  R _script dialog@r_TeleportToMap 2 150 666 &
+
+[engl]
+{100}{}{Mysterious Stranger!}
+{200}{}{You see a ghoul flaying a little girl.}
+{210}{}{You are going to kill this man, so much! Your heart is racing with every passing moment that your hands are not around his feeble neck!
+}
+{1000}{}{Predialogue installations}
+{1010}{}{Answer text}
+{2000}{}{Just... one... more... slice... yes... yes... that's... it... good... girl... good... so... precious... so... precious...}
+{2010}{}{Who are you people? Why are you doing this?}
+{3000}{}{To... become... more... than... human... more... than... just... flesh... we... must... feel... the... light... again!}
+{3010}{}{You killed these people. They were someone's children, they were mothers, fathers. What made you think that you've got the right to take their lives away?}
+{4000}{}{What... right... do... you?... You... that... squander... the... flesh... abuse... it... take... it... for... granted... why... should... you... be... the... only... ones... gifted... with... precious... skin... The... Lord... said... to... share... and... how... little... share... you... do...}
+{4010}{}{How many more of you people are out there?}
+{5000}{}{Dozens... hundreds... thousands... millions... we... are... the... many... and... how... our... numbers... grow! You... may... call... us... from... a... whisper... or... you... may... call... us... Legion...for... we... are... many...}
+{5010}{}{Do you know who I am?}
+{6000}{}{... ... ... no ... ... ...}
+{6010}{}{I am the flame that burns so very bright, the one who has become death, devourer of worlds. Most know me only by their last scream clenching away their breath. I am both the darkness, and the light.
+..}
+{7000}{}{... ... ... ... ...}
+{7010}{}{I am the Judge, the executioner. For your crimes against humanity, I sentence you to death, and you have the right to die. But before I sentence you, do you know what day it is?}
+{8000}{}{... ... ... no ... ... }
+{8010}{}{It's Judgement Day!}
+{9000}{}{[As you raise your weapon to fire, the ghoul attempts to stop you] ... wait... I... have... something... to... say...}
+{9010}{}{[Hear him out]}
+{9020}{}{No. Court adjourned. [Shoot him in the face!]}
+{10000}{}{Your... skin... is... so... perfect!... It... will... be... mine... [The ghoul rushes towards you with hostility!]}
+{10010}{}{Court adjourned. [Shoot him in the face!]}
+{11000}{}{[Before you can pull the trigger you are jumped from behind, and knocked unconscious! Your world turns black, but not before you can make out the shadows of several figures beginning to surround your body]}
+{11010}{}{[Fall into the darkness]}
+

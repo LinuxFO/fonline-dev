@@ -1,0 +1,225 @@
+[comment]
+
+
+[data]
+lang=engl
+
+[dialog]
+&
+1 1000 None 0 #
+2 1010 @
+2 2000 None 0 #
+46 2010 D _var p q_tourist = 6 #
+41 2020 D _var p q_church2 = 1 D _var p inj1 = 1 D _var p inj2 = 1 D _var p inj3 = 1 D _var p inj4 = 1 #
+3 2030 D _script dialog@d_IsToHeal 0  #
+7 2040 #
+8 2050 #
+9 2060 #
+10 2070 #
+11 2080 #
+48 2090 D _var p q_packages = 2 D _item p PID_CARAVAN_BOX > 0 R _item p PID_CARAVAN_BOX - 1 R _var p q_packages = 98 #
+0 2100 @
+3 3000 dialog@dlg_ShowHealingPrice 0 #
+4 3010 D _script dialog@d_HealingMoney 0  #
+0 3020 @
+4 4000 None 0 #
+5 4010 R _script dialog@r_DocHeal 0  @
+5 5000 None 0 #
+6 5010 @
+6 6000 None 0 @
+7 7000 None 0 #
+19 7010 #
+23 7020 D _var p q_church2 = 0 @
+8 8000 None 0 #
+18 8010 #
+20 8020 @
+9 9000 None 0 #
+12 9010 #
+2 9020 @
+10 10000 None 0 @
+11 11000 None 0 #
+45 11010 #
+10 11020 #
+2 11030 #
+0 11040 @
+12 12000 None 0 #
+13 12010 #
+14 12020 #
+15 12030 #
+16 12040 @
+13 13000 None 0 #
+2 13010 @
+14 14000 None 0 #
+2 14010 @
+15 15000 None 0 @
+16 16000 None 0 #
+17 16010 @
+17 17000 None 0 @
+18 18000 None 0 @
+19 19000 None 0 #
+20 19010 @
+20 20000 None 0 #
+21 20010 @
+21 21000 None 0 #
+22 21010 @
+22 22000 None 0 #
+0 22010 @
+23 23000 None 0 #
+24 23010 @
+24 24000 None 0 #
+25 24010 @
+25 25000 None 0 #
+26 25010 @
+26 26000 None 0 #
+27 26010 @
+27 27000 None 0 #
+28 27010 @
+28 28000 None 0 #
+29 28010 @
+29 29000 None 0 #
+30 29010 @
+30 30000 None 0 #
+31 30010 @
+31 31000 None 0 #
+32 31010 @
+32 32000 None 0 #
+33 32010 @
+33 33000 None 0 #
+34 33010 @
+34 34000 None 0 #
+35 34010 @
+35 35000 None 0 #
+36 35010 @
+36 36000 None 0 #
+37 36010 @
+37 37000 None 0 #
+38 37010 @
+38 38000 None 0 #
+39 38010 @
+39 39000 None 0 #
+40 39010 R _var p q_church2 = 1 R _script dialog@r_AddExperience 1 1000 @
+40 40000 None 0 @
+41 41000 None 0 #
+42 41010 @
+42 42000 None 0 #
+43 42010 @
+43 43000 None 0 #
+44 43010 R _var p q_church2 = 2 R _script dialog@r_AddExperience 1 1000 R _script dialog@r_AddMoney 1 325 R _item p PID_FIRST_AID_KIT + 1 R _item p PID_DOCTORS_BAG + 1 R _item p PID_RAD_X + 1 R _item p PID_RADAWAY + 1 R _item p PID_STIMPAK + 3 R _item p PID_SUPER_STIMPAK + 1 R _item p PID_RIPPER + 1 R _param p ST_KARMA + 1 R _param p REPUTATION_HUB + 7 R _param p REPUTATION_JUNKTOWN + 14 R _param p REPUTATION_FOLLOWERS + 4 R _param p REPUTATION_SCAVENGERS + 4 R _param p REPUTATION_REGULATORS + 4 R _param p REPUTATION_WATER_MERCHANTS + 4 R _param p REPUTATION_NCR_RANGERS + 4 R _param p REPUTATION_NCR + 4 R _script dialog@r_AddLootSetLevel1 0  @
+44 44000 None 0 @
+45 45000 None 0 @
+46 46000 None 0 #
+47 46010 R _var p q_tourist = 7 R _script dialog@r_AddExperience 1 75 @
+47 47000 None 0 @
+48 48000 None 0 &
+
+[engl]
+{100}{}{Doctor Burhnefletch}
+{200}{}{You see an old looking ghoul wearing glasses.}
+{210}{}{His skin is barely hanging onto his flesh. His white coat is stained with an off coloured yellow substance. He must be a doctor.}
+{210}{}{He's an old man with a snow-white beard and a slightly blank stare.}
+{1000}{}{error}
+{1010}{}{default}
+{2000}{}{Welcome to my clinic, smoothskin, I'm Doctor Burhnefletch@@Don't be afraid. Doctor Burhnefletch at your service. I've been doing this for over a hundred years, and I've got plenty of alcohol to wash my hands.@@Come in, sit down. Let Doctor Burhnefletch have a good look at you, kiddo.}
+{2010}{}{You gotta help me doc! I'm sick! I'm fresh from a vault! You gotta check me out for retina damage or whatever! Oh lord Jesus Christ help me doc, you just gotta!}
+{2020}{}{Hello, Doctor Burhnefletch. Have you met your four new patients yet?}
+{2030}{}{I need help... I think I could use a doctor...}
+{2040}{}{What's a ghoul like you doing in the Hub?}
+{2050}{}{This place looks new. Did you just set up here?}
+{2060}{}{You seem like an intelligent man, could you teach me anything about medicine?}
+{2070}{}{Goddamn, you're ugly. Did you know that? I could smell you from outside.}
+{2080}{}{Oh God! A Zombie!}
+{2090}{}{[Deliver Package]}
+{2100}{}{Nothing, bye.}
+{3000}{}{Well, don't just stand there and bleed at me! Come over here, and sit the hell down already! Oh, and while you're at it give me @lex price@ caps.  }
+{3010}{}{Well... all right, but give it to me straight, doc! Am I going to make it?!}
+{3020}{}{Changed my mind. I'll be back later.}
+{4000}{}{Who knows? Just relax... this might take a while...}
+{4010}{}{It's... so... cold...}
+{5000}{}{Easy now, let's just... put this back in... stitch you up... There! Good as new. Have a pretend lollipop, kiddo. Good luck out there. }
+{5010}{}{Thanks...}
+{6000}{}{Stay out of trouble now.}
+{7000}{}{Well, smoothskin, *wheeze* I used to live around here before my change. Had a wife, a couple of kids, a little dog. Just wanted to see the area again before I kick the bucket.}
+{7010}{}{You mean before the bombs?}
+{7020}{}{Before your change? How... how did you become this? Whatever it is you are...}
+{8000}{}{Recently. Taxes been high, damn NCR. I noticed there wasn't a medical facility in town, had to open one up. I'm a doctor. Been one forever. I used to be like you, had a medical degree, an office, everything. Good times, I suppose. }
+{8010}{}{What can you tell me about the NCR?}
+{8020}{}{Care to talk about what things were like before the war?}
+{9000}{}{You? No. I'm too old. Can't remember it like I used to. Go to Junktown. They got a younger, more human doctor. I can't remember the medical terms, but remember what to do with my hands. Sorry, smoothskin. }
+{9010}{}{What can you tell me about Junktown?}
+{9020}{}{Oh well, that's fine. }
+{10000}{}{Ugly... mother... fucker... I've heard it all, Shit breath. You got some blood on your pants, and some fecal matter hanging down. Beat it, go back to bed, grumpy.}
+{11000}{}{Raaawwwwwgghhhh... Braiiinnnnss.....}
+{11010}{}{Die! You evil thing!}
+{11020}{}{I knew it! You're just a mindless sack of shit, aren't you? }
+{11030}{}{Just messing with you, buddy. How are you doing?}
+{11040}{}{Whatever. I'm out of here.}
+{12000}{}{Friendly place. Cleaned up, I suppose. Still some jackasses alive though. I hear there's a lot of work... some kind of missing people case too. Whispers... }
+{12010}{}{Whispers?}
+{12020}{}{What do you mean by missing persons? Do you know what happened?}
+{12030}{}{Jackasses?}
+{12040}{}{Cleaned up? How so? Was it a lot worse?}
+{13000}{}{... in the darkness... [He says nothing else]}
+{13010}{}{Uh... okay then...}
+{14000}{}{Why don't you go check it out yourself? Plenty of things going on in Junktown... people go missing all the time... why don't you go look into it?}
+{14010}{}{I don't know... Maybe...}
+{15000}{}{Some bad people over there... sure they got bad work for bad people too...}
+{16000}{}{I remember a time when it was mostly ran by some gang, and a fat man. Not the nuclear type from D.C, but a real fat man. Used to be a lot of killing done over there, and a lot of cow theft. Hung a lot of men. A lot of good men got hung too. }
+{16010}{}{That sounds more like the wild west...}
+{17000}{}{What's the difference?}
+{18000}{}{Law. Order. Civilization. NCR is the closest thing to what it used to be like. Same assholes, but here... I can be in relative peace... I suppose. Don't start reminding me. You should get.}
+{19000}{}{Long cool woman in a black dress. With eyes as big as the moon. Just one look I was a mess... but it was all over way too soon...}
+{19010}{}{Were you really alive before all this? }
+{20000}{}{Yes... I remember... it was so... clean... loud... [Something inside of this man breaks]}
+{20010}{}{Can you tell me about it? The before times? I really want to know...}
+{21000}{}{[You stare deep into the soul of this broken man, and watch as he watches you in return] No... No! Get out! Get the fuck out! RIGHT NOW! GO! YOU HUMANS! YOU BLEW IT UP! YOU BLEW IT ALL UP!}
+{21010}{}{Whoa!}
+{22000}{}{You took her away from me! YOU TOOK MY LITTLE SIERA! You... took... [The ghoul breaks down and runs into his office]}
+{22010}{}{Sorry I asked, geez.}
+{23000}{}{Fire, took my breath. Burnt me into ashes. I watched my whole world die. All of us. So many lives just taken away. Like a wave of fire, and flesh. It was alive. My apocalypse. She had wings, I saw them. Wheeling... Taunting me as the sky fell. }
+{23010}{}{What are you talking about?}
+{24000}{}{I felt the fires of hell touch my body. Wrap itself around me, and squeeze my life away. I... I was far enough away... didn't die with my family. I took in the radiation, and the shockwave. I remember it going down into my lungs, and burning me.}
+{24010}{}{[Stare into the man, and listen]}
+{25000}{}{I remember the taste... a sweet... fire. I felt alive while I was dying. Lying in the sand, in the dust. She came down, and gave me wings. I changed. I walked... as I shed my skin along the way.}
+{25010}{}{Who? Who came down?}
+{26000}{}{The angel of remorse. She forgave me. I... was changed. By the time I had seen the light, it was too blinding. I could never follow it. I... hurt so many before... now... I save... my redeeming light. I did not go gently into it. But rather... I ran. I saw what must be done.}
+{26010}{}{But what happened to you? You survived the nuclear blast, and got radiated? That's what changed you? That doesn't make any sense! Radiation simply kills you! It doesn't let you live forever.}
+{27000}{}{It was... something else... something more wicked than the hands of death. Something which did not want to let me go. It refused to grant me peace. It granted me responsibility. Duty. Purpose. Long ago I asked God to help me change... for forgiveness. It gave me this...}
+{27010}{}{I don't think God had anything to do with your mutation...}
+{28000}{}{That is where you are wrong, child. Smoothskin. Old world opportunist. In this new world, I am a healer. A saviour of lives. A saint amongst the sick. I could of never have become this with my old body. I was too polluted and wrong. }
+{28010}{}{I... wish I could have lived in the old world... seen what you've seen. I'm... so tired... of killing.}
+{29000}{}{There was just as much injustice in the old world, as there is now. Before the war, we simply hid behind clean walls, and toilets. Nothing has changed, but our hearts. They bleed from the inside, and I... cannot help them all. Wrath beats, it wills to survive, above everything.}
+{29010}{}{It was clean?}
+{30000}{}{Clean enough... the walls... they had colour... there was... green everywhere... the ground... the trees... the sky.... everything was alive! The people! They were alive! }
+{30010}{}{Must have been beautiful...}
+{31000}{}{Not beautiful enough! We let it die! All of us! With our greed! And our lust! Nothing was good enough for anyone! We needed more! Even though we had it all! Look at this world now! Look at it! We have nothing! NOTHING! }
+{31010}{}{... it's more than what I was expecting... I came into this... new world alone, thinking that there would be nothing out here. But I see life, children smiling. Food on people's tables, and peace... sometimes...}
+{32000}{}{Just like the old world... war never changes. I don't know what made me turn into this... but I want to find out. I can lie to myself, and go on living thinking that I was chosen for this. But it isn't enough. I want to know why!}
+{32010}{}{It must have been the same thing that caused the Super Mutants, and the strange mutations out there... the FEV...}
+{33000}{}{Yes, the F.E.V. We all know of this. But is that merely the story? Is that all there is to say about my becoming? Madness! I tell you!}
+{33010}{}{I'm afraid so... but you're proud of who you are now, yes?}
+{34000}{}{Yes.. I... am proud...}
+{34010}{}{That would be good enough for me. You're a hero now, remember? You save lives, you help people. You've changed for the better, haven't you.}
+{35000}{}{[He smiles faintly, but says nothing as his hands tremble]}
+{35010}{}{[Put your hand on his shoulder] The hardest thing about this new world is trying to piece together who you are, and how you can become a part of it. Keep helping people. That is who you are now. Don't ever forget it.}
+{36000}{}{[Your hand is wet, and warm. It feels like your skin is sticking together. Doctor Burhnefletch smiles] I... would like some new patients... not a lot of people are willing to touch a ghoul... let alone have one touch them...}
+{36010}{}{It was a strange experience, I'll admit. [Wipe your hand against your leg]}
+{37000}{}{[Doctor Burhnefletch seems put off, but ignores your comment] I can move to Gecko if I wanted... but this is where my home is... was... I want to live here. I want the people to accept me. I won't move. Can... can you help me find some new patients? I saw a few sick, and injured men and women around town. It would mean the world to me if you could convince them to finally pay me a damn visit. Tell them... tell them that I'll do it for free!}
+{37010}{}{I don't know, Doctor...}
+{38000}{}{I'll pay you in doctor's kits, medical equipment, drugs, or money! I will make it worh your time! I promise!}
+{38010}{}{Okay, why not? I'll think about it... maybe...}
+{39000}{}{Excellent! I suppose... there are four Hubbers out there that could use a doctor. Please find them, and bring them over to me before they succumb to their injuries.}
+{39010}{}{Where can I find these people?}
+{40000}{}{Each part of town has its own problems. I'm sure you can find someone that needs me.}
+{41000}{}{I did, yes... thank you, kindly. That was very unexpected of you... how did you convince them to let me... touch them?}
+{41010}{}{Oh, I don't know. Something about showing them that they didn't have much choice... and mentioning the fact that the first visit would be free.}
+{42000}{}{Yes... that might be true, it seems. Several of these patients didn't seem to of had much of a choice, did they? Good, none the less. I doesn't matter. I'm glad to be back in practice. I'll give free medical aid to every first customer from now on.}
+{42010}{}{Even me?}
+{43000}{}{No, I am afraid not. I will give you some medical equipment, and that will be enough for your services. Consider us equal after this. Take this crate, it has your reward inside.}
+{43010}{}{Hey, thanks, Doctor Burhnefletch. Maybe I'll see you around? }
+{44000}{}{My purpose is to cure, to help the sick, and wretched. Come to me if you ever need someone to help. I will not judge you, if you will not judge me. Carry on, my friend. Carry on with strength. Persevere.}
+{45000}{}{I died on October 23rd, 2077. Get the hell out of here, smoothass.}
+{46000}{}{[He mumbles something cynical and stabs you with a very sharp looking needle] Your sore eyes need a priest, not a doctor. Go north from the market. Seek sanctuary, not medicine.}
+{46010}{}{Wha-- what? Is this some kind of joke! I'm dying here, doc! The sunlight burns my eyes!}
+{47000}{}{Bad enough you... nevermind. I used to have a... Get out, why don't you!}
+{48000}{}{From Vault City? I'm shocked... I didn't think they'd make it. Thanks.}
+

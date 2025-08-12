@@ -1,0 +1,36 @@
+[comment]
+
+
+[data]
+lang=engl
+
+[dialog]
+&
+1 1000 None 0 #
+2 1010 @
+2 2000 None 0 #
+3 2010 D _var p z_survival = 0 R _var p z_survival = 1 #
+4 2020 D _var p z_survival = 3 R _var p z_survival = 1 R _script survival@r_DeleteLoc 0  #
+3 2030 D _var p z_survivalclowns = 0 R _var p z_survivalclowns = 1 #
+4 2040 D _var p z_survivalclowns = 3 R _var p z_survivalclowns = 1 R _script survivalclowns@r_DeleteLoc 0  @
+3 3000 None 0 #
+3 3010 D _var p z_survival = 1 R _var p z_survival = 2 R _script survival@r_SpawnLoc 0  #
+3 3020 D _var p z_survivalclowns = 1 R _var p z_survivalclowns = 2 R _script survivalclowns@r_SpawnLoc 0  @
+4 4000 None 0 &
+
+[engl]
+{100}{}{Constable Flatfoot}
+{200}{}{You see the local constable, and supervisor of the Westwood military and police force.}
+{210}{}{He looks well-equipped and tough, but he doesn't look very experienced. He seems worried about something.Maybe he could use some help.}
+{1000}{}{Predialogue installations}
+{1010}{}{Answer text}
+{2000}{}{Outsider.@@I didn't know vault suits came in blue... huh, weird.@@Don't worry, you're safe here. Just don't cause any trouble.@@Sorry you had to drive here, it's our best way of... deterring the riff-raff.@@So what vault are you from? I heard that quite a few have opened up.@@You ever been to the Hub? Man, just once... I wish!@@Welcome to Westwood, vault dweller! Come take a load off.@@You might want to speak with management, they're usually interested in other vault dwellers.}
+{2010}{}{Job.}
+{2020}{}{All done.}
+{2030}{}{Clowns.}
+{2040}{}{Clowns Ded.}
+{3000}{}{Sure.}
+{3010}{}{Spawn it.}
+{3020}{}{Spawn The Clowns.}
+{4000}{}{Good beans.}
+

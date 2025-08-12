@@ -1,12 +1,3 @@
-//
-// FOnline: 2238
-// Rotators
-//
-// cheats.fos
-//
-
-// various commands
-
 #include "_animation.fos"
 #include "_ai.fos"
 #include "_basetypes.fos"
@@ -49,13 +40,6 @@
 
 // #include "event_teleporter_h.fos"
 
-/**
- * \~english @defgroup CheatsGroup Cheats
- * Cheat module with various commands.
- * \~ @ingroup FOnline2238
- */
-/*@{*/
-
 #define GETACCESS_CFG    "config/GetAccess.cfg"
 #define CHEATS_CFG       "config/Cheats.cfg"
 #define CFG_TRACKING     "Tracking"
@@ -96,7 +80,6 @@ import int             WorldmapGetTotalValue() from "worldmap";
 #define _GetSpawner      # (__item) _AsLegit(__item.Val9)
 
 // globals
-
 bool CheatsInitialized = false;
 
 // list of maps identifiers
@@ -283,7 +266,72 @@ void RefreshAliases(Critter& player, int, int, int)   // ~runscript cheats Refre
 void SetAliases()
 {
     // Fallout 1
-    //SetMapId("junktown",    MAP_Junktown);    
+    SetMapId("hub", MAP_HubDowntown);
+    SetMapId("gr", MAP_Gunrunner);
+    SetMapId("gunrunners", MAP_Gunrunner);
+    SetMapId("fortress", MAP_Gunrunner);
+    SetMapId("adytum", MAP_Adytum);
+    SetMapId("library", MAP_Library);
+    SetMapId("scavenger", MAP_Blade);
+    // SetMapId("junktown", MAP_Junktown);
+    // SetMapId("jt", MAP_Junktown);
+    // SetMapId("glow", MAP_Glow_Entrance);
+    // SetMapId("lh", MAP_LostHills_Entrance);
+    // SetMapId("v13", MAP_Vault13Level1);
+    // SetMapId("necropolis", MAP_NecropolisHotel);
+
+    // Fallout 2
+    SetMapId("den", MAP_DenBusiness);
+
+    // SetMapId("arroyo", MAP_ArroyoTemple);
+    SetMapId("klamath", MAP_KlamathDowntown);
+    // SetMapId("klamcave", MAP_KlamathToxicCaves1);
+    SetMapId("modoc", MAP_ModocLarge);
+    // SetMapId("vc", MAP_VaultCityDowntown);
+    SetMapId("gecko", MAP_GeckoSettlement);
+    SetMapId("bh", MAP_BrokenHills);
+    SetMapId("broken", MAP_BrokenHills);
+    // SetMapId("nr", MAP_NewReno1);
+    // SetMapId("gasstation", MAP_NewRenoChopShop);
+    // SetMapId("tray", MAP_NewRenoChopShop);
+    // SetMapId("t-ray", MAP_NewRenoChopShop);
+    // SetMapId("sad", MAP_SierraArmyDepot_TheBattlefield);
+    // SetMapId("v15", MAP_Vault15Surface);
+    SetMapId("ncr", MAP_NCR);
+    SetMapId("shady", MAP_NCR);
+    SetMapId("shadysands", MAP_NCR);
+    // SetMapId("cathedral", MAP_Cathedral_Enter);
+    // SetMapId("mariposa", MAP_MilitaryBaseEntrance);
+    SetMapId("redding", MAP_Redding);
+    // SetMapId("sf", MAP_SanFranChina);
+    // SetMapId("navarro", MAP_Navarro);
+    // SetMapId("golgotha", MAP_NewReno_Golgotha);
+    // SetMapId("raiders1",    MAP_KhansCaveEntrance);
+    // SetMapId("khans", MAP_KhansCaveEntrance);
+    // SetMapId("raiders2",    MAP_KhansHQ);
+
+    // 2238-specific
+    // SetMapId("repl1", MAP_Replication1);
+    // SetMapId("repl2", MAP_Replication2);
+    // SetMapId("repl3", MAP_Replication3);
+    // SetMapId("repl4", MAP_Replication4);
+    // SetMapId("repl5", MAP_Replication5);
+    // SetMapId("repl6", MAP_Replication6);
+    // SetMapId("repl7", MAP_Replication7);
+    // SetMapId("repl8", MAP_SalvagerCamp);
+
+    // Special maps
+    SetMapId("lpcamp", MAP_LandersPoint_Camp);
+    // @todo add 0 ent hex in maps
+    // SetMapId("lpfields", MAP_LandersPoint_Fields);
+    // SetMapId("lpcave", MAP_LandersPoint_Cave);
+
+    SetMapId("npcmap", MAP_BufferMap);
+    // SetMapId("jail", MAP_Jail);
+    // SetMapId("bg", MAP_BarterGround);
+    // SetMapId("barterground", MAP_BarterGround);
+    SetMapId("warehouse", MAP_Ripper);
+    SetMapId("wh", MAP_Ripper);
 }
 
 class CNPC
@@ -409,7 +457,6 @@ void SetImportantNpcs()
 //
 bool GuardNotLegit(Critter@ cr, Item@ item, bool deleteItem)   // export
 {
-
 	/*
     if(_IsNotLegit(item.Val9))
     {

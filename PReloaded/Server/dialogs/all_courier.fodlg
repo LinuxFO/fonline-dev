@@ -1,0 +1,20 @@
+[comment]
+
+
+[data]
+lang=engl
+
+[dialog]
+&
+1 1000 None 0 #
+2 1010 @
+2 2000 None 0 &
+
+[engl]
+{100}{}{The Postman}
+{200}{}{You see the postman.}
+{210}{}{It's the local courier, running all over town delivering letters and parcels. Keeping the American Dream alive one day at a time. God only knows what they're doing here.}
+{1000}{}{Predialogue installations}
+{1010}{}{Answer text}
+{2000}{}{Well howdy, friend!@@Staying out of trouble?@@We're always hiring so long as you ain't no child killer.@@Be careful around the bad parts of town, they can get awful.@@You ever find one of 'dem funny lookin' puppets lying around?@@You from a vault? You look like you're from a vault.@@Sorry, can't talk. Gotta deliver these packages.@@Good ol' American Dream...@@*whistles*@@Howdy, friend.@@*nod of the head*@@*tip of the hat*@@Yup, that sure is a thing. That's for sure.@@I'm local, don't need a standard uniform. Kind of like you.@@Some weather, eh?@@Got a light? Thanks.@@Have you been to the head office in the Hub? That's where they do all the hirin'.}
+
