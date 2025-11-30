@@ -1,0 +1,30 @@
+[comment]
+
+
+[data]
+lang=engl
+
+[dialog]
+&
+1 1000 None 0 #
+2 1010 D _var p name_mem_npc_player = 0 #
+4 1020 D _var p name_mem_npc_player = 1 @
+2 2000 None 0 #
+3 2010 D _item p PID_MULTI_TOOL > 0 R _item p PID_MULTI_TOOL - 1 R _var p name_mem_npc_player = 1 R _script dialog@r_AddExperience 1 500 R _item p PID_ANTIDOTE + 1 R _param p ST_KARMA + 1 R _param p REPUTATION_JUNKTOWN + 7 #
+0 2020 @
+3 3000 None 0 @
+4 4000 None 0 &
+
+[engl]
+{100}{}{Mechanic}
+{200}{}{You see a worried looking mechanic.}
+{210}{}{Looks like they're looking for something.}
+{1000}{}{Predialogue installations}
+{1010}{}{Answer text}
+{1020}{}{2}
+{2000}{}{Golly, sure need some bitty Tools. Got any, @sex@|handsome?||darlin'?|}
+{2010}{}{Yeah, I can spare a pair. Here.}
+{2020}{}{Nah, sorry.}
+{3000}{}{Thanks, darlin'.}
+{4000}{}{*cleaning floor using a multi-tool* Out damn spot! Out!}
+

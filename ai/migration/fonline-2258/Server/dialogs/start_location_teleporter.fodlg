@@ -1,0 +1,24 @@
+[comment]
+
+
+[data]
+lang=engl
+
+[dialog]
+&
+1 1000 None 0 #
+2 1010 @
+2 2000 None 0 #
+0 2010 R _script dialog@r_TeleportToMap 2 594 0 #
+0 2020 &
+
+[engl]
+{100}{}{Noob Camp}
+{200}{}{You see him.}
+{210}{}{This is a he.}
+{1000}{}{Predialogue installations}
+{1010}{}{Answer text}
+{2000}{}{Hello!}
+{2010}{}{To the Noob Camp!}
+{2020}{}{Exit.}
+

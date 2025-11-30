@@ -1,0 +1,256 @@
+[comment]
+
+
+[data]
+lang=engl
+
+[dialog]
+&
+1 1000 None 0 #
+2 1010 @
+2 2000 None 0 #
+3 2010 @
+3 3000 None 0 #
+4 3010 @
+4 4000 None 0 #
+5 4010 @
+5 5000 None 0 #
+6 5010 @
+6 6000 None 0 #
+7 6010 @
+7 7000 None 0 #
+8 7010 @
+8 8000 None 0 #
+9 8010 @
+9 9000 None 0 #
+10 9010 @
+10 10000 None 0 #
+11 10010 @
+11 11000 None 0 #
+12 11010 @
+12 12000 None 0 #
+13 12010 @
+13 13000 None 0 #
+15 13010 #
+14 13020 @
+14 14000 None 0 #
+13 14010 @
+15 15000 None 0 #
+16 15010 @
+16 16000 None 0 #
+17 16010 @
+17 17000 None 0 #
+18 17010 @
+18 18000 None 0 #
+19 18010 @
+19 19000 None 0 #
+20 19010 @
+20 20000 None 0 #
+21 20010 @
+21 21000 None 0 #
+22 21010 @
+22 22000 None 0 #
+23 22010 @
+23 23000 None 0 #
+24 23010 @
+24 24000 None 0 #
+25 24010 @
+25 25000 None 0 #
+26 25010 @
+26 26000 None 0 #
+27 26010 @
+27 27000 None 0 #
+28 27010 @
+28 28000 None 0 #
+29 28010 @
+29 29000 None 0 #
+30 29010 @
+30 30000 None 0 #
+31 30010 @
+31 31000 None 0 #
+32 31010 @
+32 32000 None 0 #
+33 32010 @
+33 33000 None 0 #
+34 33010 @
+34 34000 None 0 #
+35 34010 @
+35 35000 None 0 #
+36 35010 @
+36 36000 None 0 #
+37 36010 @
+37 37000 None 0 #
+38 37010 @
+38 38000 None 0 #
+39 38010 @
+39 39000 None 0 #
+40 39010 @
+40 40000 None 0 #
+41 40010 @
+41 41000 None 0 #
+42 41010 @
+42 42000 None 0 #
+43 42010 @
+43 43000 None 0 #
+44 43010 @
+44 44000 None 0 #
+45 44010 @
+45 45000 None 0 #
+46 45010 @
+46 46000 None 0 #
+47 46010 @
+47 47000 None 0 #
+48 47010 @
+48 48000 None 0 #
+49 48010 @
+49 49000 None 0 #
+50 49010 @
+50 50000 None 0 #
+51 50010 @
+51 51000 None 0 #
+52 51010 @
+52 52000 None 0 #
+54 52010 @
+54 53000 None 0 #
+55 53010 @
+55 54000 None 0 #
+56 54010 @
+56 55000 None 0 #
+57 55010 @
+57 56000 None 0 #
+58 56010 @
+58 57000 None 0 #
+59 57010 @
+59 58000 None 0 #
+60 58010 @
+60 59000 None 0 #
+61 59010 @
+61 60000 None 0 #
+0 60010 R _var p noire5 = 9 R _script dialog@r_TeleportToMap 2 221 105 R _script dialog@r_AddExperience 1 30000 R _script dialog@r_AddMoney 1 20000 R _param p ST_KARMA + 50 R _param p REPUTATION_LA + 200 R _param p REPUTATION_HUB + 200 R _param p REPUTATION_JUNKTOWN + 200 R _param p REPUTATION_FOLLOWERS + 200 R _param p REPUTATION_GUNRUNNERS + 200 R _param p REPUTATION_REGULATORS + 200 R _param p REPUTATION_NCR_RANGERS + 200 R _param p REPUTATION_NCR + 200 R _param p REPUTATION_HUB_CRIMINALS - 1000 R _script dialog@r_BulkOrderRewardGuns 0  R _script dialog@r_BulkOrderRewardGuns 0  R _item p PID_COMBAT_HELMET_MK_II + 1 R _item p PID_COMBAT_ARMOR_MK_II + 1 R _item p PID_SHERIFF_BADGE + 2 R _item p PID_TROPHY_OF_RECOGNITION + 1 R _item p PID_SUPER_STIMPAK + 12 R _item p PID_MUTATED_TOE + 1 R _item p PID_MEAT + 8 R _item p PID_MEAT_ON_A_STICK + 1 R _item p PID_MASTICATORS_EAR + 1 R _item p PID_MAGIC_8_BALL + 1 R _item p PID_CIGARETTES + 4 R _item p PID_ROT_GUT + 2 R _item p PID_HEART_PILLS + 1 R _item p PID_GOLD_TOOTH + 1 R _item p PID_GECKO_PELT + 1 R _item p PID_LIGHTER + 1 R _item p PID_LIL_JESUS_WEAPON + 1 R _script quest_pending@r_DeleteLoc 0  &
+
+[engl]
+{100}{}{Mysterious Stranger!}
+{200}{}{You see a psychotic looking ghoul dressed in a suit made out of human skin!}
+{210}{}{You are going to kill this man, so much! Your heart is racing with every passing moment that your hands are not around his feeble neck!}
+{1000}{}{Predialogue installations}
+{1010}{}{Answer text}
+{2000}{}{So... @pname@... here... we... are... at... last... in... a... mound... of... filth... and... sin... Is... it... exactly... how... you... imagined... it... to... be... life... without... a... mask... Do... you... see... now... DO... YOU... SEE?!!!}
+{2010}{}{Yes. I see. For once in my miserable life, I see.}
+{3000}{}{Pray... tell... me... then... what... do... you... see...}
+{3010}{}{I see too much blood and broken bones, piled on top of a dying dream. Hopes none of us could ever achieve. But I can see footsteps in the mud placed there by feet. Feet attached to men with hearts and souls. Souls with breathing flesh, TRUE flesh.}
+{4000}{}{Fool...}
+{4010}{}{Flesh nothing like yours! For the flesh I see shattered on the dirt was flesh filled with hopes, with dreams. Flesh torn from the Earth by animals not worthy of a name.The flesh of the slain and tortured souls I once thought carried hope inside of their hearts.}
+{5000}{}{... ... ... *wheeze* ... ... ...}
+{5010}{}{Until you came, and tore up everything I achieved within myself. I had almost conquered this reality. I had actually seen hope in the eyes of children walking hungry through the fallout. But you took this hope away from me, away from all these people. Each and every single one of these bloodstains represents a soul I had almost saved, but a soul that you had decided to take away.}
+{6000}{}{... ... ...}
+{6010}{}{Do you understand now, demon? Do you understand my angst and despair? Can you finally feel the suffering within my heart?}
+{7000}{}{... ... ... No ... ... ...}
+{7010}{}{You will. God help you all, you will.}
+{8000}{}{... I... we... will... not... go... quietly... }
+{8010}{}{No. You will go screaming into the darkness. Piece by piece. Until the flesh has turned to bone and you rot in absolute horror! [Begin to pull off his mask]}
+{9000}{}{NOOOOOOOO!!!! NOOOOOOOOOOOO!!!!!!!!!}
+{9010}{}{[Continue peeling off the mask!]}
+{10000}{}{AHHHHHHH!!!!! MY FACE!!!! GIVE ME BACK MY FAAAAAAACEEEEEE!!!!}
+{10010}{}{Suddenly when all is lost you show signs of being human. It pleases me deeply. For those are the parts of you that will suffer the most.}
+{11000}{}{[The ghoul attempts to claw at you whilst sitting in the interrogation chair. Detectives Cwan and Spade are laughing just as hard as Sheriff Hayden]}
+{11010}{}{[Rip the mask off the ghoul's face and throw it to the ground!]}
+{12000}{}{[You quickly pour Rotgut all over the ghoul's mask and watch it burn!]}
+{12010}{}{Now, my friend, you are but a man. A man burnt beyond recognition. One who will die without a name!}
+{13000}{}{[You force open the ghoul's jaw and grab hold of his tongue! He mutters in agony!]}
+{13010}{}{[Cut out the ghoul's tongue!]}
+{13020}{}{[No! There has to be another way!]}
+{14000}{}{THERE IS NO OTHER WAY!}
+{14010}{}{Dear God, man! This is crazy!}
+{15000}{}{*gurgle* *wet scream*}
+{15010}{}{Burn it.}
+{16000}{}{[Detective Spade grabs his lighter and torches what's left of the ghoul's amputated tongue!]}
+{16010}{}{Get him on the table.}
+{17000}{}{[The poor, terrified ghoul is placed and strapped down to the table. Detective Spade hands you your tools]}
+{17010}{}{This is for the little girl. [Remove the ghoul's left nipple with a pair of pliers]}
+{18000}{}{*a hard rain falls slow*}
+{18010}{}{[Take out a screwdriver and stab it into the open wound and twist]}
+{19000}{}{*as the cold hub shines in the glow*}
+{19010}{}{[Listen to the sounds of screams]}
+{20000}{}{*you held me close over the shores*}
+{20010}{}{[Spread the wound open and watch the blood pour out]}
+{21000}{}{*still, all it could do is rain*}
+{21010}{}{[Put on what's left of the ghoul's mask and wear it]}
+{22000}{}{*wonder how you make me feel this way*}
+{22010}{}{[Ram your fingers into the ghoul's right eye!]}
+{23000}{}{*sun shining all the time, I'm happy*}
+{23010}{}{[Pull gently, and ever so carefully]}
+{24000}{}{*like the birds in the sky when it was yesterday*}
+{24010}{}{[Rip out the ghoul's right eye!]}
+{25000}{}{*I feel so free when I'm alive in your arms*}
+{25010}{}{Spade, cauterize his wounds please. And heat these pliers up until they turn red.}
+{26000}{}{*how the fire burns so heavenly, the love so bright in your eye*}
+{26010}{}{[Begin to rip out the ghoul's finger nails!]}
+{27000}{}{*you can't scream this love away!*}
+{27010}{}{[Start with the left hand]}
+{28000}{}{*don't lead me astray*}
+{28010}{}{[Start pulling, and watch the flesh tare itself away from the bone]}
+{29000}{}{*after you've gone and made me this way*}
+{29010}{}{[Smile]}
+{30000}{}{HAHAHAHHAHAHAHAHHAHAHHAHHAHAHAH!!!}
+{30010}{}{HAHAHAHAHHAHAHAHAHAHHAH!!!}
+{31000}{}{*please don't take me away*}
+{31010}{}{... from all this pain...}
+{32000}{}{*only you could save the day*}
+{32010}{}{I... [Stare in horror at the crippled man]}
+{33000}{}{*wet gurgle* *a sad mumble* *blood squirting onto the wall*}
+{33010}{}{You...}
+{34000}{}{... ... ...}
+{34010}{}{... wanted war.}
+{35000}{}{[Distant is the void, and you are alone. Under your crushing feet a pool of blood and tears. You are standing in a sad place, surrounded by sad faces, and you are wearing a torn, nearly destroyed and badly burnt mask made up of pieces of dead women, children, babies, and grown men. You feel sick]}
+{35010}{}{[Tare the mask from your face]}
+{36000}{}{[You remove the mask but the feeling will never go away]}
+{36010}{}{[Lean close and whisper into the ghoul's ear]}
+{37000}{}{[With his one barely functioning eye the ghoul lifts his wrecked head and looks up at you]}
+{37010}{}{... do you see?}
+{38000}{}{... yes... I... see...}
+{38010}{}{You have the right to die.}
+{39000}{}{... finally!... Thank... you... thank... you!}
+{39010}{}{But first...}
+{40000}{}{... no ... no ...}
+{40010}{}{I want your face.}
+{41000}{}{NOOOOOOOO!!!!!  NOOOOOOOOOOOOOO!!!!! AHHHHHHHHHHHHHHHH!!!! AHHHHHHHHHRRRRGHHHHHH!!!!!!!!!!!!!! [It echoes...]}
+{41010}{}{[... until the deed is done]}
+{42000}{}{[You stare deep into the horror, and listen to the faint sounds of life coming from the pathetic looking ghoul. Each exhale of his lungs rings out into your heart as you remember all the lives he helped take away]}
+{42010}{}{[Think about the little girl you killed]}
+{43000}{}{[You weep for lost innocence but remember the lives you helped save. You remember all the good you did, but you realize how it all came down to this. Where is hope for these people? For man. You think deep into just how much you've changed]}
+{43010}{}{I came into this world twice, kicking and screaming, demon. My family was taken from me and everything I've ever known and loved is gone. I am truly alone out here. But I had hope in something. Whatever it was: The American Dream.}
+{44000}{}{... kill... me... kill... me... kill... ...}
+{44010}{}{I WANT to change things. I WANTED to bring hope to this world. I WANTED to answer a scared girl's prayers! I WANTED to help people achieve their dreams! }
+{45000}{}{... kill... me... please... kill... ...}
+{45010}{}{I thought that holding a badge, being a cop! In THIS world! I thought that I could at least help! But you know what I did?! Do you know what I did?!}
+{46000}{}{... kill ... kill...}
+{46010}{}{I killed. I killed everything. Everyone. I even... I even killed a little girl! The very pinnacle of what I wanted to save! I... I became a MONSTER!}
+{47000}{}{... heh... hehe...  *wheeze*}
+{47010}{}{[Light up a cigarette] At least I thought I was before I met you.}
+{48000}{}{... heh...  huh... ???}
+{48010}{}{I found myself. I found out who I was, and I found out that I'm no hero. There aren't any heroes! In real life the monsters always win. And you know what, demon? You know what all this is?}
+{49000}{}{... die... already... hu... man...}
+{49010}{}{It's a victory.}
+{50000}{}{... urggghhh!!...}
+{50010}{}{Because in the end, demon. I am the bigger beast.}
+{51000}{}{... kill... me... please!!}
+{51010}{}{If the worse thing around is me, then there might just be a bit of hope left for mankind. That's why you're going to tell me where the rest of your army is. It's my turn to play the beast.}
+{52000}{}{... fool... there... is... no... army... my... my... brothers... are... all... dead!!... You... killed... them... all!!! .... Why... do... you... think... I... have... been... following... you...}
+{52010}{}{You liar. I'm going to peel off your skin like a fuckin' tin top and wear you like I'm on goddamn parade. Are you ready for the end, demon? Are you ready to FINALLY SEE?!!}
+{53000}{}{... I... am... beyond... broken... why... why... why... do... you... tor...tu...re... me... It... was... over... after... the... raid... you... win... please... kill... me... I... am... so... lost...}
+{53010}{}{No, you aren't lost enough. I want you to see, demon. I want you to see deep into the light! I want you to weep for all you've done, and I want you to weep for all of eternity! }
+{54000}{}{I... AM... SORRY! I... have... been... so... abused... my... entire... life... I... just... wanted... to... be... happy!!! I... have... never... truly... smiled... I... weep... for... my... first... smile...}
+{54010}{}{... ... ...}
+{55000}{}{... my... face... give... me... back... my... face...}
+{55010}{}{[Stare into the pound of flesh you've rightfully taken]}
+{56000}{}{... put... it... on... put... it... on... now... me... please...!!!}
+{56010}{}{... but... it's... mine...}
+{57000}{}{GGIIVVEE MMEE BBAACCKK MMYY FFAACCEE!!!}
+{57010}{}{[Put on the ghoul's face and wear it as your own]}
+{58000}{}{[Before you can do anything Detective Cwan slaps the disgusting pile of flesh to the floor and fires several rounds into it. He then turns and covers the ghoul's body with bullet holes. Blood pours everywhere, and pieces of brain and marrow cover the walls]}
+{58010}{}{[Throw your badge to the ground]}
+{59000}{}{*I never knew it could feel so cold*}
+{59010}{}{I quit, Deckard. I'm going home. }
+{60000}{}{*without you*}
+{60010}{}{This isn't what I call justice.}
+

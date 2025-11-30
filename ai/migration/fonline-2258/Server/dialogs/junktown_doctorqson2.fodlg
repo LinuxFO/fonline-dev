@@ -1,0 +1,48 @@
+[comment]
+
+
+[data]
+lang=engl
+
+[dialog]
+&
+1 1000 None 0 #
+2 1010 #
+3 1020 D _var p junk_doctoring = 3 #
+6 1030 D _var p junk_doctoring = 4 @
+2 2000 None 0 @
+3 3000 None 0 #
+4 3010 D _item p PID_DOCTORS_BAG > 0 D _item p PID_FIRST_AID_KIT > 0 #
+0 3020 @
+4 4000 None 0 #
+5 4010 @
+5 5000 None 0 #
+0 5010 R _var p junk_doctoring = 4 R _script dialog@r_AddExperience 1 1500 R _param p ST_KARMA + 1 R _param p REPUTATION_JUNKTOWN + 50 @
+6 6000 None 0 #
+7 6010 D _item p PID_FIRST_AID_KIT > 0 D _item p PID_DOCTORS_BAG > 0 D _script dialog@d_QuestTimeoutReady 0  R _script dialog@r_AddExperience 1 2000 R _param p ST_KARMA + 1 R _script dialog@r_BulkOrderRewardLow 0  R _param p REPUTATION_JUNKTOWN + 38 R _script dialog@r_QuestTimeout 1 72 #
+0 6020 @
+7 7000 None 0 #
+0 7010 &
+
+[engl]
+{100}{}{Half of a twin}
+{200}{}{You see half of a twin.}
+{210}{}{You see two inseparable children -err, no wait, one.}
+{1000}{}{Predialogue installations}
+{1010}{}{Answer text}
+{1020}{}{2}
+{1030}{}{3}
+{2000}{}{Hi.@@Bye.@@Trees.@@Shoes.@@Floor.@@Cat?@@Bird.@@Horse.@@Cow.@@Moon.@@Why?@@No.@@No!@@Go away.}
+{3000}{}{Hi!}
+{3010}{}{Hey, kiddo. Time for your check up. I guess I'm your new family doctor. My name's @pname@.}
+{3020}{}{Bye, kids.}
+{4000}{}{Okay, yay! You seem nice. But me and my brother aren't sick.}
+{4010}{}{That's good! But let me just double check, okay?}
+{5000}{}{[You perform your generic check-up routine, and conclude that the other two children are fine. You can come back every three days or so and do it again, if you want]}
+{5010}{}{Okay, kids. Everything's fine here, bye!}
+{6000}{}{Hi, Doctor, @pname@! Is it time for our check-up again?}
+{6010}{}{Yes, ma'am. Go get your brothers, and sisters.}
+{6020}{}{Not yet, kids. Stay safe.}
+{7000}{}{[You perform your generic check-up routine, and conclude that the other two children are fine. You can come back every three days or so and do it again, if you want]}
+{7010}{}{Okay, kids. Everything's fine here, bye!}
+

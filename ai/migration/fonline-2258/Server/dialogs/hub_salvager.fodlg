@@ -1,0 +1,245 @@
+[comment]
+
+
+[data]
+lang=engl
+
+[dialog]
+&
+1 1000 None 0 #
+14 1010 D _var p name_mem_player_npc > 0 #
+2 1020 D _var p name_mem_player_npc = 0 @
+2 2000 None 0 #
+3 2010 @
+3 3000 None 0 #
+4 3010 @
+4 4000 None 0 #
+5 4010 @
+5 5000 None 0 #
+6 5010 @
+6 6000 None 0 #
+7 6010 @
+7 7000 None 0 #
+8 7010 @
+8 8000 None 0 #
+9 8010 @
+9 9000 None 0 #
+10 9010 @
+10 10000 None 0 #
+11 10010 @
+11 11000 None 0 #
+12 11010 @
+12 12000 None 0 #
+13 12010 @
+13 13000 None 0 #
+14 13010 R _var p name_mem_player_npc = 1 R _var p x_hubsalvager = 1 @
+14 14000 None 0 #
+15 14010 #
+16 14020 #
+0 14030 @
+15 15000 None 0 #
+65506 15010 #
+14 15020 @
+16 16000 None 0 #
+18 16010 D _item p PID_FIREWOOD > 2 D _item p PID_PUMP_PARTS > 1 D _item p PID_METAL_PARTS > 4 D _var p x_hubsalvager = 1 R _item p PID_FIREWOOD - 3 R _item p PID_PUMP_PARTS - 2 R _item p PID_METAL_PARTS - 5 R _param p ST_EXPERIENCE + 1000 R _param p SK_MELEE_WEAPONS + 5 R _param p REPUTATION_HUB + 100 R _param p REPUTATION_FREE_TRADERS + 100 R _param p REPUTATION_SCAVENGERS + 100 R _param p ST_KARMA + 1 R _var p x_hubsalvager = 2 R _script dialog@r_BulkOrderRewardFoundry 0  R _script dialog@r_AddMoney 1 250 #
+17 16020 D _var p x_hubsalvager = 1 #
+22 16030 D _var p x_hubsalvager = 2 #
+24 16040 D _var p x_hubsalvager = 3 #
+25 16050 D _var p x_hubsalvager = 3 D _item p PID_FIREWOOD > 9 D _item p PID_METAL_PARTS > 14 D _item p PID_PUMP_PARTS > 4 D _item p PID_FIBER > 1 R _var p x_hubsalvager = 4 R _item p PID_PUMP_PARTS - 5 R _item p PID_METAL_PARTS - 15 R _item p PID_FIREWOOD - 10 R _item p PID_FIBER - 2 R _param p ST_KARMA + 1 R _param p REPUTATION_HUB + 100 R _param p REPUTATION_FREE_TRADERS + 100 R _param p REPUTATION_SCAVENGERS + 100 R _param p ST_EXPERIENCE + 1250 R _script dialog@r_BulkOrderRewardFoundry 0  R _script dialog@r_AddMoney 1 500 R _param p SK_MELEE_WEAPONS + 5 #
+29 16060 D _var p x_hubsalvager = 4 #
+32 16070 D _var p x_hubsalvager = 5 #
+34 16080 D _var p x_hubsalvager = 5 D _item p PID_ALLOYS > 11 D _item p PID_FIBER > 79 D _item p PID_METAL_PARTS > 49 D _item p PID_FIREWOOD > 49 D _item p PID_ELECTRONIC_PARTS > 19 R _var p x_hubsalvager = 6 R _item p PID_METAL_PARTS - 50 R _item p PID_FIBER - 80 R _item p PID_FIREWOOD - 50 R _item p PID_ELECTRONIC_PARTS - 20 R _item p PID_ALLOYS - 12 R _script dialog@r_BulkOrderRewardInde 0  R _script dialog@r_BulkOrderRewardFoundry 0  R _script dialog@r_BulkOrderRewardJunk 0  R _param p SK_MELEE_WEAPONS + 10 R _param p ST_KARMA + 5 R _param p REPUTATION_SCAVENGERS + 300 R _param p REPUTATION_FREE_TRADERS + 300 R _param p REPUTATION_HUB + 300 R _param p ST_EXPERIENCE + 3000 R _script dialog@r_AddMoney 1 2000 R _param p REPUTATION_JUNKTOWN + 100 R _param p REPUTATION_KOKOWEEF + 100 R _param p REPUTATION_MORNINGSTAR + 100 R _param p REPUTATION_REDDING + 100 #
+14 16090 @
+17 17000 None 0 #
+14 17010 @
+18 18000 None 0 #
+19 18010 @
+19 19000 None 0 #
+20 19010 R _item p PID_GUNS_AND_BULLETS + 1 #
+20 19020 R _item p PID_CATS_PAW_ISSUE_5 + 1 #
+20 19030 R _item p PID_FIRST_AID_BOOK + 1 #
+20 19040 R _item p PID_SCOUT_HANDBOOK + 1 #
+20 19050 R _item p PID_BARTER_BOOK + 1 #
+20 19060 R _item p PID_ACCOUNT_BOOK + 1 #
+20 19070 R _item p PID_CATS_PAW + 1 #
+20 19080 R _item p PID_BECKY_BOOK + 1 #
+20 19090 R _item p PID_BIG_BOOK_OF_SCIENCE + 1 #
+20 19100 R _item p PID_CHEMISTRY_MANUAL + 1 #
+20 19110 R _item p PID_DEANS_ELECTRONICS + 1 #
+20 19120 R _item p PID_TECHNICAL_MANUAL + 1 @
+20 20000 None 0 #
+21 20010 @
+21 21000 None 0 #
+0 21010 @
+22 22000 None 0 #
+23 22010 @
+23 23000 None 0 #
+14 23010 R _var p x_hubsalvager = 3 @
+24 24000 None 0 #
+14 24010 @
+25 25000 None 0 #
+26 25010 @
+26 26000 None 0 #
+27 26010 R _item p PID_TECHNICAL_MANUAL + 1 #
+27 26020 R _item p PID_BARTER_BOOK + 1 #
+27 26030 R _item p PID_CHEMISTRY_MANUAL + 1 #
+27 26040 R _item p PID_FIRST_AID_BOOK + 1 #
+27 26050 R _item p PID_DEANS_ELECTRONICS + 1 #
+27 26060 R _item p PID_CATS_PAW + 1 #
+27 26070 R _item p PID_ACCOUNT_BOOK + 1 #
+27 26080 R _item p PID_SCOUT_HANDBOOK + 1 #
+27 26090 R _item p PID_GUNS_AND_BULLETS + 1 #
+27 26100 R _item p PID_CATS_PAW_ISSUE_5 + 1 #
+27 26110 R _item p PID_BECKY_BOOK + 1 #
+27 26120 R _item p PID_BIG_BOOK_OF_SCIENCE + 1 @
+27 27000 None 0 #
+28 27010 @
+28 28000 None 0 @
+29 29000 None 0 #
+30 29010 @
+30 30000 None 0 #
+31 30010 @
+31 31000 None 0 #
+14 31010 R _var p x_hubsalvager = 5 @
+32 32000 None 0 #
+33 32010 @
+33 33000 None 0 #
+14 33010 @
+34 34000 None 0 #
+35 34010 @
+35 35000 None 0 #
+36 35010 R _item p PID_CATS_PAW_ISSUE_5 + 1 R _item p PID_GUNS_AND_BULLETS + 1 #
+36 35020 R _item p PID_BIG_BOOK_OF_SCIENCE + 1 R _item p PID_SCOUT_HANDBOOK + 1 #
+36 35030 R _item p PID_BIG_BOOK_OF_SCIENCE + 1 R _item p PID_FIRST_AID_BOOK + 1 #
+36 35040 R _item p PID_BIG_BOOK_OF_SCIENCE + 1 R _item p PID_DEANS_ELECTRONICS + 1 #
+36 35050 R _item p PID_CATS_PAW + 1 R _item p PID_ACCOUNT_BOOK + 1 #
+36 35060 R _item p PID_BECKY_BOOK + 1 R _item p PID_BARTER_BOOK + 1 #
+36 35070 R _item p PID_CHEMISTRY_MANUAL + 1 R _item p PID_TECHNICAL_MANUAL + 1 #
+36 35080 R _script dialog@r_AddMoney 1 2000 #
+36 35090 R _param p ST_EXPERIENCE + 2000 @
+36 36000 None 0 #
+37 36010 @
+37 37000 None 0 #
+0 37010 &
+
+[engl]
+{100}{}{Cheryll}
+{200}{}{You see Cheryll, the local salvager and junk vendor from the outskirts of the Hub.}
+{210}{}{Her shop and table is full of various useful-to-someone looking objects, some of them could probably be used to make a gun. Overall, this looks like a pretty convenient shop for simple tools and resources.}
+{1000}{}{Predialogue installations}
+{1010}{}{known}
+{1020}{}{not known}
+{2000}{}{Welcome to town, stranger! Welcome to the Hub! Central trading agency for all of what's left of California! Boy, you sure look fresh! You just walk out of a vault, or something?!}
+{2010}{}{Uh...}
+{3000}{}{What's that on your wrist?! Is that a genuine Pip-Boy?!}
+{3010}{}{Something like that...}
+{4000}{}{Oh, wow! I haven't seen one of those in years! Did your vault just open up?! We all heard there were still dozens left unopened!}
+{4010}{}{...I really don't know what to say...}
+{5000}{}{Must be a big shock to ya, eh? Looks like I'll have to start expecting more of you every day... hope you won't be causing any trouble...}
+{5010}{}{No, ma'am! Just taking it all in, that's all. Looking to make something out here for myself. Just don't know where to start.}
+{6000}{}{Well, I hope you don't start heading out north-east to Vegas! That place is trouble, let me tell you! My nephew just ran-off't the other day with his "sweet-heart" for a honeymoon! There's nothing out there but degenerate gamblers, rapists, murders, and alcoholics!}
+{6010}{}{Vegas? THE Las Vegas?! It survived the war?! Are you kidding me?!}
+{7000}{}{No, I am not kidding you! You'd better stay clear of that place if you want any of *MY* business!}
+{7010}{}{Your business? What exactly is it that you do here? What's with all this junk lying around? Some of it kind of looks useful... I guess...}
+{8000}{}{You're damn right, "it looks useful"! I'm a scavenger! Just like the other hundreds of us out there still weeding through the post-war scraps. Most of the stuff you'll see across the wasteland has been salvaged and scavenged in one way or another! Hell! It's been, what now? A hundred years since the great war?}
+{8010}{}{Great war? Is that what you call it? Interesting... but it's been more like... uh... Let me check my Pip-Boy...}
+{9000}{}{[Your Pip-Boy buzzes with useful information and blurps out] "The great war started and ended on October 23rd, 2077. By eleven-thirty A.M, the entire planet was decimated with nuclear weapons. It has been over 187 years since these events occurred".}
+{9010}{}{Huh... I'm surprised you knew that, machine...}
+{10000}{}{Wow! It talks too! I'd try to buy it off you but I know it's not for sale! Such an interesting character you sure are turning out to be! I wonder where this new life will take you, vault dweller?}
+{10010}{}{... Me too...}
+{11000}{}{So, what can I get'cha? Feel free to look around and learn a thing or two about scavenging, if you're interested. I might have a spare Multi-Tool lying around here somewhere you could use. Or you could do something for me instead, and I'll help start you on your little, grand journey out there in the wasteland...}
+{11010}{}{What do you mean? What could I possibly offer you that you don't have lying around here already? [Smirk]}
+{12000}{}{Very funny! [She laughs] Another pair of hands! I could always use some more scavengers helping about. How about you find yourself a Multi-Tool and start using it to dismantle and scavenge a few things for me? I'll pay you for the trouble.}
+{12010}{}{Sure, I'll think about it. What did you need?}
+{13000}{}{Well, you can start to scavenge and salvage almost anything you can get your hands on, using a Multi-Tool. You'll be able to scrap all sorts of items together, like Wood, Junk, Metal Parts, Electronic Parts, Fibers, and Alloys. I need 5x Metal Parts, 3x Wood, and 2x Junk, bring me that, and I'll teach you a few new tricks on how to improve your Scavenging skill.}
+{13010}{}{That would be a useful skill to learn out here, I'll give you that. Okay, well, I'll think about it. In the mean time...}
+{14000}{}{Welcome back, stranger! What can I get you?}
+{14010}{}{Got anything to trade?}
+{14020}{}{Let's talk about scavenging.}
+{14030}{}{Nothing for now. Maybe later. Goodbye.}
+{15000}{}{Sure! Have a look! I sell the best stufff to the other merchants, but I keep some meds and a few other things nearby for the caravan crews. You can shop off that menu.}
+{15010}{}{[Barter]}
+{15020}{}{Nevermind.}
+{16000}{}{That's my pride and joy right there, my bread and butter! Have you had any butter recently? It's still out there! Just a heck of a lot more sour!}
+{16010}{}{I have the resources you wanted.}
+{16020}{}{What did you want me to collect again?}
+{16030}{}{Need any more scavenging work done? I can spare a bit of my time.}
+{16040}{}{What did you want me to collect again?}
+{16050}{}{I have the resources you wanted.}
+{16060}{}{Got any more scavenging work? I could use the extra caps.}
+{16070}{}{What did you want me to collect again?}
+{16080}{}{I have the resources you wanted.}
+{16090}{}{On second thought, nevermind.}
+{17000}{}{I wanted you to gather 5x Metal parts, 3x Wood, and 2x Junk. In return, I'll teach you something new about scavenging and boost up your skills!}
+{17010}{}{Sounds good, okay. I'll be back... eventually.}
+{18000}{}{Oh? That is great! I'll use the parts to make something completely new with it all! You'll see! Give them here!}
+{18010}{}{So... about my reward...}
+{19000}{}{Yes, yes! One moment! [She fumbles around her workshop clumsily and hides something inside of her desk] Done! Now, for you... What kind of book would you like? On the house! Fresh from the Hub's library down the road. I'll also show you how to slighty improve your Scavenging skill! [+5%]}
+{19010}{}{I'll take a book about Small Guns.}
+{19020}{}{I'll take a book about Energy Weapons.}
+{19030}{}{I'll take a book about First Aid.}
+{19040}{}{I'll take a book about Scouting.}
+{19050}{}{I'll take a book about Bartering.}
+{19060}{}{I'll take a book about Stealing.}
+{19070}{}{I'll take a book about Sneaking.}
+{19080}{}{I'll take a book about Speech.}
+{19090}{}{I'll take a book about Science.}
+{19100}{}{I'll take a book about Traps.}
+{19110}{}{I'll take a book about Repair.}
+{19120}{}{I'll take a book about Lockpicking.}
+{20000}{}{Perfect! Look at you, vault dweller! You're looking good! Got yourself some experience, a few new tricks up your sleeve, and a brand new, slightly used skillbook to read! I also put in a good word for ya, over the radio. People will know how helpful you can be, @pname@! Word spreads!}
+{20010}{}{Figured out my name, already? [Smile]}
+{21000}{}{Sure did! You should go speak with Joe Kelly next if you haven't already! He's got plenty of things to say to you! Take care, vault dweller! Come back anytime! }
+{21010}{}{Be seeing ya.}
+{22000}{}{Sure! Could always use a hand around these parts! Grab your Multi-Tool and help me fulfill my next contract. I'll give you another reward of your choice, and help you boost your Scavenging skills a little bit.}
+{22010}{}{Great! What do you need?}
+{23000}{}{Well! Since you know a thing or two about scavenging, and you don't seem too afraid of hard work! Let me ask of you for... 10x Wood, 15x Metal Parts, 5x Junk, and 2x Fibers. This should be just enough to help me finish my latest merchant order. Help out, and I'll reward you again with a good word on the streets, and something of your choice! Maybe a little something extra, too!}
+{23010}{}{Will do. I'll be back with the resources... eventually.}
+{24000}{}{10x Wood, 15x Metal Parts, 5x Junk, and 2x Fibers. This should be just enough to help me finish my latest merchant order. Help out, and I'll reward you again with a good word on the streets, and something of your choice! Maybe a little something extra, too!
+}
+{24010}{}{Ah, right. Thanks!}
+{25000}{}{You do?! That's great! Drop them on my table and I'll get quick to work finishing my merchant order! Just give me a few minutes, and I'll be right back!}
+{25010}{}{Alrighty... and my reward?}
+{26000}{}{What would you like? [She smiles]}
+{26010}{}{I'll take a Lockpicking skillbook.}
+{26020}{}{I'll take a Bartering skillbook.}
+{26030}{}{I'll take a Traps skillbook.}
+{26040}{}{I'll take a First Aid skillbook.}
+{26050}{}{I'll take a Repair skillbook.}
+{26060}{}{I'll take a Sneak skillbook.}
+{26070}{}{I'll take a Steal skillbook.}
+{26080}{}{I'll take a Scouts skillbook.}
+{26090}{}{I'll take a Small Guns skillbook.}
+{26100}{}{I'll take an Energy Weapons skillbook.}
+{26110}{}{I'll take a Speech skillbook.}
+{26120}{}{I'll take a Science skillbook.}
+{27000}{}{Hope they're helping! I also threw in a few other extras for you! Just got off the radio too, people will be hearing the name @pname@ for a while! Great work, vault dweller! Now, take a seat and let me teach you something new about your Scavenging skill.}
+{27010}{}{Wow, thanks a lot, Cheryll! Can't wait to try out my new skills!}
+{28000}{}{You're very welcome, vault dweller! Now go show those fools who's boss! Tootles!}
+{29000}{}{For you, @pname@! Any time! I just so happen to have a large order I'm struggling to prepare. This one will be a hefty one! I hope you're ready to help!}
+{29010}{}{Oh, trust me, Cheryll, I am.}
+{30000}{}{That's the spirit, champ! Redding is looking to fix up their old mineshafts and Junktown needs a few parts to repair their signs. We need 50x Wood, 50x Metal Parts, 20x Electronic Parts, 80x Fibers, and 12x Alloys. I know it's a lot, but you'd be doing me a huge favour! Can you handle it, @pname@? }
+{30010}{}{Wow, that is quite the haul. I'll have to think about it, but I'll be back with the resources when I can... IF I can.}
+{31000}{}{No problem, @pname@, just try is all I ask. Is there anything I can help you with in the mean time?}
+{31010}{}{Let's see...}
+{32000}{}{Redding is looking to fix up their old mineshafts and Junktown needs a few parts to repair their signs. We need 50x Wood, 50x Metal Parts, 20x Electronic Parts, 80x Fibers, and 12x Alloys. I know it's a lot, but you'd be doing me a huge favour! I know you can handle it, @pname@!}
+{32010}{}{Quite the haul, indeed. Hopefully it's paying! [Smirk]}
+{33000}{}{Oh, it will! Trust me, @pname@! Anything else I can help you with?}
+{33010}{}{Let's see...}
+{34000}{}{You sure are something, you know that, @pname@? Wow! Look at all this useful junk! The people of Redding and Junktown will sure appreciate it! I'll even let them know over the radio that you personally helped deliver it all. Thanks a million! I've got a little thank you package here, but for your real reward...}
+{34010}{}{Oh, boy! Just like Christmas! What is it?!}
+{35000}{}{Well, what do you want?}
+{35010}{}{I'll take some weapon skillbooks. [Small Guns + Energy Weapons]}
+{35020}{}{I'll take some adventuring skillbooks. [Scouting + Barter]}
+{35030}{}{I'll take some medical skillbooks. [First Aid + Science]}
+{35040}{}{I'll take some crafting skillbooks. [Science + Repair]}
+{35050}{}{I'll take some devious skillbooks. [Sneak + Stealing]}
+{35060}{}{I'll take some educational skillbooks. [Speech + Barter]}
+{35070}{}{I'll take some lockpicking skillbooks. [Lockpicking + Traps]}
+{35080}{}{I'll just take some caps. [+2000 caps]}
+{35090}{}{I'm just doing it for the experience. [+2000 XP]}
+{36000}{}{There you go, @pname@! Thanks again. You've really helped out this small, local business of mine! And in return you got quite the positive reputation built up, and enough caps and goods to help you survive just about anything now! Well... except for maybe a dozen raiders, or a deathclaw! [She shuckles]}
+{36010}{}{It was my pleasure, Cheryll.}
+{37000}{}{That's just about all the work I've got for you now, but my shop is always open! Come back and visit any time! I get regular shipments now of all sorts of miscellaneous gear. You might just find something you'll like. Tootles!}
+{37010}{}{Be seeing ya, Cheryll! Take care!}
+

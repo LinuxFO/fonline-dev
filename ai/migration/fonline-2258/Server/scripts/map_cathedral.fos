@@ -1,0 +1,1082 @@
+//
+// FOnline: 2238
+// Rotators
+//
+// map_cathedral.fos
+//
+
+#include "_basetypes.fos"
+#include "_colors.fos"
+#include "_macros.fos"
+#include "_maps.fos"
+#include "broadcast_h.fos"
+#include "elevators_h.fos"
+#include "factions_h.fos"
+#include "lockers.fos"
+#include "mapdata_h.fos"
+#include "messages_h.fos"
+#include "npc_common_h.fos"
+#include "npc_planes_h.fos"
+#include "npc_roles_h.fos"
+#include "utils_h.fos"
+#include "spawner_container_h.fos"
+
+
+
+import void AddSpecialBonus(Item@ it) from "item_bonus";
+import void InjureCritter(Critter& cr, uint dmg, uint dmgType, uint8 dir, uint attackerId) from "combat";
+import void ServerEventCountDownStart(string& message, int location, int time, int type)  from "broadcast";
+
+
+
+
+
+//
+// Initialize map, and indicates this map belong to Unity
+//
+
+//
+// Map Data:
+// 0 - faction id (Unity)
+//
+
+// elevator 1-2-3
+CElevator Elevator(ELEVATOR_MASTER_123);
+// elevator 3-4
+CElevator BombElevator(ELEVATOR_MASTER_34);
+
+bool ElevatorsAdded = false;
+
+void map_init(Map& map, bool firstTime)
+{
+    if(firstTime)
+    {
+        // this map belongs to that faction
+        map.SetData(MAP_DATA_FACTION, FACTION_UNITY);
+		
+		array<Item@> doors;
+		for(uint i = 0, j = map.GetItemsByType(ITEM_TYPE_DOOR, doors); i < j; i++)
+		{
+			if(doors[i].Val6 == 0) 
+			{
+				doors[i].Val7 = 9999999;
+				doors[i].Val6 = 9999999;
+			}
+		}
+    }
+    // to add only one for all floors
+    if(!ElevatorsAdded)
+    {
+        // add elevators
+        AddElevator(Elevator);
+        AddElevator(BombElevator);
+        ElevatorsAdded = true;
+    }
+
+    // parse elevators floors (only for vault levels)
+    uint16 x = 0, y = 0;
+    switch(map.GetProtoId())
+    {
+    case MAP_Cathedral_CellarLevel1:
+    case MAP_Cathedral_CellarLevel2:
+        if(map.GetEntireCoords(1, 0, x, y))
+            Elevator.AddFloor(map.Id, 1);
+        break;
+    case MAP_Cathedral_CellarLevel3:
+        if(map.GetEntireCoords(1, 0, x, y))
+            Elevator.AddFloor(map.Id, 1);
+    case MAP_Cathedral_CellarLevel4:
+        if(map.GetEntireCoords(2, 0, x, y))
+            BombElevator.AddFloor(map.Id, 2);
+        break;
+    default:
+    }
+}
+
+// ===============================
+// Elevator triggers
+// ===============================
+void t_Elevator(Critter& critter, Scenery& trigger, bool entered, uint8 dir)
+{
+    HandleElevator(Elevator, critter, entered);
+}
+void t_ElevatorBomb(Critter& critter, Scenery& trigger, bool entered, uint8 dir)
+{
+    HandleElevator(BombElevator, critter, entered);
+}
+
+void t_EnterCave(Critter& critter, Scenery& trigger, bool entered, uint8 dir)
+{
+    if(!critter.IsPlayer() || !entered)
+        return;
+
+    critter.SendMessage(MSG_CATH_PLAYER_ENTER_CAVE, 0, MESSAGE_TO_VISIBLE_ME);
+}
+
+// ===============================
+// Outside doors are locked
+// ===============================
+
+
+void cellar_door(Item& item, bool firstTime)
+{
+	item.SetEvent(ITEM_EVENT_SKILL, "_UseDoor");
+	item.SetEvent(ITEM_EVENT_USE_ON_ME, "_UseBadgeOnDoor");
+}
+
+bool _UseDoor(Item& item, Critter& player, int skill)
+{
+	// Opening / Closing
+	player.Animate(ANIM1_UNARMED, ANIM2_USE, item, true, true);
+	
+    if((skill == -1) || (skill == SK_LOCKPICK))
+    {	
+		Map@ map = GetMap(item.MapId);
+		Item@ cellardoor=map.GetItem(112, 128, 2825);
+		array<uint> cellardata = { cellardoor.Id, map.Id };
+		
+		if(FLAG(cellardoor.LockerCondition, LOCKER_ISOPEN))
+		{
+			player.Say(SAY_NETMSG, "The door is stuck.");
+		}
+        else
+            {
+				if(player.CountItem(PID_BLACK_COC_BADGE) > 0)
+					player.Say(SAY_NETMSG, "I think this Children of Cathedral Badge I am carrying might fit nicely into that recess.");
+			    else
+					player.Say(SAY_NETMSG, "There is a strange circular recess in the wall.");
+			}
+		
+        return true;
+    }
+	return false;
+}
+
+bool _UseBadgeOnDoor(Item& item, Critter& player, Item@ usedItem)
+{
+    
+	if (usedItem.GetProtoId() == PID_RED_COC_BADGE)
+	{
+	  player.Say(SAY_NETMSG, "It fits in the recess but nothing happens.");
+	}
+    else if (usedItem.GetProtoId() == PID_BLACK_COC_BADGE)
+    {
+        player.Animate(ANIM1_UNARMED, ANIM2_USE, item, true, true);
+        Map@ map = GetMap(item.MapId);
+        Item@ cellardoor = map.GetItem(112, 128, 2825);
+        array<uint> cellardata = { cellardoor.Id, map.Id };
+
+        if (FLAG(cellardoor.LockerCondition, LOCKER_ISOPEN))
+        {
+            player.Say(SAY_NETMSG, "The door is stuck.");
+        }
+        else
+        {
+            ServerEventCNTSet("The Vault under The Cathedral has been opened. %COUNTDOWN%", 11, 11, REAL_MINUTE(30));
+            CreateTimeEvent(AFTER(REAL_MINUTE(30)), "CloseDoor", cellardata, true);
+            SwitchState(cellardoor);
+            DeleteItem(usedItem);
+            FillContainers(map); //Add loot to map
+            player.Say(SAY_NETMSG, "The doors slide open.");
+		
+        }
+        return true;
+    }
+    return false;
+}
+
+
+
+uint CloseDoor(array<uint>@ values)
+{
+	Item@ cellardoor = GetItem(values[0]);
+	Map@ cathedral = GetMap(values[1]);	
+	
+    if(!valid(cellardoor))
+        return 0;
+	
+	// collecting blocking critters
+	array<Critter@> critters;
+	
+	cathedral.GetCrittersHex(112, 128, 0, FIND_LIFE_AND_KO, critters);
+	
+	// and now kill them all
+	for(uint i = 0, j = critters.length(); i < j; i++)
+	{
+		if(valid(critters[i]))
+		{
+			critters[i].Say(SAY_NETMSG, "You were crushed by the door.");
+			critters[i].ToDead(ANIM2_DEAD_EXPLODE, null);
+		}
+	}	
+		
+	if(FLAG(cellardoor.LockerCondition, LOCKER_ISOPEN))
+	{
+		LockerClose(cellardoor);
+		
+	}
+	
+	
+	return 0;
+}
+
+
+
+
+void FillContainers(Map& map)
+{
+    if (!valid(map))
+        return;
+
+    Location@ loc = map.GetLocation();
+    array<Map@> maps;
+    loc.GetMaps(maps);
+    for (uint i = 0, j = maps.length(); i < j; i++)
+    {
+        if (valid(maps[i]))
+        {
+
+if (maps[i].GetProtoId() == MAP_Cathedral_CellarLevel1)
+            {
+                array<Item@> lockers;
+                maps[i].GetItemsByType(ITEM_TYPE_CONTAINER, lockers);
+                for (uint k = 0, l = lockers.length; k < l; k++)
+                {
+                    if (!valid(lockers[k]))
+                        return;
+
+                    ClearContainer(lockers[k]);
+					//lockers[k].LockerComplexity = Random( 70, 120);
+                    //lockers[k].LockerId = Random( 100000000, 999999999 );
+                    if (FLAG(lockers[k].LockerCondition, LOCKER_ISOPEN))
+                        LockerClose(lockers[k]);
+				    
+					
+					if(lockers[k].GetProtoId() == PID_LOCKER_RUSTY_RIGHT) 
+			        {
+                    
+                        lockers[k].AddItem(PID_STIMPAK, Random(5, 15), 0);
+						lockers[k].AddItem(PID_BIO_GEL, Random(10, 25), 0);
+						lockers[k].AddItem(PID_CHEMICALS, Random(5, 30), 0);
+						lockers[k].AddItem(PID_HYPODERMIC_NEEDLE, Random(5, 10), 0);
+
+                    }
+                }
+            }
+
+            if (maps[i].GetProtoId() == MAP_Cathedral_CellarLevel2)
+            {
+               array<Item@> lockers;
+               maps[i].GetItemsByType(ITEM_TYPE_CONTAINER, lockers);
+               for (uint k = 0, l = lockers.length; k < l; k++)
+              {
+                    if (!valid(lockers[k]))
+                        return;
+
+                    ClearContainer(lockers[k]);
+					lockers[k].LockerComplexity = Random( 70, 120);
+                    lockers[k].LockerId = Random( 100000000, 999999999 );
+                    if (FLAG(lockers[k].LockerCondition, LOCKER_ISOPEN))
+                        LockerClose(lockers[k]);
+				    
+					
+					if(lockers[k].GetProtoId() != PID_FOOTLOCKER_RUSTY_LEFT)
+					{
+						lockers[k].AddItem(PID_PSYCHIC_NULLIFIER, 1, 0);
+						
+					}
+					
+				 if(lockers[k].GetProtoId() != PID_LOCKER_RUSTY_LEFT)
+				 {
+                    uint8 num = Random(1, 4);
+					
+				
+                    if (num <= 1)
+                    {
+                        lockers[k].AddItem(PID_CHEMICALS, Random(5, 30), 0);
+                    }
+                    if (num >= 2)
+                    {
+                       lockers[k].AddItem(PID_SUPER_STIMPAK, Random(10, 25), 0);
+                       
+                    }
+					if (num >= 3)
+                    {
+                       lockers[k].AddItem(PID_BIO_GEL, Random(10, 25), 0);
+                       
+                    }
+					if (num >= 4)
+                    {
+                       lockers[k].AddItem(PID_HYPODERMIC_NEEDLE, Random(5, 15), 0);
+                       
+                    }
+				 }
+              }
+            }
+            if (maps[i].GetProtoId() == MAP_Cathedral_CellarLevel3)
+            {
+                array<Item@> lockers;
+                maps[i].GetItemsByType(ITEM_TYPE_CONTAINER, lockers);
+                for (uint k = 0, l = lockers.length; k < l; k++)
+                {
+                    if (!valid(lockers[k]))
+                        return;
+
+                    ClearContainer(lockers[k]);
+					lockers[k].LockerComplexity = Random( 70, 120);
+                    lockers[k].LockerId = Random( 100000000, 999999999 );
+                    if (FLAG(lockers[k].LockerCondition, LOCKER_ISOPEN))
+                        LockerClose(lockers[k]);
+
+                    if (lockers[k].GetProtoId() != PID_LOCKER_RUSTY_LEFT || lockers[k].GetProtoId() != PID_LOCKER_RUSTY_RIGHT || lockers[k].GetProtoId() != PID_LOCKER_CLEAN_LEFT)
+				    {
+                    uint8 num = Random(3, 43);
+
+                    if (num <3)
+                    {
+                        Item@ it = lockers[k].AddItem(PID_ASSAULT_RIFLE, 1, 0);
+						AddSpecialBonus(it);
+                    }
+                    if (num >= 3 && num <5 )
+                    {
+                        Item@ it = lockers[k].AddItem(PID_GRENADE_LAUNCHER, 1, 0);
+                        AddSpecialBonus(it);
+                    }
+                    if (num >= 5 && num <7 )
+                    {
+                        Item@ it = lockers[k].AddItem(PID_223_PISTOL, 1, 0);
+                        AddSpecialBonus(it);
+                    }
+
+                    if (num >= 7 && num <9)
+                    {
+                        Item@ it = lockers[k].AddItem(PID_HK_P90C, 1, 0);
+                        AddSpecialBonus(it);
+                    }
+					if (num >= 9 && num <11)
+                    {
+                       Item@ it = lockers[k].AddItem(PID_PLASMA_RIFLE, 1, 0);
+                       AddSpecialBonus(it);
+                    }
+					if (num >= 11 && num <13)
+                    {
+                        Item@ it = lockers[k].AddItem(PID_AVENGER_MINIGUN, 1, 0);
+                        AddSpecialBonus(it);
+                    }
+					if (num >= 13 && num <15)
+                    {
+                        Item@ it = lockers[k].AddItem(PID_LIGHT_SUPPORT_WEAPON, 1, 0);
+                        AddSpecialBonus(it);
+                    }
+					if (num >= 15 && num <17)
+                    {
+                        Item@ it = lockers[k].AddItem(PID_SUPER_CATTLE_PROD, 1, 0);
+                        AddSpecialBonus(it);
+                    }
+					if (num >= 17 && num <19)
+                    {
+                        Item@ it = lockers[k].AddItem(PID_MEGA_POWER_FIST, 1, 0);
+                        AddSpecialBonus(it);
+                    }
+					if (num >= 19 && num <21)
+                    {
+                        Item@ it = lockers[k].AddItem(PID_SUPER_SLEDGE, 1, 0);
+                        AddSpecialBonus(it);
+                    }
+					if (num >= 21 && num <23)
+                    {
+                        Item@ it = lockers[k].AddItem(PID_HK_CAWS, 1, 0);
+                        AddSpecialBonus(it);
+                    }
+					if (num >= 23 && num <25)
+                    {
+                        Item@ it = lockers[k].AddItem(PID_IMPROVED_FLAMETHROWER, 1, 0);
+                        AddSpecialBonus(it);
+                    }
+					if (num >= 25 && num <27)
+                    {
+                        Item@ it = lockers[k].AddItem(PID_SNIPER_RIFLE, 1, 0);
+                        AddSpecialBonus(it);
+                    }
+					if (num >= 27 && num <29)
+                    {
+                        Item@ it = lockers[k].AddItem(PID_ROCKET_LAUNCHER, 1, 0);
+                        AddSpecialBonus(it);
+                    }
+					if (num >= 29 && num <31)
+                    {
+                        Item@ it = lockers[k].AddItem(PID_LASER_RIFLE_EXT_CAP, 1, 0);
+                        AddSpecialBonus(it);
+                    }
+					if (num >= 31 && num <33)
+                    {
+                        Item@ it = lockers[k].AddItem(PID_MEGA_POWER_FIST, 1, 0);
+                        AddSpecialBonus(it);
+                    }
+					if (num >= 33 && num <35)
+                    {
+                        Item@ it = lockers[k].AddItem(PID_COMBAT_ARMOR_MK_II, 1, 0);
+						Item@ it2 = lockers[k].AddItem(PID_COMBAT_HELMET_MK_II, 1, 0);
+                        AddSpecialBonus(it);
+						AddSpecialBonus(it2);
+                    }
+					if (num >= 35 && num <37)
+                    {
+                        Item@ it = lockers[k].AddItem(PID_TESLA_ARMOR, 1, 0);
+						Item@ it2 = lockers[k].AddItem(PID_TESLA_HELMET, 1, 0);
+                        AddSpecialBonus(it);
+						AddSpecialBonus(it2);
+                    }
+					if (num >= 37 && num <40)
+                    {
+                       Item@ it = lockers[k].AddItem(PID_GATLING_LASER, 1, 0);
+                       AddSpecialBonus(it);
+                    }
+					if (num == 40)
+                    {
+                        Item@ it = lockers[k].AddItem(PID_BROTHERHOOD_COMBAT_ARMOR, 1, 0);
+						Item@ it2 = lockers[k].AddItem(PID_BROTHERHOOD_HELMET, 1, 0);
+                        AddSpecialBonus(it);
+						AddSpecialBonus(it2);
+                    }
+					if (num == 41)
+                    {
+                        Item@ it = lockers[k].AddItem(PID_DESERT_COMBAT_ARMOR, 1, 0);
+						Item@ it2 = lockers[k].AddItem(PID_DESERT_COMBAT_HELMET, 1, 0);
+                        AddSpecialBonus(it);
+						AddSpecialBonus(it2);
+                    }
+					if (num == 42)
+                    {
+                        Item@ it = lockers[k].AddItem(PID_NCR_ARMOR, 1, 0);
+						Item@ it2 = lockers[k].AddItem(PID_NCR_HELMET, 1, 0);
+                        AddSpecialBonus(it);
+						AddSpecialBonus(it2);
+                    }
+					if (num == 43)
+                    {
+                        Item@ it = lockers[k].AddItem(PID_ENCLAVE_COMBAT_ARMOR, 1, 0);
+						Item@ it2 = lockers[k].AddItem(PID_ENCLAVE_COMBAT_HELMET, 1, 0);
+                        AddSpecialBonus(it);
+						AddSpecialBonus(it2);
+					}	
+					if(lockers[k].GetProtoId() != PID_FOOTLOCKER_CLEAN_LEFT)
+				    {
+                    uint8 num2 = Random(94, 95);
+					
+				
+                    if (num2 <= 94)
+                    {
+                        lockers[k].AddItem(PID_SUPER_STIMPAK, Random(10, 30), 0);
+                    }
+                    if (num2 >= 95)
+                    {
+                        lockers[k].AddItem(PID_SUPER_STIMPAK, Random(5, 20), 0);
+						lockers[k].AddItem(PID_PSYCHO, Random(3, 9), 0);
+						lockers[k].AddItem(PID_BUFFOUT, Random(3, 7), 0);
+					    lockers[k].AddItem(PID_NUKA_COLA, Random(1, 5), 0);
+						
+						}
+					  }	
+                       	
+                    }
+                }
+            }
+			if (maps[i].GetProtoId() == MAP_Cathedral_CellarLevel4)
+            {
+               array<Item@> lockers;
+               maps[i].GetItemsByType(ITEM_TYPE_CONTAINER, lockers);
+               for (uint k = 0, l = lockers.length; k < l; k++)
+              {
+                    if (!valid(lockers[k]))
+                        return;
+
+                    ClearContainer(lockers[k]);
+                    if (FLAG(lockers[k].LockerCondition, LOCKER_ISOPEN)) 
+                        LockerClose(lockers[k]);
+				    
+					
+					if(lockers[k].GetProtoId() != PID_BOX_6)
+					{
+                    uint8 num = Random(1,10);
+					
+				
+                    if (num == 1)
+                    {
+                        lockers[k].AddItem(PID_IMPLANT_STRENGTH, 1, 0);
+                    }
+                    if (num == 2)
+                    {
+                        lockers[k].AddItem(PID_IMPLANT_PERCEPTION, 1, 0);
+                       
+                    }
+					if (num == 3)
+                    {
+                        lockers[k].AddItem(PID_IMPLANT_ENDURANCE, 1, 0);
+                    }
+                    if (num == 4)
+                    {
+                        lockers[k].AddItem(PID_IMPLANT_CHARISMA, 1, 0);
+                       
+                    }
+					if (num == 5)
+                    {
+                        lockers[k].AddItem(PID_IMPLANT_INTELLIGENCE, 1, 0);
+                    }
+                    if (num == 6)
+                    {
+                        lockers[k].AddItem(PID_IMPLANT_AGILITY, 1, 0);
+                       
+                    }
+					if (num == 7)
+                    {
+                        lockers[k].AddItem(PID_IMPLANT_LUCK, 1, 0);
+                       
+                    }
+					if (num == 8)
+                    {
+                        lockers[k].AddItem(PID_IMPLANT_NEMEAN, 1, 0);
+                       
+                    }
+					if (num == 9)
+                    {
+                        lockers[k].AddItem(PID_IMPLANT_PHOENIX, 1, 0);
+                       
+                    }
+                    if (num == 10)
+                    {
+                        lockers[k].AddItem(PID_IMPLANT_DERMAL, 1, 0);
+                       
+                    }
+				 }
+					
+				 if(lockers[k].GetProtoId() != PID_WALL_LOCKER_CLEAN_RIGHT) 
+				 {
+                    uint8 num = Random(1,10);
+					
+				
+                    if (num == 1)
+                    {
+                        lockers[k].AddItem(PID_BOZAR, 1, 0);
+                    }
+                    if (num == 2)
+                    {
+                        lockers[k].AddItem(PID_M72_GAUSS_RIFLE, 1, 0);
+                       
+                    }
+					if (num == 3)
+                    {
+                        lockers[k].AddItem(PID_PK12_GAUSS_PISTOL, 1, 0);
+                    }
+                    if (num == 4)
+                    {
+                        lockers[k].AddItem(PID_VINDICATOR_MINIGUN, 1, 0);
+                       
+                    }
+					if (num == 5)
+                    {
+                        lockers[k].AddItem(PID_YK42B_PULSE_RIFLE, 1, 0);
+                    }
+                    if (num == 6)
+                    {
+                        lockers[k].AddItem(PID_HK_G11E, 1, 0);
+                       
+                    }
+					if (num == 7)
+                    {
+                        lockers[k].AddItem(PID_TURBO_PLASMA_RIFLE, 1, 0);
+                       
+                    }
+					if (num == 8)
+                    {
+                        lockers[k].AddItem(PID_INDEPENDENT, 1, 0);
+                       
+                    }
+					if (num == 9)
+                    {
+                        lockers[k].AddItem(PID_PANCOR_JACKHAMMER, 1, 0);
+                       
+                    }
+                    if (num == 10)
+                    {
+                        lockers[k].AddItem(PID_POWERED_ARMOR, 1, 0);
+                        lockers[k].AddItem(PID_POWER_HELMET, 1, 0);
+                    }
+					if (num == 11)
+                    {
+                        lockers[k].AddItem(PID_HARDENED_POWER_ARMOR, 1, 0);
+                        lockers[k].AddItem(PID_HARDENED_POWER_HELMET, 1, 0);
+                    }
+					if (num == 12)
+                    {
+                        lockers[k].AddItem(PID_ADVANCED_POWER_ARMOR, 1, 0);
+                        lockers[k].AddItem(PID_APA_HELMET, 1, 0);
+                    }
+				 }
+				 	
+              }
+            }
+        }
+    }
+    return;
+}
+
+bool IsMutant(Critter& cr)
+{
+   return (cr.Stat[ST_BODY_TYPE] == BT_SUPER_MUTANT);
+}
+
+
+
+
+bool IsWearingPsychicNullifier(Critter& cr)
+{
+    uint16[] psychicnullifier =
+    {
+        PID_PSYCHIC_NULLIFIER
+    };
+
+    Item@ helmet = cr.GetItem(0, SLOT_HEAD);
+    if (valid(helmet) && Present(helmet.GetProtoId(), psychicnullifier))
+        return true;
+    else
+        return false;
+}
+
+
+
+
+void CorridorOfRevulsion(Critter& cr, Scenery& trigger, bool entered, uint8 Dir) 
+{
+    if (entered && !IsWearingPsychicNullifier(cr) && !IsMutant(cr)) 
+    {
+        if (cr.IsLife())
+        {
+            // Ensure InjureCritter is correctly imported and used
+            InjureCritter(cr, Random(80, 100), DAMAGE_ELECTR, cr.Dir, 0);
+            
+            // Use a switch statement for better readability
+            switch (Random(1, 15))
+            {
+                case 1:
+                    cr.Say(SAY_NETMSG, "The hairs on the back of your neck rise. You feel something from the corridor ahead. The bile rises as you recognize the mass of flesh ahead - human parts in the wall itself. The worst part is that it is moving, calling to you.");
+                    break;
+                case 3:
+                    cr.Say(SAY_NETMSG, "Your nose starts to bleed. You hear voices in your head. They are calling your name. Darkness washes over your eyes for a moment, but you recover.");
+                    break;
+                case 5:
+                    cr.Say(SAY_NETMSG, "A voice calls to you. You turn your head and see the image of a forgotten friend, obviously dead. The worms fall from her rotted jaw as your headache grows.");
+                    break;
+                case 7:
+                    cr.Say(SAY_NETMSG, "It is getting harder to move forward. Your foot seems bonded to the floor. You look down, and the flesh of the floor is crawling up your leg. Teeth gnaw at your knees. Still, your headache gets worse.");
+                    break;
+                case 9:
+                    cr.Say(SAY_NETMSG, "Something catches your attention, a flash of movement from the ceiling, and then a sliver of bone pierces your eye! With it comes the thoughts of the dead and tortured!");
+                    break;
+                case 11:
+                    cr.Say(SAY_NETMSG, "The pain in your head is maddening. You feel the sins of others wash over your soul. And it gets worse, as your sins answer them. Like madmen, they fight through your psyche, and in the process tear your personality apart.");
+                    break;
+                case 13:
+                    cr.Say(SAY_NETMSG, "Your head is pulsing with the intrusive thoughts of others. The pain grows and grows. Suddenly, as if it never existed, the pain vanishes. You fall to the ground and weep. But something does not feel right.");
+                    break;
+            }
+        }
+    }
+}
+
+void RewardDoor(Item& item, bool firstTime)
+{
+	item.SetEvent(ITEM_EVENT_SKILL, "_UseRewardDoor");		
+	
+}
+
+
+
+bool _UseRewardDoor(Item& item, Critter& crit, int skill)
+{
+	// Opening / Closing
+    if((skill == -1) || (skill == SK_STEAL))
+    {
+		if(!isMobsKilled(crit))
+        {
+			uint16 hexX = 0;
+			uint16 hexY = 0;
+			Map@   map = item.GetMapPosition(hexX, hexY);
+			map.SetText(hexX, hexY, COLOR_WHITE,  "Something here keeps this locked.");		
+            return true;
+        }
+		
+        // open it if closed
+        if(_LockerIsClose(item))
+        {
+			//item.LockerId = 0;
+			//item.LockerId = Random(98989, 989898);
+			//item.LockerComplexity = Random(50,50);			
+            return false;
+        }
+    }
+    return false;
+}
+
+
+
+bool isMobsKilled(Critter& player)
+{     											
+	uint numLifeMobs = player.GetMap().GetNpcCount(200, FIND_ONLY_NPC | FIND_LIFE); 			 
+																							 
+	if(numLifeMobs!=0)
+	{
+		for(uint i = 0; i < numLifeMobs; i++)
+		{
+			Critter@ mob = player.GetMap().GetNpc(200, FIND_ONLY_NPC | FIND_LIFE, i);
+			switch (Random(1,3))
+			{
+				case 1: {mob.Say(SAY_SHOUT_ON_HEAD, "So what shall it be? Do you join the Unity, or do you die here? Join! Die. Join! Die"); break;}
+				case 2: {mob.Say(SAY_SHOUT_ON_HEAD, "My patience is almost at an end with you. Now, will you join the Unity or not? Join. Not!"); break;}
+				case 3: {mob.Say(SAY_SHOUT_ON_HEAD, "The mutants will survive! The mutants will rebuild this world! And only as a mutant, will you be allowed to live! Live. Die!"); break;}				
+			}
+			
+		}	
+		return false;
+	}
+	else
+		return true;
+
+}
+
+
+
+
+
+
+
+//Mob functions and Parameters for The Master
+
+// npc roles (defines distance mob will attack from))
+#define ROLE_DEFAULT      (0)
+#define ROLE_AGRESSIVE    (1)
+#define ROLE_PASSIVE      (2)
+
+// useful variables
+#define ALERTED           # (cr)           (cr.StatBase[ST_VAR1]) // idle time is shorter if in that mode // note that it uses StatBase for read and write
+
+// idle time in milseconds (normal is slower for performance issues)
+#define IDLE_NORMAL       (5000)
+#define IDLE_ALERTED      (1000)
+
+
+
+void _Master(Critter& mob, bool firstTime)
+{
+    mob.StatBase[ST_MAX_LIFE] = 10040;
+    mob.StatBase[ST_CURRENT_HP] = 10000;
+    mob.StatBase[ST_NPC_ROLE] = 200;
+    mob.StatBase[ST_KILL_EXPERIENCE] = 10000;
+	mob.StatBase[ST_REPLICATION_TIME] = 1800;
+	mob.ModeBase[MODE_NO_LOOT] = 1;
+    mob.ModeBase[MODE_NO_DROP] = 1;
+    mob.ModeBase[MODE_NO_STEAL] = 1;
+    mob.ModeBase[MODE_UNLIMITED_AMMO] = 1;
+    mob.SetEvent(CRITTER_EVENT_IDLE, "_MobIdleAggr");
+    mob.SetEvent(CRITTER_EVENT_SHOW_CRITTER, "_MobShowCritterAggr");
+    //mob.SetEvent(CRITTER_EVENT_HIDE_CRITTER, "_MobHideCritter");
+    //mob.SetEvent(CRITTER_EVENT_ATTACK, "MobAttacked");
+    _CritSetExtMode(mob, MODE_EXT_MOB);
+	
+    
+}
+
+void _Mutant(Critter& mob, bool firstTime)
+{
+    mob.StatBase[ST_MAX_LIFE] = 390;
+    mob.StatBase[ST_CURRENT_HP] = 350;
+    mob.StatBase[ST_NPC_ROLE] = 200;
+    mob.StatBase[ST_KILL_EXPERIENCE] = 1500;
+	mob.StatBase[ST_REPLICATION_TIME] = 1680;
+	mob.ModeBase[MODE_NO_LOOT] = 1;
+    mob.ModeBase[MODE_NO_DROP] = 1;
+    mob.ModeBase[MODE_NO_STEAL] = 1;
+    mob.ModeBase[MODE_UNLIMITED_AMMO] = 1;
+    mob.SetEvent(CRITTER_EVENT_IDLE, "_MobIdle");
+    mob.SetEvent(CRITTER_EVENT_SHOW_CRITTER, "_MobShowCritter");
+    mob.SetEvent(CRITTER_EVENT_HIDE_CRITTER, "_MobHideCritter");
+    //mob.SetEvent(CRITTER_EVENT_ATTACK, "MobAttacked");
+    _CritSetExtMode(mob, MODE_EXT_MOB);
+	
+    
+}
+
+void _Cultist(Critter& mob, bool firstTime)
+{
+    mob.StatBase[ST_MAX_LIFE] = 190;
+    mob.StatBase[ST_CURRENT_HP] = 150;
+    mob.StatBase[ST_NPC_ROLE] = 200;
+    mob.StatBase[ST_KILL_EXPERIENCE] = 700;
+	mob.StatBase[ST_REPLICATION_TIME] = 1680;
+	mob.ModeBase[MODE_NO_LOOT] = 1;
+    mob.ModeBase[MODE_NO_DROP] = 1;
+    mob.ModeBase[MODE_NO_STEAL] = 1;
+    mob.ModeBase[MODE_UNLIMITED_AMMO] = 1;
+    mob.SetEvent(CRITTER_EVENT_IDLE, "_MobIdle");
+    mob.SetEvent(CRITTER_EVENT_SHOW_CRITTER, "_MobShowCritter");
+    mob.SetEvent(CRITTER_EVENT_HIDE_CRITTER, "_MobHideCritter");
+    //mob.SetEvent(CRITTER_EVENT_ATTACK, "MobAttacked");
+    _CritSetExtMode(mob, MODE_EXT_MOB);
+	
+    
+}
+
+
+void _MrHandy(Critter& mob, bool firstTime)
+{
+    mob.StatBase[ST_MAX_LIFE] = 290;
+    mob.StatBase[ST_CURRENT_HP] = 250;
+    mob.StatBase[ST_NPC_ROLE] = 200;
+    mob.StatBase[ST_KILL_EXPERIENCE] = 1000;
+	mob.StatBase[ST_REPLICATION_TIME] = 1680;
+	mob.ModeBase[MODE_NO_LOOT] = 1;
+    mob.ModeBase[MODE_NO_DROP] = 1;
+    mob.ModeBase[MODE_NO_STEAL] = 1;
+    mob.ModeBase[MODE_UNLIMITED_AMMO] = 1;
+    mob.SetEvent(CRITTER_EVENT_IDLE, "_MobIdle");
+    mob.SetEvent(CRITTER_EVENT_SHOW_CRITTER, "_MobShowCritter");
+    mob.SetEvent(CRITTER_EVENT_HIDE_CRITTER, "_MobHideCritter");
+    //mob.SetEvent(CRITTER_EVENT_ATTACK, "MobAttacked");
+    _CritSetExtMode(mob, MODE_EXT_MOB);
+	
+    
+}
+
+void _Eyebot(Critter& mob, bool firstTime)
+{
+    mob.StatBase[ST_MAX_LIFE] = 190;
+    mob.StatBase[ST_CURRENT_HP] = 150;
+    mob.StatBase[ST_NPC_ROLE] = 200;
+    mob.StatBase[ST_KILL_EXPERIENCE] = 1000;
+	mob.StatBase[ST_REPLICATION_TIME] = 1680;
+	mob.ModeBase[MODE_NO_LOOT] = 1;
+    mob.ModeBase[MODE_NO_DROP] = 1;
+    mob.ModeBase[MODE_NO_STEAL] = 1;
+    mob.ModeBase[MODE_UNLIMITED_AMMO] = 1;
+    mob.SetEvent(CRITTER_EVENT_IDLE, "_MobIdle");
+    mob.SetEvent(CRITTER_EVENT_SHOW_CRITTER, "_MobShowCritter");
+    mob.SetEvent(CRITTER_EVENT_HIDE_CRITTER, "_MobHideCritter");
+    //mob.SetEvent(CRITTER_EVENT_ATTACK, "MobAttacked");
+    _CritSetExtMode(mob, MODE_EXT_MOB);
+	
+    
+}
+
+
+
+// =============================================
+// Mob script parts
+// =============================================
+
+// =============================================
+// Checks if critter is within attack distance
+// =============================================
+void _MobIdle(Critter& mob)
+{
+    // the great optimizer
+    if(!mob.IsLife())
+    {
+        mob.Wait(IDLE_NORMAL);
+        return;
+    }
+
+    // check critters in sight
+    array<Critter@> crits;
+    // get visible players
+    uint            num = mob.GetCritters(false, FIND_ONLY_PLAYERS | FIND_LIFE, crits);
+    // mob.Say(SAY_NORM_ON_HEAD, ""+num);
+    // check distance
+    uint dist = GetDistance(mob);
+    for(uint i = 0; i < num; i++)
+    {
+        if(GetCrittersDistantion(mob, crits[i]) > dist)
+            continue;
+        else
+        {
+            // attack
+            mob.AddEnemyInStack(crits[i].Id);
+            return;
+        }
+    }
+    if(crits.length() > 0)
+    {
+        // MoveMob(mob, false);
+        mob.Wait(IDLE_ALERTED);
+    }
+    else
+    {
+        MoveMob(mob, false);
+        // mob.Say(SAY_NORM_ON_HEAD, "Don't care");
+        mob.Wait(IDLE_NORMAL);
+    }
+}
+
+// =============================================
+// Critter stays on his spot, does not move randomly around.
+// =============================================
+void _MobIdle2(Critter& mob)
+{
+    // check critters in sight
+    array<Critter@> crits;
+    // get visible players
+    uint            num = mob.GetCritters(false, FIND_ONLY_PLAYERS | FIND_LIFE, crits);
+    // mob.Say(SAY_NORM_ON_HEAD, ""+num);
+    // check distance
+    uint dist = GetDistance(mob);
+    for(uint i = 0; i < num; i++)
+    {
+        if(GetCrittersDistantion(mob, crits[i]) > dist)
+            continue;
+        else
+        {
+            // attack
+            mob.AddEnemyInStack(crits[i].Id);
+            return;
+        }
+    }
+    if(ALERTED(mob) > 0)
+    {
+        // MoveMob(mob, false);
+        mob.Wait(IDLE_ALERTED);
+    }
+    else
+    {
+        // MoveMob(mob, false);
+        // mob.Say(SAY_NORM_ON_HEAD, "Don't care");
+        mob.Wait(IDLE_NORMAL);
+    }
+}
+
+void MoveMob(Critter& cr, bool run)
+{
+    int dist = Random(0, (cr.Stat[ST_NPC_ROLE] % 100 / 10));
+    if(dist == 0)
+    {
+        cr.MoveRandom();
+    }
+    else
+    {
+        // bool AddWalkPlane(Critter& npc, uint priory, uint16 hexX, uint16 hexY, uint8 dir, bool run, uint8 cut)
+        uint16 hexX = cr.HexX;
+        uint16 hexY = cr.HexY;
+        cr.GetMap().MoveHexByDir(hexX, hexY, Random(0, 5), dist);
+        AddWalkPlane(cr, 0, hexX, hexY, 0xff, run, 0);
+    }
+}
+
+void _MobIdleAggr(Critter& mob)
+{
+    // the great optimizer
+    if(!mob.IsLife())
+    {
+        return;
+    }
+
+    // check critters in sight
+    array<Critter@> crits;
+    // get visible players
+    uint            num = mob.GetCritters(false, FIND_ONLY_PLAYERS | FIND_LIFE, crits);
+
+    // mob.Say(SAY_NORM_ON_HEAD, ""+num);
+    // check distance
+    uint dist = GetDistance(mob);
+    for(uint i = 0; i < num; i++)
+    {
+        if(GetCrittersDistantion(mob, crits[i]) > dist)
+            continue;
+        else
+        {
+            // attack
+            mob.AddEnemyInStack(crits[i].Id);
+            return;
+        }
+    }
+    if(crits.length() > 0)
+    {
+        // MoveMob(mob, false);
+    }
+    else
+    {
+        MoveMob(mob, false);
+        // mob.Say(SAY_NORM_ON_HEAD, "Don't care");
+    }
+}
+
+
+
+// =============================================
+// Gets distance after which critter becomes agressive
+// =============================================
+uint GetDistance(Critter& cr)
+{
+    // TODO: damaged eye??
+    uint base = __LookNormal + 3 * cr.Stat[ST_PERCEPTION];
+
+    // switch works only for ints??
+    int role = int(cr.Stat[ST_NPC_ROLE]);
+    switch(role)
+    {
+    case ROLE_DEFAULT:
+        // mob.Say(SAY_NORM, "" + base + "/" + 3 + "=" + base/3);
+        return base / 3;
+    case ROLE_AGRESSIVE:
+        return base / 2;
+    case ROLE_PASSIVE:
+        return base / 4;
+    }
+    return base / 3;
+}
+
+// =============================================
+// Alerts that oponent is near
+// =============================================
+void _MobShowCritter(Critter& cr, Critter& showCrit)
+{
+    if(showCrit.IsPlayer())
+        ALERTED(cr) += 1;
+}
+
+void _MobHideCritter(Critter& cr, Critter& hideCrit)
+{
+    if(hideCrit.IsPlayer())
+        ALERTED(cr) -= 1;
+}
+
+void _MobShowCritterAggr(Critter& mob, Critter& showCrit)
+{
+    if(showCrit.IsPlayer())
+        mob.AddEnemyInStack(showCrit.Id);
+}
+
+
+
+// ===============================
+// Outside doors are locked
+// ===============================
+void _Door(Item& item, bool firstTime)
+{
+    item.SetEvent(ITEM_EVENT_USE_ON_ME, "_UseItemOnDoor");
+    item.SetEvent(ITEM_EVENT_SKILL, "_UseSkillOnDoor");
+}
+
+bool _UseItemOnDoor(Item& item, Critter& crit, Item@ usedItem)
+{
+    crit.Say(SAY_NETMSG, "The heavy wooden door is locked from the inside.");
+    return true;
+}
+
+bool _UseSkillOnDoor(Item& item, Critter& crit, int skill)
+{
+    crit.Say(SAY_NETMSG, "The heavy wooden door is locked from the inside.");
+    if(skill == -1)
+    {
+        // crit.StatBase[ST_VAR9]=item.Val0;
+        // RunDialog(crit, ARENA_DOOR_DIALOG, item.HexX, item.HexY, false);
+    }
+    return true;
+}

@@ -1,0 +1,30 @@
+[comment]
+
+
+[data]
+lang=engl
+
+[dialog]
+&
+1 1000 None 0 #
+2 1010 @
+2 2000 None 0 #
+65506 2010 #
+3 2020 D _var p q_ridgecrest = 0 #
+0 2030 @
+3 3000 None 0 #
+2 3010 R _var p q_ridgecrest = 1 R _script player_dungeon@r_SpawnLoc 0  &
+
+[engl]
+{100}{}{Merchant}
+{200}{}{You see a well-traveled person.}
+{210}{}{You see a merchant.}
+{1000}{}{Predialogue installations}
+{1010}{}{---}
+{2000}{}{Greetings, traveler! I rarely see many people along this route, but am always happy to have new customers. Would you like to trade?@@Hey there! It's really great that you stopped. Most people along this route just keep right on going. Hey, would you like to trade some things?@@Would you be interested in a little trade?}
+{2010}{}{That'd be good.}
+{2020}{}{Know where I can find some trouble?}
+{2030}{}{Sorry, have to keep on moving.}
+{3000}{}{The Ridgecrest Hotel. It's far to the East of Vault 15. I'll mark it on your map. But look out. The people there will kill you on sight if you aren't one of them. It's best to avoid that place at all costs. But I hear that their leader likes to hoard gear... [To make this location spawn in Turn Based Mode make sure to type /combatmode tb before continuing]}
+{3010}{}{Thanks!}
+

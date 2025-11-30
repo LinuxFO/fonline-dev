@@ -1,0 +1,34 @@
+[comment]
+
+
+[data]
+lang=engl
+
+[dialog]
+&
+1 1000 None 0 #
+2 1010 D _var p q_fancypin = 0 #
+3 1020 D _var p q_fancypin = 1 @
+2 2000 None 0 #
+4 2010 @
+3 3000 None 0 @
+4 4000 None 0 #
+5 4010 @
+5 5000 None 0 #
+0 5010 R _var p q_fancypin = 1 R _script dialog@r_AddExperience 1 10000 &
+
+[engl]
+{100}{}{The Great Pin Giver}
+{200}{}{You see The Great Pin Giver.}
+{210}{}{Oh, boy! Look at all those fancy pins!}
+{1000}{}{Predialogue installations}
+{1010}{}{nopin}
+{1020}{}{haspin}
+{2000}{}{Greetings! Are you here for a [drum roll] fancy pin?!}
+{2010}{}{Why yes! Yes, I am! Pin it right here!}
+{3000}{}{I already gave you a fancy pin! Go flash it around!@@No more fancy pins for you until you use up the one I gave you!@@Don't you have things to do? Go away.@@If I gave you another fancy pin it wouldn't be so fancy, now would it?}
+{4000}{}{Here you go! Thanks for donating!}
+{4010}{}{No, thank you!}
+{5000}{}{[You pin the fancy pin on your shirt and admire the new look. You now have access to the first campaign of Fonline Reloaded! On behalf of the Reloaded team I would like to thank you for your support! Hope you enjoy uncovering the mystery of your vault]}
+{5010}{}{Winning!}
+

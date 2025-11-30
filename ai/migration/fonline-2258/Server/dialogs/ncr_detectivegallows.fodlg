@@ -1,0 +1,337 @@
+[comment]
+
+
+[data]
+lang=engl russ
+
+[dialog]
+&
+1 1000 None 0 #
+2 1010 @
+2 2000 None 0 #
+3 2010 #
+4 2020 D _var p ncr_investigation4 = 0 D _var p ncr_investigation3 = 9 #
+23 2030 D _var p ncr_investigation4 = 5 #
+42 2040 D _var p ncr_investigation4 = 8 R _script quest_tandi@r_DeleteLoc 0  #
+47 2050 D _var p ncr_investigation4 = 9 #
+0 2060 @
+3 3000 None 0 #
+0 3010 @
+4 4000 None 0 #
+5 4010 @
+5 5000 None 0 #
+6 5010 @
+6 6000 None 0 #
+7 6010 @
+7 7000 None 0 #
+8 7010 @
+8 8000 None 0 #
+9 8010 @
+9 9000 None 0 #
+10 9010 @
+10 10000 None 0 #
+11 10010 @
+11 11000 None 0 #
+12 11010 @
+12 12000 None 0 #
+13 12010 @
+13 13000 None 0 #
+14 13010 @
+14 14000 None 0 #
+15 14010 @
+15 15000 None 0 #
+16 15010 @
+16 16000 None 0 #
+17 16010 @
+17 17000 None 0 #
+18 17010 @
+18 18000 None 0 #
+19 18010 @
+19 19000 None 0 #
+20 19010 @
+20 20000 None 0 #
+21 20010 @
+21 21000 None 0 #
+22 21010 R _var p ncr_investigation4 = 1 @
+22 22000 None 0 #
+0 22010 @
+23 23000 None 0 #
+24 23010 @
+24 24000 None 0 #
+25 24010 @
+25 25000 None 0 #
+26 25010 @
+26 26000 None 0 #
+27 26010 @
+27 27000 None 0 #
+28 27010 @
+28 28000 None 0 #
+29 28010 @
+29 29000 None 0 #
+30 29010 @
+30 30000 None 0 #
+31 30010 @
+31 31000 None 0 #
+32 31010 @
+32 32000 None 0 #
+33 32010 @
+33 33000 None 0 #
+34 33010 @
+34 34000 None 0 #
+35 34010 @
+35 35000 None 0 #
+36 35010 @
+36 36000 None 0 #
+37 36010 @
+37 37000 None 0 #
+38 37010 @
+38 38000 None 0 #
+39 38010 @
+39 39000 None 0 #
+40 39010 @
+40 40000 None 0 #
+41 40010 R _var p ncr_investigation4 = 6 @
+41 41000 None 0 @
+42 42000 None 0 #
+43 42010 D _param p ST_KARMA } 0 #
+44 42020 D _param p ST_KARMA { 0 @
+43 43000 None 0 #
+45 43010 @
+44 44000 None 0 #
+0 44010 R _var p ncr_investigation4 = 10 R _param p ST_KARMA + 1 R _script dialog@r_AddExperience 1 3000 R _script dialog@r_AddMoney 1 2000 R _item p PID_SHERIFF_BADGE - 1 R _item p PID_MIRROR_SHADES + 1 R _item p PID_RED_CONDOM + 1 R _item p PID_ROT_GUT + 1 R _item p PID_BLOW_UP_DOLL + 1 R _item p PID_CIGARETTES + 1 R _item p PID_FLOWER + 1 R _var p noire1 = 1 R _var p z_warrior2 + 1 @
+45 45000 None 0 #
+46 45010 @
+46 46000 None 0 #
+0 46010 R _var p ncr_investigation4 = 9 R _script dialog@r_AddExperience 1 3000 R _script dialog@r_AddMoney 1 2000 R _param p ST_KARMA + 5 R _item p PID_MIRROR_SHADES + 2 R _item p PID_ROT_GUT + 2 R _item p PID_CIGARETTES + 1 R _item p PID_14MM_PISTOL + 1 R _item p PID_14MM_AP + 120 R _var p noire1 = 1 R _var p z_warrior2 + 1 @
+47 47000 None 0 #
+0 47010 &
+
+[engl]
+{100}{}{Detective Gallows}
+{200}{}{You see Detective Gallows.}
+{210}{}{She's a detective for the NCR government. She looks well respected.}
+{1000}{}{Predialogue installations}
+{1010}{}{base}
+{2000}{}{[The woman is sitting behind her desk with her legs up. She tips her fedora as you approach, and looks up] @sex@|Sir?||Ma'am?| }
+{2010}{}{Who are you?}
+{2020}{}{Hello, Detective Gallows. I'm here to help you finish your investigation.}
+{2030}{}{Detective Gallows. We need to talk.}
+{2040}{}{It's over, Missy. Marcus was way ahead of us. He had already figured out who was responsible, and gave me their location. I ended up having to kill them all, but it's over.}
+{2050}{}{What was that about bounties earlier? You got some more police work for me?}
+{2060}{}{Sorry, didn't mean to bother you.}
+{3000}{}{I'm detective Missy Gallows, what do you want?}
+{3010}{}{Oh, nothing. Just looking around.}
+{4000}{}{[She reaches out and shakes your hand] @pname@, good to finally meet you. That was some great work you did. I heard that you single handedly stopped the sex trade, saved a little girl, and put an end to that serial killer.}
+{4010}{}{Thank you. All in a day's work.}
+{5000}{}{[She sneers at you, and mockingly says] You're a hero. Be proud. People might not know it, but we will. How are you handling things? Emotionally, that is.}
+{5010}{}{It was hard at first, but... You get used to all the blood, and broken bones. Killing becomes second nature. It's like riding a bike. In the end it's not about what you're doing, but what you're doing with it.}
+{6000}{}{[The rain is like an old friend, but one that you lost a long, long time ago] You need a hug, sport?}
+{6010}{}{That depends. Are you--}
+{7000}{}{Well look at the time. Looks like that assassination of President Tandi isn't going to solve itself.}
+{7010}{}{No it won't. Got any leads? Hand me that case file, I'll sign my name.}
+{8000}{}{[You sign your name on the new investigation, and start reading the report. There's not much of interest here. At least not to you, seeing as you don't have any actual police skills, or training]}
+{8010}{}{Who do you think tried to kill her?}
+{9000}{}{Hmm, I thought it was Tandi's competition at first, but nothing added up. We'd catch Wendell or Tibbet in a heart beat if they tried anything like that. There's not much to follow up on. I looked into what I needed, found nothing in NCR. Might have to look elsewhere.}
+{9010}{}{What do you mean? You can't find anything in town?}
+{10000}{}{Nothing. Looks like an out-of-towner took a contract hit from some disgruntled wastelander. NCR has their share of enemies, but the locals don't hate us. We might be a little pushy, but we mean well. So, it couldn't have been someone from around here. }
+{10010}{}{What can I do to help?}
+{11000}{}{*Sigh* [She lights up a cigarette and takes her feet off the desk] I don't know. Tandi's pretty firm, brings law and order wherever she goes. It's gotta be one of the newly annexed towns that's causing problems. Someone isn't taking too kindly to being an NCR puppet.}
+{11010}{}{The NCR has annexed towns?}
+{12000}{}{Yeah. [She takes a long, hard drag off her cigarette as it begins to rain. You watch a heavy rain fall, and listen to the sounds of it hit the post-apocalypse asphalt of the NCR] After the Great Redding Gold Rush of 38' NCR had to start taking control of the wasteland. It was getting out of hand. Too many small timers got too big, way too fast. Was slowing down progress, and a lot of people were getting hurt.}
+{12010}{}{Redding, you say? How have they been handling the assimilation?}
+{13000}{}{Good, good. We cleaned it up, got rid of all the Jet addicts and stabilized the drug formulas. They aren't as dangerous, or as addictive any more. I'm not going to encourage their use, but the drugs on the streets won't turn your brain to mush no more. Redding is going places, I tell you.}
+{13010}{}{What other towns have been annexed?}
+{14000}{}{L.A, The Hub, Broken Hills, Redding, Junktown, Modoc, and Klamath.}
+{14010}{}{What's the dissidence situation like over at those places?}
+{15000}{}{That's a good question, @pname@. I don't know. Are you thinking what I'm thinking?}
+{15010}{}{You better not say something about that damn Vault Dweller.}
+{16000}{}{What? Oh! The Vault Dweller! @pname@! You know about the Vault Dweller?!}
+{16010}{}{[Face palm]}
+{17000}{}{When I was a little girl... [I decided to light up a cigarette, and disappear into some sort of distant void. The thought of another world began to come to me. I filled my mind with a beautiful land that only I could understand. And for a long time I sat here dreaming of a love that I could never, ever have]}
+{17010}{}{[Continue]}
+{18000}{}{[But then I remembered the girls, and all the people that drove me to become whatever it is that I am...]}
+{18010}{}{Enough! That Vault Dweller is a goddamn story! It's worse than the bible they used to preach! }
+{19000}{}{Whoa! @pname@! Settle down! I didn't even say anything. You were asking me a question. What's wrong with you?}
+{19010}{}{So which town do you think might be revolting against the NCR?}
+{20000}{}{[She looked at me like I was a broken fool. Her gaze looked me right in the eye and I felt it enter my body, and sink down into the deepest part of the back of my throat] You're from a vault, aren't you? I'm so sorry, @pname@. Why don't you go for a long walk, and ask around the cities? Investigate, take a load off. Go get the people's opinion. It's the only way to be sure. }
+{20010}{}{Yeah... okay. But that's too many cities to investigate on my own. There has to be a better answer.}
+{21000}{}{[The weight of the world feels heavy, says the great few to have ever felt it] I can't help you, @pname@. At the end of the day, you don't have any real training do you? You can't just kill people, and call yourself a cop. Why don't you get out of here, and go play hero. Let me know if you come up with anything.}
+{21010}{}{Gee, thanks for the help, Detective Gallows. [Tip your hat and leave]}
+{22000}{}{Try not to let anyone say "Vault Dweller" to you, hero.}
+{22010}{}{There are no heroes... in life, the monsters always win.}
+{23000}{}{Why's that, junior? [A great storm begins to fill the skies, as a calm rain begins to fall]}
+{23010}{}{I took a walk. Spoke with Wendell Peterson, and Joanna Tibbett.}
+{24000}{}{You what?! Hey, hey, hey! @pname@! You aren't officially a cop! What the hell did you go and do that for? [A flash of lightning is seen in the distance, as the rain pours down, harder]}
+{24010}{}{I'm doing my job. I got to the bottom of things.}
+{25000}{}{Oh, yeah, sport? You got to the bottom of things? Ya, ya?}
+{25010}{}{Enough! Joanna Tibbett offered me a million caps to kill President Tandi!}
+{26000}{}{What?! Whoa... }
+{26010}{}{I didn't take it, of course! If that's what you're wondering! I'm not a monster. Tandi, and Peterson are great leaders. We *need* them.}
+{27000}{}{So you think Joanna Tibbett tried to kill President Tandi?}
+{27010}{}{No, but we can't let her win the election. She's a horrible person.}
+{28000}{}{Republicans. [The storm hits hard, as the people of NCR begin to cower inside]}
+{28010}{}{What? Look, Missy, I don't know anything about American politics. I'm just a vault dweller.}
+{29000}{}{Doin' a fine job at it, if you ask me. So what now, Detective? Deckard said you were good, but I didn't want to believe some nobody could just waltz in here, put on a fedora, and call @sex@|himself||herself| a cop.}
+{29010}{}{I'm just trying to do the right thing here. People go on about being heroes, but the only thing I've been seeing is villains.}
+{30000}{}{Tell me about it. Did you speak with President Tandi? You've got a badge, you could just waltz right in there.}
+{30010}{}{I did, I just waltzed right in there actually. Felt great. People are starting to recognize me.}
+{31000}{}{The great Detective @pname@. [She smiles] Sorry to have been such a brat earlier, I was just upset. The case was going nowhere, and I didn't want to admit it.}
+{31010}{}{Say, do you drink? I noticed that you weren't constantly smoking and drinking like the other detectives?}
+{32000}{}{Hah! [She laughs, and flashes you a bright smile] I do, I do. But not when I'm frustrated. Drinking gets me nowhere when I'm mad. [She begings to pull out a bottle of Rotgut, and her cigarettes] You sure are something, @pname@. Have a drink with me.}
+{32010}{}{Sure, I'd love a drink, and a smoke. }
+{33000}{}{[You sit back and enjoy a moment with Detective Gallows. You stare out into the rain, and watch the gloomy skies rock back and forth. The dark gloom feels almost home to you now. Life in the vault is but a simple memory, almost from a time long, long ago]}
+{33010}{}{I'm thinking about going to Broken Hills. Do you think it's a good idea?}
+{34000}{}{Hmm, Broken Hills isn't as safe as the South. Once you start learing towards the North the people don't get friendlier. It's going to start feeling a lot more like a chaotic, lawless wasteland if you spend too much time over there.}
+{34010}{}{Have you heard about this influx of Easterners?}
+{35000}{}{Yeah, but you stopped the majority of their crimes in Shady Sands. What about them?}
+{35010}{}{Have people ever really revolted in the past? }
+{36000}{}{Well, there was the Great Redding Gold Rush of 38'...}
+{36010}{}{Besides that, and the assassination attempt?}
+{37000}{}{No. Last year we took Broken Hills, but we did good for them. Helped a lot of people. Then those Easterners showed up...}
+{37010}{}{And someone tries to kill President Tandi.}
+{38000}{}{Exacltly! @pname@! You're going to have to go to Broken Hills.}
+{38010}{}{Want to tag along?}
+{39000}{}{We can't. We aren't allowed to play police anywhere but Shady Sands. But... [She laughs] You didn't go to the Academy, did you? Take off that badge, and try to fit in. Go check it out.}
+{39010}{}{Will do, Missy. Any idea where I should start?}
+{40000}{}{Marcus is a good man. Ask him. Tell him you're a cop. Just mention who you worked for.}
+{40010}{}{Thanks, Detective. I'll be seeing you.}
+{41000}{}{Pretty soon, I hope.}
+{42000}{}{[Detective Gallows lights up a cigarette, and watches the rain begin to fall] Everytime you're around, @pname@, it starts to rain. It's a good sign, you know. Gives a woman hope.}
+{42010}{}{It's a beautiful thing, the rain. A symbol of hope, some say. To me, it's just more life to wash everything else away.}
+{42020}{}{Fuck the rain. I'm getting sick of this shit. Where's my reward?}
+{43000}{}{Sure is, @pname@, sure is. You single handedly stopped most of the crime happening in Shady Sands, you realize that right? Look at everything you've accomplished, in such little time! What are your plans now?}
+{43010}{}{I don't know, Missy. You guys got any more cases?}
+{44000}{}{Actually, @pname@. You're fired. You're way too reckless, and frankly, you're a menace to society. I'm taking your badge, and escorting you out of here. You're pathetic. Law and order isn't a game. It's a way of life, and you just can't understand it. NOW GET OUT!}
+{44010}{}{Fuck you, bitch, and the NCR. }
+{45000}{}{Just bounties. You stopped all the major crime. Nothing else for us detectives to do now but drink, or collect bounties. Drop by later, if you're interested. Go take a load off. Congratulations!}
+{45010}{}{Thanks, Missy. I'll be seeing you.}
+{46000}{}{[And so ends the story no one will ever know. Slowly the name @pname@ will be forgotten, but what will be left will be part of a legacy that will last forever. The Legacy of the Vault Dweller] [QUEST COMPLETE!]}
+{46010}{}{[Hold on to your Fedora, and walk away]}
+{47000}{}{Go see your new partner, Detective Deckard. He'll be your handler from now on. Whenever you want to do some work just talk to him. Good luck out there, Detective @pname@. Thanks again for all your hard work!}
+{47010}{}{Okay, thanks.}
+{100000001}{}{Better wash the counter again...}
+{100000002}{}{That's 5 caps buddy. Hey did you hear me? Cough em' up.}
+{100000003}{}{Better change the keg...}
+{100000004}{}{RotGut? You drink that shit?}
+{100000005}{}{Domestic? I got B.E.E.R buddy, do you want one or not?}
+{100000006}{}{Fuckin' dust is getting everywhere. Hey close the fuckin' door!}
+{100000007}{}{I swear if the next asshole doesn't tip. Ima' shoot somebody!}
+{100000008}{}{I got bottles, I got shots, and I got a bat behind the counter for the retards. Your not a retard are you?}
+{100000009}{}{Uh-huh, yeah that's nice buddy. You don't say...What? Of course I'm listening...}
+{100000010}{}{That's 5 caps. FIVE CAPS Tribal! F.I.V.E! }
+{100000011}{}{Shut up and order a fuckin' beer already!}
+{100000012}{}{I swear if I have to serve another drunk, I'm getting the shotgun!}
+{100000013}{}{Look the keg went dry, and it's going to be another month until the caravan shows up again.}
+{100000014}{}{Really? You don't say, buy another drink or get out!}
+{100000015}{}{What? I'm on break.}
+{100000016}{}{Be right with ya'}
+{100000017}{}{Have a sit stranger. I'll be with you in a moment.}
+{100000018}{}{When do we close? Uh, when the place get's shot up, that's when!}
+{100000019}{}{We're fresh outta' cold beer, sorry. You'll just have to drink it warm.}
+{100000020}{}{RotGut? No man, go make that shit yourself! I wouldn't drink it!}
+
+[russ]
+{100}{}{Алкоголик}
+{200}{}{Вы видите пьяницу.}
+{210}{}{Вы видите шатающегося из стороны в сторону пьяного человека в лохмотьях. Лицо его распухло, нос синющий как слива. А аромат рядом с ним такой, что свалит брамина насмерть. Он что-то бормочет про себя и иногда громко поет песни.}
+{210}{}{Вы видите алкаша. Он весьма грязен - кажется, он повалялся в луже, но не особо этим расстроен.}
+{1000}{}{I?aaaeaeiaiaua onoaiiaee}
+{1010}{}{base}
+{2000}{}{Dialog text}
+{2010}{}{Who are you?}
+{2020}{}{a}
+{2030}{}{Detective Gallows. We need to talk.}
+{2040}{}{It's over, Missy. Marcus was way ahead of us. He had already figured out who was responsible, and gave me their location. I ended up having to kill them all, but it's over.}
+{2050}{}{What was that about bounties earlier? You got some more police work for me?}
+{2060}{}{Sorry to bother you. I'll just be going.}
+{3000}{}{I'm a detective for the NCR, what do you want?}
+{3010}{}{Oh, nothing. Just looking around.}
+{4000}{}{@pname@, good to finally meet you. [She reaches out and shakes your hand] That was some good work you did. I heard that you single handedly stopped the sex trade, saved a little girl, and put an end to that serial killer.}
+{4010}{}{Thank you. All in a day's work.}
+{5000}{}{You're a hero. Be proud. People might not know it, but we will. How are you handling things? Emotionally, that is.}
+{5010}{}{It was hard at first, but... You get used to all the blood, and broken bones. Killing becomes second nature. It's like riding a bike. In the end it's not about what you're doing, but what you're doing with it.}
+{6000}{}{You need a hug, sport?}
+{6010}{}{That depends. Are you--}
+{7000}{}{Well look at the time. Looks like that assassination of President Tandi isn't going to solve itself.}
+{7010}{}{No it won't. Got any leads? Hand me that case file, I'll sign my name.}
+{8000}{}{[You sign your name on the new investigation, and start reading the report. There's not much of interest here. At least not to you, seeing as you don't have any actual police skills, or training]}
+{8010}{}{Who do you think killed her?}
+{9000}{}{Hmm, I thought it was Tandi's competition at first, but nothing added up. We'd catch Wendell or Tibbet in a heart beat if they tried anything like that. There's not much to follow up on. I looked into what I needed, found nothing in NCR. Might have to look elsewhere.}
+{9010}{}{What do you mean? You can't find anything in town?}
+{10000}{}{Nothing. Looks like an out-of-town took a contract hit from some disgruntled wastelander. NCR has their share of enemies, but the locals don't hate us. We might be a little pushy, but we mean well.}
+{10010}{}{What can I do to help?}
+{11000}{}{*Sigh* [She lights up a cigarette and takes her feet off the desk] I don't know. Tandi's pretty firm, brings law and order wherever she goes. It's gotta be one of the newly annexed towns that's causing problems. Someone isn't taking too kindly to being an NCR puppet.}
+{11010}{}{The NCR has annexed towns?}
+{12000}{}{Yeah. [She takes a long drag off her cigarette] After the Great Redding Gold Rush of 38' NCR had to start taking control of the wasteland. It was getting out of hand. Too many small timers got too big way too fast. Was slowing down progress, and a lot of people were getting hurt.}
+{12010}{}{Redding, you say? How have they been handling the assimilation?}
+{13000}{}{Good, good. We cleaned it up, got rid of all the Jet addicts and stabalized the drug formulas. They aren't as dangerous, or as addictive anymore. I'm not going to encourage their use, but the drugs on the streets won't turn your brain to mush no more.}
+{13010}{}{What other towns have been recently annexed?}
+{14000}{}{L.A, The Hub, Broken Hills, Redding, Junktown, Modoc, and Klamath.}
+{14010}{}{What's the dissidence situation like over at those places?}
+{15000}{}{That's a good question, @pname@. I don't know. Are you thinking what I'm thinking?}
+{15010}{}{You better not say something about that damn Vault Dweller.}
+{16000}{}{What? Oh! The Vault Dweller! @pname@! You know about the Vault Dweller?!}
+{16010}{}{[Face palm]}
+{17000}{}{When I was a little girl... [I decided to light up a cigarette, and disappear into some sort of distant void. The thought of another world began to come to me. I filled my mind with a beautiful land that only I could understand. And for a long time I sat here dreaming of a love that I could never, ever have]}
+{17010}{}{...}
+{18000}{}{[But then I remembered the girls, and all the people that drove me to become whatever it is that I am...]}
+{18010}{}{Enough! That Vault Dweller is a goddamn story! It's worse than the bible they used to preach! }
+{19000}{}{Whoa! @pname! Settle down! I didn't even say anything. You were asking me a question. What's wrong with you?}
+{19010}{}{So which town do you think might be revolting against the NCR?}
+{20000}{}{[She looked at me like I was a broken fool. Her gaze looked me right in the eye and I felt it enter my body, and sink down into the deepest part of the back of my throat] You're from a vault aren't you? I'm so sorry, @pname@. Why don't you go for a long walk, and ask around the cities? Investigate, take a load off. Go get the people's opinion. It's the only way to be sure. }
+{20010}{}{Yeah... okay. But that's too many cities to investigate on my own. There has to be a better answer.}
+{21000}{}{[The weight of the world feels heavy, says the great few to have ever felt it] I can't help you, @pname@. At the end of the day, you don't have any real training do you? You can't just kill people, and call yourself a cop. Why don't you get out of here, and go play hero. Let me know if you come up with anything.}
+{21010}{}{Thanks for the help, Detective Gallows. [Tip your hat and leave]}
+{22000}{}{Try not to let anyone way "Vault Dweller" to you.}
+{22010}{}{There are no heroes... in life, the monsters always win.}
+{23000}{}{Why's that, junior?}
+{23010}{}{I took a walk. Spoke with Wendell Peterson, and Joanna Tibbett.}
+{24000}{}{You what?! Hey, hey, hey! @pname@! You aren't officially a cop! What the hell did you go and do that for?}
+{24010}{}{I'm doing my job. I got to the bottom of things.}
+{25000}{}{Oh, yeah, sport? You got to the bottom of things? Ya, ya?}
+{25010}{}{Enough! Joanna Tibbett offered me a million caps to kill President Tandi!}
+{26000}{}{What?! Whoa... }
+{26010}{}{I didn't take it, of course! If that's what you're wondering! I'm not a monster. Tandi, and Peterson are great leaders. We *need* them.}
+{27000}{}{So you think Joanna Tibbett tried to kill President Tandi?}
+{27010}{}{No, but we can't let her win the election. She's a horrible person.}
+{28000}{}{Republicans.}
+{28010}{}{What? Look, Missy, I don't know anything about American politics. I'm just a vault dweller.}
+{29000}{}{Doin' a fine job at it, if you ask me. So what now, Detective? Deckard said you were good, but I didn't want to believe some nobody could just waltz in her, put on a fedora, and call @sex@|himself||herself| a cop.}
+{29010}{}{I'm just trying to do the right thing here. People go on about heroes, but the only thing I've been seeing outside this city is villains.}
+{30000}{}{Tell me about it.}
+{30010}{}{I did, I just waltz right in there actually. Felt great. People are starting to recognize me.}
+{31000}{}{The great Detective @pname@. [She smiles] Sorry to have been such a brat earlier, I was just upset.}
+{31010}{}{Say, do you drink? I noticed that you weren't constantly smoking and drinking like the other detectives?}
+{32000}{}{Hah! [She laughs, and flashes you a bright smile] I do, I do. But not when I'm frustrated. Drinking gets me nowhere when I'm mad. [She begings to pull out a bottle of Rotgut, and her cigarettes] You sure are something, @pname@. Have a drink with me.}
+{32010}{}{Sure, I'd love a drink, and a smoke. }
+{33000}{}{[You sit back and enjoy a moment with Detective Gallows. You stare out into the rain, and watch the gloomy skies rock back and forth. The dark gloom feels almost home to you now. Life in the vault is but a simple memory, almost from a time long, long ago]}
+{33010}{}{I'm thinking about going to Broken Hills. Do you think it's a good idea?}
+{34000}{}{Hmm, Broken Hills isn't as safe as the South. Once you start learing towars the North the people don't get friendlier. It's going to start feeling a lot more like a chaotic, lawless wasteland if you spend too much time over there.}
+{34010}{}{Have you heard about this influx of Easterners?}
+{35000}{}{Yeah, but you stopped the majority of their crimes in Shady Sands. What about them?}
+{35010}{}{Have people ever really revolted in the past? }
+{36000}{}{Well, there was the Great Redding Gold Rush of 38'...}
+{36010}{}{Besides that, and the assassination attempt?}
+{37000}{}{No. Last year we took Broken Hills, but we did good for them. Helped a lot of people. Then those Easterners showed up...}
+{37010}{}{And someone tries to kill President Tandi.}
+{38000}{}{Exacltly! @pname! You're going to have to go to Broken Hills.}
+{38010}{}{Want to tag along?}
+{39000}{}{We can't. We aren't allowed to play police anywhere but Shady Sands. But... [She laughs] You didn't go to the Academy, did you? Take off that badge, and try to fit in. Go check it out.}
+{39010}{}{Will do, Missy. Any idea where I should start?}
+{40000}{}{Marcus is a good man. Ask him. Tell him you're a cop. Just mention who you worked for.}
+{40010}{}{Thanks, Detective Gallows. I'll be seeing you.}
+{41000}{}{Pretty soon, I hope.}
+{42000}{}{[Detective Gallows lights up a cigarette, and watches the rain begin to fall] Everytime you're around, @pname@, it starts to rain. It's a good sign, you know. Gives a woman hope.}
+{42010}{}{It's a beautiful thing, the rain. A symbol of hope, some say. To me, it's just more life to wash everything else away.}
+{42020}{}{Fuck the rain. I'm getting sick of this shit. Where's my reward?}
+{43000}{}{Sure is, @pname@, sure is. You single handedly stopped most of the crime happening in Shady Sands, you realize that right? Look at everything you've accomplished, in such little time!}
+{43010}{}{I don't know, Missy. You guys got any more cases?}
+{44000}{}{Actually, @pname@. You're fired. You're way too reckless, and frankly, you're a menace to society. I'm taking your badge, and escorting you out of here. You're pathetic. Law and order isn't a game. It's a way of life, and you just can't understand it. GET OUT!}
+{44010}{}{Fuck you, bitch, and the NCR. }
+{45000}{}{Just bounties. You stopped all the major crime. Nothing else for us detectives to do now but drink, or collect bounties. Drop by later, if you're interested. Go take a load off. Contratulations!}
+{45010}{}{Thanks, Missy. I'll be seeing you.}
+{46000}{}{[And so end the story no one will ever know. Slowly the name @pname@ will be forgotten, but what will be left will be part of a legacy that will last forever. The Legacy of the Vault Dweller] [QUEST COMPLETE!]}
+{46010}{}{[Hold on to your Fedora, and walk away]}
+{47000}{}{Go see your new partner, Detective Deckard. He'll be your handler from now on. Whenever you want to do some work just talk to him. Good luck out there, Detective @pname@. Thanks again for all your hard work!}
+{47010}{}{Okay, thanks.}
+

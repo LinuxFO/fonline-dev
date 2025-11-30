@@ -1,0 +1,254 @@
+[comment]
+fetch quest/ .44 ammo buyer.
+Reqs -> q_bring44 vars + mem_player_npc
+
+male chars only
+
+[data]
+lang=engl russ
+
+[dialog]
+&
+1 1000 None 0 #
+4 1010 D _var p q_bring44 = 0 D _var p name_mem_npc_player = 0 #
+13 1020 D _var p q_bring44 = 0 D _var p name_mem_npc_player = 1 #
+18 1030 D _var p q_bring44 = 1 #
+2 1040 @
+2 2000 None 0 @
+3 3000 None 0 #
+2 3010 #
+2 3020 #
+2 3030 #
+2 3040 @
+4 4000 None 0 #
+5 4010 D _item p PID_BOTTLE_CAPS } 5 R _item p PID_BOTTLE_CAPS - 5 #
+6 4020 #
+7 4030 #
+0 4040 @
+5 5000 None 0 #
+7 5010 @
+6 6000 None 0 #
+7 6010 @
+7 7000 None 0 #
+8 7010 D _item p PID_BOTTLE_CAPS } 5 R _item p PID_BOTTLE_CAPS - 5 #
+8 7020 #
+8 7030 #
+8 7040 #
+0 7050 @
+8 8000 None 0 #
+10 8010 #
+9 8020 #
+11 8030 #
+12 8040 #
+0 8050 @
+9 9000 None 0 #
+0 9010 R _var p name_mem_npc_player = 1 #
+0 9020 @
+10 10000 None 0 #
+0 10010 R _var p name_mem_npc_player = 1 #
+0 10020 @
+11 11000 None 0 @
+12 12000 None 0 #
+0 12010 R _var p name_mem_npc_player = 1 #
+0 12020 @
+13 13000 None 0 #
+14 13010 D _item p PID_DESERT_EAGLE > 0 R _item p PID_DESERT_EAGLE - 1 #
+15 13020 D _item p PID_44_MAGNUM_REVOLVER > 0 R _item p PID_44_MAGNUM_REVOLVER - 1 #
+16 13030 #
+0 13040 @
+14 14000 None 0 #
+17 14010 R _script dialog@r_AddExperience 1 150 R _script dialog@r_AddMoney 1 200 R _param p ST_KARMA - 3 R _param p REPUTATION_HUB_CRIMINALS + 100 R _param p REPUTATION_HUB - 50 R _var p q_bring44 = 1 @
+15 15000 None 0 #
+17 15010 R _script dialog@r_AddExperience 1 150 R _script dialog@r_AddMoney 1 200 R _param p ST_KARMA - 3 R _param p REPUTATION_HUB_CRIMINALS + 100 R _param p REPUTATION_HUB - 50 R _var p q_bring44 = 1 @
+16 16000 None 0 #
+0 16010 @
+17 17000 None 0 #
+0 17010 @
+18 18000 None 0 #
+19 18010 D _item p PID_44_MAGNUM_JHP > 49 R _script dialog@r_AddExperience 1 85 R _item p PID_44_MAGNUM_JHP - 50 R _script dialog@r_AddMoney 1 50 #
+0 18020 @
+19 19000 None 0 #
+0 19010 &
+
+[engl]
+{100}{}{Lonely Bar Patron}
+{200}{}{You see a lonely bar fly.}
+{210}{}{She looks bored, and lonely. She's been nursing her drink for quite some time now.}
+{1000}{}{Predialogue installations}
+{1010}{}{Normal}
+{1020}{}{quest comp}
+{1030}{}{quest comp2 - ammo}
+{1040}{}{fem}
+{2000}{}{@@Um, no.@@Can't you see I'm drinking ALONE here?@@Sure, you can have a seat, over there.@@Mmm-hmmm. No.@@Get lost freak, I'm not a hooker@@What're you looking at?@@Look, I'm desperate, but not that desperate.@@Fuckin' town, this is the last time I come here for a drink.}
+{3000}{}{Hey, you don't look so bad, grab a seat...}
+{3010}{}{Okey! [Pick up a barstool] Tell me things!}
+{3020}{}{Hi lady. Buy you Rotgut?}
+{3030}{}{Me stand.}
+{3040}{}{Derrrrrr!}
+{4000}{}{Well it's about damn time someone normal walks into this bar. What's your name stranger? [She smiles seductively]}
+{4010}{}{@pname@. Can I buy you a drink?}
+{4020}{}{@pname@, what's it to you stranger?}
+{4030}{}{It's @pname@. So why are you here all alone?}
+{4040}{}{I don't have time for questions, I'll be seeing you.}
+{5000}{}{You sure can, I'll take a double shot of rum with a splash of nuka-cola. [You hand the bartender the caps, he nods approvingly] What brings you to the Hub, @pname@.}
+{5010}{}{What brings you here? Miss?}
+{6000}{}{What's it to me? Why so hostile @pname@? Too many...[She stops herself from making a joke on your behalf] Maybe not, nevermind. [She turns her face away from yours]}
+{6010}{}{Sorry, didn't mean to sound like a jerk.}
+{7000}{}{Well aren't you a smooth talker. I'm here all alone because my dear old boyfriend just left me. I bet YOU'RE pleased to hear that one, @pname@ [She smiles]}
+{7010}{}{That sucks, how about I buy you another drink and we can ramble on together about life's problems, who knows it might fun.}
+{7020}{}{What happened between you two?}
+{7030}{}{Go on...}
+{7040}{}{Let me guess, he cheated on you and ran off with some other gal'? }
+{7050}{}{No, not reaIly, I've got to go. It was nice meeting you stranger }
+{8000}{}{He cheated on me! And ran off with some other gal! [She slams her drink on the counter] That low down dirty rat bastard! [She gulps down her drink then orders another] I need a gun! I want you to bring me a gun! Please! But not just any gun! I want something big and powerful, like a...Desert Eagle! Yeah! That will blow his fucking head clean off! And that whore of a wife of his too! }
+{8010}{}{Whoa there, honey! Don't cha' think you might be going a little bit overboard on this one?! I mean, get over it! He's just a guy.}
+{8020}{}{I perfectly understand. In fact, I once shot my ex! I'll be back with a .44 for you.}
+{8030}{}{Yeah right, you crazy bitch! Here's 5 caps. Go clean yourself up, and get a fucking life, tramps.}
+{8040}{}{Hah! I'll have to think about that one. What's in it for me anyways? I don't work for free.}
+{8050}{}{No. Now forget you ever saw me.}
+{9000}{}{You did? How did that go? }
+{9010}{}{Just dandy. I'll be seeing you when I've got the .44.}
+{9020}{}{Uh, on second thought I was just kidding. I gotta go!}
+{10000}{}{No! Now shut up already! Are you going to bring me a gun or what?! Stop wasting my time.}
+{10010}{}{Alright, geez. I'll be back, but it's your funeral.}
+{10020}{}{Fuck no ya bimbo, goodbye!}
+{11000}{}{Get lost freak!}
+{12000}{}{Uhm, how's 200 caps sound? I'll even need plenty of ammo to practice my aim; don't want to miss his thick skull when I try to kill him. So I'll buy 50x rounds of .44 JHP for 50 caps each, but that's it. I ain't a goddamn vendor you know! Just a gal with a heartache.}
+{12010}{}{You've got yourself a deal, girly.}
+{12020}{}{You'd just shoot your eye out, no deal. Listen get some help, okay?}
+{13000}{}{Oh, it's you. Do you remember what we talked about? }
+{13010}{}{Yeah, I've got an Eagle right here...}
+{13020}{}{Of course, here's a .44 magnum...}
+{13030}{}{No, what did you want again?}
+{13040}{}{Yeah, but I don't have it. I'll be back though. Goodbye.}
+{14000}{}{Shh! Not so loud! Hand it to me under the table.}
+{14010}{}{Here ya go. Now where's my reward?}
+{15000}{}{Shh! Not so loud! Hand it to me under the table...}
+{15010}{}{Here ya go. Now where's my reward?}
+{16000}{}{A fucking .44 Magnum, or a goddamn Desert Eagle. Are you sure you aren't retarded? I mean, I've already asked you at least twice now... Look it doesn't matter, get lost until you've got the gun.}
+{16010}{}{Uh-huh.}
+{17000}{}{Great, now I just need some ammo. Can you bring me some? You look like you're pretty good with your hands.}
+{17010}{}{Yeah, I'll drop by again when I've got atleast 50x rounds of .44 JHP. I'll keep em' coming, if you keep the caps coming.}
+{18000}{}{Hey, it's you. The gun looks great, but I've got nothing to shoot out of it... You got any more ammo?}
+{18010}{}{Yeah, here's 50x rounds of .44 JHP.}
+{18020}{}{Nope, none that I can spare, but I'll be back for sure. Goodbye.}
+{19000}{}{Awsome, here's 50 caps for your troubles. Listen, I'll be firing this thing for a while until I get the hang of it. Keep bringing me ammo, and I'll keep having caps for ya.}
+{19010}{}{Great, I'll be seeing you around. Good luck missy.}
+{100000001}{}{Sure could use a drink...}
+{100000002}{}{Bartender, one more please. }
+{100000003}{}{You better make that a double...}
+{100000004}{}{Whoooo!}
+{100000005}{}{Sure would love to meet someone new...}
+{100000006}{}{Argh, rain again...}
+{100000007}{}{Another freak...}
+{100000008}{}{*hums*}
+{100000009}{}{Love this song!}
+{100000010}{}{Sing it girl!}
+{100000011}{}{Yeah!}
+{100000012}{}{Love her!}
+{100000013}{}{What a voice!}
+{100000014}{}{Best bar around!}
+{100000015}{}{What was that?}
+{100000016}{}{Sorry, what?}
+{100000017}{}{*coughs*}
+{100000018}{}{*cheers*}
+{100000019}{}{*hic*}
+{100000020}{}{*claps*}
+{100000021}{}{Great show!}
+{100000022}{}{*drinks*}
+{100000023}{}{*smokes*}
+{100000024}{}{*inhales*}
+{100000025}{}{*sips*}
+{100000026}{}{*pops something*}
+{100000027}{}{*inhales something strange*}
+{100000028}{}{*snorts*}
+{100000029}{}{*dances*}
+{100000030}{}{*stumbles*}
+{100000031}{}{*jumps at the sounds of gunshots!*}
+{100000032}{}{Did you... never mind.}
+{100000033}{}{*whistles*}
+{100000034}{}{*tries to sing along*}
+{100000035}{}{*looks in a daze*}
+{100000036}{}{Wooooo!!! }
+{100000037}{}{Wooooo!!! Woooooo!!}
+{100000038}{}{Encore! Encore!}
+{100000039}{}{If it keeps up like this we'll be here all night!}
+{100000040}{}{Shut the doors! Close the windows! We're drinking beer!}
+{100000041}{}{Oh, wow! What an awesome song!}
+{100000042}{}{... this one? Again...}
+{100000043}{}{... who do you think he is?...}
+{100000044}{}{... haven't we seen her before?...}
+{100000045}{}{... isn't that?...}
+{100000046}{}{Yeah! This place is awesome!}
+{100000047}{}{This is why we should come here every night!}
+{100000048}{}{Wow! Did you see that?!}
+{100000049}{}{*is starstruck*}
+{100000050}{}{Wow! She belongs in Reno!}
+{100000051}{}{One day, Hope! You'll get there!}
+
+[russ]
+{100}{}{Алкоголик}
+{200}{}{Вы видите пьяницу.}
+{210}{}{Вы видите шатающегося из стороны в сторону пьяного человека в лохмотьях. Лицо его распухло, нос синющий как слива. А аромат рядом с ним такой, что свалит брамина насмерть. Он что-то бормочет про себя и иногда громко поет песни.}
+{210}{}{Вы видите алкаша. Он весьма грязен - кажется, он повалялся в луже, но не особо этим расстроен.}
+{1000}{}{I?aaaeaeiaiaua onoaiiaee}
+{1010}{}{Answer text}
+{1020}{}{quest comp}
+{1030}{}{quest comp2 - ammo}
+{1040}{}{fem}
+{2000}{}{@@Urp.@@Glug-glug-glug.@@I needed that.@@Mmm-hmmm.@@How dry I amпїЅ (whistles)@@99 bottles of beer on the wall, 99 bottles of beerпїЅ@@What're you looking at?@@Hic... hic...@@Quit hassling me, you're bringing my buzz down.}
+{3000}{}{Hey you don't look so bad, grab a seat...}
+{3010}{}{Okey! *Pick up a barstool*}
+{3020}{}{Hi lady. Buy you Rotgut?}
+{3030}{}{Me stand.}
+{3040}{}{Derrrrrrr! [Exit]}
+{4000}{}{Well it's about damn time someone normal walks into this bar. What's your name stranger? *She smiles seductively.*}
+{4010}{}{The name's @pname@ beautiful, can I buy you a drink?}
+{4020}{}{@pname@, what's it to you stranger?}
+{4030}{}{I wish I knew honey, I wish, I knew.}
+{4040}{}{I don't have time for questions, I'll be seeing you.}
+{5000}{}{You sure can, I'll take a double shot of rum with a splash of nuka-cola. *You hand the bartender the caps, he nods approvingly* What brings you to the Hub, @pname@.}
+{5010}{}{I live here, in fact your the new one in town. What brings you here? Miss?}
+{6000}{}{What's it to me? Why so hostile @pname@? Too many...nevermind.}
+{6010}{}{It's a harsh fucking world out there honey, most people who ask for my name ain't looking for new friends.}
+{7000}{}{Don't we all? Don't worry, stranger. I've been there before; one too many drunken nights.}
+{7010}{}{That sucks, how about I buy you another drink and we can ramble on together about life's problems, who knows it might fun.}
+{7020}{}{What happened between you two?}
+{7030}{}{Go on...}
+{7040}{}{Let me guess, he cheated on you too and ran off with some other gal'? }
+{7050}{}{No not really honey, and I got to go. It was nice meeting you stranger. }
+{8000}{}{He cheated on me! And ran off with some other gal! *She slams her drink on the counter* That low down dirty rat basterd! *She gulps down her drink then orders another* I need a gun! I want you to bring me a gun handsome! Please! But not just any gun! I want something big and powerful, like a...Desert Eagle! Yeah! That will blow his head clean off! And that whore of a wife of his! }
+{8010}{}{Whoa there honey! Don't cha' think you might be going a little bit overboard on this one?! I mean, get over it! He's just a guy.}
+{8020}{}{I perfectly understand, in fact I once shot my ex- @sex@ wife.||husband.| I'll be back with a .44 for ya'.}
+{8030}{}{Yeah right, you crazy bitch! Here's 5 caps, clean yourself up and get a fucking life, tramps.}
+{8040}{}{Hah! I'll have to think about that one. What's in it for me anyways? I ain't a working man for free! }
+{8050}{}{No. Now forget you ever saw me. [Exit]}
+{9000}{}{You did? How did that go? }
+{9010}{}{Just dandy. I'll be seeing you.}
+{9020}{}{Uh, on second thought I was just kidding. I gotta go! [Exit]}
+{10000}{}{No! Now shut up already! Are you going to bring me a gun or what?! Stop wasting my time.}
+{10010}{}{Alright, geez. I'll be back, but it's your funeral, honey.}
+{10020}{}{Fuck no ya' bimbo, goodbye!}
+{11000}{}{Get lost freak!}
+{12000}{}{Uhm, how's 200 caps sound? I'll even need plenty of ammo to practice my aim; don't want to miss his thick skull when I try to kill him. I'll buy 50x rounds of .44 JHP for 100 caps each, but that's it. I ain't a goddamn vendor you know! Just a gal with a heartache.}
+{12010}{}{You've got yourself a deal, girly.}
+{12020}{}{You'd just shoot your eye out, no deal. Listen get some help, okay? [Exit]}
+{13000}{}{Oh, it's you. Do you remember what we talked about? }
+{13010}{}{Yeah, I've got the .44 right here...}
+{13020}{}{Of course, here's a .44 magnum; a hero pistol. }
+{13030}{}{No, what did you want again?}
+{13040}{}{Yeah, but I don't have it. I'll be back though. Goodbye. [Exit]}
+{14000}{}{Shh! Not so loud, hand it to me under the table.}
+{14010}{}{Here ya' go. Now where's my reward?}
+{15000}{}{Shh! Not so loud, hand it to me under the table...}
+{15010}{}{Here ya' go. Now where's my reward?}
+{16000}{}{A fucking .44 Magnum or a goddamn Desert Eagle. Are you sure you aren't retarded? I mean, I've already asked you atleast twice now... Look it doesn't matter, get lost until you've got the gun.}
+{16010}{}{Uh-huh. [Exit]}
+{17000}{}{Great, now I just need some ammo. Can you bring me some? You look like your pretty good with your hands.}
+{17010}{}{Yeah, I'll drop by again when I've got atleast 50x rounds of .44 JHP. I'll keep em' coming, if you keep the caps coming.}
+{18000}{}{Hey, it's you. The gun looks great, but I've got nothing to shoot out of it... You got any ammo?}
+{18010}{}{Yeah, here's 50x rounds of .44 JHP.}
+{18020}{}{Nope, none I can spare, but I'll be back for sure. Goodbye. [Exit]}
+{19000}{}{Awsome, here's 100 caps for your troubles. Listen, I'll be firing this thing for a while until I get the hang of it. Keep bringing me ammo, and I'll keep having caps for ya'.}
+{19010}{}{Great, I'll be seeing you around. Goodluck missy. [Exit]}
+

@@ -1,0 +1,24 @@
+[comment]
+
+
+[data]
+lang=engl
+
+[dialog]
+&
+1 1000 None 0 #
+2 1010 @
+2 2000 None 0 #
+0 2010 R _script dialog@r_ClearInventory 0  R _script dialog@r_TeleportToMap 2 221 666 #
+0 2020 &
+
+[engl]
+{100}{}{Deathmatch Terminal}
+{200}{}{Leaving so soon?}
+{210}{}{Skipping your reward?!}
+{1000}{}{Preddialogue settings}
+{1010}{}{open}
+{2000}{}{[Choose your action]}
+{2010}{}{[Run Away from the Killing Floor!] [Deletes Inventory!!!]}
+{2020}{}{[Return to the Killing Floor!] [Be Rewarded!]}
+

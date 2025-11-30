@@ -1,0 +1,32 @@
+[comment]
+
+
+[data]
+lang=engl
+
+[dialog]
+&
+1 1000 None 0 #
+2 1010 D _var p name_mem_npc_player = 0 #
+6 1020 D _var p name_mem_npc_player = 1 @
+2 2000 None 0 #
+3 2010 D _item p PID_GEIGER_COUNTER } 1 R _param p ST_KARMA + 1 R _var p name_mem_npc_player = 1 R _script dialog@r_AddExperience 1 1000 R _item p PID_GEIGER_COUNTER - 1 R _param p REPUTATION_NCR + 7 #
+4 2020 @
+3 3000 None 0 @
+4 4000 None 0 @
+6 5000 None 0 &
+
+[engl]
+{100}{}{Revan}
+{200}{}{You see a worried looking miner.}
+{210}{}{Looks like they're looking for something.}
+{1000}{}{Predialogue installations}
+{1010}{}{Answer text}
+{1020}{}{2}
+{2000}{}{What am I going to do know without a Geiger counter, my shift will be ruined if I don't go to work... But if I go I risk being exposed to high doses of radiation... [He sees you approaching and turns his head to you] I'm sorry. Do you maybe happen to have a Geiger counter I could have? Please?}
+{2010}{}{Well... I was thinking about going to the mine today, but it's okay. You can have my counter. I can easily find another.}
+{2020}{}{Sorry, but I don't have one. If I get a hold of one, maybe I'll come back.}
+{3000}{}{Thank you so much, kind, @sex@ |Sir!||Miss!|}
+{4000}{}{Okay... [He looks sad]}
+{5000}{}{Thank you for the counter! I was able to finish my shift, thanks to you!}
+

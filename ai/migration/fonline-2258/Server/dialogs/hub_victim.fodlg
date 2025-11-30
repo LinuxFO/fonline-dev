@@ -1,0 +1,48 @@
+[comment]
+
+
+[data]
+lang=engl
+
+[dialog]
+&
+1 1000 None 0 #
+2 1010 D _var p noire5 = 1 #
+9 1020 D _var p noire5 > 2 @
+2 2000 None 0 #
+3 2010 @
+3 3000 None 0 #
+4 3010 @
+4 4000 None 0 #
+5 4010 @
+5 5000 None 0 #
+6 5010 @
+6 6000 None 0 #
+7 6010 @
+7 7000 None 0 #
+8 7010 R _script dialog@r_NinjaKillNpc 1 117 R _var p noire5 = 2 R _script dialog@r_AddExperience 1 5000 R _item p PID_MR_NIXON_DOLL + 1 R _script quest_noire5@r_SpawnLoc 0  R _script dialog@r_PlaySoundGun 1 2 @
+8 8000 None 0 @
+9 9000 None 0 &
+
+[engl]
+{100}{}{A small child}
+{200}{}{You see a traumatized looking little girl.}
+{210}{}{She looks like she just witnessed her parents getting their skin cut off. Poor kid. How will she ever be the same? She won't.}
+{1000}{}{Predialogue installations}
+{1010}{}{Answer text}
+{1020}{}{done}
+{2000}{}{[The little girl says nothing. She's just standing there staring into the distance. The same look you've given people before]}
+{2010}{}{[Feel disconnected] Hey brat, how long you been staring into that blood pool for? A week?}
+{3000}{}{[The little girl says nothing]}
+{3010}{}{[Emptiness, and darkness] Whoa, whoa, don't say it all at once now. Why don't you start talking?}
+{4000}{}{[The little girl says nothing]}
+{4010}{}{[Shake the kid] Hey wake up! Start fucking talking! What happened here?! Did you murder your fucking parents, you little shit!}
+{5000}{}{[It looks as if the little girl is about to open her mouth to speak... just give it a little more time...]}
+{5010}{}{[Slap the child] Out with it! }
+{6000}{}{YOUMONSTERYOUMONSTERYOUMONSTERYOUMONSTERYOUMONSTERYOUMONSTERYOUMONSTERYOUMONSTERYOUMONSTERYOUMONSTERYOUMONSTERYOUMONSTERYOUMONSTERYOUMONSTERYOUMONSTERYOUMONSTERYOUMONSTER}
+{6010}{}{Put that down!}
+{7000}{}{CHILDKILLERCHILDKILLERCHILDKILLERCHILDKILLERYOUCHILDKILLERCHILDKILLERCHILDKILLERYOUCHILDKILLERCHILDKILLERYOUCHILDKILLERCHILDKILLERCHILDKILLERYOUCHILDKILLERCHILDKILLERYOUCHILDKILLERCHILDKILLERCHILDKILLERYOU}
+{7010}{}{I'm... sorry! I'm so sorry! Please... don't do it! }
+{8000}{}{*The little girl took my gun... and blew her brains out. It was all my fault*}
+{9000}{}{*They, the dead, say nothing*}
+

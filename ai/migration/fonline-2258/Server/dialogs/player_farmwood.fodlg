@@ -1,0 +1,80 @@
+[comment]
+lighter job 
+
+[data]
+lang=engl russ
+
+[dialog]
+&
+1 1000 None 0 #
+2 1010 D _var p player_farmOwner = 1 #
+5 1020 D _var p player_farmOwner = 0 @
+2 2000 dialog@dlg_FarmStatus 0 #
+2 2010 D _item p PID_FIREWOOD > 11 R _item p PID_FIREWOOD - 12 R _var p player_farmWood + 1 #
+4 2020 #
+3 2030 #
+0 2040 @
+3 3000 None 0 #
+2 3010 @
+4 4000 None 0 #
+2 4010 @
+5 5000 None 0 &
+
+[engl]
+{100}{}{Lumber Worker}
+{200}{}{You see the lumber worker.}
+{210}{}{He's been assigned to look after the Farm's wood supply.}
+{1000}{}{Predialogue installations}
+{1010}{}{base}
+{1020}{}{visit}
+{2000}{}{Hey there, boss! Here's my report. We've got @lex farmWood@ units worth of lumber before we freeze. You could give me a dozen logs to count towards a unit, buy some wood, or hire a Lumberjack. Either way our Farm can't survive without heat.}
+{2010}{}{[Hand over the Logs]}
+{2020}{}{How do I hire a Lumberjack?}
+{2030}{}{Where can I buy some Wood?}
+{2040}{}{Thanks. Goodbye.}
+{3000}{}{No idea, you're better off just chopping it yourself. But I'm sure you could find it in bulk somewhere if you look.}
+{3010}{}{Thanks.}
+{4000}{}{You're going to have to renovate. I don't think we'll be able to hire a proper Lumberjack if he, or she doesn't have a nice place to live.}
+{4010}{}{Thanks.}
+{5000}{}{Welcome to the Farm. Please don't shoot anybody.@@Uh... hello?@@New ranch hand?@@Just leave your resources somewhere visible, the boss will pick them up eventually.@@Sorry, there's no beds available, you'll have to sleep on the floor.@@Another mouth to feed, eh? Well you'd better pull your weight around here, that's for sure.@@Does the boss know you're here?@@Yes, hi, that's very nice. Who are you again?@@I hope those aren't weapons on you...@@Stay away from the kids! You animal!@@What are you even doing here?@@Who invited you?@@Don't expect to get a map to this place.}
+{100000001}{}{Better wash the counter again...}
+{100000002}{}{That's 5 caps buddy. Hey did you hear me? Cough em' up.}
+{100000003}{}{Better change the keg...}
+{100000004}{}{RotGut? You drink that shit?}
+{100000005}{}{Domestic? I got B.E.E.R buddy, do you want one or not?}
+{100000006}{}{Fuckin' dust is getting everywhere. Hey close the fuckin' door!}
+{100000007}{}{I swear if the next asshole doesn't tip. Ima' shoot somebody!}
+{100000008}{}{I got bottles, I got shots, and I got a bat behind the counter for the retards. Your not a retard are you?}
+{100000009}{}{Uh-huh, yeah that's nice buddy. You don't say...What? Of course I'm listening...}
+{100000010}{}{That's 5 caps. FIVE CAPS Tribal! F.I.V.E! }
+{100000011}{}{Shut up and order a fuckin' beer already!}
+{100000012}{}{I swear if I have to serve another drunk, I'm getting the shotgun!}
+{100000013}{}{Look the keg went dry, and it's going to be another month until the caravan shows up again.}
+{100000014}{}{Really? You don't say, buy another drink or get out!}
+{100000015}{}{What? I'm on break.}
+{100000016}{}{Be right with ya'}
+{100000017}{}{Have a sit stranger. I'll be with you in a moment.}
+{100000018}{}{When do we close? Uh, when the place get's shot up, that's when!}
+{100000019}{}{We're fresh outta' cold beer, sorry. You'll just have to drink it warm.}
+{100000020}{}{RotGut? No man, go make that shit yourself! I wouldn't drink it!}
+
+[russ]
+{100}{}{Алкоголик}
+{200}{}{Вы видите пьяницу.}
+{210}{}{Вы видите шатающегося из стороны в сторону пьяного человека в лохмотьях. Лицо его распухло, нос синющий как слива. А аромат рядом с ним такой, что свалит брамина насмерть. Он что-то бормочет про себя и иногда громко поет песни.}
+{210}{}{Вы видите алкаша. Он весьма грязен - кажется, он повалялся в луже, но не особо этим расстроен.}
+{1000}{}{I?aaaeaeiaiaua onoaiiaee}
+{1010}{}{base}
+{1020}{}{visit}
+{2000}{}{Dialog text}
+{2010}{}{[Provide Water Bags]}
+{2020}{}{What do we need to build a Water Pump?}
+{2030}{}{Where can I buy Water?}
+{2040}{}{Thanks. Goodbye.}
+{3000}{}{The Water Merchants in the Hub will sell you crates of water for caps. You'll have to carry them back here after yourself though. }
+{3010}{}{Thanks.}
+{4000}{}{We'll need 50x Metal Parts, 75x Junk, 120x Wood, and 45x Alloys. That should be enough to construct a decent enough Water Pump. }
+{4010}{}{Thanks.}
+{5000}{}{Welcome to the Farm. Please don't shoot anybody.@@Uh... hello?@@New ranch hand?@@Just leave your resources somewhere visible, the boss will pick them up eventually.@@Sorry, there's no beds available, you'll have to sleep on the floor.@@Another mouth to feed, eh? Well you'd better pull your weight around here, that's for sure.@@Does the boss know you're here?@@Yes, hi, that's very nice. Who are you again?@@I hope those aren't weapons on you...@@Stay away from the kids! You animal!@@What are you even doing here?@@Who invited you?@@Don't expect to get a map to this place.}
+{100000016}{}{Be right with ya'}
+

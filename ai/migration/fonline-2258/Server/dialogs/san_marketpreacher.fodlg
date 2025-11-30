@@ -1,0 +1,87 @@
+[comment]
+
+
+[data]
+lang=engl
+
+[dialog]
+&
+1 1000 None 0 #
+2 1010 @
+2 2000 None 0 &
+
+[engl]
+{100}{}{Communist Preacher}
+{200}{}{You see the local propaganda shouter. He doesn't look very amused.}
+{210}{}{He's dressed head to toe in communist propaganda, he almost looks like a silly asian clown with his white face paint.}
+{240}{}{You see a dead caravan guard.}
+{260}{}{You see a slain caravan guard.}
+{1000}{}{Predialogue installations}
+{1010}{}{-}
+{2000}{}{Can't you see I'm busy, round-eye?!@@Get off my stage!@@This isn't erectric boogaroo, go away!@@Are you high on'a Jet?! Get'a rost!@@I don't want your spicy noodle, go aray!@@Beat it, round-eye!@@You vault dwellers all the same! You always poke nose where it don't berong!@@Aiiiiieeeeeeeiiiiiiiiiiiii! Ouuuuuuuwuuuuuuuu-ooooohhhhh!@@Aiiieeeaiiiieeeeeee aiiiiiiii-ahhhhooooohhhhuuuuuwuuuuu!}
+{100000001}{}{Praise the Shi!}
+{100000002}{}{Worship the Shi!}
+{100000003}{}{Trust the Shi!}
+{100000004}{}{The Shi provides!}
+{100000005}{}{For the Shi!}
+{100000006}{}{My life for the Shi!}
+{100000007}{}{Another beautiful day from the Shi!}
+{100000008}{}{Remember to clean up your trash! For the Shi!}
+{100000009}{}{Have you visited the temple today?}
+{100000010}{}{Have you provided an offering for the Shi today?}
+{100000011}{}{The Shi wishes you a wonderful day!}
+{100000012}{}{Are you behaving? For the Shi!}
+{100000013}{}{Praise the Emperor!}
+{100000014}{}{For the Emperor!}
+{100000015}{}{Worship the Emperor!}
+{100000016}{}{The Emperor provides!}
+{100000017}{}{Trust the Emperor!}
+{100000018}{}{My life for the Emperor!}
+{100000019}{}{Another beautiful day for the Emperor!}
+{100000020}{}{The sun shines brightly for the Emperor!}
+{100000021}{}{Remember to fill out your citizenship pamplets! For the Shi!}
+{100000022}{}{Remember to fill out your citizenship pamplets! For the Emperor!}
+{100000023}{}{Have you noticed any strange foreign behaviour? Report it to the Shi!}
+{100000024}{}{Have you noticed any unusual foreign behaviour? Report it to the Emperor!}
+{100000025}{}{Any unusual foreigner behaviour? Report it to the Shi!}
+{100000026}{}{Any unusual foreigner behaviour? Report it to the Emperor!}
+{100000027}{}{Ken Lee welcomes you to San Francisco!}
+{100000028}{}{The Shi welcomes you to San Francisco!}
+{100000029}{}{The Emperor welcomes you to San Francisco!}
+{100000030}{}{*laughs*}
+{100000031}{}{*sneezes*}
+{100000032}{}{*snorts*}
+{100000033}{}{*farts*}
+{100000034}{}{*snorts and farts*}
+{100000035}{}{*sneezes and farts*}
+{100000036}{}{Welcome to the San Francisco Market! Please behave!}
+{100000037}{}{Looking for work? The caravans are always hiring!}
+{100000038}{}{Looking for work? Unload crates today!}
+{100000039}{}{Looking for work? Shovel the pens!}
+{100000040}{}{Looking for work? See the many bulk order demands!}
+{100000041}{}{Looking for work? Ask around!}
+{100000042}{}{Looking for work? Visit the post office today!}
+{100000043}{}{Looking for work? Visit San Marino for bounties!}
+{100000044}{}{Looking for work? Visit Felix Mallard today!}
+{100000045}{}{Looking for work? Visit Ban Chao for more information!}
+{100000046}{}{Need an advanced workbench? Talk to Ken Lee today!}
+{100000047}{}{Looking for implant modifications? Visit Doctor Fung today!}
+{100000048}{}{Looking for a new home? Visit our construction local today!}
+{100000049}{}{Need to craft medical supplies? The Emperor offers free medical terminal use!}
+{100000050}{}{Curious about trains? Visit the local train station today!}
+{100000051}{}{Looking for resources? Visit the local mine today!}
+{100000052}{}{Need fresh fish? Visit Bodega Bay today! Across the northern rivers!}
+{100000053}{}{We are watching you, round-eye!}
+{100000054}{}{The Shi sees all! Tread carefully!}
+{100000055}{}{The Emperor sees all! Tread carefully!}
+{100000056}{}{Be on your best behaviour! The Shi does not forgive!}
+{100000057}{}{Be on your best behaviour! The Emperor does not forgive!}
+{100000058}{}{Ugh! Even I get sick of that song!}
+{100000059}{}{Tough? The Emperor needs help clearing the sewers!}
+{100000060}{}{Be on your best behaviour while visiting the glorious city of San Francisco!}
+{100000061}{}{Press Gangs and other nefarious groups are not welcome in the city!}
+{100000062}{}{Beware! The monsters under the city!}
+{100000063}{}{Beware! The monsters inside of the tanker!}
+{100000064}{}{Looking to purchase a new vehicle or caravan cart? Visit the southern side of the city today!}
+{100000065}{}{Looking for a new pet? Visit the wrangler on the southern side of the city today!}
+

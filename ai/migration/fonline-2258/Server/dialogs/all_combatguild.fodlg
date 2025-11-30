@@ -1,0 +1,109 @@
+[comment]
+
+
+[data]
+lang=engl
+
+[dialog]
+&
+1 1000 None 0 #
+2 1010 D _var p z_warrior = 0 #
+8 1020 D _var p z_warrior = 1 @
+2 2000 dialog@dlg_GuildWar 0 #
+3 2010 #
+4 2020 #
+5 2030 #
+6 2040 #
+12 2050 #
+0 2060 @
+3 3000 None 0 #
+2 3010 @
+4 4000 None 0 #
+2 4010 @
+5 5000 None 0 #
+2 5010 @
+6 6000 None 0 #
+14 6010 D _param p ST_KARMA = 0 #
+7 6020 D _item p PID_BOTTLE_CAPS > 9999 D _var p z_warrior = 0 D _param p ST_KARMA < 0 D _param p ST_LEVEL > 23 R _item p PID_BOTTLE_CAPS - 10000 R _var p z_warrior = 1 R _var p GuildMembersWar + 1 R _item p PID_SHERIFF_BADGE + 1 #
+7 6030 D _var p z_warrior = 0 D _param p ST_LEVEL > 11 D _param p ST_KARMA > 0 R _var p z_warrior = 1 R _var p GuildMembersWar + 1 R _item p PID_SHERIFF_BADGE + 1 #
+2 6040 @
+7 7000 None 0 #
+0 7010 @
+8 8000 None 0 #
+10 8010 D _var p z_warrior2 > 19 R _script dialog@r_BulkOrderRewardPrints 0  R _param p ST_EXPERIENCE + 3500 R _var p GuildPrintsWar + 1 R _var p z_warrior2 - 20 R _item p PID_SHERIFF_BADGE + 1 #
+9 8020 #
+11 8030 #
+13 8040 #
+0 8050 @
+9 9000 None 0 #
+8 9010 @
+10 10000 None 0 @
+11 11000 None 0 #
+8 11010 @
+12 12000 dialog@dlg_GuildWar 0 #
+2 12010 @
+13 13000 dialog@dlg_GuildWar 0 #
+8 13010 @
+14 14000 None 0 &
+
+[engl]
+{100}{}{Lonestar Collection Agency}
+{200}{}{You see the leader of the Lonestar Collection Agency.}
+{210}{}{Officer Bonds is the leading recruiter, and manager of the Lonestar Collection Agency; a dedicated guild of bounty hunters and law abiding assassins.}
+{1000}{}{Predialogue installations}
+{1010}{}{not member}
+{1020}{}{member}
+{2000}{}{Yeah? Welcome to the Lonestar Collection Agency. California's number one bounty service. You here to join? Or just looking for some information?}
+{2010}{}{The Lonestar Collection Agency?}
+{2020}{}{What is this place? Where am I?}
+{2030}{}{Got anything to trade?}
+{2040}{}{What's it take to join the Lonestar Collection Agency?}
+{2050}{}{How many Lonestar Officers do you have?}
+{2060}{}{Gotta run, see ya.}
+{3000}{}{We're an independent paramilitary faction operating alongside the NCR, Hub, Junktown, and other local communities. We keep track of all the bounties, and how many raider groups occupy the wasteland. Each town has their own force to deal with, and we help direct anybody looking to help out.}
+{3010}{}{Sounds like you guys do some good work out there.}
+{4000}{}{Barter Grounds, @sex@|son.||girlie.| It's a neutral zone not occupied by any major, or minor faction. It's nearly politically free, and nobody really pokes their noses around here. It's the perfect spot for the Lonestar Collection Agency's head office.}
+{4010}{}{If you say so.}
+{5000}{}{Do I look like a vendor to you? We don't *sell* anything here. We hire and fire bounty hunters. So, unless you're looking for work you might want to search elsewhere. }
+{5010}{}{Oh, okay.}
+{6000}{}{You need to be in good standing with the law, or be worth our time to hire. We don't just let any asshole represent the company out in the wasteland. If you're at least level 12 and have positive Karma, we'll let you in. If your moral compass doesn't aim right, I supose we could make an exception for 10,000 caps if you're over level 24.}
+{6010}{}{Will you take me?}
+{6020}{}{Well, I'm not a saint. But I'll join. Here's your money.}
+{6030}{}{I'll join you guys, if you'll have me.}
+{6040}{}{Maybe some other time.}
+{7000}{}{Great! We're always looking for new bounty hunters willing to spill some blood! Consider yourself an official Lonestar Officer. Here's a badge, pin it somewhere. Talk to me when you're ready to begin.}
+{7010}{}{Awesome! Will do. Goodbye.}
+{8000}{}{Officer @pname@. Welcome back. What can I do for you?}
+{8010}{}{I think I've killed enough people for a blueprint, haven't you?}
+{8020}{}{What can you offer me again? As a member?}
+{8030}{}{Where can I find a bounty job?}
+{8040}{}{Could I see the record books, please?}
+{8050}{}{Slowly, but surely. Goodbye.}
+{9000}{}{We'll give you a free random blueprint every 20 points you acquire doing any bounty missions that involve a human. None of this critter stuff. Our only job here is to help prevent the outnumbering of raiders and bandits. It's pest control, really.}
+{9010}{}{Sounds good, thanks.}
+{10000}{}{Let's see here... okay! You've earned yourself a blueprint. Hope it's the one you wanted, if not, well, you can always sell it. Great work out there, Officer.}
+{11000}{}{Here's the current list of cities with active bounties out there:
+
+The Hub
+The NCR
+Junktown
+Redding
+San Francisco
+Some Telltales
+The Police Quest
+The Alpha Bunker}
+{11010}{}{Okay, thanks.}
+{12000}{}{We grow every day, but so far?
+
+The current rooster is: @lex pointsMEM2@ Lonestar Officers, and Bounty Hunters.
+
+We've even rewarded our members exactly: @lex pointsPRI2@ times. }
+{12010}{}{Okay, thanks for the info.}
+{13000}{}{Sure thing, Officer @pname@. 
+
+The Lonestar Collection Agency has exactly: @lex pointsMEM2@ Officers, and Bounty Hunters.. 
+
+We've given out exactly: @lex pointsPRI2@ blueprints as a reward for all the hard work our Officers have done..}
+{13010}{}{Thanks, good to know.}
+{14000}{}{You? No. You look too innocent, and unexperienced. You're too neutral for Lonestar. Why don't you pick a side already?}
+

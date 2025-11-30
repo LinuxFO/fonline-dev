@@ -1,0 +1,28 @@
+[comment]
+
+
+[data]
+lang=engl
+
+[dialog]
+&
+1 1000 None 0 #
+2 1010 @
+2 2000 None 0 #
+3 2010 D _var p z_mutantq = 13 R _var p z_mutantq = 14 R _script dialog@r_AddExperience 1 3000 R _param p ST_KARMA - 3 #
+65506 2020 #
+0 2030 @
+3 3000 Attack 0 &
+
+[engl]
+{100}{}{Homesteader}
+{200}{}{You see a lean, tan person.}
+{210}{}{You see a homesteader}
+{1000}{}{Predialogue installations}
+{1010}{}{Answer text}
+{2000}{}{You just keep your hands where I can see them. We've been plagued by bandits lately, and I think you just might be one of them. What do you want?}
+{2010}{}{[Inject the mutagen serum into their neck!]}
+{2020}{}{I just wanted to trade for supplies.}
+{2030}{}{I'm just passing through. I'll be on my way.}
+{3000}{}{Ow! What the fuck?! Guards!!!}
+

@@ -1,0 +1,46 @@
+[comment]
+
+
+[data]
+lang=engl
+
+[dialog]
+&
+1 1000 None 0 #
+2 1010 @
+2 2000 None 0 &
+
+[engl]
+{100}{}{Terrified Child}
+{200}{}{You see a traumatized little child.}
+{210}{}{Who the hell puts their children in the middle of a battlefield?! Oh, God! This game is horrible!!! I just need to bash my way through these little punks if I want to be the victor! Sorry, kids!}
+{1000}{}{Predialogue installations}
+{1010}{}{Answer text}
+{2000}{}{Wahhhhhhh!!!}
+{100000001}{}{Wahhhh!!}
+{100000002}{}{*loud crying*}
+{100000003}{}{*crying*}
+{100000004}{}{Daaaaaddy?!!!!}
+{100000005}{}{Mommmmmyyy?!!!}
+{100000006}{}{I pwomise not to pee on the seat again!!!}
+{100000007}{}{Where are my pawents?!!}
+{100000008}{}{Wault Wunner!! Help usssss!!!}
+{100000009}{}{Wahhhh!! I want my bwanky!!!}
+{100000010}{}{OW!! My ears! It's so loooouddd!!!}
+{100000011}{}{No, no, no!! Help me! PWEASE!!}
+{100000012}{}{AHHHHHHH!!!! }
+{100000013}{}{There's so much blood! So much blood!!!}
+{100000014}{}{I don't want to die!!!}
+{100000015}{}{Mommy!! Pwease!!! I'l never lie again!!! I swear!!}
+{100000016}{}{Daddy?! Why?!! I swear! I never touched it!!!}
+{100000017}{}{Oh, no! Oh, no! Oh, nooooo!!!}
+{100000018}{}{Why are you doing this to meeee?!!}
+{100000019}{}{Help! Someone!! Pwease!!}
+{100000020}{}{Brother?!! Where are youuuu!!}
+{100000021}{}{Little sister!! Where did you go?!! Help me!! Pwease!!}
+{100000022}{}{We don't deserve this! You monsters!}
+{100000023}{}{When my daddy finds us you're all dead!}
+{100000024}{}{My daddy is coming! Don't worry! He will save us!}
+{100000025}{}{Big brother will help us! You'll see!!}
+{100000026}{}{Big sister wouldn't leave us like this!!}
+

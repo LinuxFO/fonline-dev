@@ -1,0 +1,246 @@
+// Author: Baryman, JohnPL
+// Test script
+
+//#include "fo2155_HotKeys_h.fos"
+#include "_client_defines.fos"
+#include "client_gui_h.fos"
+#include "_colors.fos"
+#include "_macros.fos"
+//#include "_msgstr.fos"
+#include "client_access_h.fos"
+#include "client_screen_gameinfo_h.fos"
+
+import string DateTimeToString( uint gameTime ) from "time";
+
+IClientAccessLevelOpt@ accessControll;
+IGUIElementTextOpt@ infoText;
+IGUIElementTextOpt@ autoAimInfoText;
+IGUIElementTextOpt@ offtopLockInfoMessage;
+IGUIElementTextOpt@ serverInfo;
+IGUIElementTextOpt@ dateTimeMessage;
+
+string[] autoAimTexts;
+uint8 autoAimMode; 
+
+class RuchyMyszy : IGUIElementCallbackMouseMove 
+				   
+{
+
+	void OnMouseMove(int x, int y)
+	{
+		if(accessControll.getAccessLevel()==3)
+		{
+			if(autoAimMode!=NONE) infoText.AbsolutePosition(__ScreenWidth-80, 25);
+			else infoText.AbsolutePosition(__ScreenWidth-80, 10);
+			string visible;
+			if(GetChosen().Param[MODE_NO_PUSH]==1) visible="Invisible";
+			else visible="Visible";
+			CritterCl @ gracz = GetMonitorCritter(x, y); //Na podstawie pozycji x,y pobiera klase CritterCl
+			ItemCl @ ziemia = GetMonitorItem(x,y); // Na podstawie pozycji x,y pobiera 	klase ItemCl
+			if(@gracz == null && @ziemia == null )
+			{
+				GetMonitorHex(x ,y ,hx, hy);  // Z x,y na monitorze pobiera wspolrzedne hexa      
+				infoText.SetText("\n("+hx+":"+hy+")\n" + visible); //wypisywanie
+			}
+			else 
+			{
+				bool uu = false;
+				if (@ziemia==null)   
+				{
+					if(gracz.Name==" ")
+					{
+						infoText.SetText("\n("+hx+":"+hy+")"+" \n ID: 666\n" + visible);
+					}
+					else
+					{
+						infoText.SetText("\n("+hx+":"+hy+")"+"\nID:"+gracz.Id+"\nPid:"+gracz.Pid+"\n" + visible);
+						
+					}
+				}
+				else 
+				{
+					infoText.SetText("\n("+hx+":"+hy+")"+"\nItem:"+ziemia.GetProtoId() + "\n" + visible);
+				}
+			}
+		}
+	}
+
+	uint16  hx;
+	uint16  hy;
+}
+
+void InitDateTime()
+{
+	@serverInfo = GUI_AddText(CLIENT_MAIN_SCREEN_GAME, "FOnline: Reloaded", 0,0).AbsolutePosition(__ScreenWidth-115, 5).TextBoxSize(180, 40).Visible(true);
+
+	string dateTime;
+	dateTime=DateTimeToString(__FullSecond);
+	@dateTimeMessage = GUI_AddText(CLIENT_MAIN_SCREEN_GAME, dateTime, 0,0).AbsolutePosition(__ScreenWidth-101, 20).TextBoxSize(180, 40).Visible(true);
+}
+
+void UpdateDateTime()
+{
+	string dateTime;
+	dateTime=DateTimeToString(__FullSecond);
+	dateTimeMessage.SetText(dateTime);
+}
+
+
+//void InitBaryScreen(IClientAccessLevelOpt@ ac)
+//{
+//	@accessControll = ac;
+//	autoAimMode = 0;
+//
+//	
+//	@offtopLockInfoMessage = GUI_AddText(CLIENT_MAIN_SCREEN_GAME, "Out of character", 0,0)
+//		//.AbsolutePosition(true)
+//		.AbsolutePosition(__ScreenWidth-120, 45)
+//		.TextBoxSize(180, 40)
+//		.Visible(false);
+//	
+//	RuchyMyszy dupa();
+//
+//	@autoAimInfoText =  GUI_AddText(CLIENT_MAIN_SCREEN_GAME, "", 0, 0)
+//		.AbsolutePosition(__ScreenWidth-170, 10) 
+//		.TextBoxSize(160, 50);
+//
+//
+//
+//	@infoText = GUI_AddText(CLIENT_MAIN_SCREEN_GAME, "", 0, 0)
+//		.AbsolutePosition(__ScreenWidth-80, 10) //pozycjana ekranie
+//		.TextBoxSize(70, 50) //wielkosc obszaru tekstu
+//		.CallbackMouseMove(dupa);
+//	
+//	autoAimTexts.resize(10);							
+//	string aimModeTitleText = GetMsgStr(TEXTMSG_COMBAT, STR_AIM_LOCATION);
+//	autoAimTexts[HIT_LOCATION_HEAD] = "" + aimModeTitleText + ": " + GetMsgStr(TEXTMSG_COMBAT, STR_AIM_LOCATION_HEAD);
+//	autoAimTexts[HIT_LOCATION_LEFT_ARM] = "" + aimModeTitleText + ": " + GetMsgStr(TEXTMSG_COMBAT, STR_AIM_LOCATION_LEFT_ARM);
+//	autoAimTexts[HIT_LOCATION_RIGHT_ARM] = "" + aimModeTitleText + ": " + GetMsgStr(TEXTMSG_COMBAT, STR_AIM_LOCATION_RIGHT_ARM);
+//	autoAimTexts[HIT_LOCATION_TORSO] = "" + aimModeTitleText + ": " + GetMsgStr(TEXTMSG_COMBAT, STR_AIM_LOCATION_TORSO);
+//	autoAimTexts[HIT_LOCATION_RIGHT_LEG] = "" + aimModeTitleText + ": " + GetMsgStr(TEXTMSG_COMBAT, STR_AIM_LOCATION_RIGHT_LEG);
+//	autoAimTexts[HIT_LOCATION_LEFT_LEG] = "" + aimModeTitleText + ": " + GetMsgStr(TEXTMSG_COMBAT, STR_AIM_LOCATION_LEFT_LEG);
+//	autoAimTexts[HIT_LOCATION_EYES] = "" + aimModeTitleText + ": " + GetMsgStr(TEXTMSG_COMBAT, STR_AIM_LOCATION_EYES);
+//	autoAimTexts[HIT_LOCATION_GROIN] = "" + aimModeTitleText + ": " + GetMsgStr(TEXTMSG_COMBAT, STR_AIM_LOCATION_GROIN);
+//}
+
+void setOfftopLockMessageVisible(bool show)
+{
+	offtopLockInfoMessage.Visible(show);
+}
+
+void setAutoAimMode(uint8 key)
+{
+	if(notAimAllowed())
+	{
+		autoAimMode=NONE;
+		updateAimText();
+		return;
+	}
+
+	if(key==DIK_Y)
+	{
+		setAimLocation(EYES, HEAD);
+	}
+	else if(key==DIK_U)
+	{
+		setAimLocation(LEFT_ARM, RIGHT_ARM);
+	}
+	else if(key==DIK_H)
+	{
+		setAimLocation(LEFT_LEG, RIGHT_LEG);
+	}
+	else if(key==DIK_J)
+	{
+		setAimLocation(GROIN, TORSO);
+	}
+
+	updateAimText();
+}
+
+uint8 getAutoAimMode()
+{
+	if(notAimAllowed())
+	{
+		autoAimMode=NONE;
+		updateAimText();
+	}
+
+	return autoAimMode;
+}
+
+// private:
+
+bool notAimAllowed()
+{
+	CritterCl@ chosen = GetChosen();
+	if(chosen.Trait[TRAIT_FAST_SHOT]!=0) return true;
+	ItemCl@[] items;
+	uint count = chosen.GetItems(SLOT_HAND1,items);
+	if(count==1)
+	{
+		const ProtoItem@ bron= items[0].Proto;
+		if((items[0].Mode == 0 &&  !bron.Weapon_Aim_0) || (items[0].Mode == 1 &&  !bron.Weapon_Aim_1) || (items[0].Mode == 2 &&  !bron.Weapon_Aim_2) ) 
+		{
+			return true;
+		}
+		
+	}
+	return false;
+}
+
+void updateAimText()
+{
+	autoAimInfoText.SetText(autoAimTexts[autoAimMode]);
+	int tw=0;
+	int th=0;
+	int lines=0;
+	string tekst = autoAimTexts[autoAimMode];
+	GetTextInfo(tekst, 200, 300, FONT_FALLOUT, 0, tw, th, lines);
+	//Message("tw: "+tw +":"+th +":"+lines+":"+tekst );
+	autoAimInfoText.AbsolutePosition(__ScreenWidth-5-tw, 10);
+}
+
+void setAimLocation(uint8 LOC_1, uint8 LOC_2)
+{
+	if(autoAimMode==LOC_1) autoAimMode=LOC_2;
+	else  if(autoAimMode==LOC_2) autoAimMode=NONE;
+	else autoAimMode=LOC_1;
+}
+
+//class AimLocationSetter : Action
+//{
+//	AimLocationSetter(uint8 aimLoc)
+//	{
+//		this.aimLoc = aimLoc;
+//	}
+//
+//	void Execute()
+//	{
+//		Message("Using hotkey: Aim mode");
+//
+//		if(notAimAllowed())
+//		{
+//			autoAimMode=NONE;
+//			updateAimText();
+//			return;
+//		}
+//
+//		if(autoAimMode==aimLoc) autoAimMode = NONE;
+//		else autoAimMode = aimLoc;
+//
+//		updateAimText();
+//	}
+//
+//	uint8 aimLoc;
+//}
+
+//Action@ getAimAction(uint8 locId)
+//{
+//	return @AimLocationSetter(locId);
+//}
+
+
+
+
+
+

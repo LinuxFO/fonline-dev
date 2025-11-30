@@ -1,0 +1,64 @@
+[comment]
+
+
+[data]
+lang=engl
+
+[dialog]
+&
+1 1000 None 0 #
+2 1010 D _var p acquaintance = 0 #
+4 1020 D _var p acquaintance = 1 @
+2 2000 None 0 #
+65506 2010 #
+5 2020 D _param p ST_LEVEL > 26 D _var p acquaintance = 0 R _var p acquaintance = 1 #
+3 2030 @
+3 3000 None 0 @
+4 4000 None 0 #
+6 4010 D _item p PID_PASSWORD_PAPER > 0 R _item p PID_PASSWORD_PAPER - 1 R _script dialog@r_AddMoney 1 10000 R _script dialog@r_AddExperience 1 10000 #
+8 4020 D _item p PID_TORN_PAPER_1 > 0 D _script dialog@d_CommonTimeoutReady 0  R _item p PID_TORN_PAPER_1 - 1 R _script dialog@r_CommonTimeout 1 4 R _script dialog@r_AddMoney 1 20000 R _script dialog@r_AddExperience 1 10000 #
+8 4030 D _item p PID_TORN_PAPER_2 > 0 D _script dialog@d_CommonTimeoutReady 0  R _item p PID_TORN_PAPER_2 - 1 R _script dialog@r_CommonTimeout 1 4 R _script dialog@r_AddMoney 1 20000 R _script dialog@r_AddExperience 1 10000 #
+6 4040 D _item p PID_TORN_PAPER_3 > 0 D _script dialog@d_CommonTimeoutReady 0  R _item p PID_TORN_PAPER_3 - 1 R _script dialog@r_CommonTimeout 1 4 R _script dialog@r_AddMoney 1 10000 R _script dialog@r_AddExperience 1 10000 #
+65506 4050 #
+5 4060 @
+5 5000 None 0 #
+7 5010 @
+6 6000 None 0 #
+4 6010 #
+4 6020 #
+0 6030 @
+7 7000 None 0 @
+8 8000 None 0 #
+4 8010 #
+0 8020 &
+
+[engl]
+{100}{}{Emma Wattz}
+{200}{}{You see Emma Wattz, the local energy weapons vendor of the NCR.}
+{210}{}{She looks like a pretty combination of a madscientist and a techno geek. Head to toe even her glasses look augmented. Most of her left arm is mechanical and scrapped together by pre-war Vault-tec hardware.}
+{1000}{}{Predialogue installations}
+{1010}{}{not known}
+{1020}{}{known}
+{2000}{}{Well, lucky me! Another customer. What can ol' Emma Wattz do for ya today? }
+{2010}{}{Just looking to barter, Emma. [Barter]}
+{2020}{}{You said that you might have something for me? I might just be interested.}
+{2030}{}{Nothing right now, but maybe later.}
+{3000}{}{Come by later, I might have something new for ya.}
+{4000}{}{I knew ya'd be back, vault dweller! What can ol' Emma Wattz do for ya today?}
+{4010}{}{I found these strange looking login papers over at some random military installation. You interested?}
+{4020}{}{I found this in a safe, over at Ares. I think they're login passwords. Do you want them?}
+{4030}{}{I found a strange set of old looking computer passwords over at the Glow. Want to take a look?}
+{4040}{}{Interested in what I found inside of the old Sierra Army Depot? It looks like some sort of login paper.}
+{4050}{}{Just looking to barter, Emma. [Barter]}
+{4060}{}{Nothing right now, but maybe later.}
+{5000}{}{Come an' a find me if ya ever find any strange notes out there in the wasteland. You know? Computer stuff... codes, plans, whatever. I can use 'em. I'll even buy them off you and share a little bit of the experience going over them with you.}
+{5010}{}{Hmm, interesting. I usually don't even bother with that sort of stuff. I'll talk to you later, Emma.}
+{6000}{}{Oh, my, God! Yes! This is exactly the type of thing I'm interested in! These aren't just login papers, they're snippets of code for pre-war blueprints!  Here! Take this reward! Keep 'em coming! These are worth more than their weight in gold! [She smilles beautifully]}
+{6010}{}{I might have some more of these papers, let me take a look...}
+{6020}{}{There's something else I wanted to ask you...}
+{6030}{}{Sure, no problem! Thanks for the caps, Emma. See you around,}
+{7000}{}{See ya around, vault dweller!}
+{8000}{}{Oh, my, God! Yes! This is exactly the type of thing I'm interested in! Here! Take this reward of 20,000 caps! Come back in four hours after I've done studying it and I might just buy another. [She smilles beautifully]}
+{8010}{}{There's something else I wanted to ask you...}
+{8020}{}{Sure, no problem! Thanks for the caps, Emma. See you around,}
+

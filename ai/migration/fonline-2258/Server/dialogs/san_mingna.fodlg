@@ -1,0 +1,64 @@
+[comment]
+
+
+[data]
+lang=engl
+
+[dialog]
+&
+1 1000 None 0 #
+2 1010 D _var p name_mem_npc_player = 0 D _var p san_mingna = 0 #
+5 1020 D _var p name_mem_npc_player = 1 D _var p san_mingna = 0 #
+9 1030 D _var p name_mem_npc_player = 1 D _var p san_mingna = 1 @
+2 2000 None 0 #
+3 2010 #
+0 2020 @
+3 3000 None 0 #
+4 3010 R _var p name_mem_npc_player = 1 @
+4 4000 None 0 @
+5 5000 None 0 #
+8 5010 D _var p name_mem_npc_player = 1 D _var p san_bancq = 5 D _var p san_mingna = 0 #
+7 5020 #
+6 5030 #
+0 5040 @
+6 6000 None 0 @
+7 7000 None 0 @
+8 8000 None 0 #
+0 8010 R _var p san_mingna = 1 #
+0 8020 R _var p san_mingna = 1 @
+9 9000 None 0 #
+10 9010 D _item p PID_METAL_PARTS2 > 39 R _item p PID_METAL_PARTS2 - 40 R _script dialog@r_AddExperience 1 4000 R _script dialog@r_AddMoney 1 2000 R _script dialog@r_BulkOrderRewardJunk 0  R _var p q_merchant + 1 #
+10 9020 D _item p PID_GUNPOWDER2 > 39 R _item p PID_GUNPOWDER2 - 40 R _script dialog@r_AddExperience 1 4000 R _script dialog@r_AddMoney 1 2000 R _script dialog@r_BulkOrderRewardJunk 0  R _var p q_merchant + 1 #
+0 9030 @
+10 10000 None 0 &
+
+[engl]
+{100}{}{Ming-Na Wen}
+{200}{}{You see Ming-Na Wen}
+{210}{}{You see a spaced out happy go lucky woman.}
+{1000}{}{Predialogue installations}
+{1010}{}{unknown}
+{1020}{}{known}
+{1030}{}{return}
+{2000}{}{[She pays almost no attention to you as she gazes into the distance] Hello traveller, I do not have time for you right now. The ambient auras. and I, are communicating in harmonious bliss.}
+{2010}{}{But I...}
+{2020}{}{[Smile, nod, and walk away]}
+{3000}{}{[She continues to gaze into the great wide open] Shhhhh..... Perhaps you should seek out others in need. I may be in need of you later, but for now, all I seek is the wave of auras radiating amongst us all. }
+{3010}{}{I'll keep that in mind... and let you do your... thing...}
+{4000}{}{Amh Mi Sah Ko.}
+{5000}{}{[She stares at you with a vacant look in her eyes] I sense a soul in search of answers.}
+{5010}{}{Ban Chao has asked me to help out around town, I was wondering if you were in need of assistance.}
+{5020}{}{No, not answers, just work.}
+{5030}{}{Yes, I seek the answers.}
+{5040}{}{No time for crazy.}
+{6000}{}{[She stares deep, deep into your soul as she whispers] The answers lie in yesterday. Before they had the war.}
+{7000}{}{[Her head dips back and she's gone] For only the answers lie before you, the quest has not yet been fulfilled.}
+{8000}{}{[Her demeanor completely changes] Ban Chao you say? Then yes, I will be in need of your assistance. I require either 40x Good Metal Parts, or 40x Advanced Gunpowder. Bring them to me in exchange for compensation.}
+{8010}{}{No problem, I'll be back soon.}
+{8020}{}{I'll think about it.}
+{9000}{}{[She stares at you with a vacant look in her eyes] I sense a soul in search of... Oh, it's you, have you returned with 40x Good Metal Parts, or 40x Advanced Gunpowder?}
+{9010}{}{Yeah, I got them right here. [Hand over Good Metal Parts]}
+{9020}{}{Yeah, I got them right here. [Hand over Advanced Gunpowder]}
+{9030}{}{Sorry, not yet. Maybe I'll be back.}
+{10000}{}{We appreciate your patronage. The stars are aligning quite well.}
+

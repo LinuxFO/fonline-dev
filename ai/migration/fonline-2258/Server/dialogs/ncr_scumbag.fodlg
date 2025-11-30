@@ -1,0 +1,184 @@
+[comment]
+
+
+[data]
+lang=engl russ
+
+[dialog]
+&
+1 1000 None 0 #
+2 1010 #
+20 1020 D _var p ncr_investigation1 } 4 @
+2 2000 None 0 #
+3 2010 #
+4 2020 D _var p ncr_investigation1 = 3 #
+0 2030 @
+3 3000 None 0 #
+0 3010 @
+4 4000 None 0 #
+8 4010 #
+6 4020 #
+5 4030 #
+5 4040 @
+5 5000 None 0 @
+6 6000 None 0 #
+7 6010 @
+7 7000 None 0 @
+8 8000 None 0 #
+9 8010 @
+9 9000 None 0 #
+10 9010 @
+10 10000 None 0 #
+11 10010 @
+11 11000 None 0 #
+12 11010 @
+12 12000 None 0 #
+13 12010 @
+13 13000 None 0 #
+14 13010 #
+14 13020 #
+14 13030 @
+14 14000 None 0 #
+15 14010 @
+15 15000 None 0 #
+15 15010 D _param n ST_CURRENT_HP > 0 R _param n ST_CURRENT_HP - 1 #
+16 15020 @
+16 16000 None 0 #
+17 16010 @
+17 17000 None 0 #
+18 17010 R _var p ncr_investigation1 = 4 R _var p CRIM - 1 R _script dialog@r_PlaySoundGun 1 2 R _script dialog@r_NinjaKillNpc 1 117 #
+19 17020 R _item p PID_BEER + 1 R _param p ST_KARMA + 1 R _var p ncr_investigation1 = 4 R _var p LAW + 1 @
+18 18000 None 0 #
+0 18010 @
+19 19000 None 0 #
+0 19010 @
+20 20000 None 0 #
+0 20010 &
+
+[engl]
+{100}{}{Sleazee Mcgee}
+{200}{}{You see a sleazy looking man in a nice suit.}
+{210}{}{Even with all that snazz he still looks like a real bastard.}
+{1000}{}{Predialogue installations}
+{1010}{}{base}
+{1020}{}{aa}
+{2000}{}{[He's leaning against the wall, flicking a cap around, and gawking at the women]}
+{2010}{}{What are you selling?}
+{2020}{}{Know anything about a sex trade?}
+{2030}{}{[Just leave]}
+{3000}{}{[He laughs] My dick! You want a taste? Beat it.}
+{3010}{}{[Leave]}
+{4000}{}{[He flashes you a big smile] Hey sex trade? That sounds kinky, whatchu' got? }
+{4010}{}{[Grab him by the collar] I'm talking about innocent girls getting lied to and raped. You look like the kind of man that might be interested in shit like that. }
+{4020}{}{Well, I hear someone's trying to convince pretty girls to go down East with them and become a dancer.}
+{4030}{}{Heard anything about it? I'm looking to score.}
+{4040}{}{Nothing man, whatchu got?}
+{5000}{}{Ah man, nothing, nothing. Just scooping for chicks here, man. So bent. Ain't nothing happening in this joint.}
+{6000}{}{[He laughs] They got dancing down East? Far out man! Surfs up, eh dude? Haha!}
+{6010}{}{You haven't heard anything like this before?}
+{7000}{}{Nah man, ain't no waves no more. Ain't nothing. }
+{8000}{}{[The man is shaking in fear like a child] Whoa man! Whoa! I don't know nothing!}
+{8010}{}{Nah! You're a piece of shit! You must know something! Come on shit! Tell me it! Anything!}
+{9000}{}{[You can see true fear in the man's eyes, but you aren't sure if you like it] I know you're crazy! Help me! Someone! }
+{9010}{}{Who's your fucking mother? Tell me that much.}
+{10000}{}{[He spits] Fuck you!}
+{10010}{}{Does she know you like raping little girls? [Punch him]}
+{11000}{}{[You break one of his lacrimal bones. He cries] You're a cop, aren't you! Oh fuck me! I don't know nothing, officer! I didn't do nothing! }
+{11010}{}{Every time I try to ask one of you scumbags a question it always ends up being full of shit. The only thing you fuck heads ever understand is pain. Now unless you want to feel a lot more of it you better start talking.}
+{12000}{}{[The man gently whimpers] Oh God, man. Okay! Okay! I'm working here, but I don't know nothing about rape, okay?! }
+{12010}{}{We'll see about that! }
+{13000}{}{[He's shaking] What do you want to know?}
+{13010}{}{Who do you work for? I'll beat you to death if you lie to me.}
+{13020}{}{What are you doing in NCR? You can lie to me, and I'll enjoy beating you to death.}
+{13030}{}{Tell me everything you know about this fucking sex trade, and I'll consider not killing you out of anger.}
+{14000}{}{[He seems hesitant to answer] }
+{14010}{}{[Punch him in the ribs]}
+{15000}{}{[You hear a faint crack and a loud whimper] }
+{15010}{}{[Punch him again]}
+{15020}{}{I can do this all day, buyo. I'm a fucking professional.}
+{16000}{}{[You hear crying] I don't know which death is worse, them or you!}
+{16010}{}{I don't care. I'll enjoy it more. [Punch him in the ribs again]}
+{17000}{}{[You've beaten the poor man to the point of hospitalization. Are you a detective? Or a thug? Is this police work? You really aren't sure, you never had any training. They just gave you a badge and called you a hero. The young man coughs up blood, and says] It's a gang okay! They take girls and they sell them! It's ran by four guys from the East, been doing it for years. They've got a camp a few days out, I'll... I'll show you the location. Just please! Kill them! But don't kill me! Lock me up! But please! Don't kill me! Please!}
+{17010}{}{Not a chance! You dirty, lying son of a fucking bitch! [Shoot him in the face]}
+{17020}{}{I'll let the NCR decide what to do with you.}
+{18000}{}{[The blood splatters across the bar and the bartender yells at you wrecklessly. You've managed to show the people of NCR that justice is a disgusting thing, but they seem to understand how cruel things can get] }
+{18010}{}{[Walk off into the sunset. You've got people to kill]}
+{19000}{}{[The crowd cheers your name and hails you as a hero for letting him live. Across the bar, the bartender pours you a drink. You've managed to show the people of NCR that justice is a fucking champion, something people haven't seen in a long time] }
+{19010}{}{[Walk off into the sunset. You've got people to kill]}
+{20000}{}{[There's a pool of blood here, and the memory of a man you beat the crap out of for justice. Or did you kill him?]}
+{20010}{}{[Stare at the blood for a while, then walk away]}
+{100000001}{}{Better wash the counter again...}
+{100000002}{}{That's 5 caps buddy. Hey did you hear me? Cough em' up.}
+{100000003}{}{Better change the keg...}
+{100000004}{}{RotGut? You drink that shit?}
+{100000005}{}{Domestic? I got B.E.E.R buddy, do you want one or not?}
+{100000006}{}{Fuckin' dust is getting everywhere. Hey close the fuckin' door!}
+{100000007}{}{I swear if the next asshole doesn't tip. Ima' shoot somebody!}
+{100000008}{}{I got bottles, I got shots, and I got a bat behind the counter for the retards. Your not a retard are you?}
+{100000009}{}{Uh-huh, yeah that's nice buddy. You don't say...What? Of course I'm listening...}
+{100000010}{}{That's 5 caps. FIVE CAPS Tribal! F.I.V.E! }
+{100000011}{}{Shut up and order a fuckin' beer already!}
+{100000012}{}{I swear if I have to serve another drunk, I'm getting the shotgun!}
+{100000013}{}{Look the keg went dry, and it's going to be another month until the caravan shows up again.}
+{100000014}{}{Really? You don't say, buy another drink or get out!}
+{100000015}{}{What? I'm on break.}
+{100000016}{}{Be right with ya'}
+{100000017}{}{Have a sit stranger. I'll be with you in a moment.}
+{100000018}{}{When do we close? Uh, when the place get's shot up, that's when!}
+{100000019}{}{We're fresh outta' cold beer, sorry. You'll just have to drink it warm.}
+{100000020}{}{RotGut? No man, go make that shit yourself! I wouldn't drink it!}
+
+[russ]
+{100}{}{Алкоголик}
+{200}{}{Вы видите пьяницу.}
+{210}{}{Вы видите шатающегося из стороны в сторону пьяного человека в лохмотьях. Лицо его распухло, нос синющий как слива. А аромат рядом с ним такой, что свалит брамина насмерть. Он что-то бормочет про себя и иногда громко поет песни.}
+{210}{}{Вы видите алкаша. Он весьма грязен - кажется, он повалялся в луже, но не особо этим расстроен.}
+{1000}{}{I?aaaeaeiaiaua onoaiiaee}
+{1010}{}{base}
+{1020}{}{aa}
+{2000}{}{Dialog text}
+{2010}{}{Who are you?}
+{2020}{}{I'm Detective @pname@. Know anything about a sex trade?}
+{2030}{}{[Just leave]}
+{3000}{}{I'm a detective for the NCR, what do you want?}
+{3010}{}{Oh, nothing. Just looking around.}
+{4000}{}{[He flashes you a big smile] Hey sex trade? That sounds kinky, whatchu' got? }
+{4010}{}{[Grab him by the collar] I'm talking about innocent girls getting lied to and raped. You look like the kind of man that might be interested in shit like that. }
+{4020}{}{Well, I hear someone's trying to convince pretty girls to go down East with them and become a dancer.}
+{4030}{}{Heard anything about it? I'm looking to score.}
+{4040}{}{Nothing man, whatchu got?}
+{5000}{}{[He looks pretty down] Ah man, nothing, nothing. Just scooping for chicks here, man. So bent. Ain't nothing happening in this joint.}
+{6000}{}{[He laughs] They got dancing down East? Far out man! Surfs up, eh dude? Haha!}
+{6010}{}{You haven't heard anything like this before?}
+{7000}{}{Nah man, ain't no waves no more. Ain't nothing. }
+{8000}{}{[The man is shaking in fear like a child] Whoa man! Whoa! I don't know nothing!}
+{8010}{}{Nah! You're a piece of shit! You must know something! Come on shit! Tell me it! Anything!}
+{9000}{}{[You can see true fear in the man's eyes, but you aren't sure if you like it] I know you're crazy! Help me! Someone! }
+{9010}{}{Who's you fucking mother? Tell me that much.}
+{10000}{}{[He spits] Fuck you!}
+{10010}{}{Does she know you like raping little girls?}
+{11000}{}{[You break one of his lacrimal bones. He cries] You're a cop, aren't you! Oh fuck me! I don't know nothing, officer! I didn't do nothing! }
+{11010}{}{Everytime I try to ask one of you scum bags a question it always ends up being full of shit. The only thing you fuck heads ever understand is pain. Now unless you want to feel a lot more of it you better start talking.}
+{12000}{}{[The man gently whimpers] Oh God, man. Okay! Okay! I'm working here, but I don't know nothing about rape, okay?! }
+{12010}{}{We'll see about that! }
+{13000}{}{[He's shaking] What do you want to know?}
+{13010}{}{Who do you work for? I'll beat you to death if you lie to me.}
+{13020}{}{What are you doing in NCR? You can lie to me, and I'll enjoy beating you to death.}
+{13030}{}{Tell me everything you know about this fucking sex trade, then I'll consider not killing you out of anger.}
+{14000}{}{[He seems hesitant to answer] }
+{14010}{}{[Punch him in the ribs]}
+{15000}{}{[You hear a faint crack and a loud whimper] }
+{15010}{}{[Punch him again]}
+{15020}{}{I can do this all day.}
+{16000}{}{[You hear crying] I don't know which death is worse, them or you!}
+{16010}{}{I don't care. I'll enjoy it more. [Punch him in the ribs]}
+{17000}{}{[You've beaten the poor man to the point of hospitalization. Are you a detective? Or a thug? Is this police work? You really aren't sure, you never had any training. They just gave you a badge and called you a hero. The young man coughs up blood, and says] It's a gang okay! They take girls and they sell them! It's ran by four guys from the East, been doing it for years. They've got a camp a few days out, I'll... I'll show you the location. Just please! Kill them! But don't kill me! Lock me up! But please! Don't kill me! Please!}
+{17010}{}{No chance [Shoot him]}
+{17020}{}{I'll let the NCR decide what to do with you.}
+{18000}{}{[The blood splatters across the bar and the bartender yells at you wrecklessly. You've managed to show the people of NCR that justice is a disgusting thing, but they seem to understand how cruel things can get] }
+{18010}{}{[Walk off into the sunset. You've got people to kill]}
+{19000}{}{[The crowd cheers your name and hails you as a hero for letting him live. Across the bar, the bartender pours you a drink. You've managed to show the people of NCR that justice is a fucking champion, something people haven't seen in a long time] }
+{19010}{}{[Walk off into the sunset. You've got people to kill]}
+{20000}{}{[There's a pool of blood here, and the memory of a man you beat the crap out of for justice. Or did you kill him?]}
+{20010}{}{[Stare at the blood for a while, then walk away]}
+

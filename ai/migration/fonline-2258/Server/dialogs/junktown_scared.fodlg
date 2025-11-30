@@ -1,0 +1,38 @@
+[comment]
+
+
+[data]
+lang=engl
+
+[dialog]
+&
+1 1000 None 0 #
+2 1010 @
+2 2000 None 0 #
+3 2010 D _var p junktown_monsters = 2 D _item p PID_BOTTLE_CAPS > 4 D _var p name_mem_npc_player = 0 R _item p PID_BOTTLE_CAPS - 5 #
+4 2020 D _var p junktown_monsters = 2 D _item p PID_BEER > 0 @
+3 3000 None 0 #
+5 3010 @
+4 4000 None 0 #
+0 4010 @
+5 5000 None 0 #
+6 5010 R _var p name_mem_npc_player = 1 R _script dialog@r_AddExperience 1 175 R _param p ST_KARMA + 1 @
+6 6000 None 0 &
+
+[engl]
+{100}{}{Zechariah}
+{200}{}{You see babbling lunatic.}
+{210}{}{Whatever happened to him, he'll probably never recover from. He's not too far gone, but you wonder how long that will last?}
+{1000}{}{Predialogue installations}
+{1010}{}{Answer text}
+{2000}{}{... deep into hell I have seen. The devil laughing on my way there!@@Wings! Wings! Birds can all go to hell! One day I'll grow wings. I'll fly away.@@Darkness beckons me! Beckons me to anger! There is something out there! Killing us! It's killing us!@@Don't tell me to shut up! You people never listen! Something is coming! It's coming for us all! You people are fools! You'll see!@@You'll all see! You will! Darkness is coming! When the sun goes out, it will prey! It will consume us all!@@You there! Leave this cursed city before The Night Terror claims you as well!@@The Night Terror is real!@@It's coming from the depths of hell! You sinners! Suffer in it's fangs! Be bound to the chaos!@@Ah shit... I'm out of beer... Anybody want to buy me one? Come on! You bastards! I'm preaching for you, not for me!}
+{2010}{}{I'll buy you a beer. What's your story, pal?}
+{2020}{}{Here, have a beer.}
+{3000}{}{You're too kind. Maybe the monster won't try to eat your soul. These assholes for sure. But you? I don't know... Thanks, friend.}
+{3010}{}{What's all this about a monster? }
+{4000}{}{No thank you. I only drink that Canadian Cream Ale. It's made at the local brewery across the street. Damn delicious. Once you try a glass, you'll never drink anything else. It's sad, but you know, once a man finds a good beer, he'll move mountains for it!}
+{4010}{}{Those crazy canucks.}
+{5000}{}{Oh man! There's a fucking devil out there, it's snatching people away at night and eating their hearts!}
+{5010}{}{Are you the guy that spoke to the old woman late at night recently?}
+{6000}{}{What? No. I stay away from that fucking witch! You just gotta listen to me man! I can hear things out there at night. Put your ear to one of the walls, and listen! You'll hear the fucking devil!}
+

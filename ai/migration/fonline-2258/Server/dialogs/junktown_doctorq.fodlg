@@ -1,0 +1,222 @@
+[comment]
+
+
+[data]
+lang=engl
+
+[dialog]
+&
+1 1000 None 0 #
+2 1010 D _var p name_mem_npc_player = 0 D _var p junk_doctoring = 0 #
+4 1020 D _var p name_mem_npc_player = 1 D _var p junk_doctoring = 0 #
+22 1030 D _var p junk_doctoring = 1 #
+34 1040 D _var p junk_doctoring = 2 #
+35 1050 D _var p junk_doctoring = 3 #
+35 1060 D _var p junk_doctoring = 4 @
+2 2000 None 0 #
+3 2010 D _var p name_mem_npc_player = 0 D _param p ST_KARMA { 1 R _var p name_mem_npc_player = 1 R _param p ST_KARMA - 1 R _param p REPUTATION_JUNKTOWN - 50 #
+6 2020 #
+5 2030 @
+3 3000 None 0 @
+4 4000 None 0 #
+65507 4010 #
+0 4020 @
+5 5000 None 0 @
+6 6000 None 0 #
+7 6010 @
+7 7000 None 0 #
+8 7010 @
+8 8000 None 0 #
+9 8010 #
+10 8020 #
+11 8030 #
+12 8040 #
+13 8050 #
+65507 8060 R _var p name_mem_npc_player = 1 R _param p REPUTATION_JUNKTOWN - 30 R _param p ST_KARMA - 3 #
+5 8070 @
+9 9000 None 0 #
+14 9010 #
+8 9020 @
+10 10000 None 0 #
+8 10010 @
+11 11000 None 0 #
+8 11010 @
+12 12000 None 0 #
+8 12010 @
+13 13000 None 0 #
+8 13010 @
+14 14000 None 0 #
+15 14010 @
+15 15000 None 0 #
+18 15010 D _param p SK_DOCTOR > 49 #
+16 15020 @
+16 16000 None 0 #
+17 16010 D _item p PID_BOTTLE_CAPS > 9999 R _item p PID_BOTTLE_CAPS - 10000 R _param p ST_KARMA + 1 #
+0 16020 @
+17 17000 None 0 @
+18 18000 None 0 #
+20 18010 #
+20 18020 D _param p SK_DOCTOR > 124 @
+20 19000 None 0 #
+21 19010 #
+0 19020 @
+21 20000 None 0 #
+0 20010 R _var p junk_doctoring = 1 @
+22 21000 None 0 #
+23 21010 D _item p PID_DOCTORS_BAG > 0 D _item p PID_FIRST_AID_KIT > 0 #
+0 21020 @
+23 22000 None 0 #
+24 22010 #
+24 22020 #
+24 22030 #
+24 22040 #
+65507 22050 R _var p junk_doctoring = 0 R _var p name_mem_npc_player = 1 R _param p ST_KARMA - 10 R _param p REPUTATION_JUNKTOWN - 100 R _param p KILL_CHILDREN + 1 @
+24 23000 None 0 #
+27 23010 #
+26 23020 #
+25 23030 #
+32 23040 D _param p SK_DOCTOR > 199 @
+25 24000 None 0 #
+30 24010 R _item p PID_DOCTORS_BAG - 1 R _item p PID_FIRST_AID_KIT - 1 #
+31 24020 #
+28 24030 R _item p PID_DOCTORS_BAG - 1 R _item p PID_FIRST_AID_KIT - 1 @
+26 25000 None 0 #
+24 25010 #
+24 25020 #
+24 25030 #
+24 25040 #
+32 25050 D _script dialog@d_RandomPercent 1 50 @
+27 26000 None 0 #
+32 26010 D _param p SK_DOCTOR > 59 #
+24 26020 #
+24 26030 #
+24 26040 #
+24 26050 #
+24 26060 @
+28 27000 None 0 #
+29 27010 @
+29 28000 None 0 @
+30 29000 None 0 #
+29 29010 @
+31 30000 None 0 #
+24 30010 #
+24 30020 #
+24 30030 #
+24 30040 #
+32 30050 D _script dialog@d_RandomPercent 1 50 @
+32 31000 None 0 #
+33 31010 @
+33 32000 None 0 #
+0 32010 R _var p junk_doctoring = 2 R _script dialog@r_AddExperience 1 1000 R _param p ST_KARMA + 1 R _param p REPUTATION_JUNKTOWN + 30 @
+34 33000 None 0 @
+35 34000 None 0 &
+
+[engl]
+{100}{}{Frier}
+{200}{}{You see a tired looking father.}
+{210}{}{He's holding his daughter's hand. He looks concerned.}
+{1000}{}{Predialogue installations}
+{1010}{}{Answer text}
+{1020}{}{bad}
+{1030}{}{start}
+{1040}{}{2}
+{1050}{}{3}
+{1060}{}{4}
+{2000}{}{Hello, @sex@|son.||hun.| Hope you aren't here to scare the children, heh. [He looks a little uneasy]}
+{2010}{}{No, I'm just here to scare you! What's your kid worth to you in bottle caps?}
+{2020}{}{Oh, no, no. My name's @pname@, just wandering around.}
+{2030}{}{Sorry, didn't been to bother you.}
+{3000}{}{You come any closer, and I'll blow you away! Sheriff! Need some help over here!}
+{4000}{}{I warned you once! Don't make me do it again! Get out of here!@@You want to eat some bullets?!@@ I'm running out of patience with you!@@Try to hurt my kids, eh?!}
+{4010}{}{I guess I'll just have to kill you now, then your kids.}
+{4020}{}{Fine! I'm leaving.}
+{5000}{}{Take care.}
+{6000}{}{Nice to meet you, @pname@. I'm Frier, this here is my daughter Linda. My wife, Marie, is over there by the bookshelf [Marie] Hi, @pname@! Welcome to Junktown.}
+{6010}{}{Thanks, people sure are friendly around here. Has it always been like this?}
+{7000}{}{You hear stories, nothing too bad. Casino used to be run by some kind of thug. Till' some Vault Dweller came by, or something. You ever seen that statue in NCR?}
+{7010}{}{Uh, yeah, sure. Whatever.}
+{8000}{}{That Vault Dweller sure was a hero, wasn't he? I wish my kids knew what it was like to grow up in a vault. Hell, play my cards right, and they might be little heroes themselves some day.}
+{8010}{}{How many kids do you have?}
+{8020}{}{What's it like living in Junktown?}
+{8030}{}{Who's this Darkwater guy?}
+{8040}{}{What's with those tents in the front of town?}
+{8050}{}{Tell me about the casino. What do you know?}
+{8060}{}{[Start punching the man]}
+{8070}{}{Thanks for the chat, but I'd better get going. Goodbye. Bye, kids!}
+{9000}{}{Ah, two boys, two girls. Handful. Sure wish that damn doctor didn't charge as much.}
+{9010}{}{Doctor?}
+{9020}{}{Too bad, let's talk about...}
+{10000}{}{Great! Except.. I don't want to say it around the kids... Critters outside, ask around. But don't talk about it around my kids, please.}
+{10010}{}{Huh, odd. Thanks.}
+{11000}{}{Darkwater? It's Killian Darkwater's son. Killian used to be the mayor before him obviously. But he helped kick out all the criminals. Junktown might be a bit boring now, but it's darn safe.}
+{11010}{}{Hmm, let's talk about...}
+{12000}{}{Uh... don't know. Guards use em', I guess. Middle one is Trent Burham. What a dic...wanker. [The children laugh, and shout] Wanker! Wanker! Daddy said wanker!}
+{12010}{}{That Vault Dweller, what was he again?}
+{13000}{}{Nice place, nothing's rigged if that's what yer' asking?}
+{13010}{}{Thanks, let's talk about...}
+{14000}{}{Dr. Lorrikin. He's the local surgeon. Charges an arm and a leg. Don't put that past him.}
+{14010}{}{Are you in need of a doctor?}
+{15000}{}{Why do you ask? Are you a doctor?}
+{15010}{}{Of course! I didn't spend ten years in medical school just to be called @sex@|sir.||ma'am.|}
+{15020}{}{No, I'm not. But I've got Stimpaks.}
+{16000}{}{Darn! Stimpaks won't save you from meningitis. I'm sorry, but I've got to go take care of my kids. It was nice to meet you, @pname@.}
+{16010}{}{Would you mind if I gave you some caps? For the kids?}
+{16020}{}{You too, goodbye.}
+{17000}{}{What is this? Ten thousand caps?! @pname@! Wow! *You* really are a vault dweller!}
+{18000}{}{Is that so? Know anything about pediactrics?}
+{18010}{}{Mostly basic interventions and disease control. I should be fine. Children and adults share the same anatomy. I can't stop genetic issues, but I'm one hell of a surgeon.}
+{18020}{}{Please! I'm a professional. What's the problem?}
+{19000}{}{Yes, yes, you might have skills. But what do you expect from all this? I can't pay you. My kids just need some decent medical care.}
+{19010}{}{Don't worry about it. It's my responsibility as a doctor. That oath I took still means something to me.}
+{19020}{}{You can't pay me? That's outrageous! I'm out of here!}
+{20000}{}{Thank you, @pname@! Why don't you go grab yourself a Doctor's Bag, and a First Aid Kit, then take a look at my four children.}
+{20010}{}{Sure thing. Just give me a moment.}
+{21000}{}{Hello, Doctor @pname@. I've got a little kid that would like to see you.}
+{21010}{}{That's great! Lie the little shin kicker down on that bed over there.}
+{21020}{}{Not right now, I'm afraid. I've got to grab my equipment.}
+{22000}{}{[Frier brings over his daughter, and asks her to lie down on the bed. After a few moments of generic medical procedure you begin to ask her some questions]}
+{22010}{}{What's your name?}
+{22020}{}{Where does it hurt?}
+{22030}{}{Do you poop a lot?}
+{22040}{}{Does your daddy touch you?}
+{22050}{}{[Take out a scalpel and ram it into her head!]}
+{23000}{}{[You ask the child a series of important questions, but get back a dumbfounded look each time]}
+{23010}{}{[Examine the child for any sprains, bruises, broken bones, fractures, etc]}
+{23020}{}{[Ask the child to cough while you examine it's chest]}
+{23030}{}{[Ask Frier if you could get a urine sample]}
+{23040}{}{Your kid is healthy. If medical school taught me anything it's how to spot the sick ones.}
+{24000}{}{[After a few minutes, Frier hands you a small cup full of the child's urine. It looks like normal, typical urine]}
+{24010}{}{[Drink the urine]}
+{24020}{}{[Smell the urine]}
+{24030}{}{[Toss the urine away]}
+{25000}{}{[The child coughs as you examine it's chest with a stethoscope. You find nothing unsual. The child appears to be fairly healthy]}
+{25010}{}{Do you smoke?}
+{25020}{}{Do a lot of running?}
+{25030}{}{Are you fairly active?}
+{25040}{}{Do you feel sick?}
+{25050}{}{You look healthy to me. Frier, your daughter is in perfect condition.}
+{26000}{}{[You poke around, gently twisting the limbs of the child to see if they are in any pain. You notice a few bruises here and there, but that's expected. Children are not as careful as adults, and tend to bruise easily due to their own stupidity]}
+{26010}{}{You look healthy to me. Frier, your daughter is in perfect condition.}
+{26020}{}{Been playing outside a lot?}
+{26030}{}{Have you ever seen a cat?}
+{26040}{}{Take a tiny fall recently?}
+{26050}{}{Where did you get these bruises from?}
+{26060}{}{[Whisper in her ear] Does your daddy hurt you?}
+{27000}{}{[You toss the cup full of piss over your shoulder, and it splashes all over your semi-sterile medical gear. Looks like you've ruined it all. You'll have to start over, and bring a new Doctor's Bag, and First Aid Kit with you]}
+{27010}{}{...}
+{28000}{}{Looks like you'll have to start over, "Doctor".}
+{29000}{}{[You take a big sip of the child's urine and have yourself a nice little refreshing beverage... Wait a minute... "This is urine!" you think! And quickly spit it out, and all over your semi-sterile medical equipment. Looks like you've ruined it all. You'll have to start over, and bring a new Doctor's Bag, and First Aid Kit with you]}
+{29010}{}{I went to medical school for ten years just to end up in some shit hole called Junktown drinking piss.}
+{30000}{}{[You smell the urine and notice absolutely nothing wrong with it. Except that it is urine]}
+{30010}{}{Have you been feeling okay?}
+{30020}{}{Would you like a sip?}
+{30030}{}{Something doesn't smell like peanut butter.}
+{30040}{}{Hmm. I don't know why I made you pee in a cup. Do you?}
+{30050}{}{You look healthy to me. Frier, your daughter is in perfect condition.}
+{31000}{}{[Frier comes over and shakes your hand as the child runs off] Thanks, @pname@. I knew she was fine, I just wanted to see how well of a doctor you were.}
+{31010}{}{That's okay. So which one of your kids actually needs a doctor?}
+{32000}{}{My son, Trinkered. He's been coughing up blood for a couple of days. Doc Lerrikin said it would cost too much to bring him to an Auto-Doc. I don't want to lose him. Why don't you go work some magic? He's over there by the bed.}
+{32010}{}{Sure. }
+{33000}{}{Have you seen my boy yet? He sure could use a doctor.}
+{34000}{}{You're doing great, @pname@! I sure am glad you became my new family doctor.}
+

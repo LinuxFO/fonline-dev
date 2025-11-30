@@ -1,0 +1,56 @@
+[comment]
+
+
+[data]
+lang=engl
+
+[dialog]
+&
+1 1000 None 0 #
+2 1010 D _var p name_mem_npc_player = 0 #
+10 1020 D _var p name_mem_npc_player = 1 @
+2 2000 None 0 #
+3 2010 D _var p q_adventure = 12 #
+7 2020 D _var p q_adventure = 13 D _param p ST_LEVEL } 12 @
+3 3000 None 0 #
+4 3010 @
+4 4000 None 0 #
+5 4010 @
+5 5000 None 0 #
+6 5010 @
+6 6000 None 0 #
+0 6010 R _var p q_adventure = 13 R _script dialog@r_AddExperience 1 3000 R _script dialog@r_AddMoney 1 3000 @
+7 7000 None 0 #
+9 7010 #
+0 7020 @
+9 8000 None 0 #
+0 8010 R _var p q_adventure = 14 R _script dialog@r_AddExperience 1 1000 R _script dialog@r_AddMoney 1 1000 R _var p name_mem_npc_player = 1 @
+10 9000 None 0 #
+0 9010 &
+
+[engl]
+{100}{}{Katrina}
+{200}{}{You see Katrina, a Follower of the Apocalypse.}
+{210}{}{She looks beautiful, and reminds you of someone that you used to know. Looking into her eyes is like looking into a photograph.}
+{1000}{}{Predialogue installations}
+{1010}{}{1}
+{1020}{}{2}
+{2000}{}{Why are you looking at me like that?@@Stop staring at me!@@What are you looking at?@@What?@@Seriously! What?!@@Stop it!@@Go away!@@Will you just leave me alone already!}
+{2010}{}{You look like someone... but... nevermind... My name is @pname@. I was told that you were looking for me?}
+{2020}{}{Test me again! I am ready!}
+{3000}{}{I was [She smiles] but by the looks of it you've been searching for me. Haven't you? Do I remind you of someone?}
+{3010}{}{[Stare out into the darkness]}
+{4000}{}{Don't be so sad, @pname@! I'm sure whatever you've seen is just the beginning. Hate to see what stones you'll have to step through next. But you're not my stepping stone, are you?}
+{4010}{}{[Clench your Fists] No. I'm nobody's fool. Not anymore.}
+{5000}{}{Good. Why don't you prove to me how tough you are! Hold out your hand!}
+{5010}{}{[Hold out your Hand]}
+{6000}{}{Why don't you come back when you're a little more experienced? I feel like I could break you in half. Come back once you've hit Level 12.}
+{6010}{}{This better be worth it. I'll be back... maybe.}
+{7000}{}{I see that you're now ready, @pname@. But how sure are you?}
+{7010}{}{I've got questions, and I want answers. I'm ready.}
+{7020}{}{I'll come back later. Don't disappear.}
+{8000}{}{Good. But I don't know anything. I was told to give you this book once I felt that you were ready for it. You are to deliver it to the Post Office in the Hub. The teller there will know what to do with it. So long, @sex@|handsome...||beautiful...|}
+{8010}{}{Cira...}
+{9000}{}{Who's Cira? A dream? Or just another dead memory?}
+{9010}{}{[Say nothing]}
+

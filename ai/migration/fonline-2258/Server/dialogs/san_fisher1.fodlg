@@ -1,0 +1,97 @@
+[comment]
+
+
+[data]
+lang=engl
+
+[dialog]
+&
+1 1000 None 0 #
+2 1010 R _param p ST_RADIATION_LEVEL + 1 R _param p ST_POISONING_LEVEL + 1 @
+2 2000 None 0 #
+3 2010 #
+7 2020 D _param p ST_STRENGTH > 99 #
+6 2030 #
+8 2040 D _param p ST_STRENGTH > 99 #
+4 2050 #
+5 2060 #
+9 2070 #
+0 2080 @
+3 3000 None 0 #
+2 3010 @
+4 4000 None 0 @
+5 5000 None 0 #
+2 5010 @
+6 6000 None 0 #
+6 6010 D _item p PID_FLINT > 11 R _item p PID_FLINT - 12 R _item p PID_MEAT + 12 R _script dialog@r_AddExperience 1 150 #
+6 6020 D _item p PID_PUMP_PARTS > 11 R _item p PID_PUMP_PARTS - 12 R _item p PID_MEAT + 24 R _script dialog@r_AddExperience 1 200 #
+6 6030 D _item p PID_SCORPION_TAIL > 11 R _item p PID_SCORPION_TAIL - 12 R _item p PID_MEAT + 50 R _script dialog@r_AddExperience 1 300 #
+2 6040 @
+7 7000 None 0 #
+7 7010 D _item p PID_BOTTLE_CAPS > 9 R _item p PID_BOTTLE_CAPS - 10 R _item p PID_MEAT + 1 R _param p ST_RADIATION_LEVEL + 5 R _param p ST_POISONING_LEVEL + 5 R _param p ST_RADIATION_LEVEL + 5 #
+7 7020 D _item p PID_BOTTLE_CAPS > 59 R _item p PID_BOTTLE_CAPS - 60 R _item p PID_MEAT + 6 R _param p ST_POISONING_LEVEL + 20 R _param p ST_RADIATION_LEVEL + 10 #
+7 7030 D _item p PID_BOTTLE_CAPS > 119 R _item p PID_BOTTLE_CAPS - 120 R _item p PID_MEAT + 12 R _param p ST_POISONING_LEVEL + 20 R _param p ST_RADIATION_LEVEL + 20 #
+7 7040 D _item p PID_BOTTLE_CAPS > 299 R _item p PID_BOTTLE_CAPS - 300 R _item p PID_MEAT + 30 R _param p ST_POISONING_LEVEL + 20 R _param p ST_RADIATION_LEVEL + 30 #
+7 7050 D _item p PID_BOTTLE_CAPS > 499 R _item p PID_BOTTLE_CAPS - 500 R _item p PID_MEAT + 50 R _param p ST_POISONING_LEVEL + 20 R _param p ST_RADIATION_LEVEL + 40 #
+7 7060 D _item p PID_BOTTLE_CAPS > 999 R _item p PID_BOTTLE_CAPS - 1000 R _item p PID_MEAT + 100 R _param p ST_POISONING_LEVEL + 20 R _param p ST_RADIATION_LEVEL + 50 #
+2 7070 @
+8 8000 None 0 #
+8 8010 D _item p PID_BOTTLE_CAPS > 34 R _item p PID_BOTTLE_CAPS - 35 R _item p PID_MUTATED_FRUIT + 1 #
+8 8020 D _item p PID_BOTTLE_CAPS > 209 R _item p PID_BOTTLE_CAPS - 210 R _item p PID_MUTATED_FRUIT + 6 #
+8 8030 D _item p PID_BOTTLE_CAPS > 419 R _item p PID_BOTTLE_CAPS - 420 R _item p PID_MUTATED_FRUIT + 12 #
+8 8040 D _item p PID_BOTTLE_CAPS > 3499 R _item p PID_BOTTLE_CAPS - 3500 R _item p PID_MUTATED_FRUIT + 100 #
+2 8050 @
+9 9000 None 0 #
+10 9010 @
+10 10000 None 0 &
+
+[engl]
+{100}{}{Fisherman}
+{200}{}{You see a local fisherman.}
+{210}{}{Looks, and smells, like he's selling fish! Wonder if you can buy any?}
+{1000}{}{Predialogue installations}
+{1010}{}{Answer text}
+{2000}{}{O'ello! A'round eye! Welcome 'a'ta'm' shop! I have a many fine fish for y'a'ta buy! You like, no? Fish'a'very good! Not'a'many rads! No, no!}
+{2010}{}{Tell me about this fishing outpost.}
+{2020}{}{You're selling fish? Okay, let's see what you got.}
+{2030}{}{You need any help with anything?}
+{2040}{}{You got anything else to sell aside from fish?}
+{2050}{}{No, thanks. I hate fish.}
+{2060}{}{I thought all the fish was irradiated. You guys are actually eating what you catch?}
+{2070}{}{What's that god-awful smell?}
+{2080}{}{Maybe later.@@I'll just be going now.@@Next time, see ya.@@I'll have to think about it. Goodbye.}
+{3000}{}{This is'a' San'a Francisco fishing a'post. We work'a for the communist regime. This'a'post alone contribute many fish for the capital. It has'a been fifteen years since we operate. We 'ery proud of fish.}
+{3010}{}{I see, thanks.}
+{4000}{}{You hate'a fish?! Who hate'a fish?! Why you come 'ere, round eye?! }
+{5000}{}{Oh, yes! Fish 'ery good! You no have to take a radiation pill after. Maybe we just used to it? But my famiry love'a' California fish. That why we'a still 'ere! Fish, fish!}
+{5010}{}{Uh... okay. If you say so.}
+{6000}{}{'ey! You want'a'help? We need'a' Flint. We need'a' Junk. We need'a' Scorpion Tail. You bring'a that t'a me, me give'a you fish! Good deal, no? You come back rater with dozen of any.}
+{6010}{}{[Trade 12x Flint for 12x Meat]}
+{6020}{}{[Trade 12x Junk for 24x Meat]}
+{6030}{}{[Trade 12x Scorpion Tails for 50x Meat]}
+{6040}{}{We'll see. I might be able to scrape a few things together in exchange for some... fish.}
+{7000}{}{Ah! Step'a'right'a'up! Come'a lookit all o'ma'fishies! You want'a'buy now, no?! You buy niow! Neow! Prices:
+
+Single Fish: 10 caps
+Half Dozen Fish: 60 caps
+Full Dozen Fish: 120 caps
+Whole Tuna: 300 caps
+Whole Rad-A-Caster: 500 caps
+Whole Deep Water Fish: 1000 caps}
+{7010}{}{[Buy a single Fish]}
+{7020}{}{[Buy a half dozen Fish]}
+{7030}{}{[Buy a dozen Fish]}
+{7040}{}{[Buy a whole Tuna]}
+{7050}{}{[Buy a whole Rad-a-Caster]}
+{7060}{}{[Buy a whole Deep Water Fish]}
+{7070}{}{On second thought, I think I'll pass. The smell of radiation is giving me a headache!}
+{8000}{}{Uh... we sell'a'seaweed! You want'a'seaweed? Only a 35 caps per bundleru!}
+{8010}{}{[Buy one bundle of Seaweed]}
+{8020}{}{[Buy a half dozen bundles of Seaweed]}
+{8030}{}{[Buy a dozen bundles of Seaweed]}
+{8040}{}{[Buy a crate full of Seaweed]}
+{8050}{}{No thanks.}
+{9000}{}{Smell? Yea! That'a fish! It'a'g'r'ow a't'a'night!}
+{9010}{}{Just being around you is starting to make me sick...}
+{10000}{}{Hah-ah! That'a'what'm'wife a'l'ways'a'say!}
+

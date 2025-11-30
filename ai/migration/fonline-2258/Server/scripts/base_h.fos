@@ -1,0 +1,31 @@
+#ifndef __BASE_H__
+#define __BASE_H__
+
+/******************************************
+ 		HERE DEFINE MOB TYPES
+
+ 		{ critterPid, badId }
+
+*******************************************/
+
+enum MobType
+{
+    MOB_TYPE_SUPER_MUTANT_LASER,
+    MOB_TYPE_SUPER_MUTANT_PLASMA,
+    MOB_TYPE_TOUGH_NIGHTKIN_ROCKET
+};
+
+// MobWaves[MobType]= { pid, bagId }
+array<array<uint>> MobWaves =
+{
+    //  MOB_TYPE_SUPER_MUTANT_LASER
+    	{ 119, 307 },
+
+    //  MOB_TYPE_SUPER_MUTANT_PLASMA
+    	{ 119, 308 },
+  
+    //  MOB_TYPE_TOUGH_NIGHTKIN_ROCKET
+    	{ 257, 276 }
+};
+
+#endif // __MOB_WAVE_H__ //

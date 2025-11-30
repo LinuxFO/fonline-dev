@@ -1,0 +1,20 @@
+[comment]
+
+
+[data]
+lang=engl
+
+[dialog]
+&
+1 1000 None 0 #
+2 1010 @
+2 2000 None 0 &
+
+[engl]
+{100}{}{Officer Canowrs}
+{200}{}{You see Canowrs, an officer of the Alpha Bunker.}
+{210}{}{She appears to be in charge of the Alpha Bunker's defence perimeter. She looks more than capable of fufilling her duties.}
+{1000}{}{Predialogue installations}
+{1010}{}{Answer text}
+{2000}{}{Hello. I'm assuming you're looking for the living area? It's on the third floor. This is just a guard house. Carry on.@@If you're looking for training feel free to stop by the first floor. There's three Captains that can help out.@@The second floor contains an Advanced Workbench you can use if you want to. It's free, and safe.@@We have a working Hotel on the third floor, but it's only for Brotherhood members.@@Don't bring your friends here, they won't be able to use the services.@@We have a free doctor on the top floor.@@Looking for Med Gel, Nuka-Cola, Cigarettes, or other resources? We have some for sale on the top floor.@@There's an entire city living here. The Alpha Bunker houses all of our veterans, and elite soldiers.@@If you think that you can afford it we rent out barrack's space on the second floor.@@Please don't disturb the Elders during your visit. Try to behave yourself. There's a lot of brass here!}
+

@@ -1,0 +1,20 @@
+[comment]
+
+
+[data]
+lang=engl
+
+[dialog]
+&
+1 1000 None 0 #
+2 1010 @
+2 2000 None 0 &
+
+[engl]
+{100}{}{Ripper General}
+{200}{}{You see one of the leaders of the Rippers gang.}
+{210}{}{For what they've been doing to La Grange, they look well armed, and ready to die.}
+{1000}{}{Predialogue installations}
+{1010}{}{Answer text}
+{2000}{}{I'm going to rip you apart! Hah! Get it?! We're Rippers!!@@La Grange is ours now. You look tasty, can I have a piece?@@Oh, no, it wasn't my mother that made me this way. But thanks for asking!@@Did someone really just run up and try to start a-- Nevermind. Killing time.@@You just put dust on my boots. They were supposed to be covered in blood!@@What? Are you not scared enough? I'll let you have the first shot. Sound fair?@@I haven't killed anyone in hours! Thanks for dropping by.@@You look fun, how do you want to die?@@Ripper's territory now. But it's too late to run. Time for dreams.@@I bet you'll taste good too! Dibs on their boots.@@Wow! You really wanted to make this that easy, eh? Suit yourself!@@It's Rippin' time!@@Tasty bananas! Ahahaha! I always wanted to say that! You die now.@@I like your stuff, can I have it?}
+

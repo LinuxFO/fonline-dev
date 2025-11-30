@@ -1,0 +1,37 @@
+[comment]
+
+
+[data]
+lang=engl
+
+[dialog]
+&
+1 1000 None 0 #
+2 1010 @
+2 2000 None 0 #
+65506 2010 #
+3 2020 #
+4 2030 D _item p PID_PUMP_PARTS > 74 R _item p PID_PUMP_PARTS - 75 R _script dialog@r_AddExperience 1 400 R _param p ST_KARMA + 1 #
+0 2040 @
+3 3000 None 0 #
+0 3010 #
+0 3020 @
+4 4000 None 0 &
+
+[engl]
+{100}{}{Ratch}
+{200}{}{It's a heap of rags that might have a person under it.}
+{210}{}{You see Ratch, probably picking at some lice.}
+{210}{}{It could be a human. It might be a mutant. All you can tell for sure is that it smells really, really bad.}
+{1000}{}{Predialogue installations}
+{1010}{}{2}
+{2000}{}{Junk for sale, junk for sale. Look it over, make me an offer. See that one there? That's my favorite - that one's Edna. I name all my stuff, see - they're like children to me. I hate having to sell 'em, but I got to eat.}
+{2010}{}{Uh...huh.}
+{2020}{}{Junk? You looking for junk, old man?}
+{2030}{}{Here! Have some Junk! On the house.}
+{2040}{}{Uh, see you later Ratch.}
+{3000}{}{Well I gets what I needs from the Boneyard. Don't reckon I can afford to pay you... Buts 75x would make my day.}
+{3010}{}{That's fine! I'll work for free! I'm a hero, don'tcha know?}
+{3020}{}{Too bad then! See ya.}
+{4000}{}{Thanks ya kindly, @sex@|mister!||lady!|}
+

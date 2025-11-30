@@ -1,0 +1,196 @@
+[comment]
+Requires 3 Intel
+
+Junktown scout who buys Mausers, Leather Jackets, Caps, and 9mm rounds for 1/4 of their value. 
+Gives small amounts of Caps + XP
+
+Great Noob Quest + Job + Adds Life to Junktown
+
+dialogs.masm = 1725
+_dialogs.fos = #define DIALOG_junktown_gear              		(1725)
+
+[data]
+lang=engl
+
+[dialog]
+&
+1 1000 None 0 #
+17 1010 D _var p name_mem_player_npc = 1 #
+2 1020 D _var p name_mem_player_npc = 0 @
+2 2000 None 0 #
+3 2010 #
+4 2020 #
+0 2030 @
+3 3000 None 0 #
+4 3010 #
+4 3020 @
+4 4000 None 0 #
+5 4010 @
+5 5000 None 0 #
+6 5010 #
+6 5020 @
+6 6000 None 0 #
+12 6010 #
+7 6020 #
+10 6030 #
+11 6040 @
+7 7000 None 0 #
+9 7010 #
+8 7020 @
+10 8000 None 0 #
+8 8010 @
+11 9000 None 0 #
+8 9010 @
+8 10000 None 0 #
+7 10010 #
+10 10020 #
+11 10030 #
+6 10040 @
+9 11000 None 0 #
+12 11010 @
+12 12000 None 0 #
+16 12010 R _var p name_mem_player_npc = 1 #
+0 12020 @
+13 13000 None 0 #
+14 13010 #
+15 13020 #
+14 13030 #
+0 13040 @
+14 14000 None 0 @
+15 15000 None 0 #
+0 15010 @
+16 16000 None 0 #
+0 16010 @
+17 17000 None 0 #
+27 17010 D _var p dungeon_bandit = 0 #
+21 17020 #
+19 17030 #
+26 17040 D _var p junktown_monsters = 2 #
+18 17050 @
+18 18000 None 0 @
+19 19000 None 0 #
+20 19010 @
+20 20000 None 0 #
+21 20010 #
+18 20020 @
+21 21000 None 0 #
+22 21010 D _item p PID_9MM_MAUSER } 5 R _item p PID_9MM_MAUSER - 6 R _script dialog@r_AddExperience 1 100 R _script dialog@r_BulkOrderRewardLow 0  R _script dialog@r_AddExperience 1 500 R _script dialog@r_AddMoney 1 300 #
+23 21020 D _item p PID_LEATHER_JACKET } 5 R _item p PID_LEATHER_JACKET - 6 R _script dialog@r_AddExperience 1 225 R _script dialog@r_BulkOrderRewardLow 0  R _script dialog@r_AddExperience 1 500 R _script dialog@r_AddMoney 1 300 #
+24 21030 D _item p PID_LEATHER_JACKET_HELMET } 5 R _item p PID_LEATHER_JACKET_HELMET - 6 R _script dialog@r_AddExperience 1 72 R _script dialog@r_BulkOrderRewardLow 0  R _script dialog@r_AddExperience 1 400 R _script dialog@r_AddMoney 1 200 #
+25 21040 D _item p PID_9MM_BALL } 99 R _item p PID_9MM_BALL - 100 R _script dialog@r_BulkOrderRewardLow 0  R _script dialog@r_AddExperience 1 60 R _script dialog@r_AddMoney 1 30 #
+28 21050 D _item p PID_BBS > 99 R _item p PID_BBS - 100 R _script dialog@r_AddMoney 1 25 R _script dialog@r_AddExperience 1 50 #
+18 21060 @
+22 22000 None 0 #
+21 22010 #
+18 22020 @
+23 23000 None 0 #
+21 23010 #
+18 23020 @
+24 24000 None 0 #
+21 24010 #
+18 24020 @
+25 25000 None 0 #
+21 25010 #
+18 25020 @
+26 26000 None 0 @
+27 27000 None 0 #
+0 27010 R _script player_dungeon_bandit@r_SpawnLoc 0  R _var p dungeon_bandit = 1 @
+28 28000 None 0 #
+21 28010 #
+18 28020 &
+
+[engl]
+{100}{}{Junktown Scout Leader}
+{200}{}{You see the leader of the Junktown Scouts.}
+{210}{}{He's writing something on a clipboard, looks like he's taking inventory, or  scouting for new recruits. }
+{220}{}{He looks: Knocked Out.}
+{230}{}{He's Knocked Out.}
+{240}{}{He looks: Almost Dead.}
+{250}{}{He's Almost Dead.}
+{260}{}{He looks: Dead}
+{270}{}{He's Dead.}
+{1000}{}{Predialogue installations}
+{1010}{}{Known}
+{1020}{}{notknown}
+{2000}{}{Hey, you the adventuring type? You look like the kind of guy who loves taking risks, and making a few caps while you're at it.}
+{2010}{}{Wow! That sounds like me spot on! Keep going,,,}
+{2020}{}{Just what exactly are you talking about?}
+{2030}{}{Sorry, but I've got no time for this. }
+{3000}{}{That's what I'm talking about Champ! I spotted you from a mile away! So I take it you get out much, eh? You fancy yourself a tough guy? You ready to take on an army?!}
+{3010}{}{Hell yes!}
+{3020}{}{Just tell me what you need done already!}
+{4000}{}{Alright, alright! Don't get too excited now, you little badass, you! I'll tell you what I need done, you know all those Bandits out there? The ones in the leather? }
+{4010}{}{Yeah, I see them all the time, what about them?}
+{5000}{}{Well somebody has been arming them lately, and they're getting out of control. We need to start taking their guns away, and fast! I don't know where they keep getting their weapons, but I fear that they are just looting the bodies of the dead members. It's almost like as soon as one of them dies, and nobody is around to loot them, their friends show up and recycle the weapons. }
+{5010}{}{So... You want me to take their weapons away?}
+{5020}{}{Okay, so what?}
+{6000}{}{I want you to go out there, hunt these fuckers down, and bring me back their gear, understood? Junktown can use all of the raw materials it can find, and it's so much cheaper to hire wannabes like you. Sure we've got a few contracts up with the Hub, but with the amount of attacks our town has been receiving lately, it's almost impossible to keep up with the damn market costs.  }
+{6010}{}{What's in it for me? }
+{6020}{}{Can't you just send out more patrols?}
+{6030}{}{Tell me about the Hub}
+{6040}{}{What do you use these materials for?}
+{7000}{}{Send out more patrols? Sure we could, but we risk losing more patrols. I'm not comfortable sending out twice the amount of men I normally do. You'll just have to do it, or one of these other wasteland wannabes, I really don't care.}
+{7010}{}{But you're okay with risking my life?}
+{7020}{}{Okay tell me about...}
+{8000}{}{The Hub? It's just a huge market. If you haven't been there already it's just South of here, you can get there in an hour. You can make a lot of caps there if you've got the goods, but it's a pretty sleezy place. }
+{8010}{}{Thanks, let's talk about...}
+{9000}{}{Oh, we use them for just about everything. We didn't get the name "Junktown" for nothing, haha! Everything you see here has been recycled from something else. Whatever we don't find ourselves in the wasteland, we buy from random wastelanders. Scrap metals go to repairing the walls, old weapons are stripped for parts, and the tools are given out to the local residents. This helps keep everybody together, and busy. That way nobody can complain about being too bored, or too poor; everybody's got a job in Junktown. }
+{9010}{}{Sounds like a good place to make a living, tell me about...}
+{10000}{}{What do you want to know?}
+{10010}{}{Can't you just send out more patrols?}
+{10020}{}{Tell me about the Hub}
+{10030}{}{What do you use the materials for?}
+{10040}{}{What was that about the Bandits?}
+{11000}{}{Yes. Now do you want the job or not? }
+{11010}{}{What's in it for me?}
+{12000}{}{A little less than market value I'm afraid, we'll give you about a quarter of the worth. It doesn't sound like much, but if you can keep us supplied we'll keep paying you. I'll buy 9mm Mausers, Leather Jackets, Leather Caps, and 9mm rounds off you, whenever you've got them. It's a great deal if you ask me, gives you plenty of time to train and make a quick buck while you're at it. You could even take your chances at selling the gear in the Hub, if they've got the caps that is. Hell you could even disassemble them youself, you might even learn a thing or two. So what do you say? You in?}
+{12010}{}{Okay, you've got yourself a deal!}
+{12020}{}{I'll think about it, see ya.}
+{13000}{}{Hey, you the...Nah... You can't be...You're retarded aren't you? }
+{13010}{}{Me start to get very mad at you!}
+{13020}{}{Me what?}
+{13030}{}{Nuuuuu'kay!}
+{13040}{}{Me finda' new fwrend to talk too. }
+{14000}{}{Get the hell out of here!}
+{15000}{}{Dumb. Go away. }
+{15010}{}{Me sad now. }
+{16000}{}{Oh, before you go, what's your name? }
+{16010}{}{@pname@, nice to meet you. Goodbye. }
+{17000}{}{Hey, @pname@! Have you "disarmed" any of those Bandits lately? Got anything you're willing to part with? I'll pay you handsomely. }
+{17010}{}{Got any idea where these Vipers like to hang out?}
+{17020}{}{I'm here with the Bulk Order.}
+{17030}{}{Yeah, I've got a few things you guys can use.}
+{17040}{}{What can you tell me about this monster situation?}
+{17050}{}{No, not today, sorry.}
+{18000}{}{That's too bad, stay safe out there.}
+{19000}{}{That's great! There's a catch though...}
+{19010}{}{Catch? You didn't say nothing about a "catch"!}
+{20000}{}{Yeah, sorry about that, I wanted to get you interested in the job in the first place. I can only take bulk orders, units of 6x Mausers, Leather Jackets, or Leather Caps to be exact. Except for the ammo of course, I'll take units of 100x. Still Interested? Almost forgot! I'll also buy 100x BB's off you for 25 caps. }
+{20010}{}{That's fine, let's trade.}
+{20020}{}{I'll have to come back later.}
+{21000}{}{Alright, @pname@. What are you willing to part with?}
+{21010}{}{6x Mausers}
+{21020}{}{6x Leather Jackets}
+{21030}{}{6x Leather Caps}
+{21040}{}{100x rounds of 9mm}
+{21050}{}{100x BB's.}
+{21060}{}{Nothing today, goodbye.}
+{22000}{}{6x Mausers? Okay, that'll get you 300 caps. Here ya' go, Junktown thanks you. Got anything else?}
+{22010}{}{Yeah, let's see...}
+{22020}{}{Not today, goodbye}
+{23000}{}{6x Leather Jackets? Okay, that'll get you 300 caps. Here ya' go, Junktown thanks you. Got anything else?}
+{23010}{}{Yeah, let's see...}
+{23020}{}{Not today, goodbye}
+{24000}{}{6x Leather Caps? Okay, that'll get you 200 caps. Here ya' go, Junktown thanks you. Got anything else?}
+{24010}{}{Yeah, let's see...}
+{24020}{}{Not today, goodbye}
+{25000}{}{100x rounds of 9mm? Okay, that'll get you 30 caps. Here ya' go, Junktown thanks you. Got anything else?}
+{25010}{}{Yeah, let's see...}
+{25020}{}{Not today, goodbye}
+{26000}{}{What? Nothing. Go talk to one of my boys. I don't have time for that crap. Bring me some gear, why don't you?}
+{27000}{}{Not exactly, but I do know of a spot, I think... There's an old highway that leads out to the 401 up North, I remember hearing the scouts talk about seeing lights up there, and "no gooders". I'll mark it on your map. Just be careful out there, I don't really know what to expect. [If you would like to spawn this location in Turn Based Mode type /combatmode tb before continuing]}
+{27010}{}{I'll check it out, thanks.}
+{28000}{}{100x rounds of BB's? Okay, that'll get you 25 caps. Here ya' go, Junktown thanks you. Got anything else?}
+{28010}{}{Yeah, let's see...}
+{28020}{}{Not today, goodbye.}
+

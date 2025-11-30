@@ -1,0 +1,20 @@
+[comment]
+
+
+[data]
+lang=engl
+
+[dialog]
+&
+1 1000 None 0 #
+2 1010 @
+2 2000 None 0 &
+
+[engl]
+{100}{}{No Man's Army}
+{200}{}{You see a member of No Man's Army.}
+{210}{}{Bear no flag, and burn down all others.}
+{1000}{}{Predialogue installations}
+{1010}{}{Answer text}
+{2000}{}{This isn't a robbery. It's a murder.@@You should run... while you still have legs.@@Sure. Let's kill you slow.@@Sorry, we don't care.@@Honestly, I don't even care about what you have. I just want to kill you in a very random and brutal way.@@Your organization and lack of chaotic seclusion bothers me.@@This is our new base. Surprised you even got past the dogs. Time to die.@@Are you the one that killed my parents? Just kidding. I killed your parents.}
+

@@ -1,0 +1,20 @@
+[comment]
+
+
+[data]
+lang=engl
+
+[dialog]
+&
+1 1000 None 0 #
+2 1010 @
+2 2000 None 0 &
+
+[engl]
+{100}{}{Colonel Verantia}
+{200}{}{You see an old and mutated looking ghoul of a man in an officers uniform.}
+{210}{}{They look like they've been exposed to too much radiation and some sort of experimental super virus. Most of their skin looks melted to their armor. It's like they haven't removed it in years.}
+{1000}{}{Predialogue installations}
+{1010}{}{Answer text}
+{2000}{}{@@...intruder...@@...command?...@@...private first class...@@...what year is it...@@...who am I...@@...why are you here...@@...run... now...@@...don't stay here...@@...you're not a soldier...@@...this is defiance...@@...lieutenant...@@...general...@@...medic...@@...send more food...@@...corporal...@@...man down...@@...what's your twenty...@@...no... I won't do it...@@...get away from me...@@...what are you doing...@@...no! Don't put me in there!...@@...stop... please...@@...black rock...@@...this is my new home...@@...I don't want to be here...@@...help me...@@...kill me...@@...they made me like this...@@...we're monsters...}
+

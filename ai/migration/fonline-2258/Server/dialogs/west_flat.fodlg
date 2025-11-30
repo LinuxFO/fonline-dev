@@ -1,0 +1,56 @@
+[comment]
+
+
+[data]
+lang=engl
+
+[dialog]
+&
+1 1000 None 0 #
+2 1010 @
+2 2000 None 0 #
+3 2010 #
+3 2020 D _var p z_survival = 0 R _var p z_survival = 1 #
+4 2030 D _var p z_survival = 3 R _var p z_survival = 1 R _script survival@r_DeleteLoc 0  #
+3 2040 D _var p z_survivalclowns = 0 R _var p z_survivalclowns = 1 #
+4 2050 D _var p z_survivalclowns = 3 R _var p z_survivalclowns = 1 R _script survivalclowns@r_DeleteLoc 0  #
+3 2060 D _var p z_survivalgeckos = 0 R _var p z_survivalgeckos = 1 #
+4 2070 D _var p z_survivalgeckos = 3 R _var p z_survivalgeckos = 1 R _script survivalgeckos@r_DeleteLoc 0  #
+3 2080 D _var p z_survivalrats = 0 R _var p z_survivalrats = 1 #
+4 2090 D _var p z_survivalrats = 3 R _var p z_survivalrats = 1 R _script survivalrats@r_DeleteLoc 0  #
+3 2100 D _var p z_survivalzombies = 0 R _var p z_survivalzombies = 1 #
+4 2110 D _var p z_survivalzombies = 3 R _var p z_survivalzombies = 1 R _script survivalzombies@r_DeleteLoc 0  @
+3 3000 None 0 #
+3 3010 D _var p z_survival = 1 R _var p z_survival = 2 R _script survival@r_SpawnLoc 0  #
+3 3020 D _var p z_survivalclowns = 1 R _var p z_survivalclowns = 2 R _script survivalclowns@r_SpawnLoc 0  #
+3 3030 D _var p z_survivalgeckos = 1 R _var p z_survivalgeckos = 2 R _script survivalgeckos@r_SpawnLoc 0  #
+3 3040 D _var p z_survivalrats = 1 R _var p z_survivalrats = 2 R _script survivalrats@r_SpawnLoc 0  #
+3 3050 D _var p z_survivalzombies = 1 R _var p z_survivalzombies = 2 R _script survivalzombies@r_SpawnLoc 0  @
+4 4000 None 0 &
+
+[engl]
+{100}{}{Constable Flatfoot}
+{200}{}{You see the local constable, and supervisor of the Westwood military and police force.}
+{210}{}{He looks well-equipped and tough, but he doesn't look very experienced. He seems worried about something. Maybe he could use some help.}
+{1000}{}{Predialogue installations}
+{1010}{}{Answer text}
+{2000}{}{Outsider.@@I didn't know vault suits came in blue... huh, weird.@@Don't worry, you're safe here. Just don't cause any trouble.@@Sorry you had to drive here, it's our best way of... deterring the riff-raff.@@So what vault are you from? I heard that quite a few have opened up.@@You ever been to the Hub? Man, just once... I wish!@@Welcome to Westwood, vault dweller! Come take a load off.@@You might want to speak with management, they're usually interested in other vault dwellers.}
+{2010}{}{Show me repeat jobs.}
+{2020}{}{Job.}
+{2030}{}{All done.}
+{2040}{}{Clowns.}
+{2050}{}{Clowns Ded.}
+{2060}{}{Geckos.}
+{2070}{}{Geckos ded.}
+{2080}{}{Rats.}
+{2090}{}{Rats ded.}
+{2100}{}{Zombies}
+{2110}{}{Zombies ded.}
+{3000}{}{Sure.}
+{3010}{}{Spawn it.}
+{3020}{}{Spawn The Clowns.}
+{3030}{}{Spawn Geckos.}
+{3040}{}{Spawn rats.}
+{3050}{}{Spawn Zombies.}
+{4000}{}{Good beans.}
+

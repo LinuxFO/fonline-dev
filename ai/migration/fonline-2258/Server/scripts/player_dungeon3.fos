@@ -1,0 +1,233 @@
+#include "utils_h.fos"
+#include "worldmap_h.fos"
+#include "npc_planes_h.fos"
+#include "entire.fos"
+#include "_colors.fos"
+#include "quest_killmobs_h.fos"
+#include "messages_h.fos"
+#include "npc_common_h.fos"
+#include "logging_h.fos"
+
+#define QUEST_FAILED                (0)  //value of quest lvar in case of quest failed
+
+#define ROLE_DEFAULT      (0)
+#define ROLE_AGRESSIVE    (1)
+
+#define IDLE_NORMAL       (5000)
+#define IDLE_ALERTED      (1000)
+
+#define NPC_HUMAN_COUNT   (Random(25, 35))
+#define NPC_DOGS_COUNT    (Random(9, 15))
+
+array<uint> npcHumanPids = { 538, 539, 540, 541, 542, 543 };
+array<uint> npcHumanBags = { 147, 212, 154, 188, 162, 410 }; 
+array<uint> npcDogsPids = { 9, 82 };
+ 
+//function called as request from dialog to spawn quest location
+void r_SpawnLoc(Critter& player, Critter@ npc)
+{
+    //roll X,Y value of WM zone index, in this case from 3x2 zones area under Hub
+    uint zoneX = Random(33, 33);    
+    uint zoneY = Random(38, 39);    
+ 
+    //get X,Y value of quest location position on WM in zone we picked above
+    uint   wx = zoneX * __GlobalMapZoneLength;          //get zone X,Y start value
+    uint   wy = zoneY * __GlobalMapZoneLength;
+    wx += Random(0, __GlobalMapZoneLength);             //add random value from 0 to zone size
+    wy += Random(0, __GlobalMapZoneLength);
+ 
+    //version with defined set of maps, comment this one and uncomment lines about to use zone maps
+    array<uint16> locationIds = { 95 };
+    uint num = locationIds.length;
+ 
+    //pick random encounter map
+    uint16        locPid = locationIds[Random(0, num - 1)];
+   
+    //create quest location
+    Critter@[] crits = { player };
+    int           loc = CreateLocation(locPid, wx, wy, crits);
+    if(loc == 0)
+        return;
+    player.SetKnownLoc(true, loc);
+     
+    //change location color on WM
+    Location@ location = GetLocation(loc);
+    location.Color = COLOR_WM_QUEST;
+    location.Update();
+	
+	//set TB combat mode if needed
+    if(player.Mode[MODE_DEFAULT_COMBAT] == COMBAT_MODE_TURN_BASED)
+        SetTurnBasedAvailability(location);
+ 
+    //set location id to quest lvar (used when you need to delete location)
+    GameVar@  locidv = GetLocalVar(LVAR_q_adventurecina4_locid, player.Id);
+    locidv = loc;
+
+	//player can die and come back
+    location.AutoGarbage = false;
+
+    array<Map@> maps;
+    uint        mapcount = location.GetMaps(maps);
+    for(uint c = 0; c < mapcount; c++)
+    {
+        array<Entire> entires;
+        ParseEntires(maps[c], entires, 666);
+
+        uint cntNpc = NPC_HUMAN_COUNT;
+        uint npcHumanPidCount = npcHumanPids.length()-1;
+
+        for(uint i = 0; i < cntNpc; i++)
+        {
+            if (entires.length() == 0)
+                ParseEntires(maps[c], entires, 666);
+
+            uint entId = Random(0, entires.length()-1);
+            Entire@ ent = entires[entId];
+            entires.removeAt(entId);
+
+            uint16 pos = Random(0, npcHumanPidCount);   
+            uint16 npcPid = npcHumanPids[pos];
+            int[] params =
+            {
+                ST_REPLICATION_TIME, REPLICATION_NEVER,
+                ST_NPC_ROLE, Random(0, 1),
+                ST_TEAM_ID, 5024,
+                ST_BAG_ID, npcHumanBags[pos],           
+                ST_LEVEL, Random(20, 40)
+            };
+     
+            Critter@ npc = maps[c].AddNpc(npcPid , ent.HexX, ent.HexY, Random(0, 5), params, null, "_MobNPC");
+        }
+
+        ParseEntires(maps[c], entires, 333);
+
+        cntNpc = NPC_DOGS_COUNT;
+        uint npcDogPidCount = npcDogsPids.length()-1;
+
+        for(uint i = 0; i < cntNpc; i++)
+        {
+            if (entires.length() == 0)
+                ParseEntires(maps[c], entires, 333);
+
+            uint entId = Random(0, entires.length()-1);
+            Entire@ ent = entires[entId];
+            entires.removeAt(entId);
+
+            uint16 npcPid = npcDogsPids[Random(0, npcDogPidCount)];
+            int[] params =
+            {
+                ST_REPLICATION_TIME, REPLICATION_NEVER,
+                ST_NPC_ROLE, Random(0, 1),
+                ST_TEAM_ID, 5024,
+                ST_LEVEL, Random(10, 20)
+            };
+     
+            Critter@ npc = maps[c].AddNpc(npcPid , ent.HexX, ent.HexY, Random(0, 5), params, null, "_MobNPC");
+        }
+    }
+	
+	//12 hour decay
+	SetQuestGarbager(12 * 60, player.Id, loc, LVAR_q_gasstation, QUEST_FAILED);
+    DynamicLocationAddLog(player, npc, locidv, "player_dungeon3");
+}
+ 
+//dialog function used in request to delete quest location (after player report finishing the quest)
+void r_DeleteLoc(Critter& player, Critter@ npc)
+{
+    GameVar@ var = GetLocalVar(LVAR_q_adventurecina4_locid, player.Id);
+    DeleteLocation(var.GetValue());
+    DynamicLocationDelLog(player, npc, var, "player_dungeon3");
+}
+ 
+void _MobNPC(Critter& mob, bool firstTime)
+{
+    _CritSetExtMode(mob, MODE_EXT_MOB);
+    _CritSetMode(mob, MODE_NO_DROP);
+    mob.SetEvent(CRITTER_EVENT_IDLE, "_MobIdle");
+    mob.SetEvent(CRITTER_EVENT_ATTACKED, "_MobAttacked");
+    mob.SetEvent(CRITTER_EVENT_ATTACK, "_MobAttacking");
+    mob.SetEvent(CRITTER_EVENT_MESSAGE, "_MobOnMessage");
+    mob.SetEvent(CRITTER_EVENT_SMTH_DEAD, "_MobSmthDead");
+}
+
+void _MobIdle(Critter& mob)
+{
+    if(!mob.IsLife())
+    {
+        mob.Wait(IDLE_NORMAL);
+        return;
+    }
+
+    array<Critter@> crits;
+    uint            num = mob.GetCritters(false, FIND_ONLY_PLAYERS | FIND_LIFE, crits);
+    uint dist = GetDistance(mob);
+    for(uint i = 0; i < num; i++)
+    {
+        uint curDist = GetCrittersDistantion(mob, crits[i]);
+        if(curDist > dist)
+        {
+            continue;
+        }
+        else
+        {
+            if(crits[i].Mode[MODE_HIDE] != 0 || curDist < 5)
+            {
+                AttackCritter(mob, crits[i]);
+            }
+            else
+            {
+                mob.AddEnemyInStack(crits[i].Id);
+            }
+            return;
+        }
+    }
+
+    if(crits.length() > 0)
+    {
+        mob.Wait(IDLE_ALERTED);
+    }
+    else
+    {
+        if(Random(0, 5) == 0)
+            mob.MoveRandom();
+        mob.Wait(IDLE_NORMAL);
+    }
+}
+
+uint GetDistance(Critter& cr)
+{
+    uint base = __LookNormal + 3 * cr.Stat[ST_PERCEPTION];
+
+    if(cr.Stat[ST_NPC_ROLE] == ROLE_AGRESSIVE)
+        return base / 2;
+    else
+        return base / 3;
+}
+
+bool _MobAttacked(Critter& cr, Critter& attacker)
+{
+    cr.SendMessage(MSG_IM_ATTACKED, attacker.Id, MESSAGE_TO_WHO_SEES_ME);
+    return false;
+}
+
+bool _MobAttacking(Critter& cr, Critter& attacker)
+{
+    cr.SendMessage(MSG_GUARD_ATTACKING, attacker.Id, MESSAGE_TO_WHO_SEES_ME);
+    return false;
+}
+
+void _MobOnMessage(Critter& cr, Critter& fromCr, int message, int value)
+{
+    if(message == MSG_IM_ATTACKED || message == MSG_GUARD_ATTACKING)
+    {
+        uint dist = GetDistance(cr);
+        if(GetCrittersDistantion(cr, fromCr) <= dist/2)
+            AttackCritter(cr, GetCritter(value));
+    }        
+}
+
+void _MobSmthDead(Critter& cr, Critter& killed, Critter@ killer)
+{
+    cr.EraseEnemyFromStack(killed.Id);
+}
+ 

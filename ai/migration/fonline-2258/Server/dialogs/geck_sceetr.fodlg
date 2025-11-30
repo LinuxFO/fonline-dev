@@ -1,0 +1,137 @@
+[comment]
+
+
+[data]
+lang=engl
+
+[dialog]
+&
+1 1000 None 0 #
+3 1010 D _var n name_mem_npc_player = 0 R _var n name_mem_npc_player = 1 #
+4 1020 R _var n name_mem_npc_player = 1 @
+2 2000 None 0 @
+3 3000 None 0 #
+5 3010 R _var n acquaintance = 1 #
+90 3020 D _var p q_necro_gecko = 1 D _script dialog@d_HasHoloInfo 1 43 D or D _var p q_necro_gecko = 1 D _script dialog@d_HasHolodisk 1 43 #
+7 3030 #
+70 3040 #
+0 3050 #
+0 3060 D _var p hub_postmanq = 10 R _var p hub_postmanq = 99 @
+4 4000 None 0 #
+5 4010 R _var n acquaintance = 1 #
+80 4020 D _param p PE_PROFESSION_GUNSMITH_S < 2 D _var n acquaintance = 1 #
+90 4030 D _var p q_necro_gecko = 1 D _script dialog@d_HasHolodisk 1 43 D or D _var p q_necro_gecko = 1 D _script dialog@d_HasHoloInfo 1 43 #
+6 4040 #
+7 4050 #
+70 4060 #
+0 4070 #
+0 4080 D _var p hub_postmanq = 10 R _var p hub_postmanq = 99 @
+5 5000 None 0 #
+4 5010 #
+80 5020 D _param p PE_PROFESSION_GUNSMITH_S < 2 #
+0 5030 @
+80 6000 None 0 #
+81 6010 D _script dialog@d_CheckProfession 1 0 D _script dialog@d_CheckGunsmithS0 1 0 #
+82 6020 D _script dialog@d_CheckGunsmithS1 1 0 #
+0 6030 @
+81 7000 None 0 #
+83 7010 D _item p PID_BOTTLE_CAPS > 1499 R _item p PID_GUNS_AND_BULLETS + 1 R _param p PE_PROFESSION_GUNSMITH_S = 1 R _script dialog@r_RemoveMoney 1 1500 #
+0 7020 @
+82 8000 None 0 #
+83 8010 D _item p PID_BOTTLE_CAPS > 2999 R _param p PE_PROFESSION_GUNSMITH_S = 2 R _script dialog@r_RemoveMoney 1 3000 #
+0 8020 @
+83 9000 None 0 #
+0 9010 @
+90 10000 None 0 #
+91 10010 @
+91 11000 None 0 #
+92 11010 R _var p q_necro_gecko = 2 R _script dialog@r_GiveHolodisk 1 44 @
+92 12000 None 0 @
+6 13000 None 0 #
+0 13010 D _item p PID_BOTTLE_CAPS > 999 R _item p PID_BOTTLE_CAPS - 1000 R _item p PID_ELECTRONIC_PARTS2 + 1 #
+0 13020 D _item p PID_BOTTLE_CAPS > 9999 R _item p PID_BOTTLE_CAPS - 10000 R _item p PID_ELECTRONIC_PARTS2 + 10 #
+0 13030 @
+7 14000 None 0 #
+8 14010 D _var p q_adventure = 5 #
+4 14020 @
+8 15000 None 0 #
+9 15010 @
+9 16000 None 0 #
+10 16010 D _item p PID_BOTTLE_CAPS > 999 R _item p PID_BOTTLE_CAPS - 1000 R _script dialog@r_AddExperience 1 1000 R _var p q_adventure = 6 #
+0 16020 @
+10 17000 None 0 #
+11 17010 @
+11 18000 None 0 @
+70 19000 None 0 #
+71 19010 D _item p PID_BOTTLE_CAPS > 9999 #
+0 19020 @
+71 20000 dialog@dlg_TryEnchantItem 0 #
+0 20010 &
+
+[engl]
+{100}{}{Skeeter}
+{200}{}{You see a ghoul wearing old, grease-stained clothing.}
+{210}{}{You see Skeeter, the Ghoul Gadgeteer.}
+{210}{}{You see a grubby but intelligent-looking ghoul, wearing greasy overalls with a micrometer sticking out of his pocket.}
+{1000}{}{Predialogue installations}
+{1010}{}{Unknown}
+{1020}{}{Known}
+{2000}{}{Just don't touch anything - you might hurt yourself.@@You can watch. You might even learn something, but I doubt it.@@Well, ain't you something special.@@Are you just pretending to be dumb, or are you really that stupid?}
+{3000}{}{Hello there, I'm Skeeter.}
+{3010}{}{What do you do here?}
+{3020}{}{Elmer in Necropolis sent me with this.}
+{3030}{}{Can I ask you something?}
+{3040}{}{I heard you know a way to improve energy weapons, make them a little better than regular stuff.}
+{3050}{}{Uh, I was just looking around. Goodbye.}
+{3060}{}{[Deliver Letter]}
+{4000}{}{Whatcha lookin' fer?}
+{4010}{}{What do you do here?}
+{4020}{}{Let's talk about guns, I've got a few questions for you.}
+{4030}{}{Elmer in Necropolis sent me with this.}
+{4040}{}{Got any of those fancy electronic parts?}
+{4050}{}{Can I ask you something?}
+{4060}{}{I heard you know a way to improve energy weapons, make them a little better than regular stuff.}
+{4070}{}{Uh, I was just looking around. Goodbye.}
+{4080}{}{[Deliver Letter]}
+{5000}{}{Mostly I jist sorta tinker with things. Take 'em apart an try to put 'em all back t'gether' mostly. Make 'em work better' sometimes. Keepin' myself outta trouble. Know what I mean?}
+{5010}{}{I guess. Let me ask you something else.}
+{5020}{}{I bet you're skilful with guns and their modifications -- I had a few questions, if you don't mind.}
+{5030}{}{Well, I think I better go do something myself. Goodbye.}
+{6000}{}{And that would be..? [Scratching his cheek]}
+{6010}{}{I want to learn how to make a gun... Nothing special, just the basics.}
+{6020}{}{Say, maybe you could show me how to make some good guns? I'm willing to learn.}
+{6030}{}{Erhm... Actually, nothing right now. I better be going.}
+{7000}{}{Wanna blow off your fingers, huh? Okay, just don't say later I didn't warn you... I guess I can teach you something useful, but it has its price. Let's say $1500. For that price I can give you this magazine as well, you might need it later.}
+{7010}{}{To hell with the money! Knowledge is precious! [You give him $1500]}
+{7020}{}{Damn, it's too much for me right now. But I'll be back later, be sure about it.}
+{8000}{}{Well, ain'tcha the next wasteland's top gunsmith! I guess I could show you something really special for a mere sum of 3000 caps. Whaddya say?}
+{8010}{}{If the preaching justifies the price, then let's start with it, ol' ghoul! [Give him $3000]}
+{8020}{}{Damn, it's too much for me right now. But I'll be back later, be sure about it.}
+{9000}{}{Well, that's the best investement you ever made @sex@|boy||girl|. Come with me... [Skeeter takes you aside and starts explaining some things about guns]}
+{9010}{}{Well... Thanks for that, Skeeter. I must go now, see you later.}
+{10000}{}{Just like we have problems with VC, the fellas down in Necropolis have their own problems. They're asking for any assistance we can give. I can't promise anything, but I'm gonna try my hardest.}
+{10010}{}{[continue]}
+{11000}{}{If we can manage, we'll send some ghouls to help them defend, or at the very least, send them some supplies. I've put all this information on this holodisk. Bring it back to Necropolis..}
+{11010}{}{I'll do that. Thanks Skeeter.}
+{12000}{}{Good luck.}
+{13000}{}{Hell yes! Got a whole shit load! Tell 'yer fucking friends, 1000$.}
+{13010}{}{I'll take one.}
+{13020}{}{Give me ten.}
+{13030}{}{Uh, sure. I'll be back.}
+{14000}{}{What?}
+{14010}{}{You uh, got anything for Vault 24? Or an Overseer?}
+{14020}{}{Nothing, nevermind.}
+{15000}{}{For a vault? No way! You're supposed to sniff the Jet, not smoke it, smoothskin! Do I look like a fucking Vault-Tek Technician to you?!}
+{15010}{}{Got anything for @pname@?}
+{16000}{}{For @pname@... yeah, yeah... I got something... Some kind of part. But it's going to cost you 1000 caps! Take it or leave it!}
+{16010}{}{Fine! Here's the money!}
+{16020}{}{No way! I'll be back! Maybe! Fuck you!}
+{17000}{}{And here is the part. [He takes the money and hands you a strange looking piece of vault tech. It's extremely small and very easy to conceal] Oh, I'm also supposed to tell you that there's a guy in Redding you should talk to.}
+{17010}{}{Any idea who?}
+{18000}{}{Nope. See ya, smoothskin.}
+{19000}{}{Improving energy weapons you say… I might give it a try, but I must warn you, many things might go wrong in the process and it's hard to predict final result. Hell, it might even destroy your item if you are unlucky! If you want I can try my best but it will cost you, let's say... 10.000, yes, that's a fair price I think.}
+{19010}{}{Here is 10.000 and take this weapon. [You give him item in your hand]}
+{19020}{}{That's all I need to know now, thanks.}
+{20000}{}{@lex enchantResult@}
+{20010}{}{Thanks.}
+

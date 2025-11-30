@@ -1,0 +1,80 @@
+#include "_macros.fos"
+#include "mapdata_h.fos"
+#include "messages_h.fos"
+#include "elevators_h.fos"
+#include "_maps.fos"
+
+// Right Elevator G-1
+CElevator RightElevator(ELEVATOR_BOS_01);
+// Left Elevator 1-2-3
+CElevator LeftElevator(ELEVATOR_MILITARY_123);
+
+bool  ElevatorsAdded = false;
+
+void map_init(Map& map, bool firstTime)
+{
+    // to add only one for all floors
+    if(!ElevatorsAdded)
+    {
+        // add elevators
+        AddElevator(RightElevator);
+        AddElevator(LeftElevator);
+        ElevatorsAdded = true;
+    }
+    // parse elevators floors
+    uint16 x = 0, y = 0;
+
+    switch(map.GetProtoId())
+    {
+    case MAP_BoSBunkerAlphaSurface:
+        if(map.GetEntireCoords(10, 0, x, y))
+            RightElevator.AddFloor(map.Id, 10);
+        break;
+    case MAP_BoSBunkerAlphalvl1:
+        if(map.GetEntireCoords(11, 0, x, y))
+            RightElevator.AddFloor(map.Id, 11);
+        if(map.GetEntireCoords(21, 0, x, y))
+            LeftElevator.AddFloor(map.Id, 21);
+        break;
+    case MAP_BoSBunkerAlphalvl2:
+        if(map.GetEntireCoords(22, 0, x, y))
+            LeftElevator.AddFloor(map.Id, 22);
+        break;
+    case MAP_BoSBunkerAlphalvl3:
+        if(map.GetEntireCoords(23, 0, x, y))
+            LeftElevator.AddFloor(map.Id, 23);
+        break;
+    default:
+    }
+
+    map.SetEvent(MAP_EVENT_IN_CRITTER, "_CritterInMap");
+}
+
+void _CritterInMap(Map& map, Critter& cr)
+{
+    if(_IsRealPlayer(cr) && _GroupIndex(cr) != FACTION_BOS)
+    {
+        CreateTimeEvent(AFTER(REAL_SECOND(5)), "e_CritterKick", cr.Id, false);
+    }
+}
+
+uint e_CritterKick(array<int>@ data)
+{
+    Critter@ cr = GetCritter(data[0]);
+    if(valid(cr))
+    {
+        cr.SendMessage(MSG_ATTACK_ME, 0, MESSAGE_TO_ALL_ON_MAP);
+    }
+
+    return(0);
+}
+
+// Elevator triggers
+void t_ElevatorRight(Critter& critter, Scenery& trigger, bool entered, uint8 dir)
+{
+    HandleElevator(RightElevator, critter, entered);
+}
+void t_ElevatorLeft(Critter& critter, Scenery& trigger, bool entered, uint8 dir)
+{
+    HandleElevator(LeftElevator, critter, entered);
+}

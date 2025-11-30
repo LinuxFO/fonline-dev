@@ -1,0 +1,20 @@
+[comment]
+
+
+[data]
+lang=engl
+
+[dialog]
+&
+1 1000 None 0 #
+2 1010 @
+2 2000 None 0 &
+
+[engl]
+{100}{}{Horrified Looking Man}
+{200}{}{You see someone with a horrified look in their eyes.}
+{210}{}{What's this guy's problem?}
+{1000}{}{Predialogue installations}
+{1010}{}{Answer text}
+{2000}{}{@@There's something awful going on in that bathroom over there...@@Can you hear that?! What the hell is going on in there?!@@I'm too scared to go in and take a pee... What the hell is going on over there?@@It sounds like someone's life is being ruined in there!@@Oh man! Maybe someone should call the cops?! That bathroom...@@There it is again! What's going on over there?!@@Jesus! I hope that boy is okay!@@First serial killers, now this?! Maybe it's the Ripper?!}
+

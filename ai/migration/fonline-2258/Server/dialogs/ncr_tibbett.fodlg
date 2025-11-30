@@ -1,0 +1,140 @@
+[comment]
+
+
+[data]
+lang=engl
+
+[dialog]
+&
+1 1000 None 0 #
+21 1010 D _var p ncr_investigation4 = 4 D _var p q_tandi = 0 #
+31 1020 D _var p ncr_investigation4 = 4 D _var p q_tandi = 1 #
+2 1030 D _var p q_tandi = 0 @
+2 2000 None 0 #
+3 2010 D _var p ncr_investigation4 = 2 @
+3 3000 None 0 #
+4 3010 @
+4 4000 None 0 #
+5 4010 @
+5 5000 None 0 #
+6 5010 @
+6 6000 None 0 #
+7 6010 @
+7 7000 None 0 #
+8 7010 D _param p ST_KARMA } 0 #
+9 7020 D _param p ST_KARMA { 0 R _param p ST_KARMA - 3 R _param p REPUTATION_NCR - 40 R _item p PID_COSMETIC_CASE + 1 R _item p PID_CIGARETTES + 1 @
+8 8000 None 0 #
+10 8010 @
+9 9000 None 0 #
+8 9010 @
+10 10000 None 0 #
+11 10010 @
+11 11000 None 0 #
+12 11010 @
+12 12000 None 0 #
+13 12010 @
+13 13000 None 0 #
+14 13010 @
+14 14000 None 0 #
+15 14010 @
+15 15000 None 0 #
+16 15010 @
+16 16000 None 0 #
+17 16010 @
+17 17000 None 0 #
+18 17010 @
+18 18000 None 0 #
+19 18010 R _var p ncr_investigation4 = 3 @
+19 19000 None 0 @
+20 20000 None 0 @
+21 21000 None 0 #
+22 21010 @
+22 22000 None 0 #
+23 22010 @
+23 23000 None 0 #
+24 23010 @
+24 24000 None 0 #
+25 24010 @
+25 25000 None 0 #
+26 25010 @
+26 26000 None 0 #
+27 26010 @
+27 27000 None 0 #
+28 27010 @
+28 28000 None 0 #
+29 28010 @
+29 29000 None 0 #
+30 29010 @
+30 30000 None 0 #
+0 30010 R _var p q_tandi = 1 R _script dialog@r_AddExperience 1 5000 R _param p ST_KARMA - 15 R _var p CRIM + 1 R _var p LAW - 1 @
+31 31000 None 0 #
+0 31010 &
+
+[engl]
+{100}{}{Joanna Tibbett}
+{200}{}{You see Joanna Tibbett.}
+{210}{}{A bright, shining star in the world of NCR politics! What a joke. }
+{1000}{}{Predialogue installations}
+{1010}{}{secret}
+{1020}{}{secret2}
+{1030}{}{Answer text}
+{2000}{}{Can't you see I'm busy here?}
+{2010}{}{Hello, Joanna Tibbett. My name is Detective @pname@. I'm investing the attempted murder on the life of President Tandi. Here's my badge.}
+{3000}{}{I already spoke to Detective Gallows! What more do you people want?}
+{3010}{}{Justice. What can you tell me about Broken Hills?}
+{4000}{}{Filthy Uranium town. Ran by mutants, and sympathizers. We annexed them in 2253. Sheriff Marcus agreed to our terms, and we helped rebuild their machinery. Now Broken HIlls stands as a symbol of all people, culture, and... mutation. They mine ore. What else is there to know?}
+{4010}{}{Have you been over there recently? Do you know what people are saying about the NCR's political views?}
+{5000}{}{No, and I don't care. NCR isn't a democracy. It's a republic. Wendell Peterson is always forgetting that. But President Tandi... well... She might know of our republican nature a little too well.}
+{5010}{}{And that means?}
+{6000}{}{Nothing to you. You aren't a politician, you're a cop. Aren't you? Did you even go to the NCR's police academy? Or are you another wastelander they gave a badge to.}
+{6010}{}{I'm a vault dweller. I didn't grow up in the ruins of civilization.}
+{7000}{}{OH! Excuse me! @sex@|MISTER VAULT MAN!||MISSES VAULT WOMAN!| Let me just fetch you an Overseer to tweak your PipBoy for you!}
+{7010}{}{That was rude.}
+{7020}{}{You fucking whore! [Slap her!]}
+{8000}{}{What is it that you want anyway?}
+{8010}{}{I want to know who tried to kill President Tandi.}
+{9000}{}{[Her head crashes back in pain!] @sex@|YOU FUCKING BASTARD!||YOU FUCKING CUNT!| I'll have your badge for this!}
+{9010}{}{Shut up. There's a lot worse coming if you don't watch your tone, woman.}
+{10000}{}{Why are you asking me!}
+{10010}{}{Don't joke with me. You, and Peterson are the only competition to a hundred and nine year old politician. }
+{11000}{}{Go ask Peterson! I don't know anything!}
+{11010}{}{I did, and now I'm talking to you.}
+{12000}{}{That bastard! What did he say about me?! Probably blamed it all on me, didn't he?! Didn't he!}
+{12010}{}{Nope. He refused to talk about you. Out of professional respect.}
+{13000}{}{*Gasp!* What are you saying?!}
+{13010}{}{Nothing. Stop stalling with me. I'm not here to arrest you, if that's what you're worried about.}
+{14000}{}{Me? A criminal! How dare you! I'm nervous enough as it is! And you're calling me a damn criminal.}
+{14010}{}{Having President Tandi out of the picture would benefit you greatly, wouldn't it?}
+{15000}{}{Yes, and Wendell too. Of course. Why do you ask?}
+{15010}{}{No reason. }
+{16000}{}{I think that if something were to happen to President Tandi, a million caps could easily fall into the killers hands.}
+{16010}{}{I bet. Is that why there was a recent attempt on her life?}
+{17000}{}{@pname@, a lot of people want Tandi dead. She's the only thing standing in the way of progress. For better or worse. I want to expand beyond California, right now. But I'm the only one that believes in the idea. If Tandi was gone, and I, President, who knows what great fortunes we could find.}
+{17010}{}{Uh-huh. So you didn't try to kill her?}
+{18000}{}{God, no! I think I would have succeeded! How hard could it be to kill a hundred and nine year old woman?}
+{18010}{}{Not very, I imagine. Old people can be quite... frail. Goodbye, Tibbett. Maybe we'll speak again some day.}
+{19000}{}{Well! Maybe on better grounds! I can't say that I would like to see you again, Detective @pname@!}
+{20000}{}{We've spoken already! Come back if you have something more interesting to say!}
+{21000}{}{Why are you all covered in blood? Did...}
+{21010}{}{Where's my money, bitch?!}
+{22000}{}{Help! Guar-- }
+{22010}{}{[Put your hand over her mouth] Wrong answer, girl. [Take out the Letter Opener]}
+{23000}{}{[Joanna Tibbett tries to scream, but all she manages to blur out are muffled words]}
+{23010}{}{[Stab her with the Letter Opener]}
+{24000}{}{[You stab Joanna Tibbett in the ribs]}
+{24010}{}{[Stab her with the Letter Opener]}
+{25000}{}{[You stab Joanna Tibbett in the leg, blood begins to pour from her ribs]}
+{25010}{}{[Stab her with the Letter Opener]}
+{26000}{}{[You stab Joanna Tibbett in the arm, blood begins to pour from her leg]}
+{26010}{}{[Stab her with the Letter Opener]}
+{27000}{}{[You stab Joanna Tibbett in the breast, blood begins to pour from her arm]}
+{27010}{}{[Stab her with the Letter Opener]}
+{28000}{}{[You stab Joanna Tibbett in the chest, blood is everywhere]}
+{28010}{}{[Stab her with the Letter Opener]}
+{29000}{}{[You stab Joanna Tibbett in the neck, her life is quickly ending. You are drenched in blood, and tears]}
+{29010}{}{[Stab her with the Letter Opener]}
+{30000}{}{[With your second female murder victim of the day, you throw your police badge over the body and laugh. Looks like something broke inside of you. Who knows. The Ripper is dead, but his ghost lives on in you]}
+{30010}{}{What am I becoming?}
+{31000}{}{[Joanna Tibbett's brutally murdered body lies before you. There's blood eveywhere in the room, and the on walls. No doubt a reminder that you killed her!]}
+{31010}{}{What a wondeful paiting.}
+

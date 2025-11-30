@@ -1,0 +1,266 @@
+//
+// FOnline: 2238
+// Rotators
+//
+// map_starter.fos
+//
+
+#include "_macros.fos"
+#include "_maps.fos"
+#include "mapdata_h.fos"
+#include "logging_h.fos"
+
+#define STARTER_TERMINAL       (23400)
+
+import void SetQuestGarbager(uint time, uint playerid, uint locid, uint var, uint val) from "utils";
+
+// Map script for starter locations
+void map_init(Map& map, bool firstTime)
+{
+    map.SetEvent(MAP_EVENT_OUT_CRITTER, "_OnLeaveMap");
+    if(firstTime)
+        SetQuestGarbager(3 * 60, 0, map.GetLocation().Id, 0, 0);
+}
+
+void _OnLeaveMap(Map& map, Critter& cr)
+{
+    if(valid(cr.GetMap()))
+        return;
+
+    Location@ loc = map.GetLocation();
+    if(valid(loc))
+    {
+        DeleteLocation(loc.Id);
+        FLog(LOG_DYNAMIC_LOC, "map_starter@_OnLeaveMap: locId " + loc.Id);
+    }
+    else
+        Log("Invalid starter location.");
+}
+
+
+
+// Vault Door Console
+bool s_Console(Critter& player, Scenery& console, int skill, Item@ item)
+{
+player.Say(SAY_NETMSG, "Welcome to Vault 24! Your vault of the future! Due to the recent nuclear apocalypse this vault has been sealed for your safety. Please stand by! A Vault-Tec representative will be with you shortly!"); 
+return true;
+}
+
+// Trigger (Players chooses whether to play tutorial or not)
+void t_Tutorial( Critter& player, Scenery& trigger, bool entered, uint8 dir)
+{
+    Location@ loc = player.GetMap().GetLocation();
+    if (!valid(loc) || loc.GetProtoId() != LOCATION_StartVault)
+    {
+        FLog(LOG_DYNAMIC_LOC, "ILLEGAL START LOCATION TRIGGER : map_starter@r_TutorialTeleport: locId " + (valid(loc) ? loc.Id : 0) + " player id: " + player.Id);
+        return;
+    }
+
+    if(entered && (dir==3 || dir==4))
+    {
+    player.Wait( 0 );
+    RunDialog(player, 23024, player.HexX, player.HexY, true);
+    }
+}
+
+
+// Dialogue (on leaving Vault)
+void r_TutorialTeleport(Critter& player, Critter@ npc)
+{
+    Location@ loc = player.GetMap().GetLocation();
+    if (!valid(loc) || loc.GetProtoId() != LOCATION_StartVault)
+    {
+        FLog(LOG_DYNAMIC_LOC, "ILLEGAL NOOB CAMP TP : map_starter@r_TutorialTeleport: locId " + (valid(loc) ? loc.Id : 0) + " player id: " + player.Id);
+        return;
+    }
+    
+    // Teleport to Tutorial map
+    Map@ map = GetMapByPid(595, 0);
+    if(!valid(map))
+    {
+        Log("Teleport failed, tutorial map not found.");
+        return;
+    }
+    player.TransitToMap(map.Id, 0);
+    
+    // Removing start location
+    if(valid(loc) && loc.GetProtoId() == LOCATION_StartVault) 
+    {
+        DeleteLocation(loc.Id);
+        FLog(LOG_DYNAMIC_LOC, "map_starter@r_TutorialTeleport: locId " + loc.Id);
+    }
+    CreateTimeEvent(AFTER(REAL_SECOND(3)), "e_WelcomeMessage", player.Id, false);
+}
+
+// Welcome message upon entering Tutorial map
+uint e_WelcomeMessage(array<int>@ data)
+{
+    Critter@ cr = GetCritter(data[0]);
+    if(valid(cr) && cr.IsPlayer())
+        {
+        cr.Wait( 0 );
+        RunDialog(cr, 23007, cr.HexX, cr.HexY, true);
+        }
+
+    return(0);
+}
+
+// Dialogue (on leaving Vault)
+void r_TutorialTeleportSF(Critter& player, Critter@ npc)
+{
+    Location@ loc = player.GetMap().GetLocation();
+    if (!valid(loc) || loc.GetProtoId() != LOCATION_StartVault)
+    {
+        FLog(LOG_DYNAMIC_LOC, "ILLEGAL SF TP : map_starter@r_TutorialTeleportSF: locId " + (valid(loc) ? loc.Id : 0) + " player id: " + player.Id);
+        return;
+    }
+    
+    // Teleport to Tutorial map
+    Map@ map = GetMapByPid(137, 0);
+    if(!valid(map))
+    {
+        Log("Teleport failed, SF map not found.");
+        return;
+    }
+    player.TransitToMap(map.Id, 0);
+    
+    // Removing start location
+    if(valid(loc) && loc.GetProtoId() == LOCATION_StartVault) 
+    {
+        DeleteLocation(loc.Id);
+        FLog(LOG_DYNAMIC_LOC, "map_starter@r_TutorialTeleportSF: locId " + loc.Id);
+    }
+    CreateTimeEvent(AFTER(REAL_SECOND(3)), "e_WelcomeMessageAdvanced", player.Id, false);
+}
+
+// Welcome message upon entering Tutorial map
+uint e_WelcomeMessageAdvanced(array<int>@ data)
+{
+    Critter@ cr = GetCritter(data[0]);
+    if(valid(cr) && cr.IsPlayer())
+        {
+        cr.Wait( 0 );
+        RunDialog(cr, 33402, cr.HexX, cr.HexY, true);
+        }
+
+    return(0);
+}
+
+// Dialogue (on leaving Vault)
+void r_TutorialTeleportNCR(Critter& player, Critter@ npc)
+{
+    Location@ loc = player.GetMap().GetLocation();
+    if (!valid(loc) || loc.GetProtoId() != LOCATION_StartVault)
+    {
+        FLog(LOG_DYNAMIC_LOC, "ILLEGAL NCR TP : map_starter@r_TutorialTeleportNCR: locId " + (valid(loc) ? loc.Id : 0) + " player id: " + player.Id);
+        return;
+    }
+    
+    // Teleport to Tutorial map
+    Map@ map = GetMapByPid(45, 0);
+    if(!valid(map))
+    {
+        Log("Teleport failed, NCR map not found.");
+        return;
+    }
+    player.TransitToMap(map.Id, 0);
+    
+    // Removing start location
+    if(valid(loc) && loc.GetProtoId() == LOCATION_StartVault) 
+    {
+        DeleteLocation(loc.Id);
+        FLog(LOG_DYNAMIC_LOC, "map_starter@r_TutorialTeleportNCR: locId " + loc.Id);
+    }
+    CreateTimeEvent(AFTER(REAL_SECOND(3)), "e_WelcomeMessageAdvanced", player.Id, false);
+}
+
+//Starting Map Atmosphere Objects and Interact Code
+bool s_TerminalIntro1(Critter& player, Scenery& terminal, int skill, Item@ item)
+{
+    if(!player.IsPlayer() || skill != -1 || valid(item))
+        return false;
+    Location@ Loc = player.GetMap().GetLocation();
+    switch(Loc.GetProtoId())
+    {
+    case LOCATION_StartVault:
+        RunDialog(player, STARTER_TERMINAL, terminal.HexX, terminal.HexY, false);
+        break;
+    }
+    return true;
+}
+
+bool s_TerminalScience(Critter& player, Scenery& terminal, int skill, Item@ item)
+{
+    if (!player.IsPlayer() || skill != SK_SCIENCE)
+    {   
+        player.Say(SAY_NETMSG, "This requires a more scientific approach. Use the SCIENCE skill on this object for best results.");
+        return true;
+    }
+	
+    uint value = player.Skill[SK_SCIENCE] - Random(5, 10);
+
+    if (value > 5)
+    {
+        player.Say(SAY_NETMSG, "The terminal screams at you in hexidecimal and attempts to reboot, followed by thousands of seemingly random error codes. The last logical entries appear to mention your Overseer and the Vault Doors opening. They mean nothing, but at least you know how to successfully apply your Science Skills!");
+	}
+	else
+    player.Say(SAY_NETMSG, "You've failed to apply any knowledge of your science skills. Perhaps you should re-study your Vault manuals before trying again? Or maybe it was just bad luck?");
+    return true; 
+}
+
+bool s_TerminalRepair(Critter& player, Scenery& terminal, int skill, Item@ item)
+{
+    if (!player.IsPlayer() || skill != SK_REPAIR)
+    {   
+        player.Say(SAY_NETMSG, "This requires a more mechanical approach. Use the REPAIR skill on this object for best results.");
+        return true;
+    }
+	
+    uint value = player.Skill[SK_REPAIR] - Random(5, 10);
+
+    if (value > 5)
+    {
+        player.Say(SAY_NETMSG, "You opened up the frontal t-bone and re-arranged the vibrant wires, but the terminal doesn't seem to react to your successful repairs. Guess it really is broken and there's just nothing more you can do.");
+	}
+	else
+    player.Say(SAY_NETMSG, "You've failed to apply any knowledge of your mechanical repair skills. Perhaps you should re-study your Vault manuals before trying again? Or maybe it was just bad luck?");
+    return true; 
+}
+
+bool s_TerminalDoctor(Critter& player, Scenery& terminal, int skill, Item@ item)
+{
+    if (!player.IsPlayer() || skill != SK_DOCTOR)
+    {   
+        player.Say(SAY_NETMSG, "This simulation requires a more professional level of medical skill to enjoy, more along the lines of a Doctor's approach. Use the DOCTOR skill on this object for best results.");
+        return true;
+    }
+	
+    uint value = player.Skill[SK_DOCTOR] - Random(5, 10);
+
+    if (value > 5)
+    {
+        player.Say(SAY_NETMSG, "You successfully boot up the simulation and begin playing! You asses the situation and the injured woman to the best of your abilities, but unfortunately there's just nothing more that you can do. She is dead. You'll have to learn to let it go, and play the next level!");
+	}
+	else
+    player.Say(SAY_NETMSG, "You've failed to apply any knowledge of any professional doctoral level of medical skills. Perhaps you should re-study your Vault manuals before trying again? Or maybe it was just bad luck?");
+    return true; 
+}
+
+bool s_TerminalLockpick(Critter& player, Scenery& terminal, int skill, Item@ item)
+{
+    if (!player.IsPlayer() || skill != SK_LOCKPICK)
+    {   
+        player.Say(SAY_NETMSG, "You are absolutely hooked and in love with this game! Vault Runner is the greatest arcade game ever made! You play it for hours! And hours! But it involves a lot of gambling! And you just don't have the quarters! Maybe you can LOCKPICK the machine?");
+        return true;
+    }
+	
+    uint value = player.Skill[SK_LOCKPICK] - Random(5, 10);
+
+    if (value > 5)
+    {
+        player.Say(SAY_NETMSG, "You struggle greatly to succeed the final jump in Vault Runner but the game bugs out forcing you to try again, and start from scratch! Hours of your life wasted! Ruined by a simple bug! You try to rage quit but feel the sudden urge to give it one more go... just... once more...");
+	}
+	else
+    player.Say(SAY_NETMSG, "You try your hand at Vault Runner for hours but can't seem to get past the last level! Maybe you should... try it again? You don't really have much else to do and there's nothing stopping you from trying again. Maybe you'll succeed? There will be no reward but maybe you'll... reach the high score?");
+    return true; 
+}

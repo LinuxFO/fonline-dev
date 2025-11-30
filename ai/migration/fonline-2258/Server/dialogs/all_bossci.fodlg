@@ -1,0 +1,42 @@
+[comment]
+
+
+[data]
+lang=engl
+
+[dialog]
+&
+1 1000 None 0 #
+2 1010 D _var p name_mem_npc_player = 0 #
+3 1020 D _var p name_mem_npc_player = 1 @
+2 2000 None 0 #
+4 2010 @
+3 3000 None 0 @
+4 4000 None 0 #
+5 4010 @
+5 5000 None 0 #
+6 5010 @
+6 6000 None 0 #
+7 6010 @
+7 7000 None 0 #
+0 7010 R _var p q_bos_initiatequest_start = 46 R _var p name_mem_npc_player = 1 &
+
+[engl]
+{100}{}{Dying Scientist}
+{200}{}{You see a dying Enclave scientist.}
+{210}{}{Doesn't look like he has much time.}
+{1000}{}{Predialogue installations}
+{1010}{}{Answer text}
+{1020}{}{1}
+{2000}{}{... aliens... we... came... them... here... brought... them... for... science... }
+{2010}{}{Go on.}
+{3000}{}{*he's dead, Jim*}
+{4000}{}{... vertibird... crashed... aliens... on board... killed... us...}
+{4010}{}{Okay, so what? }
+{5000}{}{... the... science! ... was... too.. important... for... genetics... take... my... holotape... bring it... to... Enclave...}
+{5010}{}{No, that's okay. I'm with the Brotherhood of Steel. I'm confiscating all your data and research. Oh, I'm also going to kill you. Any last words?}
+{6000}{}{... you... bastard!... my... life... was... wasted... all... those... hours... wasted!... I'll... kill...}
+{6010}{}{*Stomp on the back of his head!*}
+{7000}{}{[You smeer raspberry jam everywhere, send the data to control, and call it a night]}
+{7010}{}{Well, I'm beat. Better get the hell out of this alien infested hell hole and start fucking up some more of this irradiated wasteland they call America.}
+

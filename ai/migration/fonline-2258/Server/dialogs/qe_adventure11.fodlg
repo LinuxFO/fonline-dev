@@ -1,0 +1,302 @@
+[comment]
+
+
+[data]
+lang=engl
+
+[dialog]
+&
+1 1000 None 0 #
+2 1010 @
+2 2000 None 0 #
+3 2010 D _var p q_adventure = 26 #
+3 2020 D _var p q_adventure = 28 D _item p PID_DOLLAR > 1247 #
+21 2030 D _var p q_adventure = 36 #
+25 2040 D _var p q_adventure = 37 D _item p PID_DOLLAR > 1247 R _item p PID_DOLLAR - 1248 #
+34 2050 D _var p q_adventure = 38 D _item p PID_DOLLAR > 1247 R _item p PID_DOLLAR - 1248 #
+44 2060 D _var p q_adventure = 43 #
+64 2070 D _var p q_adventure = 47 @
+3 3000 None 0 #
+4 3010 @
+4 4000 None 0 #
+5 4010 D _item p PID_BOTTLE_CAPS > 1247 D _var p q_adventure = 26 R _var p q_adventure = 27 R _script dialog@r_AddExperience 1 2000 #
+5 4020 D _var p q_adventure = 26 R _var p q_adventure = 27 R _script dialog@r_AddExperience 1 2000 #
+6 4030 D _var p q_adventure = 28 D _item p PID_DOLLAR > 1247 R _item p PID_DOLLAR - 1248 @
+5 5000 None 0 @
+6 6000 None 0 #
+7 6010 @
+7 7000 None 0 #
+8 7010 @
+8 8000 None 0 #
+9 8010 @
+9 9000 None 0 #
+10 9010 @
+10 10000 None 0 #
+11 10010 @
+11 11000 None 0 #
+12 11010 @
+12 12000 None 0 #
+13 12010 @
+13 13000 None 0 #
+14 13010 @
+14 14000 None 0 #
+15 14010 @
+15 15000 None 0 #
+16 15010 @
+16 16000 None 0 #
+17 16010 @
+17 17000 None 0 #
+18 17010 @
+18 18000 None 0 #
+19 18010 @
+19 19000 None 0 #
+20 19010 @
+20 20000 None 0 #
+0 20010 R _var p q_adventure = 29 R _script dialog@r_AddExperience 1 2000 R _script quest_advent5@r_SpawnLoc 0  R _script quest_advent4@r_DeleteLoc 0  @
+21 21000 None 0 #
+22 21010 @
+22 22000 None 0 #
+23 22010 @
+23 23000 None 0 #
+24 23010 @
+24 24000 None 0 #
+0 24010 R _script dialog@r_AddExperience 1 3000 R _var p q_adventure = 37 @
+25 25000 None 0 #
+26 25010 @
+26 26000 None 0 #
+27 26010 @
+27 27000 None 0 #
+28 27010 @
+28 28000 None 0 #
+29 28010 @
+29 29000 None 0 #
+30 29010 @
+30 30000 None 0 #
+31 30010 @
+31 31000 None 0 #
+32 31010 @
+32 32000 None 0 #
+33 32010 R _var p q_adventure = 38 R _script dialog@r_AddExperience 1 3000 @
+33 33000 None 0 @
+34 34000 None 0 #
+35 34010 @
+35 35000 None 0 #
+36 35010 @
+36 36000 None 0 #
+37 36010 @
+37 37000 None 0 #
+38 37010 @
+38 38000 None 0 #
+39 38010 @
+39 39000 None 0 #
+40 39010 @
+40 40000 None 0 #
+41 40010 @
+41 41000 None 0 #
+42 41010 @
+42 42000 None 0 #
+43 42010 R _var p q_adventure = 39 R _script dialog@r_AddExperience 1 3000 @
+43 43000 None 0 @
+44 44000 None 0 #
+45 44010 @
+45 45000 None 0 #
+46 45010 @
+46 46000 None 0 #
+47 46010 @
+47 47000 None 0 #
+48 47010 @
+48 48000 None 0 #
+49 48010 @
+49 49000 None 0 #
+50 49010 @
+50 50000 None 0 #
+51 50010 @
+51 51000 None 0 #
+52 51010 @
+52 52000 None 0 #
+53 52010 @
+53 53000 None 0 #
+54 53010 @
+54 54000 None 0 #
+55 54010 @
+55 55000 None 0 #
+56 55010 @
+56 56000 None 0 #
+57 56010 @
+57 57000 None 0 #
+58 57010 @
+58 58000 None 0 #
+59 58010 @
+59 59000 None 0 #
+60 59010 @
+60 60000 None 0 #
+61 60010 @
+61 61000 None 0 #
+62 61010 @
+62 62000 None 0 #
+63 62010 @
+63 63000 None 0 #
+0 63010 R _var p q_adventure = 44 R _script dialog@r_AddExperience 1 3000 @
+64 64000 None 0 #
+65 64010 @
+65 65000 None 0 #
+66 65010 @
+66 66000 None 0 #
+67 66010 @
+67 67000 None 0 #
+68 67010 @
+68 68000 None 0 #
+69 68010 @
+69 69000 None 0 #
+70 69010 R _var p q_adventure = 48 R _script dialog@r_AddExperience 1 3000 R _item p PID_DOLLAR + 1248 @
+70 70000 None 0 &
+
+[engl]
+{100}{}{Videocom}
+{200}{}{You see a functioning videocom.}
+{210}{}{Top-notch, barely working Vault-tek machinery.}
+{1000}{}{Predialogue installations}
+{1010}{}{1}
+{2000}{}{[This appears to be a fully functional Vault-Tek Videocom]}
+{2010}{}{[Insert PipBoy]}
+{2020}{}{[Insert PipBoy]}
+{2030}{}{[Insert PipBoy]}
+{2040}{}{[Insert PipBoy]}
+{2050}{}{[Insert PipBoy]}
+{2060}{}{[Insert PipBoy]}
+{2070}{}{[Insert PipBoy]}
+{3000}{}{Thank you for using Vault-Tek Videocoms! Your number one solution for all your telecommunication needs. Who would you like to call today?}
+{3010}{}{Uhhh...}
+{4000}{}{Incoming call from "United States Government" will you accept the charges of: 1248$?}
+{4010}{}{Okay. [Insert bottle caps into the machine]}
+{4020}{}{Looks like I'll need some American Dollars...}
+{4030}{}{Yes. [Insert the coins into the machine one at a time]}
+{5000}{}{Sorry, this machine only accepts coins.}
+{6000}{}{[A few hours later you manage to insert all of the coins into the Vault-Tek Videocom, and a screen turns on]}
+{6010}{}{[Continue]}
+{7000}{}{[A blurred, static image of a face appears and begins to speak]}
+{7010}{}{Hello? Who is this?}
+{8000}{}{@pname@? Is that you, laddy? It's the Overseer. Sorry the tranmission is a little blurred... we're underground after all! How was your journey to Navarro? }
+{8010}{}{Overseer? Why did it say incoming call from the U.S Government?}
+{9000}{}{U.S Government? Oh, it must be the vault. That's odd. I guess there was no phone directory for Vault 24. Must have been bloody unlisted. }
+{9010}{}{These men in black armour... they're United States Military! They go by the name of "The Enclave". Have you ever heard of them?}
+{10000}{}{The Enclave? Why yes, yes I have. That was the code name for the Oil Rig, just off the coast of San Francisco. Are you saying that Navarro is a stronghold for the U.S Military?!}
+{10010}{}{Yes! And they're trying to kill me! Why the hell would the U.S Government want to do that?! What the hell did I ever do?!}
+{11000}{}{Hard to say, @pname@. Maybe they're trying to get into Vault 24? I don't see why else anyone would want to take your PipBoy. It's hardcoded with the coordinates to your vault, and then some.}
+{11010}{}{What?! What else is on this thing?}
+{12000}{}{Your PipBoy isn't just any Pip Boy. It's a highly advanced, and modified version of the Pip Boy device that came standard with all vaults. Vault 24's PipBoy's are one-of-a-kind. Our technicians put a lot of love, and time into them.}
+{12010}{}{Well I'm not just going to give this thing up! It's kept me alive for this long! I don't see how anyone can survive out here without one! You can thank those technicians for me.}
+{13000}{}{I'm sure you'll get to thank them personally yourself soon enough, @pname@. But right now, I need to know everything you can tell me about Navarro, and this "Enclave".}
+{13010}{}{[Tell him everything you know]}
+{14000}{}{Bloody well done, @pname@! Rather interesting isn't it? An attempt at bringing back the original government from before the war. Very blood interesting, indeed! By your description they seem quite professional. Do you think that maybe there is a chance that this "Enclave" is just the remnants of the actual American Goverment, and way of life?}
+{14010}{}{It can't be! I... I killed one of their soldiers, and had a good look at the body... These... people... weren't human! There's something off about them! It's almost like... they're... infected.}
+{15000}{}{Infected?! What ever do you mean?}
+{15010}{}{The man I killed... his... his urine... was green! I ambushed him when he was taking a leak, and saw the mess he was leaving behind! It was glowing!}
+{16000}{}{My God! The people of Vault 24 are the last batch of pure humans left! We don't have a single infected gene in our body... that would explain why this... "Enclave" is looking for the vault! They want to use us for something! But what?}
+{16010}{}{I don't know! But I'm not letting them just take me, and turn me into one of their freaks!}
+{17000}{}{Yes, yes... where would the fun be in that? @pname@, I think we should try to remain as independent as possible! Don't let this "Enclave" get a hold of your PipBoy! We cannot let the secrets of Vault 24 fall into the wrong hands! Our people might just be the last hope that humanity has left to offer!}
+{17010}{}{[Say nothing]}
+{18000}{}{By the bloody way! There's a rather mean looking Communist patrol heading towards your location right now! Looks like the Chinese weren't too happy that you hacked into their networks, and planted that back door! Be very careful, @pname@! They will be waiting for you to leave the city!}
+{18010}{}{Fucking great! Goddamnit! Now the Chinese want to kill me too?!}
+{19000}{}{I'm afraid so, @pname@. Looks like you've been making a lot of enemies... rather sorry about that, and all. Well, best of luck to you! If you survive, go check your mail at the Hub. I'll have your next assignment waiting for you. We need to get to the bottom of this "Enclave" stuff, and bloody soon! Don't let them take your PipBoy!}
+{19010}{}{Overseer? Overseer! Hello?! Goddamnit!}
+{20000}{}{[If you would like to play this mission in Turn Based mode, please type /combatmode tb before continuing!]}
+{20010}{}{[Continue]}
+{21000}{}{Thank you for using Vault-Tek Videocoms! Your number one solution for all your telecommunication needs. Who would you like to call today?}
+{21010}{}{Vault 24's Overseer.}
+{22000}{}{Incoming call from "United States Government" will you accept the charges of: 1248$?}
+{22010}{}{No! Call Vault 24's Overseer.}
+{23000}{}{Incoming call from "United States Government" will you accept the charges of: 1248$?}
+{23010}{}{Damnit! No! Call Vault 24! }
+{24000}{}{Incoming call from "United States Government" will you accept the charges of: 1248$?}
+{24010}{}{Goddamnit! Better go buy some more fucking coins! Fuck!}
+{25000}{}{Thank you for using Vault-Tek Videocoms! Your number one solution for all your telecommunication needs. Who would you like to call today?}
+{25010}{}{Vault 24's Overseer.}
+{26000}{}{Incoming call from "United States Government" will you accept the charges of: 1248$?}
+{26010}{}{*Sigh* Yes. [Insert the coins into the machine one at a time]}
+{27000}{}{[A few hours later you manage to insert all of the coins into the Vault-Tek Videocom, and a screen turns on]}
+{27010}{}{[Continue]}
+{28000}{}{[A blurred, static image of a face appears and begins to speak]}
+{28010}{}{This is @pname@...}
+{29000}{}{Jolly good show, lad! You've made it! Sorry the connection is so fuzzy. I'm underground, and the blast walls can barely send a signal through. That's why I used so many different scouts. I still can't really believe that Captain Jason Stone is dead! @pname@! Do you have any idea what happened to him?}
+{29010}{}{I... I killed him! There was a gang of people waiting for me at that Safe House! I had to kill everyone there! And right after that, I found a message from Captain Stone on the Mister Handy Bot that was over at the Safe House.}
+{30000}{}{YOU WHAT?! MY GOD! @pname@! No! No! Why?! Why did you kill my son?!}
+{30010}{}{I'm sorry, Overseer! But Captain Stone was trying to kill me! I had no choice! The Mister Handy Bot put me in direct communication with him! He wanted my PipBoy!}
+{31000}{}{No! You're wrong, @pname@! You're a killer! You murdered my son! You fucking bloody bastard!}
+{31010}{}{Overseer! You have to listen to me! I didn't want--}
+{32000}{}{*Click* Thank you for using Vault-Tek Videocoms. Your number one solution for all your telecommunication needs.}
+{32010}{}{Damnit! Overseer! }
+{33000}{}{Incoming call from "United States Government" will you accept the charges of: 1248$?}
+{34000}{}{Thank you for using Vault-Tek Videocoms! Your number one solution for all your telecommunication needs. Incoming call from "United States Government" will you accept the charges of: 1248$?}
+{34010}{}{Yes. [Insert the coins into the machine one at a time]}
+{35000}{}{[A few hours later you manage to insert all of the coins into the Vault-Tek Videocom, and a screen turns on]}
+{35010}{}{[Continue]}
+{36000}{}{[A blurred, static image of a face appears and begins to speak]}
+{36010}{}{*Sigh* This is @pname@.}
+{37000}{}{Hello, @pname@. This is the President of the United States speaking. Do I have your attention?}
+{37010}{}{The President... of the United States? You mean Tandi?}
+{38000}{}{God! No! The NCR is NOT the government. The United States of America is still in control of California! This entire country in fact! And you, @pname@, you're an American! }
+{38010}{}{Yes, sir! *Salute*}
+{39000}{}{At ease, citizen. Do you know why I'm calling?}
+{39010}{}{No idea, sir. Is it about my PipBoy, and Vault 24? Maybe it's something to do with me killing one of your mutated freaks?}
+{40000}{}{Yes... we know that you were at Navarro recently, and killed one of the fresh recruits. He was a Super Mutant... but he was an honest American, goddamnit! You didn't have to kill him. But I'd say we're even now.}
+{40010}{}{Even?! You call this even?! My own Overseer thinks that I *murdered* his son! My own cousin tried to kill me! And my best friend since I was four got her head blown off right in front of me! With all due respect, sir, but... FUCK YOU!}
+{41000}{}{Calm yourself, citizen! I am not here to make enemies! I am here to offer you a truce. Abandon your allegiance to Vault 24, and join the Enclave instead! We could use a @sex@|man||woman| like you in our organization. Protect and Serve, @pname@! Semper Fi!}
+{41010}{}{Just why the hell should I join you people?! I haven't seen a single Enclave member once help out the community! You people sit inside your bases, and kill everyone your Patrols stumble upon. You people are monsters! I'll never join you!}
+{42000}{}{We do our part, citizen. Just because you don't see it, doesn't mean that it isn't a fact. A new rain will soon wash all these mutations away, and resurrect the Old World. You, and your people can either join us, or fight against us! Sooner, or later, you'll have to make your choice, @pname@! And I hope that you choose to join the United States Government! Instead of that pussy vault of yours!}
+{42010}{}{What do you want from me?! Why don't you people just leave me alone?!}
+{43000}{}{Dead, or alive, @pname@... we're getting that PipBoy of yours. *Click* Thank you for using Vault-Tek Videocoms! Your number one solution for all your telecommunication needs.}
+{44000}{}{Thank you for using Vault-Tek Videocoms! Your number one solution for all your telecommunication needs. Who would you like to call today?}
+{44010}{}{Vault 24's Overseer.}
+{45000}{}{Calling "United States Government" ... Please wait.}
+{45010}{}{[Wait]}
+{46000}{}{[Several hours pass]}
+{46010}{}{*Yawn*}
+{47000}{}{[A blurred, static image of a face appears and begins to speak] Uh... Hello?}
+{47010}{}{Hey! It's @pname@! Please don't hang up!}
+{48000}{}{You bloody fuck! You stupid, ignorant little shit! You killed my son! You killed him!}
+{48010}{}{I'm sorry, Overseer! I truly am! But I had no choice! I think your son was the mole! Everything I've witnessed so far is proof of it! He... he must have converted!}
+{49000}{}{Did you make me spend two bloody hours putting in All-American Pre-War coins into this fucking machine just to tell me that?! Go to hell, @pname@! You're a murderer! And a traitor!}
+{49010}{}{No, Overseer! I swear! I've been manipulated by the Enclave! They've been using me since the beginning! They must have been! Ever since... ever since Cira was murdered!}
+{50000}{}{Bull, bloody, shit! You're just a liar! Trying to get into the vault, eh?! You really think that I am that stupid?!}
+{50010}{}{Overseer, please! I had no choice. We need to start working together again! It's the only way to get to the bottom of things!}
+{51000}{}{Yes... I know... I've came to the same conclusion, @pname@. But my son is dead! And you killed him! How could I ever forgive you?!}
+{51010}{}{You won't, and you don't have to. He was your son, and I killed him. You can hate me forever. But I've lost someone too, Cira, and her killer is still out there somewhere!}
+{52000}{}{Cira... that poor girl... This... Enclave... this... United States Government... they're destroying our lives, @pname@. It's time we put a stop to them. But how... how can I trust you?!}
+{52010}{}{What does the Vault need? I'll leave you a package with the Post Office in the Hub. You can send a courier to pick it up.}
+{53000}{}{And risk exposing the location? Never. You're going to have to try harder than that! Traitor!}
+{53010}{}{*Sigh* What can I do to prove my loyalty to Vault 24? Have I not done enough? Growing up, and while out here?}
+{54000}{}{@pname@! You... you killed my son!}
+{54010}{}{Your son was a traitor! He tried to kill me! He wanted my PipBoy, Overseer! Can't you see?! This Enclave has converted nearly EVERYONE into their cause! I... I tried going to the NCR government for help...}
+{55000}{}{And what did they say?! Will they help us?}
+{55010}{}{No... no... the man at the door... he was working for the Enclave as well. Shortly after speaking with him, a Vertibird landed right outside of the Hub. But I managed to defeat the patrol...}
+{56000}{}{@pname@! How... how many people have you killed?!}
+{56010}{}{You don't understand what it's like out here! I didn't make these choices! Everyone is trying to kill each other out here! I kill... just... to survive...}
+{57000}{}{My God, @pname@! The horror! The horror! The... horror... the... horror...}
+{57010}{}{I've killed so many people, Overseer! So many! There was no way that we could prepare for this! You sent us out into a nightmare! A living hell! All of us out here, all of us! We are the Walking Dead!}
+{58000}{}{Soon, @sex@|son,||hun,| we'll get you home! Away from this hell you call the "wasteland". Things can get better. They will. We'll all make sure of that. The Enclave, or the United States Government be damned!}
+{58010}{}{We... we need allies, Overseer! We can't defeat them on our own. They're way too powerful to fight! Their... their weapons are something else! Highly advanced! Beyond our simple Vault-Tek.}
+{59000}{}{Yes... perhaps you are right. I can get the scouts to help us stock up on weapons, ammunition, and armor. But an army is something that we simply, do not have.  During your travels, have you encountered anyone that could possibly help us?}
+{59010}{}{The NCR is the only real government I've seen around here. They've united these people, and bring law and order wherever they go. They could possibly help us. But the President... President Tandi might have been killed. It's hard to say. There was an attempt at her life recently. }
+{60000}{}{That's horrible! If this... NCR cannot help us... do you know of anyone else?}
+{60010}{}{There is this... Brotherhood of Steel. But they're just as mysterious as the Enclave. }
+{61000}{}{Hmm, interesting, @pname@. If you could somehow unite these two factions, and convince them to fight alongside Vault 24... then... we might just have a chance at driving the United States Government right out of California!}
+{61010}{}{Possibly... but how?}
+{62000}{}{I don't bloody know! But if anyone can figure this out... it's you, @pname@. You're a fucking hero! You wouldn't be going through all this trouble if you didn't care. I... I think that I can trust you now. }
+{62010}{}{Thank you, Overseer. That means a lot to me.}
+{63000}{}{You're welcome, @pname@. For now, I think our best interest would be to convince this "NCR" to help us unite against our struggle. There must be an honest official you could speak with. We can't be the only ones having trouble with the Enclave. }
+{63010}{}{I'll see what I can do, Overseer. I'll contact you again once I've gotten some more information. }
+{64000}{}{Thank you for using Vault-Tek Videocoms! Your number one solution for all your telecommunication needs. Who would you like to call today?}
+{64010}{}{Vault 24's Overseer.}
+{65000}{}{Calling "United States Government" ... Please wait.}
+{65010}{}{[Wait]}
+{66000}{}{[Several hours pass]}
+{66010}{}{Come on, Overseer! Hurry up and put those damn coins into the freakin' machine already!}
+{67000}{}{[A blurred, static image of a face appears and begins to speak] Yes?}
+{67010}{}{Overseer? It's @pname@!}
+{68000}{}{Bloody fine to hear from you, @pname@! Sorry it took so long to put the bloody coins into the machine, my God! I'm terribly sorry for hanging up on you. If I would have known how long it took to insert over twelve hundred coins, I would have kept you on the line to shout some more.}
+{68010}{}{Tha'ts fine. Listen! Overseer! I've managed to convince both the NCR and the Brotherhood of Steel to help us. Together, all three of our factions can eliminate the Enclave pressence in California once and for all!}
+{69000}{}{You bloody well right, @pname@! The scouts have managed to acquire enough weapons, and armour to provide an army! We're ready when you are.}
+{69010}{}{Excellent! I'll contact you when we're ready to head out. Get your ranks formed. We'll be working with professionals. @pname@, out.}
+{70000}{}{Once more unto the breach, my friend! Once more!}
+

@@ -1,0 +1,54 @@
+[comment]
+
+
+[data]
+lang=engl
+
+[dialog]
+&
+1 1000 None 0 #
+2 1010 D _param p REPUTATION_LA } 0 #
+8 1020 D _param p REPUTATION_LA { 0 @
+2 2000 None 0 #
+3 2010 #
+7 2020 D _var p la_caravan = 2 D _item p PID_CARAVAN_BOX > 0 R _item p PID_CARAVAN_BOX - 1 R _var p la_caravan = 0 R _script dialog@r_AddExperience 1 500 R _script dialog@r_AddMoney 1 125 R _param p REPUTATION_LA + 7 #
+2 2030 D _var p la_caravan = 2 D _item p PID_CARAVAN_BOX = 0 R _var p la_caravan = 0 R _param p REPUTATION_LA - 7 R _param p REPUTATION_WATER_MERCHANTS - 3 #
+0 2040 @
+3 3000 None 0 #
+4 3010 @
+4 4000 None 0 #
+6 4010 #
+5 4020 @
+5 5000 None 0 @
+6 6000 None 0 #
+0 6010 R _var p la_caravan = 1 @
+7 7000 None 0 #
+6 7010 #
+5 7020 @
+8 8000 None 0 &
+
+[engl]
+{100}{}{Hydroponic Supervisor}
+{200}{}{You see a worried looking farmer.}
+{210}{}{Her shoes are dusty and her hands a little dirty, but all in all, she looks like your average farmer.}
+{1000}{}{Predialogue installations}
+{1010}{}{pos rep}
+{1020}{}{neg rep}
+{2000}{}{You from the Hub? You look like you're from the Hub. Here to deliver another crate of Hydroponic parts again?}
+{2010}{}{Hydro what?}
+{2020}{}{Here's your Water Merchant order.}
+{2030}{}{Sorry, I lost the crate.}
+{2040}{}{Nope, sorry.}
+{3000}{}{Hydroponic parts, from the Water Merchants. We go through them like crazy. Wear, tear, and corrosion make us need new parts almost every day. }
+{3010}{}{Okay, so what?}
+{4000}{}{I'll pay you a runner's fee if you take this receipt over to the Water Merchants in the Hub, and bring me back the crate. Relax, it won't be so bad, and it'll pay well too.}
+{4010}{}{Sure, hand me that receipt. I'll get to it eventually.}
+{4020}{}{Nah, not right now. But maybe later.}
+{5000}{}{These parts won't deliver themselves, you know.}
+{6000}{}{Head over to the Water Merchant's main office, over in the Hub. Bring back one crate, and I'll have your money waiting. Do this, and I'll put in a good word for you over in the Hub, and around L.A.}
+{6010}{}{Sounds good. I'll see you soon. Maybe.}
+{7000}{}{[She opens the crate and looks over the contents] Everything looks in order. Here's your payment. But we're going to need more crates. Let me know when you want to go on another run.}
+{7010}{}{Sure, I'll go do another run.}
+{7020}{}{Not right now, but maybe later. See ya.}
+{8000}{}{It's people like you that make the caravan business difficult. Why don't you go choke yourself? Get lost.}
+

@@ -1,0 +1,26 @@
+[comment]
+
+
+[data]
+lang=engl
+
+[dialog]
+&
+1 1000 None 0 #
+2 1010 @
+2 2000 None 0 #
+3 2010 D _item p PID_MEAT > 0 R _item p PID_MEAT - 1 #
+0 2020 @
+3 3000 None 0 &
+
+[engl]
+{100}{}{Meat}
+{200}{}{You see Meat.}
+{210}{}{Meat Guy.}
+{1000}{}{Predialogue installations}
+{1010}{}{Answer text}
+{2000}{}{Got any Meat?}
+{2010}{}{Sure.}
+{2020}{}{No, sorry.}
+{3000}{}{Thanks.}
+

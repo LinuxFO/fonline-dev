@@ -1,0 +1,2241 @@
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                         
+
+shared interface Buffer
+{
+	bool IsRaw(uint len);
+	
+	Buffer@opCom();
+	
+	Buffer@opNeg();       
+	
+	Buffer@opShr(int8&value);
+	Buffer@opShl(int8 value);
+	Buffer@Get(int8&value);
+	Buffer@Set(int8&value);
+	
+	Buffer@opShr(int16&value);
+	Buffer@opShl(int16 value);
+	Buffer@Get(int16&value);
+	Buffer@Set(int16&value);
+	
+	Buffer@opShr(int32&value);
+	Buffer@opShl(int32 value);
+	Buffer@Get(int32&value);
+	Buffer@Set(int32&value);
+	
+	Buffer@opShr(int64&value);
+	Buffer@opShl(int64 value);
+	Buffer@Get(int64&value);
+	Buffer@Set(int64&value);
+	
+	Buffer@opShr(uint8&value);
+	Buffer@opShl(uint8 value);
+	Buffer@Get(uint8&value);
+	Buffer@Set(uint8&value);
+	
+	Buffer@opShr(uint16&value);
+	Buffer@opShl(uint16 value);
+	Buffer@Get(uint16&value);
+	Buffer@Set(uint16&value);
+	
+	Buffer@opShr(uint32&value);
+	Buffer@opShl(uint32 value);
+	Buffer@Get(uint32&value);
+	Buffer@Set(uint32&value);
+	
+	Buffer@opShr(uint64&value);
+	Buffer@opShl(uint64 value);
+	Buffer@Get(uint64&value);
+	Buffer@Set(uint64&value);
+	
+	Buffer@opShr(bool&value);
+	Buffer@opShl(bool value);
+	Buffer@Get(bool&value);
+	Buffer@Set(bool&value);
+	
+	Buffer@opShr(string&value);
+	Buffer@opShl(string value);
+	Buffer@Get(string&value);
+	Buffer@Set(string&value);
+	
+	Buffer@opShr(float&value);
+	Buffer@opShl(float value);
+	Buffer@Get(float&value);
+	Buffer@Set(float&value); 
+	
+	Buffer@opShr(array<int8>&value);
+	Buffer@opShl(array<int8>&value);
+	Buffer@Get(array<int8>&value);
+	Buffer@Set(array<int8>&value);
+	
+	Buffer@opShr(array<int16>&value);
+	Buffer@opShl(array<int16>&value);
+	Buffer@Get(array<int16>&value);
+	Buffer@Set(array<int16>&value);
+	
+	Buffer@opShr(array<int32>&value);
+	Buffer@opShl(array<int32>&value);
+	Buffer@Get(array<int32>&value);
+	Buffer@Set(array<int32>&value);
+	
+	Buffer@opShr(array<int64>&value);
+	Buffer@opShl(array<int64>&value);
+	Buffer@Get(array<int64>&value);
+	Buffer@Set(array<int64>&value);
+	
+	Buffer@opShr(array<uint8>&value);
+	Buffer@opShl(array<uint8>&value);
+	Buffer@Get(array<uint8>&value);
+	Buffer@Set(array<uint8>&value);
+	
+	Buffer@opShr(array<uint16>&value);
+	Buffer@opShl(array<uint16>&value);
+	Buffer@Get(array<uint16>&value);
+	Buffer@Set(array<uint16>&value);
+	
+	Buffer@opShr(array<uint32>&value);
+	Buffer@opShl(array<uint32>&value);
+	Buffer@Get(array<uint32>&value);
+	Buffer@Set(array<uint32>&value);
+	
+	Buffer@opShr(array<uint64>&value);
+	Buffer@opShl(array<uint64>&value);
+	Buffer@Get(array<uint64>&value);
+	Buffer@Set(array<uint64>&value);
+	
+	Buffer@opShr(array<bool>&value);
+	Buffer@opShl(array<bool>&value);
+	Buffer@Get(array<bool>&value);
+	Buffer@Set(array<bool>&value);
+	
+	Buffer@opShr(array<string>&value);
+	Buffer@opShl(array<string>&value);
+	Buffer@Get(array<string>&value);
+	Buffer@Set(array<string>&value);
+	
+	Buffer@opShr(array<float>&value);
+	Buffer@opShl(array<float>&value);
+	Buffer@Get(array<float>&value);
+	Buffer@Set(array<float>&value); 
+	
+	Buffer@opShr(array<array<int8>>&value);
+	Buffer@opShl(array<array<int8>>&value);
+	Buffer@Get(array<array<int8>>&value);
+	Buffer@Set(array<array<int8>>&value);
+	
+	Buffer@opShr(array<array<int16>>&value);
+	Buffer@opShl(array<array<int16>>&value);
+	Buffer@Get(array<array<int16>>&value);
+	Buffer@Set(array<array<int16>>&value);
+	
+	Buffer@opShr(array<array<int32>>&value);
+	Buffer@opShl(array<array<int32>>&value);
+	Buffer@Get(array<array<int32>>&value);
+	Buffer@Set(array<array<int32>>&value);
+	
+	Buffer@opShr(array<array<int64>>&value);
+	Buffer@opShl(array<array<int64>>&value);
+	Buffer@Get(array<array<int64>>&value);
+	Buffer@Set(array<array<int64>>&value);
+	
+	Buffer@opShr(array<array<uint8>>&value);
+	Buffer@opShl(array<array<uint8>>&value);
+	Buffer@Get(array<array<uint8>>&value);
+	Buffer@Set(array<array<uint8>>&value);
+	
+	Buffer@opShr(array<array<uint16>>&value);
+	Buffer@opShl(array<array<uint16>>&value);
+	Buffer@Get(array<array<uint16>>&value);
+	Buffer@Set(array<array<uint16>>&value);
+	
+	Buffer@opShr(array<array<uint32>>&value);
+	Buffer@opShl(array<array<uint32>>&value);
+	Buffer@Get(array<array<uint32>>&value);
+	Buffer@Set(array<array<uint32>>&value);
+	
+	Buffer@opShr(array<array<uint64>>&value);
+	Buffer@opShl(array<array<uint64>>&value);
+	Buffer@Get(array<array<uint64>>&value);
+	Buffer@Set(array<array<uint64>>&value);
+	
+	Buffer@opShr(array<array<bool>>&value);
+	Buffer@opShl(array<array<bool>>&value);
+	Buffer@Get(array<array<bool>>&value);
+	Buffer@Set(array<array<bool>>&value);
+	
+	Buffer@opShr(array<array<string>>&value);
+	Buffer@opShl(array<array<string>>&value);
+	Buffer@Get(array<array<string>>&value);
+	Buffer@Set(array<array<string>>&value);
+	
+	Buffer@opShr(array<array<float>>&value);
+	Buffer@opShl(array<array<float>>&value);
+	Buffer@Get(array<array<float>>&value);
+	Buffer@Set(array<array<float>>&value); 
+	
+	Buffer@opShr(array<array<array<int8>>>&value);
+	Buffer@opShl(array<array<array<int8>>>&value);
+	Buffer@Get(array<array<array<int8>>>&value);
+	Buffer@Set(array<array<array<int8>>>&value);
+	
+	Buffer@opShr(array<array<array<int16>>>&value);
+	Buffer@opShl(array<array<array<int16>>>&value);
+	Buffer@Get(array<array<array<int16>>>&value);
+	Buffer@Set(array<array<array<int16>>>&value);
+	
+	Buffer@opShr(array<array<array<int32>>>&value);
+	Buffer@opShl(array<array<array<int32>>>&value);
+	Buffer@Get(array<array<array<int32>>>&value);
+	Buffer@Set(array<array<array<int32>>>&value);
+	
+	Buffer@opShr(array<array<array<int64>>>&value);
+	Buffer@opShl(array<array<array<int64>>>&value);
+	Buffer@Get(array<array<array<int64>>>&value);
+	Buffer@Set(array<array<array<int64>>>&value);
+	
+	Buffer@opShr(array<array<array<uint8>>>&value);
+	Buffer@opShl(array<array<array<uint8>>>&value);
+	Buffer@Get(array<array<array<uint8>>>&value);
+	Buffer@Set(array<array<array<uint8>>>&value);
+	
+	Buffer@opShr(array<array<array<uint16>>>&value);
+	Buffer@opShl(array<array<array<uint16>>>&value);
+	Buffer@Get(array<array<array<uint16>>>&value);
+	Buffer@Set(array<array<array<uint16>>>&value);
+	
+	Buffer@opShr(array<array<array<uint32>>>&value);
+	Buffer@opShl(array<array<array<uint32>>>&value);
+	Buffer@Get(array<array<array<uint32>>>&value);
+	Buffer@Set(array<array<array<uint32>>>&value);
+	
+	Buffer@opShr(array<array<array<uint64>>>&value);
+	Buffer@opShl(array<array<array<uint64>>>&value);
+	Buffer@Get(array<array<array<uint64>>>&value);
+	Buffer@Set(array<array<array<uint64>>>&value);
+	
+	Buffer@opShr(array<array<array<bool>>>&value);
+	Buffer@opShl(array<array<array<bool>>>&value);
+	Buffer@Get(array<array<array<bool>>>&value);
+	Buffer@Set(array<array<array<bool>>>&value);
+	
+	Buffer@opShr(array<array<array<string>>>&value);
+	Buffer@opShl(array<array<array<string>>>&value);
+	Buffer@Get(array<array<array<string>>>&value);
+	Buffer@Set(array<array<array<string>>>&value);
+	
+	Buffer@opShr(array<array<array<float>>>&value);
+	Buffer@opShl(array<array<array<float>>>&value);
+	Buffer@Get(array<array<array<float>>>&value);
+	Buffer@Set(array<array<array<float>>>&value); 
+	
+	Buffer@opUShr(array<int8>&arr);
+	Buffer@opUShrAssign(array<int8>&arr);
+	array<int8>AsInt8();
+	
+	Buffer@opUShr(array<int16>&arr);
+	Buffer@opUShrAssign(array<int16>&arr);
+	array<int16>AsInt16();
+	
+	Buffer@opUShr(array<int32>&arr);
+	Buffer@opUShrAssign(array<int32>&arr);
+	array<int32>AsInt32();
+	
+	Buffer@opUShr(array<int64>&arr);
+	Buffer@opUShrAssign(array<int64>&arr);
+	array<int64>AsInt64();
+	
+	Buffer@opUShr(array<uint8>&arr);
+	Buffer@opUShrAssign(array<uint8>&arr);
+	array<uint8>AsUint8();
+	
+	Buffer@opUShr(array<uint16>&arr);
+	Buffer@opUShrAssign(array<uint16>&arr);
+	array<uint16>AsUint16();
+	
+	Buffer@opUShr(array<uint32>&arr);
+	Buffer@opUShrAssign(array<uint32>&arr);
+	array<uint32>AsUint32();
+	
+	Buffer@opUShr(array<uint64>&arr);
+	Buffer@opUShrAssign(array<uint64>&arr);
+	array<uint64>AsUint64();
+};                         
+
+final class CBuffer:Buffer
+{
+	array<uint8>buf;
+	uint readPos;
+	
+	CBuffer()
+	{
+		~this;
+	}        
+	
+	CBuffer(array<int8>@data)
+	{
+		~this;
+		uint len=0;
+		if((@data!=null)&&(len=data.length())>0)
+		{
+			for(uint d=0;d<len;d++)
+			{
+				this<<int8(data[d]);
+			}
+		}
+		-this;
+	}
+	
+	CBuffer(array<int16>@data)
+	{
+		~this;
+		uint len=0;
+		if((@data!=null)&&(len=data.length())>0)
+		{
+			for(uint d=0;d<len;d++)
+			{
+				this<<int16(data[d]);
+			}
+		}
+		-this;
+	}
+	
+	CBuffer(array<int32>@data)
+	{
+		~this;
+		uint len=0;
+		if((@data!=null)&&(len=data.length())>0)
+		{
+			for(uint d=0;d<len;d++)
+			{
+				this<<int32(data[d]);
+			}
+		}
+		-this;
+	}
+	
+	CBuffer(array<int64>@data)
+	{
+		~this;
+		uint len=0;
+		if((@data!=null)&&(len=data.length())>0)
+		{
+			for(uint d=0;d<len;d++)
+			{
+				this<<int64(data[d]);
+			}
+		}
+		-this;
+	}
+	
+	CBuffer(array<uint8>@data)
+	{
+		~this;
+		uint len=0;
+		if((@data!=null)&&(len=data.length())>0)
+		{
+			for(uint d=0;d<len;d++)
+			{
+				this<<uint8(data[d]);
+			}
+		}
+		-this;
+	}
+	
+	CBuffer(array<uint16>@data)
+	{
+		~this;
+		uint len=0;
+		if((@data!=null)&&(len=data.length())>0)
+		{
+			for(uint d=0;d<len;d++)
+			{
+				this<<uint16(data[d]);
+			}
+		}
+		-this;
+	}
+	
+	CBuffer(array<uint32>@data)
+	{
+		~this;
+		uint len=0;
+		if((@data!=null)&&(len=data.length())>0)
+		{
+			for(uint d=0;d<len;d++)
+			{
+				this<<uint32(data[d]);
+			}
+		}
+		-this;
+	}
+	
+	CBuffer(array<uint64>@data)
+	{
+		~this;
+		uint len=0;
+		if((@data!=null)&&(len=data.length())>0)
+		{
+			for(uint d=0;d<len;d++)
+			{
+				this<<uint64(data[d]);
+			}
+		}
+		-this;
+	} 
+	
+	bool IsRaw(uint len)
+	{
+		if(len==0)
+		return(false);
+		
+		if(this.readPos+len>this.buf.length())
+		return(false);
+		else
+		return(true);
+	}  
+	
+	Buffer@opCom()
+	{
+		this.buf.resize(0);
+		-this;
+		return(this);
+	}  
+	
+	Buffer@opNeg()
+	{
+		this.readPos=0;
+		return(this);
+	}              
+	
+	Buffer@opShr(int8&value)
+	{
+		value=0;
+		if(!this.IsRaw(1))
+		return(this);
+		value|=this.buf[this.readPos++];
+		
+		return(this);
+	}
+	
+	Buffer@opShl(int8 value)
+	{
+		this.buf.insertLast((value)&0xFF);
+		
+		return(this);
+	}
+	
+	Buffer@opShr(int16&value)
+	{
+		value=0;
+		if(!this.IsRaw(1))
+		return(this);
+		value|=this.buf[this.readPos++]<<8;
+		if(!this.IsRaw(1))
+		return(this);
+		value|=this.buf[this.readPos++];
+		
+		return(this);
+	}
+	
+	Buffer@opShl(int16 value)
+	{
+		this.buf.insertLast((value>>8)&0xFF);
+		this.buf.insertLast((value)&0xFF);
+		
+		return(this);
+	}
+	
+	Buffer@opShr(int32&value)
+	{
+		value=0;
+		if(!this.IsRaw(1))
+		return(this);
+		value|=this.buf[this.readPos++]<<24;
+		if(!this.IsRaw(1))
+		return(this);
+		value|=this.buf[this.readPos++]<<16;
+		if(!this.IsRaw(1))
+		return(this);
+		value|=this.buf[this.readPos++]<<8;
+		if(!this.IsRaw(1))
+		return(this);
+		value|=this.buf[this.readPos++];
+		
+		return(this);
+	}
+	
+	Buffer@opShl(int32 value)
+	{
+		this.buf.insertLast((value>>24)&0xFF);
+		this.buf.insertLast((value>>16)&0xFF);
+		this.buf.insertLast((value>>8)&0xFF);
+		this.buf.insertLast((value)&0xFF);
+		
+		return(this);
+	}
+	
+	Buffer@opShr(int64&value)
+	{
+		value=0;
+		if(!this.IsRaw(1))
+		return(this);
+		value|=this.buf[this.readPos++]<<56;
+		if(!this.IsRaw(1))
+		return(this);
+		value|=this.buf[this.readPos++]<<48;
+		if(!this.IsRaw(1))
+		return(this);
+		value|=this.buf[this.readPos++]<<40;
+		if(!this.IsRaw(1))
+		return(this);
+		value|=this.buf[this.readPos++]<<32;
+		if(!this.IsRaw(1))
+		return(this);
+		value|=this.buf[this.readPos++]<<24;
+		if(!this.IsRaw(1))
+		return(this);
+		value|=this.buf[this.readPos++]<<16;
+		if(!this.IsRaw(1))
+		return(this);
+		value|=this.buf[this.readPos++]<<8;
+		if(!this.IsRaw(1))
+		return(this);
+		value|=this.buf[this.readPos++];
+		
+		return(this);
+	}
+	
+	Buffer@opShl(int64 value)
+	{
+		this.buf.insertLast((value>>56)&0xFF);
+		this.buf.insertLast((value>>48)&0xFF);
+		this.buf.insertLast((value>>40)&0xFF);
+		this.buf.insertLast((value>>32)&0xFF);
+		this.buf.insertLast((value>>24)&0xFF);
+		this.buf.insertLast((value>>16)&0xFF);
+		this.buf.insertLast((value>>8)&0xFF);
+		this.buf.insertLast((value)&0xFF);
+		
+		return(this);
+	}
+	
+	Buffer@opShr(uint8&value)
+	{
+		value=0;
+		if(!this.IsRaw(1))
+		return(this);
+		value|=this.buf[this.readPos++];
+		
+		return(this);
+	}
+	
+	Buffer@opShl(uint8 value)
+	{
+		this.buf.insertLast((value)&0xFF);
+		
+		return(this);
+	}
+	
+	Buffer@opShr(uint16&value)
+	{
+		value=0;
+		if(!this.IsRaw(1))
+		return(this);
+		value|=this.buf[this.readPos++]<<8;
+		if(!this.IsRaw(1))
+		return(this);
+		value|=this.buf[this.readPos++];
+		
+		return(this);
+	}
+	
+	Buffer@opShl(uint16 value)
+	{
+		this.buf.insertLast((value>>8)&0xFF);
+		this.buf.insertLast((value)&0xFF);
+		
+		return(this);
+	}
+	
+	Buffer@opShr(uint32&value)
+	{
+		value=0;
+		if(!this.IsRaw(1))
+		return(this);
+		value|=this.buf[this.readPos++]<<24;
+		if(!this.IsRaw(1))
+		return(this);
+		value|=this.buf[this.readPos++]<<16;
+		if(!this.IsRaw(1))
+		return(this);
+		value|=this.buf[this.readPos++]<<8;
+		if(!this.IsRaw(1))
+		return(this);
+		value|=this.buf[this.readPos++];
+		
+		return(this);
+	}
+	
+	Buffer@opShl(uint32 value)
+	{
+		this.buf.insertLast((value>>24)&0xFF);
+		this.buf.insertLast((value>>16)&0xFF);
+		this.buf.insertLast((value>>8)&0xFF);
+		this.buf.insertLast((value)&0xFF);
+		
+		return(this);
+	}
+	
+	Buffer@opShr(uint64&value)
+	{
+		value=0;
+		if(!this.IsRaw(1))
+		return(this);
+		value|=this.buf[this.readPos++]<<56;
+		if(!this.IsRaw(1))
+		return(this);
+		value|=this.buf[this.readPos++]<<48;
+		if(!this.IsRaw(1))
+		return(this);
+		value|=this.buf[this.readPos++]<<40;
+		if(!this.IsRaw(1))
+		return(this);
+		value|=this.buf[this.readPos++]<<32;
+		if(!this.IsRaw(1))
+		return(this);
+		value|=this.buf[this.readPos++]<<24;
+		if(!this.IsRaw(1))
+		return(this);
+		value|=this.buf[this.readPos++]<<16;
+		if(!this.IsRaw(1))
+		return(this);
+		value|=this.buf[this.readPos++]<<8;
+		if(!this.IsRaw(1))
+		return(this);
+		value|=this.buf[this.readPos++];
+		
+		return(this);
+	}
+	
+	Buffer@opShl(uint64 value)
+	{
+		this.buf.insertLast((value>>56)&0xFF);
+		this.buf.insertLast((value>>48)&0xFF);
+		this.buf.insertLast((value>>40)&0xFF);
+		this.buf.insertLast((value>>32)&0xFF);
+		this.buf.insertLast((value>>24)&0xFF);
+		this.buf.insertLast((value>>16)&0xFF);
+		this.buf.insertLast((value>>8)&0xFF);
+		this.buf.insertLast((value)&0xFF);
+		
+		return(this);
+	}
+	
+	Buffer@opShr(bool&value)
+	{
+		uint8 tmp=0;
+		this>>tmp;
+		value=(tmp<=0?false:true);
+		
+		return(this);
+	}
+	
+	Buffer@opShl(bool value)
+	{
+		this<<uint8(value?1:0);
+		
+		return(this);
+	}
+	
+	Buffer@opShr(string&value)
+	{   
+		
+		value.resize(0);
+		
+		uint16 len=0;
+		this>>len;
+		for(uint s=0;s<len;s++)
+		{
+			uint8 char=0;
+			this>>char;    
+			
+			value.resize(s+1);
+			value[s]=char;
+			
+		}
+		return(this);
+	}
+	
+	Buffer@opShl(string value)
+	{
+		uint16 len=value.length();
+		this<<len;
+		if(len>0)
+		{
+			for(uint s=0;s<len;s++)   
+			
+			this<<uint8(value[s]);
+			
+		}
+		return(this);
+	}
+	
+	Buffer@opShr(float&value)
+	{
+		string tmp="";
+		this>>tmp;
+		if(tmp.length()>0)
+		StrToFloat(tmp,value);
+		
+		return(this);
+	}
+	
+	Buffer@opShl(float value)
+	{
+		string tmp=value+"";
+		this<<tmp;
+		
+		return(this);
+	}  
+	
+	Buffer@Get(int8&value)
+	{
+		value=0;
+		this>>value;
+		return(this);
+	}
+	Buffer@Set(int8&value)
+	{
+		this<<value;
+		return(this);
+	}
+	
+	Buffer@Get(int16&value)
+	{
+		value=0;
+		this>>value;
+		return(this);
+	}
+	Buffer@Set(int16&value)
+	{
+		this<<value;
+		return(this);
+	}
+	
+	Buffer@Get(int32&value)
+	{
+		value=0;
+		this>>value;
+		return(this);
+	}
+	Buffer@Set(int32&value)
+	{
+		this<<value;
+		return(this);
+	}
+	
+	Buffer@Get(int64&value)
+	{
+		value=0;
+		this>>value;
+		return(this);
+	}
+	Buffer@Set(int64&value)
+	{
+		this<<value;
+		return(this);
+	}
+	
+	Buffer@Get(uint8&value)
+	{
+		value=0;
+		this>>value;
+		return(this);
+	}
+	Buffer@Set(uint8&value)
+	{
+		this<<value;
+		return(this);
+	}
+	
+	Buffer@Get(uint16&value)
+	{
+		value=0;
+		this>>value;
+		return(this);
+	}
+	Buffer@Set(uint16&value)
+	{
+		this<<value;
+		return(this);
+	}
+	
+	Buffer@Get(uint32&value)
+	{
+		value=0;
+		this>>value;
+		return(this);
+	}
+	Buffer@Set(uint32&value)
+	{
+		this<<value;
+		return(this);
+	}
+	
+	Buffer@Get(uint64&value)
+	{
+		value=0;
+		this>>value;
+		return(this);
+	}
+	Buffer@Set(uint64&value)
+	{
+		this<<value;
+		return(this);
+	}
+	
+	Buffer@Get(bool&value)
+	{
+		value=false;
+		this>>value;
+		return(this);
+	}
+	Buffer@Set(bool&value)
+	{
+		this<<value;
+		return(this);
+	}
+	
+	Buffer@Get(string&value)
+	{
+		value="";
+		this>>value;
+		return(this);
+	}
+	Buffer@Set(string&value)
+	{
+		this<<value;
+		return(this);
+	}
+	
+	Buffer@Get(float&value)
+	{
+		value=0.0f;
+		this>>value;
+		return(this);
+	}
+	Buffer@Set(float&value)
+	{
+		this<<value;
+		return(this);
+	}  
+	
+	Buffer@opShr(array<int8>&value)
+	{
+		value.resize(0);
+		uint16 len=0;
+		this>>len;
+		for(uint a=0;a<len;a++)
+		{
+			int8 tmp=0;
+			this>>tmp;
+			value.insertLast(tmp);
+		}
+		return(this);
+	}
+	Buffer@opShl(array<int8>&value)
+	{
+		uint16 len=value.length();
+		this<<len;
+		if(len>0)
+		{
+			for(uint a=0;a<len;a++)
+			this<<int8(value[a]);
+		}
+		return(this);
+	}
+	Buffer@Get(array<int8>&value)
+	{
+		this>>value;
+		return(this);
+	}
+	Buffer@Set(array<int8>&value)
+	{
+		this<<value;
+		return(this);
+	}
+	
+	Buffer@opShr(array<int16>&value)
+	{
+		value.resize(0);
+		uint16 len=0;
+		this>>len;
+		for(uint a=0;a<len;a++)
+		{
+			int16 tmp=0;
+			this>>tmp;
+			value.insertLast(tmp);
+		}
+		return(this);
+	}
+	Buffer@opShl(array<int16>&value)
+	{
+		uint16 len=value.length();
+		this<<len;
+		if(len>0)
+		{
+			for(uint a=0;a<len;a++)
+			this<<int16(value[a]);
+		}
+		return(this);
+	}
+	Buffer@Get(array<int16>&value)
+	{
+		this>>value;
+		return(this);
+	}
+	Buffer@Set(array<int16>&value)
+	{
+		this<<value;
+		return(this);
+	}
+	
+	Buffer@opShr(array<int32>&value)
+	{
+		value.resize(0);
+		uint16 len=0;
+		this>>len;
+		for(uint a=0;a<len;a++)
+		{
+			int32 tmp=0;
+			this>>tmp;
+			value.insertLast(tmp);
+		}
+		return(this);
+	}
+	Buffer@opShl(array<int32>&value)
+	{
+		uint16 len=value.length();
+		this<<len;
+		if(len>0)
+		{
+			for(uint a=0;a<len;a++)
+			this<<int32(value[a]);
+		}
+		return(this);
+	}
+	Buffer@Get(array<int32>&value)
+	{
+		this>>value;
+		return(this);
+	}
+	Buffer@Set(array<int32>&value)
+	{
+		this<<value;
+		return(this);
+	}
+	
+	Buffer@opShr(array<int64>&value)
+	{
+		value.resize(0);
+		uint16 len=0;
+		this>>len;
+		for(uint a=0;a<len;a++)
+		{
+			int64 tmp=0;
+			this>>tmp;
+			value.insertLast(tmp);
+		}
+		return(this);
+	}
+	Buffer@opShl(array<int64>&value)
+	{
+		uint16 len=value.length();
+		this<<len;
+		if(len>0)
+		{
+			for(uint a=0;a<len;a++)
+			this<<int64(value[a]);
+		}
+		return(this);
+	}
+	Buffer@Get(array<int64>&value)
+	{
+		this>>value;
+		return(this);
+	}
+	Buffer@Set(array<int64>&value)
+	{
+		this<<value;
+		return(this);
+	}
+	
+	Buffer@opShr(array<uint8>&value)
+	{
+		value.resize(0);
+		uint16 len=0;
+		this>>len;
+		for(uint a=0;a<len;a++)
+		{
+			uint8 tmp=0;
+			this>>tmp;
+			value.insertLast(tmp);
+		}
+		return(this);
+	}
+	Buffer@opShl(array<uint8>&value)
+	{
+		uint16 len=value.length();
+		this<<len;
+		if(len>0)
+		{
+			for(uint a=0;a<len;a++)
+			this<<uint8(value[a]);
+		}
+		return(this);
+	}
+	Buffer@Get(array<uint8>&value)
+	{
+		this>>value;
+		return(this);
+	}
+	Buffer@Set(array<uint8>&value)
+	{
+		this<<value;
+		return(this);
+	}
+	
+	Buffer@opShr(array<uint16>&value)
+	{
+		value.resize(0);
+		uint16 len=0;
+		this>>len;
+		for(uint a=0;a<len;a++)
+		{
+			uint16 tmp=0;
+			this>>tmp;
+			value.insertLast(tmp);
+		}
+		return(this);
+	}
+	Buffer@opShl(array<uint16>&value)
+	{
+		uint16 len=value.length();
+		this<<len;
+		if(len>0)
+		{
+			for(uint a=0;a<len;a++)
+			this<<uint16(value[a]);
+		}
+		return(this);
+	}
+	Buffer@Get(array<uint16>&value)
+	{
+		this>>value;
+		return(this);
+	}
+	Buffer@Set(array<uint16>&value)
+	{
+		this<<value;
+		return(this);
+	}
+	
+	Buffer@opShr(array<uint32>&value)
+	{
+		value.resize(0);
+		uint16 len=0;
+		this>>len;
+		for(uint a=0;a<len;a++)
+		{
+			uint32 tmp=0;
+			this>>tmp;
+			value.insertLast(tmp);
+		}
+		return(this);
+	}
+	Buffer@opShl(array<uint32>&value)
+	{
+		uint16 len=value.length();
+		this<<len;
+		if(len>0)
+		{
+			for(uint a=0;a<len;a++)
+			this<<uint32(value[a]);
+		}
+		return(this);
+	}
+	Buffer@Get(array<uint32>&value)
+	{
+		this>>value;
+		return(this);
+	}
+	Buffer@Set(array<uint32>&value)
+	{
+		this<<value;
+		return(this);
+	}
+	
+	Buffer@opShr(array<uint64>&value)
+	{
+		value.resize(0);
+		uint16 len=0;
+		this>>len;
+		for(uint a=0;a<len;a++)
+		{
+			uint64 tmp=0;
+			this>>tmp;
+			value.insertLast(tmp);
+		}
+		return(this);
+	}
+	Buffer@opShl(array<uint64>&value)
+	{
+		uint16 len=value.length();
+		this<<len;
+		if(len>0)
+		{
+			for(uint a=0;a<len;a++)
+			this<<uint64(value[a]);
+		}
+		return(this);
+	}
+	Buffer@Get(array<uint64>&value)
+	{
+		this>>value;
+		return(this);
+	}
+	Buffer@Set(array<uint64>&value)
+	{
+		this<<value;
+		return(this);
+	}
+	
+	Buffer@opShr(array<bool>&value)
+	{
+		value.resize(0);
+		uint16 len=0;
+		this>>len;
+		for(uint a=0;a<len;a++)
+		{
+			bool tmp=false;
+			this>>tmp;
+			value.insertLast(tmp);
+		}
+		return(this);
+	}
+	Buffer@opShl(array<bool>&value)
+	{
+		uint16 len=value.length();
+		this<<len;
+		if(len>0)
+		{
+			for(uint a=0;a<len;a++)
+			this<<bool(value[a]);
+		}
+		return(this);
+	}
+	Buffer@Get(array<bool>&value)
+	{
+		this>>value;
+		return(this);
+	}
+	Buffer@Set(array<bool>&value)
+	{
+		this<<value;
+		return(this);
+	}
+	
+	Buffer@opShr(array<string>&value)
+	{
+		value.resize(0);
+		uint16 len=0;
+		this>>len;
+		for(uint a=0;a<len;a++)
+		{
+			string tmp="";
+			this>>tmp;
+			value.insertLast(tmp);
+		}
+		return(this);
+	}
+	Buffer@opShl(array<string>&value)
+	{
+		uint16 len=value.length();
+		this<<len;
+		if(len>0)
+		{
+			for(uint a=0;a<len;a++)
+			this<<string(value[a]);
+		}
+		return(this);
+	}
+	Buffer@Get(array<string>&value)
+	{
+		this>>value;
+		return(this);
+	}
+	Buffer@Set(array<string>&value)
+	{
+		this<<value;
+		return(this);
+	}
+	
+	Buffer@opShr(array<float>&value)
+	{
+		value.resize(0);
+		uint16 len=0;
+		this>>len;
+		for(uint a=0;a<len;a++)
+		{
+			float tmp=0.0f;
+			this>>tmp;
+			value.insertLast(tmp);
+		}
+		return(this);
+	}
+	Buffer@opShl(array<float>&value)
+	{
+		uint16 len=value.length();
+		this<<len;
+		if(len>0)
+		{
+			for(uint a=0;a<len;a++)
+			this<<float(value[a]);
+		}
+		return(this);
+	}
+	Buffer@Get(array<float>&value)
+	{
+		this>>value;
+		return(this);
+	}
+	Buffer@Set(array<float>&value)
+	{
+		this<<value;
+		return(this);
+	}  
+	
+	Buffer@opShr(array<array<int8>>&value)
+	{
+		value.resize(0);
+		uint16 len=0;
+		this>>len;
+		for(uint a=0;a<len;a++)
+		{
+			array<int8>tmp={};
+			this>>tmp;
+			value.insertLast(tmp);
+		}
+		return(this);
+	}
+	Buffer@opShl(array<array<int8>>&value)
+	{
+		uint16 len=value.length();
+		this<<len;
+		if(len>0)
+		{
+			for(uint a=0;a<len;a++)
+			this<<array<int8>(value[a]);
+		}
+		return(this);
+	}
+	Buffer@Get(array<array<int8>>&value)
+	{
+		this>>value;
+		return(this);
+	}
+	Buffer@Set(array<array<int8>>&value)
+	{
+		this<<value;
+		return(this);
+	}
+	
+	Buffer@opShr(array<array<int16>>&value)
+	{
+		value.resize(0);
+		uint16 len=0;
+		this>>len;
+		for(uint a=0;a<len;a++)
+		{
+			array<int16>tmp={};
+			this>>tmp;
+			value.insertLast(tmp);
+		}
+		return(this);
+	}
+	Buffer@opShl(array<array<int16>>&value)
+	{
+		uint16 len=value.length();
+		this<<len;
+		if(len>0)
+		{
+			for(uint a=0;a<len;a++)
+			this<<array<int16>(value[a]);
+		}
+		return(this);
+	}
+	Buffer@Get(array<array<int16>>&value)
+	{
+		this>>value;
+		return(this);
+	}
+	Buffer@Set(array<array<int16>>&value)
+	{
+		this<<value;
+		return(this);
+	}
+	
+	Buffer@opShr(array<array<int32>>&value)
+	{
+		value.resize(0);
+		uint16 len=0;
+		this>>len;
+		for(uint a=0;a<len;a++)
+		{
+			array<int32>tmp={};
+			this>>tmp;
+			value.insertLast(tmp);
+		}
+		return(this);
+	}
+	Buffer@opShl(array<array<int32>>&value)
+	{
+		uint16 len=value.length();
+		this<<len;
+		if(len>0)
+		{
+			for(uint a=0;a<len;a++)
+			this<<array<int32>(value[a]);
+		}
+		return(this);
+	}
+	Buffer@Get(array<array<int32>>&value)
+	{
+		this>>value;
+		return(this);
+	}
+	Buffer@Set(array<array<int32>>&value)
+	{
+		this<<value;
+		return(this);
+	}
+	
+	Buffer@opShr(array<array<int64>>&value)
+	{
+		value.resize(0);
+		uint16 len=0;
+		this>>len;
+		for(uint a=0;a<len;a++)
+		{
+			array<int64>tmp={};
+			this>>tmp;
+			value.insertLast(tmp);
+		}
+		return(this);
+	}
+	Buffer@opShl(array<array<int64>>&value)
+	{
+		uint16 len=value.length();
+		this<<len;
+		if(len>0)
+		{
+			for(uint a=0;a<len;a++)
+			this<<array<int64>(value[a]);
+		}
+		return(this);
+	}
+	Buffer@Get(array<array<int64>>&value)
+	{
+		this>>value;
+		return(this);
+	}
+	Buffer@Set(array<array<int64>>&value)
+	{
+		this<<value;
+		return(this);
+	}
+	
+	Buffer@opShr(array<array<uint8>>&value)
+	{
+		value.resize(0);
+		uint16 len=0;
+		this>>len;
+		for(uint a=0;a<len;a++)
+		{
+			array<uint8>tmp={};
+			this>>tmp;
+			value.insertLast(tmp);
+		}
+		return(this);
+	}
+	Buffer@opShl(array<array<uint8>>&value)
+	{
+		uint16 len=value.length();
+		this<<len;
+		if(len>0)
+		{
+			for(uint a=0;a<len;a++)
+			this<<array<uint8>(value[a]);
+		}
+		return(this);
+	}
+	Buffer@Get(array<array<uint8>>&value)
+	{
+		this>>value;
+		return(this);
+	}
+	Buffer@Set(array<array<uint8>>&value)
+	{
+		this<<value;
+		return(this);
+	}
+	
+	Buffer@opShr(array<array<uint16>>&value)
+	{
+		value.resize(0);
+		uint16 len=0;
+		this>>len;
+		for(uint a=0;a<len;a++)
+		{
+			array<uint16>tmp={};
+			this>>tmp;
+			value.insertLast(tmp);
+		}
+		return(this);
+	}
+	Buffer@opShl(array<array<uint16>>&value)
+	{
+		uint16 len=value.length();
+		this<<len;
+		if(len>0)
+		{
+			for(uint a=0;a<len;a++)
+			this<<array<uint16>(value[a]);
+		}
+		return(this);
+	}
+	Buffer@Get(array<array<uint16>>&value)
+	{
+		this>>value;
+		return(this);
+	}
+	Buffer@Set(array<array<uint16>>&value)
+	{
+		this<<value;
+		return(this);
+	}
+	
+	Buffer@opShr(array<array<uint32>>&value)
+	{
+		value.resize(0);
+		uint16 len=0;
+		this>>len;
+		for(uint a=0;a<len;a++)
+		{
+			array<uint32>tmp={};
+			this>>tmp;
+			value.insertLast(tmp);
+		}
+		return(this);
+	}
+	Buffer@opShl(array<array<uint32>>&value)
+	{
+		uint16 len=value.length();
+		this<<len;
+		if(len>0)
+		{
+			for(uint a=0;a<len;a++)
+			this<<array<uint32>(value[a]);
+		}
+		return(this);
+	}
+	Buffer@Get(array<array<uint32>>&value)
+	{
+		this>>value;
+		return(this);
+	}
+	Buffer@Set(array<array<uint32>>&value)
+	{
+		this<<value;
+		return(this);
+	}
+	
+	Buffer@opShr(array<array<uint64>>&value)
+	{
+		value.resize(0);
+		uint16 len=0;
+		this>>len;
+		for(uint a=0;a<len;a++)
+		{
+			array<uint64>tmp={};
+			this>>tmp;
+			value.insertLast(tmp);
+		}
+		return(this);
+	}
+	Buffer@opShl(array<array<uint64>>&value)
+	{
+		uint16 len=value.length();
+		this<<len;
+		if(len>0)
+		{
+			for(uint a=0;a<len;a++)
+			this<<array<uint64>(value[a]);
+		}
+		return(this);
+	}
+	Buffer@Get(array<array<uint64>>&value)
+	{
+		this>>value;
+		return(this);
+	}
+	Buffer@Set(array<array<uint64>>&value)
+	{
+		this<<value;
+		return(this);
+	}
+	
+	Buffer@opShr(array<array<bool>>&value)
+	{
+		value.resize(0);
+		uint16 len=0;
+		this>>len;
+		for(uint a=0;a<len;a++)
+		{
+			array<bool>tmp={};
+			this>>tmp;
+			value.insertLast(tmp);
+		}
+		return(this);
+	}
+	Buffer@opShl(array<array<bool>>&value)
+	{
+		uint16 len=value.length();
+		this<<len;
+		if(len>0)
+		{
+			for(uint a=0;a<len;a++)
+			this<<array<bool>(value[a]);
+		}
+		return(this);
+	}
+	Buffer@Get(array<array<bool>>&value)
+	{
+		this>>value;
+		return(this);
+	}
+	Buffer@Set(array<array<bool>>&value)
+	{
+		this<<value;
+		return(this);
+	}
+	
+	Buffer@opShr(array<array<string>>&value)
+	{
+		value.resize(0);
+		uint16 len=0;
+		this>>len;
+		for(uint a=0;a<len;a++)
+		{
+			array<string>tmp={};
+			this>>tmp;
+			value.insertLast(tmp);
+		}
+		return(this);
+	}
+	Buffer@opShl(array<array<string>>&value)
+	{
+		uint16 len=value.length();
+		this<<len;
+		if(len>0)
+		{
+			for(uint a=0;a<len;a++)
+			this<<array<string>(value[a]);
+		}
+		return(this);
+	}
+	Buffer@Get(array<array<string>>&value)
+	{
+		this>>value;
+		return(this);
+	}
+	Buffer@Set(array<array<string>>&value)
+	{
+		this<<value;
+		return(this);
+	}
+	
+	Buffer@opShr(array<array<float>>&value)
+	{
+		value.resize(0);
+		uint16 len=0;
+		this>>len;
+		for(uint a=0;a<len;a++)
+		{
+			array<float>tmp={};
+			this>>tmp;
+			value.insertLast(tmp);
+		}
+		return(this);
+	}
+	Buffer@opShl(array<array<float>>&value)
+	{
+		uint16 len=value.length();
+		this<<len;
+		if(len>0)
+		{
+			for(uint a=0;a<len;a++)
+			this<<array<float>(value[a]);
+		}
+		return(this);
+	}
+	Buffer@Get(array<array<float>>&value)
+	{
+		this>>value;
+		return(this);
+	}
+	Buffer@Set(array<array<float>>&value)
+	{
+		this<<value;
+		return(this);
+	}  
+	
+	Buffer@opShr(array<array<array<int8>>>&value)
+	{
+		value.resize(0);
+		uint16 len=0;
+		this>>len;
+		for(uint a=0;a<len;a++)
+		{
+			array<array<int8>>tmp={};
+			this>>tmp;
+			value.insertLast(tmp);
+		}
+		return(this);
+	}
+	Buffer@opShl(array<array<array<int8>>>&value)
+	{
+		uint16 len=value.length();
+		this<<len;
+		if(len>0)
+		{
+			for(uint a=0;a<len;a++)
+			this<<array<array<int8>>(value[a]);
+		}
+		return(this);
+	}
+	Buffer@Get(array<array<array<int8>>>&value)
+	{
+		this>>value;
+		return(this);
+	}
+	Buffer@Set(array<array<array<int8>>>&value)
+	{
+		this<<value;
+		return(this);
+	}
+	
+	Buffer@opShr(array<array<array<int16>>>&value)
+	{
+		value.resize(0);
+		uint16 len=0;
+		this>>len;
+		for(uint a=0;a<len;a++)
+		{
+			array<array<int16>>tmp={};
+			this>>tmp;
+			value.insertLast(tmp);
+		}
+		return(this);
+	}
+	Buffer@opShl(array<array<array<int16>>>&value)
+	{
+		uint16 len=value.length();
+		this<<len;
+		if(len>0)
+		{
+			for(uint a=0;a<len;a++)
+			this<<array<array<int16>>(value[a]);
+		}
+		return(this);
+	}
+	Buffer@Get(array<array<array<int16>>>&value)
+	{
+		this>>value;
+		return(this);
+	}
+	Buffer@Set(array<array<array<int16>>>&value)
+	{
+		this<<value;
+		return(this);
+	}
+	
+	Buffer@opShr(array<array<array<int32>>>&value)
+	{
+		value.resize(0);
+		uint16 len=0;
+		this>>len;
+		for(uint a=0;a<len;a++)
+		{
+			array<array<int32>>tmp={};
+			this>>tmp;
+			value.insertLast(tmp);
+		}
+		return(this);
+	}
+	Buffer@opShl(array<array<array<int32>>>&value)
+	{
+		uint16 len=value.length();
+		this<<len;
+		if(len>0)
+		{
+			for(uint a=0;a<len;a++)
+			this<<array<array<int32>>(value[a]);
+		}
+		return(this);
+	}
+	Buffer@Get(array<array<array<int32>>>&value)
+	{
+		this>>value;
+		return(this);
+	}
+	Buffer@Set(array<array<array<int32>>>&value)
+	{
+		this<<value;
+		return(this);
+	}
+	
+	Buffer@opShr(array<array<array<int64>>>&value)
+	{
+		value.resize(0);
+		uint16 len=0;
+		this>>len;
+		for(uint a=0;a<len;a++)
+		{
+			array<array<int64>>tmp={};
+			this>>tmp;
+			value.insertLast(tmp);
+		}
+		return(this);
+	}
+	Buffer@opShl(array<array<array<int64>>>&value)
+	{
+		uint16 len=value.length();
+		this<<len;
+		if(len>0)
+		{
+			for(uint a=0;a<len;a++)
+			this<<array<array<int64>>(value[a]);
+		}
+		return(this);
+	}
+	Buffer@Get(array<array<array<int64>>>&value)
+	{
+		this>>value;
+		return(this);
+	}
+	Buffer@Set(array<array<array<int64>>>&value)
+	{
+		this<<value;
+		return(this);
+	}
+	
+	Buffer@opShr(array<array<array<uint8>>>&value)
+	{
+		value.resize(0);
+		uint16 len=0;
+		this>>len;
+		for(uint a=0;a<len;a++)
+		{
+			array<array<uint8>>tmp={};
+			this>>tmp;
+			value.insertLast(tmp);
+		}
+		return(this);
+	}
+	Buffer@opShl(array<array<array<uint8>>>&value)
+	{
+		uint16 len=value.length();
+		this<<len;
+		if(len>0)
+		{
+			for(uint a=0;a<len;a++)
+			this<<array<array<uint8>>(value[a]);
+		}
+		return(this);
+	}
+	Buffer@Get(array<array<array<uint8>>>&value)
+	{
+		this>>value;
+		return(this);
+	}
+	Buffer@Set(array<array<array<uint8>>>&value)
+	{
+		this<<value;
+		return(this);
+	}
+	
+	Buffer@opShr(array<array<array<uint16>>>&value)
+	{
+		value.resize(0);
+		uint16 len=0;
+		this>>len;
+		for(uint a=0;a<len;a++)
+		{
+			array<array<uint16>>tmp={};
+			this>>tmp;
+			value.insertLast(tmp);
+		}
+		return(this);
+	}
+	Buffer@opShl(array<array<array<uint16>>>&value)
+	{
+		uint16 len=value.length();
+		this<<len;
+		if(len>0)
+		{
+			for(uint a=0;a<len;a++)
+			this<<array<array<uint16>>(value[a]);
+		}
+		return(this);
+	}
+	Buffer@Get(array<array<array<uint16>>>&value)
+	{
+		this>>value;
+		return(this);
+	}
+	Buffer@Set(array<array<array<uint16>>>&value)
+	{
+		this<<value;
+		return(this);
+	}
+	
+	Buffer@opShr(array<array<array<uint32>>>&value)
+	{
+		value.resize(0);
+		uint16 len=0;
+		this>>len;
+		for(uint a=0;a<len;a++)
+		{
+			array<array<uint32>>tmp={};
+			this>>tmp;
+			value.insertLast(tmp);
+		}
+		return(this);
+	}
+	Buffer@opShl(array<array<array<uint32>>>&value)
+	{
+		uint16 len=value.length();
+		this<<len;
+		if(len>0)
+		{
+			for(uint a=0;a<len;a++)
+			this<<array<array<uint32>>(value[a]);
+		}
+		return(this);
+	}
+	Buffer@Get(array<array<array<uint32>>>&value)
+	{
+		this>>value;
+		return(this);
+	}
+	Buffer@Set(array<array<array<uint32>>>&value)
+	{
+		this<<value;
+		return(this);
+	}
+	
+	Buffer@opShr(array<array<array<uint64>>>&value)
+	{
+		value.resize(0);
+		uint16 len=0;
+		this>>len;
+		for(uint a=0;a<len;a++)
+		{
+			array<array<uint64>>tmp={};
+			this>>tmp;
+			value.insertLast(tmp);
+		}
+		return(this);
+	}
+	Buffer@opShl(array<array<array<uint64>>>&value)
+	{
+		uint16 len=value.length();
+		this<<len;
+		if(len>0)
+		{
+			for(uint a=0;a<len;a++)
+			this<<array<array<uint64>>(value[a]);
+		}
+		return(this);
+	}
+	Buffer@Get(array<array<array<uint64>>>&value)
+	{
+		this>>value;
+		return(this);
+	}
+	Buffer@Set(array<array<array<uint64>>>&value)
+	{
+		this<<value;
+		return(this);
+	}
+	
+	Buffer@opShr(array<array<array<bool>>>&value)
+	{
+		value.resize(0);
+		uint16 len=0;
+		this>>len;
+		for(uint a=0;a<len;a++)
+		{
+			array<array<bool>>tmp={};
+			this>>tmp;
+			value.insertLast(tmp);
+		}
+		return(this);
+	}
+	Buffer@opShl(array<array<array<bool>>>&value)
+	{
+		uint16 len=value.length();
+		this<<len;
+		if(len>0)
+		{
+			for(uint a=0;a<len;a++)
+			this<<array<array<bool>>(value[a]);
+		}
+		return(this);
+	}
+	Buffer@Get(array<array<array<bool>>>&value)
+	{
+		this>>value;
+		return(this);
+	}
+	Buffer@Set(array<array<array<bool>>>&value)
+	{
+		this<<value;
+		return(this);
+	}
+	
+	Buffer@opShr(array<array<array<string>>>&value)
+	{
+		value.resize(0);
+		uint16 len=0;
+		this>>len;
+		for(uint a=0;a<len;a++)
+		{
+			array<array<string>>tmp={};
+			this>>tmp;
+			value.insertLast(tmp);
+		}
+		return(this);
+	}
+	Buffer@opShl(array<array<array<string>>>&value)
+	{
+		uint16 len=value.length();
+		this<<len;
+		if(len>0)
+		{
+			for(uint a=0;a<len;a++)
+			this<<array<array<string>>(value[a]);
+		}
+		return(this);
+	}
+	Buffer@Get(array<array<array<string>>>&value)
+	{
+		this>>value;
+		return(this);
+	}
+	Buffer@Set(array<array<array<string>>>&value)
+	{
+		this<<value;
+		return(this);
+	}
+	
+	Buffer@opShr(array<array<array<float>>>&value)
+	{
+		value.resize(0);
+		uint16 len=0;
+		this>>len;
+		for(uint a=0;a<len;a++)
+		{
+			array<array<float>>tmp={};
+			this>>tmp;
+			value.insertLast(tmp);
+		}
+		return(this);
+	}
+	Buffer@opShl(array<array<array<float>>>&value)
+	{
+		uint16 len=value.length();
+		this<<len;
+		if(len>0)
+		{
+			for(uint a=0;a<len;a++)
+			this<<array<array<float>>(value[a]);
+		}
+		return(this);
+	}
+	Buffer@Get(array<array<array<float>>>&value)
+	{
+		this>>value;
+		return(this);
+	}
+	Buffer@Set(array<array<array<float>>>&value)
+	{
+		this<<value;
+		return(this);
+	} 
+	
+	Buffer@opUShr(array<int8>&value)
+	{
+		uint oldReadPos=this.readPos;
+		-this;
+		while(this.IsRaw(1))
+		{
+			int8 tmp=0;
+			this>>int8(tmp);
+			value.insertLast(tmp);
+		}
+		this.readPos=oldReadPos;
+		return(this);
+	}
+	Buffer@opUShrAssign(array<int8>&arr)
+	{
+		arr.resize(0);
+		this>>>arr;
+		return(this);
+	}
+	array<int8>AsInt8()
+	{
+		array<int8>tmp;
+		this>>>=tmp;
+		return(tmp);
+	}
+	
+	Buffer@opUShr(array<int16>&value)
+	{
+		uint oldReadPos=this.readPos;
+		-this;
+		while(this.IsRaw(1))
+		{
+			int16 tmp=0;
+			this>>int16(tmp);
+			value.insertLast(tmp);
+		}
+		this.readPos=oldReadPos;
+		return(this);
+	}
+	Buffer@opUShrAssign(array<int16>&arr)
+	{
+		arr.resize(0);
+		this>>>arr;
+		return(this);
+	}
+	array<int16>AsInt16()
+	{
+		array<int16>tmp;
+		this>>>=tmp;
+		return(tmp);
+	}
+	
+	Buffer@opUShr(array<int32>&value)
+	{
+		uint oldReadPos=this.readPos;
+		-this;
+		while(this.IsRaw(1))
+		{
+			int32 tmp=0;
+			this>>int32(tmp);
+			value.insertLast(tmp);
+		}
+		this.readPos=oldReadPos;
+		return(this);
+	}
+	Buffer@opUShrAssign(array<int32>&arr)
+	{
+		arr.resize(0);
+		this>>>arr;
+		return(this);
+	}
+	array<int32>AsInt32()
+	{
+		array<int32>tmp;
+		this>>>=tmp;
+		return(tmp);
+	}
+	
+	Buffer@opUShr(array<int64>&value)
+	{
+		uint oldReadPos=this.readPos;
+		-this;
+		while(this.IsRaw(1))
+		{
+			int64 tmp=0;
+			this>>int64(tmp);
+			value.insertLast(tmp);
+		}
+		this.readPos=oldReadPos;
+		return(this);
+	}
+	Buffer@opUShrAssign(array<int64>&arr)
+	{
+		arr.resize(0);
+		this>>>arr;
+		return(this);
+	}
+	array<int64>AsInt64()
+	{
+		array<int64>tmp;
+		this>>>=tmp;
+		return(tmp);
+	}
+	
+	Buffer@opUShr(array<uint8>&value)
+	{
+		uint oldReadPos=this.readPos;
+		-this;
+		while(this.IsRaw(1))
+		{
+			uint8 tmp=0;
+			this>>uint8(tmp);
+			value.insertLast(tmp);
+		}
+		this.readPos=oldReadPos;
+		return(this);
+	}
+	Buffer@opUShrAssign(array<uint8>&arr)
+	{
+		arr.resize(0);
+		this>>>arr;
+		return(this);
+	}
+	array<uint8>AsUint8()
+	{
+		array<uint8>tmp;
+		this>>>=tmp;
+		return(tmp);
+	}
+	
+	Buffer@opUShr(array<uint16>&value)
+	{
+		uint oldReadPos=this.readPos;
+		-this;
+		while(this.IsRaw(1))
+		{
+			uint16 tmp=0;
+			this>>uint16(tmp);
+			value.insertLast(tmp);
+		}
+		this.readPos=oldReadPos;
+		return(this);
+	}
+	Buffer@opUShrAssign(array<uint16>&arr)
+	{
+		arr.resize(0);
+		this>>>arr;
+		return(this);
+	}
+	array<uint16>AsUint16()
+	{
+		array<uint16>tmp;
+		this>>>=tmp;
+		return(tmp);
+	}
+	
+	Buffer@opUShr(array<uint32>&value)
+	{
+		uint oldReadPos=this.readPos;
+		-this;
+		while(this.IsRaw(1))
+		{
+			uint32 tmp=0;
+			this>>uint32(tmp);
+			value.insertLast(tmp);
+		}
+		this.readPos=oldReadPos;
+		return(this);
+	}
+	Buffer@opUShrAssign(array<uint32>&arr)
+	{
+		arr.resize(0);
+		this>>>arr;
+		return(this);
+	}
+	array<uint32>AsUint32()
+	{
+		array<uint32>tmp;
+		this>>>=tmp;
+		return(tmp);
+	}
+	
+	Buffer@opUShr(array<uint64>&value)
+	{
+		uint oldReadPos=this.readPos;
+		-this;
+		while(this.IsRaw(1))
+		{
+			uint64 tmp=0;
+			this>>uint64(tmp);
+			value.insertLast(tmp);
+		}
+		this.readPos=oldReadPos;
+		return(this);
+	}
+	Buffer@opUShrAssign(array<uint64>&arr)
+	{
+		arr.resize(0);
+		this>>>arr;
+		return(this);
+	}
+	array<uint64>AsUint64()
+	{
+		array<uint64>tmp;
+		this>>>=tmp;
+		return(tmp);
+	}
+}; 
+
+Buffer@NewBuffer()
+{
+	return(@CBuffer());
+}   
+
+Buffer@NewBuffer(array<int8>@data)
+{
+	return(@CBuffer(data));
+}
+
+Buffer@NewBuffer(array<int16>@data)
+{
+	return(@CBuffer(data));
+}
+
+Buffer@NewBuffer(array<int32>@data)
+{
+	return(@CBuffer(data));
+}
+
+Buffer@NewBuffer(array<int64>@data)
+{
+	return(@CBuffer(data));
+}
+
+Buffer@NewBuffer(array<uint8>@data)
+{
+	return(@CBuffer(data));
+}
+
+Buffer@NewBuffer(array<uint16>@data)
+{
+	return(@CBuffer(data));
+}
+
+Buffer@NewBuffer(array<uint32>@data)
+{
+	return(@CBuffer(data));
+}
+
+Buffer@NewBuffer(array<uint64>@data)
+{
+	return(@CBuffer(data));
+}
+

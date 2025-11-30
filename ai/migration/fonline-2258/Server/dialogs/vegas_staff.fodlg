@@ -1,0 +1,19 @@
+[comment]
+
+[data]
+lang=engl
+
+[dialog]
+&
+1 1000 None 0 #
+2 1010 @
+2 2000 None 0 &
+
+[engl]
+{100}{}{Police staff}
+{200}{}{You see a man in Lab Coat.}
+{210}{}{He is clearly trying to figure something out.}
+{1000}{}{Predialogue installations}
+{1010}{}{2}
+{2000}{}{What if we install another security perimeter there?@@Please, you're interrupting my work.@@ LVPD database is up and running.@@Team Bravo 2, your task has been updated. Please check your intercom.@@ Team Alpha, please report.}
+

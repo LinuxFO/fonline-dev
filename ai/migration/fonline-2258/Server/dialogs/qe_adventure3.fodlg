@@ -1,0 +1,39 @@
+[comment]
+
+
+[data]
+lang=engl
+
+[dialog]
+&
+1 1000 None 0 #
+2 1010 @
+2 2000 None 0 #
+3 2010 D _var p q_adventure = 3 @
+3 3000 None 0 #
+4 3010 @
+4 4000 None 0 #
+5 4010 @
+5 5000 None 0 #
+6 5010 @
+6 6000 None 0 #
+0 6010 R _var p q_adventure = 4 R _script quest_advent@r_DeleteLoc 0  R _script dialog@r_AddExperience 1 1000 &
+
+[engl]
+{100}{}{Vault-15's Terminal}
+{200}{}{You see a working computer.}
+{210}{}{Looks like a powerful piece of machinery.}
+{1000}{}{Predialogue installations}
+{1010}{}{Answer text}
+{2000}{}{[This appears to be a working computer]
+}
+{2010}{}{[Insert PipBoy]}
+{3000}{}{[You insert your PipBoy into the machine, and the monitor flickers on. A loud voice screams, "Welcome to Vault 15, @pname@! How can I help you today?"]}
+{3010}{}{[Quickly download the entire database, and send it over to your Overseer]}
+{4000}{}{[Please wait. Downloading Database]}
+{4010}{}{[Patiently wait for the computer to finish executing its program]}
+{5000}{}{[In the mean time, how about a game of Pong?]}
+{5010}{}{[Play some Pong, and wait]}
+{6000}{}{[You are horribly defeated by the A.I, and feel very, very ashamed. Your download completes, and you unplug your PipBoy from the machine, and walk away]}
+{6010}{}{I wonder what I just sent over to my Overseer?}
+

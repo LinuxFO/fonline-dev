@@ -1,0 +1,196 @@
+
+//
+// FOnline: 2258
+// 
+// Rinzler
+// map_gold_reserve.fos
+//
+
+/*Gold Reserve Event*/
+
+/*Info
+
+*The Gold Reserve is re-designed as a PvP event. 
+*The idea is that it will now be spawned from a map item found as a semi-rare loot in magic lockers only.
+*To test it, spawn item 1039 and read the map. 
+*When the map is read it changes the GVAR to one, the location will spawn randomly in boneyard and a global timer with 25 minute coutdown will start. 
+*When it ends the var returns to 0 to allow it to be taken again (with another map).
+*In the event of the server crashing during a raid, map_init will reset the time of the event to 25 minutes. It will then delete location and reset the var at the end. 
+*Caps loot is increased considerably, the amount is randomised but it will be in the region of 200k caps, from variously caps, gold nuggets and NCR Dollars. 
+*There are now three possible spawns on entering the map. 
+*There is a new side entrance to the gold reserve, also locked and guarded. This is to allow for more tactical approaches and strategy in PvP.
+*Some statted weapons and armors (T3, low bonus) are spawned randomly in the right hand building lockers. All other containers are empty. 
+*Keys are no longer used, all doors/gates can be lockpicked. 
+*Mobs are remade with new functions, they do not drop loot and do not respawn. 
+*Ranger Captain boss added. 
+
+*/
+
+
+
+
+
+#include "_client_defines.fos"
+#include "_colors.fos"
+#include "_macros.fos"
+#include "_maps.fos"
+#include "_vars.fos"
+#include "_animation.fos"
+#include "broadcast_h.fos"
+#include "mapdata_h.fos"
+#include "messages_h.fos"
+#include "mob.fos"
+#include "MsgStr.h"
+#include "npc_common_h.fos"
+#include "npc_planes_h.fos"
+#include "npc_roles_h.fos"
+#include "utils_h.fos"
+#include "worldmap_h.fos"
+
+import bool LockerOpen(Item& item) from "lockers";
+import bool LockerClose(Item& item) from "lockers";
+import void SwitchState(Item& locker) from "lockers";
+import void AddSpecialBonusLow(Item@ it) from "item_bonus";
+
+void _UseMap(Item& item, bool firstTime)
+{
+    item.SetEvent(ITEM_EVENT_USE, "_ReadMap");
+}
+
+bool _ReadMap(Item& item, Critter& cr, Critter@ onCritter, Item@ onItem, Scenery@ onScenery)
+{
+    
+   GameVar@ var = GetGlobalVar(GVAR_gold_reserve);
+   if (var.GetValue() != 0) 
+    {
+	    cr.Say(SAY_NETMSG, "Somebody is already raiding the gold reserve, try again later.");
+        return false;
+    }
+    
+    array<Critter@> group; 
+    array<Map@> maps;
+    array<uint> goldreservedata;
+    Critter@[] emptyCritters; 
+    uint locId = CreateLocation(61, Random(1401,1546), Random(2150,2247), emptyCritters); 
+                                                                                         	
+    Location@ loc = GetLocation(locId);
+    
+    goldreservedata.insertLast(cr.Id);
+    goldreservedata.insertLast(locId);																    		
+
+    
+    loc.Color = COLOR_DORANGE;
+    maps.resize(0);
+    loc.GetMaps(maps);
+        
+    cr.SetKnownLoc(true, loc.Id);
+    
+    DeleteItem(item);
+    
+    ServerEventCNTSet("The LA Gold Reserve is being raided. %COUNTDOWN%", 61, 11, REAL_MINUTE(25));
+    CreateTimeEvent(AFTER(REAL_MINUTE(25)), "e_delete", loc.Id, false);	
+	var = 1;
+    return true;
+}
+
+
+
+uint e_delete(array<uint>@ values)
+{	
+    // Retrieve location from passed values
+    Location@ loc = GetLocation(values[0]);
+    
+   
+    
+    // Delete the location (event cleanup)
+    DeleteLocation(loc.Id);
+	GameVar@ var = GetGlobalVar(GVAR_gold_reserve);
+    var = 0;
+    return 0;	 
+}
+
+void map_init(Map& map, bool firstTime)
+{
+    if(!firstTime)
+        {
+            
+		    CreateTimeEvent(AFTER(REAL_MINUTE(25)), "e_delete", map.GetLocation().Id, false);	
+			GameVar@ var = GetGlobalVar(GVAR_gold_reserve);
+			var = 0;
+		}
+	
+}
+
+
+        
+
+
+
+//Mob Functions
+
+
+void _Captain(Critter& mob, bool firstTime)
+{    
+    critter_init(mob, firstTime); 
+    mob.StatBase[ST_MAX_LIFE] = 620; 
+    mob.StatBase[ST_CURRENT_HP] = 600; 
+    mob.StatBase[ST_KILL_EXPERIENCE] = 2000; 
+    mob.StatBase[ST_REPLICATION_TIME] = REPLICATION_NEVER;
+    mob.PerkBase[PE_MORE_RANGED_DAMAGE] = 1; 
+    mob.ModeBase[MODE_NO_HOME] = 0;
+    mob.ModeBase[MODE_NO_LOOT] = 1; 
+    mob.ModeBase[MODE_NO_DROP] = 1;
+    mob.ModeBase[MODE_NO_STEAL] = 1;
+    mob.ModeBase[MODE_NO_BARTER] = 1;
+    mob.ModeBase[MODE_UNLIMITED_AMMO] = 1;
+	if(firstTime)
+    {
+        RandomizePerks(mob);
+    }
+   
+}
+
+void _Soldier(Critter& mob, bool firstTime)
+{    
+    critter_init_half_agro(mob, firstTime); 
+	mob.StatBase[ST_MAX_LIFE] = 340; 
+    mob.StatBase[ST_CURRENT_HP] = 320; 
+    mob.StatBase[ST_KILL_EXPERIENCE] = 1200; 
+    mob.StatBase[ST_REPLICATION_TIME] = REPLICATION_NEVER;
+    mob.PerkBase[PE_BONUS_RANGED_DAMAGE] = 1;
+    mob.ModeBase[MODE_NO_HOME] = 0;
+    mob.ModeBase[MODE_NO_LOOT] = 1; 
+    mob.ModeBase[MODE_NO_DROP] = 1;
+    mob.ModeBase[MODE_NO_STEAL] = 1;
+    mob.ModeBase[MODE_NO_BARTER] = 1;
+    mob.ModeBase[MODE_UNLIMITED_AMMO] = 1;
+	if(firstTime)
+    {
+        RandomizePerks(mob);
+    }
+    
+}
+
+void RandomizePerks(Critter& mob)
+{
+    mob.PerkBase[PE_BONUS_RATE_OF_FIRE] += 1;
+    mob.PerkBase[PE_SHARPSHOOTER] += 1;
+    for(uint i = 0, j = Random(0, 2); i < j; i++)
+        mob.PerkBase[PE_BONUS_RANGED_DAMAGE] += 1;
+    mob.PerkBase[PE_BETTER_CRITICALS] += 1;
+    if(Random(0, 49) == 0)
+        mob.PerkBase[PE_SNIPER] += 1;
+    if(Random(0, 20) == 0)
+        mob.PerkBase[PE_MAN_OF_STEEL] += 1;
+    if(Random(0, 1) == 0)
+        mob.PerkBase[PE_STONEWALL] += 1;
+	if(Random(0, 20) == 0)
+        mob.PerkBase[PE_ACTION_BOY] += 1;
+
+    for(uint i = 0, j = Random(1, 3); i < j; i++)
+        mob.PerkBase[PE_MORE_CRITICALS] += 1;
+    for(uint i = 0, j = Random(1, 2); i < j; i++)
+        mob.PerkBase[PE_TOUGHNESS] += 1;
+    if(Random(0, 5) == 0)
+        mob.PerkBase[PE_ADRENALINE_RUSH] = 1;
+}

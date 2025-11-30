@@ -1,0 +1,132 @@
+[comment]
+
+
+[data]
+lang=engl
+
+[dialog]
+&
+1 1000 None 0 #
+3 1010 D _var p player_farmOwner = 1 D _var p player_farmPriest = 0 #
+2 1020 D _var p player_farmOwner = 1 D _var p player_farmPriest = 1 @
+2 2000 None 0 #
+8 2010 #
+4 2020 #
+5 2030 #
+6 2040 #
+0 2050 @
+3 3000 None 0 #
+2 3010 D _var p player_farmPriest = 0 D _var p player_farmIncome > 9999 R _var p player_farmIncome - 10000 R _var p player_farmPriest = 1 #
+0 3020 @
+4 4000 None 0 #
+2 4010 @
+5 5000 None 0 @
+6 6000 None 0 #
+2 6010 @
+7 7000 dialog@dlg_FarmStatus 0 #
+7 7010 D _script dialog@d_CommonTimeoutReady 0  #
+7 7020 D _script dialog@d_CommonTimeoutNotReady 0  #
+8 7030 @
+8 8000 dialog@dlg_FarmStatus 0 #
+7 8010 #
+8 8020 D _item p PID_XANDER_ROOT > 29 D _script dialog@d_CommonTimeoutReady 0  R _item p PID_XANDER_ROOT - 30 R _script dialog@r_CommonTimeout 1 12 R _var p player_farmCivi1hp + 10 R _var p player_farmCivi2hp + 10 R _var p player_farmCivi3hp + 10 R _var p player_farmCivi4hp + 10 R _var p player_farmCivi5hp + 10 R _var p player_farmCivi6hp + 10 R _var p player_farmCivi7hp + 10 #
+8 8030 D _item p PID_BROC_FLOWER > 29 D _script dialog@d_CommonTimeoutReady 0  R _item p PID_BROC_FLOWER - 30 R _script dialog@r_CommonTimeout 1 12 R _var p player_farmCivi1hp + 10 R _var p player_farmCivi2hp + 10 R _var p player_farmCivi3hp + 10 R _var p player_farmCivi4hp + 10 R _var p player_farmCivi5hp + 10 R _var p player_farmCivi6hp + 10 R _var p player_farmCivi7hp + 10 #
+8 8040 D _item p PID_MUTATED_FRUIT > 29 D _script dialog@d_CommonTimeoutReady 0  R _item p PID_MUTATED_FRUIT - 30 R _script dialog@r_CommonTimeout 1 12 R _var p player_farmCivi1hp + 10 R _var p player_farmCivi2hp + 10 R _var p player_farmCivi3hp + 10 R _var p player_farmCivi4hp + 10 R _var p player_farmCivi5hp + 10 R _var p player_farmCivi6hp + 10 R _var p player_farmCivi7hp + 10 #
+8 8050 D _item p PID_BEER > 29 D _script dialog@d_CommonTimeoutReady 0  R _item p PID_BEER - 30 R _script dialog@r_CommonTimeout 1 12 R _var p player_farmCivi1ha + 10 R _var p player_farmCivi2ha + 10 R _var p player_farmCivi3ha + 10 R _var p player_farmCivi4ha + 10 R _var p player_farmCivi5ha + 10 R _var p player_farmCivi6ha + 10 R _var p player_farmCivi7ha + 10 #
+8 8060 D _item p PID_ROT_GUT > 29 D _script dialog@d_CommonTimeoutReady 0  R _item p PID_ROT_GUT - 30 R _script dialog@r_CommonTimeout 1 12 R _var p player_farmCivi1ha + 10 R _var p player_farmCivi2ha + 10 R _var p player_farmCivi3ha + 10 R _var p player_farmCivi4ha + 10 R _var p player_farmCivi5ha + 10 R _var p player_farmCivi6ha + 10 R _var p player_farmCivi7ha + 10 #
+9 8070 D _item p PID_BROC_FLOWER > 29 D _item p PID_BEER > 29 D _script dialog@d_CommonTimeoutReady 0  R _item p PID_BROC_FLOWER - 30 R _item p PID_BEER - 30 R _script dialog@r_CommonTimeout 1 12 R _var p player_farmCivi1hp + 10 R _var p player_farmCivi2hp + 10 R _var p player_farmCivi3hp + 10 R _var p player_farmCivi4hp + 10 R _var p player_farmCivi5hp + 10 R _var p player_farmCivi6hp + 10 R _var p player_farmCivi7hp + 10 R _var p player_farmCivi1ha + 10 R _var p player_farmCivi2ha + 10 R _var p player_farmCivi3ha + 10 R _var p player_farmCivi4ha + 10 R _var p player_farmCivi5ha + 10 R _var p player_farmCivi6ha + 10 R _var p player_farmCivi7ha + 10 #
+9 8080 D _item p PID_BROC_FLOWER > 29 D _item p PID_ROT_GUT > 29 D _script dialog@d_CommonTimeoutReady 0  R _item p PID_BROC_FLOWER - 30 R _item p PID_ROT_GUT - 30 R _script dialog@r_CommonTimeout 1 12 R _var p player_farmCivi1hp + 10 R _var p player_farmCivi2hp + 10 R _var p player_farmCivi3hp + 10 R _var p player_farmCivi4hp + 10 R _var p player_farmCivi5hp + 10 R _var p player_farmCivi6hp + 10 R _var p player_farmCivi7hp + 10 R _var p player_farmCivi1ha + 10 R _var p player_farmCivi2ha + 10 R _var p player_farmCivi3ha + 10 R _var p player_farmCivi4ha + 10 R _var p player_farmCivi5ha + 10 R _var p player_farmCivi6ha + 10 R _var p player_farmCivi7ha + 10 #
+9 8090 D _item p PID_XANDER_ROOT > 29 D _item p PID_BEER > 29 D _script dialog@d_CommonTimeoutReady 0  R _item p PID_XANDER_ROOT - 30 R _item p PID_BEER - 30 R _script dialog@r_CommonTimeout 1 12 R _var p player_farmCivi1hp + 10 R _var p player_farmCivi2hp + 10 R _var p player_farmCivi3hp + 10 R _var p player_farmCivi4hp + 10 R _var p player_farmCivi5hp + 10 R _var p player_farmCivi6hp + 10 R _var p player_farmCivi7hp + 10 R _var p player_farmCivi1ha + 10 R _var p player_farmCivi2ha + 10 R _var p player_farmCivi3ha + 10 R _var p player_farmCivi4ha + 10 R _var p player_farmCivi5ha + 10 R _var p player_farmCivi6ha + 10 R _var p player_farmCivi7ha + 10 #
+9 8100 D _item p PID_XANDER_ROOT > 29 D _item p PID_ROT_GUT > 29 D _script dialog@d_CommonTimeoutReady 0  R _item p PID_XANDER_ROOT - 30 R _item p PID_ROT_GUT - 30 R _script dialog@r_CommonTimeout 1 12 R _var p player_farmCivi1hp + 10 R _var p player_farmCivi2hp + 10 R _var p player_farmCivi3hp + 10 R _var p player_farmCivi4hp + 10 R _var p player_farmCivi5hp + 10 R _var p player_farmCivi6hp + 10 R _var p player_farmCivi7hp + 10 R _var p player_farmCivi1ha + 10 R _var p player_farmCivi2ha + 10 R _var p player_farmCivi3ha + 10 R _var p player_farmCivi4ha + 10 R _var p player_farmCivi5ha + 10 R _var p player_farmCivi6ha + 10 R _var p player_farmCivi7ha + 10 #
+9 8110 D _item p PID_MUTATED_FRUIT > 29 D _item p PID_BEER > 29 D _script dialog@d_CommonTimeoutReady 0  R _item p PID_MUTATED_FRUIT - 30 R _item p PID_BEER - 30 R _script dialog@r_CommonTimeout 1 12 R _var p player_farmCivi1hp + 10 R _var p player_farmCivi2hp + 10 R _var p player_farmCivi3hp + 10 R _var p player_farmCivi4hp + 10 R _var p player_farmCivi5hp + 10 R _var p player_farmCivi6hp + 10 R _var p player_farmCivi7hp + 10 R _var p player_farmCivi1ha + 10 R _var p player_farmCivi2ha + 10 R _var p player_farmCivi3ha + 10 R _var p player_farmCivi4ha + 10 R _var p player_farmCivi5ha + 10 R _var p player_farmCivi6ha + 10 R _var p player_farmCivi7ha + 10 #
+9 8120 D _item p PID_MUTATED_FRUIT > 29 D _item p PID_ROT_GUT > 29 D _script dialog@d_CommonTimeoutReady 0  R _item p PID_MUTATED_FRUIT - 30 R _item p PID_ROT_GUT - 30 R _script dialog@r_CommonTimeout 1 12 R _var p player_farmCivi1hp + 10 R _var p player_farmCivi2hp + 10 R _var p player_farmCivi3hp + 10 R _var p player_farmCivi4hp + 10 R _var p player_farmCivi5hp + 10 R _var p player_farmCivi6hp + 10 R _var p player_farmCivi7hp + 10 R _var p player_farmCivi1ha + 10 R _var p player_farmCivi2ha + 10 R _var p player_farmCivi3ha + 10 R _var p player_farmCivi4ha + 10 R _var p player_farmCivi5ha + 10 R _var p player_farmCivi6ha + 10 R _var p player_farmCivi7ha + 10 #
+2 8130 @
+9 9000 dialog@dlg_FarmStatus 0 &
+
+[engl]
+{100}{}{Preacher}
+{200}{}{You see a local preacher.}
+{210}{}{Elected by the community to help guide the flock but most of all: they work for you.}
+{1000}{}{Predialogue installations}
+{1010}{}{locked}
+{1020}{}{unlocked}
+{2000}{}{Master! Blessed be the great @pname@! Keeper of @sex@|his||her| children! Saviour of the day! Our prayers go out to your great health. How can I help you today, my @sex@|son||child|?}
+{2010}{}{[Settler Overview]}
+{2020}{}{What can you tell me about Settlers?}
+{2030}{}{Care to give me a blessing?}
+{2040}{}{Perform a sermon for me, my minion!}
+{2050}{}{Nothing for now, keep up the uh... great work? See ya.}
+{3000}{}{[Renovate this part of your Farm, and unlock the Church! Allows you to hire & command Settlers. Unlock for 10,000$, deducts the money from your Farm Treasury]}
+{3010}{}{Let's renovate!}
+{3020}{}{[Leave]}
+{4000}{}{Settlers have to first be hired, then paid each time you use them. They work off two variables: Heatlh, and Happiness. If either of those variables reach 0 your Settler will die, and an 18 hour cooldown will be re-added to the tally. They also take quite some time to respawn again in your Farm. Settlers guarentee daily resources and can also perform useful tasks around the Farm. However, you'll have to manage their mental and physical state or else you'll find yourself constantly short of extra man power.
+
+Performing task likes gathering resources will cause a loss of -8 HP and -5 Happiness (HA) 
+
+Repairing the Farm will cause a loss of -5 HP but grant +2 HA
+
+Sending the Settler to work in town will cause a loss of -2 HP but grant +5 HA
+
+Allowing the Settler to rest will grant both +10 HP &  +10 HA
+
+Payment Options:
+
+Wood   +8 HA
+Food   +8 HA +2 HP
+Water   +8 HA +5 HP
+First Aid    Kit +15 HP
+Doctor's Bag   +30 HP
+250$ Farm Dollars   +5 HA
+1250 caps   +10 HA
+24x Beers   +10 HA +1 HP
+5x Stimpaks   +5 HP
+2x Super Stimpaks   +10 HP
+5x Gold Nuggets   +5 HA
+3x Gold Teeth   +2 HA -1 HP
+Refusing to pay   -47 HA}
+{4010}{}{I see. Thanks.}
+{5000}{}{De terra iudicium et caritatem Dei bona , et benedicam tibi. Sitis tenebris lumen interius cor hominis ascendit! You, @sex@|sir||ma'am|, are now blessed!}
+{6000}{}{The path of the righteous man is beset on all sides by the inequities of the selfish and the tyranny of evil men. Blessed is he who, in the name of charity and good will, shepherds the weak through the valley of the darkness. For he is truly his brother's keeper and the finder of lost children. And I will strike down upon thee with great vengeance and furious anger those who attempt to poison and destroy my brothers. And you will know I am the Lord when I lay my vengeance down upon you.@@Cursed be the ground for our sake. Both thorns and thistles it shall bring forth for us. For out of the ground we were taken, for the dust we are... and to the dust we shall return.@@Dear Lord, thank you for giving me the strength and the conviction to complete the task you entrusted to me. Thank you for guiding me straight and true through the many obstacles in my path. And for keeping me resolute when all around seemed lost. Thank you for your protection and your many signs along the way. Thank you for any good that I may have done, I'm so sorry about the bad. Thank you for the friend I made. Please watch over her as you watched over me. Thank you for finally allowing me to rest. I'm so very tired, but I go now to my rest at peace. Knowing that I have done right with my time on this earth. I fought the good fight, I finished the race, I kept the faith.@@Thank you lord for a warm bed to sleep on, thank you for the food we are about to eat, thank you for a roof over our heads on cold nights such as this, thank you for companionship in hard times like these, Amen.@@Verse 2. And the earth was without form, and void; and darkness was upon the face of the deep. And the Spirit of God moved upon the face of the waters. And God said, Let there be light: and there was light.@@The Lord is my shepherd; I shall not want. He makes me to lie down in green pastures: he leads me beside the still waters. He restores my soul he leadeth me in the paths of righteousness for his name's sake, though I walk through the valley of the shadow of death, I will fear no evil for thou art with me.@@The war tore a hole in the sky, the sun came down, burnt everything, everyone, I wandered, I didn't really know what I should do or where I was going. I was just moving from place to place, trying to stay alive. And then one day I heard this voice. I don't know how to explain it, it's like it was coming from inside me. But I could hear it clear as day. Clear as I can hear you talking to me now. It told me to carry the book west, it told me that a path would be laid out before me, that I'd be led to a place where the book would be safe it told me I'd be protected, against anyone or anything that tried to stand in my way. If only I would have faith. That was thirty years ago and I've been walking ever since.@@You’re the best Around! Nothing’s gonna ever keep you down! You’re the Best! Around! Nothing’s gonna ever keep you down! You’re the Best! Around! Nothing’s gonna ever keep you dow-ow-ow-ow-own!@@I am the vine, you are the branches… without me you can do nothing. But behold me, O my God, at your feet! I do not deserve mercy, but O my Redeemer, the blood you have shed for me, encourages me, and obliges me to hope for it. How often I have offended you, repented, and yet have I again fallen into the same sin. O my God, I wish to amend, and in order to be faithful to you, I will place all my confidence in you.@@Then Jesus said to him, “Put your sword back into its place. For all who take the sword will perish by the sword. Do you think that I cannot appeal to my Father, and he will at once send me more than twelve legions of angels? But how then should the Scriptures be fulfilled, that it must be so?”@@The Lord tests the righteous, but his soul hates the wicked and the one who loves violence. Violence shall no more be heard in your land, devastation or destruction within your borders; you shall call your walls Salvation, and your gates Praise!@@Do not envy a man of violence and do not choose any of his ways. For we know him who said, “Vengeance is mine; I will repay.” And again, “The Lord will judge his people.” For he is God's servant for your good. For he is the servant of God, an avenger who carries out God's wrath on the wrongdoer. But if you do wrong, be afraid, for he does not bear the sword in vain.@@Now the earth was corrupt in the sight of God, and the earth was filled with violence. God looked on the earth, and behold, it was corrupt; for all flesh had corrupted their way upon the earth. Then God said to Noah, "The end of all flesh has come before Me; for the earth is filled with violence because of them; and behold, I am about to destroy them with the earth.@@And for your lifeblood I will require a reckoning: from every beast I will require it and from man. From his fellow man I will require a reckoning for the life of man. “Whoever sheds the blood of man, by man shall his blood be shed, for God made man in his own image.@@Now the works of the flesh are evident: sexual immorality, impurity, sensuality, idolatry, sorcery, enmity, strife, jealousy, fits of anger, rivalries, dissensions, divisions, envy, drunkenness, orgies, and things like these. I warn you, as I warned you before, that those who do such things will not inherit the kingdom of God.@@Because you did not serve the Lord your God with joyfulness and gladness of heart, because of the abundance of all things, therefore you shall serve your enemies whom the Lord will send against you, in hunger and thirst, in nakedness, and lacking everything. And he will put a yoke of iron on your neck until he has destroyed you.@@“If a man steals an ox or a sheep, and kills it or sells it, he shall repay five oxen for an ox, and four sheep for a sheep. If a thief is found breaking in and is struck so that he dies, there shall be no bloodguilt for him, but if the sun has risen on him, there shall be bloodguilt for him. He shall surely pay. If he has nothing, then he shall be sold for his theft. If the stolen beast is found alive in his possession, whether it is an ox or a donkey or a sheep, he shall pay double. “If a man causes a field or vineyard to be grazed over, or lets his beast loose and it feeds in another man's field, he shall make restitution from the best in his own field and in his own vineyard...@@If you do well, will you not be accepted? And if you do not do well, sin is crouching at the door. Its desire is for you, but you must rule over it.” And he answered, “You shall love the Lord your God with all your heart and with all your soul and with all your strength and with all your mind, and your neighbor as yourself."}
+{6010}{}{Hah! Cracks me up each time! Thanks.}
+{7000}{}{Settler 1: @lex farmSH1@ Health @lex farmSHA1@ Happiness
+Settler 2: @lex farmSH2@ Health @lex farmSHA2@ Happiness
+Settler 3: @lex farmSH3@ Health @lex farmSHA3@ Happiness
+Settler 4: @lex farmSH4@ Health @lex farmSHA4@ Happiness
+Settler 5: @lex farmSH5@ Health @lex farmSHA5@ Happiness
+Settler 6: @lex farmSH6@ Health @lex farmSHA6@ Happiness
+Settler 7: @lex farmSH7@ Health @lex farmSHA7@ Happiness}
+{7010}{}{[You can perform an event at any time]}
+{7020}{}{[The people are too tired for another event]}
+{7030}{}{[Go back]}
+{8000}{}{Your Farm can support 7 Settlers in total. As the local preacher I can also act as the Farm's doctor. So, if you bring me enough Xander Root, Broc Flowers, Apples, Beer, or Rotgut I can raise the Health & Happiness of your villagers. With 30x units of any Food related items I can raise all your Settler's Health by +10 every 12 hours. Liquids will raise your Settler's Happiness by +10 every 12 hours. Just let me know if you want to host a feast, or if you'd like me to perform a local sermon. We could even do both if you have the necessary materials.}
+{8010}{}{[Check Settler Status]}
+{8020}{}{Let's host a feast! [Hand over 30x Xander Root]}
+{8030}{}{Let's host a feast! [Hand over 30x Broc Flower]}
+{8040}{}{Let's host a feast! [Hand over 30x Apples]}
+{8050}{}{Prepare the villagers! You're performing a sermon. [Hand over 30x Beers]}
+{8060}{}{Prepare the villagers! You're performing a sermon. [Hand over 30x Rotgut]}
+{8070}{}{Prepare the villagers! You're performing a sermon and we're hosting a feast! [Hand over 30x Broc + 30x Beer]}
+{8080}{}{Prepare the villagers! You're performing a sermon and we're hosting a feast! [Hand over 30x Broc + 30x Rotgut]}
+{8090}{}{Prepare the villagers! You're performing a sermon and we're hosting a feast! [Hand over 30x Xander + 30x Beer]}
+{8100}{}{Prepare the villagers! You're performing a sermon and we're hosting a feast! [Hand over 30x Xander + 30x Rotgut]}
+{8110}{}{Prepare the villagers! You're performing a sermon and we're hosting a feast! [Hand over 30x Apples + 30x Beer]}
+{8120}{}{Prepare the villagers! You're performing a sermon and we're hosting a feast! [Hand over 30x Apples + 30x Rotgut]}
+{8130}{}{[Go back]}
+{9000}{}{Villagers! Tonight we dine! Come gather! And be merry! Booze and Blessings for all! Many thanks to @pname@! For their generosity!}
+{100000001}{}{*flails arms around whilst giving a very vigourous speech*}
+{100000002}{}{*makes weird theatrical gestures whilst trying to mimic a bible passage. However it looks like they're making shadow puppets*}
+{100000003}{}{Where was I? Oh that's right! And the sins of the father shall be bestowed... *flails arms*}
+{100000004}{}{You get a blessing! And you get a blessing! And YOU get a blessing! Everyone gets a blessing!}
+{100000005}{}{All hail the great and holy farm owner! May they keep this place together forever!}
+{100000006}{}{Pray not for the sun! But pray for food! Pray for water! Pray for wood!}
+{100000007}{}{Feel not afraid that our Master might have abandoned us, have faith that they will not neglect us!}
+{100000008}{}{One day, my children, there will be enough crops for us all. Just have faith!}
+{100000009}{}{We give thanks to the Master for giving us shelter inside the fallout! May we bow our heads and have a moment of silence...}
+{100000010}{}{... and then! When all hope seemed lost! Out came the Master from the shadows and gave us all life again! Praise to them! The true messiah of these dark times!}
+{100000011}{}{The night looms, my children, but do not be afraid. The Master will save us! Show your arms to the skies and let the thunder see your faith!}
+{100000012}{}{There will always be a tomorrow! Let the sun shine!}
+{100000013}{}{... and our saviour came to be, the lone light inside the darkness...}
+{100000014}{}{Look! A hero walks amongst us! Somewhere!}
+{100000015}{}{Come to my church and hear the word of our great Master!}
+{100000016}{}{We are all welcome here. Come, bask in the comfort of the farm.}
+

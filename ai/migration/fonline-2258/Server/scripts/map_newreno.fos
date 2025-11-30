@@ -1,0 +1,804 @@
+//
+// FOnline: 2238
+// Rotators
+//
+// map_newreno.fos
+//
+
+
+#include "_macros.fos"
+#include "_maps.fos"
+#include "elevators_h.fos"
+#include "factions_h.fos"
+#include "lockers.fos"
+#include "mapdata_h.fos"
+#include "messages_h.fos"
+
+
+import void ServerEventCNTSet(string message, uint location, uint type, uint time)  from "broadcast";
+import void SpawnBuffItem(Item& container, uint16 pid) from "spawner_pvp";
+import int  GetWearProcent(Item& item) from "repair";
+import uint ItemLevel(Item&item)from"economy";
+import bool AttackCritter(Critter& attacker, Critter& target) from "npc_common";
+import void MoveRandom(Critter&npc,uint maxDist)from"npc_common";
+
+
+#define  SHARC_DOOR_DIALOG        (774)
+#define  SALVATORE_DOOR_DIALOG    (775)
+#define  DESPERADO_DOOR_DIALOG    (776)
+
+void map_init(Map& map, bool firstTime)
+{
+    if(firstTime)
+    {
+        // this map belongs to that faction
+    }
+}
+
+// ===============================
+// Casino doors are locked.
+// Using them will teleport the player inside / outside the casino if they aren't in combat mode.
+// ===============================
+void _CasinoDoor(Item& item, bool firstTime)
+{
+    item.SetEvent(ITEM_EVENT_USE_ON_ME, "_UseItemOnDoor");
+    item.SetEvent(ITEM_EVENT_SKILL, "_UseSkillOnDoor");
+}
+
+bool _UseItemOnDoor(Item& item, Critter& crit, Item@ usedItem)
+{
+    return true;
+}
+
+void r_TransferWeapons(Critter& cr, Critter@ npc, int to)
+{
+    if(to == 0)
+        TransferItemsFromContOnMap(cr, GetMapByPid(MAP_NewReno1, 0), ENTIRE_CASINO_WEAPONS, PID_FOOTLOCKER_CLEAN_LEFT);
+    else
+        TransferItemsToContOnMap(cr, GetMapByPid(MAP_NewReno1, 0), ENTIRE_CASINO_WEAPONS, PID_FOOTLOCKER_CLEAN_LEFT, ITEMTRANSFER_WEAPONS);
+}
+
+bool _UseSkillOnDoor(Item& item, Critter& crit, int skill)
+{
+    if(skill == -1)
+    {
+        crit.StatBase[ST_VAR9] = item.Val0;
+
+        // ===============================
+        // Sharc Club
+        // ===============================
+        if((item.GetProtoId() == 3491 || item.GetProtoId() == 3492) && crit.Timeout[TO_BATTLE] <= 0)
+        {
+            RunDialog(crit, SHARC_DOOR_DIALOG, item.HexX, item.HexY, false);
+        }
+        // ===============================
+        // Salvatore's Bar
+        // ===============================
+        else if((item.GetProtoId() == 2954) && crit.Timeout[TO_BATTLE] <= 0)
+        {
+            RunDialog(crit, SALVATORE_DOOR_DIALOG, item.HexX, item.HexY, false);
+        }
+        // ===============================
+        // Desperado
+        // ===============================
+        else if((item.GetProtoId() == 3479 || item.GetProtoId() == 3480) && crit.Timeout[TO_BATTLE] <= 0)
+        {
+            RunDialog(crit, DESPERADO_DOOR_DIALOG, item.HexX, item.HexY, false);
+        }
+    }
+    return true;
+}
+
+/*
+   void _CheckDoor(Item& item, Critter& crit, Item@ usedItem)
+   {
+        GameVar@ var = GetLocalVar(LVAR_newr_incasino, crit.Id);
+        //Map@ map = GetMapByPid(mappid, 0);
+
+        crit.Say(SAY_NETMSG, "The heavy wooden door is locked.");
+        return true;
+
+        if (skill == -1)
+        {
+
+                //===============================
+                // Sharc Club
+                //===============================
+                //if((usedItem.GetProtoId() == 3491 || usedItem.GetProtoId() == 3492) && crit.Timeout[TO_BATTLE]<=0)
+                //{
+                        if(var.GetValue() == 0)
+                        {
+                                var == 1;
+                                // teleport inside
+                                crit.Say(SAY_NETMSG, "You enter the Sharc Club.");
+                        }
+                        else
+                        {
+                                var == 0;
+                                // teleport outside
+                                crit.Say(SAY_NETMSG, "You exit the Sharc Club.");
+                        }
+                //}
+                //===============================
+                // Salvatore's Bar
+                //===============================
+                else if((usedItem.GetProtoId() == 2954) && crit.Timeout[TO_BATTLE]<=0)
+                {
+                        if(var.GetValue() == 0)
+                        {
+                                var == 1;
+                                // teleport inside
+                                crit.Say(SAY_NETMSG, "You enter Salvatore's Bar.");
+                        }
+                        else
+                        {
+                                var == 0;
+                                // teleport outside
+                                crit.Say(SAY_NETMSG, "You exit Salvatore's Bar.");
+                        }
+                }
+                //===============================
+                // Desperado
+                //===============================
+                else if((usedItem.GetProtoId() == 3479 || usedItem.GetProtoId() == 3480) && crit.Timeout[TO_BATTLE]<=0)
+                {
+                        if(var.GetValue() == 0)
+                        {
+                                var == 1;
+                                // teleport inside
+                                crit.Say(SAY_NETMSG, "You enter the Desperado.");
+                        }
+                        else
+                        {
+                                var == 0;
+                                // teleport outside
+                                crit.Say(SAY_NETMSG, "You exit the Desperado.");
+                        }
+                }
+        }
+        return true;
+   }
+ */
+
+
+/*Rinzler*/
+/*New Reno Arms Event*/
+
+/* 
+-To start the robbery event players must be level 30, armed and armored with weapon and armor condition above 25%.
+-Robbery event is started by taklking to Eldridge.
+-A timer will start for 20 minutes.
+-Every 4 minutes, loot will spawn in the box (footlocker) and mobs will spawn around New Reno Arms. 
+-Each 4 minute tick, there is a 2% chance for t4 to spawn. 
+-At the final tick there is a 1% for better t4, including APA and Combat Implants. 
+-After the event ends there will be a cooldown of 30-60 minutes. 
+-Global announcement is made when the event can be started again.
+*/
+
+
+#define ROBBERY_MIN_LEVEL_REQ                    (30)  // Need to be this level to capture
+#define ROBBERY_ARMOR_WEAR_REQ               (80) // If armor breakage % is higher than this value, deny captor.
+#define ROBBERY_WEAPON_LEVEL_REQ             (1)  // Weapon must be this level or higher
+#define ROBBERY_WEAPON_WEAR_REQ              (75) // If weapon breakage % is higher than this value, deny captor.
+
+bool CanStartRobbery(Critter& cr, Critter@ npc)
+{
+
+    if (cr.Mode[MODE_HIDE] != 0 || cr.Cond != COND_LIFE || cr.GetSocket() == -1)
+        return false;
+
+  
+    if (cr.Stat[ST_LEVEL] < ROBBERY_MIN_LEVEL_REQ)
+        return false;
+
+   
+    Item@ armor = cr.GetItem(0, SLOT_ARMOR);
+    if (!valid(armor) || GetWearProcent(armor) > ROBBERY_ARMOR_WEAR_REQ)
+        return false;
+
+  
+    Item@ weapon = cr.GetItem(0, SLOT_HAND1);
+    if (valid(weapon) && weapon.GetType() == ITEM_TYPE_WEAPON &&
+        ItemLevel(weapon) >= ROBBERY_WEAPON_LEVEL_REQ &&
+        GetWearProcent(weapon) <= ROBBERY_WEAPON_WEAR_REQ)
+        return true;
+
+   
+    @weapon = cr.GetItem(0, SLOT_HAND2);
+    return valid(weapon) && weapon.GetType() == ITEM_TYPE_WEAPON &&
+           ItemLevel(weapon) >= ROBBERY_WEAPON_LEVEL_REQ &&
+           GetWearProcent(weapon) <= ROBBERY_WEAPON_WEAR_REQ;
+}
+
+
+const uint TICKS_PER_SECOND = 20;
+const uint ROBBERY_DURATION = 20 * 60 * TICKS_PER_SECOND; 
+const uint ROBBERY_TICK_INTERVAL = 4 * 60 * TICKS_PER_SECOND;
+
+uint robberyStartTime = 0;
+bool robberyActive = false;
+
+void StartRobbery(Critter& player, Critter@ npc)
+{
+    if (robberyActive)
+        return; 
+
+    robberyStartTime = ELAPSED_TIME;
+    robberyActive = true;
+	robberyTickCount = 0;
+
+	
+	GameVar@ var = GetGlobalVar(GVAR_new_reno_robbery);
+    var = 1;
+
+    ServerEventCNTSet("New Reno Arms is being robbed. The Mordinos are preparing to secure commercial row. %COUNTDOWN%", 56, 11, ROBBERY_DURATION);
+
+    Log("Robbery started at tick: " + robberyStartTime);
+    AddRobberyTick();
+}
+
+void AddRobberyTick()
+{
+    
+   CreateTimeEvent(AFTER(ROBBERY_TICK_INTERVAL), "RobberyTick", 0, false);
+
+}
+
+uint robberyTickCount = 0;
+
+uint RobberyTick(uint[]@ args)
+{
+    Log("RobberyTick triggered at tick: " + ELAPSED_TIME);
+
+    if (!robberyActive)
+        return 0;
+
+    robberyTickCount++; 
+
+    bool isFinalTick = robberyTickCount >= 5;
+
+    FillBox(robberyTickCount, isFinalTick); 
+
+    if (isFinalTick)
+    {
+        robberyActive = false;
+
+        uint cooldownDuration = REAL_MINUTE(Random(30, 60));
+        CreateTimeEvent(AFTER(cooldownDuration), "RobberyCooldownEnd", 0, false);
+
+        
+        uint cleanupDelay = REAL_MINUTE(Random(5, 15));
+        CreateTimeEvent(AFTER(cleanupDelay), "CleanUpMordinos", 0, false);
+
+        return 0;
+    }
+
+    AddRobberyTick(); 
+
+    return 0;
+}
+
+
+
+
+void FillBox(uint tickNumber, bool isFinalTick)
+{
+    Log("FillBox called at tick: " + ELAPSED_TIME);
+
+    Map@ map = GetMapByPid(MAP_NewReno3, 0);
+    if (map is null)
+        return;
+
+    Item@ locker = null;
+
+  
+    array<Item@> containers;
+    map.GetItemsByType(ITEM_TYPE_CONTAINER, containers);
+    for (uint i = 0, l = containers.length(); i < l; i++)
+    {
+        if (containers[i].GetProtoId() == PID_FOOTLOCKER_CLEAN_LEFT)
+        {
+            @locker = containers[i];
+            break;
+        }
+    }
+
+    if (locker is null)
+    {
+        @locker = map.AddItem(PID_FOOTLOCKER_CLEAN_LEFT, 100, 100, 0);
+        if (locker is null)
+            return;
+    }
+
+    if (FLAG(locker.LockerCondition, LOCKER_ISOPEN))
+        LockerClose(locker);
+
+   
+    if (isFinalTick && Random(1, 100) == 1)
+    {
+        uint16 pid = BetterRenoT4PID();
+        locker.AddItem(pid, 1, 0);
+        Log("Final tick T4 item added: " + pid);
+		SpawnMordinos();
+        return;
+    }
+    else if (tickNumber <= 4 && Random(1, 100) <= 2)
+    {
+        uint16 pid = RenoT4PID();
+        locker.AddItem(pid, 1, 0);
+        Log("Tick " + tickNumber + " T4 item added: " + pid);
+		SpawnMordinos();
+        return;
+    }
+
+    
+    SpawnBuffItem(locker, RenoLoot());
+	SpawnMordinos();
+}
+
+
+void TimeEvent(string name)
+{
+    if (name == "RobberyTick")
+    {
+        uint[] args;
+        RobberyTick(args);
+    }
+    else if (name == "RobberyCooldownEnd")
+    {
+      uint[] args;
+      RobberyCooldownEnd(args);
+    }
+	else if (name == "CleanUpMordinos")
+    {
+       uint[] args;
+       CleanUpMordinos(args);
+    }
+
+}
+
+uint RobberyCooldownEnd(uint[]@ args)
+{
+    GameVar@ var = GetGlobalVar(GVAR_new_reno_robbery);
+       var = 0;
+
+    ServerEventCNTSet("A shipment of high value goods has arrived at New Reno Arms", 56, 11, REAL_SECOND(20));
+
+    return 0;
+}
+
+//Loot
+
+uint16 RenoLoot()
+{
+    array<uint16> items = {
+        PID_GATLING_LASER,
+        PID_AVENGER_MINIGUN,
+        PID_HK_P90C,
+		PID_PANCOR_JACKHAMMER,
+		PID_INDEPENDENT,
+		PID_SOLAR_SCORCHER,
+        PID_KEEPBRIGE_ROBE,
+        PID_ALIEN_LASER_PISTOL,
+        PID_LASER_SMG,
+		PID_LASER_SUPPORT_WEAPON,
+		PID_LIGHT_SUPPORT_WEAPON,
+		PID_DESERT_COMBAT_ARMOR,
+		PID_DESERT_COMBAT_HELMET,
+		PID_GRENADE_LAUNCHER,
+		PID_ROCKET_LAUNCHER,
+		PID_SUPER_SLEDGE,
+		PID_SNIPER_RIFLE,
+		PID_223_PISTOL,
+		PID_MEGA_POWER_FIST,
+		PID_SUPER_CATTLE_PROD,
+        PID_BROTHERHOOD_COMBAT_ARMOR,
+        PID_BROTHERHOOD_HELMET,
+        PID_NCR_HELMET,
+        PID_NCR_ARMOR,
+        PID_COMBAT_ARMOR_MK_II,
+        PID_COMBAT_HELMET_MK_II,
+        PID_ENCLAVE_COMBAT_ARMOR,
+        PID_ENCLAVE_COMBAT_HELMET
+    };
+    return items[Random(0, items.length() - 1)];
+}
+
+uint16 RenoT4PID(){
+	array<uint16> items = {
+		PID_POWERED_ARMOR,
+		PID_POWER_HELMET,			
+		PID_BOZAR,
+        PID_TURBO_PLASMA_RIFLE,		
+		PID_HK_G11,	
+		PID_PK12_GAUSS_PISTOL,			
+		PID_LOUISVILLE_SLUGGER,
+		PID_BLACK_COC_BADGE,
+		PID_ACCESS_CARD,
+		PID_IMPLANT_STRENGTH,
+		PID_IMPLANT_PERCEPTION,	
+		PID_IMPLANT_ENDURANCE,
+		PID_IMPLANT_CHARISMA,			
+		PID_IMPLANT_INTELLIGENCE,				
+		PID_IMPLANT_AGILITY,			
+		PID_IMPLANT_LUCK
+	};
+	return items[Random(0, items.length() - 1)];
+}
+
+uint16 BetterRenoT4PID(){
+	array<uint16> items = {
+		PID_M72_GAUSS_RIFLE,
+		PID_VINDICATOR_MINIGUN,			
+		PID_YK42B_PULSE_RIFLE,
+        PID_HK_G11E,		
+		PID_HARDENED_POWER_ARMOR,	
+		PID_HARDENED_POWER_HELMET,			
+		PID_ADVANCED_POWER_ARMOR,
+		PID_APA_HELMET,
+		PID_IMPLANT_NEMEAN,	
+		PID_IMPLANT_PHOENIX,			
+		PID_IMPLANT_DERMAL
+	};
+	return items[Random(0, items.length() - 1)];
+}
+
+//Mobs
+
+#define NPC_HUMAN_COUNT             (Random(2, 4))
+#define ROLE_DEFAULT      (0)
+#define ROLE_AGRESSIVE    (1)
+
+#define IDLE_NORMAL       (5000)
+#define IDLE_ALERTED      (1000)
+
+
+
+
+void SpawnMordinos()
+{
+    Log("SpawnMordinos() started.");
+
+    Location@ location = GetLocationByPid(uint16(7), 0);
+    if (location is null)
+    {
+        Log("SpawnMordinos: Location PID 7 not found!");
+        return;
+    }
+    Log("Location found: PID 7");
+
+    array<Map@> maps;
+    uint mapcount = location.GetMaps(maps);
+    if (mapcount == 0)
+    {
+        Log("SpawnMordinos: No maps found in location.");
+        return;
+    }
+    Log("Found " + mapcount + " maps in location.");
+
+   
+    array<uint> npcHumanPids = {30, 30, 31, 33, 49, 410, 411};
+    array<uint> npcHumanBags = {176, 177, 192, 193, 194, 195, 201, 203, 235, 272, 587, 587};
+
+    uint npcHumanPidCount = npcHumanPids.length() - 1;
+    uint npcHumanBagCount = npcHumanBags.length() - 1;
+
+    for (uint c = 0; c < mapcount; c++)
+    {
+        Log("Processing map with ProtoID: " + maps[c].GetProtoId());
+
+        array<Entire> entires;
+        ParseEntires(maps[c], entires, 666);
+
+        Log("Found " + entires.length() + " spawn entires with marker 666.");
+
+        if (entires.length() == 0)
+        {
+            Log("No spawn entires with marker 666 on this map, skipping.");
+            continue;
+        }
+
+        uint cntNpc = NPC_HUMAN_COUNT;
+
+        for (uint i = 0; i < cntNpc; i++)
+        {
+            if (entires.length() == 0)
+            {
+                Log("No more entires, stopping spawn on this map.");
+                break;
+            }
+
+            uint entId = Random(0, entires.length() - 1);
+            Entire@ ent = entires[entId];
+            entires.removeAt(entId);
+
+       
+            uint16 npcPid = npcHumanPids[Random(0, npcHumanPidCount)];
+            uint16 npcBag = npcHumanBags[Random(0, npcHumanBagCount)];
+
+            int[] params = {
+                ST_NPC_ROLE, 203,
+                ST_DIALOG_ID, 710,
+                ST_TEAM_ID, 87,
+                ST_BAG_ID, npcBag,
+                ST_LEVEL, Random(5, 40),
+                ST_KILL_EXPERIENCE, 1500
+            };
+
+            Critter@ npc = maps[c].AddNpc(npcPid, ent.HexX, ent.HexY, Random(0, 5), params, null, "_MobNPC");
+
+            if (npc is null)
+            {
+                Log("Failed to spawn NPC PID " + npcPid + " at (" + ent.HexX + ", " + ent.HexY + ")");
+            }
+            else
+            {
+                Log("Spawned NPC PID " + npcPid + " at (" + ent.HexX + ", " + ent.HexY + ")");
+            }
+        }
+    }
+
+    Log("SpawnMordinos() finished.");
+}
+
+ uint CleanUpMordinos(uint[]@ args)
+{
+    Log("CleanUpMordinos started.");
+
+    Location@ location = GetLocationByPid(uint16(7), 0); // New Reno
+    if (location is null)
+    {
+        Log("CleanUpMordinos: Location not found.");
+        return 0;
+    }
+
+    array<Map@> maps;
+    location.GetMaps(maps);
+
+    for (uint i = 0; i < maps.length(); i++)
+    {
+        Map@ map = maps[i];
+        uint role = 203;
+       uint count = map.GetNpcCount(role, FIND_ONLY_NPC | FIND_LIFE);
+
+     for (uint j = 0; j < count; j++)
+     {
+       Critter@ npc = map.GetNpc(role, FIND_ONLY_NPC | FIND_LIFE, j);
+         if (npc !is null)
+         {
+             Log("Removing Mordino mob ID: " + npc.Id);
+             DeleteNpc(npc);
+         }
+     }
+
+    }
+
+    Log("CleanUpMordinos completed.");
+    return 0;
+}
+// npc roles (defines distance mob will attack from))
+#define ROLE_DEFAULT      (0)
+#define ROLE_AGRESSIVE    (1)
+#define ROLE_PASSIVE      (2)
+
+// useful variables
+#define ALERTED           # (cr)           (cr.StatBase[ST_VAR1]) // idle time is shorter if in that mode // note that it uses StatBase for read and write
+
+// idle time in milseconds (normal is slower for performance issues)
+#define IDLE_NORMAL       (5000)
+#define IDLE_ALERTED      (1000)
+#define IDLE_ALERTED_2    (200)
+
+
+
+
+
+void _MobNPC(Critter& mob, bool firstTime)
+{
+    _CritSetExtMode(mob, MODE_EXT_MOB);
+    _CritSetMode(mob, MODE_NO_DROP);
+	mob.StatBase[ST_PERCEPTION] = 7; 
+	mob.StatBase[ST_MAX_LIFE] = 340; 
+    mob.StatBase[ST_CURRENT_HP] = 360; 
+	mob.StatBase[ST_NORMAL_ABSORB] = 0;
+	mob.StatBase[ST_LASER_ABSORB] = 0;
+	mob.StatBase[ST_PLASMA_ABSORB] = 0;
+	mob.StatBase[ST_FIRE_ABSORB] = 0;
+	mob.StatBase[ST_ELECTRO_ABSORB] = 0;
+	mob.StatBase[ST_EXPLODE_ABSORB] = 0;
+	mob.StatBase[ST_NORMAL_RESIST] = 0;
+	mob.StatBase[ST_LASER_RESIST] = 0;
+	mob.StatBase[ST_PLASMA_RESIST] = 0;
+	mob.StatBase[ST_FIRE_RESIST] = 0;
+	mob.StatBase[ST_ELECTRO_RESIST] = 0;
+	mob.StatBase[ST_EXPLODE_RESIST] = 0;
+	mob.ParamBase[ST_REPLICATION_TIME] = REPLICATION_DELETE_FAST;
+	mob.PerkBase[PE_SURVIVALIST] = 1;
+	mob.PerkBase[PE_FASTER_HEALING] = 1; 
+	mob.TraitBase[TRAIT_FAST_METABOLISM] = 1; 
+	mob.ModeBase[MODE_NO_HOME] = 0;
+    mob.ModeBase[MODE_NO_LOOT] = 1; 
+    mob.ModeBase[MODE_NO_DROP] = 1;
+    mob.ModeBase[MODE_NO_STEAL] = 1;
+    mob.ModeBase[MODE_NO_BARTER] = 1;
+    mob.ModeBase[MODE_UNLIMITED_AMMO] = 1;
+    mob.SetEvent(CRITTER_EVENT_IDLE, "_MordinoScout");
+    mob.SetEvent(CRITTER_EVENT_ATTACKED, "_MobAttacked");
+    mob.SetEvent(CRITTER_EVENT_ATTACK, "_MobAttacking");
+    mob.SetEvent(CRITTER_EVENT_MESSAGE, "_MobOnMessage");
+    mob.SetEvent(CRITTER_EVENT_SMTH_DEAD, "_MobSmthDead");
+	mob.SetEvent(CRITTER_EVENT_SHOW_CRITTER, "_MobShowCritter");
+	if(firstTime)
+    {
+        RandomizePerks(mob);
+    }
+}
+
+void RandomizePerks(Critter& mob)
+{
+    mob.PerkBase[PE_BONUS_RATE_OF_FIRE] = 1;
+    mob.PerkBase[PE_SHARPSHOOTER] = 1;
+    for(uint i = 0, j = Random(0, 2); i < j; i++)
+        mob.PerkBase[PE_BONUS_RANGED_DAMAGE] = 1;
+    mob.PerkBase[PE_BETTER_CRITICALS] = 1;
+    if(Random(0, 49) == 0)
+        mob.PerkBase[PE_SNIPER] = 1;
+    if(Random(0, 20) == 0)
+        mob.PerkBase[PE_MAN_OF_STEEL] = 1;
+    if(Random(0, 1) == 0)
+        mob.PerkBase[PE_STONEWALL] = 1;
+	if(Random(0, 10) == 0)
+        mob.PerkBase[PE_ACTION_BOY] = 1;
+
+    for(uint i = 0, j = Random(1, 3); i < j; i++)
+        mob.PerkBase[PE_MORE_CRITICALS] += 1;
+    for(uint i = 0, j = Random(1, 2); i < j; i++)
+        mob.PerkBase[PE_TOUGHNESS] = 1;
+    if(Random(0, 5) == 0)
+        mob.PerkBase[PE_ADRENALINE_RUSH] = 1;
+	if(Random(0, 10) == 0)
+        mob.PerkBase[PE_MORE_RANGED_DAMAGE] = 1;
+	for(uint i = 0, j = Random(1, 2); i < j; i++)
+        mob.PerkBase[PE_EVEN_TOUGHER] = 1;
+	 for(uint i = 0, j = Random(1, 3); i < j; i++)
+        mob.PerkBase[PE_LIVING_ANATOMY] += 1;
+	for(uint i = 0, j = Random(1, 3); i < j; i++)
+        mob.PerkBase[PE_LIFEGIVER] += 1;
+}
+
+void _MobIdle(Critter& mob)
+{
+    if(!mob.IsLife())
+    {
+        mob.Wait(IDLE_NORMAL);
+        return;
+    }
+
+    array<Critter@> crits;
+    uint            num = mob.GetCritters(false, FIND_ONLY_PLAYERS | FIND_LIFE, crits);
+    uint dist = GetDistance(mob);
+    for(uint i = 0; i < num; i++)
+    {
+        uint curDist = GetCrittersDistantion(mob, crits[i]);
+        if(curDist > dist)
+        {
+            continue;
+        }
+        else
+        {
+            if(crits[i].Mode[MODE_HIDE] != 0 || curDist < 5)
+            {
+                AttackCritter(mob, crits[i]);
+            }
+            else
+            {
+                mob.AddEnemyInStack(crits[i].Id);
+            }
+            return;
+        }
+    }
+
+    if(crits.length() > 0)
+    {
+        mob.Wait(IDLE_ALERTED);
+    }
+    else
+    {
+        if(Random(0, 5) == 0)
+            mob.MoveRandom();
+        mob.Wait(IDLE_NORMAL);
+    }
+}
+
+uint GetDistance(Critter& cr)
+{
+    uint base = __LookNormal + 3 * cr.Stat[ST_PERCEPTION];
+
+    if(cr.Stat[ST_NPC_ROLE] == ROLE_AGRESSIVE)
+        return base / 2;
+    else
+        return base / 3;
+}
+
+bool _MobAttacked(Critter& cr, Critter& attacker)
+{
+    cr.SendMessage(MSG_IM_ATTACKED, attacker.Id, MESSAGE_TO_ALL_ON_MAP);
+    return false;
+}
+
+bool _MobAttacking(Critter& cr, Critter& attacker)
+{
+    cr.SendMessage(MSG_GUARD_ATTACKING, attacker.Id, MESSAGE_TO_ALL_ON_MAP);
+    return false;
+}
+
+void _MobOnMessage(Critter& cr, Critter& fromCr, int message, int value)
+{
+    if(message == MSG_IM_ATTACKED || message == MSG_GUARD_ATTACKING)
+    {
+        uint dist = GetDistance(cr);
+        if(GetCrittersDistantion(cr, fromCr) <= dist/2)
+            AttackCritter(cr, GetCritter(value));
+    }        
+}
+
+void _MobSmthDead(Critter& cr, Critter& killed, Critter@ killer)
+{
+    cr.EraseEnemyFromStack(killed.Id);
+}
+
+void _MobShowCritter(Critter& mob, Critter& showCrit)
+{
+    if(showCrit.IsPlayer())
+        ALERTED(mob) += 1;
+}
+
+void _MobShowCritterAggr(Critter& mob, Critter& showCrit)
+{
+    if(showCrit.IsPlayer())
+        mob.AddEnemyInStack(showCrit.Id);
+}
+
+void _MordinoScout(Critter& npc)
+{
+    // the great optimizer
+    if(!npc.IsLife())
+    {
+        npc.Wait(IDLE_NORMAL);
+        return;
+    }
+
+    // check critters in sight
+    array<Critter@> crits;
+    // get visible players
+    uint            num = npc.GetCritters(false, FIND_ONLY_PLAYERS | FIND_LIFE, crits);
+
+    
+    // check distance
+    uint dist = GetDistance(npc);
+    for(uint i = 0; i < num; i++)
+    {
+        if(GetCrittersDistantion(npc, crits[i]) > dist)
+            continue;
+        else
+        {
+            // attack
+            npc.AddEnemyInStack(crits[i].Id);
+            return;
+        }
+    }
+    if(crits.length() > 0)
+    {
+       
+        npc.Wait(IDLE_ALERTED);
+    }
+    else
+    {
+        if(Random(0, 0) == 0)
+        MoveRandom(npc, 20);
+         // till next move
+         npc.Wait(Random(500, 10000));
+       
+    }
+}
+

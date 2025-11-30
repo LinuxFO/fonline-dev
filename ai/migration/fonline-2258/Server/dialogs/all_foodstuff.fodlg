@@ -1,0 +1,97 @@
+[comment]
+Universal bartender for all towns. Should speak out loud with the comments in the strings, there's 20 of them that should be completely randomized.
+
+[data]
+lang=engl russ
+
+[dialog]
+&
+1 1000 None 0 #
+2 1010 @
+2 2000 None 0 #
+3 2010 #
+5 2020 #
+65506 2030 #
+0 2040 @
+3 3000 None 0 #
+4 3010 D _item p PID_BOTTLE_CAPS } 5 R _item p PID_BOTTLE_CAPS - 5 R _item p PID_BEER + 1 #
+4 3020 D _item p PID_BOTTLE_CAPS } 7 R _item p PID_BOTTLE_CAPS - 7 R _item p PID_GAMMA_GULP_BEER + 1 #
+4 3030 D _item p PID_BOTTLE_CAPS } 10 R _item p PID_BOTTLE_CAPS - 10 R _item p PID_BOOZE + 1 #
+5 3040 #
+65506 3050 #
+0 3060 @
+4 4000 None 0 @
+5 5000 None 0 #
+6 5010 D _item p PID_BOTTLE_CAPS > 49 R _item p PID_BOTTLE_CAPS - 50 R _item p PID_IGUANA_ON_A_STICK + 1 R _item p PID_IGUANA_ON_A_STICK + 1 #
+4 5020 @
+6 6000 None 0 &
+
+[engl]
+{100}{}{Son of Bob's}
+{200}{}{You see a Son of Bob's food vendor.}
+{210}{}{A generic food vendor for the Son of Bob's world famous food company est. 2238!}
+{1000}{}{Predialogue installations}
+{1010}{}{buying}
+{2000}{}{Welcome to Son of Bob's! Wasteland famous BBQ! I've also got alcohol, if you're interested. Party favours too! Let me know if you need anything. I'll be around.}
+{2010}{}{What do you have on tap?}
+{2020}{}{What's on the grill?}
+{2030}{}{Let's barter.}
+{2040}{}{Nothing for now.@@Not right now.@@Maybe later.}
+{3000}{}{Beer's 5 caps, Booze is 10, and Gamma's all yours for 7 caps. [They smile]}
+{3010}{}{I'll take a Beer.}
+{3020}{}{Gamma, please. }
+{3030}{}{Bottle of Booze.}
+{3040}{}{What's on the grill?}
+{3050}{}{Let's barter.}
+{3060}{}{Nothing for now.@@Not right now.@@Maybe later.}
+{4000}{}{Sure, no problem. See you.}
+{5000}{}{We got grilled Molerat for 50 caps. Fresh from this morning. Want me to remove a kebab from the fire?@@We got grilled Gecko for 50 caps. Fresh from this morning. Want me to remove a kebab from the fire?@@We got grilled Deathclaw for 50 caps. Fresh from this morning. Want me to remove a kebab from the fire?@@We got grilled Dog for 50 caps. Fresh from this morning. Want me to remove a kebab from the fire?@@We got grilled Brahmin for 50 caps. Fresh from this morning. Want me to remove a kebab from the fire?@@We got grilled Alien for 50 caps. Fresh from this morning. Want me to remove a kebab from the fire?@@We got grilled Ghoul for 50 caps. Fresh from this morning. Want me to remove a kebab from the fire?}
+{5010}{}{Sure! Remove a kebab for me please.}
+{5020}{}{No thanks.}
+{6000}{}{One kebab comin' right up!}
+{100000001}{}{Better wash the counter again...}
+{100000002}{}{That's 5 caps buddy. Hey did you hear me? Cough em' up.}
+{100000003}{}{Better change the keg...}
+{100000004}{}{RotGut? You drink that shit?}
+{100000005}{}{Domestic? I got B.E.E.R buddy, do you want one or not?}
+{100000006}{}{Fuckin' dust is getting everywhere. Hey close the fuckin' door!}
+{100000007}{}{I swear if the next asshole doesn't tip. Ima' shoot somebody!}
+{100000008}{}{I got bottles, I got shots, and I got a bat behind the counter for the retards. Your not a retard are you?}
+{100000009}{}{Uh-huh, yeah that's nice buddy. You don't say...What? Of course I'm listening...}
+{100000010}{}{That's 5 caps. FIVE CAPS Tribal! F.I.V.E! }
+{100000011}{}{Shut up and order a fuckin' beer already!}
+{100000012}{}{I swear if I have to serve another drunk, I'm getting the shotgun!}
+{100000013}{}{Look the keg went dry, and it's going to be another month until the caravan shows up again.}
+{100000014}{}{Really? You don't say, buy another drink or get out!}
+{100000015}{}{What? I'm on break.}
+{100000016}{}{Be right with ya'}
+{100000017}{}{Have a sit stranger. I'll be with you in a moment.}
+{100000018}{}{When do we close? Uh, when the place get's shot up, that's when!}
+{100000019}{}{We're fresh outta' cold beer, sorry. You'll just have to drink it warm.}
+{100000020}{}{RotGut? No man, go make that shit yourself! I wouldn't drink it!}
+
+[russ]
+{100}{}{Алкоголик}
+{200}{}{Вы видите пьяницу.}
+{210}{}{Вы видите шатающегося из стороны в сторону пьяного человека в лохмотьях. Лицо его распухло, нос синющий как слива. А аромат рядом с ним такой, что свалит брамина насмерть. Он что-то бормочет про себя и иногда громко поет песни.}
+{210}{}{Вы видите алкаша. Он весьма грязен - кажется, он повалялся в луже, но не особо этим расстроен.}
+{1000}{}{I?aaaeaeiaiaua onoaiiaee}
+{1010}{}{Answer text}
+{2000}{}{What's yer' poison pal'?}
+{2010}{}{What do you have on tap?}
+{2020}{}{Do you have any food?}
+{2030}{}{What kind of drugs do you have?}
+{2040}{}{Nothing for me, I'll be going.}
+{3000}{}{I've got your basic beer for 5 caps. Gamma Gulp for 7 caps, and Booze for 10 caps. What'chu' want pal'?}
+{3010}{}{Gimme' a beer. [Hand him 5 caps]}
+{3020}{}{I'll take a Gamma. [Hand him 7 caps]}
+{3030}{}{Gimme' some Booze. [Hand him 10 caps]}
+{3040}{}{Do you have any food?@@Got anything to eat?@@I'm starving! Got anything to munch on?}
+{3050}{}{What kind of drugs do you have?}
+{3060}{}{Too expensive for my tastes, goodbye buddy.}
+{4000}{}{Here ya' go, in a clean glass too. Anything else you needin'?}
+{5000}{}{We got grilled Molerat for 50 caps. Fresh from this morning. Want me to remove a kebab from the fire?}
+{5010}{}{Sure! Remove a kebab for me please.}
+{5020}{}{No thanks.}
+{6000}{}{One kebab comin' right up! Careful, it's mighty sticky and hot!}
+

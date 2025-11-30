@@ -1,0 +1,40 @@
+[comment]
+
+
+[data]
+lang=engl
+
+[dialog]
+&
+1 1000 None 0 #
+2 1010 D _var p name_mem_npc_player = 1 D _var p junk_beerq = 4 #
+3 1020 D _var p name_mem_npc_player = 0 D _var p junk_beerq = 4 #
+2 1030 D _var p junk_beerq < 3 D _var p name_mem_npc_player = 0 @
+2 2000 None 0 @
+3 3000 None 0 #
+5 3010 D _item p PID_SUPER_TOOL_KIT > 0 R _var p name_mem_npc_player = 1 R _item p PID_SUPER_TOOL_KIT - 1 R _item p PID_MAGNETO_LASER_PISTOL + 1 R _item p PID_NEEDLER_PISTOL + 1 R _item p PID_BLOW_UP_DOLL + 1 R _item p PID_CIGARETTES + 1 R _script dialog@r_AddExperience 1 1000 R _script dialog@r_AddLootSetLevel2 0  #
+4 3020 #
+0 3030 @
+4 4000 None 0 #
+0 4010 @
+5 5000 None 0 #
+0 5010 &
+
+[engl]
+{100}{}{Brewery Owner}
+{200}{}{You see a local brewery owner.}
+{210}{}{Looks like he's making sure that still works.}
+{1000}{}{Predialogue installations}
+{1010}{}{Answer text}
+{1020}{}{2}
+{1030}{}{3}
+{2000}{}{Hey there. Welcome to our Brewery! Come back in a few months when we're open. We'll be giving out free beer!@@Have you tried our beer yet? Some people think it's awful. Go figure.@@Greatest beer ever, in my opinion, is cream ale.@@Bourbon's good too, we make a fine bourbon. I'm from Canada, we used to have a nice bourbon, but the asshole stopped making it. So I had to move.@@You know... I hear some creep's been killing women over in the NCR. Might want to be careful around those parts. Serial killer might be loose...}
+{3000}{}{You wouldn't happen to have a Super Tool Kit on you by any chance, would you?}
+{3010}{}{Yeah, here. Let's trade.}
+{3020}{}{No, but I'm guessing you need one?}
+{3030}{}{Sorry. I have to go.}
+{4000}{}{Yeah, it would help. I've got something good I'll trade you. Deal?}
+{4010}{}{I'll think about it.}
+{5000}{}{Sure looks dandy, thanks. Have a couple of my old things. I think they still work.}
+{5010}{}{Uhh... thank you?}
+

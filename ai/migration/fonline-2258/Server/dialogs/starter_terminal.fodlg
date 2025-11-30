@@ -1,0 +1,20 @@
+[comment]
+
+
+[data]
+lang=engl
+
+[dialog]
+&
+1 1000 None 0 #
+2 1010 @
+2 2000 None 0 &
+
+[engl]
+{100}{}{Panic in the Vault!}
+{200}{}{You see a gravely malfunctioning vault terminal.}
+{210}{}{Normally, these are quiet beyond belief save for a faint emission of static, but for some reason today they're going wild! Lights are flashing, sirens are blaring, and numerous lines of alien-looking code fill the screen!}
+{1000}{}{Predialogue installations}
+{1010}{}{Answer text}
+{2000}{}{**WARNING!!!**@@**THE VAULT DOOR IS OPENING!**@@**WARNING!!! VAULT DOORS HAVE OPENED!**@@**EMERGENCY SIGNAL 3NCLAV3 ACTIVATED! SEEK SHELTER IMMEDIATELY!!!**@@**WARNING!!! THIS IS NOT A TEST!**}
+

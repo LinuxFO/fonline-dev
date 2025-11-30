@@ -1,0 +1,106 @@
+[comment]
+
+
+[data]
+lang=engl
+
+[dialog]
+&
+1 1000 None 0 #
+2 1010 D _var p name_mem_npc_player = 0 #
+23 1020 D _var p name_mem_npc_player = 1 @
+2 2000 None 0 #
+3 2010 @
+3 3000 None 0 #
+4 3010 #
+5 3020 @
+4 4000 None 0 #
+6 4010 @
+5 5000 None 0 #
+4 5010 @
+6 6000 None 0 #
+7 6010 @
+7 7000 None 0 #
+8 7010 @
+8 8000 None 0 #
+9 8010 @
+9 9000 None 0 #
+10 9010 @
+10 10000 None 0 #
+11 10010 @
+11 11000 None 0 #
+12 11010 @
+12 12000 None 0 #
+13 12010 @
+13 13000 None 0 #
+14 13010 @
+14 14000 None 0 #
+15 14010 @
+15 15000 None 0 #
+16 15010 @
+16 16000 None 0 #
+17 16010 @
+17 17000 None 0 #
+18 17010 @
+18 18000 None 0 #
+19 18010 @
+19 19000 None 0 #
+20 19010 @
+20 20000 None 0 #
+21 20010 @
+21 21000 None 0 #
+22 21010 R _var p name_mem_npc_player = 1 @
+22 22000 None 0 @
+23 23000 None 0 &
+
+[engl]
+{100}{}{Vault 4 Overseer}
+{200}{}{You see the Overseer of Vault 4.}
+{210}{}{You can hardly believe your eyes! A living human from before the war! Why on Earth is this man still here?! And why is he surrounded by bottles of alcohol?!}
+{1000}{}{Predialogue installations}
+{1010}{}{unknown}
+{1020}{}{known}
+{2000}{}{Hello.}
+{2010}{}{Uh... hi.}
+{3000}{}{Welcome to Vault 4. Sorry if it's a little... messy here, fella. Smoke? [He pulls out a pack of cigarettes from a brand you've never seen before, and offers you one]}
+{3010}{}{Sure, thanks. [Take a cigarette]}
+{3020}{}{Nah, I don't smoke.}
+{4000}{}{[You smoke the freshest cigarette you've ever tasted! With every breath you take, you can feel the satisfaction rise up inside of you!] Good, eh? Figured you wastelanders would appreciate a good smoke.}
+{4010}{}{Geez, thanks. That was... delicious.}
+{5000}{}{Don't smoke? In this world? In this age? That's... shocking, actually. Afraid of getting cancer? [He chuckles]}
+{5010}{}{Eh, what the hell. Gimme one.}
+{6000}{}{You're welcome, buddy. So! What brings you to my Vault? How the hell did you even find the place? Or get past the fokken Slags?}
+{6010}{}{I.. don't know. Just... scavenging, I guess. Some woman told me about this place. Now? Here I am.}
+{7000}{}{Rooney, right? }
+{7010}{}{Yeah, I think so. How did you know?}
+{8000}{}{I remember her grandfather. He was... uh... I don't remember actually. But he was one of my crew. We go back, him and I. When I opened the doors he took his family and left. Never seen him since. But his son's daughter came by here a few years back...}
+{8010}{}{What happened to her? She's a widow now. She told me that her entire family was killed here. Said something about wanting revenge, but part of me knows that's just hopeless.}
+{9000}{}{Slags got em. It was sad. I couldn't do anything about it.}
+{9010}{}{You talk to these people? The Slags?}
+{10000}{}{Yeah, I guess. They're fucking animals. But... I knew most of their families. All the Slags here, and I'm assuming out there... they're all part of the Vault 4 bloodline.}
+{10010}{}{Vault 4 bloodline? Is... is that where all these people actually come from?!}
+{11000}{}{Yeah, I guess. Vault 4's history goes way back, we had like... a thousand people? Something like that.}
+{11010}{}{Why did you open the fucking doors?! WHY?! TELL ME!!!! YOU'RE THE FUCKING ANIMAL! YOU GODDAMN FUCKING MONSTER!! MY... MY HOME!! IT'S GONE! It's... gone...}
+{12000}{}{Okay, calm down, kiddo! What are you talking about?!}
+{12010}{}{I'M FROM A FUCKING VAULT! }
+{13000}{}{[He spends a moment studying you] Shit, kid. You really are, aren't you? Shit... [He jumps into some sort of instinctive role, and begins a spiel] Keep your wits, soldier! Life on the outside will be tough! But not tougher than Uncle Sam! And the American way of life! Remember the dream, kiddo! Remember the American Dream! It's your tomorrow now, today!}
+{13010}{}{Shut. The. Fuck. Up.}
+{14000}{}{Sorry. [He cracks open a fresh bottle of alcohol and pours it down his throat] Vault-Tek is bullshit. It was all a goddamn lie, right from the beginning. I'm sorry, kid. But you're an experiment.}
+{14010}{}{A what?!}
+{15000}{}{[He lights up a cigarette, and takes a long, hard drag off of it] You're damaged goods, kiddo. On purpose. [He sighs] We broke you.}
+{15010}{}{But... why? Why did you...}
+{16000}{}{You don't get it, do you? The vaults were never designed to save anyone. Everything... all of this... it was planned. You were all meant to rebuild...}
+{16010}{}{All my suffering...}
+{17000}{}{Meaningless. I'm sorry.}
+{17010}{}{Cira...}
+{18000}{}{Look, I'm sorry. There's nothing I can do, or say that will make ANYTHING better. Your entire life has been a lie, you're just a tool to re-populate the world again.}
+{18010}{}{... what was your experiment?}
+{19000}{}{[He cracks another bottle of alcohol, and pours it down his throat] Violence. My people were to be violent. Be bitter. Be drunks. Kill. Maime. Rape. Bring chaos. And out of that chaos, we'd eventually find order.}
+{19010}{}{?!}
+{20000}{}{[He sighs] I made these people. The Slags. All these raiders, rapists. It's all me. It's all my fault. My job. [He wipes a single tear away]}
+{20010}{}{And that's it? That's *that*?! The end? Hello, goodbye?!}
+{21000}{}{Yeah.}
+{21010}{}{You're a fucking coward.}
+{22000}{}{I know.}
+{23000}{}{Chin up, kiddo@@Head up, kiddo.@@We needed babies... people don't fall in love much during the end of the world...@@Now you know why I drink.@@Come back any time, I'll be here. I've got nowhere else to go.@@This is my home now. My burden. I keep this place running.@@The Slags are like my bastard fucking children. I hate myself.@@No use shooting me. The auto-doc keeps me alive. No matter what. I'm a prisoner here.@@You should get out of here. I'm sorry you know the truth. Just... try to forget it.@@This is Hell, and I deserve the burning.@@I haven't lived a very good life. This is my endless torment. My punishment.@@There is a God, that's why I'm still suffering. I deserve this.@@There's a ton of supplies here, I keep refilling the lockers. Keeps me sane.@@I'm rich here, heh. Got it made. All it cost was my soul.@@I wish... I wish I could die, and come back as an angel. Make up for something. Anything!@@I'm... too drunk to be drinking. But why stop? What's the point?@@Do me a favor... kill everybody for me. I hate these people.@@I used to be a cop, go figure. Look at me now.@@Vault-Tek... you... ruined me.}
+

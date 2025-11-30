@@ -1,0 +1,104 @@
+[comment]
+
+
+[data]
+lang=engl
+
+[dialog]
+&
+1 1000 None 0 #
+2 1010 D _var p name_mem_npc_player = 0 R _var p name_mem_npc_player = 1 R _var p junk_labour = 1 #
+2 1020 D _var p name_mem_npc_player = 1 @
+2 2000 None 0 #
+7 2010 D _var p junk_labour = 1 #
+4 2020 #
+5 2030 #
+6 2040 #
+9 2050 D _var p junk_labour = 2 D _item p PID_FIREWOOD > 49 R _var p junk_labour = 3 R _item p PID_FIREWOOD - 50 R _script dialog@r_AddExperience 1 500 #
+10 2060 D _var p junk_labour = 3 D _item p PID_PUMP_PARTS > 14 R _var p junk_labour = 4 R _item p PID_PUMP_PARTS - 15 R _script dialog@r_AddExperience 1 500 #
+11 2070 D _var p junk_labour = 4 D _item p PID_BROC_FLOWER > 29 D _item p PID_XANDER_ROOT > 29 R _var p junk_labour = 5 R _item p PID_XANDER_ROOT - 30 R _item p PID_BROC_FLOWER - 30 R _script dialog@r_AddExperience 1 500 #
+12 2080 D _var p junk_labour = 5 D _item p PID_ELECTRONIC_PARTS > 5 R _var p junk_labour = 6 R _item p PID_ELECTRONIC_PARTS - 6 R _script dialog@r_AddExperience 1 500 #
+13 2090 D _var p junk_labour = 6 D _item p PID_FIBER > 59 R _var p junk_labour = 7 R _item p PID_FIBER - 60 R _script dialog@r_AddExperience 1 500 #
+14 2100 D _var p junk_labour = 7 D _item p PID_FLINT > 19 R _var p junk_labour = 8 R _item p PID_FLINT - 20 R _script dialog@r_AddExperience 1 500 #
+15 2110 D _var p junk_labour = 8 D _item p PID_MUTATED_FRUIT > 79 R _var p junk_labour = 9 R _item p PID_MUTATED_FRUIT - 80 R _script dialog@r_AddExperience 1 3000 R _script dialog@r_BulkOrderRewardJunk 0  R _param p ST_KARMA + 1 R _script dialog@r_BulkOrderRewardInde 0  R _script dialog@r_AddMoney 1 3000 R _param p REPUTATION_LA + 50 R _param p REPUTATION_HUB + 50 R _param p REPUTATION_JUNKTOWN + 50 R _param p REPUTATION_NCR + 50 R _param p REPUTATION_REGULATORS + 50 R _param p REPUTATION_SCAVENGERS + 50 R _param p REPUTATION_FREE_TRADERS + 50 R _script dialog@r_AddLootSetLevel2 0  #
+16 2120 D _var p junk_labour = 9 #
+3 2130 @
+3 3000 None 0 @
+4 4000 None 0 #
+2 4010 @
+5 5000 None 0 #
+2 5010 @
+6 6000 None 0 #
+2 6010 @
+7 7000 None 0 #
+8 7010 #
+0 7020 @
+8 8000 None 0 #
+0 8010 R _var p junk_labour = 2 @
+9 9000 None 0 #
+0 9010 @
+10 10000 None 0 #
+0 10010 @
+11 11000 None 0 #
+0 11010 @
+12 12000 None 0 #
+0 12010 @
+13 13000 None 0 #
+0 13010 @
+14 14000 None 0 #
+0 14010 @
+15 15000 None 0 @
+16 16000 None 0 #
+8 16010 #
+0 16020 &
+
+[engl]
+{100}{}{Supervisor}
+{200}{}{You see an exhausted looking labourer.}
+{210}{}{He looks like he could use a hand.}
+{1000}{}{Predialogue installations}
+{1010}{}{Answer text}
+{1020}{}{2}
+{2000}{}{Howdy, @sex@|son.||ma'am.| Looking for work?}
+{2010}{}{Sure. Tell me more.}
+{2020}{}{What can you tell me about the mine?}
+{2030}{}{What do you do here?}
+{2040}{}{Who's that foreman guy?}
+{2050}{}{Here's your 50x Wood.}
+{2060}{}{I've got 15x Junk with your name on it.}
+{2070}{}{Alright, got the 30x pieces of Xander and Broc.}
+{2080}{}{6x pieces of Electronic Parts. Here.}
+{2090}{}{Okay, got 60x Fibers with me. Here.}
+{2100}{}{I've got 20x Flint with your name on it.}
+{2110}{}{Alright, I'm done. Here's your 80x pieces of Fruit.}
+{2120}{}{Can I do another run for you guys?}
+{2130}{}{No, not today.}
+{3000}{}{Well, I always got some good ol' honest work waiting for ya' if you ever change your mind.}
+{4000}{}{It's a mine. We blew a hole in the mountain with some dynamite and found some valuable ore. What else is there to say? Feel free to mine it. }
+{4010}{}{Alright.}
+{5000}{}{I'm the supervisor. I maintain the tools, walls, people, things like that. I do most of the hiring as well.}
+{5010}{}{Alright.}
+{6000}{}{Don't worry about him. Unless you want to buy a mine, or something. He's a business man, that's all. Owns the place.}
+{6010}{}{Alright.}
+{7000}{}{I need to hire some more scavengers, I just can't keep up with everything. We're running low on supplies, and basic resources. You want to run around the wasteland? Gather some stuff for me? I'll pay you three thousand caps.}
+{7010}{}{Sure.}
+{7020}{}{No thanks. Maybe later.}
+{8000}{}{Alright, you're hired. But it's contract work. You need to bring back exactly what I ask for, in order. First thing I need is 50x Wood.}
+{8010}{}{Okay, I'll be back.}
+{9000}{}{Good, good. Now we'll need 15x pieces of Junk.}
+{9010}{}{Will do, boss.}
+{10000}{}{Good, good. Now for some Broc Flower, and Xander Root. I need 30x of each. Chop, chop.}
+{10010}{}{Yes, boss.}
+{11000}{}{Good, good. Now for 6x pieces of Electronic Parts.}
+{11010}{}{Yes, sir.}
+{12000}{}{Good, good, half way there. Now we need some Fibers. I'll need 60x of them.}
+{12010}{}{Fine.}
+{13000}{}{Good, good, almost done. Now we just need 20x Flint.}
+{13010}{}{Damn, okay.}
+{14000}{}{Great! One last thing, and then you can go home. We need a crate full of 80x pieces of Fruit. Hop to it, and then you'll get your pay.}
+{14010}{}{Good. I'll be back.}
+{15000}{}{Great job! That's a damn fine contract filling if I've ever seen one. Damn, you did good. Come back anytime if you'd like to do it again! Here's your pay, and the bonus. Good luck out there!}
+{16000}{}{Sure, you want to run around again?}
+{16010}{}{Yessir.}
+{16020}{}{Not right now.}
+

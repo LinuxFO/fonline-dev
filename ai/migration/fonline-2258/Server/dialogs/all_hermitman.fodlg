@@ -1,0 +1,20 @@
+[comment]
+
+
+[data]
+lang=engl
+
+[dialog]
+&
+1 1000 None 0 #
+2 1010 @
+2 2000 None 0 &
+
+[engl]
+{100}{}{The Hermit Man}
+{200}{}{You see the Hermit Man.}
+{210}{}{No one knows who this man really is... or, WHAT he is. But it's clear. Do not bother him. He enjoys his privacy, but enjoys murdering trespassers even more!}
+{1000}{}{Predialogue installations}
+{1010}{}{Answer text}
+{2000}{}{... everything floats down here...@@... careful... the current is strong...@@... drown for me...@@... I missed you... so... very... much...@@... yes... now we are together... you death... will complete me...@@... good... you came ready to die...@@... disgusting... flesh...@@... I told you... to... leave me... alone...}
+

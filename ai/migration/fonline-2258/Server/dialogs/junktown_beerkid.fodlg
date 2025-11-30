@@ -1,0 +1,60 @@
+[comment]
+
+
+[data]
+lang=engl
+
+[dialog]
+&
+1 1000 None 0 #
+2 1010 @
+2 2000 None 0 #
+3 2010 #
+4 2020 #
+5 2030 #
+6 2040 D _var p name_mem_npc_player = 0 #
+0 2050 #
+0 2060 @
+3 3000 None 0 @
+4 4000 None 0 @
+5 5000 None 0 @
+6 6000 None 0 #
+7 6010 #
+0 6020 D _var p name_mem_npc_player = 0 R _var p name_mem_npc_player = 1 R _param p ST_KARMA + 1 @
+7 7000 None 0 #
+8 7010 D _item p PID_CIGARETTES > 0 D _item p PID_LIGHTER > 0 D _var p name_mem_npc_player = 0 R _item p PID_CIGARETTES - 1 R _item p PID_LIGHTER - 1 R _param p ST_KARMA - 3 R _script dialog@r_AddExperience 1 500 R _var p name_mem_npc_player = 1 #
+0 7020 #
+0 7030 @
+8 8000 None 0 #
+9 8010 @
+9 9000 None 0 #
+0 9010 &
+
+[engl]
+{100}{}{Brewer's Son}
+{200}{}{You see a brewer's son.}
+{210}{}{He looks likes an alright kid, doesn't he?}
+{1000}{}{Predialogue installations}
+{1010}{}{Answer text}
+{2000}{}{Hi there, @sex@|mister!||ma'am!|}
+{2010}{}{Well howdy, kiddo!}
+{2020}{}{How's life?}
+{2030}{}{Do you like to play with guns?!}
+{2040}{}{Your parents make booze, that's so awesome!}
+{2050}{}{Hi yourself, kid.}
+{2060}{}{Hi! Bye!}
+{3000}{}{I can tie my own shoes! Did you know that boots go on feet?}
+{4000}{}{Don't know. Too young to have one...}
+{5000}{}{Guns? You don't have any real guns. Guns are HUGE, and go on TANKS!}
+{6000}{}{What's booze?}
+{6010}{}{Don't worry about that. What you need are some cigarettes. Here, have a lighter and smoke these. They make all your dreams come true!}
+{6020}{}{Something bad people might make you drink. Stay away from it, okay?}
+{7000}{}{A wah't?}
+{7010}{}{Yup! Here! [Stick a smoke in the kid's mouth, and light it] Have the whole pack, and this lighter. See you! But don't tell anyone I gave you these, okay? A bad person might take them away!}
+{7020}{}{Nevermind, I don't have any smokes, or a lighter on me. Damn.}
+{7030}{}{I'm just kidding, kiddo! Don't tell your parents!}
+{8000}{}{Oh boy! All my dreams will come true?! Thanks, fwend!}
+{8010}{}{Don't tell your parents!}
+{9000}{}{[You've lost karma, you evil, son of a bitch. Stop laughing]}
+{9010}{}{Muhahahahahah!}
+

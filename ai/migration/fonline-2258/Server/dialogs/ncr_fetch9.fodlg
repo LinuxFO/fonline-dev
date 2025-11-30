@@ -1,0 +1,32 @@
+[comment]
+
+
+[data]
+lang=engl
+
+[dialog]
+&
+1 1000 None 0 #
+2 1010 D _var p name_mem_npc_player = 0 #
+6 1020 D _var p name_mem_npc_player = 1 @
+2 2000 None 0 #
+3 2010 D _item p PID_STEALTH_BOY } 1 R _param p ST_KARMA + 1 R _var p name_mem_npc_player = 1 R _script dialog@r_AddExperience 1 1000 R _item p PID_STEALTH_BOY - 1 R _param p REPUTATION_NCR + 7 #
+4 2020 @
+3 3000 None 0 @
+4 4000 None 0 @
+6 5000 None 0 &
+
+[engl]
+{100}{}{Jackson}
+{200}{}{You see a worried looking mechanic.}
+{210}{}{Looks like they're looking for something.}
+{1000}{}{Predialogue installations}
+{1010}{}{Answer text}
+{1020}{}{2}
+{2000}{}{Hey, I need you help. I can trust you, right? I really need a stealth boy... It seems that my wife is cheating on me...  The only way I can think of catching that whore is by using stealth boy, and hiding. Would you help me?}
+{2010}{}{Yeah, I have one in my bag. I hope you catch that cheating whore!}
+{2020}{}{Sure! I'll come back with one. Maybe.}
+{3000}{}{Thank you! Now, when I catch her... She won't be able to say "I don't know what are you talking about!". That fucking bitch!}
+{4000}{}{Hurry up! Need to catch that bitch!}
+{5000}{}{Thanks to you I caught that whore with another man... I dealt with both of them swiftly! *laughs*}
+

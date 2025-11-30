@@ -1,0 +1,50 @@
+[comment]
+
+
+[data]
+lang=engl
+
+[dialog]
+&
+1 1000 None 0 #
+5 1010 D _script arena@d_HasTooMuchStuff 0  #
+2 1020 @
+2 2000 None 0 #
+3 2010 #
+0 2020 @
+3 3000 None 0 #
+4 3010 R _item n PID_BEER + 1 R _item n PID_CIGARETTES + 1 R _item n PID_JET + 1 R _item n PID_NUKA_COLA + 1 R _item n PID_PSYCHO + 1 R _item n PID_BUFFOUT + 1 R _item n PID_LIGHTER + 1 R _script arena@r_TransferItems 0  #
+4 3020 R _item n PID_JET + 1 R _script arena@r_TransferItems 0  #
+4 3030 R _item n PID_NUKA_COLA + 1 R _script arena@r_TransferItems 0  #
+4 3040 R _item n PID_CIGARETTES + 1 R _item n PID_LIGHTER + 1 R _script arena@r_TransferItems 0  #
+4 3050 R _item n PID_PSYCHO + 1 R _script arena@r_TransferItems 0  #
+4 3060 R _item n PID_BUFFOUT + 1 R _script arena@r_TransferItems 0  #
+4 3070 R _item n PID_BEER + 1 R _script arena@r_TransferItems 0  #
+4 3080 R _item n PID_JET_ANTIDOTE + 1 R _script arena@r_TransferItems 0  #
+0 3090 @
+4 4000 None 0 @
+5 5000 None 0 &
+
+[engl]
+{100}{}{Barman}
+{200}{}{You see a barman.}
+{210}{}{This guy can definitely get you what you need.}
+{1000}{}{Predialogue installations}
+{1010}{}{Too much stuff}
+{1020}{}{Answer text}
+{2000}{}{What can I get you?}
+{2010}{}{Is there.. you know, some way for me to get.. uhm.. "better" in the fight? You know, like popping the big B.. Taking a flight, psyching out and stuff, you know, the good shit.. ?}
+{2020}{}{Nothing.}
+{3000}{}{Tell me what you need.}
+{3010}{}{Full set.}
+{3020}{}{Jet.}
+{3030}{}{Nuka Cola.}
+{3040}{}{Cigarettes.}
+{3050}{}{Psycho.}
+{3060}{}{Buffout.}
+{3070}{}{Beer.}
+{3080}{}{Drug Antidote.}
+{3090}{}{Nothing.}
+{4000}{}{Here you go.}
+{5000}{}{Slow down a bit, you've taken enough for now.}
+

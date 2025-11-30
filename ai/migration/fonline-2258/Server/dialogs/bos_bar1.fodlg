@@ -1,0 +1,90 @@
+[comment]
+
+
+[data]
+lang=engl
+
+[dialog]
+&
+1 1000 None 0 #
+18 1010 D _script dialog@d_IsNotMemberOf 1 FACTION_BOS #
+2 1020 @
+2 2000 None 0 #
+11 2010 #
+12 2020 #
+13 2030 #
+22 2040 #
+20 2050 #
+0 2060 @
+11 3000 None 0 #
+19 3010 D _item p PID_BOTTLE_CAPS > 99 R _item p PID_BOTTLE_CAPS - 100 R _item p PID_BOTTLE_FULL + 1 #
+19 3020 D _item p PID_BOTTLE_CAPS > 149 R _item p PID_BOTTLE_CAPS - 150 R _item p PID_WATERBAG + 1 #
+2 3030 @
+12 4000 dialog@dlg_SayBuyBeer 0 #
+19 4010 D _item p PID_BOTTLE_CAPS > 9 R _script dialog@r_RemoveMoney 1 10 R _item p PID_BEER + 1 #
+2 4020 @
+13 5000 dialog@dlg_SayBuyBooze 0 #
+19 5010 D _item p PID_BOTTLE_CAPS > 9 R _item p PID_BOOZE + 1 R _script dialog@r_RemoveMoney 1 10 #
+2 5020 @
+18 6000 None 0 @
+19 7000 None 0 @
+20 8000 None 0 #
+21 8010 D _item p PID_BOTTLE_CAPS > 19 R _item p PID_BOTTLE_CAPS - 20 R _item p PID_MEAT + 1 #
+21 8020 D _item p PID_BOTTLE_CAPS > 19 R _item p PID_BOTTLE_CAPS - 20 R _item p PID_IGUANA_ON_A_STICK + 1 #
+21 8030 D _item p PID_BOTTLE_CAPS > 19 R _item p PID_BOTTLE_CAPS - 20 R _item p PID_MUTATED_FRUIT + 1 #
+21 8040 D _item p PID_BOTTLE_CAPS > 19 R _item p PID_BOTTLE_CAPS - 20 R _item p PID_MEAT_JERKY + 1 #
+21 8050 D _item p PID_BOTTLE_CAPS > 19 R _item p PID_BOTTLE_CAPS - 20 R _item p PID_MEAT_ON_A_STICK + 1 #
+2 8060 @
+21 9000 None 0 @
+22 10000 None 0 #
+23 10010 D _item p PID_BOTTLE_CAPS > 324 R _item p PID_BOTTLE_CAPS - 325 R _item p PID_JET + 1 #
+23 10020 D _item p PID_BOTTLE_CAPS > 324 R _item p PID_BOTTLE_CAPS - 325 R _item p PID_BUFFOUT + 1 #
+23 10030 D _item p PID_BOTTLE_CAPS > 324 R _item p PID_BOTTLE_CAPS - 325 R _item p PID_MENTATS + 1 #
+23 10040 D _item p PID_BOTTLE_CAPS > 324 R _item p PID_BOTTLE_CAPS - 325 R _item p PID_PSYCHO + 1 #
+24 10050 @
+23 11000 None 0 @
+24 12000 None 0 &
+
+[engl]
+{100}{}{Bartell}
+{200}{}{You see Bartell, owner of this fine establishment.}
+{210}{}{He looks like an old retired military officer from before the war. Impressive how he's survived this long! He even has all of his original limbs! Wow!}
+{1000}{}{Predialogue installations}
+{1010}{}{Unknown}
+{1020}{}{Familiar}
+{2000}{}{Well, howdy soldier! Welcome to my bar! Best damn bar for soldiers this side of the wasteland! We've got it all here. Booze, drugs, water, food, you name it. What can I get you? It's all fresh... enough.}
+{2010}{}{Water.}
+{2020}{}{Beer.}
+{2030}{}{Liquor.}
+{2040}{}{Drugs!}
+{2050}{}{Food.}
+{2060}{}{Nothing.}
+{3000}{}{What kind of water? Bottles or Bags? 100 caps a bottle, or 150 per sac. Don't worry, the water's been purified. Just... don't eat the plastic.}
+{3010}{}{One bottle of Water, please!}
+{3020}{}{One sac of Water, please!}
+{3030}{}{On second thought, I changed my mind.}
+{4000}{}{One Beer'll cost you ten caps. You can use the SAY command to order up as many as you can afford at once. Care for an entire case of 24x?}
+{4010}{}{I'll take a Beer, thanks.}
+{4020}{}{On second thought, I changed my mind.}
+{5000}{}{One bottle of Booze'll cost you ten caps. You can use the SAY command to order up as many as you can afford at once. Care for an entire case of 12x?}
+{5010}{}{I'll take a bottle, thanks.}
+{5020}{}{On second thought, I changed my mind.}
+{6000}{}{I only serve REAL soldiers here. Get the fuck out before I fucking shoot you!@@If you had a proper escort then you would know not to go wandering into random buildings on a goddamn military base!}
+{7000}{}{Bottoms up, soldier. Let me know when you want another.}
+{8000}{}{Hungry? I've got a little something something. Old family recipe actually. Got some Iguana-on-a-stick, grilled rat, slabs of Brahmin steak, and uh... irradiated apples. 20 caps a piece. Oh, I also have some floater jerky. }
+{8010}{}{Gimme a slab of Brahmin steak.}
+{8020}{}{Iguana-on-a-stick sounds great right about now. I'll take one of those.}
+{8030}{}{Did you say irradiated apples?! Yum! My favourite! Hit me! Now!}
+{8040}{}{Floater jerky, you say? Sounds delicious!}
+{8050}{}{Nothing but the finest for me! One grilled rat, please!}
+{8060}{}{No thanks, I'm full.}
+{9000}{}{If you say so, boss! Enjoy the meal.}
+{10000}{}{Heh, you like getting high? Me too. What'll it be? I've got Jet, Buffout, Psycho, and Mentats. 325 caps each.}
+{10010}{}{I'll take a hit of Jet.}
+{10020}{}{I'll take a hit of Buffout.}
+{10030}{}{I'll take a hit of Mentats.}
+{10040}{}{I'll take a hit of Psycho.}
+{10050}{}{Nothing for me actually. Drugs are bad.}
+{11000}{}{Enjoy the buzz. I'm sure you'll have yourself one hell of a trip, soldier!}
+{12000}{}{Pfft! Pussy.}
+

@@ -1,0 +1,34 @@
+[comment]
+
+
+[data]
+lang=engl
+
+[dialog]
+&
+1 1000 None 0 #
+3 1010 D _script dialog@d_IsNotMemberOf 1 FACTION_BOS #
+2 1020 @
+2 2000 None 0 #
+4 2010 #
+3 2020 @
+3 3000 None 0 @
+4 4000 dialog@dlg_SayBuyNuka 0 #
+5 4010 @
+5 5000 None 0 &
+
+[engl]
+{100}{}{Lemonade Stand}
+{200}{}{You see someone's kid selling what appears to be "lemonaide"}
+{210}{}{Is it lemonaide, or lemonade? Ugh, who knows! But these kids are selling Nuka-Cola in bulk!}
+{1000}{}{Predialogue installations}
+{1010}{}{Answer text}
+{1020}{}{Answer text}
+{2000}{}{Hi, @pname@! You're famous! Wanna buy some lemonaide?! Our daddy gave us hundreds to sell!}
+{2010}{}{Sure, kiddo! How much?}
+{2020}{}{No.}
+{3000}{}{Oh, no! Stranger Danger! Stranger Danger!}
+{4000}{}{100 caps a bottle! Daddy says that's the price, and we're sticking to it! You can use the SAY command to let me know how many bottles you want to buy!}
+{4010}{}{Thanks! See ya, kids.}
+{5000}{}{Bye, @sex@|mister!||missy!|}
+

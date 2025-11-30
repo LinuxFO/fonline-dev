@@ -1,0 +1,335 @@
+[comment]
+
+
+[data]
+lang=engl
+
+[dialog]
+&
+1 1000 None 0 #
+2 1010 D _script follower@d_IsOwner 1 1 R _script follower@r_SetFaction 0  #
+10 1020 @
+2 2000 follower@dlg_ShowLoyality 0 #
+6 2010 D _script follower@d_IsNotMode 1 2 D _script follower@d_CanStay 0  D _param p ST_STRENGTH > 99 R _script follower@r_FollowMode 1 2 #
+5 2020 D _script follower@d_IsNotMode 1 0 D _script follower@d_CanLeadMoreFollowers 0  D _script follower@d_IsNotMode 1 1 D _param p ST_STRENGTH > 99 R _script follower@r_FollowMode 1 0 #
+3 2030 D _param p ST_STRENGTH > 99 #
+4 2040 D _param p ST_STRENGTH > 99 #
+17 2050 D _param p ST_STRENGTH > 99 #
+20 2060 D _param p ST_STRENGTH > 99 #
+2 2070 D _param p ST_STRENGTH > 99 R _script follower@r_TellWeaponSkill 0  #
+23 2080 D _param p ST_STRENGTH > 99 #
+0 2090 D _param p ST_STRENGTH > 99 R _script follower@r_DropAllItems 0  #
+33 2100 D _script dialog@d_NpcOnMap 1 329 D _var n z_escorts2 = 1 D _var p z_escorts = 1 R _var n z_escorts2 = 0 R _var p z_escorts = 0 #
+33 2110 D _script dialog@d_NpcOnMap 1 331 D _var n z_escorts2 = 2 D _var p z_escorts = 2 R _var n z_escorts2 = 0 R _var p z_escorts = 0 #
+33 2120 D _script dialog@d_NpcOnMap 1 323 D _var n z_escorts2 = 3 D _var p z_escorts = 3 R _var n z_escorts2 = 0 R _var p z_escorts = 0 #
+33 2130 D _script dialog@d_NpcOnMap 1 333 D _var n z_escorts2 = 4 D _var p z_escorts = 4 R _var n z_escorts2 = 0 R _var p z_escorts = 0 #
+33 2140 D _script dialog@d_NpcOnMap 1 322 D _var n z_escorts2 = 5 D _var p z_escorts = 5 R _var n z_escorts2 = 0 R _var p z_escorts = 0 #
+33 2150 D _script dialog@d_NpcOnMap 1 330 D _var n z_escorts2 = 6 D _var p z_escorts = 6 R _var n z_escorts2 = 0 R _var p z_escorts = 0 #
+33 2160 D _script dialog@d_NpcOnMap 1 332 D _var n z_escorts2 = 7 D _var p z_escorts = 7 R _var n z_escorts2 = 0 R _var p z_escorts = 0 #
+33 2170 D _script dialog@d_NpcOnMap 1 324 D _var n z_escorts2 = 8 D _var p z_escorts = 8 R _var n z_escorts2 = 0 R _var p z_escorts = 0 R _var p name_mem_npc_player = 1 #
+24 2180 #
+7 2190 R _script follower@r_ArmBestWeapon 0  #
+7 2200 R _script follower@r_PutDownWeapon 0  #
+7 2210 R _script npc_common@r_MoveRandom 1 0 #
+110 2220 #
+65506 2230 #
+18 2240 #
+200 2250 #
+0 2260 @
+3 3000 None 0 #
+2 3010 R _script follower@r_Distance 1 0 #
+2 3020 R _script follower@r_Distance 1 1 #
+2 3030 R _script follower@r_Distance 1 2 @
+4 4000 None 0 #
+2 4010 R _script follower@r_AttackPolicy 1 0 #
+2 4020 R _script follower@r_AttackPolicy 1 7 #
+2 4030 R _script follower@r_AttackPolicy 1 6 #
+2 4040 D _param p ST_STRENGTH > 99 R _script follower@r_AttackPolicy 1 2 #
+2 4050 D _param p ST_STRENGTH > 99 R _script follower@r_AttackPolicy 1 3 #
+2 4060 D _param p ST_STRENGTH > 99 R _script follower@r_AttackPolicy 1 4 #
+2 4070 D _param p ST_STRENGTH > 99 R _script follower@r_AttackPolicy 1 5 @
+5 5000 None 0 #
+0 5010 @
+6 6000 None 0 #
+0 6010 @
+7 7000 None 0 @
+10 8000 None 0 @
+11 9000 None 0 #
+2 9010 @
+12 10000 None 0 #
+2 10010 @
+13 11000 None 0 #
+2 11010 @
+14 12000 None 0 #
+2 12010 @
+15 13000 None 0 #
+2 13010 @
+16 14000 None 0 #
+2 14010 @
+17 15000 None 0 #
+2 15010 D _script follower@d_IsSpawnPlaceAvailable 1 1 R _script follower@r_SetSpawnPlace 1 1 #
+2 15020 D _script follower@d_IsSpawnPlaceAvailable 1 2 R _script follower@r_SetSpawnPlace 1 2 #
+19 15030 D _script follower@d_IsSpawnPlaceAvailable 1 3 R _script follower@r_SetSpawnPlace 1 3 #
+2 15040 @
+18 16000 None 0 #
+22 16010 #
+2 16020 D _item n PID_PURPLE_ROBE > 0 R _script follower@r_SetArmor 1 113 #
+2 16030 D _item n PID_SAND_ROBE > 0 R _script follower@r_SetArmor 1 750 #
+2 16040 D _item n PID_KEEPBRIGE_ROBE > 0 R _script follower@r_SetArmor 1 524 #
+2 16050 D _item n PID_LEATHER_JACKET > 0 R _script follower@r_SetArmor 1 74 #
+2 16060 D _item n PID_LEATHER_ARMOR > 0 R _script follower@r_SetArmor 1 1 #
+2 16070 D _item n PID_LEATHER_ARMOR_MK_II > 0 R _script follower@r_SetArmor 1 379 #
+2 16080 D _item n PID_CURED_LEATHER_ARMOR > 0 R _script follower@r_SetArmor 1 265 #
+2 16090 D _item n PID_METAL_ARMOR > 0 R _script follower@r_SetArmor 1 2 #
+2 16100 D _item n PID_METAL_ARMOR_MK_II > 0 R _script follower@r_SetArmor 1 380 #
+2 16110 D _item n PID_TESLA_ARMOR > 0 R _script follower@r_SetArmor 1 240 #
+2 16120 D _item n PID_COMBAT_ARMOR > 0 R _script follower@r_SetArmor 1 17 #
+2 16130 D _item n PID_COMBAT_ARMOR_MK_II > 0 R _script follower@r_SetArmor 1 381 #
+2 16140 D _item n PID_NCR_ARMOR > 0 R _script follower@r_SetArmor 1 9654 #
+2 16150 D _item n PID_BROTHERHOOD_COMBAT_ARMOR > 0 R _script follower@r_SetArmor 1 239 #
+2 16160 D _item n PID_ENCLAVE_COMBAT_ARMOR > 0 R _script follower@r_SetArmor 1 752 #
+2 16170 D _item n PID_DESERT_COMBAT_ARMOR > 0 R _script follower@r_SetArmor 1 778 #
+2 16180 R _script follower@r_RemoveArmor 0  #
+2 16190 @
+19 17000 follower@dlg_ChooseBase 0 #
+2 17010 @
+20 18000 None 0 #
+21 18010 D _item p PID_NUKA_COLA > 0 R _script follower@r_IncreaseLoyality 2 1 2 R _item p PID_NUKA_COLA - 1 #
+21 18020 D _item p PID_BEER > 0 R _script follower@r_IncreaseLoyality 2 1 2 R _item p PID_BEER - 1 #
+21 18030 D _item p PID_COOKIE > 0 R _script follower@r_IncreaseLoyality 2 1 2 R _item p PID_COOKIE - 1 #
+21 18040 D _item p PID_IGUANA_ON_A_STICK > 0 R _script follower@r_IncreaseLoyality 2 1 2 R _item p PID_IGUANA_ON_A_STICK - 1 #
+21 18050 D _item p PID_BOOZE > 0 R _script follower@r_IncreaseLoyality 2 1 2 R _item p PID_BOOZE - 1 @
+21 19000 None 0 #
+20 19010 #
+2 19020 @
+22 20000 None 0 #
+18 20010 #
+2 20020 D _item n PID_LEATHER_JACKET_HELMET > 0 R _script follower@r_SetHelmet 1 728 #
+2 20030 D _item n PID_COMBAT_LEATHER_JACKET_HELMET > 0 R _script follower@r_SetHelmet 1 729 #
+2 20040 D _item n PID_LEATHER_ARMOR_HELMET > 0 R _script follower@r_SetHelmet 1 730 #
+2 20050 D _item n PID_LEATHER_ARMOR_HELMET_MK2 > 0 R _script follower@r_SetHelmet 1 731 #
+2 20060 D _item n PID_METAL_HELMET > 0 R _script follower@r_SetHelmet 1 732 #
+2 20070 D _item n PID_METAL_HELMET_MK2 > 0 R _script follower@r_SetHelmet 1 733 #
+2 20080 D _item n PID_TESLA_HELMET > 0 R _script follower@r_SetHelmet 1 734 #
+2 20090 D _item n PID_COMBAT_HELMET > 0 R _script follower@r_SetHelmet 1 725 #
+2 20100 D _item n PID_COMBAT_HELMET_MK_II > 0 R _script follower@r_SetHelmet 1 726 #
+2 20110 D _item n PID_BROTHERHOOD_HELMET > 0 R _script follower@r_SetHelmet 1 727 #
+2 20120 D _item n PID_ENCLAVE_COMBAT_HELMET > 0 R _script follower@r_SetHelmet 1 738 #
+2 20130 D _item n PID_DESERT_COMBAT_HELMET > 0 R _script follower@r_SetHelmet 1 740 #
+2 20140 D _item n PID_NCR_HELMET > 0 R _script follower@r_SetHelmet 1 741 #
+2 20150 R _script follower@r_RemoveHelmet 0  #
+2 20160 @
+23 21000 follower@dlg_GiveFollower 0 #
+0 21010 @
+100 22000 None 0 @
+110 23000 follower@dlg_ShowStats 0 #
+2 23010 D _param n ST_LEVEL } 1 D _var n z_escortslvl = 0 R _param n ST_MAX_LIFE + 20 R _param n ST_ARMOR_CLASS + 2 R _param n ST_MELEE_DAMAGE + 2 R _param n ST_CARRY_WEIGHT + 12 R _param n ST_HEALING_RATE + 1 R _param n ST_SEQUENCE + 1 R _param n ST_CRITICAL_CHANCE + 1 R _var n z_escortslvl = 1 #
+2 23020 D _param n ST_LEVEL } 2 D _var n z_escortslvl = 1 R _param n ST_MAX_LIFE + 20 R _param n ST_ARMOR_CLASS + 2 R _param n ST_MELEE_DAMAGE + 2 R _param n ST_CARRY_WEIGHT + 12 R _param n ST_HEALING_RATE + 1 R _param n ST_SEQUENCE + 1 R _param n ST_CRITICAL_CHANCE + 1 R _var n z_escortslvl = 2 #
+2 23030 D _param n ST_LEVEL } 3 D _var n z_escortslvl = 2 R _param n ST_MAX_LIFE + 20 R _param n ST_ARMOR_CLASS + 2 R _param n ST_MELEE_DAMAGE + 2 R _param n ST_CARRY_WEIGHT + 12 R _param n ST_HEALING_RATE + 1 R _param n ST_SEQUENCE + 1 R _param n ST_CRITICAL_CHANCE + 1 R _var n z_escortslvl = 3 #
+2 23040 D _param n ST_LEVEL } 4 D _var n z_escortslvl = 3 R _param n ST_MAX_LIFE + 20 R _param n ST_ARMOR_CLASS + 2 R _param n ST_MELEE_DAMAGE + 2 R _param n ST_CARRY_WEIGHT + 12 R _param n ST_HEALING_RATE + 1 R _param n ST_SEQUENCE + 1 R _param n ST_CRITICAL_CHANCE + 1 R _var n z_escortslvl = 4 #
+2 23050 D _param n ST_LEVEL } 5 D _var n z_escortslvl = 4 R _param n ST_MAX_LIFE + 20 R _param n ST_ARMOR_CLASS + 2 R _param n ST_MELEE_DAMAGE + 2 R _param n ST_CARRY_WEIGHT + 12 R _param n ST_HEALING_RATE + 1 R _param n ST_SEQUENCE + 1 R _param n ST_CRITICAL_CHANCE + 1 R _var n z_escortslvl = 5 #
+2 23060 D _param n ST_LEVEL } 6 D _var n z_escortslvl = 5 R _script dialog@r_AddExperience 1 3500 R _script dialog@r_AddMoney 1 2000 R _param n ST_MAX_LIFE + 20 R _param n ST_ARMOR_CLASS + 2 R _param n ST_MELEE_DAMAGE + 2 R _param n ST_CARRY_WEIGHT + 12 R _param n ST_HEALING_RATE + 1 R _param n ST_SEQUENCE + 1 R _param n ST_CRITICAL_CHANCE + 1 R _param n ST_ACTION_POINTS + 2 R _param n ST_NORMAL_ABSORB + 5 R _param n ST_LASER_ABSORB + 5 R _param n ST_FIRE_ABSORB + 5 R _param n ST_PLASMA_ABSORB + 5 R _param n ST_ELECTRO_ABSORB + 5 R _param n ST_EMP_ABSORB + 5 R _param n ST_EXPLODE_ABSORB + 5 R _param n ST_RADIATION_RESISTANCE + 5 R _param n ST_POISON_RESISTANCE + 5 R _param n ST_TOXIC + 5 R _var n z_escortslvl = 6 #
+2 23070 @
+24 24000 None 0 #
+25 24010 D _var n z_escorts2 = 1 #
+26 24020 D _var n z_escorts2 = 2 #
+27 24030 D _var n z_escorts2 = 3 #
+28 24040 D _var n z_escorts2 = 4 #
+29 24050 D _var n z_escorts2 = 5 #
+30 24060 D _var n z_escorts2 = 6 #
+31 24070 D _var n z_escorts2 = 7 #
+32 24080 D _var n z_escorts2 = 8 #
+0 24090 @
+25 25000 None 0 @
+26 26000 None 0 @
+27 27000 None 0 @
+28 28000 None 0 @
+29 29000 None 0 @
+30 30000 None 0 @
+31 31000 None 0 @
+32 32000 None 0 @
+33 33000 None 0 #
+34 33010 R _script dialog@r_AddExperience 1 2000 R _script dialog@r_AddMoney 1 1250 R _var p z_escorts = 0 R _var n z_escorts2 = 0 R _param n MODE_HIDE = 1 @
+34 34000 None 0 #
+34 34010 D _var p name_mem_npc_player = 1 R _var p name_mem_npc_player = 0 R _script dialog@r_AddMoney 1 1000 #
+34 34020 D _param n ST_EXPERIENCE > 99 R _param n ST_EXPERIENCE - 100 R _script dialog@r_AddExperience 1 100 R _script dialog@r_AddMoney 1 10 #
+34 34030 D _param n ST_LEVEL > 0 R _param n ST_LEVEL - 1 R _script dialog@r_AddExperience 1 1000 R _script dialog@r_AddMoney 1 100 #
+34 34040 D _param n ST_KILL_EXPERIENCE > 99 R _param n ST_KILL_EXPERIENCE - 100 R _script dialog@r_AddExperience 1 100 R _script dialog@r_AddMoney 1 10 #
+35 34050 D _param n ST_KILL_EXPERIENCE < 99 D or D _param n ST_EXPERIENCE < 99 D or D _param n ST_LEVEL < 0 R _var n z_escortslvl = 0 R _var p z_escorts = 0 R _var p z_escorts2 = 0 R _script follower@r_RemoveFollower 1 114 @
+35 35000 None 0 @
+200 36000 None 0 #
+35 36010 R _var p z_escortslvl = 0 R _var p z_escorts = 0 R _var p z_escorts2 = 0 R _script follower@r_RemoveFollower 1 114 #
+0 36020 &
+
+[engl]
+{100}{}{Young Adventurer}
+{200}{}{You see @lex name@, a young adventurer looking for fun and... adventure!}
+{210}{}{@lex name@ appears to be either enjoying himself, or crying. Nobody is really quite sure anymore. Someone please... get them to wherever it is they're going!}
+{240}{}{You see a dead @lex name@.}
+{250}{}{You see a dead @lex name@.}
+{260}{}{You see a dead @lex name@.}
+{270}{}{You see a dead @lex name@.}
+{1000}{}{Predialogue installations}
+{1010}{}{ Is owner}
+{1020}{}{Not owner}
+{2000}{}{Are we there yet? If this takes more than a few weeks I'm going solo!
+
+@lex loyality@@@You're still escorting me, right? This better not take more than a few weeks!
+
+@lex loyality@}
+{2010}{}{Stay here.}
+{2020}{}{Let's get going.}
+{2030}{}{I want to talk to you about distance.}
+{2040}{}{I want to talk about combat.}
+{2050}{}{If we ever get separated, I think we should agree to meet up at some place.}
+{2060}{}{I have some food for you.}
+{2070}{}{What kind of weapons are you most proficient with?}
+{2080}{}{I want someone else to be your new friend.}
+{2090}{}{Drop all items you carry.}
+{2100}{}{Alrighty! We're here! Safe and sound.}
+{2110}{}{Alrighty! We're here! Safe and sound.}
+{2120}{}{Alrighty! We're here! Safe and sound.}
+{2130}{}{Alrighty! We're here! Safe and sound.}
+{2140}{}{Alrighty! We're here! Safe and sound.}
+{2150}{}{Alrighty! We're here! Safe and sound.}
+{2160}{}{Alrighty! We're here! Safe and sound.}
+{2170}{}{Alrighty! We're here! Safe and sound.}
+{2180}{}{Where did you need to go again?}
+{2190}{}{Arm yourself.}
+{2200}{}{Put down your weapon.}
+{2210}{}{You're blocking my way, could you please move?}
+{2220}{}{[Check Stats]}
+{2230}{}{[Access Inventory]}
+{2240}{}{Let's talk about your armor.}
+{2250}{}{[Disband Follower]}
+{2260}{}{Nevermind.}
+{3000}{}{Sure, how far do you want me to be?}
+{3010}{}{Stay close to me.}
+{3020}{}{Stick at medium range.}
+{3030}{}{Keep your distance, try and snipe them.}
+{4000}{}{I see, and what is it you want me to do?}
+{4010}{}{Protect me. Attack anyone who attacks us, unless it's our friend.}
+{4020}{}{Protect me and my land. I don't take kindly to strangers lurking 'bout.}
+{4030}{}{Stay out of combat, flee if hostile contacts are spotted.}
+{4040}{}{Kill any NPC you see. (disabled)}
+{4050}{}{Kill anyone, but don't touch me or my friends. (disabled)}
+{4060}{}{Attack enemies of our faction. (disabled)}
+{4070}{}{Attack anyone who isn't a member of our faction (disabled)}
+{5000}{}{Goddamn it, finally. Let's get going. I was starting to think you were dead or something.}
+{5010}{}{Alright.}
+{6000}{}{You're shittin' me, right? Fine. I guess I'll just wait here, then.}
+{6010}{}{See you later.}
+{7000}{}{Sure pal.@@I'll do anything for a friend like you}
+{8000}{}{I'm on an adventure!@@We're on a quest!@@I'm looking for the grail...@@Have you seen a water chip anywhere?@@I'm stumped! Can't find a G.E.C.K anywhere!@@Uh... boss? Looks like trouble!@@Oh, gee! I don't know if I should shoot you, or run away! Boss?!@@Hey! People! Are they friendly? You want to snuggle?@@Oh, boy! Is that ketchup all over your shirt?!@@I used to think that I could make it alone... now I know I can! Yay!@@Weeeeeeeee! We're on an adventure!@@Boss said they'd take me to never, never land! Wanna come along?@@I hope my boss doesn't try to rape me... again... *sobs*@@This place sucks. You suck. He sucks. That girl over there sucks too. Everybody sucks.@@When do I get a gun? Oh, wait... what is this? This isn't mine, is it?@@I don't think I know what this little button does... oops... I pushed it!@@Weeeee! This is fun, right guys?@@Hey! We're friends! Oh...}
+{9000}{}{I prefer using my knuckles to beat the shit out of folks.}
+{9010}{}{Alright}
+{10000}{}{Give me a spear or a sledgehammer and I'm happy}
+{10010}{}{Alright.}
+{11000}{}{I like using shotguns, pistols and assault rifles. That sort of stuff.}
+{11010}{}{Alright.}
+{12000}{}{There's nothing better than seeing burning foes dance! Give me flamethrower or rocket launcher and I'm sold.}
+{12010}{}{Haha, I see.}
+{13000}{}{If I could, I'd rather zap my enemies with a laser pistol or something similar.}
+{13010}{}{Alright.}
+{14000}{}{Do I need to tell you that I love the smell of frag granades in the morning?}
+{14010}{}{Alright.}
+{15000}{}{Sure, where should we meet?}
+{15010}{}{It would be best if we could meet at the tent camp.}
+{15020}{}{At the hotel that I've rented.}
+{15030}{}{At a faction base.}
+{15040}{}{Nevermind, I forgot what to say.}
+{16000}{}{Which armor do you think I should wear?}
+{16010}{}{I think you should rather change your helmet.}
+{16020}{}{Robes.}
+{16030}{}{Sand Robes.}
+{16040}{}{Bridgekeeper's Robes.}
+{16050}{}{Leather Jacket.}
+{16060}{}{Leather Armor.}
+{16070}{}{Leather Armor Mark II.}
+{16080}{}{Combat Leather Jacket.}
+{16090}{}{Metal Armor}
+{16100}{}{Metal Armor Mark II.}
+{16110}{}{Tesla Armor.}
+{16120}{}{Combat Armor.}
+{16130}{}{Combat Armor Mark II.}
+{16140}{}{NCR Ranger Armor.}
+{16150}{}{Brotherhood Armor.}
+{16160}{}{Enclave Armor.}
+{16170}{}{Desert Armor.}
+{16180}{}{Remove your current armor.}
+{16190}{}{Nevermind.}
+{17000}{}{Which one? [Type the name of the base]
+-- Faction bases -- 
+@lex bases@}
+{17010}{}{Alright.}
+{18000}{}{Sure, what do you have?}
+{18010}{}{Here, take this bottle of Nuka.}
+{18020}{}{Hey, I've got a bottle of fresh beer.}
+{18030}{}{Looks like I've got a cookie leftover.}
+{18040}{}{Have this Iguana-on-a-stick, it's delicious!}
+{18050}{}{Here's some hard booze, hope you like it.}
+{19000}{}{Thanks, that's delicious!@@Yum yum!@@You have a great taste when it comes to food!}
+{19010}{}{Want some more?}
+{19020}{}{Let's see now...}
+{20000}{}{Which helmet do you think i should use?}
+{20010}{}{Let's talk about your armor again.}
+{20020}{}{Leather Helmet.}
+{20030}{}{Combat Leather Helmet.}
+{20040}{}{Leather Armor Helmet.}
+{20050}{}{Leather Armor Helmet Mark II.}
+{20060}{}{Metal Mask.}
+{20070}{}{Metal Mask Mark II.}
+{20080}{}{Tesla Helmet.}
+{20090}{}{Combat Helmet.}
+{20100}{}{Combat Helmet Mark II.}
+{20110}{}{Brotherhood Helmet.}
+{20120}{}{Enclave Helmet.}
+{20130}{}{Desert Helmet.}
+{20140}{}{NCR Helmet.}
+{20150}{}{Remove your current helmet.}
+{20160}{}{Nevermind.}
+{21000}{}{Well, okay, if that is what you want.. So, who is it?}
+{21010}{}{I've changed my mind, let's get going.}
+{22000}{}{Let's get going.}
+{23000}{}{Current statistics:
+@lex stats@}
+{23010}{}{[Level up NPC!]}
+{23020}{}{[Level up NPC!]}
+{23030}{}{[Level up NPC!]}
+{23040}{}{[Level up NPC!]}
+{23050}{}{[Level up NPC!]}
+{23060}{}{[Final Level up!]}
+{23070}{}{[Done]}
+{24000}{}{You don't remember? Okay...}
+{24010}{}{[Check Destination]}
+{24020}{}{[Check Destination]}
+{24030}{}{[Check Destination]}
+{24040}{}{[Check Destination]}
+{24050}{}{[Check Destination]}
+{24060}{}{[Check Destination]}
+{24070}{}{[Check Destination]}
+{24080}{}{[Check Destination]}
+{24090}{}{Nevermind, let's go.}
+{25000}{}{The Winston Family Mansion.}
+{26000}{}{Woodland Fields.}
+{27000}{}{Gecko Sanctuary.}
+{28000}{}{Badega Bay.}
+{29000}{}{The Abandoned Homestead.}
+{30000}{}{West Side Freeway.}
+{31000}{}{Breakwater Farms.}
+{32000}{}{Dead Horse Bay.}
+{33000}{}{Wow! Thanks! It's just like I pictured it! See you around, @pname@.}
+{33010}{}{Farewell, young adventurer. Don't die too quick without me.}
+{34000}{}{[BONUS TIME!]}
+{34010}{}{[Dead Horse Bay Bonus!]}
+{34020}{}{[Substract Experience Earned!]}
+{34030}{}{[Substract Levels Earned!]}
+{34040}{}{[Substract Kills Earned!]}
+{34050}{}{[Quest Complete]}
+{35000}{}{*vanishes into the wasteland*}
+{36000}{}{[Are you sure you wish to Disband this Follower? The action is permanent, and all items will drop]}
+{36010}{}{[Permanently Remove NPC]}
+{36020}{}{On second thought, nevermind.}
+{100000001}{}{Time to kick some asses . . .@@Is it time again?@@It's time again!}
+{100000001}{}{Time to kick some asses . . .@@Is it time again?@@It's time again!}
+

@@ -1,0 +1,109 @@
+[comment]
+
+
+[data]
+lang=engl
+
+[dialog]
+&
+1 1000 None 0 #
+2 1010 D _var p player_farmPriest = 1 D _var p player_farmOwner = 1 D _var p name_mem_npc_player = 0 D _var n player_farmCivi6 = 0 #
+3 1020 D _var p player_farmPriest = 1 D _var p player_farmOwner = 1 D _var p name_mem_npc_player = 0 D _var n player_farmCivi6 = 1 D _var n player_farmCivi6ha > 0 D _var n player_farmCivi6hp > 0 #
+6 1030 D _var p name_mem_npc_player = 1 D _var p player_farmPriest = 1 D _var p player_farmOwner = 1 D _var n player_farmCivi6 = 1 #
+8 1040 D _var p player_farmPriest = 0 D _var p player_farmOwner = 1 #
+11 1050 D _var n player_farmCivi6hp < 0 R _var n player_farmCivi6hp = 50 R _var n player_farmCivi6ha = 50 R _script dialog@r_NinjaKillNpc 1 100 R _script dialog@r_CommonTimeout 1 18 #
+12 1060 D _var n player_farmCivi6ha < 0 R _script dialog@r_PlaySoundGun 1 2 R _var n player_farmCivi6hp = 50 R _var n player_farmCivi6ha = 50 R _script dialog@r_NinjaKillNpc 1 110 R _script dialog@r_CommonTimeout 1 18 @
+2 2000 None 0 #
+3 2010 D _var p player_farmIncome > 4999 R _var p player_farmIncome - 5000 R _var p player_farmProfits - 500 R _var n player_farmCivi6 = 1 R _var n player_farmCivi6hp = 100 R _var n player_farmCivi6ha = 100 #
+0 2020 @
+3 3000 None 0 #
+4 3010 D _script dialog@d_CommonTimeoutReady 0  R _script dialog@r_CommonTimeout 1 18 R _var p player_farmWood + 1 R _var p name_mem_npc_player = 1 R _var n player_farmCivi6hp - 8 R _var n player_farmCivi6ha - 5 #
+4 3020 D _script dialog@d_CommonTimeoutReady 0  R _script dialog@r_CommonTimeout 1 18 R _var p player_farmFood + 1 R _var p name_mem_npc_player = 1 R _var n player_farmCivi6hp - 8 R _var n player_farmCivi6ha - 5 #
+4 3030 D _script dialog@d_CommonTimeoutReady 0  R _script dialog@r_CommonTimeout 1 18 R _var p player_farmWater + 1 R _var p name_mem_npc_player = 1 R _var n player_farmCivi6hp - 8 R _var n player_farmCivi6ha - 5 #
+4 3040 D _script dialog@d_CommonTimeoutReady 0  D _var p player_farmHP < 99 R _script dialog@r_CommonTimeout 1 18 R _var p player_farmHP = 100 R _var p name_mem_npc_player = 1 R _var n player_farmCivi6hp - 5 R _var n player_farmCivi6ha + 2 #
+5 3050 D _script dialog@d_CommonTimeoutReady 0  R _script dialog@r_CommonTimeout 1 18 R _var p player_farmIncome + 500 R _var p name_mem_npc_player = 1 R _var n player_farmCivi6hp - 2 R _var n player_farmCivi6ha + 5 #
+10 3060 D _var n player_farmCivi6ha < 109 D _var n player_farmCivi6hp < 109 D _script dialog@d_CommonTimeoutReady 0  R _var n player_farmCivi6ha + 10 R _var n player_farmCivi6hp + 10 R _script dialog@r_CommonTimeout 1 18 #
+9 3070 #
+0 3080 @
+4 4000 None 0 @
+5 5000 None 0 @
+6 6000 None 0 #
+7 6010 D _var p player_farmWood > 0 R _var p player_farmWood - 1 R _var p name_mem_npc_player = 0 R _var n player_farmCivi6ha + 8 #
+7 6020 D _var p player_farmFood > 0 R _var p player_farmFood - 1 R _var p name_mem_npc_player = 0 R _var n player_farmCivi6ha + 8 R _var n player_farmCivi6hp + 2 #
+7 6030 D _var p player_farmWater > 0 R _var p player_farmWater - 1 R _var p name_mem_npc_player = 0 R _var n player_farmCivi6ha + 8 R _var n player_farmCivi6hp + 5 #
+7 6040 D _item p PID_FIRST_AID_KIT > 0 R _item p PID_FIRST_AID_KIT - 1 R _var p name_mem_npc_player = 0 R _var n player_farmCivi6hp + 15 #
+7 6050 D _item p PID_DOCTORS_BAG > 0 R _item p PID_DOCTORS_BAG - 1 R _var p name_mem_npc_player = 0 R _var n player_farmCivi6hp + 30 #
+7 6060 D _var p player_farmIncome > 249 R _var p player_farmIncome - 250 R _var p name_mem_npc_player = 0 R _var n player_farmCivi6ha + 5 #
+7 6070 D _item p PID_BOTTLE_CAPS > 1249 R _item p PID_BOTTLE_CAPS - 1250 R _var p name_mem_npc_player = 0 R _var n player_farmCivi6ha + 10 #
+7 6080 D _item p PID_STIMPAK > 4 R _item p PID_STIMPAK - 5 R _var p name_mem_npc_player = 0 R _var n player_farmCivi6hp + 5 #
+7 6090 D _item p PID_SUPER_STIMPAK > 1 R _item p PID_SUPER_STIMPAK - 2 R _var p name_mem_npc_player = 0 R _var n player_farmCivi6hp + 10 #
+7 6100 D _item p PID_BEER > 23 R _item p PID_BEER - 24 R _var p name_mem_npc_player = 0 R _var n player_farmCivi6ha + 10 R _var n player_farmCivi6hp + 1 #
+7 6110 D _item p PID_GOLD_NUGGET > 2 R _item p PID_GOLD_NUGGET - 3 R _var p name_mem_npc_player = 0 R _var n player_farmCivi6ha + 5 #
+7 6120 D _item p PID_GOLD_TOOTH > 5 R _item p PID_GOLD_TOOTH - 6 R _var p name_mem_npc_player = 0 R _var n player_farmCivi6ha + 2 R _var n player_farmCivi6hp - 1 #
+7 6130 R _var n player_farmCivi6ha - 47 R _var p name_mem_npc_player = 0 #
+0 6140 @
+7 7000 None 0 @
+8 8000 None 0 @
+9 9000 dialog@dlg_FarmStatus 0 #
+3 9010 @
+10 10000 None 0 @
+11 11000 None 0 @
+12 12000 None 0 &
+
+[engl]
+{100}{}{Settler}
+{200}{}{You see a settler.}
+{210}{}{Looks like they've moved in. Maybe you can get them to work?}
+{1000}{}{Predialogue installations}
+{1010}{}{locked}
+{1020}{}{unlocked happy}
+{1030}{}{payment needed}
+{1040}{}{locked no priest}
+{1050}{}{sick}
+{1060}{}{sad}
+{2000}{}{[Renovate this part of your Farm, and unlock a new settler! Allows you to generate daily resources and put your settlers to work at the cost of -500$ Daily Income. Unlock for 5000$, deducts the money from your Farm Treasury]}
+{2010}{}{You're hired!}
+{2020}{}{[Leave]}
+{3000}{}{Howdy, boss. Where do you want me today? It isn't too late to work is it? I'm only available every 18 hours.}
+{3010}{}{Gather 1x Wood for today.}
+{3020}{}{Gather 1x Food for today.}
+{3030}{}{Gather 1x Water for today.}
+{3040}{}{Spend the day repairing the Farm.}
+{3050}{}{Spend the day working in town.}
+{3060}{}{Go ahead and take a day off. You've earned it.}
+{3070}{}{[Check stats]}
+{3080}{}{[Leave]}
+{4000}{}{I'll get to it in a jiffy, don't you worry, Master!@@Be done faster than you can skin a gecko!@@Sure thing, Master! Right away!@@Really? Again? Okay...@@Geez, work me to the bone why don't you.@@Of course, Master! Anything for you!@@Sure thing! Be right back.}
+{5000}{}{Oh, boy! Big lights! Warm smiles! I'm going to Reno, baby!@@Oh, wow! Well, howdy do! I'm going to Klamath!@@Yes! Time to get a few kinks out of the old canoe. I'm going to the Den!@@That big ol' Vault City be callin' mah name again. See you tomorrow!@@I wonder if I can make it to the NCR and back in time for tomorrow? Wish me luck!@@Hot dog! I'm going where the eyes are funny and the people wear pajamas! I'm going to the ocean! To San Francisco!@@Big ol' jackpot waitin' for me in Redding. Maybe I'll strike it big and come back a millionaire! See you tomorrow, Master!@@Thanks! I'll head over to Modoc and see the folks. Should be a few things for me to do over there. See you tomorrow!}
+{6000}{}{Heya, boss! It's pay day! [They hold out their hands, patiently awaiting payment]
+
+This npc will accept either bundle as payment:
+
+1x Wood, Food, or Water
+1x First Aid Kit, or Doctor's Bag
+250$ Farm Dollars or 1250 Bottle Caps
+5x Stimpaks or 2x Super Stimpaks or
+24x Bottles of Beer
+3x Gold Nuggets, or 6x Gold Teeth}
+{6010}{}{Here, have 1x Wood.}
+{6020}{}{Here, have 1x Food.}
+{6030}{}{Here, have 1x Water.}
+{6040}{}{Here, have a First Aid Kit.}
+{6050}{}{Here, have a Doctor's Bag.}
+{6060}{}{Here's 250$ Farm Dollars. Job well done, friend.}
+{6070}{}{Do you accept bottle caps? How's 1250 sound?}
+{6080}{}{Take these 5x Stimpaks.}
+{6090}{}{Here's a couple of Super Stims. Two to be exact.}
+{6100}{}{Here, have a two-four of beer. Enjoy these 24 delicious bottles of cream ale!}
+{6110}{}{Have these 3x Gold Nuggets.}
+{6120}{}{Have these 6x Gold Teeth.}
+{6130}{}{I'll pay you next time}
+{6140}{}{[Leave]}
+{7000}{}{Wow! What a bargain! Keep paying me and I'll work myself to death in your name, Master!@@Hmpf! Guess that's why they call you "@pname@"...@@Oh, boy! Shinies!@@Feels a little light... last week was-- nevermind.@@Woot! Time to get loaded after work!@@Money! Yay!}
+{8000}{}{Maybe I'll stay, I'm not sure yet.@@I'll probably stick around if you fix this place up a bit.@@When are you going to renovate?@@Is this a farm? Or a town?@@Can I stay here?@@It's warm here, I like it.@@Maybe I'll start a family...@@Food here is okay...@@Can't believe they have fresh water! Well... sometimes...@@Haven't been shot at all day. Kind of nice...@@So it's always this quiet, eh?@@Hi, nice to meet you.@@Sure is relaxing here, don't even care what day it is.}
+{9000}{}{[This settler has: @lex farmSH6@ Health and @lex farmSHA6@ Happiness. If either values reach 0, your settler will die! Raise happiness by granting the settler more leisure time. Raise HP by applying medical items or food]}
+{9010}{}{[Go back]}
+{10000}{}{Wow! Thanks!@@Wow! You're the best!@@Really?! I'm taking a BATH!@@Woot! Finally!@@Jesus! It's about time! I'm dying here!@@You trying to work me to death, or what? You never give me enough days off!@@Thank God! This job is going to be the death of me!@@You mean I can finally have a few moments of not getting shot at while outside the town?@@Thanks! Appreciate it!}
+{11000}{}{*collapses from exhaustion and dies*}
+{12000}{}{*commits suicide*}
+

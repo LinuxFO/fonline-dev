@@ -1,0 +1,24 @@
+[comment]
+
+
+[data]
+lang=engl
+
+[dialog]
+&
+1 1000 None 0 #
+2 1010 @
+2 2000 None 0 &
+[engl]
+{100}{}{Casino Guard}
+{200}{}{You see a casino guard.}
+{210}{}{You see a casino guard staring at you.}
+{1000}{}{Predialogue installations}
+{2000}{}{Don't cause any trouble.@@Move along!@@Behave!@@Don't waste my time!}
+{100000001}{}{Move along!}
+{100000001}{}{Behave!}
+{100000001}{}{Don't waste my time!}
+{100000001}{}{Don't waste my time!}
+{100000001}{}{Behave!}
+{100000001}{}{Move along!}
+

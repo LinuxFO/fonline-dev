@@ -1,0 +1,68 @@
+[comment]
+
+
+[data]
+lang=engl
+
+[dialog]
+&
+1 1000 None 0 #
+2 1010 D _var p junk_blackmail = 0 #
+3 1020 D _var p junk_blackmail = 1 #
+2 1030 D _var p junk_blackmail = 3 #
+2 1040 D _var p junk_blackmail = 4 #
+2 1050 D _var p junk_blackmail = 2 @
+2 2000 None 0 @
+3 3000 None 0 #
+4 3010 #
+5 3020 #
+6 3030 #
+0 3040 @
+4 4000 None 0 #
+7 4010 @
+5 5000 None 0 #
+8 5010 @
+6 6000 None 0 #
+10 6010 @
+7 7000 None 0 #
+9 7010 R _var p junk_blackmail = 2 R _script dialog@r_AddExperience 1 1250 R _param p ST_KARMA - 10 R _param p REPUTATION_JUNKTOWN - 250 R _param p REPUTATION_HUB - 50 R _script dialog@r_AddMoney 1 1000 R _script dialog@r_AddLootSetLevel1 0  @
+8 8000 None 0 #
+9 8010 R _var p junk_blackmail = 3 R _param p ST_KARMA + 1 R _param p REPUTATION_JUNKTOWN - 50 R _script dialog@r_AddExperience 1 1200 R _item p PID_CATTLE_PROD + 1 R _item p PID_CLUB + 1 R _script dialog@r_AddMoney 1 500 R _var p LAW + 1 R _script dialog@r_AddLootSetLevel1 0  @
+9 9000 None 0 @
+10 10000 None 0 #
+11 10010 @
+11 11000 None 0 #
+9 11010 R _var p junk_blackmail = 4 R _script dialog@r_AddExperience 1 2000 R _param p ST_KARMA - 25 R _param p REPUTATION_JUNKTOWN - 500 R _param p REPUTATION_HUB - 100 R _param p REPUTATION_NCR_RANGERS - 100 R _script dialog@r_AddMoney 1 2000 R _var p CRIM + 1 R _script dialog@r_AddLootSetLevel1 0  &
+
+[engl]
+{100}{}{Madame Malaire}
+{200}{}{You see a seductive looking woman.}
+{210}{}{She doesn't look like she's from around here.}
+{1000}{}{Predialogue installations}
+{1010}{}{Answer text}
+{1020}{}{2}
+{1030}{}{truth}
+{1040}{}{4}
+{1050}{}{5}
+{2000}{}{Excuse me! This is MY house! Out!@@Again with these restless ramblers! Shoo! Shoo! I say!}
+{3000}{}{Yes? What is it? Out already!}
+{3010}{}{I have proof of your infidelities. Unless you want this picture to end up as local gossip, I suggest breaking out those caps.}
+{3020}{}{There's a man in town trying to blackmail you. What gives?}
+{3030}{}{I've got a really big lie brewing here. Why wouldn't I go with it?}
+{3040}{}{Sorry, didn't mean to bother you... yet.}
+{4000}{}{[She show the woman the crude drawing] OH MY GOD! You bastard! Where did you get this! How did you know?!}
+{4010}{}{Give me ten thousand caps. Right now.}
+{5000}{}{[She tell the woman the truth about the whole situation] That bastard! I'll have him arrested!}
+{5010}{}{How about a reward?}
+{6000}{}{[You begin to manipulate the situation] You wouldn't dare! What do you want?}
+{6010}{}{I want ten thousand caps. Right now.}
+{7000}{}{Ten thousand caps?! No way!}
+{7010}{}{Look, bitch. One grand, or your life is over.}
+{8000}{}{A reward?! No way!}
+{8010}{}{What! Give me five hundred caps, or your life is over.}
+{9000}{}{Fine! Now get the hell out!}
+{10000}{}{Never! You're not getting anything from me!}
+{10010}{}{Looks like I'll just have to bribe the Sheriff into thinking you two tried to kill an innocent, simple traveller. Don't worry, I'm loaded. Got more money than brains.}
+{11000}{}{You bastard! Take this money, and never come back! I'm having Lucra arrested for this!}
+{11010}{}{Good, I don't care. But I was never involved, got it? I'll slit your throat if you tell anyone.}
+

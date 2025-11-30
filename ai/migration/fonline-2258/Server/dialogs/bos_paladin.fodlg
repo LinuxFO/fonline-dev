@@ -1,0 +1,20 @@
+[comment]
+
+
+[data]
+lang=engl
+
+[dialog]
+&
+1 1000 None 0 #
+2 1010 @
+2 2000 None 0 &
+
+[engl]
+{100}{}{Paladin}
+{200}{}{You see a Paladin of the Brotherhood of Steel.}
+{210}{}{Paladin's are the main strike force in the Brotherhood of Steel. This particular individual looks like a sincere war vet.}
+{1000}{}{Predialogue installations}
+{1010}{}{Answer text}
+{2000}{}{Welcome to the Alpha Bunker. Services are on the third floor. Enjoy your visit.}
+

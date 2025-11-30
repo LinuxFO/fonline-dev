@@ -1,0 +1,46 @@
+[comment]
+
+
+[data]
+lang=engl
+
+[dialog]
+&
+1 1000 None 0 #
+2 1010 @
+2 2000 None 0 #
+3 2010 D _var p q_boss6 = 0 #
+7 2020 D _var p q_boss6 = 2 R _param p ST_KARMA + 1 R _var p q_boss6 = 0 R _script dialog@r_AddExperience 1 3500 R _param p REPUTATION_CHILDREN + 60 R _script dialog@r_AddMoney 1 1500 R _script quest_boss6@r_DeleteLoc 0  R _script dialog@r_BulkOrderRewardLow 0  R _script dialog@r_BulkOrderRewardJunk 0  R _script dialog@r_BulkOrderRewardInde 0  R _var p z_warrior2 + 1 R _item p PID_MR_NIXON_DOLL + 2 #
+0 2030 @
+3 3000 None 0 #
+4 3010 @
+4 4000 None 0 #
+5 4010 @
+5 5000 None 0 #
+8 5010 D _param p ST_LEVEL } 12 R _var p q_boss6 = 1 R _script quest_boss6@r_SpawnLoc 0  #
+6 5020 @
+6 6000 None 0 @
+7 7000 None 0 @
+8 8000 None 0 &
+
+[engl]
+{100}{}{Telltale}
+{200}{}{You see a local story teller.}
+{210}{}{So much wit, and skill, this raconteur. But how can we believe anything anymore?}
+{1000}{}{Predialogue installations}
+{1010}{}{Answer text}
+{2000}{}{Come closer, and hear the tale of Father Illuminatus.}
+{2010}{}{Tell me your story, old man. I am not afraid.}
+{2020}{}{Silence your words! Your story is no longer truth. Father Illuminatus is no more!}
+{2030}{}{Maybe some other time, I don't think I'm ready for this.}
+{3000}{}{A long time ago, there walked a holy man, shining bright with his holy flame. But the death of his master made him grow weary of life. All life. He picked up arms, and sought to conquer these lands, bringing vengeance wherever he goes. We call him the Father... Father Illuminatus.}
+{3010}{}{Go on...}
+{4000}{}{Now, he stalks our church, and preys on the living, and the weak who venture too far from the temple walls. He is a walking nightmare, a hell spawn come to rid this world of all good, and all humanity! He must be stopped! Only you can defeat him!}
+{4010}{}{*Gulp* Go on...}
+{5000}{}{[He hands you a piece of paper with the last known location of Father Illuminatus. It's recommended that you're at least Level 18, and come prepared for a fight. Type /combatmode rt or tb for Real-Time, or Turn-Based combat before continuing]}
+{5010}{}{[Challenge the Legendary Villain?]}
+{5020}{}{[Throw the paper away, and leave, refusing to fight]}
+{6000}{}{I too, am afraid, young adventurer.}
+{7000}{}{It is done! Father Illuminatus is dead! Thank the name of @pname@! May their story be told across the ocean!}
+{8000}{}{Prepare yourself, this is no ordinary priest.}
+

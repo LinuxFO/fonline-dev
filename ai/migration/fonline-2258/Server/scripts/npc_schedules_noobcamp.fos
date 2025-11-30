@@ -1,0 +1,38 @@
+#ifndef __NPC_SCHEDULES_NOOBCAMP__
+#define __NPC_SCHEDULES_NOOBCAMP__
+
+//#include "npc_schedules_h.fos"
+
+//INpcSchedule@ NoobCamp_PatrolInner()
+//{
+//	INpcSchedule@ schedule = CreateNpcSchedule( "NoobCamp: Patrol inner area" );
+//
+//	schedule.AddTask_OnIdle( "Inner patrol" )
+//		.Setup_Roll( PATROL_CHANCE )
+//		.Setup_MapPid( MAP_noob_camp_1 )
+//		
+//		.Home_Save()
+//		.Path_Walk( 0 )//, path0 )
+//		.Home_Load()
+//		.Wait_Home();
+//
+//	return( schedule );
+//}
+
+//INpcSchedule@ NoobCamp_PatrolOuter()
+//{
+//	INpcSchedule@ schedule = CreateNpcSchedule( "NoobCamp: Patrol outer area" );
+//
+//	schedule.AddTask_OnIdle( "Outer patrol" )
+//		.Setup_Roll( PATROL_CHANCE )
+//		.Setup_MapPid( MAP_noob_camp_1 )
+		//
+//		.Home_Save()
+//		.Path_Walk( 1 )//, path0 )
+//		.Home_Load()
+//		.Wait_Home();
+//
+//	return( schedule );
+//}
+
+#endif // __NPC_SCHEDULES_NOOBCAMP__ //

@@ -1,0 +1,24 @@
+[comment]
+
+
+[data]
+lang=engl
+
+[dialog]
+&
+1 1000 None 0 #
+2 1010 @
+2 2000 None 0 &
+[engl]
+{100}{}{Slave}
+{200}{}{You see a slave.}
+{210}{}{You see a slave.}
+{1000}{}{Predialogue installations}
+{2000}{}{Please let me out.@@My family was slaughtered.@@ I don't want to fight.@@ Let me go.@@ HELP ME!@@I want to be free.}
+{100000001}{}{The place has changed a lot.}
+{100000001}{}{Have you seen our casinos?}
+{100000001}{}{Why won't you go and spend some money on slots?}
+{100000001}{}{Having a good time?}
+{100000001}{}{Go and take a look around a city.}
+{100000001}{}{Try to have some fun. But be careful!}
+

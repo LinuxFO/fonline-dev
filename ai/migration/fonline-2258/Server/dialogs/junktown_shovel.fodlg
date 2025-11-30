@@ -1,0 +1,83 @@
+[comment]
+Random Towny in Junktown who needs an Old Shovel
+
+You can give him your old shovel when you are done shovelling shit
+
+Gets you 50xp 
+
+[data]
+lang=engl russ
+
+[dialog]
+&
+1 1000 None 0 #
+5 1010 D _var p name_mem_player_npc = 1 #
+2 1020 D _var p name_mem_player_npc = 0 #
+3 1030 D _param p ST_INTELLECT < 3 D _var p name_mem_player_npc = 0 @
+3 2000 None 0 #
+5 2010 D _item p PID_OLD_SHOVEL > 0 R _var p name_mem_player_npc = 1 R _item p PID_OLD_SHOVEL - 1 R _script dialog@r_AddExperience 1 50 #
+6 2020 @
+2 3000 None 0 #
+5 3010 D _item p PID_OLD_SHOVEL > 0 R _var p name_mem_player_npc = 1 R _item p PID_OLD_SHOVEL - 1 R _script dialog@r_AddExperience 1 250 R _param p ST_KARMA + 1 R _param p REPUTATION_JUNKTOWN + 30 #
+6 3020 D _item p PID_OLD_SHOVEL > 0 #
+0 3030 @
+5 4000 None 0 @
+6 5000 None 0 &
+
+[engl]
+{100}{}{A Laborer}
+{200}{}{You see a typical, out of work laborer. }
+{210}{}{He looks half starved, almost as if he hasn't been able to work in weeks, even though he appears to be in great shape. You wonder what the problem is?}
+{1000}{}{Predialogue installations}
+{1010}{}{known}
+{1020}{}{notknown}
+{1030}{}{dumb}
+{2000}{}{Gosh! You mister sure look funny! Did it hurt when you boinked your head? I bet it did, yup, yup. Say, you wouldn't happen to have an Old Shovel on you by any chance, would ya? I haven't worked in days! Dems' farmers keeps' saying I keeps' losing all dem' shovels, and they won't's give me a new one! Can ya help me? Kindly? }
+{2010}{}{Me have Shove-elle. You can take.}
+{2020}{}{Me need for poop! Go away!}
+{3000}{}{Howdy there padner! Say, you wouldn't happen to have an Old Shovel on you by any chance, would ya'? I haven't worked in days! Dems' farmers keeps' saying I keeps' losing all dem' shovels, and they won'ts' give me a new one! Can ya help me? Kindly? }
+{3010}{}{Sure, here ya go!}
+{3020}{}{I have one, but I still need it, sorry.}
+{3030}{}{No, sorry, I don't have one. }
+{4000}{}{@@Thank you! Now I can finally get back to work!@@Finally! I can get back to work! Thanks!@@Eww! This shovel stinks! I suppose I hafta thank you though...@@You've just saved my marriage! Thanks!@@Now my children will eat! Thank you!@@Oh God! I hope I'm not too late to feed them!}
+{5000}{}{You bastard! My kids are starving! Starving!}
+{100000001}{}{Better wash the counter again...}
+{100000002}{}{That's 5 caps buddy. Hey did you hear me? Cough em' up.}
+{100000003}{}{Better change the keg...}
+{100000004}{}{RotGut? You drink that shit?}
+{100000005}{}{Domestic? I got B.E.E.R buddy, do you want one or not?}
+{100000006}{}{Fuckin' dust is getting everywhere. Hey close the fuckin' door!}
+{100000007}{}{I swear if the next asshole doesn't tip. Ima' shoot somebody!}
+{100000008}{}{I got bottles, I got shots, and I got a bat behind the counter for the retards. Your not a retard are you?}
+{100000009}{}{Uh-huh, yeah that's nice buddy. You don't say...What? Of course I'm listening...}
+{100000010}{}{That's 5 caps. FIVE CAPS Tribal! F.I.V.E! }
+{100000011}{}{Shut up and order a fuckin' beer already!}
+{100000012}{}{I swear if I have to serve another drunk, I'm getting the shotgun!}
+{100000013}{}{Look the keg went dry, and it's going to be another month until the caravan shows up again.}
+{100000014}{}{Really? You don't say, buy another drink or get out!}
+{100000015}{}{What? I'm on break.}
+{100000016}{}{Be right with ya'}
+{100000017}{}{Have a sit stranger. I'll be with you in a moment.}
+{100000018}{}{When do we close? Uh, when the place get's shot up, that's when!}
+{100000019}{}{We're fresh outta' cold beer, sorry. You'll just have to drink it warm.}
+{100000020}{}{RotGut? No man, go make that shit yourself! I wouldn't drink it!}
+
+[russ]
+{100}{}{Алкоголик}
+{200}{}{Вы видите пьяницу.}
+{210}{}{Вы видите шатающегося из стороны в сторону пьяного человека в лохмотьях. Лицо его распухло, нос синющий как слива. А аромат рядом с ним такой, что свалит брамина насмерть. Он что-то бормочет про себя и иногда громко поет песни.}
+{210}{}{Вы видите алкаша. Он весьма грязен - кажется, он повалялся в луже, но не особо этим расстроен.}
+{1000}{}{I?aaaeaeiaiaua onoaiiaee}
+{1010}{}{Answer text}
+{1020}{}{notknown}
+{1030}{}{dumb}
+{2000}{}{Welcome to... Junktown...Stranger? Are you okay? You look pretty bad... We've got a doctor that can help you.}
+{2010}{}{Me think that is okay, enjoy the boobies.}
+{2020}{}{Mine! My boobies!}
+{3000}{}{(The man releases a pathetic *Sigh*, when suddenly his eyes light up) Holy crap! A Cats Paw magazine! Can... Can I have it?! Please! I can't pay you, but I'll be ever so grateful! Please! I... I just need something to hold onto! Please!}
+{3010}{}{I can clearly see that this isn't the book that you deserve, but it's the one that you needed. Here ya' go, enjoy!  }
+{3020}{}{I'd rather keep it, thank you. Looks like you'll just have to use your imagination, sorry. }
+{3030}{}{Fuck off, it's my porn!}
+{4000}{}{@@I'm so lonely!@@Oh, God!@@*Sob*@@*Wimper*@@*Cries*@@I wish I had a Cats Paw magazine!@@}
+{5000}{}{You bastard! I'm so lonely! Oh God! Why?!}
+

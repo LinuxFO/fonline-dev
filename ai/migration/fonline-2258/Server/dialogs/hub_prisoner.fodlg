@@ -1,0 +1,82 @@
+[comment]
+
+
+[data]
+lang=engl
+
+[dialog]
+&
+1 1000 None 0 #
+2 1010 @
+2 2000 None 0 #
+3 2010 D _var p camp_evil = 2 @
+3 3000 None 0 #
+4 3010 D _item p PID_BONES = 0 #
+5 3020 D _item p PID_BONES > 0 R _item p PID_BONES - 1 @
+4 4000 None 0 #
+12 4010 @
+5 5000 None 0 #
+6 5010 @
+6 6000 None 0 #
+7 6010 @
+7 7000 None 0 #
+8 7010 @
+8 8000 None 0 #
+9 8010 @
+9 9000 None 0 #
+10 9010 R _item p PID_BONES + 1 R _script dialog@r_AddExperience 1 3000 R _param p ST_KARMA - 14 R _var p camp_evil = 3 R _script dialog@r_NinjaKillNpc 1 115 #
+11 9020 R _script dialog@r_AddExperience 1 2200 R _param p ST_KARMA - 18 R _var p camp_evil = 4 R _script dialog@r_NinjaKillNpc 1 115 @
+10 10000 None 0 @
+11 11000 None 0 @
+12 12000 None 0 #
+13 12010 @
+13 13000 None 0 #
+14 13010 @
+14 14000 None 0 #
+15 14010 @
+15 15000 None 0 #
+16 15010 @
+16 16000 None 0 #
+17 16010 R _script dialog@r_AddExperience 1 2000 R _param p ST_KARMA - 15 R _var p camp_evil = 5 R _script dialog@r_NinjaKillNpc 1 115 @
+17 17000 None 0 &
+
+[engl]
+{100}{}{Prisoner}
+{200}{}{You see a prisoner.}
+{210}{}{Hah! Look at the convict! Should we feel bad that he's not a very good person? Or feel bad that he got caught?}
+{240}{}{You see a dead prisoner.}
+{260}{}{You see a slain prisoner.}
+{1000}{}{Predialogue installations}
+{1010}{}{-}
+{2000}{}{I didn't kill anyone!@@I'm innocent!@@What are you lookin' at?@@I was just borrowing it.  Honest!@@Where's my bread and water?@@I've been framed!@@Nobody knows 'da troubles I've seen...}
+{2010}{}{[Stare at the man until he starts to feel uncomfortable]}
+{3000}{}{[He's clearly bothered by your presence] You come to mock me?! I'm innocent, damnit! It wasn't me! It was the one armed, one legged, one eyed man, I tell you! Honest to the little baby Jesus! }
+{3010}{}{[Reach into the cell, and start strangling the prisoner!]}
+{3020}{}{[Slowly start to pull the bones out from your backpack, and place them neatly onto the floor]}
+{4000}{}{[You begin to choke the man, and laugh]}
+{4010}{}{Ahahahhah! I don't even know why I'm doing this! Ahhaahah! Does it tickle?! Or does it feel like you're being set on fire?!}
+{5000}{}{[In no time a strange pattern begins to appear beneath your feet. You can feel the energy in the room growing dangerously fast!]}
+{5010}{}{[You feel compelled to chant!] Ah Mih Sah Koh! De Los Uther Frynn De Lok Ta'neer!}
+{6000}{}{[The prisoner grows more, and more terrified with each passing word!] What the hell are you doing, freak?! Guards!!! Help me!!! There's a witch here! Burn it! Buuuurrrnnnn it!}
+{6010}{}{I don't even know what I'm saying! [Laugh] But I'm sure someone does! How does it feel? Cause, honestly?... I'm drawing a blank here. What the fuck is going on?}
+{7000}{}{[The prisoner's skin begins to boil, and slowly melt into a strange, grostesque ooze] Wha--! Why... are--!... How... are... you... doing... this?!!!}
+{7010}{}{[Watch him turn into a pile of flesh coloured goop]}
+{8000}{}{[You seem surprised! Were you expecting something different?]}
+{8010}{}{Hmmmpf! I guess that's what happens when you overcook the eggs!}
+{9000}{}{[The deed is done! Do you pick up the remaining bones? Or leave them here?]}
+{9010}{}{[Pick up the Bones]}
+{9020}{}{[Leave the Bones alone]}
+{10000}{}{*gurgle*@@*fizz*@@*pop*@@*smears*@@*steams*}
+{11000}{}{[You leave the bones alone and escape the situation]}
+{12000}{}{[You watch as the life inside the man's eyes begin to fade. You find it very comical, and very satisfying. You cannot stop yourself]}
+{12010}{}{Am I hugging you too hard? Or not hard enough? [Tighen your grip and squeeze harder!]}
+{13000}{}{[The poor prisoner is flailing his arms about and grasping for air! His eyes begin to pop out of their sockets!]}
+{13010}{}{Stop! Stop! Okay! Okay! Let's just give you a minute to recover!}
+{14000}{}{[You wait a few seconds before continuing your savage attack!]}
+{14010}{}{Yes, yes! This is ever so fun! Ever. So! Fun! Aren't you enjoying yourself?}
+{15000}{}{[Eventually the man's neck breaks, and he collapses to the floor; dead. Well done!]}
+{15010}{}{Well then! I feel like I've just completely wasted my time! Not even ONE single piece of candy fell from that pinata! Get the hell off my boot!}
+{16000}{}{[The prisoner's lifeless body rapidly begins to heat up and boil! In no time the corpse has completely disintergrated! Leaving nothing behind!]}
+{16010}{}{Hmmmpf! Are all these bones of mine so fragile all their hopes are of breaking?}
+{17000}{}{*crumbling to dust*}
+

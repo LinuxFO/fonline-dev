@@ -1,0 +1,19 @@
+[comment]
+
+[data]
+lang=engl
+
+[dialog]
+&
+1 1000 None 0 #
+2 1010 @
+2 2000 None 0 &
+
+[engl]
+{100}{}{Hotel Guest}
+{200}{}{You see a hotel guest.}
+{210}{}{You see hotel guest. He is not in a mood to talk.}
+{1000}{}{Predialogue installations}
+{1010}{}{2}
+{2000}{}{Leave me alone!@@How did you get inside!?@@Get out!}
+

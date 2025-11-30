@@ -1,0 +1,82 @@
+[comment]
+
+
+[data]
+lang=engl
+
+[dialog]
+&
+1 1000 None 0 #
+2 1010 @
+2 2000 None 0 #
+5 2010 D _item p PID_BOTTLE_CAPS > 7499 R _item p PID_MOVABLE_AMMO_BOX_S1 + 1 R _item p PID_BOTTLE_CAPS - 7500 #
+5 2020 D _item p PID_BOTTLE_CAPS > 7499 R _item p PID_MOVABLE_AMMO_BOX_S2 + 1 R _item p PID_BOTTLE_CAPS - 7500 #
+5 2030 D _item p PID_BOTTLE_CAPS > 7499 R _item p PID_MOVABLE_AMMO_BOX_L1 + 1 R _item p PID_BOTTLE_CAPS - 7500 #
+5 2040 D _item p PID_BOTTLE_CAPS > 7499 R _item p PID_MOVABLE_AMMO_BOX_L2 + 1 R _item p PID_BOTTLE_CAPS - 7500 #
+5 2050 D _item p PID_BOTTLE_CAPS > 7499 R _item p PID_MOVABLE_CHEST + 1 R _item p PID_BOTTLE_CAPS - 7500 #
+5 2060 D _item p PID_BOTTLE_CAPS > 7499 R _item p PID_MOVABLE_CRATE + 1 R _item p PID_BOTTLE_CAPS - 7500 #
+5 2070 D _item p PID_BOTTLE_CAPS > 7499 R _item p PID_MOVABLE_FOOTLOCKER1 + 1 R _item p PID_BOTTLE_CAPS - 7500 #
+5 2080 D _item p PID_BOTTLE_CAPS > 7499 R _item p PID_MOVABLE_FOOTLOCKER2 + 1 R _item p PID_BOTTLE_CAPS - 7500 #
+5 2090 D _item p PID_BOTTLE_CAPS > 7499 R _item p PID_MOVABLE_LOCKER1 + 1 R _item p PID_BOTTLE_CAPS - 7500 #
+5 2100 D _item p PID_BOTTLE_CAPS > 7499 R _item p PID_MOVABLE_LOCKER2 + 1 R _item p PID_BOTTLE_CAPS - 7500 #
+5 2110 D _item p PID_BOTTLE_CAPS > 7499 R _item p PID_MOVABLE_WOODLOCKER1 + 1 R _item p PID_BOTTLE_CAPS - 7500 #
+5 2120 D _item p PID_BOTTLE_CAPS > 7499 R _item p PID_MOVABLE_WOODLOCKER2 + 1 R _item p PID_BOTTLE_CAPS - 7500 #
+5 2130 D _item p PID_BOTTLE_CAPS > 7499 R _item p PID_MOVABLE_POOR_BOX + 1 R _item p PID_BOTTLE_CAPS - 7500 #
+5 2140 D _item p PID_BOTTLE_CAPS > 7499 R _item p PID_MOVABLE_SAFE + 1 R _item p PID_BOTTLE_CAPS - 7500 #
+5 2150 D _item p PID_BOTTLE_CAPS > 7499 R _item p PID_MOVABLE_FRIDGE + 1 R _item p PID_BOTTLE_CAPS - 7500 #
+3 2160 #
+6 2170 #
+0 2180 @
+3 3000 None 0 #
+4 3010 #
+4 3020 #
+4 3030 @
+4 4000 None 0 @
+5 5000 None 0 @
+6 6000 None 0 #
+6 6010 D _item p PID_MOVABLE_FOOTLOCKER1 > 0 R _item p PID_MOVABLE_FOOTLOCKER1 - 1 R _script dialog@r_AddMoney 1 350 R _param p ST_EXPERIENCE + 50 #
+6 6020 D _item p PID_MOVABLE_FOOTLOCKER2 > 0 R _item p PID_MOVABLE_FOOTLOCKER2 - 1 R _script dialog@r_AddMoney 1 350 R _param p ST_EXPERIENCE + 50 #
+6 6030 D _item p PID_MOVABLE_LOCKER1 > 0 R _item p PID_MOVABLE_LOCKER1 - 1 R _script dialog@r_AddMoney 1 500 R _param p ST_EXPERIENCE + 75 #
+6 6040 D _item p PID_MOVABLE_LOCKER2 > 0 R _item p PID_MOVABLE_LOCKER2 - 1 R _script dialog@r_AddMoney 1 500 R _param p ST_EXPERIENCE + 75 #
+6 6050 D _item p PID_MOVABLE_SAFE > 0 R _item p PID_MOVABLE_SAFE - 1 R _script dialog@r_AddMoney 1 1250 R _param p ST_EXPERIENCE + 100 #
+2 6060 &
+
+[engl]
+{100}{}{Carpenter}
+{200}{}{You see a carpenter.}
+{210}{}{It's not everyday you see a post-apocalyptic carpenter out in the wasteland, but he sure looks handy with a chisel.}
+{1000}{}{Predialogue installations}
+{1010}{}{Answer text}
+{2000}{}{Interested in doing a little trading? I sell only the finest handmade furniture.}
+{2010}{}{Buy Small Ammo Box Left.}
+{2020}{}{Buy Small Ammo Box Right.}
+{2030}{}{Buy Large Ammo Box Left.}
+{2040}{}{Buy Large Ammo Box Right.}
+{2050}{}{Buy a Chest.}
+{2060}{}{Buy a Crate.}
+{2070}{}{Buy Footlocker Left.}
+{2080}{}{Buy Footlocker Right.}
+{2090}{}{Buy Locker Left.}
+{2100}{}{Buy Locker Right.}
+{2110}{}{Buy a Wooden Chest Left.}
+{2120}{}{Buy a Wooden Chest Right.}
+{2130}{}{Buy a Poorbox.}
+{2140}{}{Buy a Safe.}
+{2150}{}{Buy a Fridge.}
+{2160}{}{Do you make these all by hand yourself?}
+{2170}{}{Interested in buying any of my homemade furniture?}
+{2180}{}{Not today, thanks.}
+{3000}{}{Nah, the kids do. I got 'em working outback somewhere. Don't remember where I left them.}
+{3010}{}{That's horrible!}
+{3020}{}{Sounds very lucrative.}
+{3030}{}{Really? I normally just beat mine.}
+{4000}{}{I'm just kidding, of course I make everything by hand myself. It's not like I have a robot that can make this stuff for me. Geez, some people. }
+{5000}{}{Here ya' go, fresh off the assembly line.@@Careful, it's still hot.@@One brand new piece of furniture for this fine folk over there!@@Sold, to the one with the hat.@@Yup, that there's a deal.@@Don't break it on your first go.@@Come back anytime.}
+{6000}{}{I suppose I could use em' for material, or something. Melt em' down, I dunno... I won't give you much, but what have you got? I won't take any wood items. So, lockers, floorsafes, footlockers, things like that.}
+{6010}{}{Sell 1x Footlocker Left.}
+{6020}{}{Sell 1x Footlocker Right.}
+{6030}{}{Sell 1x Locker Left.}
+{6040}{}{Sell 1x Locker Right.}
+{6050}{}{Sell 1x Floorsafe.}
+{6060}{}{Nevermind.}
+

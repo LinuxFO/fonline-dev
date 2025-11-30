@@ -1,0 +1,24 @@
+[comment]
+
+
+[data]
+lang=engl
+
+[dialog]
+&
+1 1000 None 0 #
+20 1010 @
+20 2000 None 0 #
+2 2010 D _var p q_packages = 3 D _item p PID_CARAVAN_BOX > 0 R _item p PID_CARAVAN_BOX - 1 R _var p q_packages = 98 @
+2 3000 None 0 &
+
+[engl]
+{100}{}{Mandesa}
+{200}{}{You see Mandesa.}
+{210}{}{He's the busy leader of the Far Go Traders. Looks like his office is closed to everyone except couriers.}
+{1000}{}{Predialogue installations}
+{1010}{}{bereits gesprochen}
+{2000}{}{I am too busy to have a chat.@@Get out of my office.}
+{2010}{}{[Deliver Package]}
+{3000}{}{This is good. Give my thanks to Vault City, and thank you. That city is damn far.}
+

@@ -1,0 +1,117 @@
+[comment]
+
+
+[data]
+lang=engl
+
+[dialog]
+&
+1 1000 None 0 #
+2 1010 @
+2 2000 None 0 #
+3 2010 D _var p q_adventure = 4 @
+3 3000 None 0 #
+4 3010 @
+4 4000 None 0 #
+5 4010 @
+5 5000 None 0 #
+11 5010 #
+10 5020 #
+8 5030 #
+7 5040 #
+6 5050 #
+0 5060 @
+6 6000 None 0 #
+5 6010 @
+7 7000 None 0 #
+5 7010 @
+8 8000 None 0 #
+9 8010 @
+9 9000 None 0 #
+5 9010 @
+10 10000 None 0 #
+5 10010 @
+11 11000 None 0 #
+12 11010 @
+12 12000 None 0 #
+13 12010 @
+13 13000 None 0 #
+14 13010 @
+14 14000 None 0 #
+15 14010 @
+15 15000 None 0 #
+16 15010 @
+16 16000 None 0 #
+17 16010 @
+17 17000 None 0 #
+18 17010 @
+18 18000 None 0 #
+19 18010 @
+19 19000 None 0 #
+21 19010 #
+20 19020 @
+20 20000 None 0 #
+21 20010 @
+21 21000 None 0 #
+22 21010 @
+22 22000 None 0 #
+0 22010 R _var p q_adventure = 5 R _script dialog@r_AddExperience 1 1000 #
+0 22020 D _param p SK_SCIENCE } 50 R _script dialog@r_AddExperience 1 2000 R _var p q_adventure = 5 &
+
+[engl]
+{100}{}{Vault-8's Public Terminal}
+{200}{}{You see a working computer.}
+{210}{}{Looks like a powerful piece of machinery.}
+{1000}{}{Predialogue installations}
+{1010}{}{Answer text}
+{2000}{}{[This appears to be a working computer]
+}
+{2010}{}{[Insert PipBoy]}
+{3000}{}{[You insert your PipBoy into the computer and the monitor flickers on]}
+{3010}{}{Okay! Now what?}
+{4000}{}{[Welcome to Vault 8's Public Mainframe, @pname@! Please note that all unauthorized actions will be dealt with extreme force!]}
+{4010}{}{Uh... available commands?}
+{5000}{}{[@pname@, you may CHECK EMAIL, ACCESS TOURIST INFORMATION, PLAY PONG, VIEW MAP, or HEAR INTRODUCTIONARY GREETING]}
+{5010}{}{[Check Email]}
+{5020}{}{[Access Tourist Information]}
+{5030}{}{[Play Pong]}
+{5040}{}{[View Map]}
+{5050}{}{[Hear Introductionary Greeting]}
+{5060}{}{[Log off]}
+{6000}{}{[Thank you for visiting Vault City, outsider. First Citizen Lynette welcomes you, and asks you to remain on your best behaviour at all times. All unlawful actions will result in your PERMANENT expulsion from Vault City, and it's surrounding territory. Feel free to walk around the grounds, and visit one of our many shops, and local restaurants! But please be advised that all access to the Vault is strickly prohibited by outsiders. Have a great day, and enjoy your stay in Vault City]}
+{6010}{}{[Go back]}
+{7000}{}{[An updated map of Vault City has been downloaded to your PipBoy]}
+{7010}{}{[Go back]}
+{8000}{}{[You try your best to best the A.I at Pong...]}
+{8010}{}{Cmon' you bastard! Just. Go. In!}
+{9000}{}{[You eventually fail miserably. 54 to 0. A.I]}
+{9010}{}{Goddamn cheater! Computer! Go Back!}
+{10000}{}{[You find a massive wall of text so boring you decide never to come back to it again]}
+{10010}{}{*Shrug* Computer! Go Back!}
+{11000}{}{[Upon clicking on CHECK EMAIL you notice that there is already one waiting for you, and an account already in your name. Very strange, you wonder]}
+{11010}{}{[Open up the email]}
+{12000}{}{[It's an audio log. Would you like to play it?]}
+{12010}{}{Yes! Of course!}
+{13000}{}{[Say, "Play Audio Log" to play the audio log]}
+{13010}{}{Play. Audio. Log.}
+{14000}{}{["Hello, @pname@! It is I, the Overseer! I hope you're having a jolly good ol' time out there! I do say I was rather quite impressed with you after sending me the ENTIRE Vault 15 database via PipNet. Jolly good show, ol' chap! Well done, well done!"]}
+{14010}{}{[Continue]}
+{15000}{}{["Now that you've accessed Vault City's Mainframe, could you be a dear and run bkdrENC.exe for me, please? It's attached to this email. Simply run the program and I'll get back to you! Do be kind, and hurry up. I am waiting after all. I always knew that I could count on you, @pname@. That's why I sent Cira to find you after you left. How is the old girl? Did she tell you that she was pregnant? I heard it might have been yours! Hahah!"]}
+{15010}{}{Cira...}
+{16000}{}{[You open up bkdrENC.exe and run it's program. The screen fades to black. A short while later the monitor screams back on, and a new welcome screen is shown]}
+{16010}{}{What the hell did I just open?}
+{17000}{}{[Welcome to Vault 8's Private Mainframe, First Citizen Lynette! Please note that an outsider by the name of, @pname@, has recently accessed the mainframe. He has installed software, "bkdrENC.exe". A back door application in order to reroute control to an another Vault. Would you like to delete it?]}
+{17010}{}{No. Hide the program, and delete all logs. }
+{18000}{}{[Logs deleted. You have 7 New Messages in your Inbox. Would you like to read them now?]}
+{18010}{}{[Check Email]}
+{19000}{}{[There is a green coloured email from your Overseer waiting, and six other red coloured emails as well. What would you like to do?]}
+{19010}{}{[Read Overseer's Email]}
+{19020}{}{[Read Lynette's Personal Email]}
+{20000}{}{[A talking paperclip informs you not to do so. Must be a fail-safe put there by your Overseer. It's probably not a good idea to draw too much attention to yourself anyway]}
+{20010}{}{[Read Overseer's Email]}
+{21000}{}{["Great work, @pname@! Now we have full access to Vault City's entire mainframe! Well done, well done, @sex@|lad!||ma'am!| With the information we've received from Vault 12, Vault 15, and Vault 8 it appears that someone has been rather curious with these vaults as well!"]}
+{21010}{}{[Continue]}
+{22000}{}{["Unfortunately, I have no idea who! Rather terrible if you ask me! Our vault doors opened for a reason, didn't they? Hard to say what. For your next task, @pname@, I'll need you to visit a town called "Gecko", and find a rather scalley looking man named Skeeter. He has a piece of machinery that I really need, and can only trust you to deliver the part! Do hurry, please! Duty Calls! Your vault still needs you!"]}
+{22010}{}{[Log off]}
+{22020}{}{[Try to gain as much information as possible before logging off]}
+

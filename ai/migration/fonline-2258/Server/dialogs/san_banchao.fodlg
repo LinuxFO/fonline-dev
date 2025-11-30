@@ -1,0 +1,476 @@
+[comment]
+Ban Chao. San Fran uranium seller
+
+[data]
+lang=engl russ
+
+[dialog]
+&
+1 1000 None 0 #
+2 1010 D _var p name_mem_npc_player = 0 D _var p san_bancq = 0 #
+9 1020 D _var p name_mem_npc_player = 1 D _var p san_bancq = 0 D _param p ST_INTELLECT > 4 #
+21 1030 D _var p san_bancq = 1 #
+16 1040 D _var p san_bancq = 2 #
+26 1050 D _var p san_bancq = 3 #
+27 1060 D _var p san_bancq = 4 #
+30 1070 D _var p san_bancq = 5 #
+19 1080 D _var p san_bancq = 6 @
+8 2000 None 0 @
+2 3000 None 0 #
+4 3010 #
+5 3020 #
+6 3030 #
+0 3040 @
+4 4000 None 0 #
+7 4010 #
+7 4020 #
+0 4030 @
+5 5000 None 0 #
+11 5010 #
+0 5020 @
+6 6000 None 0 #
+5 6010 @
+7 7000 None 0 #
+0 7010 R _var p name_mem_npc_player = 1 #
+0 7020 @
+10 8000 None 0 @
+11 9000 None 0 #
+7 9010 #
+0 9020 @
+9 10000 None 0 #
+12 10010 D _item p PID_ELECTRONIC_PARTS > 11 R _item p PID_ELECTRONIC_PARTS - 12 R _script dialog@r_AddExperience 1 500 R _var p san_bancq = 1 #
+10 10020 @
+12 11000 None 0 #
+13 11010 @
+13 12000 None 0 #
+14 12010 @
+14 13000 None 0 #
+15 13010 #
+0 13020 @
+15 14000 None 0 @
+16 15000 None 0 #
+18 15010 R _script dialog@r_AddExperience 1 1000 R _script dialog@r_AddMoney 1 1000 R _var p san_bancq = 6 #
+17 15020 @
+17 16000 None 0 @
+21 17000 None 0 #
+0 17010 @
+18 18000 None 0 #
+19 18010 @
+19 19000 None 0 #
+20 19010 #
+15 19020 D _item p PID_BOTTLE_CAPS > 999 R _item p PID_REFINED_ORE + 1 R _item p PID_BOTTLE_CAPS - 1000 #
+0 19030 @
+20 20000 None 0 #
+23 20010 #
+22 20020 @
+22 21000 None 0 #
+25 21010 @
+23 22000 None 0 #
+24 22010 @
+24 23000 None 0 #
+0 23010 R _var p san_bancq = 3 @
+25 24000 None 0 #
+0 24010 R _var p san_bancq = 3 @
+26 25000 None 0 #
+15 25010 D _item p PID_BOTTLE_CAPS > 999 R _item p PID_BOTTLE_CAPS - 1000 R _item p PID_REFINED_ORE + 1 #
+0 25020 @
+27 26000 None 0 #
+28 26010 R _script dialog@r_AddExperience 1 1000 R _script dialog@r_AddMoney 1 1000 R _var p san_bancq = 5 #
+0 26020 @
+28 27000 None 0 #
+29 27010 #
+0 27020 @
+29 28000 None 0 #
+0 28010 #
+0 28020 @
+30 29000 None 0 #
+15 29010 D _item p PID_BOTTLE_CAPS > 999 R _item p PID_BOTTLE_CAPS - 1000 R _item p PID_REFINED_ORE + 1 #
+31 29020 D _var p z_mutantq = 1 #
+40 29030 D _var p z_mutantq = 3 #
+43 29040 D _var p z_mutantq = 5 #
+48 29050 D _var p z_mutantq = 12 #
+52 29060 D _var p z_mutantq = 14 #
+55 29070 D _var p z_mutantq = 15 #
+0 29080 @
+31 30000 None 0 #
+32 30010 @
+32 31000 None 0 #
+33 31010 @
+33 32000 None 0 #
+34 32010 @
+34 33000 None 0 #
+35 33010 @
+35 34000 None 0 #
+36 34010 @
+36 35000 None 0 #
+37 35010 @
+37 36000 None 0 #
+38 36010 @
+38 37000 None 0 #
+39 37010 R _var p z_mutantq = 2 R _script dialog@r_AddExperience 1 1375 R _param p REPUTATION_NECROPOLIS + 25 R _param p REPUTATION_COMMUNISTS + 25 @
+39 38000 None 0 @
+40 39000 None 0 #
+41 39010 @
+41 40000 None 0 #
+42 40010 D _param p ST_KARMA < 0 #
+42 40020 D _param p ST_KARMA } 1 #
+42 40030 D _param p ST_KARMA = 0 #
+42 40040 @
+42 41000 None 0 #
+0 41010 R _var p z_mutantq = 4 R _script dialog@r_AddExperience 1 2500 R _item p PID_HYPODERMIC_NEEDLE + 1 @
+43 42000 None 0 #
+44 42010 @
+44 43000 None 0 #
+45 43010 @
+45 44000 None 0 #
+46 44010 @
+46 45000 None 0 #
+47 45010 @
+47 46000 None 0 #
+0 46010 R _var p z_mutantq = 6 R _script dialog@r_AddExperience 1 3000 @
+48 47000 None 0 #
+49 47010 @
+49 48000 None 0 #
+50 48010 @
+50 49000 None 0 #
+51 49010 @
+51 50000 None 0 #
+0 50010 R _var p z_mutantq = 13 R _script dialog@r_AddExperience 1 5000 @
+52 51000 None 0 #
+53 51010 @
+53 52000 None 0 #
+54 52010 R _var p z_mutantq = 15 R _item p PID_TROPHY_OF_RECOGNITION + 1 R _item p PID_PURPLE_ROBE + 1 R _item p PID_PSYCHIC_NULLIFIER + 1 R _item p PID_MENTATS + 1 R _item p PID_JET + 1 R _item p PID_JET_ANTIDOTE + 1 R _item p PID_HUMAN_BRAIN + 1 R _item p PID_DEANS_ELECTRONICS + 1 R _item p PID_CATS_PAW + 1 R _param p ST_EXPERIENCE + 10000 @
+54 53000 None 0 @
+55 54000 None 0 #
+100 54010 D _item p PID_BOTTLE_CAPS > 9999 D _param p ST_STRENGTH > 99 R _item p PID_BOTTLE_CAPS - 10000 #
+0 54020 @
+100 55000 None 0 #
+57 55010 D _param p ST_STRENGTH > 99 R _var p z_mutantq = 16 R _param p ST_KARMA - 15 R _param p REPUTATION_NECROPOLIS + 250 R _param p REPUTATION_BH_GHOULS + 250 R _param p REPUTATION_GECKO + 250 R _param p REPUTATION_BH_MUTANTS + 500 R _param p REPUTATION_UNITY + 500 R _param p ST_EXPERIENCE + 10000 R _param p ST_MAX_LIFE + 50 R _param p ST_RADIATION_RESISTANCE + 15 R _param p ST_POISON_RESISTANCE + 15 R _param p ST_NORMAL_RESIST + 5 R _param p ST_LASER_RESIST + 5 R _param p ST_FIRE_RESIST + 5 R _param p ST_PLASMA_RESIST + 5 R _param p ST_ELECTRO_RESIST + 5 R _param p ST_EXPLODE_RESIST + 5 R _param p ST_CARRY_WEIGHT + 30 #
+0 55020 @
+57 56000 None 0 &
+
+[engl]
+{100}{}{Ban Chao}
+{200}{}{You see Ban Chao.}
+{210}{}{He's examining a small piece of uranium.}
+{1000}{}{Predialogue installations}
+{1010}{}{not known}
+{1020}{}{known bring elec parts}
+{1030}{}{didnt trade}
+{1040}{}{did trade}
+{1050}{}{no ring}
+{1060}{}{yes ring}
+{1070}{}{all done}
+{1080}{}{find ringhold after zaius}
+{2000}{}{Great scotts! How did you get past security?}
+{3000}{}{[The man is working on a strange device. He jumps as you approach] Great scotts! You startled me!}
+{3010}{}{Well gee golly, mister. I didn't mean to scare ya.}
+{3020}{}{I'm sorry, but that thing in your hand, what is it?}
+{3030}{}{What are you, a scientist?}
+{3040}{}{Sorry! Wrong person.}
+{4000}{}{Oh it's alright, say would you be willing to do me a favor?}
+{4010}{}{Sure!}
+{4020}{}{Depends, what do you want?}
+{4030}{}{For you? No thanks! You're kinda weird.}
+{5000}{}{This, my friend, is uranium!}
+{5010}{}{Snazzy! Where can I get some?}
+{5020}{}{That's nice.}
+{6000}{}{Why, Yes! Yes I am! Thank you for taking notice.}
+{6010}{}{No problem, what's that in your hand?}
+{7000}{}{I am in need of some electronic parts, a dozen should do the trick. Think you can handle it?}
+{7010}{}{Sure! No problem I'll be back in no time.}
+{7020}{}{Maybe some other time.}
+{8000}{}{Please hurry!}
+{9000}{}{Enough about uranium for a minute! I need your help.}
+{9010}{}{Okay? With what?}
+{9020}{}{Sorry, I got my own problems.}
+{10000}{}{Good! Good! You're back, have you brought the parts I need?}
+{10010}{}{Well gee willikers, mister. I sure did.}
+{10020}{}{Still working on it.}
+{11000}{}{[Ecstatically, he rushes over to the strange device] Yes! That's it! Almost! There! It's finished, do you have any idea what this is? Of course you don't. This my friend, is a uranium processor. Now I need a steady supply of uranium, If you're up for the challenge I hear Broken Hills has a nice mining operation. See if you can negotiate a trade agreement.}
+{11010}{}{Trade agreement? What are the terms?}
+{12000}{}{[He smiles] Talk to Zaius in Broken Hills, tell him the chinese government will pay whatever  the asking price in caps. We need a constant supply of two dozen crates a week.}
+{12010}{}{Well that's all dandy there mister. But what's in it for me?}
+{13000}{}{[He ponders for a monent] I'll give you a thousand caps and I'll also be able to sell you some of that uranium.}
+{13010}{}{Gee willikers count me in!}
+{13020}{}{Maybe later, I'll think about it.}
+{14000}{}{Excellent!}
+{15000}{}{Look who's back! Have you talked to Zaius yet?}
+{15010}{}{Sure did! He accepted the offer and the first shippment should be on it's way shortly.}
+{15020}{}{Not yet.}
+{16000}{}{You should really get to it then!}
+{17000}{}{Hey look, it's you again! Don't forget to establish that uranium trade route with Zaius, there is a thousand caps in it for you.}
+{17010}{}{Oh yeah, I almost forgot, thanks for reminding me.}
+{18000}{}{Perfect! And as per our agreement, I will be able to provide you with uranium for a mere thousand caps.}
+{18010}{}{Gee thanks!}
+{19000}{}{Oh since you're here I have more work if you're interested?}
+{19010}{}{Sure why not!}
+{19020}{}{No, I'm just looking to buy some uranium.}
+{19030}{}{Maybe next time.}
+{20000}{}{Great! I have a feeling that the good folks down in Necropolis could use some of this uranium, since we have come into a recent surplus.}
+{20010}{}{Gee willikers mister, that sure does sound scary. What's in it for me?}
+{20020}{}{Necropolis? That place is a ghost town! What's in it for me?}
+{21000}{}{Preposterous! That place is alive and well, just in need of some assistance, by the time I'm done with it, it'll be the envy of the waste! And how does another thousand caps sound?}
+{21010}{}{Sounds good to me, but who in Necropolis should I speak to?}
+{22000}{}{Not at all, just watch out for ghosts and these thousand caps can be yours!}
+{22010}{}{I ain't afraid of no ghosts.}
+{23000}{}{Good! Then go to Necropolis and find Ringhold, you can't miss him, he's the prettiest ghoul around.}
+{23010}{}{Will do! I'll be back as soon as possible.}
+{24000}{}{Find Ringhold, the prettiest ghould in Necropolis, you can't miss him.}
+{24010}{}{Will do!}
+{25000}{}{Have you asked Ringhold in Necropolis about buying our surplus uranium? Last I heard he was underground.}
+{25010}{}{No, I'm just looking to buy some uranium.}
+{25020}{}{Not yet, I'm still working on it.}
+{26000}{}{Have you spoken to Ringhold? Is he as excited about this opportunity as I am?}
+{26010}{}{I have! And he is!}
+{26020}{}{Not yet.}
+{27000}{}{Excellent! And as promised your payment.}
+{27010}{}{Thanks a lot! Anything else I can help out with?}
+{27020}{}{Thanks a lot!}
+{28000}{}{Well, nothing right now, but you should ask around town, some of the others have been asking for assistance, tell them I sent you.}
+{28010}{}{Thanks, I'll get right on it.}
+{28020}{}{Maybe, I'll think about it.}
+{29000}{}{Welcome back to my laboratory, @pname@. }
+{29010}{}{I'd like to buy some uranium.}
+{29020}{}{What do you know about the F.E.V?}
+{29030}{}{Doctor Kohl refuses to help us. Thinks we're up to no good.}
+{29040}{}{I have a sample of Ringhold's blood, but he didn't seem too happy about giving it to me. Have... have you done this to him before?}
+{29050}{}{The serum killed everybody!}
+{29060}{}{Nothing happened!}
+{29070}{}{Can you turn me into a Super Mutant?}
+{29080}{}{Just saying hi.}
+{30000}{}{The Forced Evolutionary Virus? Why do you ask?}
+{30010}{}{When was the last time you've spoken with Ringhold, over in Necropolis?}
+{31000}{}{Ah, well, a few... weeks. Or was it months? How is he? Still well, I hope.}
+{31010}{}{No. No, he isn't. He's losing it. Have you read his holotape?}
+{32000}{}{Holotape? No, no. I don't think I have. What was on it? Something good, I hope?}
+{32010}{}{Oh, just a litttle something concerning the creation of the F.E.V, and Ringhold claiming to be the sole cause of all the mutations across the wasteland.}
+{33000}{}{Great scotts! Do you still have it on you?!}
+{33010}{}{Sure, do, Chao.}
+{34000}{}{Excellent! May I read it, please?}
+{34010}{}{Of course, have a copy. }
+{35000}{}{[You hand Ban Chao a copy of the holotape and spend a few hours analyzing its contents together. It's both fascinating, and shocking work! If any of this is true, than you might be holding the cure to generic mutation in your hands. Just think of the possibilities!]}
+{35010}{}{So, Chao, what do you think? Do you think we're onto something here?}
+{36000}{}{Why, yes! Yes, we are! This is brilliant work! Brilliant! Unfortunately, I can't proceed further without the help of Chief Librarian Kohl, over in Vault City. Have you two had the pleasure of meeting yet?
+}
+{36010}{}{Chief Librarian Kohl? Hmmm, I'm not sure anymore. What do you need from him?
+}
+{37000}{}{I need chapters twelve, thirteen, twenty eight, and a hundred and forty nine! He might not just GIVE them to you, however. You might need to... procure them by some "other" means. But I'll leave that up to you to figure out. Come back soon. This project of ours could literally change the whole world!
+}
+{37010}{}{Hmm, that doesn't seem so hard. Okay, I'll be back with Kolh's book faster than you can say "super mutant".
+}
+{38000}{}{I'll be here... studying. Great Scotts, man! This is so fascinating! And exciting.
+}
+{39000}{}{Oh, we probably aren't. [He laughs dastardly] But that never stopped the Chinese before. I have a brilliant idea. But...}
+{39010}{}{But...?}
+{40000}{}{People will... most likely... die...}
+{40010}{}{I'm okay with that.}
+{40020}{}{I'm not okay with that!}
+{40030}{}{Meh. It happens.}
+{40040}{}{I really don't care.}
+{41000}{}{Good enough for me! Can you take this needle, and go collect a sample of Ringhold's blood?}
+{41010}{}{Sure! That shouldn't be a problem at all! Just hope I don't lose the needle.}
+{42000}{}{Oh, yes! Many times... }
+{42010}{}{Do I even want to know?}
+{43000}{}{Ahah! Probably not.}
+{43010}{}{What exactly are you planning here, Doctor?}
+{44000}{}{*WE* are planning on re-creating a pure version of the F.E.V. Fix the issues with genetic sterilization, solve the abnormalities with the brain, and quite possibly, change the world.}
+{44010}{}{Uh... I see... What's next, Doc?}
+{45000}{}{Give me a moment, will you please? Let me just... synthesize a batch of mutagen serum. With this... we can test the effects of Ringhold's blood as a pure form of the F.E.V. I just need to filter out the actual impurities in the blood first.}
+{45010}{}{[Sit, wait, and watch the Doctor work]}
+{46000}{}{Great Scotts! This! This is the purest mutagen serum I have ever synthetized! I'll make a dozen more batches! Here, here! Take one! Go find some vagrant, and inject them with it! Go, now! It's for science! Come back after you've tested it half a dozen times. Oh, and it'll only work on drunks, or Holy people. Don't ask why.}
+{46010}{}{*Gulp*, Okay...}
+{47000}{}{Huh? Oh, right! Great Scotts! The horror! I forgot an ingredient. Didn't realize that you took the wrong batch, sorry.}
+{47010}{}{...all those people...}
+{48000}{}{Oh, relax! It was only one person.}
+{48010}{}{It was six people...}
+{49000}{}{[He chuckles] Six people for science!}
+{49010}{}{[Ponder about right and wrong]}
+{50000}{}{Stop pondering! And take this serum. Try this one out on a homesteader.  }
+{50010}{}{Fine.}
+{51000}{}{Oh? Hmm, they should've turned into a Super Mutant! Strange! Perhaps my calculations were off...}
+{51010}{}{What the fuck?! A Super Mutant?! This isn't a laboratory! It's a mad house, I tell you! A mad house!}
+{52000}{}{Well, @pname@. I guess you just aren't needed any more. Relax, I'm not going to kill you, but... if you ever do want to become a Super Mutant...}
+{52010}{}{I--!!! Hmm... actually, that's quite interesting. Thanks, Doc! I'll just be going to ponder life, and... humanity.}
+{53000}{}{You do that. Here, as a reward for your efforts...}
+{54000}{}{Great Scotts! You want to become a Super Mutant?! It'll cost 10,000 caps in materials, the process will be irreversible and you'll gain +50 HP.}
+{54010}{}{Yup. Let's do it! I've never felt quite comfortable inside my own skin! Might as well go Mutant.}
+{54020}{}{Hmm... I guess I'll have to think about it.}
+{55000}{}{If you're sure! It will take a bit... and it will hurt!}
+{55010}{}{I'm sure!}
+{55020}{}{[Run away!]}
+{56000}{}{Great Scotts! It worked! Wow! I can't believe my eyes!}
+{100000001}{}{Better wash the counter again...}
+{100000002}{}{That's 5 caps buddy. Hey did you hear me? Cough em' up.}
+{100000003}{}{Better change the keg...}
+{100000004}{}{RotGut? You drink that shit?}
+{100000005}{}{Domestic? I got B.E.E.R buddy, do you want one or not?}
+{100000006}{}{Fuckin' dust is getting everywhere. Hey close the fuckin' door!}
+{100000007}{}{I swear if the next asshole doesn't tip. Ima' shoot somebody!}
+{100000008}{}{I got bottles, I got shots, and I got a bat behind the counter for the retards. Your not a retard are you?}
+{100000009}{}{Uh-huh, yeah that's nice buddy. You don't say...What? Of course I'm listening...}
+{100000010}{}{That's 5 caps. FIVE CAPS Tribal! F.I.V.E! }
+{100000011}{}{Shut up and order a fuckin' beer already!}
+{100000012}{}{I swear if I have to serve another drunk, I'm getting the shotgun!}
+{100000013}{}{Look the keg went dry, and it's going to be another month until the caravan shows up again.}
+{100000014}{}{Really? You don't say, buy another drink or get out!}
+{100000015}{}{What? I'm on break.}
+{100000016}{}{Be right with ya'}
+{100000017}{}{Have a sit stranger. I'll be with you in a moment.}
+{100000018}{}{When do we close? Uh, when the place get's shot up, that's when!}
+{100000019}{}{We're fresh outta' cold beer, sorry. You'll just have to drink it warm.}
+{100000020}{}{RotGut? No man, go make that shit yourself! I wouldn't drink it!}
+
+[russ]
+{100}{}{Алкоголик}
+{200}{}{Вы видите пьяницу.}
+{210}{}{Вы видите шатающегося из стороны в сторону пьяного человека в лохмотьях. Лицо его распухло, нос синющий как слива. А аромат рядом с ним такой, что свалит брамина насмерть. Он что-то бормочет про себя и иногда громко поет песни.}
+{210}{}{Вы видите алкаша. Он весьма грязен - кажется, он повалялся в луже, но не особо этим расстроен.}
+{1000}{}{I?aaaeaeiaiaua onoaiiaee}
+{1010}{}{Answer text}
+{1020}{}{known}
+{1030}{}{did trade}
+{1040}{}{did trade}
+{1050}{}{no ring}
+{1060}{}{yes ring}
+{1070}{}{all done}
+{1080}{}{find ringhold after zaius}
+{2000}{}{Great scotts! How did you get past security?}
+{3000}{}{Thank you! Thank you! }
+{3010}{}{Well gee golly, mister. I didn't mean to scare ya.}
+{3020}{}{That thing in your hand. What is it?}
+{3030}{}{You're really weird you know that?}
+{3040}{}{Good! The wastelands are harsh, gotta stay alert!}
+{4000}{}{Oh it's alright, say would you be willing to do me a favor?}
+{4010}{}{Sure!}
+{4020}{}{Depends, what do you want?}
+{4030}{}{For you? No thanks! You're weird.}
+{5000}{}{This my friend is uranium!}
+{5010}{}{Snazzy! Where can I get some?}
+{5020}{}{What's it do?}
+{6000}{}{Yes! Yes I do! Thank you for taking notice.}
+{6010}{}{No problem, by the way what's that in your hand?}
+{7000}{}{Excellent! I am in need of some electronic parts, a dozen should do the trick.}
+{7010}{}{Sure! No problem I'll be back in no time.}
+{7020}{}{Ain't nobody got time for that!}
+{8000}{}{Please hurry!}
+{9000}{}{Enough about uranium for a minute! I need your help.}
+{9010}{}{Okay? With what?}
+{9020}{}{Sorry, I got my own problems}
+{10000}{}{Good! Good! You're back, have you brought the parts I need?}
+{10010}{}{Well gee willikers, mister. I sure do.}
+{10020}{}{Still working on it.}
+{11000}{}{[Ecstatically, he rushes over to the strange device] Yes! That's it! Almost! There! It's finished, do you have any idea what this is? Of course you don't. This my friend, is a uranium processor. Now I need a steady supply of uranium, If you're up for the challenge I hear Broken Hills has a nice mining operation. See if you can negotiate a trade agreement.}
+{11010}{}{Trade agreement? What sort of agreement are we talking about?}
+{12000}{}{[He smiles] Talk to Zaius in Broken Hills, tell him the chinese government will pay whatever  the asking price in caps. We need a constant supply of two dozen crates a week.}
+{12010}{}{Well that's all dandy there mister. But what's in it for me?}
+{13000}{}{[He ponders for a monent] I'll give you a thousand caps and I'll also be able to sell you some of that uranium.}
+{13010}{}{Gee willikers count me in!}
+{13020}{}{Maybe later, I'll think about it}
+{14000}{}{Excellent!}
+{15000}{}{Look who's back! Have you talked to Zaius yet?}
+{15010}{}{Sure did!}
+{15020}{}{Not yet.}
+{16000}{}{You should really get to it then!}
+{17000}{}{Hey look, it's you again! Don't forget to establish that uranium trade route with Zaius, there is a thousand caps in it for you.}
+{17010}{}{Oh yeah, I almost forgot, thanks for reminding me.}
+{18000}{}{Perfect! And as per our agreement, I will be able to provide you with uranium for a mere thousand caps.}
+{18010}{}{Gee thanks!}
+{19000}{}{Oh since you're here I have more work if you're interested?}
+{19010}{}{Sure why not!}
+{19020}{}{No, I'm just looking to buy some uranium.}
+{19030}{}{Maybe next time.}
+{20000}{}{Great! I have a feeling that the good folks down in Necropolis could use some of this uranium, since we have come into a recent surplus.}
+{20010}{}{Gee willikers mister, that sure does sound scary.}
+{20020}{}{Necropolis? That place is a ghost town!}
+{21000}{}{Preposterous! That place is alive and well, just in need of some assistance, by the time I'm done with it, it'll be the envy of the waste!}
+{21010}{}{Sounds good to me, but who in Necropolis should I speak to?}
+{22000}{}{Not at all, just watch out for ghosts.}
+{22010}{}{I ain't afraid of no ghosts.}
+{23000}{}{Good! Then go to Necropolis and find Ringhold, you can't miss him, he's the prettiest ghoul around.}
+{23010}{}{Will do! I'll be back as soon as possible.}
+{24000}{}{Find Ringhold, the prettiest ghould in Necropolis, you can't miss him}
+{24010}{}{Will do!}
+{25000}{}{Have you asked Ringhold in Necropolis about buying our surplus uranium? Last I heard he was underground.}
+{25010}{}{No, I'm just looking to buy some uranium.}
+{25020}{}{Not yet, I'm still working on it.}
+{26000}{}{Have you spoken to Ringhold? Is he as excited about this opportunity as I am?}
+{26010}{}{I have! And he is!}
+{26020}{}{Not yet.}
+{27000}{}{Excellent! And as promised your payment.}
+{27010}{}{Thanks a lot! Anything else I can help out with?}
+{27020}{}{Thanks a lot!}
+{28000}{}{Well, nothing right now, but you should ask around town, some of the others have been asking for assistance, tell them I sent you.}
+{28010}{}{Thanks, I'll get right on it.}
+{28020}{}{Maybe I'll think about it}
+{29000}{}{Thanks again for your help, what can I do for you?}
+{29010}{}{I'd like to buy some uranium.}
+{29020}{}{What do you know about the F.E.V?}
+{29030}{}{Doctor Kohl refuses to help us. Thinks we're up to no good.}
+{29040}{}{I have a sample of Ringhold's blood, but he didn't seem too happy about giving it to me. Have... have you done this to him before?}
+{29050}{}{The serum killed everybody!}
+{29060}{}{Nothing happened!}
+{29070}{}{Can you turn me into a Super Mutant?}
+{29080}{}{Just saying hi.}
+{30000}{}{The Forced Evolutionary Virus? Why do you ask?}
+{30010}{}{When was the last time you've spoken with Ringhold, over in Necropolis?}
+{31000}{}{Ah, well, a few... weeks. Or was it months? How is he? Still well, I hope.}
+{31010}{}{No. No, he isn't. He's losing it. Have you read his holotape?}
+{32000}{}{Holotape? No, no. I don't I have. What was on it? Something good, I hope?}
+{32010}{}{Oh, just a litttle something concerning the creation of the F.E.V, and Ringhold claiming to be the sole cause of all the mutations across the wasteland.}
+{33000}{}{Great scotts! Do you still have it on you?!}
+{33010}{}{Sure, do, Chao.}
+{34000}{}{Excellent! May I read it, please?}
+{34010}{}{Of course, have a copy. }
+{35000}{}{[You hand Ban Chao a copy of the holotape and spend a few hours analyzing its contents together. It's both fascinating, and shocking work! If any of this is true, than you might be holding the cure to generic mutation in your hands. Just think of the possibilities!]}
+{35010}{}{So, Chao, what do you think? Do you think we're onto something here?}
+{36000}{}{Why, yes! Yes, we are! This is brilliant work! Brilliant! Unfortunately, I can't proceed further without the help of Chief Librarian Kohl, over in Vault City. Have you two had the pleasure of meeting yet?
+}
+{36010}{}{Chief Librarian Kohl? Hmmm, I'm not sure anymore. What do you need from him?
+}
+{37000}{}{I need chapters twelve, thirteen, twenty eight, and a hundred and forty nine! He might not just GIVE them to you, however. You might need to... procure them by some "other" means. But I'll leave that up to you to figure out. Come back soon. This project of ours could literally change the whole world!
+}
+{37010}{}{Hmm, that doesn't seem so hard. Okay, I'll be back with Kolh's book faster than you can say "super mutant".
+}
+{38000}{}{I'll be here... studying. Great Scotts, man! This is so fascinating! And exciting.
+}
+{39000}{}{Oh, we probably aren't. [He laughs dastardly] But that never stopped the Chinese before. I have a brilliant idea. But...}
+{39010}{}{But...?}
+{40000}{}{People will... most likely... die...}
+{40010}{}{I'm okay with that.}
+{40020}{}{I'm not okay with that!}
+{40030}{}{Meh. It happens.}
+{40040}{}{I really don't care.}
+{41000}{}{Good enough for me! Can you take this needle, and go collect a sample of Ringhold's blood?}
+{41010}{}{Sure! That shouldn't be a problem at all! Just hope I don't lose the needle.}
+{42000}{}{Oh, yes! Many times... }
+{42010}{}{Do I even want to know?}
+{43000}{}{Ahah! Probably not.}
+{43010}{}{What exactly are you planning here, Doctor?}
+{44000}{}{*WE* are planning on re-creating a pure version of the F.E.V. Fix the issues with genetic sterilization, solve the abnormalities with the brain, and quite possibly, change the world.}
+{44010}{}{Uh... I see... What's next, Doc?}
+{45000}{}{Give me a moment, will you please? Let me just... synthesize a batch of mutagen serum. With this... we can test the effects of Ringhold's blood as a pure form of the F.E.V. I just need to filter out the actual impurities in the blood first.}
+{45010}{}{[Sit, wait, and watch the Doctor work]}
+{46000}{}{Great Scotts! This! This is the purest mutagen serum I have ever synthetized! I'll make a dozen more batches! Here, here! Take one! Go find some vagrant, and inject them with it! Go, now! It's for science!}
+{46010}{}{*Gulp*, Okay...}
+{47000}{}{Huh? Oh, right! Great Scotts! The horror! I forgot an ingredient. Didn't realize that you took the wrong batch, sorry.}
+{47010}{}{...all those people...}
+{48000}{}{Oh, relax! It was only one person.}
+{48010}{}{It was six people...}
+{49000}{}{[He chuckles] Six points for science!}
+{49010}{}{[Ponder about right and wrong]}
+{50000}{}{Stop pondering! And take this serum. Try this one out on a homesteader.  }
+{50010}{}{Fine.}
+{51000}{}{Oh? Hmm, they should've turned into a Super Mutant! Strange! Perhaps my calculations were off...}
+{51010}{}{What the fuck?! A Super Mutant?! This isn't a laboratory! It's a mad house, I tell you! A mad house!}
+{52000}{}{Well, @pname@. I guess you just aren't needed any more. Relax, I'm not going to kill you, but... if you ever do want to become a Super Mutant...}
+{52010}{}{I--!!! Hmm... actually, that's quite interesting. Thanks, Doc! I'll just be going to ponder life, and... humanity.}
+{53000}{}{You do that. Here, as a reward for your efforts...}
+{54000}{}{Great Scotts! You want to become a Super Mutant?!}
+{54010}{}{Yup. Let's do it! I've never felt quite comfortable inside my own skin! Might as well go Mutant.}
+{54020}{}{Hmm... I guess I'll have to think about it.}
+{55000}{}{If you're sure! It will take a bit... and it will hurt!}
+{55010}{}{I'm sure!}
+{55020}{}{[Run away!]}
+{56000}{}{Great Scotts! It worked! Wow! I can't believe my eyes!}
+

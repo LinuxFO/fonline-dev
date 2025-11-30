@@ -1,0 +1,32 @@
+[comment]
+
+
+[data]
+lang=engl
+
+[dialog]
+&
+1 1000 None 0 #
+2 1010 @
+2 2000 None 0 #
+3 2010 D _param p SK_DOCTOR > 59 D _var p name_mem_npc_player = 0 R _var p name_mem_npc_player = 1 #
+4 2020 D _var p q_church2 = 1 D _var p inj3 = 0 @
+3 3000 None 0 @
+4 4000 None 0 #
+5 4010 R _var p inj3 = 1 R _script dialog@r_AddExperience 1 1000 R _param p ST_KARMA + 1 R _param p REPUTATION_HUB + 7 @
+5 5000 None 0 &
+
+[engl]
+{100}{}{Hubber}
+{200}{}{You see a blind man.}
+{210}{}{Looks like he has some sort of eye injury... he's walking away like a fool...}
+{1000}{}{Predialogue installations}
+{1010}{}{Answer text}
+{2000}{}{*Sniff* Oh, hello ladies...@@Sorry there, Hubber, didn't see you there...@@Ahh! Who's there?! What do you want?!@@*Gasp!* Who said that?!@@What is this god awful thing stickin' in my eye?!}
+{2010}{}{That eye wound looks bad... it's getting infected, you do realize that, don't you? I could take a look... I'm a...}
+{2020}{}{Doctor Burhnefletch can help you get your sight back. He can work wonders, trust me. He will even do it for free, at least this one time. Why don't you pay him a visit?}
+{3000}{}{Get away from me, you freak! No more damage will come to me!}
+{4000}{}{Burhnefletch? That ghoul freak? No way! The first thing I want to see is a big pair of breasts, not a goddamn pile of wringled, burnt flesh!}
+{4010}{}{Well, okay... if you don't want to get your sight back that isn't quite my problem, now is it?}
+{5000}{}{Ugh... maybe you're right... Which way is he again? I'll stumble over there eventually... maybe...}
+

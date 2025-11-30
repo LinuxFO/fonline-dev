@@ -1,0 +1,20 @@
+[comment]
+
+
+[data]
+lang=engl
+
+[dialog]
+&
+1 1000 None 0 #
+2 1010 @
+2 2000 None 0 &
+
+[engl]
+{100}{}{Retired Military Personnel}
+{200}{}{You see a retired Brotherhood soldier.}
+{210}{}{Just another local. They look like your typical retired Brotherhood of Steel member. Dues were colllected and dues were paid. Time hasn't been kind to them unfortunately, they look frail and drained.}
+{1000}{}{Predialogue installations}
+{1010}{}{Answer text}
+{2000}{}{They let YOU into the army? Huh!@@Things sure aren't what they used to be... that's for sure.@@Seen better times, kid... seen better times.@@I used to kill people just for fun... now? I don't do much.@@Maxson still in charge? He always was a dick. His father-- nevermind.@@You ever heard of a ghoul named Ringhold? Maxson's father knew him... I think...@@Long time ago... they say Maxson's father helped spill the F.E.V into the wastes... go figure.@@Power Armor isn't as strong as everybody thinks! My old suit was pierced countless of times... that's how I lost my pinky finger.@@Gauss rifles are interesting, aren't they? Always had trouble finding bullets though...@@You ever chewed on one of your Stimpaks?@@Yes, sir! I mean... wait... what? Sorry, do I know you?@@@sex@|Son?!||Hun?!| Oh... nevermind. Thought you were one of my kids. They don't come around anymore.@@This is the Alpha Bunker... guess it's home. After I retired I didn't really have anywhere else to go.@@General Kataan still in charge? He was decent. Might have died though... I can't remember.@@What? You think you're tough? Take off that armour and let's tango!!@@I'm old, sure. But I can still kick your ass!@@Make sure you find the Captains on the second floor. Get that free training, don't forget.@@Hard to believe we've got an actual "president" now. Back in my day it was just the Enclave. NCR is moving fast. Better be careful around the bear.@@Took me twenty years to be granted access here! What did it take you?! Five minutes?!@@Yeah... bottle caps... that's money. Why do you think bottled beer is so expensive?@@Take my advice, each town out there has something unique to offer, but don't get too comfortable... some towns compete with each other.@@You kids today! You're lucky! When I was your age the outside world was a warzone! Couldn't go anywhere without having to kill somebody...@@Oh, yeah? Okay. Sure. Sounds good...@@This sure is a town. That's for sure. I'm happy here, and it's warmer than the barracks.@@You soldiering on?@@Feel like hanging yourself yet?@@I was married a few times actually... Wait! Who are you again?@@Goddamn, some of the people here...@@Twenty years of service... and here I am...@@I guess it's safe here. Haven't killed someone in weeks.@@Yeah? We got Elders here. Somewhere. I wouldn't bother them though... they're real pricks.@@Don't look at me like that! There! That's better!@@I went to San Fran once, too many asians.@@America? Fuck that. I want to visit Canada! But they shut the border...@@You think our tech is grand? Have you seen the Enclave bases?@@Ugh... I'm bored. It's really boring here. Don't even know what to do with myself anymore.@@I haven't left in a long time, got everything I need here and then some. Suppose the army did take care of me. Still bored though...@@Hmm, fresh blood? You don't look like you've been in the service for THAT long. What're you doing here?@@I thought this town was for retired war vets...@@Don't eat the Mantis. They taste like the colour green.@@Yeah, I've been around. There's a fuck ton of sand out there... and messed up people and critters.@@I'd give anything to be young again! I'd love to see Hope over in the Hub.@@Dancing? Yeah, right. You want me to break a hip?@@Hah! If I was twenty years younger I'd take a bottle of Rotgut, and fuck your sister!@@She sings songs by the subway... linear as all Hell, but she sings songs from the bottom of her heart...@@Sometimes she finds the answer! Sometimes she finds the light! But most of the time it's lonely... being the survivor of a broken heart.@@Those stupids kids! It's Nuka-Cola! Not lemonade! Sheesh! Someone needs to beat their fucking kids, I tell you!}
+

@@ -1,0 +1,20 @@
+[comment]
+
+
+[data]
+lang=engl
+
+[dialog]
+&
+1 1000 None 0 #
+2 1010 @
+2 2000 None 0 &
+
+[engl]
+{100}{}{Vault 24 Citizen}
+{200}{}{You see one of your fellow vault dwellers.}
+{210}{}{It's such a different world now that the vault has opened. Some of your fellow dwellers are in shock, crying, laughing hysterically. dancing around in their underwear, or simply look like they're ready for war. It's a very uncanny, scary unfamilliar sight from what you've been used to.}
+{1000}{}{Predialogue installations}
+{1010}{}{Answer text}
+{2000}{}{It finally happened... the doors... they're really open!@@I can't believe this... this is a dream right?@@We're free... we're finally all... free!@@Maybe we should go out there?@@Maybe we should stay here?@@I don't know what to do...@@This can't be real...@@This isn't happening...@@Can you smell that? Is that... fresh? Air? It smells like old blood... and dark wars...@@No! Nooooo! I'm not going anywhere! I'm staying right here! This is my HOME!!@@Are we even supposed to go out there? Are we even allowed?@@Did you hear that? Did something follow you in?@@We're not alone any more...@@Careful! It smells like blood out there! A few of us tried to go out but they haven't been seen since!@@I wouldn't go out there if I were you...@@The Warden says to stay, so I'm staying!@@Have you heard from the Overseer yet? I'm scared!@@I'm scared!!! This can't be happening!! THIS CAN'T BE REAL!!!@@Get away from me! How do I know you're even a *real* vault dweller?!@@Overseer?! Oh, nevermind... it's just *you*.@@Haven't I seen you somewhere? Didn't you use to bully me?@@You look familiar... aren't we cousins?@@Have you seen my son?@@Have you seen my daughter?@@Where's my baby?!@@I guess... just nothing really matters any more...@@It's just like my dreams... have you been dreaming lately?@@Well... at least our water chip didn't break? Eh Fella's? Eh??@@I haven't had a drink in years but you know what? I'm going to start! Right now! Get out of my way!@@I think it's time I finally pick up smoking...@@Woooo! Jet! Can't wait to try *that*! I wonder what I'll get up to later?! Oh boy! This is wild!@@... I'm coming world... I'll finally have my revenge...@@Madness... whatever it is... is right and wrong...@@Did you... did you find any cute little puppets lying around? I swear! I saw one of them walk!@@There's some creepy shadow wandering around ever since those doors opened.. I can hear it whisper to me...@@There's something watching us... something huge and... covered in puppets...@@Did you see the eyes? It was right there!@@I'm not crazy... but there's a puppet behind you...@@Did you hear the whispers? Did you hear them say? I heard them say it... I heard them say the puppet man...@@Well, oh boy! These doors finally opened! But what the heck is that smell?@@I guess no more peeing indoors, eh fellas?@@Finally! I can fart *outside* for once!@@Life in the vault... is about to change... that's for sure.@@Well, we're boned.@@Somebody gave me a puppet and ran off... isn't it cute? In a creepy kind of way...@@Well... I guess all this vault training is about to finally pay off... now where did I leave my plasma pistol?@@Hah! Get ready world! It's time to play.}
+

@@ -1,0 +1,128 @@
+[comment]
+
+
+[data]
+lang=engl
+
+[dialog]
+&
+1 1000 None 0 #
+2 1010 D _var p junktown_mutantq = 0 #
+17 1020 D _var p junktown_mutantq = 1 @
+2 2000 None 0 #
+9 2010 #
+3 2020 #
+4 2030 #
+0 2040 @
+3 3000 None 0 #
+5 3010 @
+4 4000 None 0 #
+5 4010 @
+5 5000 None 0 #
+6 5010 @
+6 6000 None 0 #
+7 6010 @
+7 7000 None 0 #
+8 7010 @
+8 8000 None 0 #
+11 8010 @
+9 9000 None 0 #
+10 9010 @
+10 10000 None 0 #
+5 10010 @
+11 11000 None 0 #
+12 11010 @
+12 12000 None 0 #
+13 12010 #
+13 12020 #
+0 12030 @
+13 13000 None 0 #
+14 13010 @
+14 14000 None 0 #
+15 14010 @
+15 15000 None 0 #
+16 15010 R _var p junktown_mutantq = 1 @
+16 16000 None 0 @
+17 17000 None 0 #
+18 17010 D _item p PID_ROT_GUT > 9 R _item p PID_ROT_GUT - 10 #
+0 17020 @
+18 18000 None 0 #
+19 18010 @
+19 19000 None 0 #
+26 19010 R _script dialog@r_Roll 4 1 2 2 20 @
+20 20000 None 0 #
+26 20010 R _script dialog@r_Roll 4 1 4 4 21 @
+21 21000 None 0 #
+26 21010 D _script dialog@d_RandomPercent 1 40 R _script dialog@r_Roll 4 1 10 10 22 @
+22 22000 None 0 #
+23 22010 @
+23 23000 None 0 #
+24 23010 @
+24 24000 None 0 #
+25 24010 R _script dialog@r_BulkOrderRewardHub 0  R _script dialog@r_BulkOrderRewardInde 0  R _script dialog@r_BulkOrderRewardJunk 0  R _script dialog@r_BulkOrderRewardLow 0  R _script dialog@r_AddLootSetLevel3 0  @
+25 25000 None 0 @
+26 26000 None 0 #
+0 26010 &
+
+[engl]
+{100}{}{Ernust}
+{200}{}{You see an extremely drunk looking mutant.}
+{210}{}{He's wearing a silly looking party hat, and has a sign around his neck that says, "Ernust".}
+{1000}{}{Predialogue installations}
+{1010}{}{Answer text}
+{1020}{}{2}
+{2000}{}{Argh! Today me birth day!}
+{2010}{}{Well happy birthday!}
+{2020}{}{Well happy birthday! You fucking mutant.}
+{2030}{}{Gee willikers! What the hell are you?! What happened to your everything?!}
+{2040}{}{That's nice.}
+{3000}{}{Me not mutant! You mutant! You one with contaminated genes, caused by F.E.V!}
+{3010}{}{No, I'm from a vault.}
+{4000}{}{Me not freak! You freak! You one with contaminated genes, caused by F.E.V!}
+{4010}{}{No, I'm from a vault.}
+{5000}{}{What you mean?}
+{5010}{}{You know... a big hole in the ground... full of people... from the before times.}
+{6000}{}{Oh. You mean Burrows?}
+{6010}{}{What the hell is a burrow?}
+{7000}{}{No, no. Burrows. People. Lots of hair. From ground. They had special syrup. Made them grow.}
+{7010}{}{Whatever, man. Or ma'am...}
+{8000}{}{Argh! It me birth day! You call me Ernust. Like comic magazine.}
+{8010}{}{Ernust is your name?}
+{9000}{}{Yay! You not first to say. But me like to be first to thank you today. Not every day someone has birth day.}
+{9010}{}{But, It's your birthday...}
+{10000}{}{Me know, stupid! Me say thanks to you, for saying happy birth day to me. You contaminated with too much F.E.V. It make you dumb.}
+{10010}{}{No, I'm from a vault.}
+{11000}{}{Yes, of course. Why else me tell you the name? Just so me can say random name out loud? Sometimes me think... you not so bright.}
+{11010}{}{...}
+{12000}{}{Look, shut up. It me birth day! You want to party?}
+{12010}{}{Sure!}
+{12020}{}{Not really, no.}
+{12030}{}{Fuck off, mutant.}
+{13000}{}{Me bet me can drink you under table. Me think that you are too much sissy, vault thing. You want to bet me? Me make it worth while. But you make worth my while too.}
+{13010}{}{Maybe. Go on.}
+{14000}{}{Okay, it me birth day, so you bring the beer. But don't bring beer. Beer too weak. Beer for humans. My people we only get buzz when we drink Rot Gut. So, you shut up, and bring me present of... 10x Rotgut. Then me, you, we party like it 2238.}
+{14010}{}{So what if I win?}
+{15000}{}{[Ernust starts to laugh his ass off!]}
+{15010}{}{Well that's reassuring.}
+{16000}{}{Come back with booze, human. We be best friends by end of it.}
+{17000}{}{Hello, puny human. Me challenge you to bring me ten bottles of Rot Gut, then try to beat me at drinking them. Wiinner get prize. Loser fall down and sleep for a long time.}
+{17010}{}{I accept your challenge! You sir, are going down!}
+{17020}{}{One day, when I'm ready.}
+{18000}{}{[You and the mutant begin to drink. You try to stare the mutant straight in his eyes the whole time. But the drunker you get, the more comical it all just seems. After a while, you and the mutant are so drunk you're both laughing incoherently, but otherwise having a great time]}
+{18010}{}{Suuu moo-tants arrrr'n't suuuu baah'd... yuuuuu knoooohw... S'ay'maybe it'z sum-ting ta' dooo witch yer'... Ay don'st'knoh... Shoes?@@Has I'z evah' toold yuuu bout' my wault? It'z wuusss sooo blue. Ewe'r'ting... suuuu bllueee.@@Bleh, I'm not that drunk. Bring it on mutie.}
+{19000}{}{Me think you had enough. Me win. Maybe next time human win?}
+{19010}{}{Never! [Take another shot]}
+{20000}{}{Me think you had enough. Human can die from Rot Gut. Me win. Maybe next time human win?}
+{20010}{}{Never! [Take another shot]}
+{21000}{}{Okay. Me starting to get sleepy. But me still win. Good night, little human. You too drunk.}
+{21010}{}{Hah! I can still see! You're going down! [Take another shot]}
+{22000}{}{[Ernust passes out, landing on the table and spilling the rest of the booze over. Looks like you've won!]}
+{22010}{}{[Pass out as well. You're too drunk to be awake, you figure]}
+{23000}{}{[A few hours later, you and Ernust eventually come to]}
+{23010}{}{I won. But I'm never drinking again!}
+{24000}{}{Okay, human. You win. Me never drinking again as well...}
+{24010}{}{So... same time next week?}
+{25000}{}{Any time, human. But you bring the Rotgut.}
+{26000}{}{[You pass out! Therefore losing!]}
+{26010}{}{[Zzzzzzz]}
+

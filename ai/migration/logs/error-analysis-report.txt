@@ -1,0 +1,1047 @@
+COMPILATION ERROR ANALYSIS
+============================================================
+
+Total failing modules: 109
+
+
+Other/Unknown: 78 modules
+----------------------------------------
+  - FOClassic
+  - backend
+  - cave_critters
+  - cave_groups
+  - cave_items
+  - cheats_help
+  - chess
+  - chosen_tabs
+  - client_anti_cheat
+  - client_broadcast
+  - client_combat
+  - client_container_addons
+  - client_critter_onhead
+  - client_dev_menu
+  - client_fef
+  - client_fixboy
+  - client_followers_menu
+  - client_fov
+  - client_gmtools
+  - client_gmtools_menu
+  - client_gui
+  - client_gui_barter
+  - client_gui_elevator
+  - client_gui_ex
+  - client_gui_regwindow_ex
+  - client_interface
+  - client_io
+  - client_main
+  - client_mapper_animation
+  - client_messages
+  - client_online_stats
+  - client_recording
+  - client_screen_picture
+  - client_screens
+  - client_smart_cursor
+  - client_spawn_npc
+  - client_timeouts
+  - devconnect
+  - dialog_reputations
+  - drugs_data
+  - faction_data
+  - fo2077_client_screen_gameinfo
+  - fo2077_client_screen_tag
+  - foart_2238
+  - foart_addons
+  - foart_client
+  - foart_mapper
+  - foart_server
+  - itempid
+  - map_raiders_farmhome
+  - mapper_autowall
+  - mapper_crtypes
+  - mapper_generators
+  - mapper_grid
+  - mapper_gui
+  - mapper_main
+  - mapper_tilemap
+  - mapper_utils
+  - multihex_data
+  - npc_schedule
+  - npc_schedule_action
+  - npc_schedule_instance
+  - npc_schedules
+  - npc_travel
+  - prices_server_client
+  - quest_tanker
+  - reputations_tables
+  - scypior_radiation
+  - slaverun_init
+  - smartcursor
+  - special_map_objects_floor
+  - special_map_objects_forcefield
+  - special_map_objects_steam
+  - tests_astl
+  - triggers_funcs
+  - weather_radiation
+  - worldmap
+  - worldmap_data
+
+
+Function Signature Mismatch: 72 modules
+----------------------------------------
+  - WitchLord
+  - bounty_poster
+  - cheats_help
+  - chosen_tabs
+  - client_access
+  - client_anti_cheat
+  - client_broadcast
+  - client_container_addons
+  - client_critter_onhead
+  - client_cutscene
+  - client_dev_menu
+  - client_fef
+  - client_fixboy
+  - client_followers_menu
+  - client_fov
+  - client_gmtools
+  - client_gmtools_menu
+  - client_gui
+  - client_gui_barter
+  - client_gui_elevator
+  - client_gui_ex
+  - client_gui_regwindow_ex
+  - client_interface
+  - client_io
+  - client_main
+  - client_messages
+  - client_online_stats
+  - client_recording
+  - client_screens
+  - client_smart_cursor
+  - client_spawn_npc
+  - client_timeouts
+  - client_utils
+  - devconnect
+  - dialog_reputations
+  - factions_news
+  - fixboy
+  - fo2077_client_screen_gameinfo
+  - fo2077_client_screen_tag
+  - foart
+  - foart_2238
+  - foart_addons
+  - foart_server
+  - gmtools_csc
+  - ini_parser
+  - junktown_skumpitt
+  - map_newreno
+  - mapper_autowall
+  - mapper_crtypes
+  - mapper_generators
+  - mapper_grid
+  - mapper_gui
+  - mapper_main
+  - mapper_tilemap
+  - mapper_utils
+  - multihex_data
+  - npc_schedule_action
+  - npc_schedule_instance
+  - npc_travel
+  - prices_server_client
+  - raiders_gomes
+  - scypior_radiation
+  - server_fixboy
+  - setentry
+  - sleepiness
+  - smartcursor
+  - special_map_objects_floor
+  - special_map_objects_forcefield
+  - special_map_objects_steam
+  - sprite
+  - triggers_funcs
+  - weather_radiation
+
+
+Undefined/Not Declared: 63 modules
+----------------------------------------
+  - cheats_help
+  - chosen_tabs
+  - client_container_addons
+  - client_critter_onhead
+  - client_cutscene
+  - client_dev_menu
+  - client_fef
+  - client_fixboy
+  - client_followers_menu
+  - client_fov
+  - client_gmtools
+  - client_gmtools_menu
+  - client_gui
+  - client_gui_barter
+  - client_gui_elevator
+  - client_gui_ex
+  - client_gui_regwindow_ex
+  - client_interface
+  - client_io
+  - client_main
+  - client_messages
+  - client_online_stats
+  - client_screens
+  - client_spawn_npc
+  - client_timeouts
+  - dialog_reputations
+  - drugs_data
+  - faction_data
+  - factions_names
+  - fo2077_client_screen_gameinfo
+  - fo2077_client_screen_tag
+  - foart_server
+  - gmtools_csc
+  - map_rq_cave
+  - map_sad
+  - map_vault24
+  - mapper_autowall
+  - mapper_crtypes
+  - mapper_gui
+  - mapper_main
+  - mapper_tilemap
+  - mapper_utils
+  - mob_wave_data
+  - multihex_data
+  - npc_schedule_action
+  - npc_schedule_instance
+  - player_CTF
+  - pvp_small1
+  - quest_bigevent
+  - quest_raiders
+  - quest_railgang
+  - quest_tanker
+  - quest_zomb
+  - reputations_tables
+  - scypior_radiation
+  - sleepiness
+  - smartcursor
+  - special_map_objects_floor
+  - special_map_objects_forcefield
+  - special_map_objects_steam
+  - triggers_funcs
+  - weather_rain_table
+  - worldmap
+
+
+Boolean Type Error: 48 modules
+----------------------------------------
+  - cheats_help
+  - chosen_tabs
+  - client_anti_cheat
+  - client_combat
+  - client_container_addons
+  - client_critter_onhead
+  - client_dev_menu
+  - client_fef
+  - client_fixboy
+  - client_followers_menu
+  - client_fov
+  - client_gmtools
+  - client_gmtools_menu
+  - client_gui
+  - client_gui_barter
+  - client_gui_elevator
+  - client_gui_ex
+  - client_gui_regwindow_ex
+  - client_interface
+  - client_io
+  - client_main
+  - client_messages
+  - client_online_stats
+  - client_screens
+  - client_smart_cursor
+  - client_spawn_npc
+  - faction_data
+  - fo2077_client_screen_gameinfo
+  - fo2077_client_screen_tag
+  - foart
+  - foart_2238
+  - foart_addons
+  - foart_server
+  - map_sad
+  - mapper_autowall
+  - mapper_crtypes
+  - mapper_gui
+  - mapper_main
+  - mapper_tilemap
+  - npc_schedule_action
+  - npc_schedule_instance
+  - npc_travel
+  - scypior_radiation
+  - smartcursor
+  - special_map_objects_floor
+  - special_map_objects_forcefield
+  - special_map_objects_steam
+  - triggers_funcs
+
+
+Type Conversion Error: 37 modules
+----------------------------------------
+  - chosen_tabs
+  - client_container_addons
+  - client_critter_onhead
+  - client_cutscene
+  - client_dev_menu
+  - client_fef
+  - client_fixboy
+  - client_followers_menu
+  - client_fov
+  - client_gmtools_menu
+  - client_gui
+  - client_gui_barter
+  - client_gui_elevator
+  - client_gui_ex
+  - client_gui_regwindow_ex
+  - client_interface
+  - client_io
+  - client_main
+  - client_online_stats
+  - client_screens
+  - client_spawn_npc
+  - fixboy
+  - fo2077_client_screen_gameinfo
+  - fo2077_client_screen_tag
+  - ini_parser
+  - mapper_autowall
+  - mapper_crtypes
+  - mapper_gui
+  - mapper_utils
+  - npc_schedule_instance
+  - reputations_tables
+  - server_fixboy
+  - special_map_objects_floor
+  - special_map_objects_forcefield
+  - special_map_objects_steam
+  - sprite
+  - triggers_funcs
+
+
+Missing Include/File: 3 modules
+----------------------------------------
+  - FOClassic
+  - map_domination
+  - quests
+
+
+
+DETAILED MODULE ERRORS
+============================================================
+
+
+FOClassic:
+  Unable to preprocess. Errors:
+  FOClassic.fos (54) Error: "FOCLASSIC_EXTENSION or FOCLASSIC_SCRIPT must be defined"
+
+WitchLord:
+  WitchLord.fos(125) : ERROR : No matching signatures to 'callstack()'.
+
+backend:
+  Error in 'bindfunc' pragma<void Dummy() -> Backend.dll Dummy>, dll not found, error<126>.
+
+bounty_poster:
+  bounty_poster.fos(66) : ERROR : No matching signatures to 'push_back(BountyPoster[], BountyPoster@&)'.
+
+cave_critters:
+  cave_critters.fos(24) : ERROR : Expected identifier.
+  cave_critters.fos(25) : ERROR : Expected identifier.
+  cave_critters.fos(27) : ERROR : Expected identifier.
+  cave_critters.fos(28) : ERROR : Expected identifier.
+  cave_critters.fos(30) : ERROR : Expected identifier.
+  ... and 34 more errors
+
+cave_groups:
+  cave_groups.fos(33) : ERROR : Expected identifier.
+  cave_groups.fos(34) : ERROR : Expected identifier.
+  cave_groups.fos(35) : ERROR : Expected identifier.
+  cave_groups.fos(37) : ERROR : Expected identifier.
+  cave_groups.fos(40) : ERROR : Expected identifier.
+
+cave_items:
+  cave_items.fos(16) : ERROR : Expected identifier.
+  cave_items.fos(17) : ERROR : Expected identifier.
+  cave_items.fos(18) : ERROR : Expected identifier.
+  cave_items.fos(19) : ERROR : Expected identifier.
+  cave_items.fos(20) : ERROR : Expected identifier.
+  ... and 77 more errors
+
+cheats_help:
+  cheats_help.fos(50) : ERROR : No matching signatures to 'push_back(string[], string&)'.
+  cheats_help.fos(55) : ERROR : No matching signatures to 'push_back(string[], string&)'.
+  cheats_help.fos(69) : ERROR : 'commandlist' is not declared.
+  cheats_help.fos(69) : ERROR : Illegal operation on this datatype.
+  cheats_help.fos(69) : ERROR : Expression must be of boolean type.
+  ... and 35 more errors
+
+chess:
+  chess.fos(781) : ERROR : No conversion from 'string@&' to math type available..
+  chess.fos(782) : ERROR : No conversion from 'string@&' to math type available..
+
+chosen_tabs:
+  chosen_tabs.fos(21) : ERROR : Identifier 'CritterCl' is not a data type.
+  ./sprite.fos(27) : ERROR : No matching signatures to 'LoadSprite(string&, int)'.
+  ./sprite.fos(38) : ERROR : No matching signatures to 'LoadSprite(uint, uint8)'.
+  ./sprite.fos(44) : ERROR : No matching signatures to 'GetIfaceIniStr(string&)'.
+  ./sprite.fos(44) : ERROR : Can't implicitly convert from 'const int' to 'string@&'..
+  ... and 14 more errors
+
+client_access:
+  client_access.fos(20) : ERROR : No matching signatures to 'Message(string@&)'.
+
+client_anti_cheat:
+  client_anti_cheat.fos(17) : ERROR : Identifier 'CritterCl' is not a data type.
+  client_anti_cheat.fos(19) : ERROR : 'HexX' is not a member of 'int&'.
+  client_anti_cheat.fos(19) : ERROR : Expression must be of boolean type.
+  client_anti_cheat.fos(28) : ERROR : 'HexX' is not a member of 'int&'.
+  client_anti_cheat.fos(29) : ERROR : 'HexY' is not a member of 'int&'.
+  ... and 1 more errors
+
+client_broadcast:
+  client_broadcast.fos(135) : ERROR : Identifier 'CritterCl' is not a data type.
+  client_broadcast.fos(411) : ERROR : No matching signatures to 'Message(string@&)'.
+  client_broadcast.fos(436) : ERROR : No matching signatures to 'Message(string@&)'.
+  client_broadcast.fos(470) : ERROR : No matching signatures to 'Message(string@&)'.
+  client_broadcast.fos(475) : ERROR : No matching signatures to 'GetMsgStr(const int, int)'.
+  ... and 11 more errors
+
+client_combat:
+  client_combat.fos(74) : ERROR : Identifier 'ItemCl' is not a data type.
+  client_combat.fos(86) : ERROR : Identifier 'CritterCl' is not a data type.
+  client_combat.fos(86) : ERROR : Identifier 'CritterCl' is not a data type.
+  client_combat.fos(76) : ERROR : 'Val0' is not a member of 'int'.
+  client_combat.fos(76) : ERROR : Expression must be of boolean type.
+  ... and 24 more errors
+
+client_container_addons:
+  ./client_gui_ex.fos(1012) : ERROR : Identifier 'CritterCl' is not a data type.
+  ./client_gui_ex.fos(1021) : ERROR : Identifier 'ItemCl' is not a data type.
+  client_container_addons.fos(79) : ERROR : Identifier 'ItemCl' is not a data type.
+  ./sprite.fos(27) : ERROR : No matching signatures to 'LoadSprite(string&, int)'.
+  ./sprite.fos(38) : ERROR : No matching signatures to 'LoadSprite(uint, uint8)'.
+  ... and 53 more errors
+
+client_critter_onhead:
+  client_critter_onhead.fos(18) : ERROR : Identifier 'CritterCl' is not a data type.
+  client_critter_onhead.fos(82) : ERROR : Identifier 'CritterCl' is not a data type.
+  ./sprite.fos(27) : ERROR : No matching signatures to 'LoadSprite(string&, int)'.
+  ./sprite.fos(38) : ERROR : No matching signatures to 'LoadSprite(uint, uint8)'.
+  ./sprite.fos(44) : ERROR : No matching signatures to 'GetIfaceIniStr(string&)'.
+  ... and 16 more errors
+
+client_cutscene:
+  ./sprite.fos(27) : ERROR : No matching signatures to 'LoadSprite(string&, int)'.
+  ./sprite.fos(38) : ERROR : No matching signatures to 'LoadSprite(uint, uint8)'.
+  ./sprite.fos(44) : ERROR : No matching signatures to 'GetIfaceIniStr(string&)'.
+  ./sprite.fos(44) : ERROR : Can't implicitly convert from 'const int' to 'string@&'..
+  ./sprite.fos(46) : ERROR : No matching signatures to 'LoadSprite(string@&, int)'.
+  ... and 7 more errors
+
+client_dev_menu:
+  ./client_gui_ex.fos(1012) : ERROR : Identifier 'CritterCl' is not a data type.
+  ./client_gui_ex.fos(1021) : ERROR : Identifier 'ItemCl' is not a data type.
+  client_dev_menu.fos(87) : ERROR : Identifier 'CritterCl' is not a data type.
+  client_dev_menu.fos(116) : ERROR : Identifier 'CritterCl' is not a data type.
+  client_dev_menu.fos(145) : ERROR : Identifier 'CritterCl' is not a data type.
+  ... and 60 more errors
+
+client_fef:
+  ./sprite.fos(27) : ERROR : No matching signatures to 'LoadSprite(string&, int)'.
+  ./sprite.fos(38) : ERROR : No matching signatures to 'LoadSprite(uint, uint8)'.
+  ./sprite.fos(44) : ERROR : No matching signatures to 'GetIfaceIniStr(string&)'.
+  ./sprite.fos(44) : ERROR : Can't implicitly convert from 'const int' to 'string@&'..
+  ./sprite.fos(46) : ERROR : No matching signatures to 'LoadSprite(string@&, int)'.
+  ... and 25 more errors
+
+client_fixboy:
+  ./client_gui_ex.fos(1012) : ERROR : Identifier 'CritterCl' is not a data type.
+  ./client_gui_ex.fos(1021) : ERROR : Identifier 'ItemCl' is not a data type.
+  ./sprite.fos(27) : ERROR : No matching signatures to 'LoadSprite(string&, int)'.
+  ./sprite.fos(38) : ERROR : No matching signatures to 'LoadSprite(uint, uint8)'.
+  ./sprite.fos(44) : ERROR : No matching signatures to 'GetIfaceIniStr(string&)'.
+  ... and 42 more errors
+
+client_followers_menu:
+  ./client_gui_ex.fos(1012) : ERROR : Identifier 'CritterCl' is not a data type.
+  ./client_gui_ex.fos(1021) : ERROR : Identifier 'ItemCl' is not a data type.
+  ./lexems_h.fos(106) : ERROR : Identifier 'CritterCl' is not a data type.
+  ./lexems_h.fos(107) : ERROR : Identifier 'ItemCl' is not a data type.
+  ./lexems_h.fos(109) : ERROR : Identifier 'CritterCl' is not a data type.
+  ... and 60 more errors
+
+client_fov:
+  Error in 'bindfunc' pragma<bool CritterCl::IsInjured()     -> client_parameters.dll Critter_IsInjured   >, dll not found, error<127>.
+  Error in 'bindfunc' pragma<bool CritterCl::IsDmgEye()      -> client_parameters.dll Critter_IsDmgEye    >, dll not found, error<127>.
+  Error in 'bindfunc' pragma<bool CritterCl::IsDmgLeg()      -> client_parameters.dll Critter_IsDmgLeg    >, dll not found, error<127>.
+  Error in 'bindfunc' pragma<bool CritterCl::IsDmgTwoLeg()   -> client_parameters.dll Critter_IsDmgTwoLeg >, dll not found, error<127>.
+  Error in 'bindfunc' pragma<bool CritterCl::IsDmgArm()      -> client_parameters.dll Critter_IsDmgArm    >, dll not found, error<127>.
+  ... and 67 more errors
+
+client_gmtools:
+  Error in 'bindfunc' pragma<bool CritterCl::IsInjured()     -> client_parameters.dll Critter_IsInjured   >, dll not found, error<127>.
+  Error in 'bindfunc' pragma<bool CritterCl::IsDmgEye()      -> client_parameters.dll Critter_IsDmgEye    >, dll not found, error<127>.
+  Error in 'bindfunc' pragma<bool CritterCl::IsDmgLeg()      -> client_parameters.dll Critter_IsDmgLeg    >, dll not found, error<127>.
+  Error in 'bindfunc' pragma<bool CritterCl::IsDmgTwoLeg()   -> client_parameters.dll Critter_IsDmgTwoLeg >, dll not found, error<127>.
+  Error in 'bindfunc' pragma<bool CritterCl::IsDmgArm()      -> client_parameters.dll Critter_IsDmgArm    >, dll not found, error<127>.
+  ... and 82 more errors
+
+client_gmtools_menu:
+  Error in 'bindfunc' pragma<bool CritterCl::IsInjured()     -> client_parameters.dll Critter_IsInjured   >, dll not found, error<127>.
+  Error in 'bindfunc' pragma<bool CritterCl::IsDmgEye()      -> client_parameters.dll Critter_IsDmgEye    >, dll not found, error<127>.
+  Error in 'bindfunc' pragma<bool CritterCl::IsDmgLeg()      -> client_parameters.dll Critter_IsDmgLeg    >, dll not found, error<127>.
+  Error in 'bindfunc' pragma<bool CritterCl::IsDmgTwoLeg()   -> client_parameters.dll Critter_IsDmgTwoLeg >, dll not found, error<127>.
+  Error in 'bindfunc' pragma<bool CritterCl::IsDmgArm()      -> client_parameters.dll Critter_IsDmgArm    >, dll not found, error<127>.
+  ... and 55 more errors
+
+client_gui:
+  Error in 'bindfunc' pragma<bool CritterCl::IsInjured()     -> client_parameters.dll Critter_IsInjured   >, dll not found, error<127>.
+  Error in 'bindfunc' pragma<bool CritterCl::IsDmgEye()      -> client_parameters.dll Critter_IsDmgEye    >, dll not found, error<127>.
+  Error in 'bindfunc' pragma<bool CritterCl::IsDmgLeg()      -> client_parameters.dll Critter_IsDmgLeg    >, dll not found, error<127>.
+  Error in 'bindfunc' pragma<bool CritterCl::IsDmgTwoLeg()   -> client_parameters.dll Critter_IsDmgTwoLeg >, dll not found, error<127>.
+  Error in 'bindfunc' pragma<bool CritterCl::IsDmgArm()      -> client_parameters.dll Critter_IsDmgArm    >, dll not found, error<127>.
+  ... and 76 more errors
+
+client_gui_barter:
+  Error in 'bindfunc' pragma<bool CritterCl::IsInjured()     -> client_parameters.dll Critter_IsInjured   >, dll not found, error<127>.
+  Error in 'bindfunc' pragma<bool CritterCl::IsDmgEye()      -> client_parameters.dll Critter_IsDmgEye    >, dll not found, error<127>.
+  Error in 'bindfunc' pragma<bool CritterCl::IsDmgLeg()      -> client_parameters.dll Critter_IsDmgLeg    >, dll not found, error<127>.
+  Error in 'bindfunc' pragma<bool CritterCl::IsDmgTwoLeg()   -> client_parameters.dll Critter_IsDmgTwoLeg >, dll not found, error<127>.
+  Error in 'bindfunc' pragma<bool CritterCl::IsDmgArm()      -> client_parameters.dll Critter_IsDmgArm    >, dll not found, error<127>.
+  ... and 59 more errors
+
+client_gui_elevator:
+  Error in 'bindfunc' pragma<bool CritterCl::IsInjured()     -> client_parameters.dll Critter_IsInjured   >, dll not found, error<127>.
+  Error in 'bindfunc' pragma<bool CritterCl::IsDmgEye()      -> client_parameters.dll Critter_IsDmgEye    >, dll not found, error<127>.
+  Error in 'bindfunc' pragma<bool CritterCl::IsDmgLeg()      -> client_parameters.dll Critter_IsDmgLeg    >, dll not found, error<127>.
+  Error in 'bindfunc' pragma<bool CritterCl::IsDmgTwoLeg()   -> client_parameters.dll Critter_IsDmgTwoLeg >, dll not found, error<127>.
+  Error in 'bindfunc' pragma<bool CritterCl::IsDmgArm()      -> client_parameters.dll Critter_IsDmgArm    >, dll not found, error<127>.
+  ... and 59 more errors
+
+client_gui_ex:
+  Error in 'bindfunc' pragma<bool CritterCl::IsInjured()     -> client_parameters.dll Critter_IsInjured   >, dll not found, error<127>.
+  Error in 'bindfunc' pragma<bool CritterCl::IsDmgEye()      -> client_parameters.dll Critter_IsDmgEye    >, dll not found, error<127>.
+  Error in 'bindfunc' pragma<bool CritterCl::IsDmgLeg()      -> client_parameters.dll Critter_IsDmgLeg    >, dll not found, error<127>.
+  Error in 'bindfunc' pragma<bool CritterCl::IsDmgTwoLeg()   -> client_parameters.dll Critter_IsDmgTwoLeg >, dll not found, error<127>.
+  Error in 'bindfunc' pragma<bool CritterCl::IsDmgArm()      -> client_parameters.dll Critter_IsDmgArm    >, dll not found, error<127>.
+  ... and 48 more errors
+
+client_gui_regwindow_ex:
+  Error in 'bindfunc' pragma<bool CritterCl::IsInjured()     -> client_parameters.dll Critter_IsInjured   >, dll not found, error<127>.
+  Error in 'bindfunc' pragma<bool CritterCl::IsDmgEye()      -> client_parameters.dll Critter_IsDmgEye    >, dll not found, error<127>.
+  Error in 'bindfunc' pragma<bool CritterCl::IsDmgLeg()      -> client_parameters.dll Critter_IsDmgLeg    >, dll not found, error<127>.
+  Error in 'bindfunc' pragma<bool CritterCl::IsDmgTwoLeg()   -> client_parameters.dll Critter_IsDmgTwoLeg >, dll not found, error<127>.
+  Error in 'bindfunc' pragma<bool CritterCl::IsDmgArm()      -> client_parameters.dll Critter_IsDmgArm    >, dll not found, error<127>.
+  ... and 98 more errors
+
+client_interface:
+  ./client_gui_ex.fos(1012) : ERROR : Identifier 'CritterCl' is not a data type.
+  ./client_gui_ex.fos(1021) : ERROR : Identifier 'ItemCl' is not a data type.
+  ./lexems_h.fos(106) : ERROR : Identifier 'CritterCl' is not a data type.
+  ./lexems_h.fos(107) : ERROR : Identifier 'ItemCl' is not a data type.
+  ./lexems_h.fos(109) : ERROR : Identifier 'CritterCl' is not a data type.
+  ... and 177 more errors
+
+client_io:
+  ./client_gui_ex.fos(1012) : ERROR : Identifier 'CritterCl' is not a data type.
+  ./client_gui_ex.fos(1021) : ERROR : Identifier 'ItemCl' is not a data type.
+  client_io.fos(68) : ERROR : '__MouseX' is not declared.
+  client_io.fos(69) : ERROR : '__MouseY' is not declared.
+  ./sprite.fos(27) : ERROR : No matching signatures to 'LoadSprite(string&, int)'.
+  ... and 77 more errors
+
+client_main:
+  Error in 'bindfunc' pragma<void OpenURL(string@+) -> client_utils.dll OnlineStats_URL>, dll not found, error<0>.
+  ./client_gui_ex.fos(1012) : ERROR : Identifier 'CritterCl' is not a data type.
+  ./client_gui_ex.fos(1021) : ERROR : Identifier 'ItemCl' is not a data type.
+  ./prices_server_client.fos(43) : ERROR : Identifier 'CritterCl' is not a data type.
+  ./prices_server_client.fos(43) : ERROR : Identifier 'ItemCl' is not a data type.
+  ... and 200 more errors
+
+client_mapper_animation:
+  client_mapper_animation.fos(30) : ERROR : Identifier 'CritterCl' is not a data type.
+  client_mapper_animation.fos(30) : ERROR : Identifier 'ItemCl' is not a data type.
+  client_mapper_animation.fos(346) : ERROR : Identifier 'CritterCl' is not a data type.
+  client_mapper_animation.fos(346) : ERROR : Identifier 'ItemCl' is not a data type.
+  client_mapper_animation.fos(354) : ERROR : Identifier 'CritterCl' is not a data type.
+  ... and 8 more errors
+
+client_messages:
+  Error in 'bindfunc' pragma<void OnlineStats_URL(string@+) -> client_utils.dll OnlineStats_URL>, dll not found, error<0>.
+  client_messages.fos(133) : ERROR : Identifier 'CritterCl' is not a data type.
+  client_messages.fos(143) : ERROR : No matching signatures to 'GetMsgStr(const int, uint)'.
+  client_messages.fos(143) : ERROR : No matching signatures to 'ReplaceText(const int, string@&, string&)'.
+  client_messages.fos(151) : ERROR : No matching signatures to 'FormatTags(string&, string@&)'.
+  ... and 17 more errors
+
+client_online_stats:
+  Error in 'bindfunc' pragma<void OnlineStats_URL(string@+) -> client_utils.dll OnlineStats_URL>, dll not found, error<0>.
+  ./client_gui_ex.fos(1012) : ERROR : Identifier 'CritterCl' is not a data type.
+  ./client_gui_ex.fos(1021) : ERROR : Identifier 'ItemCl' is not a data type.
+  ./sprite.fos(27) : ERROR : No matching signatures to 'LoadSprite(string&, int)'.
+  ./sprite.fos(38) : ERROR : No matching signatures to 'LoadSprite(uint, uint8)'.
+  ... and 84 more errors
+
+client_recording:
+  Error in 'bindfunc' pragma<bool CritterCl::IsInjured()     -> client_parameters.dll Critter_IsInjured   >, dll not found, error<127>.
+  Error in 'bindfunc' pragma<bool CritterCl::IsDmgEye()      -> client_parameters.dll Critter_IsDmgEye    >, dll not found, error<127>.
+  Error in 'bindfunc' pragma<bool CritterCl::IsDmgLeg()      -> client_parameters.dll Critter_IsDmgLeg    >, dll not found, error<127>.
+  Error in 'bindfunc' pragma<bool CritterCl::IsDmgTwoLeg()   -> client_parameters.dll Critter_IsDmgTwoLeg >, dll not found, error<127>.
+  Error in 'bindfunc' pragma<bool CritterCl::IsDmgArm()      -> client_parameters.dll Critter_IsDmgArm    >, dll not found, error<127>.
+  ... and 11 more errors
+
+client_screen_picture:
+  client_screen_picture.fos(18) : ERROR : Identifier 'Sprite' is not a data type.
+  client_screen_picture.fos(22) : ERROR : Identifier 'IGUIScreenOpt' is not a data type.
+
+client_screens:
+  Error in 'bindfunc' pragma<bool CritterCl::IsInjured()     -> client_parameters.dll Critter_IsInjured   >, dll not found, error<127>.
+  Error in 'bindfunc' pragma<bool CritterCl::IsDmgEye()      -> client_parameters.dll Critter_IsDmgEye    >, dll not found, error<127>.
+  Error in 'bindfunc' pragma<bool CritterCl::IsDmgLeg()      -> client_parameters.dll Critter_IsDmgLeg    >, dll not found, error<127>.
+  Error in 'bindfunc' pragma<bool CritterCl::IsDmgTwoLeg()   -> client_parameters.dll Critter_IsDmgTwoLeg >, dll not found, error<127>.
+  Error in 'bindfunc' pragma<bool CritterCl::IsDmgArm()      -> client_parameters.dll Critter_IsDmgArm    >, dll not found, error<127>.
+  ... and 48 more errors
+
+client_smart_cursor:
+  client_smart_cursor.fos(18) : ERROR : Identifier 'ItemCl' is not a data type.
+  client_smart_cursor.fos(18) : ERROR : Identifier 'ItemCl' is not a data type.
+  client_smart_cursor.fos(20) : ERROR : Object handle is not supported for this type.
+  client_smart_cursor.fos(20) : ERROR : Expression must be of boolean type.
+  client_smart_cursor.fos(22) : ERROR : 'Proto' is not a member of 'int'.
+  ... and 31 more errors
+
+client_spawn_npc:
+  ./client_gui_ex.fos(1012) : ERROR : Identifier 'CritterCl' is not a data type.
+  ./client_gui_ex.fos(1021) : ERROR : Identifier 'ItemCl' is not a data type.
+  ./sprite.fos(27) : ERROR : No matching signatures to 'LoadSprite(string&, int)'.
+  ./sprite.fos(38) : ERROR : No matching signatures to 'LoadSprite(uint, uint8)'.
+  ./sprite.fos(44) : ERROR : No matching signatures to 'GetIfaceIniStr(string&)'.
+  ... and 53 more errors
+
+client_timeouts:
+  Error in 'bindfunc' pragma<bool CritterCl::IsInjured()     -> client_parameters.dll Critter_IsInjured   >, dll not found, error<127>.
+  Error in 'bindfunc' pragma<bool CritterCl::IsDmgEye()      -> client_parameters.dll Critter_IsDmgEye    >, dll not found, error<127>.
+  Error in 'bindfunc' pragma<bool CritterCl::IsDmgLeg()      -> client_parameters.dll Critter_IsDmgLeg    >, dll not found, error<127>.
+  Error in 'bindfunc' pragma<bool CritterCl::IsDmgTwoLeg()   -> client_parameters.dll Critter_IsDmgTwoLeg >, dll not found, error<127>.
+  Error in 'bindfunc' pragma<bool CritterCl::IsDmgArm()      -> client_parameters.dll Critter_IsDmgArm    >, dll not found, error<127>.
+  ... and 23 more errors
+
+client_utils:
+  client_utils.fos(32) : ERROR : No matching signatures to 'ReplaceText(string&, string@&, string@&)'.
+  client_utils.fos(33) : ERROR : No matching signatures to 'ReplaceText(string&, string@&, string@&)'.
+  client_utils.fos(34) : ERROR : No matching signatures to 'ReplaceText(string&, string@&, string@&)'.
+  client_utils.fos(35) : ERROR : No matching signatures to 'ReplaceText(string&, string@&, string@&)'.
+  client_utils.fos(36) : ERROR : No matching signatures to 'ReplaceText(string&, string@&, string@&)'.
+  ... and 21 more errors
+
+devconnect:
+  Error in 'bindfunc' pragma<void dummy_devconnect() -> DevConnect.dll SERVER>, dll not found, error<126>.
+  devconnect.fos(45) : ERROR : Identifier 'DevClient' is not a data type.
+  devconnect.fos(50) : ERROR : Identifier 'DevClient' is not a data type.
+  devconnect.fos(20) : ERROR : No matching signatures to 'DevConnectInit(string&, uint)'.
+  devconnect.fos(20) : ERROR : No conversion from 'int' to 'bool' available..
+  ... and 3 more errors
+
+dialog_reputations:
+  dialog_reputations.fos(31) : ERROR : No matching signatures to 'DLog(string@&)'.
+  dialog_reputations.fos(32) : ERROR : 'Reputation' is not a member of 'Critter'.
+  dialog_reputations.fos(38) : ERROR : 'ReputationBase' is not a member of 'Critter'.
+  dialog_reputations.fos(49) : ERROR : No matching signatures to 'DLog(string@&)'.
+  dialog_reputations.fos(50) : ERROR : 'Reputation' is not a member of 'Critter'.
+  ... and 24 more errors
+
+drugs_data:
+  drugs_data.fos(10) : ERROR : 'PID_STIMPAK' is not declared.
+  drugs_data.fos(10) : ERROR : 'PID_RADAWAY' is not declared.
+  drugs_data.fos(10) : ERROR : 'PID_ANTIDOTE' is not declared.
+  drugs_data.fos(10) : ERROR : 'PID_RAD_X' is not declared.
+  drugs_data.fos(10) : ERROR : 'PID_SUPER_STIMPAK' is not declared.
+  ... and 111 more errors
+
+faction_data:
+  ./factions_names.fos(54) : ERROR : A function with the same name and parameters already exists.
+  ./factions_names.fos(131) : ERROR : A function with the same name and parameters already exists.
+  ./factions_names.fos(141) : ERROR : A function with the same name and parameters already exists.
+  faction_data.fos(723) : ERROR : A function with the same name and parameters already exists.
+  faction_data.fos(792) : ERROR : A function with the same name and parameters already exists.
+  ... and 88 more errors
+
+factions_names:
+  factions_names.fos(77) : ERROR : 'REGRESULT_ALREADY_TAKEN' is not declared.
+  factions_names.fos(82) : ERROR : 'REGRESULT_WRONG_NAME' is not declared.
+  factions_names.fos(85) : ERROR : 'REGRESULT_ALREADY_TAKEN' is not declared.
+  factions_names.fos(90) : ERROR : 'REGRESULT_SUCCESS' is not declared.
+
+factions_news:
+  factions_news.fos(31) : ERROR : No matching signatures to 'WLog(string@&, string@&)'.
+
+fixboy:
+  fixboy.fos(728) : ERROR : No matching signatures to 'Buffer::AsUint16()'.
+  fixboy.fos(728) : ERROR : Can't implicitly convert from 'const int' to 'const uint16[]&'..
+
+fo2077_client_screen_gameinfo:
+  Error in 'bindfunc' pragma<bool CritterCl::IsInjured()     -> client_parameters.dll Critter_IsInjured   >, dll not found, error<127>.
+  Error in 'bindfunc' pragma<bool CritterCl::IsDmgEye()      -> client_parameters.dll Critter_IsDmgEye    >, dll not found, error<127>.
+  Error in 'bindfunc' pragma<bool CritterCl::IsDmgLeg()      -> client_parameters.dll Critter_IsDmgLeg    >, dll not found, error<127>.
+  Error in 'bindfunc' pragma<bool CritterCl::IsDmgTwoLeg()   -> client_parameters.dll Critter_IsDmgTwoLeg >, dll not found, error<127>.
+  Error in 'bindfunc' pragma<bool CritterCl::IsDmgArm()      -> client_parameters.dll Critter_IsDmgArm    >, dll not found, error<127>.
+  ... and 57 more errors
+
+fo2077_client_screen_tag:
+  Error in 'bindfunc' pragma<bool CritterCl::IsInjured()     -> client_parameters.dll Critter_IsInjured   >, dll not found, error<127>.
+  Error in 'bindfunc' pragma<bool CritterCl::IsDmgEye()      -> client_parameters.dll Critter_IsDmgEye    >, dll not found, error<127>.
+  Error in 'bindfunc' pragma<bool CritterCl::IsDmgLeg()      -> client_parameters.dll Critter_IsDmgLeg    >, dll not found, error<127>.
+  Error in 'bindfunc' pragma<bool CritterCl::IsDmgTwoLeg()   -> client_parameters.dll Critter_IsDmgTwoLeg >, dll not found, error<127>.
+  Error in 'bindfunc' pragma<bool CritterCl::IsDmgArm()      -> client_parameters.dll Critter_IsDmgArm    >, dll not found, error<127>.
+  ... and 70 more errors
+
+foart:
+  foart.fos(165) : ERROR : No matching signatures to 'Buffer::IsRaw(const int)'.
+  foart.fos(165) : ERROR : Expression must be of boolean type.
+  ./foart_addons.fos(135) : ERROR : No matching signatures to 'string::resize(uint)'.
+  ./foart_addons.fos(136) : ERROR : No matching signatures to 'string::set_opIndex(uint, uint8)'.
+  ./foart_addons.fos(207) : ERROR : No matching signatures to 'Buffer::IsRaw(const int)'.
+  ... and 3 more errors
+
+foart_2238:
+  foart_2238.fos(58) : ERROR : Identifier 'Buffer' is not a data type.
+  foart_2238.fos(25) : ERROR : No matching signatures to 'valid(Item@&)'.
+  foart_2238.fos(25) : ERROR : Expression must be of boolean type.
+  foart_2238.fos(34) : ERROR : No matching signatures to 'valid(Critter@&)'.
+  foart_2238.fos(34) : ERROR : No matching signatures to 'valid(Item@&)'.
+  ... and 4 more errors
+
+foart_addons:
+  foart_addons.fos(58) : ERROR : Identifier 'FOART_AddonPreSpawn' is not a data type.
+  foart_addons.fos(66) : ERROR : Identifier 'FOART_AddonPostSpawn' is not a data type.
+  foart_addons.fos(74) : ERROR : Identifier 'Buffer' is not a data type.
+  foart_addons.fos(84) : ERROR : Identifier 'Buffer' is not a data type.
+  foart_addons.fos(95) : ERROR : Identifier 'FOArtAddon' is not a data type.
+  ... and 50 more errors
+
+foart_client:
+  foart_client.fos(32) : ERROR : Identifier 'FOArt' is not a data type.
+
+foart_mapper:
+  foart_mapper.fos(21) : ERROR : Identifier 'MapperMap' is not a data type.
+  foart_mapper.fos(23) : ERROR : Identifier 'MapperMap' is not a data type.
+  foart_mapper.fos(33) : ERROR : Identifier 'MapperMap' is not a data type.
+  foart_mapper.fos(40) : ERROR : Identifier 'MapperObject' is not a data type.
+
+foart_server:
+  foart_server.fos(47) : ERROR : Identifier 'FOArt' is not a data type.
+  foart_server.fos(206) : ERROR : Identifier 'FOArt' is not a data type.
+  foart_server.fos(33) : ERROR : Identifier 'FOArt' is not a data type.
+  foart_server.fos(49) : ERROR : Object handle is not supported for this type.
+  foart_server.fos(78) : ERROR : Identifier 'FOArtDefinition' is not a data type.
+  ... and 9 more errors
+
+gmtools_csc:
+  gmtools_csc.fos(269) : ERROR : 'null_data' is not declared.
+  gmtools_csc.fos(269) : ERROR : 'GMT_STATUS_DENIED' is not declared.
+  gmtools_csc.fos(270) : ERROR : No matching signatures to 'LogCommandUsage(Critter&, string@&)'.
+
+ini_parser:
+  ini_parser.fos(17) : ERROR : No matching signatures to 'GetIfaceIniStr(string&)'.
+  ini_parser.fos(17) : ERROR : Can't implicitly convert from 'const int' to 'string@&'..
+  ini_parser.fos(37) : ERROR : No matching signatures to 'GetIfaceIniStr(string&)'.
+  ini_parser.fos(37) : ERROR : Can't implicitly convert from 'const int' to 'string@&'..
+  ini_parser.fos(67) : ERROR : No matching signatures to 'GetIfaceIniStr(string&)'.
+  ... and 1 more errors
+
+itempid:
+  ./itempid_h.fos(290) : ERROR : Unexpected token '<identifier>'.
+
+junktown_skumpitt:
+  junktown_skumpitt.fos(25) : ERROR : No matching signatures to 'GetNearFullSecond(const int, const int, const int, const int, const int, const int)'.
+  junktown_skumpitt.fos(41) : ERROR : No matching signatures to '_ReturnTime(const int, const int)'.
+  junktown_skumpitt.fos(51) : ERROR : No matching signatures to '_ReturnTime(const int, const int)'.
+
+map_domination:
+  Unable to preprocess. Errors:
+  domination_h.fos (0) Error: Could not open file ./domination_h.fos
+
+map_newreno:
+  map_newreno.fos(187) : ERROR : No matching signatures to 'Critter::GetSocket()'.
+
+map_raiders_farmhome:
+  Error in 'bindfunc' pragma<void Dummy() -> Backend.dll Dummy>, dll not found, error<126>.
+
+map_rq_cave:
+  map_rq_cave.fos(47) : ERROR : 'CAVE_ENTIRE_ITEM' is not declared.
+
+map_sad:
+  map_sad.fos(616) : ERROR : 'MSG_SENTRY_BOT_ATTACK' is not declared.
+  map_sad.fos(729) : ERROR : 'MSG_SENTRY_BOT_ATTACK' is not declared.
+  map_sad.fos(740) : ERROR : 'MSG_SENTRY_BOT_ATTACK' is not declared.
+  map_sad.fos(740) : ERROR : Expression must be of boolean type.
+
+map_vault24:
+  map_vault24.fos(74) : ERROR : 'LOCATION_Vault24' is not declared.
+
+mapper_autowall:
+  mapper_autowall.fos(73) : ERROR : Identifier 'MapperObject' is not a data type.
+  mapper_autowall.fos(46) : ERROR : Identifier 'MapperObject' is not a data type.
+  ./sprite.fos(27) : ERROR : No matching signatures to 'LoadSprite(string&, int)'.
+  ./sprite.fos(38) : ERROR : No matching signatures to 'LoadSprite(uint, uint8)'.
+  ./sprite.fos(44) : ERROR : No matching signatures to 'GetIfaceIniStr(string&)'.
+  ... and 108 more errors
+
+mapper_crtypes:
+  Error in 'bindfunc' pragma<int MapperObject::CritterCl_GetParam(uint16) -> MapperUtils.dll MapObject_CritterCl_GetParam>, dll not found, error<127>.
+  Error in 'bindfunc' pragma<void MapperObject::CritterCl_SetBaseType(uint) -> MapperUtils.dll MapObject_CritterCl_SetBaseType>, dll not found, error<127>.
+  Error in 'bindfunc' pragma<uint MapperObject::CritterCl_GetBaseType() -> MapperUtils.dll MapObject_CritterCl_SetBaseType>, dll not found, error<127>.
+  mapper_crtypes.fos(207) : ERROR : Identifier 'MapperObject' is not a data type.
+  mapper_crtypes.fos(36) : ERROR : Identifier 'MapperObject' is not a data type.
+  ... and 73 more errors
+
+mapper_generators:
+  mapper_generators.fos(625) : ERROR : Identifier 'MapperMap' is not a data type.
+  mapper_generators.fos(749) : ERROR : Identifier 'MapperMap' is not a data type.
+  mapper_generators.fos(637) : ERROR : Illegal operation on 'int'.
+  mapper_generators.fos(639) : ERROR : Illegal operation on 'int'.
+  mapper_generators.fos(641) : ERROR : Illegal operation on 'int'.
+  ... and 3 more errors
+
+mapper_grid:
+  ./mapper_utils_h.fos(12) : ERROR : Identifier 'MapperMap' is not a data type.
+  mapper_grid.fos(49) : ERROR : Identifier 'MapperMap' is not a data type.
+  mapper_grid.fos(225) : ERROR : No matching signatures to 'Message(string@&)'.
+
+mapper_gui:
+  ./sprite.fos(27) : ERROR : No matching signatures to 'LoadSprite(string&, int)'.
+  ./sprite.fos(38) : ERROR : No matching signatures to 'LoadSprite(uint, uint8)'.
+  ./sprite.fos(44) : ERROR : No matching signatures to 'GetIfaceIniStr(string&)'.
+  ./sprite.fos(44) : ERROR : Can't implicitly convert from 'const int' to 'string@&'..
+  ./sprite.fos(46) : ERROR : No matching signatures to 'LoadSprite(string@&, int)'.
+  ... and 22 more errors
+
+mapper_main:
+  ./mapper_utils_h.fos(12) : ERROR : Identifier 'MapperMap' is not a data type.
+  mapper_main.fos(591) : ERROR : Identifier 'MapperObject' is not a data type.
+  mapper_main.fos(69) : ERROR : No matching signatures to 'SetDefaultCritterParam(const int, const int)'.
+  mapper_main.fos(70) : ERROR : No matching signatures to 'SetDefaultCritterParam(const int, const int)'.
+  mapper_main.fos(71) : ERROR : No matching signatures to 'SetDefaultCritterParam(const int, const int)'.
+  ... and 304 more errors
+
+mapper_tilemap:
+  ./mapper_utils_h.fos(12) : ERROR : Identifier 'MapperMap' is not a data type.
+  mapper_tilemap.fos(74) : ERROR : Object handle is not supported for this type.
+  mapper_tilemap.fos(74) : ERROR : Expression must be of boolean type.
+  mapper_tilemap.fos(77) : ERROR : No matching signatures to 'DrawText(string@&, const int, const int, const int, const int, const uint, const int, const uint)'.
+  mapper_tilemap.fos(87) : ERROR : '__ServerPath' is not declared.
+  ... and 5 more errors
+
+mapper_utils:
+  mapper_utils.fos(17) : ERROR : Identifier 'MapperMap' is not a data type.
+  mapper_utils.fos(19) : ERROR : Identifier 'MapperMap' is not a data type.
+  mapper_utils.fos(43) : ERROR : No matching signatures to 'MoveHexByDir(uint16, uint16, uint, const int)'.
+  mapper_utils.fos(47) : ERROR : No matching signatures to 'MoveHexByDir(uint16, uint16, uint, const int)'.
+  mapper_utils.fos(50) : ERROR : No matching signatures to 'GetHexPos(uint16, uint16, int, int)'.
+  ... and 9 more errors
+
+mob_wave_data:
+  mob_wave_data.fos(27) : ERROR : 'STR_MOB_WAVE_RATS' is not declared.
+  mob_wave_data.fos(28) : ERROR : 'NPC_PID_Rat' is not declared.
+  mob_wave_data.fos(31) : ERROR : 'STR_MOB_WAVE_ANTS' is not declared.
+  mob_wave_data.fos(32) : ERROR : 'NPC_PID_GiantAnt' is not declared.
+  mob_wave_data.fos(35) : ERROR : 'STR_MOB_WAVE_MANTIS' is not declared.
+  ... and 25 more errors
+
+multihex_data:
+  multihex_data.fos(57) : ERROR : No matching signatures to 'MHEX_MOVE(const int, const int, const int, const int)'.
+  multihex_data.fos(57) : ERROR : 'MHEX_BLOCK_NOTHING' is not declared.
+  multihex_data.fos(57) : ERROR : 'MHEX_BLOCK_WALKING' is not declared.
+  multihex_data.fos(58) : ERROR : No matching signatures to 'MHEX_MOVE(const int, const int, const int, const int)'.
+  multihex_data.fos(59) : ERROR : No matching signatures to 'MHEX_MOVE(const int, const int, const int, const int)'.
+  ... and 49 more errors
+
+npc_schedule:
+  npc_schedule.fos(565) : ERROR : Not a valid reference.
+  npc_schedule.fos(565) : ERROR : No default constructor for object of type 'FTaskAction'..
+  npc_schedule.fos(565) : ERROR : Previous error occurred while attempting to create a temporary copy of object.
+  npc_schedule.fos(566) : ERROR : Not a valid reference.
+  npc_schedule.fos(566) : ERROR : No default constructor for object of type 'FTaskAction'..
+  ... and 46 more errors
+
+npc_schedule_action:
+  npc_schedule_action.fos(44) : ERROR : Identifier 'INpcTaskAction' is not a data type.
+  npc_schedule_action.fos(44) : ERROR : Identifier 'INpcTaskInstance' is not a data type.
+  npc_schedule_action.fos(131) : ERROR : Identifier 'INpcTaskAction' is not a data type.
+  npc_schedule_action.fos(131) : ERROR : Identifier 'INpcTaskInstance' is not a data type.
+  npc_schedule_action.fos(211) : ERROR : Identifier 'INpcTaskAction' is not a data type.
+  ... and 75 more errors
+
+npc_schedule_instance:
+  npc_schedule_instance.fos(29) : ERROR : Identifier 'CNpcSchedule' is not a data type.
+  npc_schedule_instance.fos(50) : ERROR : Identifier 'INpcSchedule' is not a data type.
+  npc_schedule_instance.fos(66) : ERROR : Identifier 'CNpcSchedule' is not a data type.
+  npc_schedule_instance.fos(248) : ERROR : Identifier 'Buffer' is not a data type.
+  npc_schedule_instance.fos(270) : ERROR : Identifier 'Buffer' is not a data type.
+  ... and 120 more errors
+
+npc_schedules:
+  npc_schedules.fos(97) : ERROR : Identifier 'INpcSchedule' is not a data type.
+  npc_schedules.fos(86) : ERROR : Identifier 'INpcSchedule' is not a data type.
+  npc_schedules.fos(99) : ERROR : Identifier 'CNpcSchedule' is not a data type.
+  npc_schedules.fos(118) : ERROR : Identifier 'CNpcSchedule' is not a data type.
+  npc_schedules.fos(142) : ERROR : Identifier 'INpcSchedule' is not a data type.
+  ... and 4 more errors
+
+npc_travel:
+  npc_travel.fos(334) : ERROR : A function with the same name and parameters already exists.
+  npc_travel.fos(589) : ERROR : No matching signatures to 'Map::FindNearestGridApprox(uint16, uint16)'.
+  npc_travel.fos(589) : ERROR : Expression must be of boolean type.
+
+player_CTF:
+  player_CTF.fos(42) : ERROR : 'COLOR_TEAL' is not declared.
+
+prices_server_client:
+  prices_server_client.fos(59) : ERROR : A function with the same name and parameters already exists.
+  prices_server_client.fos(165) : ERROR : A function with the same name and parameters already exists.
+  prices_server_client.fos(212) : ERROR : A function with the same name and parameters already exists.
+  prices_server_client.fos(219) : ERROR : A function with the same name and parameters already exists.
+  prices_server_client.fos(224) : ERROR : A function with the same name and parameters already exists.
+  ... and 14 more errors
+
+pvp_small1:
+  pvp_small1.fos(59) : ERROR : 'COLOR_TEAL' is not declared.
+
+quest_bigevent:
+  quest_bigevent.fos(59) : ERROR : 'COLOR_TEAL' is not declared.
+
+quest_raiders:
+  quest_raiders.fos(24) : ERROR : 'LOCATION_Farmhome' is not declared.
+
+quest_railgang:
+  quest_railgang.fos(26) : ERROR : 'LOCATION_RailLineGang' is not declared.
+
+quest_tanker:
+  Error in 'bindfunc' pragma<void Dummy() -> Backend.dll Dummy>, dll not found, error<126>.
+  quest_tanker.fos(38) : ERROR : 'LOCATION_StrandedTanker' is not declared.
+
+quest_zomb:
+  quest_zomb.fos(57) : ERROR : 'COLOR_TEAL' is not declared.
+  quest_zomb.fos(82) : ERROR : 'MAP_DATA_GHOUL_HORDE_OWNER' is not declared.
+  quest_zomb.fos(121) : ERROR : 'MAP_DATA_GHOUL_HORDE' is not declared.
+  quest_zomb.fos(140) : ERROR : 'MAP_DATA_GHOUL_HORDE' is not declared.
+  quest_zomb.fos(151) : ERROR : 'MAP_DATA_GHOUL_HORDE_OWNER' is not declared.
+
+quests:
+  Unable to preprocess. Errors:
+  changes_queue_h.fos (0) Error: Could not open file ./changes_queue_h.fos
+
+raiders_gomes:
+  raiders_gomes.fos(50) : ERROR : No matching signatures to 'MoveTo(Critter&, const int, const int, const int, const bool)'.
+
+reputations_tables:
+  reputations_tables.fos(12) : ERROR : 'FACTION_ENCLAVE' is not declared.
+  reputations_tables.fos(13) : ERROR : 'FACTION_UNITY' is not declared.
+  reputations_tables.fos(14) : ERROR : 'FACTION_NCR' is not declared.
+  reputations_tables.fos(15) : ERROR : 'FACTION_RAIDERS' is not declared.
+  reputations_tables.fos(16) : ERROR : 'FACTION_NCR_RANGERS' is not declared.
+  ... and 1607 more errors
+
+scypior_radiation:
+  scypior_radiation.fos(104) : ERROR : No matching signatures to 'push_back(uint[], uint)'.
+  scypior_radiation.fos(105) : ERROR : No matching signatures to 'push_back(int[], int)'.
+  scypior_radiation.fos(120) : ERROR : 'RadiationLevel' is not a member of 'Critter'.
+  scypior_radiation.fos(120) : ERROR : Expression must be of boolean type.
+  scypior_radiation.fos(124) : ERROR : 'CRITTER_CONDITION_DEAD_BURN' is not declared.
+  ... and 41 more errors
+
+server_fixboy:
+  ./fixboy.fos(728) : ERROR : No matching signatures to 'Buffer::AsUint16()'.
+  ./fixboy.fos(728) : ERROR : Can't implicitly convert from 'const int' to 'const uint16[]&'..
+
+setentry:
+  setentry.fos(85) : ERROR : No matching signatures to 'append_array(uint[], uint[]&)'.
+  setentry.fos(89) : ERROR : No matching signatures to 'append_array(uint[], uint[]&)'.
+
+slaverun_init:
+  slaverun_init.fos(14) : ERROR : Expected identifier.
+  slaverun_init.fos(40) : ERROR : Expected identifier.
+  slaverun_init.fos(42) : ERROR : Expected identifier.
+  slaverun_init.fos(69) : ERROR : Expected identifier.
+  slaverun_init.fos(71) : ERROR : Expected identifier.
+  ... and 3 more errors
+
+sleepiness:
+  sleepiness.fos(123) : ERROR : No matching signatures to 'Critter::GetSocket()'.
+  sleepiness.fos(130) : ERROR : No matching signatures to 'Critter::GetSocket()'.
+  sleepiness.fos(137) : ERROR : No matching signatures to 'Critter::GetSocket()'.
+  sleepiness.fos(167) : ERROR : No matching signatures to 'Critter::GetSocket()'.
+  sleepiness.fos(172) : ERROR : No matching signatures to 'Critter::GetSocket()'.
+  ... and 9 more errors
+
+smartcursor:
+  smartcursor.fos(160) : ERROR : Identifier 'ItemCl' is not a data type.
+  smartcursor.fos(160) : ERROR : Identifier 'CritterCl' is not a data type.
+  smartcursor.fos(199) : ERROR : Identifier 'CritterCl' is not a data type.
+  smartcursor.fos(1) : ERROR : 'FT_BORDERED' is not declared.
+  smartcursor.fos(39) : ERROR : Failed while compiling default arg for parameter 6 in function 'void SmartCursor::DrawInfo(bool, bool = true, int = 2, int = - 12, uint = 0, int = FONT_FALLOUT, int = FT_BORDERED)'.
+  ... and 33 more errors
+
+special_map_objects_floor:
+  special_map_objects_floor.fos(25) : ERROR : Identifier 'ITogglableSMO' is not a data type.
+  special_map_objects_floor.fos(23) : ERROR : Identifier 'ISearchingCallback' is not a data type.
+  special_map_objects_floor.fos(576) : ERROR : Identifier 'ITogglableSMO' is not a data type.
+  special_map_objects_floor.fos(62) : ERROR : Object handle is not supported for this type.
+  special_map_objects_floor.fos(64) : ERROR : Object handle is not supported for this type.
+  ... and 131 more errors
+
+special_map_objects_forcefield:
+  special_map_objects_forcefield.fos(159) : ERROR : Identifier 'ITogglableSMO' is not a data type.
+  special_map_objects_forcefield.fos(157) : ERROR : Identifier 'ISearchingCallback' is not a data type.
+  special_map_objects_forcefield.fos(878) : ERROR : Identifier 'ITogglableSMO' is not a data type.
+  special_map_objects_forcefield.fos(54) : ERROR : 'PID_FORCEFIELD_YELLOW_1' is not declared.
+  special_map_objects_forcefield.fos(54) : ERROR : 'PID_FORCEFIELD_YELLOW_2' is not declared.
+  ... and 292 more errors
+
+special_map_objects_steam:
+  special_map_objects_steam.fos(16) : ERROR : Identifier 'ITogglableSMO' is not a data type.
+  special_map_objects_steam.fos(14) : ERROR : Identifier 'ISearchingCallback' is not a data type.
+  special_map_objects_steam.fos(172) : ERROR : Identifier 'ITogglableSMO' is not a data type.
+  special_map_objects_steam.fos(42) : ERROR : 'PID_TANKER_STEAM' is not declared.
+  special_map_objects_steam.fos(42) : ERROR : Object handle is not supported for this type.
+  ... and 47 more errors
+
+sprite:
+  sprite.fos(27) : ERROR : No matching signatures to 'LoadSprite(string&, int)'.
+  sprite.fos(38) : ERROR : No matching signatures to 'LoadSprite(uint, uint8)'.
+  sprite.fos(44) : ERROR : No matching signatures to 'GetIfaceIniStr(string&)'.
+  sprite.fos(44) : ERROR : Can't implicitly convert from 'const int' to 'string@&'..
+  sprite.fos(46) : ERROR : No matching signatures to 'LoadSprite(string@&, int)'.
+  ... and 4 more errors
+
+tests_astl:
+  Error in 'bindfunc' pragma<void Dummy() -> ASTL.dll Dummy>, dll not found, error<126>.
+  tests_astl.fos(15) : ERROR : Expected '('.
+
+triggers_funcs:
+  triggers_funcs.fos(17) : ERROR : Identifier 'TRIGGER_FUNC' is not a data type.
+  triggers_funcs.fos(19) : ERROR : Can't implicitly convert from '<null handle>' to 'int&'..
+  triggers_funcs.fos(20) : ERROR : Can't implicitly convert from '<null handle>' to 'int&'..
+  triggers_funcs.fos(21) : ERROR : Can't implicitly convert from '<null handle>' to 'int&'..
+  triggers_funcs.fos(22) : ERROR : Can't implicitly convert from '<null handle>' to 'int&'..
+  ... and 10 more errors
+
+weather_radiation:
+  weather_radiation.fos(52) : ERROR : No matching signatures to 'Present(const int, int[])'.
+  weather_radiation.fos(52) : ERROR : No conversion from 'int' to 'bool' available..
+
+weather_rain_table:
+  weather_rain_table.fos(10) : ERROR : 'RAIN_OUTSIDE' is not declared.
+
+worldmap:
+  Error in 'bindfunc' pragma<void Dummy() -> Backend.dll Dummy>, dll not found, error<126>.
+  worldmap.fos(2018) : ERROR : 'LOCATION_SecretBunker' is not declared.
+  worldmap.fos(2021) : ERROR : 'LOCATION_SecretTreasure' is not declared.
+  worldmap.fos(2023) : ERROR : 'LOCATION_Howitzer' is not declared.
+  worldmap.fos(2046) : ERROR : 'LOCATION_Ambush' is not declared.
+
+worldmap_data:
+  worldmap_data.fos(58) : ERROR : Identifier 'CZone' is not a data type.

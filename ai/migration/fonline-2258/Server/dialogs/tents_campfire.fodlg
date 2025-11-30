@@ -1,0 +1,359 @@
+[comment]
+
+
+[data]
+lang=engl
+
+[dialog]
+&
+1 1000 None 1 #
+1000 1010 D _script map_tent@d_IsTentOwner 0  D _param p ST_VAR9 = 1 #
+5 1020 @
+5 2000 None 0 #
+13 2010 D _param p SK_OUTDOORSMAN > 49 #
+12 2020 D _param p SK_OUTDOORSMAN < 49 #
+303 2030 D _var p z_dailyq1 = 51 D _script dialog@d_CommonTimeoutReady 0  #
+301 2040 D _var p z_dailyq1 = 49 #
+294 2050 D _var p z_dailyq1 = 36 #
+256 2060 D _var p z_dailyq1 = 24 #
+214 2070 D _var p z_dailyq1 = 10 #
+200 2080 D _var p z_dailyq1 = 0 D _param p ST_LEVEL > 23 #
+10 2090 D _script map_tent@d_IsTentOwner 0  #
+5 2100 R _script map_tent@r_ThrowSomething 0  #
+30 2110 #
+6 2120 D _script map_tent@d_KnowLocation 0  D _script map_tent@d_IsNotTentOwner 0  R _script map_tent@r_ForgetLocation 0  #
+0 2130 @
+6 3000 None 0 #
+0 3010 @
+10 4000 None 1 #
+10 4010 D _script map_tent@d_IsTentOwner 0  R _script map_tent@r_TentName 0  #
+10 4020 D _script map_tent@d_IsTentOwner 0  R _script map_tent@r_CreateMap 0  #
+11 4030 D _script map_tent@d_IsUpgradeAvailable 1 571 #
+0 4040 D _script map_tent@d_IsTentOwner 0  R _script map_tent@r_AbandonTent 0  #
+0 4050 @
+11 5000 None 0 #
+110 5010 D _script map_tent@d_IsTentOwner 0  D _script map_tent@d_IsUpgradeAvailable 1 571 #
+10 5020 @
+110 6000 None 1 #
+10 6010 D _script map_tent@d_IsTentOwner 0  D _script map_tent@d_IsUpgradeAvailable 1 571 D _item p PID_FIREWOOD } 2 D _item p PID_MULTI_TOOL } 1 R _script map_tent@r_InstallUpgrade 1 571 R _item p PID_FIREWOOD - 2 R _item p PID_MULTI_TOOL - 1 #
+11 6020 @
+1000 7000 None 1 #
+0 7010 D _script map_tent@d_IsTentOwner 0  R _script map_tent@r_AbandonTent 0  #
+0 7020 @
+200 8000 None 0 #
+201 8010 D _item p PID_BRAHMIN_HIDE = 0 #
+202 8020 D _item p PID_BRAHMIN_HIDE > 0 @
+201 9000 None 0 @
+202 10000 None 0 #
+203 10010 @
+203 11000 None 0 #
+204 11010 @
+204 12000 None 0 #
+205 12010 @
+205 13000 None 0 #
+206 13010 #
+207 13020 #
+208 13030 #
+209 13040 #
+210 13050 #
+211 13060 @
+206 14000 None 0 #
+212 14010 @
+207 15000 None 0 #
+212 15010 @
+208 16000 None 0 #
+212 16010 @
+209 17000 None 0 #
+212 17010 @
+210 18000 None 0 #
+212 18010 @
+211 19000 None 0 #
+212 19010 @
+212 20000 None 0 #
+213 20010 R _var p z_dailyq1 = 1 @
+213 21000 None 0 @
+214 22000 None 0 #
+215 22010 @
+215 23000 None 0 #
+216 23010 @
+216 24000 None 0 #
+217 24010 @
+217 25000 None 0 #
+218 25010 @
+218 26000 None 0 #
+218 26010 R _script dialog@r_JumpToRandomNode 3 22 25 10 @
+220 27000 None 0 #
+251 27010 D _item p PID_FLINT > 0 R _item p PID_FLINT - 1 @
+230 28000 None 0 #
+251 28010 D _item p PID_METAL_ORE > 0 R _item p PID_METAL_ORE - 1 @
+240 29000 None 0 #
+251 29010 D _item p PID_PUMP_PARTS > 0 R _item p PID_PUMP_PARTS - 1 @
+250 30000 None 0 #
+251 30010 D _item p PID_FIREWOOD > 0 R _item p PID_FIREWOOD - 1 @
+251 31000 None 0 #
+252 31010 @
+252 32000 None 0 #
+253 32010 R _var p z_dailyq1 = 11 @
+253 33000 None 0 @
+254 34000 None 0 #
+255 34010 D _item p PID_BRAHMIN_HIDE < 0 #
+256 34020 D _item p PID_BRAHMIN_HIDE > 0 @
+255 35000 None 0 @
+256 36000 None 0 #
+256 36010 R _script dialog@r_JumpToRandomNode 3 26 29 10 @
+260 37000 None 0 #
+291 37010 D _item p PID_FLINT > 0 R _item p PID_FLINT - 1 @
+270 38000 None 0 #
+291 38010 D _item p PID_METAL_ORE > 0 R _item p PID_METAL_ORE - 1 @
+280 39000 None 0 #
+291 39010 D _item p PID_PUMP_PARTS > 0 R _item p PID_PUMP_PARTS - 1 @
+290 40000 None 0 #
+291 40010 D _item p PID_FIREWOOD > 0 R _item p PID_FIREWOOD - 1 @
+291 41000 None 0 #
+292 41010 @
+292 42000 None 0 #
+293 42010 R _var p z_dailyq1 = 25 @
+293 43000 None 0 @
+294 44000 None 0 #
+297 44010 D _item p PID_BRAHMIN_HIDE > 0 #
+295 44020 D _item p PID_BRAHMIN_HIDE < 0 @
+295 45000 None 0 #
+296 45010 @
+296 46000 None 0 @
+297 47000 None 0 #
+298 47010 @
+298 48000 None 0 #
+299 48010 @
+299 49000 None 0 #
+300 49010 R _var p z_dailyq1 = 37 R _param p ST_EXPERIENCE + 1000 @
+300 50000 None 0 @
+301 51000 None 0 #
+302 51010 R _var p z_dailyq1 = 50 R _script dialog@r_CommonTimeout 1 6 @
+302 52000 None 0 @
+303 53000 None 0 #
+200 53010 D _item p PID_MR_NIXON_DOLL > 0 R _item p PID_MR_NIXON_DOLL - 1 #
+213 53020 @
+12 54000 None 0 @
+13 55000 None 0 #
+14 55010 D _item p PID_MEAT > 2 D _item p PID_FIREWOOD > 0 R _item p PID_MEAT - 3 R _item p PID_FIREWOOD - 1 #
+5 55020 @
+14 56000 None 0 #
+15 56010 #
+16 56020 @
+15 57000 None 0 #
+17 57010 D _item p PID_XANDER_ROOT > 0 D _item p PID_BROC_FLOWER > 0 R _item p PID_XANDER_ROOT - 1 R _item p PID_BROC_FLOWER - 1 R _script dialog@r_Roll 4 1 2 2 20 #
+17 57020 D _item p PID_FLOWER > 0 R _item p PID_FLOWER - 1 R _script dialog@r_Roll 4 1 2 2 21 #
+17 57030 D _item p PID_MUTATED_FRUIT > 0 R _item p PID_MUTATED_FRUIT - 1 R _script dialog@r_Roll 4 1 2 2 19 #
+17 57040 D _item p PID_BARLEY > 0 R _item p PID_BARLEY - 1 R _script dialog@r_Roll 4 1 2 2 22 #
+17 57050 D _item p PID_WATERBAG > 0 R _item p PID_WATERBAG - 1 R _script dialog@r_Roll 4 1 2 2 23 #
+16 57060 @
+16 58000 None 0 #
+17 58010 R _script dialog@r_Roll 4 1 4 4 18 @
+17 59000 None 0 @
+18 60000 None 0 #
+213 60010 R _param p ST_EXPERIENCE + 30 R _item p PID_MEAT_ON_A_STICK + 1 @
+19 61000 None 0 #
+213 61010 R _param p ST_EXPERIENCE + 40 R _item p PID_MEAT_ON_A_STICK + 1 @
+20 62000 None 0 #
+213 62010 R _param p ST_EXPERIENCE + 45 R _item p PID_MEAT_ON_A_STICK + 1 @
+21 63000 None 0 #
+213 63010 R _param p ST_EXPERIENCE + 48 R _item p PID_MEAT_JERKY + 1 R _param p ST_POISONING_LEVEL - 5 R _param p ST_RADIATION_LEVEL - 5 @
+22 64000 None 0 #
+213 64010 R _param p ST_EXPERIENCE + 50 R _item p PID_IGUANA_ON_A_STICK + 1 R _param p ST_POISONING_LEVEL - 8 R _param p ST_RADIATION_LEVEL - 8 @
+23 65000 None 0 #
+213 65010 R _param p ST_EXPERIENCE + 55 R _item p PID_SMITTY_MEAL + 1 R _param p ST_POISONING_LEVEL - 15 R _param p ST_RADIATION_LEVEL - 15 @
+30 66000 None 0 #
+31 66010 D _item p PID_FOOLS_GOLD > 0 R _item p PID_FOOLS_GOLD - 1 R _script dialog@FoolsGold 0  #
+31 66020 D _item p PID_FOOLS_GOLD > 11 R _item p PID_FOOLS_GOLD - 12 R _script dialog@FoolsGold 0  R _script dialog@FoolsGold 0  R _script dialog@FoolsGold 0  R _script dialog@FoolsGold 0  R _script dialog@FoolsGold 0  R _script dialog@FoolsGold 0  R _script dialog@FoolsGold 0  R _script dialog@FoolsGold 0  R _script dialog@FoolsGold 0  R _script dialog@FoolsGold 0  R _script dialog@FoolsGold 0  R _script dialog@FoolsGold 0  #
+31 66030 D _item p PID_FOOLS_GOLD > 49 R _item p PID_FOOLS_GOLD - 50 R _script dialog@FoolsGold 0  R _script dialog@FoolsGold 0  R _script dialog@FoolsGold 0  R _script dialog@FoolsGold 0  R _script dialog@FoolsGold 0  R _script dialog@FoolsGold 0  R _script dialog@FoolsGold 0  R _script dialog@FoolsGold 0  R _script dialog@FoolsGold 0  R _script dialog@FoolsGold 0  R _script dialog@FoolsGold 0  R _script dialog@FoolsGold 0  R _script dialog@FoolsGold 0  R _script dialog@FoolsGold 0  R _script dialog@FoolsGold 0  R _script dialog@FoolsGold 0  R _script dialog@FoolsGold 0  R _script dialog@FoolsGold 0  R _script dialog@FoolsGold 0  R _script dialog@FoolsGold 0  R _script dialog@FoolsGold 0  R _script dialog@FoolsGold 0  R _script dialog@FoolsGold 0  R _script dialog@FoolsGold 0  R _script dialog@FoolsGold 0  R _script dialog@FoolsGold 0  R _script dialog@FoolsGold 0  R _script dialog@FoolsGold 0  R _script dialog@FoolsGold 0  R _script dialog@FoolsGold 0  R _script dialog@FoolsGold 0  R _script dialog@FoolsGold 0  R _script dialog@FoolsGold 0  R _script dialog@FoolsGold 0  R _script dialog@FoolsGold 0  R _script dialog@FoolsGold 0  R _script dialog@FoolsGold 0  R _script dialog@FoolsGold 0  R _script dialog@FoolsGold 0  R _script dialog@FoolsGold 0  R _script dialog@FoolsGold 0  R _script dialog@FoolsGold 0  R _script dialog@FoolsGold 0  R _script dialog@FoolsGold 0  R _script dialog@FoolsGold 0  R _script dialog@FoolsGold 0  R _script dialog@FoolsGold 0  R _script dialog@FoolsGold 0  R _script dialog@FoolsGold 0  R _script dialog@FoolsGold 0  #
+32 66040 D _item p PID_GOLD_NUGGET > 0 R _item p PID_GOLD_NUGGET - 1 R _script dialog@GoldNugget 0  #
+32 66050 D _item p PID_GOLD_NUGGET > 11 R _item p PID_GOLD_NUGGET - 12 R _script dialog@GoldNugget 0  R _script dialog@GoldNugget 0  R _script dialog@GoldNugget 0  R _script dialog@GoldNugget 0  R _script dialog@GoldNugget 0  R _script dialog@GoldNugget 0  R _script dialog@GoldNugget 0  R _script dialog@GoldNugget 0  R _script dialog@GoldNugget 0  R _script dialog@GoldNugget 0  R _script dialog@GoldNugget 0  R _script dialog@GoldNugget 0  #
+32 66060 D _item p PID_GOLD_NUGGET > 49 R _item p PID_GOLD_NUGGET - 50 R _script dialog@GoldNugget 0  R _script dialog@GoldNugget 0  R _script dialog@GoldNugget 0  R _script dialog@GoldNugget 0  R _script dialog@GoldNugget 0  R _script dialog@GoldNugget 0  R _script dialog@GoldNugget 0  R _script dialog@GoldNugget 0  R _script dialog@GoldNugget 0  R _script dialog@GoldNugget 0  R _script dialog@GoldNugget 0  R _script dialog@GoldNugget 0  R _script dialog@GoldNugget 0  R _script dialog@GoldNugget 0  R _script dialog@GoldNugget 0  R _script dialog@GoldNugget 0  R _script dialog@GoldNugget 0  R _script dialog@GoldNugget 0  R _script dialog@GoldNugget 0  R _script dialog@GoldNugget 0  R _script dialog@GoldNugget 0  R _script dialog@GoldNugget 0  R _script dialog@GoldNugget 0  R _script dialog@GoldNugget 0  R _script dialog@GoldNugget 0  R _script dialog@GoldNugget 0  R _script dialog@GoldNugget 0  R _script dialog@GoldNugget 0  R _script dialog@GoldNugget 0  R _script dialog@GoldNugget 0  R _script dialog@GoldNugget 0  R _script dialog@GoldNugget 0  R _script dialog@GoldNugget 0  R _script dialog@GoldNugget 0  R _script dialog@GoldNugget 0  R _script dialog@GoldNugget 0  R _script dialog@GoldNugget 0  R _script dialog@GoldNugget 0  R _script dialog@GoldNugget 0  R _script dialog@GoldNugget 0  R _script dialog@GoldNugget 0  R _script dialog@GoldNugget 0  R _script dialog@GoldNugget 0  R _script dialog@GoldNugget 0  R _script dialog@GoldNugget 0  R _script dialog@GoldNugget 0  R _script dialog@GoldNugget 0  R _script dialog@GoldNugget 0  R _script dialog@GoldNugget 0  R _script dialog@GoldNugget 0  #
+33 66070 D _item p PID_URANIUM_ORE > 0 R _item p PID_URANIUM_ORE - 1 R _script dialog@UraniumOre 0  #
+33 66080 D _item p PID_URANIUM_ORE > 11 R _item p PID_URANIUM_ORE - 12 R _script dialog@UraniumOre 0  R _script dialog@UraniumOre 0  R _script dialog@UraniumOre 0  R _script dialog@UraniumOre 0  R _script dialog@UraniumOre 0  R _script dialog@UraniumOre 0  R _script dialog@UraniumOre 0  R _script dialog@UraniumOre 0  R _script dialog@UraniumOre 0  R _script dialog@UraniumOre 0  R _script dialog@UraniumOre 0  R _script dialog@UraniumOre 0  #
+33 66090 D _item p PID_URANIUM_ORE > 49 R _item p PID_URANIUM_ORE - 50 R _script dialog@UraniumOre 0  R _script dialog@UraniumOre 0  R _script dialog@UraniumOre 0  R _script dialog@UraniumOre 0  R _script dialog@UraniumOre 0  R _script dialog@UraniumOre 0  R _script dialog@UraniumOre 0  R _script dialog@UraniumOre 0  R _script dialog@UraniumOre 0  R _script dialog@UraniumOre 0  R _script dialog@UraniumOre 0  R _script dialog@UraniumOre 0  R _script dialog@UraniumOre 0  R _script dialog@UraniumOre 0  R _script dialog@UraniumOre 0  R _script dialog@UraniumOre 0  R _script dialog@UraniumOre 0  R _script dialog@UraniumOre 0  R _script dialog@UraniumOre 0  R _script dialog@UraniumOre 0  R _script dialog@UraniumOre 0  R _script dialog@UraniumOre 0  R _script dialog@UraniumOre 0  R _script dialog@UraniumOre 0  R _script dialog@UraniumOre 0  R _script dialog@UraniumOre 0  R _script dialog@UraniumOre 0  R _script dialog@UraniumOre 0  R _script dialog@UraniumOre 0  R _script dialog@UraniumOre 0  R _script dialog@UraniumOre 0  R _script dialog@UraniumOre 0  R _script dialog@UraniumOre 0  R _script dialog@UraniumOre 0  R _script dialog@UraniumOre 0  R _script dialog@UraniumOre 0  R _script dialog@UraniumOre 0  R _script dialog@UraniumOre 0  R _script dialog@UraniumOre 0  R _script dialog@UraniumOre 0  R _script dialog@UraniumOre 0  R _script dialog@UraniumOre 0  R _script dialog@UraniumOre 0  R _script dialog@UraniumOre 0  R _script dialog@UraniumOre 0  R _script dialog@UraniumOre 0  R _script dialog@UraniumOre 0  R _script dialog@UraniumOre 0  R _script dialog@UraniumOre 0  R _script dialog@UraniumOre 0  #
+5 66100 @
+31 67000 None 0 @
+32 68000 None 0 @
+33 69000 None 0 &
+
+[engl]
+{100}{}{none}
+{1000}{}{Predialogue installations}
+{1010}{}{Special Tent Item}
+{1020}{}{Show}
+{2000}{}{[The campfire is warm and comfy. Maybe you can rest a little while]}
+{2010}{}{[Cooking]}
+{2020}{}{[Cooking]}
+{2030}{}{[Collect your thoughts]}
+{2040}{}{[Collect your thoughts]}
+{2050}{}{[Collect your thoughts]}
+{2060}{}{[Collect your thoughts]}
+{2070}{}{[Collect your thoughts]}
+{2080}{}{[Collect your thoughts]}
+{2090}{}{[Tent management]}
+{2100}{}{[Throw something into the fire]}
+{2110}{}{[Goldsmithing]}
+{2120}{}{[Forget location]}
+{2130}{}{[Exit]}
+{3000}{}{[You no longer know the way to this location]}
+{3010}{}{[Exit]}
+{4000}{}{[You sit by the fire and decide what to do next with the place]}
+{4010}{}{[Change the name of the tent]}
+{4020}{}{[Create a map to this location]}
+{4030}{}{[Upgrades]}
+{4040}{}{[Abandon tent]}
+{4050}{}{[Exit]}
+{5000}{}{[You look around, seaching for any idea as to how to make this place more fitting towards your needs]}
+{5010}{}{[Build a Workbench]}
+{5020}{}{[Back]}
+{6000}{}{Primitive Workbench
+A wooden board which serves as a primitive workbench.
+
+Materials:
+- Firewood x2
+- Tools}
+{6010}{}{[Upgrade]}
+{6020}{}{[Back]}
+{7000}{}{[Due to recent changes, this location needs to be deleted. All items and non-player characters will be deleted, with no way to get them back; player characters will be moved to worldmap.
+
+Make sure you secure all items and move all followers to other place before you continue. There will be no refunds.]}
+{7010}{}{[Continue]}
+{7020}{}{[Exit]}
+{8000}{}{[You sit back by the fire...]}
+{8010}{}{Ow, my ass! I really need a Leather Hide before I do this!}
+{8020}{}{[You lay down a piece of Leather, and make yourself comfortable]}
+{9000}{}{...the fire burns alone...}
+{10000}{}{[The world waits in loud silence, as time passes by. You are at ease]}
+{10010}{}{[Stare into the fires of tomorrow]}
+{11000}{}{[Deep into the day more lives fade. The vault is gone, and your people have long been scattered into the wasteland. Many have met their fates, and many have lost their minds]}
+{11010}{}{[Watch as the fires dance]}
+{12000}{}{[Nothing will bring yesterday back, and each day your memories of the vault die. This is your new home, and you are part of its future]}
+{12010}{}{Where will tomorrow take me?}
+{13000}{}{[Ash and ruin, blood upon the sand. Where do your morals feel like they stand?]}
+{13010}{}{For good. For justice.}
+{13020}{}{I'm no saint, but I'm no sinner.}
+{13030}{}{I am neutral.}
+{13040}{}{I am my own. I do not need morals.}
+{13050}{}{Death and darkness.}
+{13060}{}{I feel nothing.}
+{14000}{}{[For truth, for beauty. For the sake of tomorrow's children. For the betterment of mankind. You stand stronger than any stone. Brighter than any light. You are the hero, the killing storm]}
+{14010}{}{[You are ready to face the day]}
+{15000}{}{[Your place is here. Awake, and alive, this world is ready to face you. You stand ready to show your true face, no exceptions]}
+{15010}{}{[You are ready to face the day]}
+{16000}{}{[No gods, no masters, no slaves. You'll pull blood from stone if it pleased you; this world is mine] }
+{16010}{}{[You are ready to face the day]}
+{17000}{}{[If there was no light, you would not need eyes. You'd tare them right from under your flesh. You'd even tare them from the children, everything living, until the world was blind]}
+{17010}{}{[You are ready to face the day]}
+{18000}{}{[This journey is of slaughtering the weak. Purge the innocent, and make room for the killer. My most worthy of foe, my only real partner, and my only real enemy. Glorious warriors willing to shed their flesh]}
+{18010}{}{[You are ready to face the day]}
+{19000}{}{[The desert is an ocean of madness. A curse, a void. It is emptiness.  It has become the reason for your loneliness. Nothing pleases you, and nothing disgusts you any more. A one of a kind, restless, heartless fool]}
+{19010}{}{[You are ready to face the day]}
+{20000}{}{[The wasteland will never be ready for what may come]}
+{20010}{}{[Begin your journey into the wasteland]}
+{21000}{}{**the fire crackles**}
+{22000}{}{[Ever so brightly, this fire burns for you]}
+{22010}{}{[Admire the flame]}
+{23000}{}{[The fire asks nothing of you, yet provides warmth, heat; shelter. Loving arms from nothing but what eventually turns to ash]}
+{23010}{}{[Feed the fire]}
+{24000}{}{[The fire smiles as it devours your offering]}
+{24010}{}{[Throw another log into the fire]}
+{25000}{}{[Crackling with heart and thunder, this fire burns bright!]}
+{25010}{}{[Throw your last log into the fire]}
+{26000}{}{[YES! YES!!! Feed me. Feed the fire]}
+{26010}{}{I... have... nothing left to offer you.}
+{27000}{}{**Feed me Flint. As Fire, I crave a great spark**}
+{27010}{}{[Feed the Fire]}
+{28000}{}{**The Fire needs Ore to reconcile**}
+{28010}{}{[Feed the Fire]}
+{29000}{}{**Broken, like hearts; the Fire requires Junk**}
+{29010}{}{[Feed the Fire]}
+{30000}{}{**NO! NOOO!!! The Wood craves Fire!**}
+{30010}{}{[Feed the Fire]}
+{31000}{}{[You, and the Fire form another bond. Here, you are both one; alone and burning]}
+{31010}{}{But never truly alone...}
+{32000}{}{[No, I burn for you. Just like the NCR. But they need you more]}
+{32010}{}{[The heat and warmth burns your eyes. You are ready to leave]}
+{33000}{}{**the fire dances in a way you'll never remember**}
+{34000}{}{[You sit back by the fire]}
+{34010}{}{OW! My ass! I really need a Leather Hide if I want to do this!}
+{34020}{}{[Lay your body down]}
+{35000}{}{**this fire burns for you**}
+{36000}{}{[At first glance you think you notice a smile, but you aren't even looking. You're not even using your eyes. Yet you can feel the fire burn for you once more]}
+{36010}{}{What is it that you desire, my flame?}
+{37000}{}{**Feed me Flint. As Fire, I crave a great spark**}
+{37010}{}{[Feed the fire]}
+{38000}{}{**The Fire needs Ore to reconcile**}
+{38010}{}{[Feed the fire]}
+{39000}{}{**Broken, like hearts; the Fire requires Junk**}
+{39010}{}{[Feed the fire]}
+{40000}{}{**NO! NOOO!!! The Wood craves Fire!**}
+{40010}{}{[Feed the fire]}
+{41000}{}{[YES! YES!!! Feed me. Feed the fire]}
+{41010}{}{I have so much more to offer you...}
+{42000}{}{[The Fire asks for nothing. Provides warmth]}
+{42010}{}{The fire, and I are one. Both alone, and burning. What do you need? What do you really?}
+{43000}{}{**whispers in the darkness**}
+{44000}{}{[The fire sits alone, and waits for you to lay down]}
+{44010}{}{[Lay your body down]}
+{44020}{}{[Lay your body down]}
+{45000}{}{[You plop your body down onto the hard, sharp rocks]}
+{45010}{}{OW!! My ass!}
+{46000}{}{**you feel a familiar burn***}
+{47000}{}{[At last you are alone. You lay with burning blight, your true companion; the Fire. Your angst, your will, your despair]}
+{47010}{}{The day will end soon, my flame. What will become of us?}
+{48000}{}{[All that which must turn to ash]}
+{48010}{}{Why do heroes feel so alone?}
+{49000}{}{[...why do I burn...]}
+{49010}{}{It's time for me to go, my flame.}
+{50000}{}{**the fire burns for you, for all of us**}
+{51000}{}{[Welcome to the end of the adventure. But never to the end of the journey. Each, and every day you help the people of the NCR become more, and more. Without the people of Vault 24 nothing here would exist. You're heroes, villains, fools, cowards, and lunatics. Necessary evils, and God granted knights]}
+{51010}{}{Why does the fire burn?}
+{52000}{}{**...because we need it...**}
+{53000}{}{[You stare deep into the flames, but a faint voice calls to you, "Bring me a Puppet". You feel compelled to answer the call, because if you don't, you will not continue]}
+{53010}{}{[Burn a Puppet]}
+{53020}{}{[Leave this madness behind]}
+{54000}{}{**You couldn't cook anything even if you tried**}
+{55000}{}{[You take a good look at your cooking area, and see what you can come up with. Wood, Water Bags, Xander Root, Broc Flower, Flowers, Barley, and Fruit are all useful components for cooking, while Meat is the main ingredient]}
+{55010}{}{[Begin your dish]}
+{55020}{}{Nevermind.}
+{56000}{}{[You prepare a few cuts of assorted meat, and place them onto your makeshift grill]}
+{56010}{}{[Season the dish]}
+{56020}{}{[Do not season the dish]}
+{57000}{}{[What do you want to season it with?]}
+{57010}{}{Xander Root and Broc Flower.}
+{57020}{}{Exotic Flowers.}
+{57030}{}{Fruit.}
+{57040}{}{Barley.}
+{57050}{}{Watery Cream Sauce.}
+{57060}{}{[Do not season the dish]}
+{58000}{}{[You skip the seasoning, and simply cook the meat]}
+{58010}{}{[Flip the meat]}
+{59000}{}{*You've burnt the meat, and ruined this dish!*}
+{60000}{}{*You make a great meal, it looks lovely*}
+{60010}{}{[Complete the dish]}
+{61000}{}{*You make a great meal, it looks lovely*}
+{61010}{}{[Complete the dish]}
+{62000}{}{*You make a great meal, it looks lovely*}
+{62010}{}{[Complete the dish]}
+{63000}{}{*You make a great meal, it looks lovely*}
+{63010}{}{[Complete the dish]}
+{64000}{}{*You make a great meal, it looks lovely*}
+{64010}{}{[Complete the dish]}
+{65000}{}{*You make a great meal, it looks lovely*}
+{65010}{}{[Complete the dish]}
+{66000}{}{[How many pieces of Fool's Gold, Regular Gold, or Uranium Ore would you like to smelt?]}
+{66010}{}{[Burn One Fool's Gold]}
+{66020}{}{[Burn Twelve Fool's Gold]}
+{66030}{}{[Burn Fifty Fool's Gold]}
+{66040}{}{[Burn One Gold Nugget]}
+{66050}{}{[Burn Twelve Gold Nuggets]}
+{66060}{}{[Burn Fifty Gold Nuggets]}
+{66070}{}{[Burn One Uranium Ore]}
+{66080}{}{[Burn Twelve Uranium Ore]}
+{66090}{}{[Burn Fifty Uranium Ore]}
+{66100}{}{[Nothing]}
+{67000}{}{**You throw the precious Fool's Gold into the fire and await its fate**@@**Only the fool awaits its fate, burning brightly for the gifts it receives**@@**Do you dream of riches? Or treasures of the spirit?**@@**What is this? Falsehoods? Promises of the flesh? The fire is not impressed!**@@**Fool! This isn't gold! The fire screams and burns alone**@@**Only through pain and suffering can there be any good to find. The fire approves**@@**Melt away your sorrows, your broken dreams! For here, the fire warms the spirit!**@@**Do your dreams reach riches? Or just pleasures of the flesh?**@@**Sit in awe and watch the fire burn away the miseries of the past**@@**Is this all our dreams have become? Fools throwing fool's gold into a fire...**@@**The fire bubbles in anticipation**@@**Crackle! Pop! This is no fool's gold! For the fire provides!**@@**The fire burns it all away, leaving you with only what is left**}
+{68000}{}{**You throw the precious Gold into the fire and await its fate**@@**Only the fool awaits its fate, burning brightly for the gifts it receives**@@**Do you dream of riches? Or treasures of the spirit?**@@**What is this? Falsehoods? Promises of the flesh? The fire is not impressed!**@@**Fool! This is gold! What empires are made of! The fire screams and burns alone**@@**Only through pain and suffering can there be any good to find. The fire approves**@@**Melt away your sorrows, your broken dreams! For here, the fire warms the spirit!**@@**Do your dreams reach riches? Or just pleasures of the flesh?**@@**Sit in awe and watch the fire burn away the miseries of the past**@@**Is this all our dreams have become? Rich madmen throwing gold into a fire...**@@**The fire bubbles in anticipation**@@**Crackle! Pop! This is no madman's gold! For the fire provides!**@@**The fire burns it all away, leaving you with only what is left**}
+{69000}{}{**You throw the precious Uranium into the fire and await its fate**@@**Only the fool awaits its fate, burning brightly for the gifts it receives**@@**Do you dream of riches? Or treasures of the spirit?**@@**What is this? Falsehoods? Promises of the flesh? The fire is not impressed!**@@**Fool! This isn't gold! The fire screams and burns alone**@@**Only through pain and suffering can there be any good to find. The fire approves**@@**Melt away your sorrows, your broken dreams! For here, the fire warms the spirit!**@@**Do your dreams reach riches? Or just pleasures of the flesh?**@@**Sit in awe and watch the fire burn away the miseries of the past**@@**Is this all our dreams have become? Fools throwing fool's gold into a fire...**@@**The fire bubbles in anticipation**@@**Crackle! Pop! This is no fool's gold! For the fire provides!**@@**The fire burns it all away, leaving you with only what is left**}
+

@@ -1,0 +1,1119 @@
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    
+
+uint __GetColor(int r,int g,int b,int a=0xFF)
+{
+	r=(((r)>(255))?(255):(((r)<(0))?(0):(r)));
+	g=(((g)>(255))?(255):(((g)<(0))?(0):(g)));
+	b=(((b)>(255))?(255):(((b)<(0))?(0):(b)));
+	a=(((a)>(255))?(255):(((a)<(0))?(0):(a)));
+	return(uint(((a)<<24)|(((r)&0xFF)<<16)|(((g)&0xFF)<<8)|((b)&0xFF)));
+}                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                   
+
+shared class Sprite
+{
+	Sprite()
+	{
+		Id=0;
+		Width=0;
+		Height=0;
+		FrmCount=0;
+	}
+	
+	bool Load(string&name,int path)
+	{
+		if(name.length()>0)
+		{
+			Id=LoadSprite(name,path);
+			Filename=name;
+		}
+		else
+		Id=0;
+		RefreshData();
+		return Id!=0;
+	}
+	
+	void LoadHash(uint nameHash,uint8 dir)
+	{
+		Id=LoadSprite(nameHash,dir);
+		RefreshData();
+	}
+	
+	void LoadByIni(string&iniKey,int path)
+	{
+		string@name=GetIfaceIniStr(iniKey);
+		if(@name!=null&&name.length()>0)
+		Id=LoadSprite(name,path);
+		else
+		Id=0;
+		RefreshData();
+	}
+	
+	void Draw(int x,int y)
+	{
+		if(Id!=0)
+		DrawSprite(Id,-1,x,y,0);
+	}
+	
+	private void RefreshData()
+	{
+		if(Id!=0)
+		{
+			Width=GetSpriteWidth(Id,0);
+			Height=GetSpriteHeight(Id,0);
+			FrmCount=GetSpriteCount(Id);
+		}
+		else
+		{
+			Width=0;
+			Height=0;
+			FrmCount=0;
+			Filename="";
+		}
+	}
+	
+	uint Id;
+	int Width;
+	int Height;
+	uint FrmCount;
+	string Filename;
+};       
+
+shared interface IGuiManager
+{
+	void RegisterControl(IControl@control);
+};
+
+shared class CGuiManager:IGuiManager
+{
+	array<IControl@>windows;   
+	
+	void RegisterControl(IControl@control)
+	{
+		windows.insertLast(@control);
+	}   
+	
+	void Draw()
+	{
+		for(uint i=0,j=windows.length();i<j;i++)
+		{
+			if(windows[i].IsVisible())
+			windows[i].Draw();
+		}
+	}  
+	
+	void Update()
+	{
+		for(uint i=0,j=windows.length();i<j;i++)
+		{
+			if(windows[i].IsActive())
+			windows[i].Update();
+		}
+	}   
+	
+	bool MouseDown(int click)
+	{
+		bool intercepted=false;
+		for(uint i=0,j=windows.length();i<j;i++)
+		{
+			if(windows[i].IsVisible()&&windows[i].IsActive())
+			intercepted=windows[i].MouseDown(click)?true:intercepted;
+		}
+		return intercepted;
+	}
+	bool MouseUp(int click)
+	{
+		bool intercepted=false;
+		for(uint i=0,j=windows.length();i<j;i++)
+		{
+			if(windows[i].IsVisible()&&windows[i].IsActive())
+			intercepted=windows[i].MouseUp(click)?true:intercepted;
+		}
+		return intercepted;
+	}
+	void MouseMove(int x,int y)
+	{
+		for(uint i=0,j=windows.length();i<j;i++)
+		{
+			if(windows[i].IsVisible()&&windows[i].IsActive())
+			windows[i].MouseMove(x,y);
+		}
+	}
+	bool KeyDown(uint8 key)
+	{
+		bool intercepted=false;
+		for(uint i=0,j=windows.length();i<j;i++)
+		{
+			if(windows[i].IsVisible()&&windows[i].IsActive())
+			intercepted=windows[i].KeyDown(key)?true:intercepted;
+		}
+		return intercepted;
+	}
+	bool KeyUp(uint8 key)
+	{
+		for(uint i=0,j=windows.length();i<j;i++)
+		{
+			if(windows[i].IsVisible()&&windows[i].IsActive())
+			windows[i].KeyUp(key);
+		}
+		return false;
+	}
+	
+	bool AnyVisible()
+	{
+		for(uint i=0,j=windows.length();i<j;i++)
+		if(windows[i].IsVisible())
+		return true;
+		
+		return false;
+	}
+};   
+
+shared interface IControl
+{
+	void SetParent(IControl@parent); 
+	
+	bool IsVisible();
+	bool IsActive();
+	
+	void Disable();
+	void Enable();
+	
+	void Show();
+	void Show(int left,int top);
+	void Hide();
+	
+	int Left();
+	int Right();
+	int Top();
+	int Bottom();
+	int Width();
+	int Height();
+	
+	void Draw();
+	void Update();
+	bool MouseDown(int click);
+	bool MouseUp(int click);
+	void MouseMove(int x,int y);
+	bool KeyDown(uint8 key);
+	void KeyUp(uint8 key);
+};   
+
+shared class Control:IControl
+{
+	
+	IControl@parent;
+	
+	array<IControl@>controls; 
+	
+	int left;
+	int top;
+	int width;
+	int height;     
+	
+	bool active;
+	
+	bool visible;
+	
+	bool focus; 
+	
+	bool mousePressed;
+	
+	Control(int left,int top,int width,int height)
+	{
+		active=true;
+		visible=true;
+		focus=false;
+		
+		mousePressed=false;
+		
+		this.left=left;
+		this.top=top;
+		this.width=width;
+		this.height=height;
+	}    
+	
+	bool IsVisible(){return visible;}
+	bool IsActive(){return active;}   
+	
+	int Left()
+	{
+		if((@parent!=null))
+		return parent.Left()+left;
+		else
+		return left;
+	}
+	int Top()
+	{
+		if((@parent!=null))
+		return parent.Top()+top;
+		else
+		return top;
+	}
+	int Right()
+	{
+		return Left()+width;
+	}
+	int Bottom()
+	{
+		return Top()+height;
+	}
+	int Height()
+	{
+		return height;
+	}
+	int Width()
+	{
+		return width;
+	}  
+	
+	bool IsInside(int x,int y)
+	{
+		return(x>=Left())&&(x<Right())&&(y>=Top())&&(y<Bottom());
+	}   
+	
+	void SetParent(IControl@control)
+	{
+		@parent=control;
+	}   
+	
+	void Enable(){active=true;}
+	void Disable(){active=false;}   
+	
+	void Show()
+	{
+		visible=true;
+		for(uint i=0,j=controls.length();i<j;i++)
+		controls[i].Show();
+	}
+	void Show(int dx,int dy)
+	{
+		this.left=dx;
+		this.top=dy;
+		visible=true;
+		for(uint i=0,j=controls.length();i<j;i++)
+		controls[i].Show();
+	}
+	void Hide()
+	{
+		visible=false;
+		for(uint i=0,j=controls.length();i<j;i++)
+		controls[i].Hide();
+	}   
+	
+	void SetFocus(bool focused)
+	{
+		this.focus=focused;
+		
+		if(focused)
+		GotFocus();
+		else
+		LostFocus();
+	}   
+	
+	void AddControl(IControl@control)
+	{
+		control.SetParent(this);
+		controls.insertLast(@control);
+	}    
+	
+	bool MouseDown(int click)
+	{
+		bool intercepted=false;
+		if(IsInside(__MouseX,__MouseY))
+		{
+			mousePressed=true;
+			SetFocus(true);
+			intercepted=true;
+		}
+		else
+		{
+			SetFocus(false);
+		}
+		for(uint i=0,j=controls.length();i<j;i++)
+		{
+			if(controls[i].IsVisible()&&controls[i].IsActive())
+			intercepted=controls[i].MouseDown(click)?true:intercepted;
+		}
+		return intercepted;
+	}
+	bool MouseUp(int click)
+	{
+		bool intercepted=false;
+		if(IsInside(__MouseX,__MouseY)&&mousePressed)
+		{
+			
+			Click();
+			intercepted=true;
+		}
+		
+		mousePressed=false;
+		
+		for(uint i=0,j=controls.length();i<j;i++)
+		{
+			if(controls[i].IsVisible()&&controls[i].IsActive())
+			intercepted=controls[i].MouseUp(click)?true:intercepted;
+		}
+		return intercepted;
+	}
+	void MouseMove(int x,int y)
+	{
+		for(uint i=0,j=controls.length();i<j;i++)
+		{
+			if(controls[i].IsVisible()&&controls[i].IsActive())
+			controls[i].MouseMove(x,y);
+		}
+	}
+	bool KeyDown(uint8 key)
+	{
+		bool intercepted=false;
+		for(uint i=0,j=controls.length();i<j;i++)
+		{
+			if(controls[i].IsVisible()&&controls[i].IsActive())
+			intercepted=controls[i].KeyDown(key)?true:intercepted;
+		}
+		return intercepted;
+	}
+	void KeyUp(uint8 key)
+	{
+		for(uint i=0,j=controls.length();i<j;i++)
+		{
+			if(controls[i].IsVisible()&&controls[i].IsActive())
+			controls[i].KeyUp(key);
+		}
+	}   
+	
+	void Draw()
+	{
+		for(uint i=0,j=controls.length();i<j;i++)
+		{
+			if(controls[i].IsVisible())
+			controls[i].Draw();
+		}
+	}  
+	
+	void Update()
+	{
+		for(uint i=0,j=controls.length();i<j;i++)
+		{
+			if(controls[i].IsActive())
+			controls[i].Update();
+		}
+	}        
+	
+	void Click()
+	{}  
+	
+	void GotFocus()
+	{}  
+	
+	void LostFocus()
+	{}
+};       
+
+shared class CButton:Control
+{
+	string caption;
+	Sprite spriteUp;
+	Sprite spriteDown;
+	
+	CButton(int left,int top,string@caption)
+	{
+		super(left,top,119,30);
+		spriteUp.Load("wm_tab.png",(4));
+		spriteDown.Load("wm_blanktab.png",(4));
+		this.caption=caption;
+	}  
+	
+	void SetCaption(string@caption){this.caption=caption;}
+	
+	void Draw()
+	{
+		
+		if(mousePressed)
+		DrawSprite(spriteDown.Id,0,Left(),Top(),0);
+		else
+		DrawSprite(spriteUp.Id,0,Left(),Top(),0);
+		int color=active?0:0xffaaaaaa;
+		DrawText(caption,Left()+30,Top(),Width()-30,Height(),color,(5),(0x0008)|(0x0400));
+	}
+};
+
+shared class CDialogRedButton:Control
+{
+	Sprite spriteDown;
+	
+	CDialogRedButton(int left,int top)
+	{
+		super(left,top,16,16);
+		spriteDown.Load("di_rdbt1.frm",(4));
+	}  
+	
+	void Draw()
+	{
+		if(mousePressed)
+		DrawSprite(spriteDown.Id,0,Left(),Top(),0);
+	}
+};
+
+shared class CSmallButton:Control
+{
+	Sprite spriteDown;
+	
+	CSmallButton(int left,int top)
+	{
+		super(left,top,16,16);
+		spriteDown.Load("lilreddn.frm",(4));
+	}  
+	
+	void Draw()
+	{
+		if(mousePressed)
+		DrawSprite(spriteDown.Id,0,Left(),Top(),0);
+	}
+};
+
+shared class CSmallArrowUp:Control
+{
+	Sprite spriteDown;
+	
+	CSmallArrowUp(int left,int top)
+	{
+		super(left,top,16,16); 
+		
+	}  
+	
+	void Draw()
+	{ 
+		
+	}
+};
+
+shared class CSmallArrowDown:Control
+{
+	Sprite spriteDown;
+	
+	CSmallArrowDown(int left,int top)
+	{
+		super(left,top,16,16); 
+		
+	}  
+	
+	void Draw()
+	{ 
+		
+	}
+};   
+
+shared class CLabel:Control
+{
+	int font;
+	int color;
+	int format;
+	string@caption;
+	
+	CLabel(int left,int top,int width,int height,string@caption)
+	{
+		super(left,top,width,height);
+		@this.caption=@caption;
+		this.color=0;
+		font=(5);
+		format=(0x0008)|(0x0400);
+	}
+	CLabel(int left,int top,int width,int height,string@caption,int font)
+	{
+		super(left,top,width,height);
+		@this.caption=@caption;
+		this.color=0;
+		this.font=font;
+		format=(0x0008)|(0x0400);
+	}
+	void SetCaption(string@caption)
+	{
+		@this.caption=@caption;
+	}
+	void SetColor(uint color)
+	{
+		this.color=color;
+	}
+	void SetFormat(uint format)
+	{
+		this.format=format;
+	}
+	void Draw()
+	{
+		DrawText(caption,Left(),Top(),Width(),Height(),color,font,format);
+	}
+};   
+
+shared class CTextBox:Control
+{
+	
+	string text;
+	
+	string drawnText;
+	uint cursorPos;
+	
+	uint cursorTime;
+	
+	uint cursorChangedTime;
+	
+	int showCursor;
+	
+	string cursor1;
+	string cursor2; 
+	
+	int color;
+	int format;
+	int font;
+	
+	CTextBox(int left,int top,int width,int height,string@text)
+	{
+		super(left,top,width,height);
+		this.text=text;
+		cursorPos=text.length();
+		cursorTime=400;
+		cursorChangedTime=0;
+		showCursor=0;
+		cursor1="!";
+		cursor2=".";
+		drawnText=text;
+		
+		color=0;
+		font=(5);
+		format=(0x0400);
+	}  
+	
+	string@Text()
+	{
+		return text;
+	}  
+	
+	string@GetCursor()
+	{
+		if(showCursor==0)
+		return"";
+		else if(showCursor==1)
+		return cursor1;
+		else
+		return cursor2;
+	}
+	void SetColor(uint color)
+	{
+		this.color=color;
+	}
+	void SetFormat(uint format)
+	{
+		this.format=format;
+	}
+	void SetText(string@text)
+	{
+		this.text=text;
+		cursorPos=text.length();
+	}  
+	
+	void ShowCursor(int show)
+	{
+		showCursor=show;
+		if(show>0)
+		{
+			if(cursorPos==text.length())
+			drawnText=text+GetCursor();
+			else
+			drawnText=substring(text,0,cursorPos)+GetCursor()+substring(text,cursorPos,text.length()-cursorPos);
+		}
+		else
+		drawnText=text;
+	}  
+	
+	void InsertChar(uint8 key)
+	{
+		
+		string k=GetMsgStr((3),2000000+key);
+		
+		if(k.length()==1)
+		{
+			text=substring(text,0,cursorPos)+k+substring(text,cursorPos,text.length()-cursorPos);
+			cursorPos++;
+		}
+	}
+	
+	void Draw()
+	{
+		uint tick=GetTick();
+		
+		if(tick-cursorChangedTime>cursorTime)
+		{
+			cursorChangedTime=tick;
+			if(showCursor==1)
+			ShowCursor(2);
+			else if(focus)
+			ShowCursor(1);
+			else
+			ShowCursor(0);
+		} 
+		
+		DrawText(drawnText,Left(),Top(),Width(),Height(),color,font,format);
+	}
+	
+	bool KeyDown(uint8 key)
+	{
+		if(focus)
+		{
+			
+			if(key==0x0E)
+			{
+				if(text.length()>0&&cursorPos>0)
+				{
+					text=substring(text,0,cursorPos-1)+substring(text,cursorPos,text.length()-cursorPos);
+					cursorPos--;
+				}
+			}
+			else if(key==0xD3)
+			{
+				if(text.length()>0&&cursorPos<text.length())
+				{
+					text=substring(text,0,cursorPos)+substring(text,cursorPos+1,text.length()-cursorPos-1);
+				}
+			}
+			
+			else if(key==0xC7)
+			{
+				cursorPos=0;
+			}
+			else if(key==0xCF)
+			{
+				cursorPos=text.length();
+			}
+			
+			else if(key==0xCB)
+			{
+				if(cursorPos>0)
+				cursorPos--;
+			}
+			else if(key==0xCD)
+			{
+				if(cursorPos<text.length())
+				cursorPos++;
+			}
+			
+			else if(key==0x01)
+			{
+				SetFocus(false);
+			}
+			else
+			{
+				InsertChar(key);
+			}
+			
+			return true;
+		}
+		return Control::KeyDown(key);
+	}
+};   
+
+shared class CSprite:Control
+{
+	Sprite sprite;
+	
+	CSprite(int left,int top,int width,int height,string@spriteName)
+	{
+		super(left,top,width,height);
+		sprite.Load(spriteName,(4));
+	}
+	
+	void Draw()
+	{
+		DrawSprite(sprite.Id,0,Left(),Top(),0);
+		Control::Draw();
+	}
+};   
+
+shared class CListBox:Control
+{
+	array<string@>elements;
+	
+	uint start;
+	
+	uint index;
+	
+	uint textHeight;
+	
+	CListBox(int left,int top,int width,int height)
+	{
+		super(left,top,width,height);
+		start=0;
+		textHeight=12;
+	}   
+	
+	uint GetRowCount()
+	{
+		return height/textHeight;
+	}  
+	
+	uint GetIndex()
+	{
+		return index;
+	}  
+	
+	void AddElement(string@elem)
+	{
+		elements.insertLast(elem);
+	}  
+	
+	void Scroll(int d)
+	{
+		start=(((int(start)+d)>(int(elements.length()-1)))?(int(elements.length()-1)):(((int(start)+d)<(0))?(0):(int(start)+d)));
+	}  
+	
+	void Draw()
+	{
+		for(uint i=start,j=(((elements.length())<(start+uint(Height()/textHeight)))?(elements.length()):(start+uint(Height()/textHeight)));i<j;i++)
+		{
+			DrawText(elements[i],Left(),Top()+(i-start)*textHeight,Width(),textHeight,i==index?0xffffffff:0,(5),(0x0400));
+		}
+	}   
+	
+	void Click()
+	{
+		uint el=start+(__MouseY-Top())/textHeight;
+		Message(""+el);
+		if(el<elements.length())
+		index=el;
+		Control::Click();
+	}
+};           
+
+shared interface IMapperPlugin
+{
+	void Render(uint layer);
+	void RenderMap();
+	bool MouseDown(int click);
+	bool MouseUp(int click);
+	void MouseMove(int x,int y);
+	bool KeyDown(uint8 key);
+	bool KeyUp(uint8 key);
+	void InputLost();
+	void Loop();
+	bool Message(string&message);
+}; 
+
+import bool Plugins_Register(IMapperPlugin@plugin)from"mapper_plugin";
+import void Plugins_Render(uint layer)from"mapper_plugin";
+import void Plugins_RenderMap()from"mapper_plugin";
+import bool Plugins_MouseDown(int click)from"mapper_plugin";
+import bool Plugins_MouseUp(int click)from"mapper_plugin";
+import void Plugins_MouseMove(int x,int y)from"mapper_plugin";
+import bool Plugins_KeyDown(uint8 key)from"mapper_plugin";
+import bool Plugins_KeyUp(uint8 key)from"mapper_plugin";
+import void Plugins_InputLost()from"mapper_plugin";
+import void Plugins_Loop()from"mapper_plugin";
+import bool Plugins_Message(string&message)from"mapper_plugin";       
+
+array<uint>UnarmoredTypesMale;
+array<uint>UnarmoredTypesFemale;   
+
+void SetUnarmoredCrtypes()
+{
+	UnarmoredTypesMale.insertLast(62);
+	UnarmoredTypesMale.insertLast(64);
+	UnarmoredTypesMale.insertLast(110);
+	UnarmoredTypesMale.insertLast(104);
+	UnarmoredTypesMale.insertLast(126);
+	UnarmoredTypesMale.insertLast(119);
+	UnarmoredTypesFemale.insertLast(61);
+	UnarmoredTypesFemale.insertLast(63);
+}
+
+bool AssertCrtypeReadiness(MapperObject@critter)
+{
+	return critter.Critter_ParamIndex8==(143);
+}
+
+array<uint>@GetValidCrtypes(MapperObject@critter,uint16 pid)
+{
+	if(!AssertCrtypeReadiness(critter))
+	return@array<uint>();
+	int gender=critter.CritterCl_GetParam((71));
+	array<uint>arr;
+	if(pid==0)
+	{
+		int bt=critter.CritterCl_GetParam((67));
+		if(bt!=(0)&&bt!=(1))
+		{
+			arr.insertLast(critter.CritterCl_GetParam((112)));
+			return@arr;
+		}
+		if(gender==(0))
+		return@UnarmoredTypesMale;
+		else
+		return@UnarmoredTypesFemale;
+	}
+	ProtoItem@proto=GetProtoItem(pid);
+	if(gender==(0))
+	{
+		arr.insertLast(proto.Armor_CrTypeMale);
+		if(proto.Armor_CrTypeMale2!=0)
+		arr.insertLast(proto.Armor_CrTypeMale2);
+		if(proto.Armor_CrTypeMale3!=0)
+		arr.insertLast(proto.Armor_CrTypeMale3);
+		if(proto.Armor_CrTypeMale4!=0)
+		arr.insertLast(proto.Armor_CrTypeMale4);
+	}
+	else
+	{
+		arr.insertLast(proto.Armor_CrTypeFemale);
+		if(proto.Armor_CrTypeFemale2!=0)
+		arr.insertLast(proto.Armor_CrTypeFemale2);
+		if(proto.Armor_CrTypeFemale3!=0)
+		arr.insertLast(proto.Armor_CrTypeFemale3);
+		if(proto.Armor_CrTypeFemale4!=0)
+		arr.insertLast(proto.Armor_CrTypeFemale4);
+	}
+	return@arr;
+}
+
+uint16 GetArmorPid(MapperObject@critter)
+{
+	array<MapperObject@>items;
+	uint n=critter.GetChilds(items);
+	for(uint i=0;i<n;i++)
+	{
+		if(GetProtoItem(items[i].ProtoId).Type!=(1))
+		continue;
+		if(items[i].Item_ItemSlot!=(3))
+		continue;
+		return items[i].ProtoId;
+	}
+	return critter.CritterCl_GetParam((140));
+}
+
+void ChangeCrtype(MapperObject@critter,uint crtype)
+{
+	critter.CritterCl_SetBaseType(crtype);
+	uint8 cond=critter.get_Critter_Cond();
+	bool was_dead=cond==(3);
+	if(was_dead)
+	{
+		critter.set_Critter_Cond((1));
+		critter.Update();
+		critter.set_Critter_Cond((3));
+	}
+	else
+	{
+		critter.set_Critter_Cond((3));
+		critter.Update();
+		critter.set_Critter_Cond(cond);
+	}
+	critter.Update();
+}
+
+void UpdateImplied(MapperObject@critter,uint16 pid,uint&implied)
+{
+	if(!AssertCrtypeReadiness(critter))
+	return;
+	array<uint>@types=GetValidCrtypes(critter,pid);
+	if(types.find(critter.Critter_ParamValue8)==-1)
+	{
+		critter.Critter_ParamValue8=0;
+		implied=types[0];
+	}
+}
+
+void NormalizeCrtype(MapperObject@critter)
+{
+	if(!AssertCrtypeReadiness(critter))
+	return;
+	uint16 pid=GetArmorPid(critter);
+	uint implied=critter.Critter_ParamValue8;
+	
+	if(implied==0)
+	{
+		if(pid==0)
+		implied=critter.CritterCl_GetParam((112));
+		else
+		{
+			ProtoItem@proto=GetProtoItem(pid);
+			implied=critter.CritterCl_GetParam((71))==(0)?proto.Armor_CrTypeMale:proto.Armor_CrTypeFemale;
+			
+		}
+		
+		UpdateImplied(critter,pid,implied);
+	}
+	if(implied!=critter.CritterCl_GetBaseType())
+	ChangeCrtype(critter,implied);
+}
+
+class CCrButton:Control
+{
+	uint Crtype;
+	bool def;
+	int index;
+	CCrtypeMenu@menu;
+	CCrButton(uint crtype,int index,int x,int y)
+	{
+		super(x,y,(50),(100));
+		def=false;
+		Crtype=crtype;
+		this.index=index;
+	}
+	
+	void Draw()
+	{
+		array<int>draw;
+		draw.resize(12);
+		draw[0]=Right();
+		draw[1]=Top();
+		draw[2]=index%2==0?0xFF808080:0xFF404040;
+		draw[3]=Right();
+		draw[4]=Bottom();
+		draw[5]=index%2==0?0xFF808080:0xFF404040;
+		draw[6]=Left();
+		draw[7]=Top();
+		draw[8]=index%2==0?0xFF808080:0xFF404040;
+		draw[9]=Left();
+		draw[10]=Bottom();
+		draw[11]=index%2==0?0xFF808080:0xFF404040;
+		DrawPrimitive((4),draw);
+		DrawCritter2d(Crtype,(1),(1),2,Left()+2,Top()+2,Right()-2,Bottom()-2,true,false,0xFFFFFFFF);
+		DrawText(def?"0 ("+Crtype+")":""+Crtype,Left()+2,Bottom()-10,Width()-2,10,((uint((0xFF<<24)|(((0xFF)&0xFF)<<16)|(((0xFF)&0xFF)<<8)|((0xFF)&0xFF)))),(5),(0x0400));
+	}
+	
+	void Click()
+	{
+		Menu.Selected(Crtype,def);
+	}
+};
+
+class CCrtypeMenu:Control
+{
+	MapperObject@critter;
+	
+	CCrtypeMenu(IGuiManager@manager)
+	{
+		super(0,0,4*(50),(100));
+		visible=false;
+		@critter=null;
+	}
+	
+	void Fill(MapperObject@obj)
+	{
+		@critter=obj;
+		controls.resize(0);
+		
+		array<uint>@types=GetValidCrtypes(obj,GetArmorPid(critter));
+		int l=0;
+		width=(50)*types.length();
+		for(int i=0,j=types.length();i<j;i++)
+		{
+			CCrButton@control=CCrButton(types[i],i,l,0);
+			if(i==0)
+			control.def=true;
+			AddControl(control);
+			l+=(50);
+		}
+	}
+	
+	void Selected(uint crtype,bool def)
+	{
+		if(!AssertCrtypeReadiness(critter))
+		return;
+		if(!(@critter!=null))
+		return;
+		critter.Critter_ParamValue8=def?0:crtype;
+		ChangeCrtype(critter,crtype);
+		@critter=null;
+		Hide();
+	}
+	
+	void Show(int x,int y)
+	{
+		Control::Show(x,y);
+		Enable();
+	}
+	
+	bool MouseDown(int click)
+	{
+		if(!IsInside(__MouseX,__MouseY))
+		{
+			Hide();
+		}
+		return Control::MouseDown(click);
+	}
+};
+
+class CCrtypePlugin:CGuiManager,IMapperPlugin
+{
+	bool Alt;
+	int LastIndex;
+	
+	CCrtypePlugin()
+	{
+		Alt=false;
+		LastIndex=-1;
+		SetUnarmoredCrtypes();
+		@Menu=CCrtypeMenu(this);
+		RegisterControl(Menu);
+	}
+	
+	bool KeyDown(uint8 key)
+	{
+		if(key==0x38)
+		Alt=true;
+		if(key==0x2E&&Alt)
+		{
+			MapperObject@obj=GetSelectedObject();
+			if(obj.MapObjType==(0))
+			{
+				Menu.Fill(obj);
+				Menu.Show(__ScreenWidth-Menu.Width()-(50),100);
+			}
+		}
+		return CGuiManager::KeyDown(key);
+	}
+	
+	bool KeyUp(uint8 key)
+	{
+		if(key==0x38)
+		Alt=false;
+		return CGuiManager::KeyUp(key);
+	}
+	
+	void InputLost(){}
+	
+	void Loop()
+	{
+		array<MapperMap@>maps;
+		int index=GetLoadedMaps(maps);
+		if(maps.length()==0)
+		return;
+		MapperObject@object=GetSelectedObject();
+		if((@object!=null)&&object.MapObjType==(0))
+		NormalizeCrtype(object);
+		if(LastIndex==index)
+		return;
+		array<MapperObject@>crits;
+		uint n=maps[index].GetObjects(0,0,10*(maps[index].Width+maps[index].Height),(0),0,crits);
+		for(uint i=0,j=crits.length();i<j;i++)
+		NormalizeCrtype(crits[i]);
+	}
+	void Render(uint layer)
+	{
+		if(layer==2)
+		Menu.Draw();
+	}
+	bool Message(string&){return false;}
+	void RenderMap(){}
+};
+
+CCrtypeMenu@Menu;
+CCrtypePlugin@Plugin;
+
+void RegisterCrtypes()
+{
+	IMapperPlugin@plugin=@CCrtypePlugin();
+	if(Plugins_Register(plugin))
+	{
+		Message("Crtypes registered.");
+		Message("Press Alt+C to display critter's available basetypes.");
+	}
+}

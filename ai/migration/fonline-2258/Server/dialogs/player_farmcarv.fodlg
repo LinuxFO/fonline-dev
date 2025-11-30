@@ -1,0 +1,251 @@
+[comment]
+lighter job 
+
+[data]
+lang=engl russ
+
+[dialog]
+&
+1 1000 None 0 #
+2 1010 D _var p player_farmOwner = 1 D _var n player_farmCar = 0 #
+3 1020 D _var p player_farmOwner = 1 D _var n player_farmCar = 1 #
+7 1030 D _var p player_farmOwner = 0 #
+10 1040 D _script dialog@d_CommonTimeoutNotReady 0  D _var n player_farmCar = 2 D _var p player_farmOwner = 1 #
+11 1050 D _script dialog@d_CommonTimeoutReady 0  D _var n player_farmCar = 2 D _var p player_farmOwner = 1 #
+12 1060 D _script dialog@d_CommonTimeoutNotReady 0  D _var n player_farmCar = 3 D _var p player_farmOwner = 1 #
+13 1070 D _script dialog@d_CommonTimeoutReady 0  D _var n player_farmCar = 3 D _var p player_farmOwner = 1 @
+7 2000 None 0 @
+2 3000 dialog@dlg_FarmStatus 0 #
+3 3010 D _var n player_farmCar = 0 D _var p player_farmIncome > 4999 R _var p player_farmIncome - 5000 R _var n player_farmCar = 1 R _var p player_farmProfits + 100 #
+0 3020 @
+3 4000 None 0 #
+8 4010 #
+4 4020 #
+5 4030 #
+0 4040 @
+4 5000 None 0 #
+3 5010 @
+5 6000 None 0 #
+6 6010 #
+3 6020 @
+6 7000 None 0 #
+3 7010 @
+8 8000 None 0 #
+9 8010 D _var p player_farmFood > 11 R _var p player_farmFood - 12 R _var n player_farmCar = 2 R _script dialog@r_CommonTimeout 1 20 #
+9 8020 D _var p player_farmWater > 11 R _var p player_farmWater - 12 R _var n player_farmCar = 2 R _script dialog@r_CommonTimeout 1 20 #
+9 8030 D _var p player_farmWood > 11 R _var p player_farmWood - 12 R _var n player_farmCar = 2 R _script dialog@r_CommonTimeout 1 20 #
+9 8040 D _item p PID_FIBER > 143 R _item p PID_FIBER - 144 R _var n player_farmCar = 2 R _script dialog@r_CommonTimeout 1 20 #
+9 8050 D _item p PID_MUTATED_FRUIT > 143 R _item p PID_MUTATED_FRUIT - 144 R _var n player_farmCar = 2 R _script dialog@r_CommonTimeout 1 20 #
+9 8060 D _item p PID_BEER > 143 R _item p PID_BEER - 144 R _var n player_farmCar = 3 R _script dialog@r_CommonTimeout 1 20 #
+9 8070 D _item p PID_ROT_GUT > 143 R _item p PID_ROT_GUT - 144 R _var n player_farmCar = 3 R _script dialog@r_CommonTimeout 1 20 #
+9 8080 D _item p PID_XANDER_ROOT > 143 R _item p PID_XANDER_ROOT - 144 R _var n player_farmCar = 2 R _script dialog@r_CommonTimeout 1 20 #
+9 8090 D _item p PID_BROC_FLOWER > 143 R _item p PID_BROC_FLOWER - 144 R _var n player_farmCar = 2 R _script dialog@r_CommonTimeout 1 20 #
+9 8100 D _item p PID_TOBACCO > 143 R _item p PID_TOBACCO - 144 R _var n player_farmCar = 2 R _script dialog@r_CommonTimeout 1 20 #
+3 8110 @
+9 9000 None 0 @
+10 10000 None 0 #
+0 10010 @
+11 11000 None 0 #
+11 11010 R _script dialog@r_JumpToRandomNode 3 2 3 10 @
+12 12000 None 0 #
+0 12010 @
+13 13000 None 0 #
+13 13010 R _script dialog@r_JumpToRandomNode 3 4 5 10 @
+20 14000 None 0 #
+16 14010 @
+30 15000 None 0 #
+18 15010 @
+16 16000 None 0 #
+17 16010 R _var n player_farmCar = 1 @
+17 17000 None 0 @
+18 18000 None 0 #
+19 18010 R _var n player_farmCar = 1 R _var p player_farmIncome + 3500 R _var p player_farmProfits + 50 @
+19 19000 None 0 @
+40 20000 None 0 #
+51 20010 @
+50 21000 None 0 #
+52 21010 @
+51 22000 None 0 #
+17 22010 R _var n player_farmCar = 1 @
+52 23000 None 0 #
+19 23010 R _var n player_farmCar = 1 R _var p player_farmIncome + 5000 R _var p player_farmProfits + 75 &
+
+[engl]
+{100}{}{Caravan Driver}
+{200}{}{You see your caravan driver.}
+{210}{}{This is normally where your caravan driver hangs out. But you wonder if they'll survive their next run.}
+{1000}{}{Predialogue installations}
+{1010}{}{lock}
+{1020}{}{unlock}
+{1030}{}{visitor}
+{1040}{}{low load not ready}
+{1050}{}{low load ready}
+{1060}{}{high load not ready}
+{1070}{}{high load ready}
+{2000}{}{Welcome to the Farm. Please don't shoot anybody.@@Uh... hello?@@New ranch hand?@@Just leave your resources somewhere visible, the boss will pick them up eventually.@@Sorry, there's no beds available, you'll have to sleep on the floor.@@Another mouth to feed, eh? Well you'd better pull your weight around here, that's for sure.@@Does the boss know you're here?@@Yes, hi, that's very nice. Who are you again?@@I hope those aren't weapons on you...@@Stay away from the kids! You animal!@@What are you even doing here?@@Who invited you?@@Don't expect to get a map to this place.@@I've been around, haven't I seen you before?@@Didn't we bump into each other earlier?@@Pretty sure I've seen you around before...@@Didn't we-- nevermind...@@Haven't we? No, no...@@Wish I could get another run together, but it isn't up to me.@@Looks mighty dusty out there...@@Yeah... rain again? Or...@@You ever seen that weird... nevermind...@@You look rough. Careful now.@@Aren't you part of the... nevermind...@@Yup, sun is setting soon enough. Better get on the road soon.}
+{3000}{}{[Renovate this part of your Farm, and unlock the Caravan Driver! +100 Daily Income, and allows you to risk sending caravans out to town! Unlock for 5000$, deducts the money from your Farm Treasury]}
+{3010}{}{Let's renovate!}
+{3020}{}{[Leave]}
+{4000}{}{Hi, good lookin'! We're ready to hit the road at any time! Just need to load up the trade goods first... you got anything we can sell in town?@@Hey, @pname@! You just come to chit-chat? Or you eyeing something more than the goods? *she winks*@@Sure is alone out there without you, boss. When are you going to come for a trip? It doesn't have to be with the rest of the caravan...@@Hey sweetie, I reckon we can make a fortune together. Got anything we can get rich off?@@Almost sunset, you want to set up a caravan run tonight?@@Don't feel so sure about this next run, boss. Last one nearly killed me...}
+{4010}{}{[Organize a Caravan Run]}
+{4020}{}{What can we sell?}
+{4030}{}{What do we need to set up a caravan run?}
+{4040}{}{I'm still thinking about it. We'll talk later.}
+{5000}{}{Oh, I reckon we can sell pretty much any resource we have available on the farm. Wood, water, food, apples, tobacco, you name it. Anything we produce we can sell in town.}
+{5010}{}{I see. Thanks.}
+{6000}{}{Well, boss, first thing is first *she smiles* you need me. But seriously, any 12x units of any available Farn resource can be sent out to be sold or traded in town. All items other than that can be sold or traded in values of 144x. Fibers, apples, beer, rotgut, etc. Of course there are risks...}
+{6010}{}{Risks?}
+{6020}{}{That's fine, let's talk about something else.}
+{7000}{}{Yes, boss, "risks". Our caravan might get slaughtered or robbed by Raiders. Might even get obliterated by Deathclaws. Anything can happen. It's a risky business driving a caravan these days. Takes about 20 hours to do a run as well. }
+{7010}{}{Hmm, alright.}
+{8000}{}{What do you want to sell? Remember that we might lose everything, but we might also make a hefty profit.
+
+Tradable Items: Alcohol is in high demand: 
+
+12x units of Wood, Food, or Water
+144x Fibers
+144x Apples
+144x Beers
+144x Rotgut
+144x Tobacco
+144x Xander Root
+144x Broc Flower}
+{8010}{}{Here's a crate full of Food.}
+{8020}{}{Here's a crate full of Water.}
+{8030}{}{Here's a crate full of Wood.}
+{8040}{}{Here's a crate full of Fibers.}
+{8050}{}{Here's a crate full of Apples.}
+{8060}{}{Here's a crate full of Beer.}
+{8070}{}{Here's a crate full of Rotgut.}
+{8080}{}{Here's a crate full of Xander Root.}
+{8090}{}{Here's a crate full of Broc Flower.}
+{8100}{}{Here's a crate full of Tobacco.}
+{8110}{}{Nevermind.}
+{9000}{}{It's your money, boss! We're hitting the road! I'll see you in 20 hours! Wish us luck, good lookin'! YEEEEEEEEEHHAAAWWWWW!}
+{10000}{}{... out in the distance you see... }
+{10010}{}{[Nothing. Your caravan has still not arrived!]}
+{11000}{}{... out in the distance you see... }
+{11010}{}{[Your caravan! Set out to greet them!]}
+{12000}{}{... out in the distance you see... }
+{12010}{}{[Nothing. Your caravan has still not arrived!]}
+{13000}{}{... out in the distance you see... }
+{13010}{}{[Your caravan! Set out to greet them!]}
+{14000}{}{@pname@! We have some news for you...}
+{14010}{}{Yes, yes?!}
+{15000}{}{@pname@! We have some news for you...}
+{15010}{}{Yes, yes?!}
+{16000}{}{The run went horrible! We lost the goods! I'm so sorry, good lookin'! Maybe tomorrow will fetch better results.}
+{16010}{}{Damnit! My merchandise! Who's going to pay for this?! Damnit!}
+{17000}{}{I'm so sorry, Master! Please don't beat me again! We can leave immediately if you're up for another attempt...}
+{18000}{}{The run went really well! We managed to sell the items and make a profit of 3500 Farm Dollars! On top of that, one of the local towns has decided to invest in our Farm! We've gained +50 Daily Profits!}
+{18010}{}{Oh, boy! That's swell! Thanks!}
+{19000}{}{Yup! We're ready to leave again at any time. Just give me the word. I hope the next run goes just as well.}
+{20000}{}{@pname@! We have some news for you...}
+{20010}{}{Yes, yes?!}
+{21000}{}{@pname@! We have some news for you...}
+{21010}{}{Yes, yes?!}
+{22000}{}{The run went horrible! We lost the goods! I'm so sorry, good lookin'! Maybe tomorrow will fetch better results.}
+{22010}{}{Damnit! My booze! Who's going to pay for this?! Damnit! Do you know how much booze that was?! Those damn wastelanders keep stealing all my hootch!}
+{23000}{}{The run went really well! We managed to sell the alcohol and make a profit of 5000 Farm Dollars! On top of that, one of the local towns has decided to invest in our Farm! We've gained +75 Daily Profits!}
+{23010}{}{Oh, boy! That's swell! Thanks! I made that liquor myself! I called it something really cool but can't remember what it was after drinking a dozen. Oh well! Money! Yay! }
+{100000001}{}{Better wash the counter again...}
+{100000002}{}{That's 5 caps buddy. Hey did you hear me? Cough em' up.}
+{100000003}{}{Better change the keg...}
+{100000004}{}{RotGut? You drink that shit?}
+{100000005}{}{Domestic? I got B.E.E.R buddy, do you want one or not?}
+{100000006}{}{Fuckin' dust is getting everywhere. Hey close the fuckin' door!}
+{100000007}{}{I swear if the next asshole doesn't tip. Ima' shoot somebody!}
+{100000008}{}{I got bottles, I got shots, and I got a bat behind the counter for the retards. Your not a retard are you?}
+{100000009}{}{Uh-huh, yeah that's nice buddy. You don't say...What? Of course I'm listening...}
+{100000010}{}{That's 5 caps. FIVE CAPS Tribal! F.I.V.E! }
+{100000011}{}{Shut up and order a fuckin' beer already!}
+{100000012}{}{I swear if I have to serve another drunk, I'm getting the shotgun!}
+{100000013}{}{Look the keg went dry, and it's going to be another month until the caravan shows up again.}
+{100000014}{}{Really? You don't say, buy another drink or get out!}
+{100000015}{}{What? I'm on break.}
+{100000016}{}{Be right with ya'}
+{100000017}{}{Have a sit stranger. I'll be with you in a moment.}
+{100000018}{}{When do we close? Uh, when the place get's shot up, that's when!}
+{100000019}{}{We're fresh outta' cold beer, sorry. You'll just have to drink it warm.}
+{100000020}{}{RotGut? No man, go make that shit yourself! I wouldn't drink it!}
+
+[russ]
+{100}{}{Алкоголик}
+{200}{}{Вы видите пьяницу.}
+{210}{}{Вы видите шатающегося из стороны в сторону пьяного человека в лохмотьях. Лицо его распухло, нос синющий как слива. А аромат рядом с ним такой, что свалит брамина насмерть. Он что-то бормочет про себя и иногда громко поет песни.}
+{210}{}{Вы видите алкаша. Он весьма грязен - кажется, он повалялся в луже, но не особо этим расстроен.}
+{1000}{}{I?aaaeaeiaiaua onoaiiaee}
+{1010}{}{base}
+{1020}{}{unlock}
+{1030}{}{visitor}
+{1040}{}{low load not ready}
+{1050}{}{low load}
+{1060}{}{high load not ready}
+{1070}{}{high load ready}
+{2000}{}{Welcome to the Farm. Please don't shoot anybody.@@Uh... hello?@@New ranch hand?@@Just leave your resources somewhere visible, the boss will pick them up eventually.@@Sorry, there's no beds available, you'll have to sleep on the floor.@@Another mouth to feed, eh? Well you'd better pull your weight around here, that's for sure.@@Does the boss know you're here?@@Yes, hi, that's very nice. Who are you again?@@I hope those aren't weapons on you...@@Stay away from the kids! You animal!@@What are you even doing here?@@Who invited you?@@Don't expect to get a map to this place.}
+{3000}{}{Dialog text}
+{3010}{}{How do I plant crops?}
+{3020}{}{Thanks. Goodbye.}
+{4000}{}{The Water Merchants in the Hub will sell you crates of water for caps. You'll have to carry them back here after yourself though. }
+{4010}{}{[Organize a Caravan]}
+{4020}{}{What can we sell?}
+{4030}{}{What do we need to set up a caravan run?}
+{4040}{}{I'm still thinking about it. We'll talk later.}
+{5000}{}{Oh, I reckon we can sell pretty much any resource we have available on the farm. Wood, water, food, apples, tobacco, you name it.}
+{5010}{}{I see. Thanks.}
+{6000}{}{Well, boss, first thing is first *she smiles* you need me. But seriously, any 12x units of any available Farn resource can be sent out to be sold or traded in town. All items other than that can be sold or traded in values of 144x. Fibers, apples, beer, rotgut, etc. Of course there are risks...}
+{6010}{}{Risks?}
+{6020}{}{That's fine, let's talk about something else.}
+{7000}{}{Yes, boss, "risks". Our caravan might get slaughtered or robbed by Raiders. Might even get obliterated by Deathclaws. Anything can happen. It's a risky business driving a caravan these days. Takes about 3 days to do a run as well. }
+{7010}{}{Hmm, alright.}
+{8000}{}{What do you want to sell? Remember that we might lose everything, but we might also make a hefty profit.
+
+Tradable Items:
+
+12x units of Wood, Food, or Water
+144x Fibers
+144x Apples
+144x Beers
+144x Rotgut
+144x Tobacco
+144x Xander Root
+144x Broc Flower}
+{8010}{}{Here's a crate full of}
+{8020}{}{Here's a crate full of}
+{8030}{}{Here's a crate full of}
+{8040}{}{Here's a crate full of}
+{8050}{}{Here's a crate full of}
+{8060}{}{Here's a crate full of}
+{8070}{}{Here's a crate full of}
+{8080}{}{Here's a crate full of}
+{8090}{}{Here's a crate full of Broc Flower.}
+{8100}{}{Here's a crate full of Tobacco.}
+{8110}{}{Nevermind.}
+{9000}{}{It's your money, boss! We're hitting the road! I'll see you in 54 hours! Wish us luck, good lookin'! YEEEEEEEEEHHAAAWWWWW!}
+{10000}{}{... out in the distance you see... }
+{10010}{}{[Nothing. Your caravan has still not arrived!]}
+{11000}{}{... out in the distance you see... }
+{11010}{}{[Your caravan! Set out to greet them!]}
+{12000}{}{... out in the distance you see... }
+{12010}{}{[Your caravan! Set out to greet them!]}
+{13000}{}{... out in the distance you see... }
+{13010}{}{[Your caravan! Set out to greet them!]}
+{14000}{}{@pname@! We have some news for you...}
+{14010}{}{Yes, yes?!}
+{15000}{}{@pname@! We have some news for you...}
+{15010}{}{Yes, yes?!}
+{16000}{}{The run went horrible! We lost the goods! I'm so sorry, good lookin'! Maybe tomorrow will fetch better results.}
+{16010}{}{Damnit! My merchandise! Who's going to pay for this?! Damnit!}
+{17000}{}{I'm so sorry, Master! Please don't beat me again!}
+{18000}{}{The run went really well! We managed to sell the items and make a profit of 3500 Farm Dollars!}
+{18010}{}{Oh, boy! That's swell! Thanks!}
+{19000}{}{Yup! We're ready to leave at any time. Just give me the word. I hope the next run goes just as well.}
+{20000}{}{@pname@! We have some news for you...}
+{20010}{}{Oh, boy! That's swell! Thanks!}
+{21000}{}{@pname@! We have some news for you...}
+{21010}{}{Oh, boy! That's swell! Thanks!}
+{22000}{}{The run went horrible! We lost the goods! I'm so sorry, good lookin'! Maybe tomorrow will fetch better results.}
+{22010}{}{Damnit! My booze! Who's going to pay for this?! Damnit! Do you know how much booze that was?! Those damn wastelanders keep stealing all my hootch!}
+{23000}{}{The run went really well! We managed to sell the alcohol and make a profit of 5000 Farm Dollars! On top of that, one of the local towns has decided to invest in our Farm! We've gained +75 Daily Profits!}
+{23010}{}{Oh, boy! That's swell! Thanks! I made that liquor myself! I called it something really cool but can't remember what it was after drinking a dozen. Oh well! Money! Yay! }
+

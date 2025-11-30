@@ -1,0 +1,183 @@
+[comment]
+
+
+[data]
+lang=engl
+
+[dialog]
+&
+1 1000 None 0 #
+2 1010 @
+2 2000 None 0 #
+3 2010 D _script dialog@d_IsToHeal 0  #
+80 2020 D _param p PE_PROFESSION_DOCTOR < 2 #
+70 2030 #
+6 2040 D _var p ncr_docwar = 1 #
+9 2050 D _var p noire1 = 1 #
+0 2060 @
+3 3000 dialog@dlg_ShowHealingPrice 0 #
+4 3010 D _script dialog@d_HealingMoney 0  #
+0 3020 @
+4 4000 None 0 #
+5 4010 R _script dialog@r_DocHeal 0  @
+5 5000 None 0 @
+80 6000 None 0 #
+81 6010 D _script dialog@d_CheckProfession 1 0 D _script dialog@d_CheckDoctor0 1 0 #
+81 6020 D _script dialog@d_CheckDoctor1 1 0 #
+0 6030 @
+81 7000 None 0 #
+82 7010 D _script dialog@d_CheckDoctor0 1 1 D _item p PID_BOTTLE_CAPS > 1499 R _item p PID_FIRST_AID_BOOK + 1 R _param p PE_PROFESSION_DOCTOR = 1 R _script dialog@r_RemoveMoney 1 1500 #
+83 7020 D _script dialog@d_CheckDoctor1 1 1 D _item p PID_BOTTLE_CAPS > 2999 R _param p PE_PROFESSION_DOCTOR = 2 R _script dialog@r_RemoveMoney 1 3000 #
+0 7030 @
+82 8000 None 0 #
+0 8010 @
+83 9000 None 0 #
+0 9010 @
+70 10000 None 0 #
+71 10010 D _item p PID_BOTTLE_CAPS > 2499 R _script dialog@r_RemoveMoney 1 2500 R _item p PID_BLUEPRINT_STIMPAK + 1 #
+71 10020 D _item p PID_BOTTLE_CAPS > 6499 R _script dialog@r_RemoveMoney 1 6500 R _item p PID_BLUEPRINT_SUPER_STIMPAK + 1 #
+71 10030 D _item p PID_BOTTLE_CAPS > 5999 R _script dialog@r_RemoveMoney 1 6000 R _item p PID_BLUEPRINT_RADAWAY + 1 #
+71 10040 D _item p PID_BOTTLE_CAPS > 7999 R _script dialog@r_RemoveMoney 1 8000 R _item p PID_BLUEPRINT_RADX + 1 #
+71 10050 D _item p PID_BOTTLE_CAPS > 14999 R _script dialog@r_RemoveMoney 1 15000 R _item p PID_BLUEPRINT_NEEDLER_PISTOL + 1 #
+0 10060 @
+71 11000 None 0 #
+0 11010 @
+6 12000 None 0 #
+7 12010 @
+7 13000 None 0 #
+8 13010 R _var p ncr_docwar = 2 #
+8 13020 D _param p SK_BARTER > 74 R _var p ncr_docwar = 2 R _script dialog@r_AddMoney 1 200 R _script dialog@r_AddExperience 1 100 @
+8 14000 None 0 #
+0 14010 @
+9 15000 None 0 #
+10 15010 D _var p ncr_investigation4 = 9 #
+11 15020 D _var p ncr_investigation4 = 10 @
+10 16000 None 0 #
+12 16010 @
+11 17000 None 0 #
+12 17010 @
+12 18000 None 0 #
+13 18010 @
+13 19000 None 0 #
+14 19010 @
+14 20000 None 0 #
+15 20010 @
+15 21000 None 0 #
+16 21010 @
+16 22000 None 0 #
+17 22010 @
+17 23000 None 0 #
+18 23010 @
+18 24000 None 0 #
+19 24010 @
+19 25000 None 0 #
+20 25010 @
+20 26000 None 0 #
+21 26010 @
+21 27000 None 0 #
+22 27010 @
+22 28000 None 0 #
+23 28010 @
+23 29000 None 0 #
+24 29010 @
+24 30000 None 0 #
+25 30010 @
+25 31000 None 0 #
+26 31010 @
+26 32000 None 0 #
+27 32010 @
+27 33000 None 0 #
+28 33010 @
+28 34000 None 0 #
+0 34010 R _var p noire1 = 2 R _script dialog@r_AddExperience 1 2500 &
+
+[engl]
+{100}{}{Doc Jubilee}
+{200}{}{You see Dr. Jubilee, the town's medical professional.}
+{210}{}{You see an old, kindly looking fellow. Looks like he's taking patients, a lot of people are walking in and out of his office. }
+{210}{}{He's an old man with a snow-white beard and a slightly blank stare.}
+{1000}{}{error}
+{1010}{}{default}
+{2000}{}{Welcome to Doctor Jubilee's humble clinic. How can I help you?}
+{2010}{}{I need a doctor.}
+{2020}{}{I am quite interested in medicine myself, and this is the reason I am visiting you today. My hopes are that you could share some of your knowledge and experience with me...}
+{2030}{}{Do you have any blueprints for sale?}
+{2040}{}{Doctor Henry would like to propose a deal to you.}
+{2050}{}{Doc, you've got to help me. Ever since... I can't even say it... Look, doc. I've... been through some traumatic shit. I can't sleep, I can't eat. Everytime I look at my hands I see blood. I can't even look at myself in the mirror anymore!}
+{2060}{}{Nothing, bye.}
+{3000}{}{I think I can cure what ails ya. It's gonna cost you @lex price@ caps.}
+{3010}{}{Well... all right. That sounds fair.}
+{3020}{}{Changed my mind. I'll be back later.}
+{4000}{}{Alright, lie down. This may take a while.}
+{4010}{}{Sure thing, Doc.}
+{5000}{}{That should do it. Good luck, youngster.}
+{6000}{}{Oh, a fellow colleague! I don't meet new doctors every day, you know... More reason to say that I am very pleased to have you here. So, what did you want to talk about then?}
+{6010}{}{I was hoping you can show me how to perform simple surgeries and... [You explain what you need]}
+{6020}{}{Well, I was interested in learning some more complex methods of saving human lives, would you consider... [You explain him what you need]}
+{6030}{}{I'm not quite sure where to begin. Maybe I'll drop by a little later.}
+{7000}{}{Sure, sure... We can already arrange something, I guess. But I would like to have something in return, a kind of compensation for my time and work. It's not that I'm trying to earn something out of this, but a help from a colleague like you would be quite appreciated. I'll keep it short then -- I would need $1500 for a short lesson or $3000 for one with more detail. Please, let me know when you have it.}
+{7010}{}{You don't have to worry, my appreciated colleague, I have $1500 right here! [You give him $1500]}
+{7020}{}{You don't have to worry, my appreciated colleague, I have $3000 right here! [You give him $3000]}
+{7030}{}{Well, I should start gathering some healing herbs then. See you later, doctor Jubilee!}
+{8000}{}{Excellent! Then we should waste no more time, let's begin... [Doctor Jubilee starts to show you his healing and surgery methods. After the session, you get a book from him.]}
+{8010}{}{Thank you very much, Doctor Jubilee! I will do my best to put this knowledge to good use, I assure you. Have a nice day!}
+{9000}{}{Excellent! Then we should waste no more time, let's begin... [Doctor Jubilee starts to show you his healing and surgery methods.]}
+{9010}{}{Thank you very much, Doctor Jubilee! I will do my best to put this knowledge to good use, I assure you. Have a nice day!}
+{10000}{}{Yeah, I've got some blueprints right here. Stimpak for 2.500 caps, Super Stimpak for 6.500 caps, RadAway for 6.000 caps, Rad-X for 8.000 caps and HN Needler Pistol for 15.000 caps. Are you interested?}
+{10010}{}{I'd like a Stimpak blueprint.}
+{10020}{}{I'd like a Super Stimpak blueprint.}
+{10030}{}{I'd like a RadAway blueprint.}
+{10040}{}{I'd like a Rad-X blueprint.}
+{10050}{}{I'd like a HN Needler Pistol blueprint.}
+{10060}{}{Maybe some other time.}
+{11000}{}{Here's your blueprint. Come back if you need another one.}
+{11010}{}{Thanks! Goodbye.}
+{12000}{}{Splendid! Did he reconsider my renting of his spare examination room?}
+{12010}{}{Yes, but he wants something in return...}
+{13000}{}{Of course, who wouldn't? Tell me, is it money? How much?}
+{13010}{}{It's not about money. He wants you to give him the dead bodies, or pieces that you might happen to amputate.}
+{13020}{}{Before anything, he wants 200 caps. Then he wants you to give him the dead bodies, or pieces that you might happen to amputate.}
+{14000}{}{That's disgusting! But I'll pay it... I suppose. What choice do I have?! He can have the limbs no problem, that sick man! But he can't have the bodies of the people with families. If nobody claims the deceased then Doctor Henry can have the body. Go tell him that.}
+{14010}{}{I will, thanks.}
+{15000}{}{Calm down there, kiddo. It's all right, it's all right. You're @pname@, aren't you?}
+{15010}{}{Sure am...}
+{15020}{}{Yeah...}
+{16000}{}{Tandi gave a speech about you. It was magnificent. I can see that you've sacrificed more than enough for what is right. You're quite the hero, @pname@.}
+{16010}{}{Don't ever call me that! Don't ever call me a hero! You don't know what I've done! I'm not perfect! I'm not a saint! I'm a killer! A dirty, rotten killer!}
+{17000}{}{Yes... the whole town heard about how you were fired. But I can see that you've sacrificed more than enough for what you thought was right. You can be quite the hero, @pname@... sometimes.}
+{17010}{}{Don't ever call me that! Don't ever call me a hero! You don't know what I've done! I'm not perfect! I'm not a saint! I'm a killer! A dirty, rotten killer!}
+{18000}{}{@pname@, please. You must calm down. This is not the vault. No one here in California had the chance to grow up safely in a vault. Rape, murder... these things... they're normal out here...}
+{18010}{}{[Grab the man by the throat]}
+{19000}{}{Ughhh!!!!! [Doctor Jubilee squirms]}
+{19010}{}{I killed men for these things. Do not ever tell me it is normal to hurt, rape, murder innocent little children. These things that you men do, to live, is simply sin. }
+{20000}{}{[You release Doctor Jubilee from your grip, and he stumbles back gasping for air]}
+{20010}{}{I cannot understand why this world is as dark as it is now. You tell me it is simply a matter of misunderstanding. That, I, am a sheltered being. Too naive, and untouched by this hellish world to understand it's struggle.}
+{21000}{}{[Doctor Jubilee says nothing, and stares you down]}
+{21010}{}{Do I have to do everything for you people myself? Do I have to teach you morals, ethics, purpose?! All alone?! Is there no one out here that understands what it means to be right or wrong?! }
+{22000}{}{No, @pname@, you don't. But you need to calm down. The world has changed. We've all been through this before, but you haven't. You need to go through the phases. You need time.}
+{22010}{}{Time? Time?! The less time I spend out there, the more people that are going to die! Can't you hear their screams?! They're crying for me! All of them! Can't you... can't you... hear... [Fall to your knees]}
+{23000}{}{I did, once, @pname@. But... but we... we have to turn off. It's... war now... it's always been a war. There's no winning it. Just surviving another day. The old world is gone. There's nothing left of it. Dead memories, @pname@, hollow attachments to the old world blues.}
+{23010}{}{No. I can't. I won't. I won't let it go. I won't abandon these people. It's so much easier to just do nothing, isn't it? I too, understand the fear. But...}
+{24000}{}{@pname@, it's not about fear. It's about retaining your humanity. Just look at you, @sex@|boy...||girl...| you're a wreck! Your clothes are covered in blood, and you've got bags under your eyes worse than mine. }
+{24010}{}{The only thing it takes for evil to triumph is for good men to do nothing! Do not tell me to do nothing! I would rather die than to give up the fight!}
+{25000}{}{And so you shall, @pname@. You'll die heroically. But you will still die in the end. You can't shoot the whole world dead, and you can't save everyone.}
+{25010}{}{I don't care! I don't care about any of this shit! I'm going to fix things! I'm going to make everything better!}
+{26000}{}{[Doctor Jubilee smiles] @pname@... you've already done enough. Can't you see that? You've saved so many lives. Melinda is back home with her parents now, all thanks to you. The city has never felt safer.}
+{26010}{}{Good, good. But this doesn't help me at all. Maybe the NCR is a safer place... for now... but the rest of California... }
+{27000}{}{Before you get any more ideas to play police officer out there, I think you could use a vacation.}
+{27010}{}{Yeah, right. A vacation from what? Radioactive fallout?}
+{28000}{}{You should rest. Find a quiet place and just sleep for a while. Clear your head. Find someone you can talk to, someone you can relate to.}
+{28010}{}{I wish I could go back to the vault... but... you... people need me out here. I could never go back now.}
+{29000}{}{Most people in your situation turn to drugs and alcohol... I hope you haven't been abusing any substances, @pname@...}
+{29010}{}{[Say nothing]}
+{30000}{}{*Sigh* Honestly, @pname@, there isn't much anyone can do about your post traumatic stress disorder. Sooner, or later, you will either crack, or begin to feel nothing. Man is destined to kill, and die. There is nothing more to say about it. Try as we all may, it is the destiny of most men today.}
+{30010}{}{[Say nothing]}
+{31000}{}{Just know in your heart that you're doing the right thing. You've made the choices you've made to become who you are now. No one else. Don't let yourself fall away into nothing, don't let the guilt eat you alive. }
+{31010}{}{[Say nothing]}
+{32000}{}{As long as you can still see the difference between killing the good guy, and killing the bad guy you'll be fine. The moment you forget this, the police will be coming after you next time. }
+{32010}{}{Let's hope the NCR can keep this shit hole country together.}
+{33000}{}{They will. NCR is more powerful than you could ever know.}
+{33010}{}{Well, doc, thanks for nothing. I need a drink. Stay out of trouble, ya hear?}
+{34000}{}{[And with that, I shook his hand, and walked away. I feel like I've done what I needed for the people of Shady Sands. But I can't help feeling like I should go back to the Hub, and see if they have any new cases] }
+{34010}{}{It's a war out there... and I'm going to win it.}
+

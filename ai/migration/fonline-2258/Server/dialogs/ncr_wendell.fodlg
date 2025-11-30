@@ -1,0 +1,116 @@
+[comment]
+
+
+[data]
+lang=engl
+
+[dialog]
+&
+1 1000 None 0 #
+2 1010 D _var p name_mem_npc_player = 0 #
+23 1020 D _var p name_mem_npc_player = 1 @
+2 2000 None 0 #
+3 2010 D _var p ncr_investigation4 = 1 @
+3 3000 None 0 #
+4 3010 @
+4 4000 None 0 #
+5 4010 D _param p ST_KARMA } 0 #
+5 4020 D _param p ST_KARMA { 0 @
+5 5000 None 0 #
+6 5010 @
+6 6000 None 0 #
+7 6010 @
+7 7000 None 0 #
+8 7010 @
+8 8000 None 0 #
+9 8010 @
+9 9000 None 0 #
+10 9010 @
+10 10000 None 0 #
+11 10010 @
+11 11000 None 0 #
+12 11010 @
+12 12000 None 0 #
+13 12010 @
+13 13000 None 0 #
+14 13010 @
+14 14000 None 0 #
+15 14010 @
+15 15000 None 0 #
+16 15010 @
+16 16000 None 0 #
+17 16010 @
+17 17000 None 0 #
+18 17010 #
+18 17020 #
+18 17030 #
+18 17040 #
+18 17050 #
+18 17060 @
+18 18000 None 0 #
+19 18010 @
+19 19000 None 0 #
+20 19010 @
+20 20000 None 0 #
+21 20010 @
+21 21000 None 0 #
+22 21010 R _var p ncr_investigation4 = 2 R _item p PID_SUPER_STIMPAK + 1 R _var p name_mem_npc_player = 1 @
+22 22000 None 0 @
+23 23000 None 0 &
+
+[engl]
+{100}{}{Wendell Peterson}
+{200}{}{You see Wendell Peterson.}
+{210}{}{A bright, shining star in the world of NCR politics! What a joke. }
+{1000}{}{Predialogue installations}
+{1010}{}{Answer text}
+{1020}{}{2}
+{2000}{}{Can't you see I'm busy here?}
+{2010}{}{Hello, Mr. Peterson. My name is Detective @pname@, and I'm investigating the recent assassination attempt on the life of President Tandi.}
+{3000}{}{May I see your badge please, Detective?}
+{3010}{}{[Show him your NCR Police Badge]}
+{4000}{}{Detective @pname@, is it? I've heard of you. Good job, sport. You make me proud. Hard to believe some wastelander took it upon @sex@|himself||herself| to help out the NCR. }
+{4010}{}{The people needed a hero. Not a statue.}
+{4020}{}{The people needed a hero, and I needed a job.}
+{5000}{}{The legacy of the Vault Dweller isn't just a story we tell our kids. That statue is a symbol of civilization. A new age ending, and an even better one just beginning.}
+{5010}{}{Well it seems like some people aren't taking too much of a liking towards the NCR's disposition.}
+{6000}{}{What? What ever do you mean? The people love President Tandi's leadership. Her wisdom is a blessing to the wasteland.}
+{6010}{}{Tell that to your newly annexed cities. }
+{7000}{}{[He frowns] The NCR had to bring down the hammer of justice! These people were becoming animals! ANIMALS! Anyone who doesn't want to be civilized is considered an enemy of the NCR.}
+{7010}{}{Murdering local Mayors, and forcing the people to pay taxes isn't what us Californians consider civilization. Your intentions might have been right, but your execution was piss poor.}
+{8000}{}{Politics aren't perfect. No matter what someone does, there will always be a group of people that disagree. What were we supposed to do about it? Let the ninety nine percent suffer just to please the last? Intelligent people adapt to their environments, and accept change for the greater good. }
+{8010}{}{Don't tread on the bear, it seems.}
+{9000}{}{Yes. Unfortunately. This is a violent age. Violence is a primitive thing, but in the right hands it can be controlled, and become a symbol of justice. You don't get it, do you? It's not about the people inside the NCR, it's all about it's message. As long as people still remember yesterday, we can rebuild tomorrow.}
+{9010}{}{Sure, I guess. I used to think the same thing. Maybe that's why I became a cop in the first place.}
+{10000}{}{Don't ever lose sight of what's right. I fear that a few of my fellow... "allies" are starting to faulter.}
+{10010}{}{What do you mean? Is there anything I should know?}
+{11000}{}{*Sigh* I suppose, If you want to solve this crime.}
+{11010}{}{I do. What's going on in the NCR?}
+{12000}{}{Hmm... new influx of strangers from the East. Some sort of nuclear bomb was detonated over there. Do not ask me. We had no idea that there were people over there. We just saw the blast. }
+{12010}{}{Wow! There's life beyond California?!}
+{13000}{}{Keep your voice down, @sex@|son!||ma'am!| President Tandi doesn't want to go exploring just yet. We need to gain control of California first. Who knows what's out there!}
+{13010}{}{You're right. Go on.}
+{14000}{}{Broken Hills was the last city we annexed. The people weren't too happy about it, but we've made good on our promises to them. This new influx of Easterners is a mystery to us. We don't know how these people are adapting to their new surroundings.}
+{14010}{}{Why do you say that? }
+{15000}{}{Easterners aren't as civilized as us Westerners. They... commit many more sexual based crimes. The violence towards women has increased drastically. It is... disgusting. But, @pname@. You put a stop to this in the NCR. You're a real hero. [He smiles and grabs your hand to shake it. You try not to notice the blood on your sleeve as you reciprocate]}
+{15010}{}{...}
+{16000}{}{[He notices your displeasure, and quickly changes the subject] Many, many people have taken up residence across the NCR. Many Easterners, that is. Do you think that maybe one of them tried to kill Madame President?}
+{16010}{}{Detective Gallows thinks so.}
+{17000}{}{And you, Detective @pname@. What do you think?}
+{17010}{}{I think that you tried to kill her.}
+{17020}{}{I think that President Tandi is about ready for retirement.}
+{17030}{}{I think that someone in this city tried to kill her.}
+{17040}{}{I think that one of her competitors tried to kill her.}
+{17050}{}{I think that someone from the East tried to kill her.}
+{17060}{}{I really have no idea.}
+{18000}{}{[He smiles] For Madame President's sake, I hope that you're right.}
+{18010}{}{This still isn't much to go on. Where is the other candidate for presidency? There is two, isn't there? I noticed a flyer yesterday.}
+{19000}{}{Yes, there is I, Wendell Peterson, and my opponent, Joanna Tibbett.}
+{19010}{}{What can you tell me about her? }
+{20000}{}{Nothing. I will say nothing about her. That would get me into a lot of trouble. I don't think I'm allowed to persuade a police officer into voting for me, whilst he, or she is on duty.}
+{20010}{}{Is she a good, or a bad person?}
+{21000}{}{I will say nothing. Please, let's change the subject. Have you thought about investigating the other towns, and cities? The people--}
+{21010}{}{I don't have time for that. Thank you, Wendell. You've been quite helpful. Good luck with your political campaign. You seem to have a lot of potential.}
+{22000}{}{Why thank you, Detective @pname@. But I will never amount to the great that you have already done for the NCR. You are the true hero. Have this Super Stimpak.}
+{23000}{}{Hello, Detective @pname@. Everything going well with you, I hope?}
+

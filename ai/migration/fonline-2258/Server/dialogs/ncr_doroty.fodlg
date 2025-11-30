@@ -1,0 +1,89 @@
+[comment]
+
+
+[data]
+lang=engl
+
+[dialog]
+&
+1 1000 None 0 #
+2 1010 D _var p name_mem_npc_player = 0 #
+7 1020 D _var p name_mem_npc_player = 1 @
+2 2000 None 0 #
+12 2010 #
+3 2020 #
+0 2030 @
+3 3000 None 0 #
+4 3010 D _param p SK_SCIENCE < 50 #
+4 3020 D _param p SK_SCIENCE > 49 #
+4 3030 D _param p SK_SCIENCE > 79 @
+4 4000 None 0 #
+5 4010 @
+5 5000 None 0 #
+6 5010 R _var p name_mem_npc_player = 1 R _var p ncr_elecs = 1 @
+6 6000 None 0 @
+7 7000 None 0 #
+12 7010 #
+9 7020 #
+8 7030 #
+11 7040 D _var p ncr_letters = 1 R _var p ncr_letters = 2 #
+0 7050 @
+8 8000 None 0 @
+9 9000 None 0 #
+10 9010 D _item p PID_MOTION_SENSOR > 7 R _item p PID_MOTION_SENSOR - 8 R _script dialog@r_AddExperience 1 800 R _script dialog@r_AddMoney 1 500 R _script dialog@r_BulkOrderRewardJunk 0  #
+10 9020 D _item p PID_GEIGER_COUNTER > 7 R _item p PID_GEIGER_COUNTER - 8 R _script dialog@r_AddExperience 1 800 R _script dialog@r_AddMoney 1 500 R _script dialog@r_BulkOrderRewardJunk 0  #
+0 9030 @
+10 10000 None 0 #
+9 10010 #
+0 10020 @
+11 11000 None 0 @
+12 12000 None 0 #
+13 12010 D _var p q_adventure = 26 #
+14 12020 D _var p q_adventure = 33 R _var p q_adventure = 34 R _script dialog@r_AddExperience 1 3000 R _script quest_advent6@r_DeleteLoc 0  #
+0 12030 @
+13 13000 None 0 @
+14 14000 None 0 &
+
+[engl]
+{100}{}{Dorothy}
+{200}{}{You see a young woman, very much a tomboy, dressed in work overalls.}
+{210}{}{It's Dorothy, the city engineer.}
+{210}{}{From all the grease and dirt on her, she's a hands-on tool type, especially since that maintainence bot follows her everywhere.}
+{1000}{}{Predialogue installations}
+{1010}{}{Answer text}
+{1020}{}{kno}
+{2000}{}{Look buddy, I'm an engineer. That means I solve problems.@@Not problems like, 'What is Beauty?' because that would fall within the purview of your conundrums of philosophy. I solve practical problems.@@Git along, little doggy.@@C'mon, Toto.}
+{2010}{}{Can I ask you something?}
+{2020}{}{Need any help with anything?}
+{2030}{}{Well alrighty then. See ya.}
+{3000}{}{I doubt *you* could help me. What do you even know about electrical engineering? }
+{3010}{}{Well, I--}
+{3020}{}{A lot, actua--}
+{3030}{}{I have a master--}
+{4000}{}{Oh save it! I don't care about what you know, or do. I just need parts. I need the electrical components from Motion Sensors, and Geiger Counters. Everything gets so dusty and burnt out from this fucking weather that I'm always replacing the parts. }
+{4010}{}{How many do you need? These things aren't very common, you know.}
+{5000}{}{Just bring me eight of any. Geigers or Sensors, I don't care. I need them both equally. }
+{5010}{}{What's--}
+{6000}{}{Money. Go away! }
+{7000}{}{Toto thinks you're useless, but I think you might be good for something.}
+{7010}{}{Can I ask you something?}
+{7020}{}{Let's talk about those parts you needed...}
+{7030}{}{Uh... I'm not the one talking to a robotic dog.}
+{7040}{}{[Deliver Nora's Love Letter]}
+{7050}{}{Yeah, whatever. I'm gone.}
+{8000}{}{Toto is real! Damn you! She's real!}
+{9000}{}{Eight Motion Sensors, or eight Geiger Counters. Did you bring any of these things with you? NCR needs the parts to fix their aging machines.}
+{9010}{}{Yeah, I've got 8x Motion Sensors right here.}
+{9020}{}{Yeah, I've got 8x Geiger Counters right here.}
+{9030}{}{I don't have anything like that right now, but I might later. See you.}
+{10000}{}{[She starts to dismantle the items almost immediately] This looks pretty good, I can only ever recyle a couple of these. It's almost like a gamble for us. That's why I need more. Out of these eight, I've only managed to get two chips out of them, the rest are fried. Got any more?}
+{10010}{}{[Continue Trading]}
+{10020}{}{That's it for me right now. Goodbye.}
+{11000}{}{This better not be from you! Get out of here!}
+{12000}{}{What? I'm busy.}
+{12010}{}{Do you know where I can find a Vault-Tek Videocom around here?}
+{12020}{}{Know how to hack into a Pip Boy? It's a modifed one, of course...}
+{12030}{}{Nevermind.}
+{13000}{}{There's one in the back. But you need a freakin' Pip Boy to operate it.}
+{14000}{}{Hack into a Pip Boy?! Are you insane?! Why don't you go preach crazy at the Cathedral like the rest of them! }
+

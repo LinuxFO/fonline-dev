@@ -1,0 +1,20 @@
+[comment]
+
+
+[data]
+lang=engl
+
+[dialog]
+&
+1 1000 None 0 #
+2 1010 @
+2 2000 None 0 &
+
+[engl]
+{100}{}{Skunile}
+{200}{}{You see a very strange looking animal.}
+{210}{}{You aren't quite sure what exactly this is. It's some kind of dog creature, but its skin looks like it's its own entity. Perhaps a freak mutation? Or maybe... your worse nightmare!}
+{1000}{}{Predialogue installations}
+{1010}{}{Answer text}
+{2000}{}{Awooo!!!@@Grrrrrrrrr!!!@@*Howl!!!*@@*blood drips from its mouth*@@*its mouth foams*}
+

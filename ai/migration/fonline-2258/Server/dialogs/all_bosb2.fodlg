@@ -1,0 +1,20 @@
+[comment]
+
+
+[data]
+lang=engl
+
+[dialog]
+&
+1 1000 None 0 #
+2 1010 @
+2 2000 None 0 &
+
+[engl]
+{100}{}{Super Mutant Commander}
+{200}{}{You see a high ranking Mutant officer.}
+{210}{}{Killing him would deal a devestating blow to any army! It would also guarentee a promotion! Oh, boy!}
+{1000}{}{Predialogue installations}
+{1010}{}{Answer text}
+{2000}{}{Do your bones break easily? We shall see.@@Remind me, tell me only about the good things... about your mother.@@Ah, yes, another trophy for the necklace.@@Killing you will get me a promotion!@@WHERE IS YOUR VAULT?!@@I want your face. Give it to me!}
+

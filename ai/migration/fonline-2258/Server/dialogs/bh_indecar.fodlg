@@ -1,0 +1,102 @@
+[comment]
+
+
+[data]
+lang=engl
+
+[dialog]
+&
+1 1000 None 0 #
+2 1010 D _var p z_bhin = 0 #
+14 1020 D _var p z_bhin = 1 #
+15 1030 D _var p z_bhin = 2 #
+14 1040 D _var p z_bhin = 3 #
+17 1050 D _var p z_bhin = 4 #
+18 1060 D _var p z_bhin = 5 #
+19 1070 D _var p z_bhin = 6 @
+2 2000 None 0 #
+13 2010 D _var p z_bhin = 0 D _item p PID_MINERAL } 10 D _item p PID_METAL_ORE } 10 R _item p PID_MINERAL - 10 R _item p PID_METAL_ORE - 10 #
+3 2020 #
+4 2030 #
+5 2040 #
+0 2050 @
+3 3000 None 0 #
+9 3010 @
+4 4000 None 0 #
+10 4010 @
+5 5000 None 0 #
+11 5010 @
+9 6000 None 0 #
+0 6010 @
+10 7000 None 0 #
+2 7010 @
+11 8000 None 0 #
+2 8010 @
+13 9000 None 0 #
+20 9010 R _script quest_inde1@r_SpawnLoc 0  R _script dialog@r_TeleportToMap 2 155 666 R _var p z_bhin = 1 @
+14 10000 None 0 @
+15 11000 None 0 #
+0 11010 R _var p z_bhin = 3 R _script quest_inde2@r_SpawnLoc 0  R _script dialog@r_TeleportToMap 2 156 666 R _script quest_inde1@r_DeleteLoc 0  #
+16 11020 @
+16 12000 None 0 @
+17 13000 None 0 #
+0 13010 R _var p z_bhin = 5 R _script quest_inde3@r_SpawnLoc 0  R _script dialog@r_TeleportToMap 2 157 666 R _script quest_inde2@r_DeleteLoc 0  #
+16 13020 @
+18 14000 None 0 @
+19 15000 None 0 #
+0 15010 R _script dialog@r_AddExperience 1 500 R _script dialog@r_AddMoney 1 175 R _script dialog@r_BulkOrderRewardInde 0  R _param p ST_KARMA + 1 R _param p REPUTATION_NCR + 4 R _param p REPUTATION_HUB + 4 R _param p REPUTATION_FREE_TRADERS + 7 R _var p z_bhin = 0 R _script dialog@r_TeleportToMap 2 45 666 R _script quest_inde3@r_DeleteLoc 0  #
+16 15020 @
+20 16000 None 0 #
+0 16010 #
+0 16020 #
+0 16030 &
+
+[engl]
+{100}{}{Independent Caravan Driver}
+{200}{}{You see an Independent Caravan Driver.}
+{210}{}{It's a rugged branch of self employed Caravan drivers. You assume that you could easily find a job working with them.}
+{1000}{}{Predialogue installations}
+{1010}{}{no job}
+{1020}{}{1st run not completed}
+{1030}{}{1st run completed}
+{1040}{}{2nd run not completed}
+{1050}{}{2nd run completed}
+{1060}{}{3rd run not completed}
+{1070}{}{3rd run completed}
+{2000}{}{Howdy, @sex@|sir!||miss!| Welcome to my fine caravan company. You look fairly well travelled, are you here about a job? I'm hiring locals.}
+{2010}{}{You ready to head out? Let's get out of here. I'll escort the caravan.}
+{2020}{}{What was that about a job?}
+{2030}{}{Locals?}
+{2040}{}{Where are you heading?}
+{2050}{}{I've got to go. Goodbye.}
+{3000}{}{I'm hiring private guards for my next run, but I can't afford much. Not like those other caravan companies. I'm independent don't you know? So I can only afford to pay one of you wastelanders.}
+{3010}{}{When are you leaving?}
+{4000}{}{@sex@|Yessir!||Yes ma'am!| Locals! People with their own equipment, talent, and courage!}
+{4010}{}{How rough does it get out there?}
+{5000}{}{It depends on where the guard is willing to go actually. We bounce from Vault City, NCR, and Gecko.}
+{5010}{}{What are you selling today?}
+{6000}{}{Whenever I've got a guard ready, actually. You interested?}
+{6010}{}{Alright! But we'll see, maybe I'll be back later.}
+{7000}{}{Oh, it's a walk in the park! [They chuckle]}
+{7010}{}{I'm sure it is.}
+{8000}{}{Anything, and everything. Food, water, ammo, weapons, mechanical equipment, tools, you name it. The only problem is the crowd these caravans attract.}
+{8010}{}{Hmm, interesting.}
+{9000}{}{Let's get this show on the road! Load up your guns, and let's move out! We are leaving now! [/combatmode tb or rt to choose between your desired combat mode]}
+{9010}{}{Yeeeeeeeehaw!!!! [Begin the Caravan Escort]}
+{10000}{}{Holy Christ! Get rid of these guys!@@I don't want to die! Help me!@@This is what I'm paying you for! Take it to them!@@There's still something out there! Go find it!}
+{11000}{}{Great job, padner! Thanks to you, we're still alive! You ready to keep going?}
+{11010}{}{Yeah, let's hit the road running.}
+{11020}{}{Not yet, give me a few minutes.}
+{12000}{}{Okay, but I don't have all day.}
+{13000}{}{Looks like we're half way there! You ready to continue?}
+{13010}{}{Yeah, let's move out.}
+{13020}{}{Not yet, give me a few minutes.}
+{14000}{}{I can see the city! We're almost there! Just get rid of these guys, and we can finally call it a day!}
+{15000}{}{Great work! Let's get to the city, and I'll give you your reward. You ready to leave now?}
+{15010}{}{Hell yes! Let's head out. Maybe I'll see you around. Thanks for the run.}
+{15020}{}{Not yet, give me a few minutes.}
+{16000}{}{[Which route would you like to go?]}
+{16010}{}{NCR.}
+{16020}{}{Vault City.}
+{16030}{}{Gecko.}
+

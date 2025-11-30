@@ -1,0 +1,95 @@
+[comment]
+viper job for junktown
+
+[data]
+lang=engl
+
+[dialog]
+&
+1 1000 None 1 #
+2 1010 @
+2 2000 None 0 #
+10 2010 D _var p name_mem_npc_player = 0 R _var p name_mem_npc_player = 1 #
+4 2020 D _var p q_vipers = 0 #
+5 2030 D _var p q_vipers = 2 R _var p q_vipers = 3 R _script quest_vipers@r_DeleteLoc 0  R _script dialog@r_AddMoney 1 500 R _script dialog@r_AddExperience 1 750 R _param p ST_KARMA + 1 R _param p REPUTATION_JUNKTOWN + 18 R _var p z_warrior2 + 1 R _script dialog@r_AddLootSetLevel1 0  #
+4 2040 D _var p q_vipers = 3 #
+6 2050 D _var p q_ratty = 0 #
+8 2060 D _var p q_ratty = 2 R _var p q_ratty = 3 R _script quest_ratty@r_DeleteLoc 0  R _script dialog@r_AddMoney 1 500 R _script dialog@r_AddExperience 1 750 R _param p ST_KARMA + 1 R _param p REPUTATION_JUNKTOWN + 18 R _script dialog@r_AddLootSetLevel1 0  #
+6 2070 D _var p q_ratty = 3 #
+9 2080 D _var p hub_scouting = 1 #
+16 2090 D _var p q_packages = 12 D _item p PID_CARAVAN_BOX > 0 R _var p q_packages = 98 R _item p PID_CARAVAN_BOX - 1 #
+0 2100 @
+4 3000 None 0 #
+0 3010 R _var p q_vipers = 1 R _script quest_vipers@r_SpawnLoc 0  #
+0 3020 @
+5 4000 None 0 #
+0 4010 @
+6 5000 None 0 #
+0 5010 R _var p q_ratty = 1 R _script quest_ratty@r_SpawnLoc 0  #
+0 5020 @
+8 6000 None 0 #
+0 6010 @
+9 7000 None 0 #
+0 7010 R _var p hub_scouting = 2 @
+10 8000 None 0 #
+13 8010 #
+12 8020 #
+12 8030 #
+11 8040 @
+11 9000 None 0 @
+12 10000 None 0 #
+14 10010 @
+13 11000 None 0 #
+11 11010 @
+14 12000 None 0 #
+15 12010 @
+15 13000 None 0 #
+0 13010 R _var p name_mem_npc_player = 1 @
+16 14000 None 0 &
+
+[engl]
+{100}{}{Scout Captain Lex}
+{200}{}{You see Scout Captain Lex.}
+{210}{}{He appears to be Junktown's captain of the guard. You aren't sure, but he's definitely some sort of cop.}
+{1000}{}{Predialogue installations}
+{1010}{}{trying to enter}
+{2000}{}{Howdy, stranger. I'm Captain Lex. What can I do for you? }
+{2010}{}{Hi, I'm new here. Who are you?}
+{2020}{}{I'm looking for work, got any bounties?}
+{2030}{}{I took care of your gang problem.}
+{2040}{}{Got any more bounties?}
+{2050}{}{Got any rodent problems?}
+{2060}{}{I took care of your rodent problem.}
+{2070}{}{Got any more rodent problems?}
+{2080}{}{The Far Go Traders sent me to collect your threat report, or something.}
+{2090}{}{[Deliver Package]}
+{2100}{}{Nothing right now. Bye.}
+{3000}{}{Yessir, if you're looking for trouble I can direct you to a certain gang we've been having problems with. Pays 500 caps if you're interested. [If you want to play this mission in Turn Based Mode make sure you set your default Combat Mode to it before accepting the job. To do this push enter and type "/combatmode tb"]}
+{3010}{}{Sure. Show me.}
+{3020}{}{No thanks.}
+{4000}{}{You did, did you? That's some good news. Alright, here's your caps. I've got more bounties if you're interested. There's a lot of Vipers out there.}
+{4010}{}{Thanks, I'll let you know.}
+{5000}{}{Sure do, want to kill some Mutated Molerats? It's going to be tough. [If you want to play this mission in Turn Based Mode make sure you set your default Combat Mode to it before accepting the job. To do this push enter and type "/combatmode tb"]
+}
+{5010}{}{Sure. Show me.}
+{5020}{}{Not right now.}
+{6000}{}{Great, that'll teach those damn rodents not to come around Junktown. Here's you caps, let me know if you want any more work.}
+{6010}{}{Thanks, I'll let you know.}
+{7000}{}{Roger. It's right here. Lot's of Vipers and Molerats running around lately. Tell him to bring some extra guards. Wastelanders like you can often be trusted to do it. Doesn't cost too much. Now if you'll excuse me...}
+{7010}{}{Of course. Thanks for the report.}
+{8000}{}{New here? What's you name?}
+{8010}{}{None of your damn business!}
+{8020}{}{It's @pname@. Why do you ask?}
+{8030}{}{@pname@. Nice to meet you, mister?}
+{8040}{}{Name? Labels are beneath me.}
+{9000}{}{Sure there, hipster. Why don't you go jam with a super mutant?}
+{10000}{}{I'm Scout Captain Lex. Junktown's main patrol watchmen. I take care of the defenses outside of the walls, and boss around the scouts.}
+{10010}{}{Does Junktown have a lot of threats?}
+{11000}{}{Hmpf, guess you aren't important enough to remember, eh? I'm Scout Captain Lex. Junktown's main patrol watchmen. I take care of the defenses outside of the walls, and boss around the scouts.}
+{11010}{}{Bite me, Lex.}
+{12000}{}{Yes, and no. Sometimes we get the odd trouble maker stirring up shit, but it's nothing we can't handle. There's no real threat to the city, we'll be around for a long time. But we do have some problems people like you could help us take care of. }
+{12010}{}{That's interesting, but what kind of work are we talking about here?}
+{13000}{}{Just crowd control, and gang killing. We've got problems with the Viper gang, and been having problems with large families of mutated Molerats killing our scouts. I've got dozens of lists of locations. It can keep you going for a long time, if you're interested.}
+{13010}{}{We'll see. Thanks for the info, Lex.}
+{14000}{}{From Vault City? Great. My boys really need these new parts.}
+

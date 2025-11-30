@@ -1,0 +1,56 @@
+[comment]
+
+
+[data]
+lang=engl
+
+[dialog]
+&
+1 1000 None 0 #
+2 1010 @
+2 2000 None 0 #
+3 2010 D _script dialog@d_IsToHeal 0  #
+10 2020 @
+3 3000 dialog@dlg_ShowHealingPrice 0 #
+4 3010 D _script dialog@d_HealingMoney 0  R _script dialog@r_DocHeal 0  #
+65506 3020 #
+5 3030 #
+6 3040 #
+7 3050 @
+4 4000 None 0 @
+5 5000 None 0 @
+6 6000 None 0 @
+7 7000 None 0 @
+10 8000 None 0 #
+3 8010 D _script dialog@d_IsToHeal 0  #
+65506 8020 #
+5 8030 #
+6 8040 #
+7 8050 &
+
+[engl]
+{100}{}{Zero Prim}
+{200}{}{You see a very odd looking female doctor. Almost half mechanical...}
+{210}{}{She looks as if she's been experimenting on herself with different surgeries from way too many different manuals. You can see a piece of Vault-Tec circuitry protruding from her forehead. It's not very attractive.}
+{1000}{}{Predialogue installations}
+{1010}{}{Answer text}
+{2000}{}{[You enter the strangest clinic you've ever seen. A sophisticated, yet monstrous looking woman approaches you, and leaves her strange work]}
+{2010}{}{[Check into the clinic]}
+{2020}{}{[Walk up to the counter]}
+{3000}{}{Are you injured, vault dweller? If so, @lex price@ caps, will solve all of your problems. Or did you just want to trade? Maybe you're looking for a bit of... surgery?}
+{3010}{}{I'll pay for the healing, thanks, Doc.}
+{3020}{}{What do you have to trade? [Barter]}
+{3030}{}{What kind of surgeries can you perform?}
+{3040}{}{Do you have time to chat? I'd like to know more about you, and your work.}
+{3050}{}{Thanks for your time, Doctor Prim.}
+{4000}{}{Your flesh is now repaired... it suits you... but you can always change it. There's no fear of the coming machine.}
+{5000}{}{Oh, many. But my machine is... not yet ready. Come back later.}
+{6000}{}{No, no, not now. Maybe later. Must focus. Machine not ready.}
+{7000}{}{Time? There's always time.}
+{8000}{}{Are you injured, vault dweller? If so, caps will solve all of your problems. Or did you just want to trade? Maybe you're looking for a bit of... surgery?}
+{8010}{}{[Check into the clinic]}
+{8020}{}{What do you have to trade? [Barter]}
+{8030}{}{What kind of surgeries can you perform?}
+{8040}{}{Do you have time to chat? I'd like to know more about you, and your work.}
+{8050}{}{Thanks for your time, Doctor Prim.}
+

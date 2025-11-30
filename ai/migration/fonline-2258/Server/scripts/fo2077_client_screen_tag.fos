@@ -1,0 +1,642 @@
+/// JohnPL
+/// Tag skill select screen
+
+#include "_client_defines.fos"
+#include "client_gui_h.fos"
+#include "_colors.fos"
+#include "_msgstr.fos"
+#include "_defines.fos"
+#include "_macros.fos"
+
+SkillList skillList;
+SkillWindow @skillWindow;
+
+uint activePositionColor = COLOR_RGB(252, 252, 124);
+uint barsColor = COLOR_RGB(144, 120, 36);
+
+#define TextSizeY 12
+#define VisiblePositions 10
+
+bool isSkillsAdded;
+
+void initTagScreen()
+{
+	isSkillsAdded = false;
+
+   {
+      // Po odkomentowaniu ukazuje sie button serwisowy, ktory pokazuje okno wyboru skilli	
+      TestScreenButtonShow buttonShow;
+      GUI_AddButton(CLIENT_MAIN_SCREEN_GAME, 0, 0)
+         .UpPic("ebut_out.frm")
+         .DownPic("ebut_in.frm")
+         .CallbackMouseClick(buttonShow);
+   }
+
+	IGUIScreenOpt @charScreen = GUI_GetScreen(CLIENT_SCREEN_CHARACTER);
+	if(@charScreen != null) 
+	{
+		CallbackCharScreenShow callbackCharScreenShow;
+		charScreen.SetCallbackShow(callbackCharScreenShow);
+	}
+	
+	IGUIScreenOpt @tagScreen = GUI_CreateScreen(CLIENT_SCREEN_TAG, "PERKWIN.FRM")
+		.CanMove(true)
+                .Modal(false);
+
+	@skillWindow = @SkillWindow();
+
+	tagScreen.SetCallbackMouseDown(skillWindow);
+	CallbackKeyPress callbackKeyPress;
+	tagScreen.SetCallbackKeyPress(callbackKeyPress);
+}
+
+void ShowChooseTagScreen()
+{
+	if(!isSkillsAdded)
+	{
+		CritterCl@ player = GetChosen(); 
+		
+		if(!_CritIsTagSkill(player, SK_SMALL_GUNS))
+		skillWindow.Add(Skill(
+			SK_SMALL_GUNS,
+			GUI_AddImage(CLIENT_SCREEN_TAG, "gunsml.frm", PT_ART_SKILLDEX, 413, 64),
+			GetMsgStr(TEXTMSG_GAME, STR_SKILL_SG_TITLE),
+			GetMsgStr(TEXTMSG_GAME, STR_SKILL_SG_DESCRIPTION)
+		));
+		
+		
+		if(!_CritIsTagSkill(player, SK_BIG_GUNS))
+		skillWindow.Add(Skill(
+			SK_BIG_GUNS,
+			GUI_AddImage(CLIENT_SCREEN_TAG, "gunbig.frm", PT_ART_SKILLDEX, 413, 64),
+			GetMsgStr(TEXTMSG_GAME, STR_SKILL_BG_TITLE),
+			GetMsgStr(TEXTMSG_GAME, STR_SKILL_BG_DESCRIPTION)
+		));
+
+		if(!_CritIsTagSkill(player, SK_ENERGY_WEAPONS))
+		skillWindow.Add(Skill(
+			SK_ENERGY_WEAPONS,
+			GUI_AddImage(CLIENT_SCREEN_TAG, "energywp.frm", PT_ART_SKILLDEX, 413, 64),
+			GetMsgStr(TEXTMSG_GAME, STR_SKILL_ENERGY_TITLE),
+			GetMsgStr(TEXTMSG_GAME, STR_SKILL_ENERGY_DESCRIPTION)
+		));
+
+		if(!_CritIsTagSkill(player, SK_UNARMED))
+		skillWindow.Add(Skill(
+			SK_UNARMED,
+			GUI_AddImage(CLIENT_SCREEN_TAG, "unarmed.frm", PT_ART_SKILLDEX, 413, 64),
+			GetMsgStr(TEXTMSG_GAME, STR_SKILL_UNARMED_TITLE),
+			GetMsgStr(TEXTMSG_GAME, STR_SKILL_UNARMED_DESCRIPTION)
+		));
+
+		if(!_CritIsTagSkill(player, SK_MELEE_WEAPONS))
+		skillWindow.Add(Skill(
+			SK_MELEE_WEAPONS,
+			GUI_AddImage(CLIENT_SCREEN_TAG, "melee.frm", PT_ART_SKILLDEX, 413, 64),
+			GetMsgStr(TEXTMSG_GAME, STR_SKILL_MELEE_TITLE),
+			GetMsgStr(TEXTMSG_GAME, STR_SKILL_MELEE_DESCRIPTION)
+		));
+
+		if(!_CritIsTagSkill(player, SK_THROWING))
+		skillWindow.Add(Skill(
+			SK_THROWING,
+			GUI_AddImage(CLIENT_SCREEN_TAG, "throwing.frm", PT_ART_SKILLDEX, 413, 64),
+			GetMsgStr(TEXTMSG_GAME, STR_SKILL_THROWING_TITLE),
+			GetMsgStr(TEXTMSG_GAME, STR_SKILL_THROWING_DESCRIPTION)
+		));
+
+		if(!_CritIsTagSkill(player, SK_FIRST_AID))
+		skillWindow.Add(Skill(
+			SK_FIRST_AID,
+			GUI_AddImage(CLIENT_SCREEN_TAG, "firstaid.frm", PT_ART_SKILLDEX, 413, 64),
+			GetMsgStr(TEXTMSG_GAME, STR_SKILL_FIRST_AID_TITLE),
+			GetMsgStr(TEXTMSG_GAME, STR_SKILL_FIRST_AID_DESCRIPTION)
+		));
+
+		if(!_CritIsTagSkill(player, SK_DOCTOR))
+		skillWindow.Add(Skill(
+			SK_DOCTOR,
+			GUI_AddImage(CLIENT_SCREEN_TAG, "doctor.frm", PT_ART_SKILLDEX, 413, 64),
+			GetMsgStr(TEXTMSG_GAME, STR_SKILL_DOCTOR_TITLE),
+			GetMsgStr(TEXTMSG_GAME, STR_SKILL_DOCTOR_DESCRIPTION)
+		));
+
+		if(!_CritIsTagSkill(player, SK_SNEAK))
+		skillWindow.Add(Skill(
+			SK_SNEAK,
+			GUI_AddImage(CLIENT_SCREEN_TAG, "sneak.frm", PT_ART_SKILLDEX, 413, 64),
+			GetMsgStr(TEXTMSG_GAME, STR_SKILL_SNEAK_TITLE),
+			GetMsgStr(TEXTMSG_GAME, STR_SKILL_SNEAK_DESCRIPTION)
+		));
+
+		if(!_CritIsTagSkill(player, SK_LOCKPICK))
+		skillWindow.Add(Skill(
+			SK_LOCKPICK,
+			GUI_AddImage(CLIENT_SCREEN_TAG, "lockpick.frm", PT_ART_SKILLDEX, 413, 64),
+			GetMsgStr(TEXTMSG_GAME, STR_SKILL_LOCKPICK_TITLE),
+			GetMsgStr(TEXTMSG_GAME, STR_SKILL_LOCKPICK_DESCRIPTION)
+		));
+
+		if(!_CritIsTagSkill(player, SK_STEAL))
+		skillWindow.Add(Skill(
+			SK_STEAL,
+			GUI_AddImage(CLIENT_SCREEN_TAG, "steal.frm", PT_ART_SKILLDEX, 413, 64),
+			GetMsgStr(TEXTMSG_GAME, STR_SKILL_STEAL_TITLE),
+			GetMsgStr(TEXTMSG_GAME, STR_SKILL_STEAL_DESCRIPTION)
+		));
+
+		if(!_CritIsTagSkill(player, SK_TRAPS))
+		skillWindow.Add(Skill(
+			SK_TRAPS,
+			GUI_AddImage(CLIENT_SCREEN_TAG, "traps.frm", PT_ART_SKILLDEX, 413, 64),
+			GetMsgStr(TEXTMSG_GAME, STR_SKILL_TRAPS_TITLE),
+			GetMsgStr(TEXTMSG_GAME, STR_SKILL_TRAPS_DESCRIPTION)
+		));
+
+		if(!_CritIsTagSkill(player, SK_SCIENCE))
+		skillWindow.Add(Skill(
+			SK_SCIENCE,
+			GUI_AddImage(CLIENT_SCREEN_TAG, "science.frm", PT_ART_SKILLDEX, 413, 64),
+			GetMsgStr(TEXTMSG_GAME, STR_SKILL_SCIENCE_TITLE),
+			GetMsgStr(TEXTMSG_GAME, STR_SKILL_SCIENCE_DESCRIPTION)
+		));
+
+		if(!_CritIsTagSkill(player, SK_REPAIR))
+		skillWindow.Add(Skill(
+			SK_REPAIR,
+			GUI_AddImage(CLIENT_SCREEN_TAG, "repair.frm", PT_ART_SKILLDEX, 413, 64),
+			GetMsgStr(TEXTMSG_GAME, STR_SKILL_REPAIR_TITLE),
+			GetMsgStr(TEXTMSG_GAME, STR_SKILL_REPAIR_DESCRIPTION)
+		));
+
+		if(!_CritIsTagSkill(player, SK_SPEECH))
+		skillWindow.Add(Skill(
+			SK_SPEECH,
+			GUI_AddImage(CLIENT_SCREEN_TAG, "speech.frm", PT_ART_SKILLDEX, 413, 64),
+			GetMsgStr(TEXTMSG_GAME, STR_SKILL_SPEECH_TITLE),
+			GetMsgStr(TEXTMSG_GAME, STR_SKILL_SPEECH_DESCRIPTION)
+		));
+
+		if(!_CritIsTagSkill(player, SK_BARTER))
+		skillWindow.Add(Skill(
+			SK_BARTER,
+			GUI_AddImage(CLIENT_SCREEN_TAG, "barter.frm", PT_ART_SKILLDEX, 413, 64),
+			GetMsgStr(TEXTMSG_GAME, STR_SKILL_BARTER_TITLE),
+			GetMsgStr(TEXTMSG_GAME, STR_SKILL_BARTER_DESCRIPTION)
+		));
+
+		if(!_CritIsTagSkill(player, SK_GAMBLING))
+		skillWindow.Add(Skill(
+			SK_GAMBLING,
+			GUI_AddImage(CLIENT_SCREEN_TAG, "gambling.frm", PT_ART_SKILLDEX, 413, 64),
+			GetMsgStr(TEXTMSG_GAME, STR_SKILL_GAMBLING_TITLE),
+			GetMsgStr(TEXTMSG_GAME, STR_SKILL_GAMBLING_DESCRIPTION)
+		));
+
+		if(!_CritIsTagSkill(player, SK_OUTDOORSMAN))
+		skillWindow.Add(Skill(
+			SK_OUTDOORSMAN,
+			GUI_AddImage(CLIENT_SCREEN_TAG, "outdoors.frm", PT_ART_SKILLDEX, 413, 64),
+			GetMsgStr(TEXTMSG_GAME, STR_SKILL_OUTDOORSMAN_TITLE),
+			GetMsgStr(TEXTMSG_GAME, STR_SKILL_OUTDOORSMAN_DESCRIPTION)
+		));
+		isSkillsAdded = true;
+	}
+
+	::ShowScreen(CLIENT_SCREEN_TAG,3,3,3);
+}
+
+//------------------------------------------ Private -------------------------------------
+
+
+class CallbackKeyPress : IGUIScreenCallbackKeyPress
+{
+	bool OnKeyPress(uint8 key)
+	{
+		if(key == DIK_UP)
+		{
+			skillList.Up();
+			return true;
+		} 
+		else if(key == DIK_DOWN)
+		{
+			skillList.Down();
+			return true;
+		}
+
+		return false;
+	}
+}
+
+class CallbackCharScreenShow : IGUIScreenCallbackShow
+{
+	void OnShow(int p0, int p1, int p2)
+	{
+		CritterCl@ cr = GetChosen(); 
+		if(cr.ParamBase[ST_UNSPENT_TAG]>0 && cr.ParamBase[ST_LEVEL]>=12) 
+		{
+			ShowChooseTagScreen();
+		}
+
+		RunServerScriptUnsafe("player_register@unsafe_GetNextLevelExp", 0, 0, 0, "", null);
+	}
+}
+
+
+class CallbackCancel : IGUIElementCallbackMouseClick
+{
+	void OnMouseClick(int id, int click)
+	{
+		::HideScreen(CLIENT_SCREEN_TAG,3,3,3);
+	}
+}
+
+class CallbackDone : IGUIElementCallbackMouseClick
+{
+	void OnMouseClick(int id, int click)
+	{
+		::RunServerScriptUnsafe("newtagskill@unsafe_AddNewTagSkill", skillWindow.currentSkill, 0, 0, "", null);
+		::HideScreen(CLIENT_SCREEN_TAG,3,3,3);
+	}
+}
+
+class ListPositionMauseClickCallback : IGUIElementCallbackMouseClick
+{
+	ListPositionMauseClickCallback(uint id)
+	{
+		skillId = id;
+	}
+
+	void OnMouseClick(int id, int click)
+	{
+		skillWindow.SetActiveSkill(skillId);
+	}
+
+	uint skillId;
+}
+
+class ListPosition
+{
+	ListPosition(uint id, string@ text)
+	{
+		this.id = id;
+		ListPositionMauseClickCallback listPositionMauseClickCallback(id);
+		@this.text = GUI_AddText(CLIENT_SCREEN_TAG, text, 0, 0).Visible(false).TextBoxSize(190,TextSizeY).CallbackMouseClick(listPositionMauseClickCallback);
+	}
+
+	void SetPosition(uint x, uint y) 
+	{
+		posX = x;
+		posY = y;
+		text.Position(x, y);
+	}
+
+	void AddToPosY(int y) 
+	{
+		posY += y;
+		text.Position(posX, posY);
+	}
+
+	void Active()
+	{
+		text.TextColor(activePositionColor);
+	}
+
+	void Deactive()
+	{
+		text.TextColor(COLOR_TEXT);
+	}
+
+	uint id;
+	int posX;
+	int posY;
+	IGUIElementTextOpt@ text;
+}
+
+class SkillList
+{
+	SkillList() 
+	{
+		StartPosX = LastPosX = 50;
+		StartPosY = LastPosY = 43;
+
+	}
+
+	void Add(uint id, string@ text)
+	{
+		int positionsCount = positions.length();
+		positions.resize(positionsCount + 1);
+		@positions[positionsCount] = ListPosition(id, text);
+		positions[positionsCount].SetPosition(LastPosX, LastPosY);
+		positions[positionsCount].text.Visible(true);
+		if(positions[positionsCount].posY < StartPosY)
+		{
+			positions[positionsCount].text.Visible(false);
+		}
+		if(positions[positionsCount].posY > StartPosY + VisiblePositions * TextSizeY)
+		{
+			positions[positionsCount].text.Visible(false);
+		}
+
+		LastPosY += TextSizeY;	
+	
+	}
+
+	void Down() 
+	{
+		uint positionsCount = positions.length();
+
+		if(positions[positionsCount - 1].posY - TextSizeY < StartPosY) return;
+
+		if(positionsCount > 0) 
+		{
+			for(uint i = 0; i < positionsCount; i++)
+			{
+				positions[i].AddToPosY(-TextSizeY); 
+
+				positions[i].text.Visible(true);
+				if(positions[i].posY < StartPosY)
+				{
+					positions[i].text.Visible(false);
+				}
+				if(positions[i].posY > StartPosY + VisiblePositions * TextSizeY)
+				{
+					positions[i].text.Visible(false);
+				}
+				
+			}
+		}
+
+		skillWindow.SetNextSkillActive();
+	}
+
+	void Up() 
+	{
+		uint positionsCount = positions.length();
+
+		skillWindow.SetPrevSkillActive();
+
+		if(positions[0].posY + TextSizeY > StartPosY) return;
+
+		if(positionsCount > 0) 
+		{
+			for(uint i = 0; i < positionsCount; i++)
+			{
+				positions[i].AddToPosY(TextSizeY); 
+				
+				positions[i].text.Visible(true);
+				if(positions[i].posY < StartPosY)
+				{
+					positions[i].text.Visible(false);
+				}
+				if(positions[i].posY > StartPosY + VisiblePositions * TextSizeY)
+				{
+					positions[i].text.Visible(false);
+				}
+			}
+		}
+	}
+
+	void Active(uint id)
+	{
+		uint positionsCount = positions.length();
+		if(positionsCount > 0) 
+		{
+			for(uint i = 0; i < positionsCount; i++)
+			{
+				if(positions[i].id == id) 
+				{
+					positions[i].Active();
+					break;
+				}
+			}
+		}
+	}
+
+	void Deactive(uint id)
+	{
+		uint positionsCount = positions.length();
+		if(positionsCount > 0) 
+		{
+			for(uint i = 0; i < positionsCount; i++)
+			{
+				if(positions[i].id == id) 
+				{
+					positions[i].Deactive();
+					break;
+				}
+			}
+		}
+	}
+
+	int StartPosX;
+	int StartPosY;
+	int LastPosX;
+	int LastPosY;
+
+	ListPosition @[] positions;
+}
+
+class CallbackArrowUp : IGUIElementCallbackMouseClick
+{
+	void OnMouseClick(int id, int click)
+	{
+		skillList.Up();
+	}
+}
+
+class CallbackArrowDown : IGUIElementCallbackMouseClick
+{
+	void OnMouseClick(int id, int click)
+	{
+		skillList.Down();
+	}
+}
+
+class Skill
+{
+	Skill(uint skillPID, IGUIElementImageOpt@ image, string@ name, string@ description) 
+	{
+		this.skillPID = skillPID;
+		@this.image = image;
+		this.name = name;
+		this.description = description;
+
+		image.Visible(false);
+	}
+	
+	uint skillPID;
+	IGUIElementImageOpt@ image;
+	string name;
+	string description;
+}
+
+class SkillWindow : IGUIScreenCallbackMouseDown
+{
+	SkillWindow()
+	{
+		firsSkill = true;
+		currentSkill = 0; 
+		lastSkillIndex = 0;
+		currentSkillIndex = 0;
+		lastSkillIndex = 0;
+		skills.resize(0);
+
+		GUI_AddText(CLIENT_SCREEN_TAG, "PICK A NEW TAG SKILL", 46, 17)
+			.TextOptions(FONT_FAT, barsColor, barsColor, 0)
+			.TextBoxSize(250,10);
+
+		GUI_AddImage(CLIENT_SCREEN_TAG, "BlackLine.png", PT_ART_INTRFACE, 280, 55);
+
+		@title = GUI_AddText(CLIENT_SCREEN_TAG)
+				.TextOptions(FONT_THIN, COLOR_BLACK, COLOR_BLACK, 0)
+				.Position(280, 27)
+				.TextBoxSize(250,10);
+
+		@description = GUI_AddText(CLIENT_SCREEN_TAG)
+				.TextOptions(FONT_FALLOUT, COLOR_BLACK, COLOR_BLACK, 0)
+				.Position(280, 70)
+				.TextBoxSize(130,116);
+
+		CallbackArrowUp callbackArrowUp;
+		CallbackArrowDown callbackArrowDown;
+
+		GUI_AddButton(CLIENT_SCREEN_TAG)
+			.Position(26, 44)
+			.UpPic("UPARWOFF.FRM")
+			.DownPic("UPARWON.FRM")
+			.Visible(true)
+			.CallbackMouseClick(callbackArrowUp);
+
+		GUI_AddButton(CLIENT_SCREEN_TAG)
+			.Position(26, 58)
+			.UpPic("DNARWOFF.FRM")
+			.DownPic("DNARWON.FRM")
+			.Visible(true)
+			.CallbackMouseClick(callbackArrowDown);
+
+		CallbackCancel callbackCancel;
+		CallbackDone callbackDone;
+
+		GUI_AddButton(CLIENT_SCREEN_TAG)
+			.Position(49, 186)
+			.UpPic("lilredup.frm")
+			.DownPic("lilreddn.frm")
+			.Visible(true)
+			.CallbackMouseClick(callbackDone);
+
+		GUI_AddButton(CLIENT_SCREEN_TAG)
+			.Position(152, 186)
+			.UpPic("lilredup.frm")
+			.DownPic("lilreddn.frm")
+			.Visible(true)
+			.CallbackMouseClick(callbackCancel);
+
+		GUI_AddText(CLIENT_SCREEN_TAG, "Done", 68, 186)
+			.TextOptions(FONT_FAT, barsColor, barsColor, 0)
+			.TextBoxSize(60,20);
+
+		GUI_AddText(CLIENT_SCREEN_TAG, "Cancel", 171, 185)
+			.TextOptions(FONT_FAT, barsColor, barsColor, 0)
+			.TextBoxSize(60,20);
+	}
+
+	bool OnMouseDown(int click)
+	{
+		if(click == MOUSE_CLICK_WHEEL_UP)
+		{
+			skillList.Up();
+			return true;
+		}
+		else if(click == MOUSE_CLICK_WHEEL_DOWN)
+		{
+			skillList.Down();
+			return true;
+		}
+		return false;
+	}
+
+	void Add(Skill@ skill) 
+	{
+		int skillsCount = skills.length();
+		skills.resize(skillsCount + 1);
+		@skills[skillsCount] = skill;
+
+		skillList.Add(skill.skillPID, skill.name);
+
+		if(firsSkill)
+		{
+			firsSkill = false;
+			SetActiveSkill(skill.skillPID);
+		}
+	}
+
+	void SetNextSkillActive()
+	{
+		if(currentSkillIndex + 1 < skills.length()) 
+		{
+			SetActiveSkillByIndex(currentSkillIndex + 1);
+		}
+	}
+
+	void SetPrevSkillActive()
+	{
+		if(currentSkillIndex > 0) 
+		{
+			SetActiveSkillByIndex(currentSkillIndex - 1);
+		}
+	}
+
+	void SetActiveSkillByIndex(uint sk_index)
+	{
+		lastSkillIndex = currentSkillIndex;
+		lastSkill = currentSkill;
+		currentSkillIndex = sk_index;
+		currentSkill = skills[currentSkillIndex].skillPID;
+
+		skills[lastSkillIndex].image.Visible(false);
+		
+		title.Text(skills[currentSkillIndex].name);
+		description.Text(skills[currentSkillIndex].description);
+		skills[currentSkillIndex].image.Visible(true);
+		
+		skillList.Deactive(lastSkill);
+		skillList.Active(currentSkill);
+	}
+
+	void SetActiveSkill(uint skillId)
+	{
+		uint skillsCount = skills.length();
+		uint index = 0;
+		if(skillsCount > 0) 
+		{
+			for(index = 0; index < skillsCount; index++)
+			{
+				if(skills[index].skillPID == skillId) 
+				{
+					break;
+				}
+			}
+		}
+		SetActiveSkillByIndex(index);
+	}
+
+	bool firsSkill;
+	IGUIElementTextOpt@ title;
+	IGUIElementTextOpt@ description;
+	uint currentSkill;
+	uint lastSkill;
+	uint currentSkillIndex;
+	uint lastSkillIndex;
+	Skill@[] skills;
+}
+
+
+class TestScreenButtonShow : IGUIElementCallbackMouseClick
+{
+	void OnMouseClick(int id, int click)
+	{
+      Message("On mause click");
+		ShowChooseTagScreen();
+	}
+}

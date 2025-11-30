@@ -1,0 +1,246 @@
+[comment]
+
+
+[data]
+lang=engl
+
+[dialog]
+&
+1 1000 None 0 #
+3 1010 @
+2 2000 None 0 @
+3 3000 None 0 #
+4 3010 D _var p q_trader = 0 #
+7 3020 D _var p q_trader = 1 D _item p PID_SHOTGUN > 0 R _item p PID_SHOTGUN - 1 R _var p q_trader = 2 R _script dialog@r_AddMoney 1 50 R _script dialog@r_AddExperience 1 125 #
+10 3030 D _var p q_trader = 2 D _item p PID_10MM_PISTOL > 0 R _var p q_trader = 3 R _item p PID_10MM_PISTOL - 1 R _script dialog@r_AddMoney 1 55 R _script dialog@r_AddExperience 1 150 #
+11 3040 D _var p q_trader = 3 D _item p PID_9MM_MAUSER > 0 R _var p q_trader = 4 R _item p PID_9MM_MAUSER - 1 R _script dialog@r_AddMoney 1 60 R _script dialog@r_AddExperience 1 175 #
+12 3050 D _var p q_trader = 4 D _item p PID_DESERT_EAGLE > 0 R _var p q_trader = 5 R _item p PID_DESERT_EAGLE - 1 R _script dialog@r_AddMoney 1 65 R _script dialog@r_AddExperience 1 225 #
+13 3060 D _var p q_trader = 5 D _item p PID_44_MAGNUM_REVOLVER > 0 R _item p PID_44_MAGNUM_REVOLVER - 1 R _script dialog@r_AddMoney 1 70 R _script dialog@r_AddExperience 1 250 R _var p q_trader = 7 #
+14 3070 D _var p q_trader = 7 D _item p PID_HUNTING_RIFLE > 0 R _var p q_trader = 8 R _item p PID_HUNTING_RIFLE - 1 R _script dialog@r_AddMoney 1 75 R _script dialog@r_AddExperience 1 275 #
+15 3080 D _var p q_trader = 8 D _item p PID_FLAMER > 0 R _var p q_trader = 9 R _item p PID_FLAMER - 1 R _script dialog@r_AddMoney 1 80 R _script dialog@r_AddExperience 1 300 #
+16 3090 D _var p q_trader = 9 D _item p PID_10MM_SMG > 0 R _var p q_trader = 10 R _item p PID_10MM_SMG - 1 R _script dialog@r_AddMoney 1 85 R _script dialog@r_AddExperience 1 400 R _script dialog@r_AddMoney 1 4450 R _script dialog@r_AddExperience 1 2500 R _param p ST_KARMA + 4 R _param p REPUTATION_FREE_TRADERS + 100 R _param p REPUTATION_CRIMSON_CARAVANS + 100 R _param p REPUTATION_HUB + 100 R _param p REPUTATION_LA + 100 R _param p REPUTATION_JUNKTOWN + 100 R _param p REPUTATION_NCR + 100 R _item p PID_M60 + 1 R _item p PID_7_62MM_AMMO + 300 #
+18 3100 D _var p q_trader = 10 #
+20 3110 D _var p q_trader = 10 D _item p PID_10MM_PISTOL > 3 D _item p PID_HUNTING_RIFLE > 1 D _item p PID_FLAMER > 2 D _item p PID_GREASE_GUN > 1 R _item p PID_10MM_PISTOL - 4 R _item p PID_HUNTING_RIFLE - 2 R _item p PID_FLAMER - 3 R _item p PID_GREASE_GUN - 2 R _var p q_trader = 11 R _param p REPUTATION_LA + 100 R _param p REPUTATION_HUB + 100 R _param p REPUTATION_JUNKTOWN + 100 R _param p REPUTATION_NEW_RENO + 100 R _param p REPUTATION_FREE_TRADERS + 250 R _param p REPUTATION_GUNRUNNERS + 30 R _param p REPUTATION_FARGO_TRADERS + 100 R _param p REPUTATION_NCR + 100 R _param p ST_KARMA + 4 R _item p PID_HK_CAWS + 1 R _item p PID_PLASMA_PISTOL + 1 R _script dialog@r_AddMoney 1 2225 R _script dialog@r_AddExperience 1 1800 #
+21 3120 D _var p q_trader = 11 #
+22 3130 D _var p q_trader = 11 D _item p PID_DESERT_EAGLE > 5 D _item p PID_METAL_ARMOR > 2 D _item p PID_44_FMJ_MAGNUM > 99 R _var p q_trader = 12 R _item p PID_44_FMJ_MAGNUM - 100 R _item p PID_DESERT_EAGLE - 6 R _item p PID_METAL_ARMOR - 3 R _param p ST_KARMA + 4 R _param p REPUTATION_LA + 150 R _param p REPUTATION_HUB + 150 R _param p REPUTATION_FREE_TRADERS + 150 R _param p REPUTATION_REGULATORS + 150 R _param p REPUTATION_GUNRUNNERS + 15 R _param p REPUTATION_FOLLOWERS + 15 R _param p REPUTATION_SCAVENGERS + 15 R _script dialog@r_AddExperience 1 2400 R _script dialog@r_AddMoney 1 2425 #
+23 3140 D _var p q_trader = 12 #
+24 3150 D _var p q_trader = 12 D _item p PID_LEATHER_ARMOR > 2 D _item p PID_CURED_LEATHER_ARMOR > 2 D _item p PID_LEATHER_ARMOR_MK_II > 2 D _item p PID_METAL_ARMOR > 2 R _item p PID_METAL_ARMOR - 3 R _item p PID_LEATHER_ARMOR_MK_II - 3 R _item p PID_LEATHER_ARMOR - 3 R _item p PID_CURED_LEATHER_ARMOR - 3 R _var p q_trader = 13 R _item p PID_COMBAT_ARMOR + 1 R _item p PID_COMBAT_HELMET + 1 R _item p PID_LASER_RIFLE_EXT_CAP + 1 R _item p PID_STIMPAK + 28 R _param p REPUTATION_KLAMATH + 150 R _param p REPUTATION_FREE_TRADERS + 150 R _param p ST_KARMA + 2 R _script dialog@r_AddExperience 1 2900 R _script dialog@r_AddMoney 1 2625 #
+25 3160 D _var p q_trader = 13 #
+26 3170 D _var p q_trader = 13 D _item p PID_SHOTGUN_SHELLS > 149 D _item p PID_10MM_JHP > 149 D _item p PID_44_MAGNUM_JHP > 149 D _item p PID_5MM_JHP > 149 R _item p PID_10MM_JHP - 150 R _item p PID_44_MAGNUM_JHP - 150 R _item p PID_5MM_JHP - 150 R _item p PID_SHOTGUN_SHELLS - 150 R _var p q_trader = 14 R _param p ST_KARMA + 2 R _param p REPUTATION_HUB + 150 R _param p REPUTATION_FREE_TRADERS + 150 R _param p REPUTATION_WATER_MERCHANTS + 100 R _item p PID_NUKA_COLA + 12 R _item p PID_ROT_GUT + 12 R _item p PID_GAMMA_GULP_BEER + 12 R _item p PID_ROENTGEN_RUM + 12 R _script dialog@r_AddExperience 1 1600 R _script dialog@r_AddMoney 1 2700 #
+27 3180 D _var p q_trader = 14 #
+28 3190 D _var p q_trader = 14 D _item p PID_GREASE_GUN > 3 D _item p PID_10MM_PISTOL > 3 D _item p PID_COMBAT_SHOTGUN > 1 D _item p PID_10MM_SMG > 0 R _var p q_trader = 15 R _item p PID_GREASE_GUN - 4 R _item p PID_10MM_PISTOL - 4 R _item p PID_COMBAT_SHOTGUN - 2 R _item p PID_10MM_SMG - 1 R _param p ST_KARMA + 2 R _param p REPUTATION_FREE_TRADERS + 100 R _param p REPUTATION_KOKOWEEF + 100 R _param p REPUTATION_MORNINGSTAR + 100 R _param p REPUTATION_REDDING + 100 R _item p PID_GOLD_NUGGET + 32 R _script dialog@r_AddExperience 1 2600 R _script dialog@r_AddMoney 1 2800 #
+30 3200 D _var p q_trader = 15 #
+31 3210 D _var p q_trader = 15 D _item p PID_FLAMER > 2 D _item p PID_TOMMY_GUN > 1 D _item p PID_45_CALIBER_AMMO > 299 R _var p q_trader = 16 R _item p PID_FLAMER - 3 R _item p PID_TOMMY_GUN - 2 R _item p PID_45_CALIBER_AMMO - 300 R _param p REPUTATION_MORDINOS + 150 R _param p REPUTATION_FREE_TRADERS + 150 R _item p PID_223_PISTOL + 1 R _item p PID_M60 + 1 R _item p PID_PLASMA_RIFLE + 1 R _item p PID_MEGA_POWER_FIST + 1 R _script dialog@r_AddExperience 1 2222 R _script dialog@r_AddMoney 1 3000 #
+32 3220 D _var p q_trader = 16 #
+33 3230 D _var p q_trader = 16 D _item p PID_10MM_SMG > 1 D _item p PID_44_MAGNUM_REVOLVER > 2 D _item p PID_LEATHER_JACKET > 2 D _item p PID_FLAMER > 2 R _var p q_trader = 17 R _item p PID_10MM_SMG - 2 R _item p PID_44_MAGNUM_REVOLVER - 3 R _item p PID_LEATHER_JACKET - 3 R _item p PID_FLAMER - 3 R _item p PID_BARLEY + 144 R _script dialog@r_AddExperience 1 3200 R _script dialog@r_AddMoney 1 3500 R _param p ST_KARMA + 15 R _script dialog@r_BulkOrderRewardPrints 0  #
+2 3240 @
+4 4000 None 0 #
+5 4010 @
+5 5000 None 0 #
+6 5010 #
+0 5020 @
+6 6000 None 0 #
+0 6010 R _var p q_trader = 1 @
+7 7000 None 0 #
+8 7010 @
+8 8000 None 0 #
+9 8010 @
+9 9000 None 0 #
+0 9010 @
+10 10000 None 0 #
+0 10010 @
+11 11000 None 0 #
+0 11010 @
+12 12000 None 0 #
+0 12010 @
+13 13000 None 0 #
+0 13010 @
+14 14000 None 0 #
+0 14010 @
+15 15000 None 0 #
+0 15010 @
+16 16000 None 0 #
+17 16010 @
+17 17000 None 0 #
+0 17010 @
+18 18000 None 0 #
+19 18010 @
+19 19000 None 0 #
+0 19010 @
+20 20000 None 0 #
+21 20010 @
+21 21000 None 0 #
+0 21010 @
+22 22000 None 0 @
+23 23000 None 0 #
+0 23010 @
+24 24000 None 0 #
+25 24010 @
+25 25000 None 0 #
+0 25010 @
+26 26000 None 0 #
+27 26010 @
+27 27000 None 0 #
+0 27010 @
+28 28000 None 0 #
+29 28010 @
+29 29000 None 0 #
+30 29010 @
+30 30000 None 0 #
+0 30010 @
+31 31000 None 0 #
+32 31010 @
+32 32000 None 0 #
+0 32010 @
+33 33000 None 0 #
+0 33010 &
+
+[engl]
+{100}{}{Kali Kalune}
+{200}{}{You see Kali Kalune, the famous trader.}
+{210}{}{Definitely a woman of grace and class. Kali Kalune is known throughout the wasteland as the founder of modern commerce.}
+{1000}{}{Predialogue installations}
+{1010}{}{no skill}
+{2000}{}{The further you get from the NCR region, the more like animals they become.@@You could travel east, you know, if you wanted. I've seen humans out there, but I had to hide my body. They... aren't civilized down there.@@Took me nearly four years to get everyone to agree on trading. Gave a poor, ol' woman a couple grey hairs.@@Hi there, sorry, but I can't talk. Tryin' to rebalance the price of meat up north.@@I've been to Canada, you know. They still don't like us. But that new flag of theirs sure is something.@@Don't trust the Brotherhood too much. They aren't bad, but they can get real mean.@@You should come by sometime once you've learnt a thing or two about commerce.@@Careful with that Pip Boy of yours. It can get you into a lot of trouble. People kill for those things...@@You believe that South America is still around? Wonder how long it'll be till' one of them shows up here.@@No one ever talks about the Chosen One, but I know for a fact that his kid is in Reno.@@I wonder why no one ever travels past the radiation clouds? There's dozens of states with life. But no one ever talks about them.@@I've been to Washington. Those mutants have almost taken it over.@@Boston is still around, but it's nothing special. Heh, they got the old power armour.@@Ghouls? You know them? Some of the nicest people you'll ever meet. I've been saved countless of times. Ringhold... he... *sigh*...@@I won't be staying long. It's politics, but I'm sure you don't understand.@@This old woman... sure is... getting old... *hic*...@@Junktown's got a brewery opening up soon. Maybe I'll try to import it... if they can brew enough that is...@@Far Go Traders! What a joke.@@Water Merchants are pissed. A lot of new independant caravans have started up. Stealing all the business.@@It's a flowing market here, I'm proud to say I helped.}
+{3000}{}{[Kali Kalune knows a trader when she sees one, and immediately approaches you to shake your hand] Hi, welcome to the city. I'm Kali Kalune, trader extraordinaire, heh! I just wanted to give you a proper greeting. How's the caps? I hope you're making a *killing*...}
+{3010}{}{Oh, can't complain. So you're Kali Kalune, eh? Been hearing all about you here and there. I guess that makes you famous.}
+{3020}{}{I've got that Shotgun you needed. What next?}
+{3030}{}{Here's your new 10mm Pistol. What next?}
+{3040}{}{Here's your new 9mm Mauser. What next?}
+{3050}{}{Here's your new Desert Eagle. What next?}
+{3060}{}{Here's your new .44 Magnum. What next?}
+{3070}{}{Here's your new Hunting Rifle. What next?}
+{3080}{}{Here's your new Flamer. What next?}
+{3090}{}{Here's your new 10mm SMG. What next?}
+{3100}{}{I'm ready to work on that order for the Far Go Traders.}
+{3110}{}{Here's the completed order for the Far Go Traders.}
+{3120}{}{What did you need again, for the Regulators?}
+{3130}{}{Here's the completed order for the Regulators down in L.A.}
+{3140}{}{Let's continue the orders.}
+{3150}{}{Here's the completed order for the Northern Trappers.}
+{3160}{}{What did the Water Merchants need again?}
+{3170}{}{Here's the completed order for the Water Merchants.}
+{3180}{}{What did Redding need again?}
+{3190}{}{Here's the completed order for Redding.}
+{3200}{}{What do the Mordinos need?}
+{3210}{}{Here's the completed order for the Mordinos.}
+{3220}{}{What did you need for your collection?}
+{3230}{}{Here's the completed order for your collection.}
+{3240}{}{Thanks, but I gotta run. Goodbye.}
+{4000}{}{[She blushes] I'm a *little* famous, I'll admit. But I'm still just like everybody else. I bleed, I cry, I trade.}
+{4010}{}{Me too, boy, do I ever! Say, you got any work available for a small timer like me, Kali?}
+{5000}{}{Of course! I'm always looking for new items to meet all the crazy demands I get. I'm not a vendor, but I get certain special people some certain special items. That's where special people like you can come in "special" handy. Interested in working as one of my official crafters? I'll consider you an assistant and keep you busy with work. I'll pay you of course.}
+{5010}{}{Sure! I'd love to officially become a crafter!}
+{5020}{}{Some other time, I'm currently busy crafting for myself, thank you very much. Goodbye, Kali.}
+{6000}{}{That's great! As my new assistant I'll need you to craft something for me real quick, just to prove that you're actually capable of doing what I ask. Head out over to your workshop, and bring me back 1x Shotgun. That'll be enough to prove your worth.}
+{6010}{}{No problem, I'll be right back.}
+{7000}{}{[She looks over the item, and smiles] It's a bit roughly made, but it'll do. Good job, assistant. Here's a few caps for your trouble. Ready to help me fill my first order? }
+{7010}{}{Of course. What do you need?}
+{8000}{}{[She smiles] Okay, great! First off, I need to fill an order for the Crimson Caravan, and it's pretty big. That's where you will come in. I'll pay you ten percent of what I make, and then some. Let's get started, okay? Each time you bring me an item I'll pay you 50 caps as a bonus, with an extra 5 caps each time. Your rewards will gradually grow, until the end of the order.}
+{8010}{}{Sure. Do you want all the items at once, or one at a time?}
+{9000}{}{Just one at a time, I'll need to add my "special mark" to make sure they know it's from me. Don't take it the wrong way, I always coat my gear with an extra layer of liquid alloys. Let's get started! We'll need a 10mm Pistol, all spick and span!}
+{9010}{}{One 10mm Pistol, coming right up. See you soon.}
+{10000}{}{One 9mm Mauser!}
+{10010}{}{Coming right up!}
+{11000}{}{One Desert Eagle!}
+{11010}{}{Coming right up!}
+{12000}{}{One .44 Magnum!}
+{12010}{}{Coming right up!}
+{13000}{}{One Hunting Rifle!}
+{13010}{}{Coming right up!}
+{14000}{}{Almost done the order! Now for one Flamer!}
+{14010}{}{Coming right up!}
+{15000}{}{One 10mm SMG!}
+{15010}{}{Coming right up!}
+{16000}{}{[Kali smiles, and shakes your hand] Well done, partner! The order for the Crimson Caravan is complete. Sorry I made you bring each item one at a time, I needed to make sure they were high quality. But now that you've proven yourself you can just fill up the orders whenever you can turn all the items in. }
+{16010}{}{And my reward?}
+{17000}{}{Here you go! Ten percent of what I made, and then some. Come back to me when you're ready and willing to fill up another order. This one is going to the Far Go Traders.}
+{17010}{}{I'll let you know, thanks.}
+{18000}{}{[She smiles hard] I'm glad! They need a few weapons I'm really unable to provide myself. So this order is going to be paying big. You ready to hear the items? I'll need them all at once this time.}
+{18010}{}{Yup. Let's hear it.}
+{19000}{}{According to this note here, they need: 
+
+4x 10mm Pistols
+2x Hunting Rifles
+3x Flamers
+2x Grease Guns}
+{19010}{}{Alright. I'll be back eventually.}
+{20000}{}{Excellent work, partner! Here's your well earned pay! I threw in a couple of special items as well. Don't forget that I'll also spread the word about you. @pname@, the merchant traveller extraordinaire! Ready to hear about the next order? It's going to the Regulators down in L.A.}
+{20010}{}{Sure, what do those guys need?}
+{21000}{}{Their courier asked for:
+
+6x Desert Eagles
+3x Metal Armours
+100x .44 FMJ
+}
+{21010}{}{Be right back.}
+{22000}{}{Again, nice job. I've got five more orders left to fill. Let me know if you're still interested later. Take a break, and talk to me again whenever.
+}
+{23000}{}{With pleasure! I was wondering when you would be back. The trappers up north need some new armour. Here's their list:
+
+3x Leather Armours
+3x Combat Leather Jackets
+3x Metal Armours
+3x Leather Armour MK2
+
+}
+{23010}{}{Hmm... alright. }
+{24000}{}{I knew you wouldn't take too long. Here, one of my guards died recently... you can have his armour and rifle. Also, here's your ten percent. Don't forget that your reputation will go up as well. Ready for the next order? Good.
+
+}
+{24010}{}{Hit me.}
+{25000}{}{The Water Merchants need ammo for some sort of "special" run to a farm up north. The list says they need:
+
+150x Shotgun Shells
+150x 10mm JHP
+150x 44 JHP
+150x 5mm JHP
+
+}
+{25010}{}{I'm on it.}
+{26000}{}{Looks good. Speaking of "water" here, have a couple of dozen different brews as a bonus. Here's your usual ten percent as well. Up next is a special request from Redding.
+}
+{26010}{}{What is it?}
+{27000}{}{Redding's List says:
+
+4x Grease Guns
+4x 10mm Pistols
+2x Combat Shotguns
+1x 10mm SMG
+
+}
+{27010}{}{Alrighty. See you.}
+{28000}{}{Nicely done, partner. Redding gave me some gold nuggets on top of the pay, I'll give you ten percent of those as well. Here's your share. Ready for the next one? We've only got two more orders to fill.
+
+}
+{28010}{}{What next?}
+{29000}{}{Now, the Mordinos need a few things. Gotta keep up that reputation for being neutral. I don't like dealing with mobsters, so I over charge. Means big money for all of us. You still okay with it?
+
+}
+{29010}{}{Yup.}
+{30000}{}{Mordinos need: 
+
+3x Flamers
+2x Tommy Guns
+300x .45 rounds
+
+
+}
+{30010}{}{Sure. Be right back.}
+{31000}{}{Great! I won't tell anyone about that deal. Here's some high tier weapons as a little hush-hush. Last order! Here she goes.
+}
+{31010}{}{I'm ready to hear it.}
+{32000}{}{For my own private collection I will need:
+
+2x 10mm SMG
+3x .44 Magnums
+3x Leather Jackets
+3x Flamers
+
+}
+{32010}{}{Sure. One last time.}
+{33000}{}{Well, partner. Here's a stash of caps, and some barley for when you're all grown up! Also, I'll teach you a few of my master tricks of the trade! Thanks for all your hard work, @pname@! Thanks a million! [You gain +30 to your Barter Skill!]
+
+}
+{33010}{}{Wow! Thanks a lot, Kali! It was my pleasure. See you around.}
+

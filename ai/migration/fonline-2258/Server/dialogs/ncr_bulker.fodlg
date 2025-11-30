@@ -1,0 +1,127 @@
+[comment]
+
+
+[data]
+lang=engl russ
+
+[dialog]
+&
+1 1000 None 0 #
+2 1010 D _var p ncr_bulker = 0 R _var p ncr_bulker = 1 #
+2 1020 D _var p ncr_bulker = 1 @
+2 2000 None 0 #
+7 2010 D _param p ST_LEVEL > 11 #
+8 2020 D _param p ST_LEVEL < 11 #
+3 2030 #
+4 2040 #
+0 2050 @
+3 3000 None 0 #
+2 3010 @
+4 4000 None 0 #
+2 4010 #
+5 4020 @
+5 5000 None 0 #
+2 5010 @
+6 6000 None 0 @
+7 7000 None 0 #
+6 7010 D _item p PID_METAL_ARMOR_MK_II > 5 R _item p PID_METAL_ARMOR_MK_II - 6 R _script dialog@r_AddExperience 1 3000 R _script dialog@r_AddMoney 1 3000 R _var p q_merchant + 1 #
+6 7020 D _item p PID_IMPROVED_FLAMETHROWER > 5 R _item p PID_IMPROVED_FLAMETHROWER - 6 R _script dialog@r_AddExperience 1 3000 R _script dialog@r_AddMoney 1 3000 R _var p q_merchant + 1 #
+6 7030 D _item p PID_M60 > 5 R _item p PID_M60 - 6 R _script dialog@r_AddExperience 1 3000 R _script dialog@r_AddMoney 1 3000 R _var p q_merchant + 1 #
+6 7040 D _item p PID_MINIGUN > 5 R _item p PID_MINIGUN - 6 R _script dialog@r_AddExperience 1 3000 R _script dialog@r_AddMoney 1 3000 R _var p q_merchant + 1 #
+6 7050 D _item p PID_LASER_RIFLE > 5 R _item p PID_LASER_RIFLE - 6 R _script dialog@r_AddExperience 1 3000 R _script dialog@r_AddMoney 1 3000 R _var p q_merchant + 1 #
+6 7060 D _item p PID_SUPER_STIMPAK > 5 R _item p PID_SUPER_STIMPAK - 6 R _script dialog@r_AddExperience 1 1500 R _script dialog@r_AddMoney 1 1000 #
+6 7070 D _item p PID_ROCKET_LAUNCHER > 5 R _item p PID_ROCKET_LAUNCHER - 6 R _script dialog@r_AddExperience 1 3000 R _script dialog@r_AddMoney 1 3000 R _var p q_merchant + 1 #
+6 7080 D _item p PID_SNIPER_RIFLE > 5 R _item p PID_SNIPER_RIFLE - 6 R _script dialog@r_AddExperience 1 3000 R _script dialog@r_AddMoney 1 3000 R _var p q_merchant + 1 #
+6 7090 D _item p PID_COMBAT_ARMOR > 5 R _item p PID_COMBAT_ARMOR - 6 R _script dialog@r_AddExperience 1 3000 R _script dialog@r_AddMoney 1 3000 R _var p q_merchant + 1 #
+0 7100 @
+8 8000 None 0 &
+
+[engl]
+{100}{}{Oswald}
+{200}{}{You see a grimy looking trader.}
+{210}{}{This greasy looking man is wearing a red shirt, with a tag that reads, "Hi! My name is Oswald." You don't know why he's wearing a name tag.}
+{1000}{}{Predialogue installations}
+{1010}{}{base}
+{1020}{}{2}
+{2000}{}{Welcome weary traveller! I am Oswald! Magnificent trader extraordinaire! But I'm not selling, no, no, no. I'm buying! I purchase only the finest of handmade weapons and armor from the wanderers of the wasteland. Interested in doing a little trading?}
+{2010}{}{I've completed one of your bulk order requests...}
+{2020}{}{Can I sell you something?}
+{2030}{}{That's great! I'm a trader myself, what are you looking for?}
+{2040}{}{So you aren't selling anything? That's too bad.}
+{2050}{}{Not right now, but maybe later.}
+{3000}{}{Only the finest of gear. Metal Armor MK2, Advanced Flamethrowers, M60's, Miniguns, Laser Rifles, Super Stimpaks, Rocket Launchers, Sniper Rifles, and Combat Armor. For this, six of any, I will pay you a good price.}
+{3010}{}{I see, no easy task. But if the money's good, I'll trade.}
+{4000}{}{No, my friend. Only buying. My clients are many, and require a large amount of disposable weapons, and armor. }
+{4010}{}{Okay, thanks.}
+{4020}{}{Who are your clients?}
+{5000}{}{The NCR army. They have caps, trust me, and I'll throw you half of what I make. You won't find a better deal anywhere else.}
+{5010}{}{Sounds lucrative. Very lucrative.}
+{6000}{}{Excellent! General Kilgorian will be pleased! Very well done, my friend! }
+{7000}{}{Oh? And what have you ready to trade?}
+{7010}{}{6x Metal Armor MK2.}
+{7020}{}{6x Advanced Flamers.}
+{7030}{}{6x M60's.}
+{7040}{}{6x Miniguns.}
+{7050}{}{6x Laser Rifles.}
+{7060}{}{6x Super Stimpaks.}
+{7070}{}{6x Rocket Launchers.}
+{7080}{}{6x Sniper Rifles.}
+{7090}{}{6x Combat Armor.}
+{7100}{}{Nothing, actually. Sorry about that.}
+{8000}{}{You? Unfortunately not. You don't seem to be experienced enough, sorry.}
+{100000001}{}{Better wash the counter again...}
+{100000002}{}{That's 5 caps buddy. Hey did you hear me? Cough em' up.}
+{100000003}{}{Better change the keg...}
+{100000004}{}{RotGut? You drink that shit?}
+{100000005}{}{Domestic? I got B.E.E.R buddy, do you want one or not?}
+{100000006}{}{Fuckin' dust is getting everywhere. Hey close the fuckin' door!}
+{100000007}{}{I swear if the next asshole doesn't tip. Ima' shoot somebody!}
+{100000008}{}{I got bottles, I got shots, and I got a bat behind the counter for the retards. Your not a retard are you?}
+{100000009}{}{Uh-huh, yeah that's nice buddy. You don't say...What? Of course I'm listening...}
+{100000010}{}{That's 5 caps. FIVE CAPS Tribal! F.I.V.E! }
+{100000011}{}{Shut up and order a fuckin' beer already!}
+{100000012}{}{I swear if I have to serve another drunk, I'm getting the shotgun!}
+{100000013}{}{Look the keg went dry, and it's going to be another month until the caravan shows up again.}
+{100000014}{}{Really? You don't say, buy another drink or get out!}
+{100000015}{}{What? I'm on break.}
+{100000016}{}{Be right with ya'}
+{100000017}{}{Have a sit stranger. I'll be with you in a moment.}
+{100000018}{}{When do we close? Uh, when the place get's shot up, that's when!}
+{100000019}{}{We're fresh outta' cold beer, sorry. You'll just have to drink it warm.}
+{100000020}{}{RotGut? No man, go make that shit yourself! I wouldn't drink it!}
+
+[russ]
+{100}{}{Алкоголик}
+{200}{}{Вы видите пьяницу.}
+{210}{}{Вы видите шатающегося из стороны в сторону пьяного человека в лохмотьях. Лицо его распухло, нос синющий как слива. А аромат рядом с ним такой, что свалит брамина насмерть. Он что-то бормочет про себя и иногда громко поет песни.}
+{210}{}{Вы видите алкаша. Он весьма грязен - кажется, он повалялся в луже, но не особо этим расстроен.}
+{1000}{}{I?aaaeaeiaiaua onoaiiaee}
+{1010}{}{base}
+{1020}{}{2}
+{2000}{}{Dialog text}
+{2010}{}{I've completed one of your bulk order requests...}
+{2020}{}{Can I sell you something?}
+{2030}{}{That's great! I'm a trader myself, what are you looking for?}
+{2040}{}{So you aren't selling anything? That's too bad.}
+{2050}{}{Not right now, but maybe later.}
+{3000}{}{Only the finest of gear. Metal Armor MK2, Advanced Flamethrowers, M60's, Miniguns, Laser Rifles, Super Stimpaks, Rocket Launchers, Sniper Rifles, and Combat Armor. For this, I will pay you a good price.}
+{3010}{}{I see, no easy task. But if the money's good, I'll trade.}
+{4000}{}{No, my friend. Only buying. My clients are many, and require a large amount of disposable weapons, and armor. }
+{4010}{}{Okay, thanks.}
+{4020}{}{Who are your clients?}
+{5000}{}{The NCR army. They have caps, trust me, and I'll throw you half of what I make. You won't find a better deal anywhere else.}
+{5010}{}{Sounds lucrative. Very lucrative.}
+{6000}{}{Excellent! General Kilgorian will be pleased! Very well done, my friend! }
+{7000}{}{Oh? And what have you ready to trade?}
+{7010}{}{6x Metal Armor MK2}
+{7020}{}{6x Advanced Flamers.}
+{7030}{}{6x M60s.}
+{7040}{}{6x Miniguns.}
+{7050}{}{6x Laser Rifles.}
+{7060}{}{6x Super Stimpaks.}
+{7070}{}{6x Rocket Launchers.}
+{7080}{}{6x Sniper Rifles.}
+{7090}{}{6x Combat Armor.}
+{7100}{}{Nothing, actually. Sorry about that.}
+{8000}{}{You? Unfortunately not. You don't seem to be experienced enough, sorry.}
+

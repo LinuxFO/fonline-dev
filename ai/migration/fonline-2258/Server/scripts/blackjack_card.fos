@@ -1,0 +1,155 @@
+/**<
+ *  Card class for Blackjack.
+ */
+ 
+#define CARD_SUIT_NONE                  (0)
+#define CARD_SUIT_SPADES                (1)
+#define CARD_SUIT_HEARTS                (2)
+#define CARD_SUIT_DIAMONDS              (3)
+#define CARD_SUIT_CLUBS                 (4)
+ 
+#define CARD_TYPE_NONE                  (0)
+#define CARD_TYPE_ACE                   (1)
+#define CARD_TYPE_TWO                   (2)
+#define CARD_TYPE_THREE                 (3)
+#define CARD_TYPE_FOUR                  (4)
+#define CARD_TYPE_FIVE                  (5)
+#define CARD_TYPE_SIX                   (6)
+#define CARD_TYPE_SEVEN                 (7)
+#define CARD_TYPE_EIGHT                 (8)
+#define CARD_TYPE_NINE                  (9)
+#define CARD_TYPE_TEN                   (10)
+#define CARD_TYPE_JACK                  (11)
+#define CARD_TYPE_QUEEN                 (12)
+#define CARD_TYPE_KING                  (13)
+ 
+#define CARD_COLOR_NONE                 (0)
+#define CARD_COLOR_RED                  (1)
+#define CARD_COLOR_BLACK                (2)
+ 
+class CCard
+{
+    private uint8 type;
+    private uint8 suit;
+ 
+    uint8 Type()    {   return type;    }
+    uint8 Suit()    {   return suit;    }
+    uint8 Color()
+    {
+        switch (suit)
+        {
+ 
+            case CARD_SUIT_HEARTS:
+            case CARD_SUIT_DIAMONDS:
+                return CARD_COLOR_RED;
+            case CARD_SUIT_CLUBS:
+            case CARD_SUIT_SPADES:
+                return CARD_COLOR_BLACK;
+        }
+        return CARD_COLOR_NONE;
+    }
+    uint8 Value()
+    {
+        switch (type)
+        {
+            case CARD_TYPE_ACE:
+                return 11;
+            case CARD_TYPE_TWO:
+                return 2;
+            case CARD_TYPE_THREE:
+                return 3;
+            case CARD_TYPE_FOUR:
+                return 4;
+            case CARD_TYPE_FIVE:
+                return 5;
+            case CARD_TYPE_SIX:
+                return 6;
+            case CARD_TYPE_SEVEN:
+                return 7;
+            case CARD_TYPE_EIGHT:
+                return 8;
+            case CARD_TYPE_NINE:
+                return 9;
+            case CARD_TYPE_TEN:
+            case CARD_TYPE_JACK:
+            case CARD_TYPE_QUEEN:
+            case CARD_TYPE_KING:
+                return 10;
+        }
+        return 0;
+    }
+ 
+ 
+    CCard(uint8 cardType, uint8 cardSuit)
+    {
+        type = cardType;
+        suit = cardSuit;
+    }
+ 
+    string GetCardNotation()
+    {
+        string notation = "";
+//        switch (suit)
+//        {
+//            case CARD_SUIT_SPADES:
+//                notation = "s";         //  ASCII: ALT + 6
+//                break;
+//            case CARD_SUIT_HEARTS:
+//                notation = "h";         //  ASCII: ALT + 3
+//                break;
+//            case CARD_SUIT_DIAMONDS:
+//                notation = "d";         //  ASCII: ALT + 4
+//                break;
+//            case CARD_SUIT_CLUBS:
+//                notation = "c";         //  ASCII: ALT + 5
+//                break;
+//            default:
+//                notation = "";
+//        }
+        switch (type)
+        {
+            case CARD_TYPE_ACE:
+                notation += "A";
+                break;
+            case CARD_TYPE_TWO:
+                notation += "2";
+                break;
+            case CARD_TYPE_THREE:
+                notation += "3";
+                break;
+            case CARD_TYPE_FOUR:
+                notation += "4";
+                break;
+            case CARD_TYPE_FIVE:
+                notation += "5";
+                break;
+            case CARD_TYPE_SIX:
+                notation += "6";
+                break;
+            case CARD_TYPE_SEVEN:
+                notation += "7";
+                break;
+            case CARD_TYPE_EIGHT:
+                notation += "8";
+                break;
+            case CARD_TYPE_NINE:
+                notation += "9";
+                break;
+            case CARD_TYPE_TEN:
+                notation += "10";
+                break;
+            case CARD_TYPE_JACK:
+                notation += "J";
+                break;
+            case CARD_TYPE_QUEEN:
+                notation += "Q";
+                break;
+            case CARD_TYPE_KING:
+                notation += "K";
+                break;
+            default:
+                notation += "-";
+        }
+        return notation;
+    }
+};

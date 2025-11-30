@@ -1,0 +1,24 @@
+[comment]
+
+
+[data]
+lang=engl
+
+[dialog]
+&
+1 1000 None 0 #
+2 1010 @
+2 2000 None 0 &
+[engl]
+{100}{}{Kitchen staff}
+{200}{}{You see a kitchen staff.}
+{210}{}{You see a kitchen staff.}
+{1000}{}{Predialogue installations}
+{2000}{}{Way too many orders.@@Is the soup ready?@@Who let you in?@@You can't be here. Get out!@@This beef is burned!@@This dish is ready.@@Any more orders?}
+{100000001}{}{Is the soup ready?}
+{100000001}{}{Who let you in?}
+{100000001}{}{You can't be here. Get out!}
+{100000001}{}{This beef is burned!}
+{100000001}{}{This dish is ready.}
+{100000001}{}{Any more orders?}
+

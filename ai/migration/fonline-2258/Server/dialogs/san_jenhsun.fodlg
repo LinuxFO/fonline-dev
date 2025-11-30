@@ -1,0 +1,56 @@
+[comment]
+
+
+[data]
+lang=engl
+
+[dialog]
+&
+1 1000 None 0 #
+2 1010 D _var p name_mem_npc_player = 0 #
+9 1020 D _var p name_mem_npc_player = 1 #
+9 1030 D _var p san_jenhsun = 1 D _var p name_mem_npc_player = 1 @
+2 2000 None 0 #
+3 2010 #
+4 2020 @
+3 3000 None 0 #
+5 3010 @
+4 4000 None 0 @
+5 5000 None 0 #
+6 5010 D _var p san_bancq = 5 @
+6 6000 None 0 #
+7 6010 @
+7 7000 None 0 #
+8 7010 R _var p name_mem_npc_player = 1 #
+0 7020 R _var p name_mem_npc_player = 1 @
+8 8000 None 0 @
+9 9000 None 0 #
+8 9010 D _item p PID_MAGNETO_LASER_PISTOL > 9 R _item p PID_MAGNETO_LASER_PISTOL - 10 R _script dialog@r_AddExperience 1 4000 R _script dialog@r_AddMoney 1 2000 R _script dialog@r_BulkOrderRewardJunk 0  R _var p q_merchant + 1 #
+0 9020 &
+
+[engl]
+{100}{}{Jen-Hsun Huang}
+{200}{}{Jen-Hsun Huang}
+{210}{}{You see a menacing looking man.}
+{1000}{}{Predialogue installations}
+{1010}{}{unknown}
+{1020}{}{known}
+{1030}{}{return}
+{2000}{}{What the hell do you want?!}
+{2010}{}{Hi, I'm @pname@. And I'm looking for...}
+{2020}{}{Nothing. [Walk away]}
+{3000}{}{That's nice, fuck off!}
+{3010}{}{But I'm looing for...}
+{4000}{}{That's what I thought, fuck off!}
+{5000}{}{And I said that's nice, fuck off!}
+{5010}{}{Ban Chao said I...}
+{6000}{}{OH, MY, GOD! Did you say Ban Chao! Like hello?! Of course you're THAT @pname@. Soooo tell me how is old Ban Chao? I'm sure he's just FABULOUS! Well anyways here I am rambling on like a lil school girl. Let's get down to business shall we?}
+{6010}{}{Sure...}
+{7000}{}{Okay, so what I REALLY need you to do is get me 10 Magneto-Laser Pistols. Think you can manage that? }
+{7010}{}{Why not, I'll be back soon.}
+{7020}{}{Maybe later, we'll see.}
+{8000}{}{Thank you so much!}
+{9000}{}{Well hello there good looking, welcome back. Have you managed to get me those 10 WONDERFUL Magneto-Laser Pistols? I'm just DYING to get my hands on them!}
+{9010}{}{Yeah, I got them right here. [Hand over Mangneto-Laser Pistols]}
+{9020}{}{Not yet, still working on it.}
+

@@ -1,0 +1,88 @@
+[comment]
+
+
+[data]
+lang=engl
+
+[dialog]
+&
+1 1000 None 0 #
+3 1010 @
+3 2000 None 0 #
+10 2010 #
+0 2020 @
+10 3000 None 0 #
+4 3010 #
+11 3020 #
+13 3030 #
+14 3040 #
+0 3050 @
+4 4000 merc_dialog@dlg_ShowDogCost 0 #
+6 4010 D _script merc_dialog@d_CanAffordMerc 1 8 R _script merc_dialog@r_HireMerc 1 8 #
+10 4020 #
+0 4030 @
+5 5000 None 0 #
+0 5010 @
+6 6000 None 0 #
+0 6010 @
+7 7000 None 0 #
+0 7010 @
+8 8000 None 0 #
+3 8010 @
+9 9000 None 0 @
+11 10000 merc_dialog@dlg_ShowDog3Cost 0 #
+6 10010 D _script merc_dialog@d_CanAffordMerc 1 40 R _script merc_dialog@r_HireMerc 1 40 #
+10 10020 #
+0 10030 @
+12 11000 None 0 @
+13 12000 merc_dialog@dlg_ShowMoleratCost 0 #
+6 12010 D _script merc_dialog@d_CanAffordMerc 1 42 R _script merc_dialog@r_HireMerc 1 42 #
+10 12020 #
+0 12030 @
+14 13000 merc_dialog@dlg_ShowDeathclawCost 0 #
+6 13010 D _script merc_dialog@d_CanAffordMerc 1 41 R _script merc_dialog@r_HireMerc 1 41 #
+10 13020 #
+0 13030 &
+
+[engl]
+{100}{}{Wrangler}
+{200}{}{You see an old grizzled man, covered in fresh bites and scratches.}
+{210}{}{Looks like he buys and sells all sorts of different wasteland critters.}
+{1000}{}{Predialogue installations}
+{1010}{}{Answer text}
+{2000}{}{Well, howdy, pardner! Kin' I interest ya in a little fury pet for your travels? Some of dem' can's even fights too!}
+{2010}{}{Maybe, what do you have?}
+{2020}{}{Nah, not today. Maybe later.}
+{3000}{}{Gots me some of dem' hunting dogs, scouting dogs, geckos, molerats, and more! Have a little lookey look, fwend.}
+{3010}{}{Let's see your hunting dogs.}
+{3020}{}{Let's see your scouting dogs.}
+{3030}{}{Let's see your molerats.}
+{3040}{}{Let's see your deathclaws.}
+{3050}{}{Maybe later. For now I've got to go.}
+{4000}{}{Hunting dogs? They cost @lex price@ caps!}
+{4010}{}{Purr-fect!! [You give him @lex price@ caps]}
+{4020}{}{What else you got?}
+{4030}{}{I changed my mind, I can't afford anything right now.}
+{5000}{}{[He talks to the dog] Hey my friend, come over here, yes, come here to me. This here is your new owner, say hi. [The dog barks two times after he saw you.] Very good, you two play nice.}
+{5010}{}{Thanks, I'll put 'em to good use.}
+{6000}{}{Some error occured. Report this to admins.}
+{6010}{}{Yes, of course. I'll do it right away.}
+{7000}{}{Error, merc not found. Report this to admins.}
+{7010}{}{Yes, of course. I'll do it right away.}
+{8000}{}{That's too expensive for you.}
+{8010}{}{You're right...}
+{9000}{}{Looks like you can't handle any more followers, kiddo. Come back later. Your next pet will still be here waiting.}
+{10000}{}{Scouting Dogs? They cost @lex price@ caps each.}
+{10010}{}{Purr-fect!! [You give him @lex price@ caps]}
+{10020}{}{What else you got?}
+{10030}{}{I can't afford that yet.}
+{11000}{}{Didn't think these would show, thanks.}
+{12000}{}{Molerats? They cost @lex price@ caps each.}
+{12010}{}{Purr-fect!! [You give him @lex price@ caps]}
+{12020}{}{What else you got?}
+{12030}{}{I can't afford that yet.}
+{13000}{}{Deathclaws? They cost @lex price@ caps each.}
+{13010}{}{Purr-fect!! [You give him @lex price@ caps]}
+{13020}{}{What else you got?}
+{13030}{}{I can't afford that yet.}
+

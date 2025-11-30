@@ -1,0 +1,64 @@
+[comment]
+
+
+[data]
+lang=engl
+
+[dialog]
+&
+1 1000 None 0 #
+2 1010 D _var p name_mem_npc_player = 0 #
+4 1020 D _var p name_mem_npc_player = 1 @
+2 2000 None 0 #
+3 2010 #
+0 2020 @
+3 3000 None 0 #
+0 3010 R _var p name_mem_npc_player = 1 @
+4 4000 None 0 #
+3 4010 #
+5 4020 D _var p san_bancq = 5 D _var p san_hujintao = 0 #
+8 4030 D _var p san_hujintao = 1 #
+0 4040 @
+5 5000 None 0 #
+6 5010 @
+6 6000 None 0 #
+7 6010 @
+7 7000 None 0 #
+0 7010 R _var p san_hujintao = 1 #
+0 7020 R _var p san_hujintao = 1 @
+8 8000 None 0 #
+9 8010 D _item p PID_FLAMETHROWER_FUEL_MK_II > 499 R _item p PID_FLAMETHROWER_FUEL_MK_II - 500 R _script dialog@r_AddExperience 1 1000 R _script dialog@r_AddMoney 1 1000 R _var p q_merchant + 1 #
+9 8020 D _item p PID_SMALL_ENERGY_CELL > 999 R _item p PID_SMALL_ENERGY_CELL - 1000 R _script dialog@r_AddExperience 1 1000 R _script dialog@r_AddMoney 1 1000 R _script dialog@r_BulkOrderRewardJunk 0  R _var p q_merchant + 1 #
+0 8030 @
+9 9000 None 0 &
+
+[engl]
+{100}{}{Hu Jintao}
+{200}{}{You see Hu Jintao.}
+{210}{}{You see a man meticulously working on a forklift.}
+{1000}{}{Predialogue installations}
+{1010}{}{unknown}
+{1020}{}{known}
+{2000}{}{Oh, hello there traveler. [He resumes working on the forklift] I don't got all day, speak up son, you look like you got something on your mind.}
+{2010}{}{I'm pretty new in town and I'm looking for some work. Know where I can find some?}
+{2020}{}{Nothing today. Goodbye.}
+{3000}{}{Well traveler, at this exact point in time [He begins adjusting something on the forklift] I got nothing for ya. Keep asking around and I might have something for ya later.}
+{3010}{}{Well, thanks anyways, I'll keep looking... But I'll keep you in mind.}
+{4000}{}{Hello again traveler. [He continues working on the forklift] Say something son, we're losing daylight.}
+{4010}{}{I was just wondering if you had any work yet?}
+{4020}{}{Ban Chao has asked me to go around helping out in town. I was wondering If I could be of any help?}
+{4030}{}{About what we talked about earlier...}
+{4040}{}{Nothing today. Goodbye.}
+{5000}{}{[He stops working on the forklift] Well... If good ol' Ban Chao sent ya I guess I can find something for you to do. Let me see, I know, you can always bring me fuel for this ol' forklift. She runs on either Flamethrower Fuel MKII or Small Energy Cells.}
+{5010}{}{Flamethrower fuel?! Isn't that dangerous?}
+{6000}{}{[He just smiles] Not so bad, one in ten might blow up if you ain't careful. Better than one in five if you don't use the MKII fuel. }
+{6010}{}{Well then, how much do you need?}
+{7000}{}{[He stops to think for a second] I'll take either 500x Flamethrower Fuel MKII or 1000x Small Energy Cells. In return I'll give you something to line your pockets with.}
+{7010}{}{Sounds like a deal to me.}
+{7020}{}{Maybe later.}
+{8000}{}{Have you brought the Flamethrower Fuel MKII or Small Energy Cells I need?}
+{8010}{}{Got them right here. [Hand over Flamethrower Fuel MKII]}
+{8020}{}{Got them right here. [Hand over Small Energy Cells]}
+{8030}{}{Nothing today. Goodbye.}
+{9000}{}{Thanks a lot. You keep bringing me fuel and I'll keep rewarding you.}
+

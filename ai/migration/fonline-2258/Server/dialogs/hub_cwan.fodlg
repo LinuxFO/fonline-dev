@@ -1,0 +1,256 @@
+[comment]
+cwan hope quest
+
+[data]
+lang=engl russ
+
+[dialog]
+&
+1 1000 None 0 #
+2 1010 D _var p hub_hopeq = 0 #
+3 1020 D _var p hub_hopeq = 2 #
+2 1030 D _var p hub_hopeq = 1 #
+18 1040 D _var p hub_hopeq = 3 #
+19 1050 D _var p hub_hopeq = 4 #
+19 1060 D _var p hub_hopeq = 5 #
+19 1070 D _var p hub_hopeq = 6 #
+19 1080 D _var p hub_hopeq = 7 @
+2 2000 None 0 @
+3 3000 None 0 #
+4 3010 D _param p ST_LEVEL } 3 #
+2 3020 #
+0 3030 @
+4 4000 None 0 #
+5 4010 #
+5 4020 #
+5 4030 #
+5 4040 #
+5 4050 #
+5 4060 #
+5 4070 #
+5 4080 #
+5 4090 #
+5 4100 #
+5 4110 #
+6 4120 #
+5 4130 #
+5 4140 #
+5 4150 #
+5 4160 #
+5 4170 #
+5 4180 @
+5 5000 None 0 @
+6 6000 None 0 #
+5 6010 #
+5 6020 #
+5 6030 #
+5 6040 #
+5 6050 #
+5 6060 #
+5 6070 #
+5 6080 #
+5 6090 #
+5 6100 #
+7 6110 #
+5 6120 @
+7 7000 None 0 #
+8 7010 @
+8 8000 None 0 #
+9 8010 @
+9 9000 None 0 #
+10 9010 @
+10 10000 None 0 #
+11 10010 @
+11 11000 None 0 #
+12 11010 @
+12 12000 None 0 #
+13 12010 @
+13 13000 None 0 #
+14 13010 @
+14 14000 None 0 #
+15 14010 @
+15 15000 None 0 #
+16 15010 @
+16 16000 None 0 #
+17 16010 @
+17 17000 None 0 #
+0 17010 R _var p hub_hopeq = 3 @
+18 18000 None 0 @
+19 19000 None 0 &
+
+[engl]
+{100}{}{Detective Cwan}
+{200}{}{You see a detective.}
+{210}{}{He looks like one of the Hub's numerous detectives. His badge says, "Lt. K. Cwan". }
+{1000}{}{Predialogue installations}
+{1010}{}{not known}
+{1020}{}{investi}
+{1030}{}{not yet}
+{1040}{}{talked}
+{1050}{}{almost final}
+{1060}{}{final1}
+{1070}{}{final2}
+{1080}{}{final3}
+{2000}{}{If you've got a crime to report, go talk to the Sheriff. This is the detective's office, @sex@|kid||dame|.@@Let me guess... Another unfaithful wife? Go file a report with the Sheriff.@@This is homicide, kid. Not some playpen for tourists.@@What the hell? Get out.@@Police only, I'm afraid I'm going to have to ask you to leave.@@Why did you even leave the vault? The wasteland ain't for the faint of heart.@@}
+{3000}{}{[You see a stern, but proud looking man. He's filling out paperwork out of frustration, but he puts it all aside as you approach] I saw you talking with the Sheriff... What do you want? You think you can just waltz in here, put on a fedora and call yourself a cop?}
+{3010}{}{My name is @pname@, and I'm investigating the murder of Hope's husband. Mind if I ask you a couple of questions?}
+{3020}{}{My name is @pname@, and I'm investigating...}
+{3030}{}{Sorry, nevermind.}
+{4000}{}{[He stands up and shakes your hand] I'm Detective Kaleb Cwan. I'll answer a few of your questions. But first, what do you know about Hope's husband?}
+{4010}{}{He was a drunk.}
+{4020}{}{He was a good man.}
+{4030}{}{He shot himself.}
+{4040}{}{He cheated on his wife.}
+{4050}{}{He was in the army.}
+{4060}{}{He was a doctor.}
+{4070}{}{He was a union coordinator. }
+{4080}{}{He was a politician.}
+{4090}{}{Not much.}
+{4100}{}{He loved his wife.}
+{4110}{}{He owned the Maltese Falcon.}
+{4120}{}{His name was Hoyt.}
+{4130}{}{His name was Howard.}
+{4140}{}{His name was Citruil.}
+{4150}{}{His name was Sam.}
+{4160}{}{He liked to play tennis.}
+{4170}{}{He didn't know how to shoot.}
+{4180}{}{He's dead.}
+{5000}{}{Why don't you go talk to the Sheriff? Then come back when you've got the right questions to ask me.}
+{6000}{}{[He frowns] Yeah so? What else do you know?}
+{6010}{}{He was a doctor.}
+{6020}{}{He was in the army.}
+{6030}{}{He was a union coordinator.}
+{6040}{}{He was a politician.}
+{6050}{}{He owned the Maltese Falcon.}
+{6060}{}{He liked to play tennis.}
+{6070}{}{He used to have four legs.}
+{6080}{}{He's the Sheriff.}
+{6090}{}{He runs the Hub.}
+{6100}{}{He's Iguana Bob's son.}
+{6110}{}{He's a cop.}
+{6120}{}{Not much.}
+{7000}{}{[He stands up, enraged] You damn right he was a cop! He was a fucking *detective!* And he was my goddamn partner... Now his brains are all over the Heights, and I'm stuck blaming his damn wife! One in a million ways this could go down, and I'm here pickin' the finger at the bird. }
+{7010}{}{You don't like the idea of arresting Hope?}
+{8000}{}{[He sits back down and lights up a cigarette] God no, she's just some lonely tramp, who sings her tits off at the bar each night. You really think a dame like that could kill someone? Woman sings about love all day long... I've seen the eyes of a killer before, and it ain't Hope. }
+{8010}{}{Then why is she the main suspect?}
+{9000}{}{[He takes a long, hard drag of his cigarette] *Blowing smoke* Spade's got us all convinced that's the way she blows, and it stinks. Ain't got nothing else to go by though, all the evidence says he's right. Can't fight the rope when the paper shows your hands all red. I've been delaying the end, but it's not looking good for the dame. }
+{9010}{}{What evidence do you have against her?}
+{10000}{}{[He sits back and thinks for a moment] We got the gun, but that's not much... Any real robber would have taken everything, guess that's why we're falling back on Hope. Detective Hoyt had a nifty little insurance plan with the FLC, ten thousand plans actually. 'Nother reason to blame the wife, she'd be the only one getting it... Less they split up, I reckon. But Hoyt loved Hope, there's no denying that. }
+{10010}{}{How can you be so sure?}
+{11000}{}{[He frowns] I worked with Hoyt for almost twenty years, I knew him. I knew the kind of man he was. He was saving up his caps to buy him and his wife a one way trip to Reno. It was her dream, you know? Why would she throw it all away? It was supposed to be a surprise gift... Guess the surprise is ruined. }
+{11010}{}{That's horrible. I'm going to find out who did this and take them straight to hell!}
+{12000}{}{[He smiles, a bit] Me too, chum... Me too. }
+{12010}{}{Let's talk about Detective Spade. When I first met Hope, she was arguing with someone that looked similar to him. }
+{13000}{}{[He sits back looking very disturbed] I don't think you should get into this conversation with me... Spade's my new partner now, don't go around sayin' shit you'll regret. }
+{13010}{}{Good men regret nothing. If it was Spade then he was just about ready to kill Hope himself. Pulled out his gun right after shouting something about money...}
+{14000}{}{[Detective Cwan begins to lose his temper, as the rain starts to pour down] Enough! Don't you start pinning this as a big fucking conspiracy! It's NEVER a fucking conspiracy! Just... Just go ahead and describe this guy to me...}
+{14010}{}{[You describe the man you saw arguing with Hope]}
+{15000}{}{[The sounds of rain drown out the fear inside of your heart, as you watch the face of Detective Cwan turn into that of a vigilant madman] No! No! No! I'll fucking kill him! You don't go lying to me, @sex@|boy!||bird!| You don't go spreading this filth unless you got some cold, hard evidence! I'm not losing another partner! I'm not! If you're just fucking around, I'll plug you! [He quickly draws his service revolver and points it at you!]}
+{15010}{}{[Light up a cigarette, and say] Doesn't look much to me like you could handle the truth. I'll get your evidence, but you save those bullets for the asshole that's going to deserve them. }
+{16000}{}{[Cwan catches himself acting out and slowly returns to his chair. He holsters his service revolver, smiles, and says] I hope it's not you, chum. You sure are something. }
+{16010}{}{[Tip your fedora and say] Lady law sure is something, I'm just the light that shines into the darkness. }
+{17000}{}{[He smiles as the rain stops] In @sex@|Him||Her| was life, and the life was the Light of men. The Light shines in the darkness, and the darkness did not comprehend it.}
+{17010}{}{Thanks for the chat, Detective. I'll let you know if I turn over any stones. }
+{18000}{}{We're running out of time, kiddo. Hope's gunna hang if we don't do something fast. You talk to Spade yet? You can always turn over some stones at the Maltese...}
+{19000}{}{Keep this up and we might be partners some day.}
+{100000001}{}{Better wash the counter again...}
+{100000002}{}{That's 5 caps buddy. Hey did you hear me? Cough em' up.}
+{100000003}{}{Better change the keg...}
+{100000004}{}{RotGut? You drink that shit?}
+{100000005}{}{Domestic? I got B.E.E.R buddy, do you want one or not?}
+{100000006}{}{Fuckin' dust is getting everywhere. Hey close the fuckin' door!}
+{100000007}{}{I swear if the next asshole doesn't tip. Ima' shoot somebody!}
+{100000008}{}{I got bottles, I got shots, and I got a bat behind the counter for the retards. Your not a retard are you?}
+{100000009}{}{Uh-huh, yeah that's nice buddy. You don't say...What? Of course I'm listening...}
+{100000010}{}{That's 5 caps. FIVE CAPS Tribal! F.I.V.E! }
+{100000011}{}{Shut up and order a fuckin' beer already!}
+{100000012}{}{I swear if I have to serve another drunk, I'm getting the shotgun!}
+{100000013}{}{Look the keg went dry, and it's going to be another month until the caravan shows up again.}
+{100000014}{}{Really? You don't say, buy another drink or get out!}
+{100000015}{}{What? I'm on break.}
+{100000016}{}{Be right with ya'}
+{100000017}{}{Have a sit stranger. I'll be with you in a moment.}
+{100000018}{}{When do we close? Uh, when the place get's shot up, that's when!}
+{100000019}{}{We're fresh outta' cold beer, sorry. You'll just have to drink it warm.}
+{100000020}{}{RotGut? No man, go make that shit yourself! I wouldn't drink it!}
+
+[russ]
+{100}{}{Алкоголик}
+{200}{}{Вы видите пьяницу.}
+{210}{}{Вы видите шатающегося из стороны в сторону пьяного человека в лохмотьях. Лицо его распухло, нос синющий как слива. А аромат рядом с ним такой, что свалит брамина насмерть. Он что-то бормочет про себя и иногда громко поет песни.}
+{210}{}{Вы видите алкаша. Он весьма грязен - кажется, он повалялся в луже, но не особо этим расстроен.}
+{1000}{}{I?aaaeaeiaiaua onoaiiaee}
+{1010}{}{not known}
+{1020}{}{investi}
+{1030}{}{not yet}
+{1040}{}{done}
+{1050}{}{almost final}
+{1060}{}{final1}
+{1070}{}{final2}
+{1080}{}{final3}
+{2000}{}{Thank you! Thank you! }
+{3000}{}{[You see a stern, but proud looking man. He's filling out paperwork out of frustration, but he puts it all aside as you approach] I saw you talking with the Sheriff... What do you want? You think you can just waltz in here, put on a fedora and call yourself a cop?}
+{3010}{}{My name is @pname@, and I'm investigating the murder of Hope's husband. Mind if I ask you a couple of questions?}
+{3020}{}{My name is @pname@, and I'm investigating...}
+{3030}{}{Sorry, nevermind. }
+{4000}{}{[He stands up and shakes your hand] I'm Detective Kaleb Cwan. I'll answer a few of your questions. But first, what do you know about Hope's husband?}
+{4010}{}{He was a drunk.}
+{4020}{}{He was a good man.}
+{4030}{}{He shot himself.}
+{4040}{}{He cheated on his wife.}
+{4050}{}{He was in the army.}
+{4060}{}{He was a doctor.}
+{4070}{}{He was a union coordinator. }
+{4080}{}{He was a Detective.}
+{4090}{}{Not much.}
+{4100}{}{He loved his wife.}
+{4110}{}{He owned the Maltese Falcon.}
+{4120}{}{His name was Hoyt.}
+{4130}{}{His name was Howard.}
+{4140}{}{His name was Citruil.}
+{4150}{}{His name was Sam.}
+{4160}{}{He liked to play tennis.}
+{4170}{}{He didn't know how to shoot.}
+{4180}{}{He's dead.}
+{5000}{}{Why don't you go talk to the Sheriff? Then come back when you've got the right questions to ask me.}
+{6000}{}{[He frowns] Yeah so? What else do you know?}
+{6010}{}{He was a detective.}
+{6020}{}{He was in the army.}
+{6030}{}{He was a union coordinator.}
+{6040}{}{He was a politician.}
+{6050}{}{He owned the Maltese Falcon.}
+{6060}{}{He liked to play tennis.}
+{6070}{}{He used to have four legs.}
+{6080}{}{He's the Sheriff.}
+{6090}{}{He runs the Hub.}
+{6100}{}{He's Iguana Bob's son.}
+{6110}{}{He's a detective.}
+{6120}{}{Not much.}
+{7000}{}{[He stands up, enraged] You damn right he was a cop! He was a fucking *detective!* And he was my goddamn partner... Now his brains are all over the Heights, and I'm stuck blaming his damn wife! One in a million ways this could go down, and I'm here pickin' the finger at the bird. }
+{7010}{}{You don't like the idea of arresting Hope?}
+{8000}{}{[He sits back down and lights up a cigarette] God no, she's just some lonely tramp, who sings her tits off at the bar each night. You really think a dame like that could kill someone? Woman sings about love all day long... I've seen the eyes of a killer before, and it ain't Hope. }
+{8010}{}{Then why is she the main suspect?}
+{9000}{}{[He takes a long, hard drag of his cigarette] *Blowing smoke* Spade's got us all convinced that's the way she blows, and it stinks. Ain't got nothing else to go by though, all the evidence says he's right. Can't fight the rope when the paper shows your hands all red. I've been delaying the end, but it's not looking good for the dame. }
+{9010}{}{What evidence do you have against her?}
+{10000}{}{[He sits back and thinks for a moment] We got the gun, but that's not much... Any real robber would have taken everything, guess that's why we're falling back on Hope. Detective Hoyt had a nifty little insurance plan with the FLC, ten thousand plans actually. 'Nother reason to blame the wife, she'd be the only getting it... Less they split up, I reckon. But Hoyt loved Hope, there's no denying that. }
+{10010}{}{How can you be so sure?}
+{11000}{}{[He frowns] I worked with Hoyt for almost twenty years, I knew him. I knew the kind of man he was. He was saving up his caps to buy him and his wife a one way trip to Reno. It was her dream, you know? Why would she throw it all away? It was supposed to be a surprise gift... Guess the surprise is ruined. }
+{11010}{}{That's horrible. I'm going to find out who did this and take them to hell!}
+{12000}{}{[He smiles, a bit] Me too, chum... Me too. }
+{12010}{}{Let's talk about Detective Spade. When I first met Hope, she was arguing with someone that looked similar to him. }
+{13000}{}{[He sits back looking very disturbed] I don't think you should get into this conversation with me... Spade's my new partner now, don't go around sayin' shit you'll regret. }
+{13010}{}{Good men regret nothing. If it was Spade then he was just about ready to kill Hope himself. Pulled out his gun right after shouting something about money...}
+{14000}{}{[Detective Cwan begins to lose his temper, as the rain starts to pour down] Enough! Don't you start pinning this as a big fucking conspiracy! It's NEVER a fucking conspiracy! Just... Just go ahead and describe this guy to me...}
+{14010}{}{[You describe the man you saw arguing with Hope]}
+{15000}{}{[The sounds of rain drown out the fear inside of your heart, as you watch the face of Detective Cwan turn into that of a vigilant madman] No! No! No! I'll fucking kill him! You don't go lying to me, @sex@|boy!||bird!| You don't go spreading this filth unless you got some cold, hard evidence! I'm not losing another partner! I'm not! If you're just fucking around, I'll plug you! [He quickly draws his service revolver and points it at you!]}
+{15010}{}{[Light up a cigarette, and say] Doesn't look much to me like you could handle the truth. I'll get your evidence, but you save those bullets for the asshole that's going to deserve them. }
+{16000}{}{[Cwan catches himself acting out and slowly returns to his chair. He holsters his service revolver, smiles, and says] I hope it's not you, chum. You sure are something. }
+{16010}{}{[Tip your fedora and say] Lady law sure is something, I'm just the light that shines into the darkness. }
+{17000}{}{[He smiles as the rain stops] In @sex@|Him||Her| was life, and the life was the Light of men. The Light shines in the darkness, and the darkness did not comprehend it.}
+{17010}{}{Thanks for the chat, Detective. I'll let you know if I turn over any stones. }
+{18000}{}{We're running out of time, kiddo. Hope's gunna hang if we don't do something fast. You talk to Spade yet? You can always turn over some stones at the Maltese...}
+{19000}{}{Keep this up and we might be partners some day.}
+{100000015}{}{What? I'm on break.}
+{100000016}{}{Be right with ya'}
+{100000017}{}{Have a sit stranger. I'll be with you in a moment.}
+

@@ -1,0 +1,855 @@
+[comment]
+
+
+[data]
+lang=engl
+
+[dialog]
+&
+1 1000 None 0 #
+2 1010 @
+2 2000 None 0 #
+5 2010 D _item p PID_DECK_OF_TRAGIC_CARDS > 0 R _item p PID_DECK_OF_TRAGIC_CARDS - 1 #
+3 2020 #
+0 2030 @
+3 3000 None 0 #
+4 3010 @
+4 4000 None 0 @
+5 5000 None 0 #
+5 5010 R _var p z_tragicplayerhp = 100 R _var p z_tragicplayermana = 100 R _var p z_tragicnpc = 100 R _var p z_tragiccard1 = 0 R _var p z_tragiccard2 = 0 R _var p z_tragiccard3 = 0 R _var p z_tragiccard4 = 0 R _var p z_tragiccard5 = 0 R _var p z_tragiccard6 = 0 R _var p z_tragiccard7 = 0 R _var p z_tragiccard8 = 0 R _var p z_tragiccard9 = 0 R _var p z_tragiccard10 = 0 R _var p z_tragiccard11 = 0 R _var p z_tragiccard12 = 0 R _var p z_tragiccard13 = 0 R _var p z_tragiccard14 = 0 R _var p z_tragiccard15 = 0 R _script dialog@r_JumpToRandomNode 3 1 15 10 @
+10 6000 None 0 #
+5 6010 D _var p z_tragicplayer ! 6 R _var p z_tragicplayer + 1 R _var p z_tragiccard1 + 1 R _script dialog@r_JumpToRandomNode 3 1 15 10 #
+151 6020 D _var p z_tragicplayer = 6 @
+20 7000 None 0 #
+5 7010 D _var p z_tragicplayer ! 6 R _var p z_tragicplayer + 1 R _var p z_tragiccard2 + 1 R _script dialog@r_JumpToRandomNode 3 1 15 10 #
+151 7020 D _var p z_tragicplayer = 6 @
+30 8000 None 0 #
+5 8010 D _var p z_tragicplayer ! 6 R _var p z_tragicplayer + 1 R _var p z_tragiccard3 + 1 R _script dialog@r_JumpToRandomNode 3 1 15 10 #
+151 8020 D _var p z_tragicplayer = 6 @
+40 9000 None 0 #
+5 9010 D _var p z_tragicplayer ! 6 R _var p z_tragicplayer + 1 R _var p z_tragiccard4 + 1 R _script dialog@r_JumpToRandomNode 3 1 15 10 #
+151 9020 D _var p z_tragicplayer = 6 @
+50 10000 None 0 #
+5 10010 D _var p z_tragicplayer ! 6 R _var p z_tragicplayer + 1 R _var p z_tragiccard5 + 1 R _script dialog@r_JumpToRandomNode 3 1 15 10 #
+151 10020 D _var p z_tragicplayer = 6 @
+60 11000 None 0 #
+5 11010 D _var p z_tragicplayer ! 6 R _var p z_tragicplayer + 1 R _var p z_tragiccard6 + 1 R _script dialog@r_JumpToRandomNode 3 1 15 10 #
+151 11020 D _var p z_tragicplayer = 6 @
+70 12000 None 0 #
+5 12010 D _var p z_tragicplayer ! 6 R _var p z_tragicplayer + 1 R _var p z_tragiccard7 + 1 R _script dialog@r_JumpToRandomNode 3 1 15 10 #
+151 12020 D _var p z_tragicplayer = 6 @
+80 13000 None 0 #
+5 13010 D _var p z_tragicplayer ! 6 R _var p z_tragicplayer + 1 R _var p z_tragiccard8 + 1 R _script dialog@r_JumpToRandomNode 3 1 15 10 #
+151 13020 D _var p z_tragicplayer = 6 @
+90 14000 None 0 #
+5 14010 D _var p z_tragicplayer ! 6 R _var p z_tragicplayer + 1 R _var p z_tragiccard9 + 1 R _script dialog@r_JumpToRandomNode 3 1 15 10 #
+151 14020 D _var p z_tragicplayer = 6 @
+100 15000 None 0 #
+5 15010 D _var p z_tragicplayer ! 6 R _var p z_tragicplayer + 1 R _var p z_tragiccard10 + 1 R _script dialog@r_JumpToRandomNode 3 1 15 10 #
+151 15020 D _var p z_tragicplayer = 6 @
+110 16000 None 0 #
+5 16010 D _var p z_tragicplayer ! 6 R _var p z_tragicplayer + 1 R _var p z_tragiccard11 + 1 R _script dialog@r_JumpToRandomNode 3 1 15 10 #
+151 16020 D _var p z_tragicplayer = 6 @
+120 17000 None 0 #
+5 17010 D _var p z_tragicplayer ! 6 R _var p z_tragicplayer + 1 R _var p z_tragiccard12 + 1 R _script dialog@r_JumpToRandomNode 3 1 15 10 #
+151 17020 D _var p z_tragicplayer = 6 @
+130 18000 None 0 #
+5 18010 D _var p z_tragicplayer ! 6 R _var p z_tragicplayer + 1 R _var p z_tragiccard13 + 1 R _script dialog@r_JumpToRandomNode 3 1 15 10 #
+151 18020 D _var p z_tragicplayer = 6 @
+140 19000 None 0 #
+5 19010 D _var p z_tragicplayer ! 6 R _var p z_tragicplayer + 1 R _var p z_tragiccard14 + 1 R _script dialog@r_JumpToRandomNode 3 1 15 10 #
+151 19020 D _var p z_tragicplayer = 6 @
+150 20000 None 0 #
+5 20010 D _var p z_tragicplayer ! 6 R _var p z_tragicplayer + 1 R _var p z_tragiccard15 + 1 R _script dialog@r_JumpToRandomNode 3 1 15 10 #
+151 20020 D _var p z_tragicplayer = 6 @
+151 21000 None 0 #
+2 21010 R _script dialog@r_JumpToRandomNode 3 16 30 10 @
+160 22000 None 0 #
+5 22010 D _var p z_tragiccard1 > 0 D _var p z_tragicplayer ! 0 D _var p z_tragicplayerhp > 0 D _var p z_tragicplayerhp < 60 R _var p z_tragicplayerhp + 40 R _var p z_tragiccard1 - 1 R _var p z_tragicplayer - 1 R _var p z_tragicnpc + 40 R _script dialog@r_JumpToRandomNode 3 16 30 10 #
+5 22020 D _var p z_tragiccard2 > 0 D _var p z_tragicplayer ! 0 D _var p z_tragicplayerhp > 0 D _var p z_tragicnpc > 0 R _var p z_tragiccard2 - 1 R _var p z_tragicplayer - 1 R _var p z_tragicnpc + 25 R _script dialog@r_JumpToRandomNode 3 16 30 10 #
+5 22030 D _var p z_tragiccard3 > 0 D _var p z_tragicplayer ! 0 D _var p z_tragicplayerhp > 0 R _var p z_tragicnpc + 40 R _var p z_tragiccard3 - 1 R _var p z_tragicplayer - 1 R _var p z_tragicplayermana + 40 R _script dialog@r_JumpToRandomNode 3 16 30 10 #
+5 22040 D _var p z_tragiccard4 > 0 D _var p z_tragicplayer ! 0 D _var p z_tragicplayerhp > 0 R _var p z_tragiccard4 - 1 R _var p z_tragicplayer - 1 R _var p z_tragicnpc + 20 R _script dialog@r_JumpToRandomNode 3 16 30 10 #
+5 22050 D _var p z_tragiccard5 > 0 D _var p z_tragicplayer ! 0 D _var p z_tragicplayerhp > 0 R _var p z_tragiccard5 - 1 R _var p z_tragicplayer - 1 R _var p z_tragicnpc - 5 R _script dialog@r_JumpToRandomNode 3 16 30 10 #
+5 22060 D _var p z_tragiccard6 > 0 D _var p z_tragicplayer ! 0 D _var p z_tragicplayerhp > 0 R _var p z_tragiccard6 - 1 R _var p z_tragicplayer - 1 R _var p z_tragicnpc + 10 R _script dialog@r_JumpToRandomNode 3 16 30 10 #
+5 22070 D _var p z_tragiccard7 > 0 D _var p z_tragicplayer ! 0 D _var p z_tragicplayerhp > 0 D _var p z_tragicplayermana > 29 R _var p z_tragiccard7 - 1 R _var p z_tragicplayer - 1 R _var p z_tragicnpc + 25 R _var p z_tragicplayermana - 15 R _script dialog@r_JumpToRandomNode 3 16 30 10 #
+5 22080 D _var p z_tragiccard8 > 0 D _var p z_tragicplayer ! 0 D _var p z_tragicplayerhp > 0 D _var p z_tragicplayermana > 49 R _var p z_tragiccard8 - 1 R _var p z_tragicplayer - 1 R _var p z_tragicplayermana - 50 R _script dialog@r_JumpToRandomNode 3 16 30 10 #
+5 22090 D _var p z_tragiccard9 > 0 D _var p z_tragicplayer ! 0 D _var p z_tragicplayerhp > 0 D _var p z_tragicplayermana > 49 D _var p z_tragicplayerhp < 100 R _var p z_tragicnpc + 40 R _var p z_tragiccard9 - 1 R _var p z_tragicplayer - 1 R _var p z_tragicplayermana - 50 R _var p z_tragicplayerhp + 50 R _script dialog@r_JumpToRandomNode 3 16 30 10 #
+5 22100 D _var p z_tragiccard10 > 0 D _var p z_tragicplayer ! 0 D _var p z_tragicplayerhp > 0 D _var p z_tragicplayermana > 29 R _var p z_tragiccard10 - 1 R _var p z_tragicplayer - 1 R _var p z_tragicplayermana - 30 R _var p z_tragicnpc + 10 R _script dialog@r_JumpToRandomNode 3 16 30 10 #
+5 22110 D _var p z_tragiccard11 > 0 D _var p z_tragicplayer ! 0 D _var p z_tragicplayerhp > 0 D _var p z_tragicplayerhp > 50 D _var p z_tragicplayermana < 50 R _var p z_tragicnpc + 40 R _var p z_tragiccard11 - 1 R _var p z_tragicplayer - 1 R _var p z_tragicplayerhp - 50 R _var p z_tragicplayermana + 50 R _script dialog@r_JumpToRandomNode 3 16 30 10 #
+5 22120 D _var p z_tragiccard12 > 0 D _var p z_tragicplayer ! 0 D _var p z_tragicplayerhp > 0 R _var p z_tragiccard12 - 1 R _var p z_tragicplayer - 1 R _var p z_tragicnpc - 10 R _script dialog@r_JumpToRandomNode 3 16 30 10 #
+5 22130 D _var p z_tragiccard13 > 0 D _var p z_tragicplayer ! 0 D _var p z_tragicplayerhp > 0 R _var p z_tragiccard13 - 1 R _var p z_tragicplayer - 1 R _var p z_tragicnpc - 80 R _script dialog@r_JumpToRandomNode 3 16 30 10 #
+5 22140 D _var p z_tragiccard14 > 0 D _var p z_tragicplayer ! 0 D _var p z_tragicplayerhp > 0 D _var p z_tragicplayermana > 9 D _var p z_tragicplayerhp < 50 R _var p z_tragiccard14 - 1 R _var p z_tragicplayer - 1 R _var p z_tragicnpc - 50 R _var p z_tragicplayermana - 10 R _var p z_tragicplayerhp + 50 R _script dialog@r_JumpToRandomNode 3 16 30 10 #
+5 22150 D _var p z_tragiccard15 > 0 D _var p z_tragicplayer ! 0 D _var p z_tragicplayerhp > 0 D _var p z_tragicplayermana > 79 R _var p z_tragiccard15 - 1 R _var p z_tragicplayer - 1 R _var p z_tragicplayermana - 80 R _var p z_tragicnpc - 40 R _script dialog@r_JumpToRandomNode 3 16 30 10 #
+2 22160 D _var p z_tragicplayer ! 0 D _var p z_tragicplayerhp > 0 D _var p z_tragicplayerhp { 100 R _var p z_tragicplayerhp + 20 R _var p z_tragicnpc + 40 R _script dialog@r_JumpToRandomNode 3 16 30 10 #
+2 22170 D _var p z_tragicplayer ! 0 D _var p z_tragicplayerhp > 0 D _var p z_tragicplayermana { 100 R _var p z_tragicplayermana + 20 R _var p z_tragicnpc + 40 R _script dialog@r_JumpToRandomNode 3 16 30 10 #
+301 22180 D _var p z_tragicplayer = 0 #
+301 22190 D _var p z_tragicplayerhp < 0 @
+170 23000 None 0 #
+5 23010 D _var p z_tragiccard1 > 0 D _var p z_tragicplayer ! 0 D _var p z_tragicplayerhp > 0 D _var p z_tragicplayerhp < 60 D _var p z_tragicnpc > 0 R _var p z_tragiccard1 - 1 R _var p z_tragicplayer - 1 R _var p z_tragicplayerhp + 25 R _script dialog@r_JumpToRandomNode 3 16 30 10 #
+5 23020 D _var p z_tragiccard2 > 0 D _var p z_tragicplayer ! 0 D _var p z_tragicplayerhp > 0 D _var p z_tragicnpc > 0 R _var p z_tragiccard2 - 1 R _var p z_tragicplayer - 1 R _var p z_tragicplayerhp - 15 R _var p z_tragicnpc - 15 R _script dialog@r_JumpToRandomNode 3 16 30 10 #
+5 23030 D _var p z_tragiccard3 > 0 D _var p z_tragicplayer ! 0 D _var p z_tragicplayerhp > 0 D _var p z_tragicnpc > 0 R _var p z_tragiccard3 - 1 R _var p z_tragicplayer - 1 R _var p z_tragicplayermana + 40 R _var p z_tragicplayerhp - 15 R _script dialog@r_JumpToRandomNode 3 16 30 10 #
+5 23040 D _var p z_tragiccard4 > 0 D _var p z_tragicplayer ! 0 D _var p z_tragicplayerhp > 0 D _var p z_tragicnpc > 0 R _var p z_tragiccard4 - 1 R _var p z_tragicplayer - 1 R _var p z_tragicplayerhp - 20 R _var p z_tragicplayerhp - 15 R _script dialog@r_JumpToRandomNode 3 16 30 10 #
+5 23050 D _var p z_tragiccard5 > 0 D _var p z_tragicplayer ! 0 D _var p z_tragicplayerhp > 0 D _var p z_tragicnpc > 0 R _var p z_tragiccard5 - 1 R _var p z_tragicplayer - 1 R _script dialog@r_JumpToRandomNode 3 16 30 10 #
+5 23060 D _var p z_tragiccard6 > 0 D _var p z_tragicplayer ! 0 D _var p z_tragicplayerhp > 0 D _var p z_tragicnpc > 0 R _var p z_tragiccard6 - 1 R _var p z_tragicplayer - 1 R _var p z_tragicplayerhp - 15 R _var p z_tragicnpc - 30 R _script dialog@r_JumpToRandomNode 3 16 30 10 #
+5 23070 D _var p z_tragiccard7 > 0 D _var p z_tragicplayer ! 0 D _var p z_tragicplayerhp > 0 D _var p z_tragicnpc > 0 D _var p z_tragicplayermana > 14 R _var p z_tragiccard7 - 1 R _var p z_tragicplayer - 1 R _var p z_tragicplayermana - 15 R _var p z_tragicplayerhp - 15 R _var p z_tragicnpc - 15 R _script dialog@r_JumpToRandomNode 3 16 30 10 #
+5 23080 D _var p z_tragiccard8 > 0 D _var p z_tragicplayer ! 0 D _var p z_tragicplayerhp > 0 D _var p z_tragicnpc > 0 D _var p z_tragicplayermana > 49 R _var p z_tragiccard8 - 1 R _var p z_tragicplayer - 1 R _var p z_tragicplayermana - 50 R _script dialog@r_JumpToRandomNode 3 16 30 10 #
+5 23090 D _var p z_tragiccard9 > 0 D _var p z_tragicplayer ! 0 D _var p z_tragicplayerhp > 0 D _var p z_tragicplayermana > 49 D _var p z_tragicplayerhp < 100 R _var p z_tragiccard9 - 1 R _var p z_tragicplayer - 1 R _var p z_tragicplayermana - 50 R _var p z_tragicplayerhp + 35 R _script dialog@r_JumpToRandomNode 3 16 30 10 #
+5 23100 D _var p z_tragiccard10 > 0 D _var p z_tragicplayer ! 0 D _var p z_tragicplayerhp > 0 D _var p z_tragicnpc > 0 D _var p z_tragicplayermana > 29 R _var p z_tragiccard10 - 1 R _var p z_tragicplayer - 1 R _var p z_tragicplayermana - 30 R _var p z_tragicnpc - 30 R _var p z_tragicplayerhp - 15 R _script dialog@r_JumpToRandomNode 3 16 30 10 #
+5 23110 D _var p z_tragiccard11 > 0 D _var p z_tragicplayer ! 0 D _var p z_tragicplayerhp > 0 D _var p z_tragicplayerhp > 50 D _var p z_tragicplayermana < 50 D _var p z_tragicnpc > 0 R _var p z_tragiccard11 - 1 R _var p z_tragicplayer - 1 R _var p z_tragicplayerhp - 65 R _var p z_tragicplayermana + 50 R _script dialog@r_JumpToRandomNode 3 16 30 10 #
+5 23120 D _var p z_tragiccard12 > 0 D _var p z_tragicplayer ! 0 D _var p z_tragicplayerhp > 0 D _var p z_tragicnpc > 0 R _var p z_tragiccard12 - 1 R _var p z_tragicplayer - 1 R _var p z_tragicnpc - 50 R _var p z_tragicplayerhp - 15 R _script dialog@r_JumpToRandomNode 3 16 30 10 #
+5 23130 D _var p z_tragiccard13 > 0 D _var p z_tragicplayer ! 0 D _var p z_tragicplayerhp > 0 D _var p z_tragicnpc > 0 R _var p z_tragiccard13 - 1 R _var p z_tragicplayer - 1 R _var p z_tragicnpc - 80 R _script dialog@r_JumpToRandomNode 3 16 30 10 #
+5 23140 D _var p z_tragiccard14 > 0 D _var p z_tragicplayer ! 0 D _var p z_tragicplayerhp > 0 D _var p z_tragicplayermana > 9 D _var p z_tragicnpc > 0 R _var p z_tragiccard14 - 1 R _var p z_tragicplayer - 1 R _var p z_tragicplayermana - 10 R _var p z_tragicnpc - 50 R _var p z_tragicplayerhp + 50 R _script dialog@r_JumpToRandomNode 3 16 30 10 #
+5 23150 D _var p z_tragiccard15 > 0 D _var p z_tragicplayer ! 0 D _var p z_tragicplayerhp > 0 D _var p z_tragicplayermana > 79 D _var p z_tragicnpc > 0 R _var p z_tragiccard15 - 1 R _var p z_tragicplayer - 1 R _var p z_tragicplayermana - 80 R _var p z_tragicnpc - 80 R _var p z_tragicplayerhp - 15 R _script dialog@r_JumpToRandomNode 3 16 30 10 #
+2 23160 D _var p z_tragicplayer ! 0 D _var p z_tragicplayerhp > 0 D _var p z_tragicplayerhp { 100 R _var p z_tragicplayerhp + 5 R _script dialog@r_JumpToRandomNode 3 16 30 10 #
+2 23170 D _var p z_tragicplayer ! 0 D _var p z_tragicplayerhp > 0 D _var p z_tragicplayermana { 100 R _var p z_tragicplayermana + 20 R _var p z_tragicplayerhp - 15 R _script dialog@r_JumpToRandomNode 3 16 30 10 #
+301 23180 D _var p z_tragicplayer = 0 #
+301 23190 D _var p z_tragicplayerhp < 0 @
+180 24000 None 0 #
+5 24010 D _var p z_tragiccard1 > 0 D _var p z_tragicplayer ! 0 D _var p z_tragicplayerhp > 0 D _var p z_tragicnpc > 0 R _var p z_tragiccard1 - 1 R _var p z_tragicplayer - 1 R _var p z_tragicplayerhp + 40 R _script dialog@r_JumpToRandomNode 3 16 30 10 #
+5 24020 D _var p z_tragiccard2 > 0 D _var p z_tragicplayer ! 0 D _var p z_tragicplayerhp > 0 D _var p z_tragicnpc > 0 R _var p z_tragiccard2 - 1 R _var p z_tragicplayer - 1 R _var p z_tragicnpc - 15 R _script dialog@r_JumpToRandomNode 3 16 30 10 #
+5 24030 D _var p z_tragiccard3 > 0 D _var p z_tragicplayer ! 0 D _var p z_tragicplayerhp > 0 D _var p z_tragicnpc > 0 R _var p z_tragiccard3 - 1 R _var p z_tragicplayer - 1 R _var p z_tragicplayermana + 40 R _script dialog@r_JumpToRandomNode 3 16 30 10 #
+5 24040 D _var p z_tragiccard4 > 0 D _var p z_tragicplayer ! 0 D _var p z_tragicplayerhp > 0 D _var p z_tragicnpc > 0 R _var p z_tragiccard4 - 1 R _var p z_tragicplayer - 1 R _var p z_tragicnpc - 20 R _script dialog@r_JumpToRandomNode 3 16 30 10 #
+5 24050 D _var p z_tragiccard5 > 0 D _var p z_tragicplayer ! 0 D _var p z_tragicplayerhp > 0 D _var p z_tragicnpc > 0 R _var p z_tragiccard5 - 1 R _var p z_tragicplayer - 1 R _var p z_tragicnpc - 5 R _script dialog@r_JumpToRandomNode 3 16 30 10 #
+5 24060 D _var p z_tragiccard6 > 0 D _var p z_tragicplayer ! 0 D _var p z_tragicplayerhp > 0 D _var p z_tragicnpc > 0 R _var p z_tragiccard6 - 1 R _var p z_tragicplayer - 1 R _var p z_tragicnpc - 30 R _script dialog@r_JumpToRandomNode 3 16 30 10 #
+5 24070 D _var p z_tragiccard7 > 0 D _var p z_tragicplayer ! 0 D _var p z_tragicplayerhp > 0 D _var p z_tragicnpc > 0 D _var p z_tragicplayermana > 14 R _var p z_tragiccard7 - 1 R _var p z_tragicplayer - 1 R _var p z_tragicplayermana - 15 R _var p z_tragicnpc - 15 R _script dialog@r_JumpToRandomNode 3 16 30 10 #
+5 24080 D _var p z_tragiccard8 > 0 D _var p z_tragicplayer ! 0 D _var p z_tragicplayerhp > 0 D _var p z_tragicnpc > 0 D _var p z_tragicplayermana > 49 R _var p z_tragiccard8 - 1 R _var p z_tragicplayer - 1 R _var p z_tragicplayermana - 50 R _script dialog@r_JumpToRandomNode 3 16 30 10 #
+5 24090 D _var p z_tragiccard9 > 0 D _var p z_tragicplayer ! 0 D _var p z_tragicplayerhp > 0 D _var p z_tragicplayermana > 49 D _var p z_tragicplayerhp < 100 R _var p z_tragiccard9 - 1 R _var p z_tragicplayer - 1 R _var p z_tragicplayermana - 50 R _var p z_tragicplayerhp + 50 R _script dialog@r_JumpToRandomNode 3 16 30 10 #
+5 24100 D _var p z_tragiccard10 > 0 D _var p z_tragicplayer ! 0 D _var p z_tragicplayerhp > 0 D _var p z_tragicnpc > 0 D _var p z_tragicplayermana > 29 R _var p z_tragiccard10 - 1 R _var p z_tragicplayer - 1 R _var p z_tragicplayermana - 30 R _var p z_tragicnpc - 30 R _script dialog@r_JumpToRandomNode 3 16 30 10 #
+5 24110 D _var p z_tragiccard11 > 0 D _var p z_tragicplayer ! 0 D _var p z_tragicplayerhp > 0 D _var p z_tragicplayerhp > 50 D _var p z_tragicplayermana < 50 D _var p z_tragicnpc > 0 R _var p z_tragiccard11 - 1 R _var p z_tragicplayer - 1 R _var p z_tragicplayerhp - 50 R _var p z_tragicplayermana + 50 R _script dialog@r_JumpToRandomNode 3 16 30 10 #
+5 24120 D _var p z_tragiccard12 > 0 D _var p z_tragicplayer ! 0 D _var p z_tragicplayerhp > 0 D _var p z_tragicnpc > 0 R _var p z_tragiccard12 - 1 R _var p z_tragicplayer - 1 R _var p z_tragicnpc - 50 R _script dialog@r_JumpToRandomNode 3 16 30 10 #
+5 24130 D _var p z_tragiccard13 > 0 D _var p z_tragicplayer ! 0 D _var p z_tragicplayerhp > 0 D _var p z_tragicnpc > 0 R _var p z_tragiccard13 - 1 R _var p z_tragicplayer - 1 R _var p z_tragicnpc - 80 R _script dialog@r_JumpToRandomNode 3 16 30 10 #
+5 24140 D _var p z_tragiccard14 > 0 D _var p z_tragicplayer ! 0 D _var p z_tragicplayerhp > 0 D _var p z_tragicplayermana > 9 D _var p z_tragicnpc > 0 R _var p z_tragiccard14 - 1 R _var p z_tragicplayer - 1 R _var p z_tragicplayermana - 10 R _var p z_tragicnpc - 50 R _var p z_tragicplayerhp + 50 R _script dialog@r_JumpToRandomNode 3 16 30 10 #
+5 24150 D _var p z_tragiccard15 > 0 D _var p z_tragicplayer ! 0 D _var p z_tragicplayerhp > 0 D _var p z_tragicplayermana > 79 D _var p z_tragicnpc > 0 R _var p z_tragiccard15 - 1 R _var p z_tragicplayer - 1 R _var p z_tragicplayermana - 80 R _var p z_tragicnpc - 80 R _script dialog@r_JumpToRandomNode 3 16 30 10 #
+2 24160 D _var p z_tragicplayer ! 0 D _var p z_tragicplayerhp > 0 D _var p z_tragicplayerhp { 100 R _var p z_tragicplayerhp + 5 R _script dialog@r_JumpToRandomNode 3 16 30 10 #
+2 24170 D _var p z_tragicplayer ! 0 D _var p z_tragicplayerhp > 0 D _var p z_tragicplayermana { 100 R _var p z_tragicplayermana + 20 R _var p z_tragicplayerhp - 15 R _script dialog@r_JumpToRandomNode 3 16 30 10 #
+301 24180 D _var p z_tragicplayer = 0 #
+301 24190 D _var p z_tragicplayerhp < 0 @
+190 25000 None 0 #
+5 25010 D _var p z_tragiccard1 > 0 D _var p z_tragicplayer ! 0 D _var p z_tragicplayerhp > 0 D _var p z_tragicnpc > 0 R _var p z_tragiccard1 - 1 R _var p z_tragicplayer - 1 R _var p z_tragicplayerhp + 40 R _script dialog@r_JumpToRandomNode 3 16 30 10 #
+5 25020 D _var p z_tragiccard2 > 0 D _var p z_tragicplayer ! 0 D _var p z_tragicplayerhp > 0 D _var p z_tragicnpc > 0 R _var p z_tragiccard2 - 1 R _var p z_tragicplayer - 1 R _var p z_tragicnpc - 15 R _script dialog@r_JumpToRandomNode 3 16 30 10 #
+5 25030 D _var p z_tragiccard3 > 0 D _var p z_tragicplayer ! 0 D _var p z_tragicplayerhp > 0 D _var p z_tragicnpc > 0 R _var p z_tragiccard3 - 1 R _var p z_tragicplayer - 1 R _var p z_tragicplayermana + 40 R _script dialog@r_JumpToRandomNode 3 16 30 10 #
+5 25040 D _var p z_tragiccard4 > 0 D _var p z_tragicplayer ! 0 D _var p z_tragicplayerhp > 0 D _var p z_tragicnpc > 0 R _var p z_tragiccard4 - 1 R _var p z_tragicplayer - 1 R _var p z_tragicnpc - 20 R _script dialog@r_JumpToRandomNode 3 16 30 10 #
+5 25050 D _var p z_tragiccard5 > 0 D _var p z_tragicplayer ! 0 D _var p z_tragicplayerhp > 0 D _var p z_tragicnpc > 0 R _var p z_tragiccard5 - 1 R _var p z_tragicplayer - 1 R _var p z_tragicnpc - 5 R _script dialog@r_JumpToRandomNode 3 16 30 10 #
+5 25060 D _var p z_tragiccard6 > 0 D _var p z_tragicplayer ! 0 D _var p z_tragicplayerhp > 0 D _var p z_tragicnpc > 0 R _var p z_tragiccard6 - 1 R _var p z_tragicplayer - 1 R _var p z_tragicnpc - 30 R _script dialog@r_JumpToRandomNode 3 16 30 10 #
+5 25070 D _var p z_tragiccard7 > 0 D _var p z_tragicplayer ! 0 D _var p z_tragicplayerhp > 0 D _var p z_tragicnpc > 0 D _var p z_tragicplayermana > 14 R _var p z_tragiccard7 - 1 R _var p z_tragicplayer - 1 R _var p z_tragicplayermana - 15 R _var p z_tragicnpc - 15 R _script dialog@r_JumpToRandomNode 3 16 30 10 #
+5 25080 D _var p z_tragiccard8 > 0 D _var p z_tragicplayer ! 0 D _var p z_tragicplayerhp > 0 D _var p z_tragicnpc > 0 D _var p z_tragicplayermana > 49 R _var p z_tragiccard8 - 1 R _var p z_tragicplayer - 1 R _var p z_tragicplayermana - 50 R _script dialog@r_JumpToRandomNode 3 16 30 10 #
+5 25090 D _var p z_tragiccard9 > 0 D _var p z_tragicplayer ! 0 D _var p z_tragicplayerhp > 0 D _var p z_tragicplayermana > 49 D _var p z_tragicplayerhp < 100 R _var p z_tragiccard9 - 1 R _var p z_tragicplayer - 1 R _var p z_tragicplayermana - 50 R _var p z_tragicplayerhp + 50 R _script dialog@r_JumpToRandomNode 3 16 30 10 #
+5 25100 D _var p z_tragiccard10 > 0 D _var p z_tragicplayer ! 0 D _var p z_tragicplayerhp > 0 D _var p z_tragicnpc > 0 D _var p z_tragicplayermana > 29 R _var p z_tragiccard10 - 1 R _var p z_tragicplayer - 1 R _var p z_tragicplayermana - 30 R _var p z_tragicnpc - 30 R _script dialog@r_JumpToRandomNode 3 16 30 10 #
+5 25110 D _var p z_tragiccard11 > 0 D _var p z_tragicplayer ! 0 D _var p z_tragicplayerhp > 0 D _var p z_tragicplayerhp > 50 D _var p z_tragicplayermana < 50 D _var p z_tragicnpc > 0 R _var p z_tragiccard11 - 1 R _var p z_tragicplayer - 1 R _var p z_tragicplayerhp - 50 R _var p z_tragicplayermana + 50 R _script dialog@r_JumpToRandomNode 3 16 30 10 #
+5 25120 D _var p z_tragiccard12 > 0 D _var p z_tragicplayer ! 0 D _var p z_tragicplayerhp > 0 D _var p z_tragicnpc > 0 R _var p z_tragiccard12 - 1 R _var p z_tragicplayer - 1 R _var p z_tragicnpc - 50 R _script dialog@r_JumpToRandomNode 3 16 30 10 #
+5 25130 D _var p z_tragiccard13 > 0 D _var p z_tragicplayer ! 0 D _var p z_tragicplayerhp > 0 D _var p z_tragicnpc > 0 R _var p z_tragiccard13 - 1 R _var p z_tragicplayer - 1 R _var p z_tragicnpc - 80 R _script dialog@r_JumpToRandomNode 3 16 30 10 #
+5 25140 D _var p z_tragiccard14 > 0 D _var p z_tragicplayer ! 0 D _var p z_tragicplayerhp > 0 D _var p z_tragicplayermana > 9 D _var p z_tragicnpc > 0 R _var p z_tragiccard14 - 1 R _var p z_tragicplayer - 1 R _var p z_tragicplayermana - 10 R _var p z_tragicnpc - 50 R _var p z_tragicplayerhp + 50 R _script dialog@r_JumpToRandomNode 3 16 30 10 #
+5 25150 D _var p z_tragiccard15 > 0 D _var p z_tragicplayer ! 0 D _var p z_tragicplayerhp > 0 D _var p z_tragicplayermana > 79 D _var p z_tragicnpc > 0 R _var p z_tragiccard15 - 1 R _var p z_tragicplayer - 1 R _var p z_tragicplayermana - 80 R _var p z_tragicnpc - 80 R _script dialog@r_JumpToRandomNode 3 16 30 10 #
+2 25160 D _var p z_tragicplayer ! 0 D _var p z_tragicplayerhp > 0 D _var p z_tragicplayerhp { 100 R _var p z_tragicplayerhp + 5 R _script dialog@r_JumpToRandomNode 3 16 30 10 #
+2 25170 D _var p z_tragicplayer ! 0 D _var p z_tragicplayerhp > 0 D _var p z_tragicplayermana { 100 R _var p z_tragicplayermana + 20 R _var p z_tragicplayerhp - 15 R _script dialog@r_JumpToRandomNode 3 16 30 10 #
+301 25180 D _var p z_tragicplayer = 0 #
+301 25190 D _var p z_tragicplayerhp < 0 @
+200 26000 None 0 #
+5 26010 D _var p z_tragiccard1 > 0 D _var p z_tragicplayer ! 0 D _var p z_tragicplayerhp > 0 D _var p z_tragicnpc > 0 R _var p z_tragiccard1 - 1 R _var p z_tragicplayer - 1 R _var p z_tragicplayerhp + 40 R _script dialog@r_JumpToRandomNode 3 16 30 10 #
+5 26020 D _var p z_tragiccard2 > 0 D _var p z_tragicplayer ! 0 D _var p z_tragicplayerhp > 0 D _var p z_tragicnpc > 0 R _var p z_tragiccard2 - 1 R _var p z_tragicplayer - 1 R _var p z_tragicnpc - 15 R _script dialog@r_JumpToRandomNode 3 16 30 10 #
+5 26030 D _var p z_tragiccard3 > 0 D _var p z_tragicplayer ! 0 D _var p z_tragicplayerhp > 0 D _var p z_tragicnpc > 0 R _var p z_tragiccard3 - 1 R _var p z_tragicplayer - 1 R _var p z_tragicplayermana + 40 R _script dialog@r_JumpToRandomNode 3 16 30 10 #
+5 26040 D _var p z_tragiccard4 > 0 D _var p z_tragicplayer ! 0 D _var p z_tragicplayerhp > 0 D _var p z_tragicnpc > 0 R _var p z_tragiccard4 - 1 R _var p z_tragicplayer - 1 R _var p z_tragicnpc - 20 R _script dialog@r_JumpToRandomNode 3 16 30 10 #
+5 26050 D _var p z_tragiccard5 > 0 D _var p z_tragicplayer ! 0 D _var p z_tragicplayerhp > 0 D _var p z_tragicnpc > 0 R _var p z_tragiccard5 - 1 R _var p z_tragicplayer - 1 R _var p z_tragicnpc - 5 R _script dialog@r_JumpToRandomNode 3 16 30 10 #
+5 26060 D _var p z_tragiccard6 > 0 D _var p z_tragicplayer ! 0 D _var p z_tragicplayerhp > 0 D _var p z_tragicnpc > 0 R _var p z_tragiccard6 - 1 R _var p z_tragicplayer - 1 R _var p z_tragicnpc - 30 R _script dialog@r_JumpToRandomNode 3 16 30 10 #
+5 26070 D _var p z_tragiccard7 > 0 D _var p z_tragicplayer ! 0 D _var p z_tragicplayerhp > 0 D _var p z_tragicnpc > 0 D _var p z_tragicplayermana > 14 R _var p z_tragiccard7 - 1 R _var p z_tragicplayer - 1 R _var p z_tragicplayermana - 15 R _var p z_tragicnpc - 15 R _script dialog@r_JumpToRandomNode 3 16 30 10 #
+5 26080 D _var p z_tragiccard8 > 0 D _var p z_tragicplayer ! 0 D _var p z_tragicplayerhp > 0 D _var p z_tragicnpc > 0 D _var p z_tragicplayermana > 49 R _var p z_tragiccard8 - 1 R _var p z_tragicplayer - 1 R _var p z_tragicplayermana - 50 R _script dialog@r_JumpToRandomNode 3 16 30 10 #
+5 26090 D _var p z_tragiccard9 > 0 D _var p z_tragicplayer ! 0 D _var p z_tragicplayerhp > 0 D _var p z_tragicplayermana > 49 D _var p z_tragicplayerhp < 100 R _var p z_tragiccard9 - 1 R _var p z_tragicplayer - 1 R _var p z_tragicplayermana - 50 R _var p z_tragicplayerhp + 50 R _script dialog@r_JumpToRandomNode 3 16 30 10 #
+5 26100 D _var p z_tragiccard10 > 0 D _var p z_tragicplayer ! 0 D _var p z_tragicplayerhp > 0 D _var p z_tragicnpc > 0 D _var p z_tragicplayermana > 29 R _var p z_tragiccard10 - 1 R _var p z_tragicplayer - 1 R _var p z_tragicplayermana - 30 R _var p z_tragicnpc - 30 R _script dialog@r_JumpToRandomNode 3 16 30 10 #
+5 26110 D _var p z_tragiccard11 > 0 D _var p z_tragicplayer ! 0 D _var p z_tragicplayerhp > 0 D _var p z_tragicplayerhp > 50 D _var p z_tragicplayermana < 50 D _var p z_tragicnpc > 0 R _var p z_tragiccard11 - 1 R _var p z_tragicplayer - 1 R _var p z_tragicplayerhp - 50 R _var p z_tragicplayermana + 50 R _script dialog@r_JumpToRandomNode 3 16 30 10 #
+5 26120 D _var p z_tragiccard12 > 0 D _var p z_tragicplayer ! 0 D _var p z_tragicplayerhp > 0 D _var p z_tragicnpc > 0 R _var p z_tragiccard12 - 1 R _var p z_tragicplayer - 1 R _var p z_tragicnpc - 50 R _script dialog@r_JumpToRandomNode 3 16 30 10 #
+5 26130 D _var p z_tragiccard13 > 0 D _var p z_tragicplayer ! 0 D _var p z_tragicplayerhp > 0 D _var p z_tragicnpc > 0 R _var p z_tragiccard13 - 1 R _var p z_tragicplayer - 1 R _var p z_tragicnpc - 80 R _script dialog@r_JumpToRandomNode 3 16 30 10 #
+5 26140 D _var p z_tragiccard14 > 0 D _var p z_tragicplayer ! 0 D _var p z_tragicplayerhp > 0 D _var p z_tragicplayermana > 9 D _var p z_tragicnpc > 0 R _var p z_tragiccard14 - 1 R _var p z_tragicplayer - 1 R _var p z_tragicplayermana - 10 R _var p z_tragicnpc - 50 R _var p z_tragicplayerhp + 50 R _script dialog@r_JumpToRandomNode 3 16 30 10 #
+5 26150 D _var p z_tragiccard15 > 0 D _var p z_tragicplayer ! 0 D _var p z_tragicplayerhp > 0 D _var p z_tragicplayermana > 79 D _var p z_tragicnpc > 0 R _var p z_tragiccard15 - 1 R _var p z_tragicplayer - 1 R _var p z_tragicplayermana - 80 R _var p z_tragicnpc - 80 R _script dialog@r_JumpToRandomNode 3 16 30 10 #
+2 26160 D _var p z_tragicplayer ! 0 D _var p z_tragicplayerhp > 0 D _var p z_tragicplayerhp { 100 R _var p z_tragicplayerhp + 5 R _script dialog@r_JumpToRandomNode 3 16 30 10 #
+2 26170 D _var p z_tragicplayer ! 0 D _var p z_tragicplayerhp > 0 D _var p z_tragicplayermana { 100 R _var p z_tragicplayermana + 20 R _var p z_tragicplayerhp - 15 R _script dialog@r_JumpToRandomNode 3 16 30 10 #
+301 26180 D _var p z_tragicplayer = 0 #
+301 26190 D _var p z_tragicplayerhp < 0 @
+210 27000 None 0 #
+5 27010 D _var p z_tragiccard1 > 0 D _var p z_tragicplayer ! 0 D _var p z_tragicplayerhp > 0 D _var p z_tragicnpc > 0 R _var p z_tragiccard1 - 1 R _var p z_tragicplayer - 1 R _var p z_tragicplayerhp + 40 R _script dialog@r_JumpToRandomNode 3 16 30 10 #
+5 27020 D _var p z_tragiccard2 > 0 D _var p z_tragicplayer ! 0 D _var p z_tragicplayerhp > 0 D _var p z_tragicnpc > 0 R _var p z_tragiccard2 - 1 R _var p z_tragicplayer - 1 R _var p z_tragicnpc - 15 R _script dialog@r_JumpToRandomNode 3 16 30 10 #
+5 27030 D _var p z_tragiccard3 > 0 D _var p z_tragicplayer ! 0 D _var p z_tragicplayerhp > 0 D _var p z_tragicnpc > 0 R _var p z_tragiccard3 - 1 R _var p z_tragicplayer - 1 R _var p z_tragicplayermana + 40 R _script dialog@r_JumpToRandomNode 3 16 30 10 #
+5 27040 D _var p z_tragiccard4 > 0 D _var p z_tragicplayer ! 0 D _var p z_tragicplayerhp > 0 D _var p z_tragicnpc > 0 R _var p z_tragiccard4 - 1 R _var p z_tragicplayer - 1 R _var p z_tragicnpc - 20 R _script dialog@r_JumpToRandomNode 3 16 30 10 #
+5 27050 D _var p z_tragiccard5 > 0 D _var p z_tragicplayer ! 0 D _var p z_tragicplayerhp > 0 D _var p z_tragicnpc > 0 R _var p z_tragiccard5 - 1 R _var p z_tragicplayer - 1 R _var p z_tragicnpc - 5 R _script dialog@r_JumpToRandomNode 3 16 30 10 #
+5 27060 D _var p z_tragiccard6 > 0 D _var p z_tragicplayer ! 0 D _var p z_tragicplayerhp > 0 D _var p z_tragicnpc > 0 R _var p z_tragiccard6 - 1 R _var p z_tragicplayer - 1 R _var p z_tragicnpc - 30 R _script dialog@r_JumpToRandomNode 3 16 30 10 #
+5 27070 D _var p z_tragiccard7 > 0 D _var p z_tragicplayer ! 0 D _var p z_tragicplayerhp > 0 D _var p z_tragicnpc > 0 D _var p z_tragicplayermana > 14 R _var p z_tragiccard7 - 1 R _var p z_tragicplayer - 1 R _var p z_tragicplayermana - 15 R _var p z_tragicnpc - 15 R _script dialog@r_JumpToRandomNode 3 16 30 10 #
+5 27080 D _var p z_tragiccard8 > 0 D _var p z_tragicplayer ! 0 D _var p z_tragicplayerhp > 0 D _var p z_tragicnpc > 0 D _var p z_tragicplayermana > 49 R _var p z_tragiccard8 - 1 R _var p z_tragicplayer - 1 R _var p z_tragicplayermana - 50 R _script dialog@r_JumpToRandomNode 3 16 30 10 #
+5 27090 D _var p z_tragiccard9 > 0 D _var p z_tragicplayer ! 0 D _var p z_tragicplayerhp > 0 D _var p z_tragicplayermana > 49 D _var p z_tragicplayerhp < 100 R _var p z_tragiccard9 - 1 R _var p z_tragicplayer - 1 R _var p z_tragicplayermana - 50 R _var p z_tragicplayerhp + 50 R _script dialog@r_JumpToRandomNode 3 16 30 10 #
+5 27100 D _var p z_tragiccard10 > 0 D _var p z_tragicplayer ! 0 D _var p z_tragicplayerhp > 0 D _var p z_tragicnpc > 0 D _var p z_tragicplayermana > 29 R _var p z_tragiccard10 - 1 R _var p z_tragicplayer - 1 R _var p z_tragicplayermana - 30 R _var p z_tragicnpc - 30 R _script dialog@r_JumpToRandomNode 3 16 30 10 #
+5 27110 D _var p z_tragiccard11 > 0 D _var p z_tragicplayer ! 0 D _var p z_tragicplayerhp > 0 D _var p z_tragicplayerhp > 50 D _var p z_tragicplayermana < 50 D _var p z_tragicnpc > 0 R _var p z_tragiccard11 - 1 R _var p z_tragicplayer - 1 R _var p z_tragicplayerhp - 50 R _var p z_tragicplayermana + 50 R _script dialog@r_JumpToRandomNode 3 16 30 10 #
+5 27120 D _var p z_tragiccard12 > 0 D _var p z_tragicplayer ! 0 D _var p z_tragicplayerhp > 0 D _var p z_tragicnpc > 0 R _var p z_tragiccard12 - 1 R _var p z_tragicplayer - 1 R _var p z_tragicnpc - 50 R _script dialog@r_JumpToRandomNode 3 16 30 10 #
+5 27130 D _var p z_tragiccard13 > 0 D _var p z_tragicplayer ! 0 D _var p z_tragicplayerhp > 0 D _var p z_tragicnpc > 0 R _var p z_tragiccard13 - 1 R _var p z_tragicplayer - 1 R _var p z_tragicnpc - 80 R _script dialog@r_JumpToRandomNode 3 16 30 10 #
+5 27140 D _var p z_tragiccard14 > 0 D _var p z_tragicplayer ! 0 D _var p z_tragicplayerhp > 0 D _var p z_tragicplayermana > 9 D _var p z_tragicnpc > 0 R _var p z_tragiccard14 - 1 R _var p z_tragicplayer - 1 R _var p z_tragicplayermana - 10 R _var p z_tragicnpc - 50 R _var p z_tragicplayerhp + 50 R _script dialog@r_JumpToRandomNode 3 16 30 10 #
+5 27150 D _var p z_tragiccard15 > 0 D _var p z_tragicplayer ! 0 D _var p z_tragicplayerhp > 0 D _var p z_tragicplayermana > 79 D _var p z_tragicnpc > 0 R _var p z_tragiccard15 - 1 R _var p z_tragicplayer - 1 R _var p z_tragicplayermana - 80 R _var p z_tragicnpc - 80 R _script dialog@r_JumpToRandomNode 3 16 30 10 #
+2 27160 D _var p z_tragicplayer ! 0 D _var p z_tragicplayerhp > 0 D _var p z_tragicplayerhp { 100 R _var p z_tragicplayerhp + 5 R _script dialog@r_JumpToRandomNode 3 16 30 10 #
+2 27170 D _var p z_tragicplayer ! 0 D _var p z_tragicplayerhp > 0 D _var p z_tragicplayermana { 100 R _var p z_tragicplayermana + 20 R _var p z_tragicplayerhp - 15 R _script dialog@r_JumpToRandomNode 3 16 30 10 #
+301 27180 D _var p z_tragicplayer = 0 #
+301 27190 D _var p z_tragicplayerhp < 0 @
+220 28000 None 0 #
+5 28010 D _var p z_tragiccard1 > 0 D _var p z_tragicplayer ! 0 D _var p z_tragicplayerhp > 0 D _var p z_tragicnpc > 0 R _var p z_tragiccard1 - 1 R _var p z_tragicplayer - 1 R _var p z_tragicplayerhp + 40 R _script dialog@r_JumpToRandomNode 3 16 30 10 #
+5 28020 D _var p z_tragiccard2 > 0 D _var p z_tragicplayer ! 0 D _var p z_tragicplayerhp > 0 D _var p z_tragicnpc > 0 R _var p z_tragiccard2 - 1 R _var p z_tragicplayer - 1 R _var p z_tragicnpc - 15 R _script dialog@r_JumpToRandomNode 3 16 30 10 #
+5 28030 D _var p z_tragiccard3 > 0 D _var p z_tragicplayer ! 0 D _var p z_tragicplayerhp > 0 D _var p z_tragicnpc > 0 R _var p z_tragiccard3 - 1 R _var p z_tragicplayer - 1 R _var p z_tragicplayermana + 40 R _script dialog@r_JumpToRandomNode 3 16 30 10 #
+5 28040 D _var p z_tragiccard4 > 0 D _var p z_tragicplayer ! 0 D _var p z_tragicplayerhp > 0 D _var p z_tragicnpc > 0 R _var p z_tragiccard4 - 1 R _var p z_tragicplayer - 1 R _var p z_tragicnpc - 20 R _script dialog@r_JumpToRandomNode 3 16 30 10 #
+5 28050 D _var p z_tragiccard5 > 0 D _var p z_tragicplayer ! 0 D _var p z_tragicplayerhp > 0 D _var p z_tragicnpc > 0 R _var p z_tragiccard5 - 1 R _var p z_tragicplayer - 1 R _var p z_tragicnpc - 5 R _script dialog@r_JumpToRandomNode 3 16 30 10 #
+5 28060 D _var p z_tragiccard6 > 0 D _var p z_tragicplayer ! 0 D _var p z_tragicplayerhp > 0 D _var p z_tragicnpc > 0 R _var p z_tragiccard6 - 1 R _var p z_tragicplayer - 1 R _var p z_tragicnpc - 30 R _script dialog@r_JumpToRandomNode 3 16 30 10 #
+5 28070 D _var p z_tragiccard7 > 0 D _var p z_tragicplayer ! 0 D _var p z_tragicplayerhp > 0 D _var p z_tragicnpc > 0 D _var p z_tragicplayermana > 14 R _var p z_tragiccard7 - 1 R _var p z_tragicplayer - 1 R _var p z_tragicplayermana - 15 R _var p z_tragicnpc - 15 R _script dialog@r_JumpToRandomNode 3 16 30 10 #
+5 28080 D _var p z_tragiccard8 > 0 D _var p z_tragicplayer ! 0 D _var p z_tragicplayerhp > 0 D _var p z_tragicnpc > 0 D _var p z_tragicplayermana > 49 R _var p z_tragiccard8 - 1 R _var p z_tragicplayer - 1 R _var p z_tragicplayermana - 50 R _script dialog@r_JumpToRandomNode 3 16 30 10 #
+5 28090 D _var p z_tragiccard9 > 0 D _var p z_tragicplayer ! 0 D _var p z_tragicplayerhp > 0 D _var p z_tragicplayermana > 49 D _var p z_tragicplayerhp < 100 R _var p z_tragiccard9 - 1 R _var p z_tragicplayer - 1 R _var p z_tragicplayermana - 50 R _var p z_tragicplayerhp + 50 R _script dialog@r_JumpToRandomNode 3 16 30 10 #
+5 28100 D _var p z_tragiccard10 > 0 D _var p z_tragicplayer ! 0 D _var p z_tragicplayerhp > 0 D _var p z_tragicnpc > 0 D _var p z_tragicplayermana > 29 R _var p z_tragiccard10 - 1 R _var p z_tragicplayer - 1 R _var p z_tragicplayermana - 30 R _var p z_tragicnpc - 30 R _script dialog@r_JumpToRandomNode 3 16 30 10 #
+5 28110 D _var p z_tragiccard11 > 0 D _var p z_tragicplayer ! 0 D _var p z_tragicplayerhp > 0 D _var p z_tragicplayerhp > 50 D _var p z_tragicplayermana < 50 D _var p z_tragicnpc > 0 R _var p z_tragiccard11 - 1 R _var p z_tragicplayer - 1 R _var p z_tragicplayerhp - 50 R _var p z_tragicplayermana + 50 R _script dialog@r_JumpToRandomNode 3 16 30 10 #
+5 28120 D _var p z_tragiccard12 > 0 D _var p z_tragicplayer ! 0 D _var p z_tragicplayerhp > 0 D _var p z_tragicnpc > 0 R _var p z_tragiccard12 - 1 R _var p z_tragicplayer - 1 R _var p z_tragicnpc - 50 R _script dialog@r_JumpToRandomNode 3 16 30 10 #
+5 28130 D _var p z_tragiccard13 > 0 D _var p z_tragicplayer ! 0 D _var p z_tragicplayerhp > 0 D _var p z_tragicnpc > 0 R _var p z_tragiccard13 - 1 R _var p z_tragicplayer - 1 R _var p z_tragicnpc - 80 R _script dialog@r_JumpToRandomNode 3 16 30 10 #
+5 28140 D _var p z_tragiccard14 > 0 D _var p z_tragicplayer ! 0 D _var p z_tragicplayerhp > 0 D _var p z_tragicplayermana > 9 D _var p z_tragicnpc > 0 R _var p z_tragiccard14 - 1 R _var p z_tragicplayer - 1 R _var p z_tragicplayermana - 10 R _var p z_tragicnpc - 50 R _var p z_tragicplayerhp + 50 R _script dialog@r_JumpToRandomNode 3 16 30 10 #
+5 28150 D _var p z_tragiccard15 > 0 D _var p z_tragicplayer ! 0 D _var p z_tragicplayerhp > 0 D _var p z_tragicplayermana > 79 D _var p z_tragicnpc > 0 R _var p z_tragiccard15 - 1 R _var p z_tragicplayer - 1 R _var p z_tragicplayermana - 80 R _var p z_tragicnpc - 80 R _script dialog@r_JumpToRandomNode 3 16 30 10 #
+2 28160 D _var p z_tragicplayer ! 0 D _var p z_tragicplayerhp > 0 D _var p z_tragicplayerhp { 100 R _var p z_tragicplayerhp + 5 R _script dialog@r_JumpToRandomNode 3 16 30 10 #
+2 28170 D _var p z_tragicplayer ! 0 D _var p z_tragicplayerhp > 0 D _var p z_tragicplayermana { 100 R _var p z_tragicplayermana + 20 R _var p z_tragicplayerhp - 15 R _script dialog@r_JumpToRandomNode 3 16 30 10 #
+301 28180 D _var p z_tragicplayer = 0 #
+301 28190 D _var p z_tragicplayerhp < 0 @
+230 29000 None 0 #
+5 29010 D _var p z_tragiccard1 > 0 D _var p z_tragicplayer ! 0 D _var p z_tragicplayerhp > 0 D _var p z_tragicnpc > 0 R _var p z_tragiccard1 - 1 R _var p z_tragicplayer - 1 R _var p z_tragicplayerhp + 40 R _script dialog@r_JumpToRandomNode 3 16 30 10 #
+5 29020 D _var p z_tragiccard2 > 0 D _var p z_tragicplayer ! 0 D _var p z_tragicplayerhp > 0 D _var p z_tragicnpc > 0 R _var p z_tragiccard2 - 1 R _var p z_tragicplayer - 1 R _var p z_tragicnpc - 15 R _script dialog@r_JumpToRandomNode 3 16 30 10 #
+5 29030 D _var p z_tragiccard3 > 0 D _var p z_tragicplayer ! 0 D _var p z_tragicplayerhp > 0 D _var p z_tragicnpc > 0 R _var p z_tragiccard3 - 1 R _var p z_tragicplayer - 1 R _var p z_tragicplayermana + 40 R _script dialog@r_JumpToRandomNode 3 16 30 10 #
+5 29040 D _var p z_tragiccard4 > 0 D _var p z_tragicplayer ! 0 D _var p z_tragicplayerhp > 0 D _var p z_tragicnpc > 0 R _var p z_tragiccard4 - 1 R _var p z_tragicplayer - 1 R _var p z_tragicnpc - 20 R _script dialog@r_JumpToRandomNode 3 16 30 10 #
+5 29050 D _var p z_tragiccard5 > 0 D _var p z_tragicplayer ! 0 D _var p z_tragicplayerhp > 0 D _var p z_tragicnpc > 0 R _var p z_tragiccard5 - 1 R _var p z_tragicplayer - 1 R _var p z_tragicnpc - 5 R _script dialog@r_JumpToRandomNode 3 16 30 10 #
+5 29060 D _var p z_tragiccard6 > 0 D _var p z_tragicplayer ! 0 D _var p z_tragicplayerhp > 0 D _var p z_tragicnpc > 0 R _var p z_tragiccard6 - 1 R _var p z_tragicplayer - 1 R _var p z_tragicnpc - 30 R _script dialog@r_JumpToRandomNode 3 16 30 10 #
+5 29070 D _var p z_tragiccard7 > 0 D _var p z_tragicplayer ! 0 D _var p z_tragicplayerhp > 0 D _var p z_tragicnpc > 0 D _var p z_tragicplayermana > 14 R _var p z_tragiccard7 - 1 R _var p z_tragicplayer - 1 R _var p z_tragicplayermana - 15 R _var p z_tragicnpc - 15 R _script dialog@r_JumpToRandomNode 3 16 30 10 #
+5 29080 D _var p z_tragiccard8 > 0 D _var p z_tragicplayer ! 0 D _var p z_tragicplayerhp > 0 D _var p z_tragicnpc > 0 D _var p z_tragicplayermana > 49 R _var p z_tragiccard8 - 1 R _var p z_tragicplayer - 1 R _var p z_tragicplayermana - 50 R _script dialog@r_JumpToRandomNode 3 16 30 10 #
+5 29090 D _var p z_tragiccard9 > 0 D _var p z_tragicplayer ! 0 D _var p z_tragicplayerhp > 0 D _var p z_tragicplayermana > 49 D _var p z_tragicplayerhp < 100 R _var p z_tragiccard9 - 1 R _var p z_tragicplayer - 1 R _var p z_tragicplayermana - 50 R _var p z_tragicplayerhp + 50 R _script dialog@r_JumpToRandomNode 3 16 30 10 #
+5 29100 D _var p z_tragiccard10 > 0 D _var p z_tragicplayer ! 0 D _var p z_tragicplayerhp > 0 D _var p z_tragicnpc > 0 D _var p z_tragicplayermana > 29 R _var p z_tragiccard10 - 1 R _var p z_tragicplayer - 1 R _var p z_tragicplayermana - 30 R _var p z_tragicnpc - 30 R _script dialog@r_JumpToRandomNode 3 16 30 10 #
+5 29110 D _var p z_tragiccard11 > 0 D _var p z_tragicplayer ! 0 D _var p z_tragicplayerhp > 0 D _var p z_tragicplayerhp > 50 D _var p z_tragicplayermana < 50 D _var p z_tragicnpc > 0 R _var p z_tragiccard11 - 1 R _var p z_tragicplayer - 1 R _var p z_tragicplayerhp - 50 R _var p z_tragicplayermana + 50 R _script dialog@r_JumpToRandomNode 3 16 30 10 #
+5 29120 D _var p z_tragiccard12 > 0 D _var p z_tragicplayer ! 0 D _var p z_tragicplayerhp > 0 D _var p z_tragicnpc > 0 R _var p z_tragiccard12 - 1 R _var p z_tragicplayer - 1 R _var p z_tragicnpc - 50 R _script dialog@r_JumpToRandomNode 3 16 30 10 #
+5 29130 D _var p z_tragiccard13 > 0 D _var p z_tragicplayer ! 0 D _var p z_tragicplayerhp > 0 D _var p z_tragicnpc > 0 R _var p z_tragiccard13 - 1 R _var p z_tragicplayer - 1 R _var p z_tragicnpc - 80 R _script dialog@r_JumpToRandomNode 3 16 30 10 #
+5 29140 D _var p z_tragiccard14 > 0 D _var p z_tragicplayer ! 0 D _var p z_tragicplayerhp > 0 D _var p z_tragicplayermana > 9 D _var p z_tragicnpc > 0 R _var p z_tragiccard14 - 1 R _var p z_tragicplayer - 1 R _var p z_tragicplayermana - 10 R _var p z_tragicnpc - 50 R _var p z_tragicplayerhp + 50 R _script dialog@r_JumpToRandomNode 3 16 30 10 #
+5 29150 D _var p z_tragiccard15 > 0 D _var p z_tragicplayer ! 0 D _var p z_tragicplayerhp > 0 D _var p z_tragicplayermana > 79 D _var p z_tragicnpc > 0 R _var p z_tragiccard15 - 1 R _var p z_tragicplayer - 1 R _var p z_tragicplayermana - 80 R _var p z_tragicnpc - 80 R _script dialog@r_JumpToRandomNode 3 16 30 10 #
+2 29160 D _var p z_tragicplayer ! 0 D _var p z_tragicplayerhp > 0 D _var p z_tragicplayerhp { 100 R _var p z_tragicplayerhp + 5 R _script dialog@r_JumpToRandomNode 3 16 30 10 #
+2 29170 D _var p z_tragicplayer ! 0 D _var p z_tragicplayerhp > 0 D _var p z_tragicplayermana { 100 R _var p z_tragicplayermana + 20 R _var p z_tragicplayerhp - 15 R _script dialog@r_JumpToRandomNode 3 16 30 10 #
+301 29180 D _var p z_tragicplayer = 0 #
+301 29190 D _var p z_tragicplayerhp < 0 @
+240 30000 None 0 #
+5 30010 D _var p z_tragiccard1 > 0 D _var p z_tragicplayer ! 0 D _var p z_tragicplayerhp > 0 D _var p z_tragicnpc > 0 R _var p z_tragiccard1 - 1 R _var p z_tragicplayer - 1 R _var p z_tragicplayerhp + 40 R _script dialog@r_JumpToRandomNode 3 16 30 10 #
+5 30020 D _var p z_tragiccard2 > 0 D _var p z_tragicplayer ! 0 D _var p z_tragicplayerhp > 0 D _var p z_tragicnpc > 0 R _var p z_tragiccard2 - 1 R _var p z_tragicplayer - 1 R _var p z_tragicnpc - 15 R _script dialog@r_JumpToRandomNode 3 16 30 10 #
+5 30030 D _var p z_tragiccard3 > 0 D _var p z_tragicplayer ! 0 D _var p z_tragicplayerhp > 0 D _var p z_tragicnpc > 0 R _var p z_tragiccard3 - 1 R _var p z_tragicplayer - 1 R _var p z_tragicplayermana + 40 R _script dialog@r_JumpToRandomNode 3 16 30 10 #
+5 30040 D _var p z_tragiccard4 > 0 D _var p z_tragicplayer ! 0 D _var p z_tragicplayerhp > 0 D _var p z_tragicnpc > 0 R _var p z_tragiccard4 - 1 R _var p z_tragicplayer - 1 R _var p z_tragicnpc - 20 R _script dialog@r_JumpToRandomNode 3 16 30 10 #
+5 30050 D _var p z_tragiccard5 > 0 D _var p z_tragicplayer ! 0 D _var p z_tragicplayerhp > 0 D _var p z_tragicnpc > 0 R _var p z_tragiccard5 - 1 R _var p z_tragicplayer - 1 R _var p z_tragicnpc - 5 R _script dialog@r_JumpToRandomNode 3 16 30 10 #
+5 30060 D _var p z_tragiccard6 > 0 D _var p z_tragicplayer ! 0 D _var p z_tragicplayerhp > 0 D _var p z_tragicnpc > 0 R _var p z_tragiccard6 - 1 R _var p z_tragicplayer - 1 R _var p z_tragicnpc - 30 R _script dialog@r_JumpToRandomNode 3 16 30 10 #
+5 30070 D _var p z_tragiccard7 > 0 D _var p z_tragicplayer ! 0 D _var p z_tragicplayerhp > 0 D _var p z_tragicnpc > 0 D _var p z_tragicplayermana > 14 R _var p z_tragiccard7 - 1 R _var p z_tragicplayer - 1 R _var p z_tragicplayermana - 15 R _var p z_tragicnpc - 15 R _script dialog@r_JumpToRandomNode 3 16 30 10 #
+5 30080 D _var p z_tragiccard8 > 0 D _var p z_tragicplayer ! 0 D _var p z_tragicplayerhp > 0 D _var p z_tragicnpc > 0 D _var p z_tragicplayermana > 49 R _var p z_tragiccard8 - 1 R _var p z_tragicplayer - 1 R _var p z_tragicplayermana - 50 R _script dialog@r_JumpToRandomNode 3 16 30 10 #
+5 30090 D _var p z_tragiccard9 > 0 D _var p z_tragicplayer ! 0 D _var p z_tragicplayerhp > 0 D _var p z_tragicplayermana > 49 D _var p z_tragicplayerhp < 100 R _var p z_tragiccard9 - 1 R _var p z_tragicplayer - 1 R _var p z_tragicplayermana - 50 R _var p z_tragicplayerhp + 50 R _script dialog@r_JumpToRandomNode 3 16 30 10 #
+5 30100 D _var p z_tragiccard10 > 0 D _var p z_tragicplayer ! 0 D _var p z_tragicplayerhp > 0 D _var p z_tragicnpc > 0 D _var p z_tragicplayermana > 29 R _var p z_tragiccard10 - 1 R _var p z_tragicplayer - 1 R _var p z_tragicplayermana - 30 R _var p z_tragicnpc - 30 R _script dialog@r_JumpToRandomNode 3 16 30 10 #
+5 30110 D _var p z_tragiccard11 > 0 D _var p z_tragicplayer ! 0 D _var p z_tragicplayerhp > 0 D _var p z_tragicplayerhp > 50 D _var p z_tragicplayermana < 50 D _var p z_tragicnpc > 0 R _var p z_tragiccard11 - 1 R _var p z_tragicplayer - 1 R _var p z_tragicplayerhp - 50 R _var p z_tragicplayermana + 50 R _script dialog@r_JumpToRandomNode 3 16 30 10 #
+5 30120 D _var p z_tragiccard12 > 0 D _var p z_tragicplayer ! 0 D _var p z_tragicplayerhp > 0 D _var p z_tragicnpc > 0 R _var p z_tragiccard12 - 1 R _var p z_tragicplayer - 1 R _var p z_tragicnpc - 50 R _script dialog@r_JumpToRandomNode 3 16 30 10 #
+5 30130 D _var p z_tragiccard13 > 0 D _var p z_tragicplayer ! 0 D _var p z_tragicplayerhp > 0 D _var p z_tragicnpc > 0 R _var p z_tragiccard13 - 1 R _var p z_tragicplayer - 1 R _var p z_tragicnpc - 80 R _script dialog@r_JumpToRandomNode 3 16 30 10 #
+5 30140 D _var p z_tragiccard14 > 0 D _var p z_tragicplayer ! 0 D _var p z_tragicplayerhp > 0 D _var p z_tragicplayermana > 9 D _var p z_tragicnpc > 0 R _var p z_tragiccard14 - 1 R _var p z_tragicplayer - 1 R _var p z_tragicplayermana - 10 R _var p z_tragicnpc - 50 R _var p z_tragicplayerhp + 50 R _script dialog@r_JumpToRandomNode 3 16 30 10 #
+5 30150 D _var p z_tragiccard15 > 0 D _var p z_tragicplayer ! 0 D _var p z_tragicplayerhp > 0 D _var p z_tragicplayermana > 79 D _var p z_tragicnpc > 0 R _var p z_tragiccard15 - 1 R _var p z_tragicplayer - 1 R _var p z_tragicplayermana - 80 R _var p z_tragicnpc - 80 R _script dialog@r_JumpToRandomNode 3 16 30 10 #
+2 30160 D _var p z_tragicplayer ! 0 D _var p z_tragicplayerhp > 0 D _var p z_tragicplayerhp { 100 R _var p z_tragicplayerhp + 5 R _script dialog@r_JumpToRandomNode 3 16 30 10 #
+2 30170 D _var p z_tragicplayer ! 0 D _var p z_tragicplayerhp > 0 D _var p z_tragicplayermana { 100 R _var p z_tragicplayermana + 20 R _var p z_tragicplayerhp - 15 R _script dialog@r_JumpToRandomNode 3 16 30 10 #
+301 30180 D _var p z_tragicplayer = 0 #
+301 30190 D _var p z_tragicplayerhp < 0 @
+250 31000 None 0 #
+5 31010 D _var p z_tragiccard1 > 0 D _var p z_tragicplayer ! 0 D _var p z_tragicplayerhp > 0 D _var p z_tragicnpc > 0 R _var p z_tragiccard1 - 1 R _var p z_tragicplayer - 1 R _var p z_tragicplayerhp + 40 R _script dialog@r_JumpToRandomNode 3 16 30 10 #
+5 31020 D _var p z_tragiccard2 > 0 D _var p z_tragicplayer ! 0 D _var p z_tragicplayerhp > 0 D _var p z_tragicnpc > 0 R _var p z_tragiccard2 - 1 R _var p z_tragicplayer - 1 R _var p z_tragicnpc - 15 R _script dialog@r_JumpToRandomNode 3 16 30 10 #
+5 31030 D _var p z_tragiccard3 > 0 D _var p z_tragicplayer ! 0 D _var p z_tragicplayerhp > 0 D _var p z_tragicnpc > 0 R _var p z_tragiccard3 - 1 R _var p z_tragicplayer - 1 R _var p z_tragicplayermana + 40 R _script dialog@r_JumpToRandomNode 3 16 30 10 #
+5 31040 D _var p z_tragiccard4 > 0 D _var p z_tragicplayer ! 0 D _var p z_tragicplayerhp > 0 D _var p z_tragicnpc > 0 R _var p z_tragiccard4 - 1 R _var p z_tragicplayer - 1 R _var p z_tragicnpc - 20 R _script dialog@r_JumpToRandomNode 3 16 30 10 #
+5 31050 D _var p z_tragiccard5 > 0 D _var p z_tragicplayer ! 0 D _var p z_tragicplayerhp > 0 D _var p z_tragicnpc > 0 R _var p z_tragiccard5 - 1 R _var p z_tragicplayer - 1 R _var p z_tragicnpc - 5 R _script dialog@r_JumpToRandomNode 3 16 30 10 #
+5 31060 D _var p z_tragiccard6 > 0 D _var p z_tragicplayer ! 0 D _var p z_tragicplayerhp > 0 D _var p z_tragicnpc > 0 R _var p z_tragiccard6 - 1 R _var p z_tragicplayer - 1 R _var p z_tragicnpc - 30 R _script dialog@r_JumpToRandomNode 3 16 30 10 #
+5 31070 D _var p z_tragiccard7 > 0 D _var p z_tragicplayer ! 0 D _var p z_tragicplayerhp > 0 D _var p z_tragicnpc > 0 D _var p z_tragicplayermana > 14 R _var p z_tragiccard7 - 1 R _var p z_tragicplayer - 1 R _var p z_tragicplayermana - 15 R _var p z_tragicnpc - 15 R _script dialog@r_JumpToRandomNode 3 16 30 10 #
+5 31080 D _var p z_tragiccard8 > 0 D _var p z_tragicplayer ! 0 D _var p z_tragicplayerhp > 0 D _var p z_tragicnpc > 0 D _var p z_tragicplayermana > 49 R _var p z_tragiccard8 - 1 R _var p z_tragicplayer - 1 R _var p z_tragicplayermana - 50 R _script dialog@r_JumpToRandomNode 3 16 30 10 #
+5 31090 D _var p z_tragiccard9 > 0 D _var p z_tragicplayer ! 0 D _var p z_tragicplayerhp > 0 D _var p z_tragicplayermana > 49 D _var p z_tragicplayerhp < 100 R _var p z_tragiccard9 - 1 R _var p z_tragicplayer - 1 R _var p z_tragicplayermana - 50 R _var p z_tragicplayerhp + 50 R _script dialog@r_JumpToRandomNode 3 16 30 10 #
+5 31100 D _var p z_tragiccard10 > 0 D _var p z_tragicplayer ! 0 D _var p z_tragicplayerhp > 0 D _var p z_tragicnpc > 0 D _var p z_tragicplayermana > 29 R _var p z_tragiccard10 - 1 R _var p z_tragicplayer - 1 R _var p z_tragicplayermana - 30 R _var p z_tragicnpc - 30 R _script dialog@r_JumpToRandomNode 3 16 30 10 #
+5 31110 D _var p z_tragiccard11 > 0 D _var p z_tragicplayer ! 0 D _var p z_tragicplayerhp > 0 D _var p z_tragicplayerhp > 50 D _var p z_tragicplayermana < 50 D _var p z_tragicnpc > 0 R _var p z_tragiccard11 - 1 R _var p z_tragicplayer - 1 R _var p z_tragicplayerhp - 50 R _var p z_tragicplayermana + 50 R _script dialog@r_JumpToRandomNode 3 16 30 10 #
+5 31120 D _var p z_tragiccard12 > 0 D _var p z_tragicplayer ! 0 D _var p z_tragicplayerhp > 0 D _var p z_tragicnpc > 0 R _var p z_tragiccard12 - 1 R _var p z_tragicplayer - 1 R _var p z_tragicnpc - 50 R _script dialog@r_JumpToRandomNode 3 16 30 10 #
+5 31130 D _var p z_tragiccard13 > 0 D _var p z_tragicplayer ! 0 D _var p z_tragicplayerhp > 0 D _var p z_tragicnpc > 0 R _var p z_tragiccard13 - 1 R _var p z_tragicplayer - 1 R _var p z_tragicnpc - 80 R _script dialog@r_JumpToRandomNode 3 16 30 10 #
+5 31140 D _var p z_tragiccard14 > 0 D _var p z_tragicplayer ! 0 D _var p z_tragicplayerhp > 0 D _var p z_tragicplayermana > 9 D _var p z_tragicnpc > 0 R _var p z_tragiccard14 - 1 R _var p z_tragicplayer - 1 R _var p z_tragicplayermana - 10 R _var p z_tragicnpc - 50 R _var p z_tragicplayerhp + 50 R _script dialog@r_JumpToRandomNode 3 16 30 10 #
+5 31150 D _var p z_tragiccard15 > 0 D _var p z_tragicplayer ! 0 D _var p z_tragicplayerhp > 0 D _var p z_tragicplayermana > 79 D _var p z_tragicnpc > 0 R _var p z_tragiccard15 - 1 R _var p z_tragicplayer - 1 R _var p z_tragicplayermana - 80 R _var p z_tragicnpc - 80 R _script dialog@r_JumpToRandomNode 3 16 30 10 #
+2 31160 D _var p z_tragicplayer ! 0 D _var p z_tragicplayerhp > 0 D _var p z_tragicplayerhp { 100 R _var p z_tragicplayerhp + 5 R _script dialog@r_JumpToRandomNode 3 16 30 10 #
+2 31170 D _var p z_tragicplayer ! 0 D _var p z_tragicplayerhp > 0 D _var p z_tragicplayermana { 100 R _var p z_tragicplayermana + 20 R _var p z_tragicplayerhp - 15 R _script dialog@r_JumpToRandomNode 3 16 30 10 #
+301 31180 D _var p z_tragicplayer = 0 #
+301 31190 D _var p z_tragicplayerhp < 0 @
+260 32000 None 0 #
+5 32010 D _var p z_tragiccard1 > 0 D _var p z_tragicplayer ! 0 D _var p z_tragicplayerhp > 0 D _var p z_tragicnpc > 0 R _var p z_tragiccard1 - 1 R _var p z_tragicplayer - 1 R _var p z_tragicplayerhp + 40 R _script dialog@r_JumpToRandomNode 3 16 30 10 #
+5 32020 D _var p z_tragiccard2 > 0 D _var p z_tragicplayer ! 0 D _var p z_tragicplayerhp > 0 D _var p z_tragicnpc > 0 R _var p z_tragiccard2 - 1 R _var p z_tragicplayer - 1 R _var p z_tragicnpc - 15 R _script dialog@r_JumpToRandomNode 3 16 30 10 #
+5 32030 D _var p z_tragiccard3 > 0 D _var p z_tragicplayer ! 0 D _var p z_tragicplayerhp > 0 D _var p z_tragicnpc > 0 R _var p z_tragiccard3 - 1 R _var p z_tragicplayer - 1 R _var p z_tragicplayermana + 40 R _script dialog@r_JumpToRandomNode 3 16 30 10 #
+5 32040 D _var p z_tragiccard4 > 0 D _var p z_tragicplayer ! 0 D _var p z_tragicplayerhp > 0 D _var p z_tragicnpc > 0 R _var p z_tragiccard4 - 1 R _var p z_tragicplayer - 1 R _var p z_tragicnpc - 20 R _script dialog@r_JumpToRandomNode 3 16 30 10 #
+5 32050 D _var p z_tragiccard5 > 0 D _var p z_tragicplayer ! 0 D _var p z_tragicplayerhp > 0 D _var p z_tragicnpc > 0 R _var p z_tragiccard5 - 1 R _var p z_tragicplayer - 1 R _var p z_tragicnpc - 5 R _script dialog@r_JumpToRandomNode 3 16 30 10 #
+5 32060 D _var p z_tragiccard6 > 0 D _var p z_tragicplayer ! 0 D _var p z_tragicplayerhp > 0 D _var p z_tragicnpc > 0 R _var p z_tragiccard6 - 1 R _var p z_tragicplayer - 1 R _var p z_tragicnpc - 30 R _script dialog@r_JumpToRandomNode 3 16 30 10 #
+5 32070 D _var p z_tragiccard7 > 0 D _var p z_tragicplayer ! 0 D _var p z_tragicplayerhp > 0 D _var p z_tragicnpc > 0 D _var p z_tragicplayermana > 14 R _var p z_tragiccard7 - 1 R _var p z_tragicplayer - 1 R _var p z_tragicplayermana - 15 R _var p z_tragicnpc - 15 R _script dialog@r_JumpToRandomNode 3 16 30 10 #
+5 32080 D _var p z_tragiccard8 > 0 D _var p z_tragicplayer ! 0 D _var p z_tragicplayerhp > 0 D _var p z_tragicnpc > 0 D _var p z_tragicplayermana > 49 R _var p z_tragiccard8 - 1 R _var p z_tragicplayer - 1 R _var p z_tragicplayermana - 50 R _script dialog@r_JumpToRandomNode 3 16 30 10 #
+5 32090 D _var p z_tragiccard9 > 0 D _var p z_tragicplayer ! 0 D _var p z_tragicplayerhp > 0 D _var p z_tragicplayermana > 49 D _var p z_tragicplayerhp < 100 R _var p z_tragiccard9 - 1 R _var p z_tragicplayer - 1 R _var p z_tragicplayermana - 50 R _var p z_tragicplayerhp + 50 R _script dialog@r_JumpToRandomNode 3 16 30 10 #
+5 32100 D _var p z_tragiccard10 > 0 D _var p z_tragicplayer ! 0 D _var p z_tragicplayerhp > 0 D _var p z_tragicnpc > 0 D _var p z_tragicplayermana > 29 R _var p z_tragiccard10 - 1 R _var p z_tragicplayer - 1 R _var p z_tragicplayermana - 30 R _var p z_tragicnpc - 30 R _script dialog@r_JumpToRandomNode 3 16 30 10 #
+5 32110 D _var p z_tragiccard11 > 0 D _var p z_tragicplayer ! 0 D _var p z_tragicplayerhp > 0 D _var p z_tragicplayerhp > 50 D _var p z_tragicplayermana < 50 D _var p z_tragicnpc > 0 R _var p z_tragiccard11 - 1 R _var p z_tragicplayer - 1 R _var p z_tragicplayerhp - 50 R _var p z_tragicplayermana + 50 R _script dialog@r_JumpToRandomNode 3 16 30 10 #
+5 32120 D _var p z_tragiccard12 > 0 D _var p z_tragicplayer ! 0 D _var p z_tragicplayerhp > 0 D _var p z_tragicnpc > 0 R _var p z_tragiccard12 - 1 R _var p z_tragicplayer - 1 R _var p z_tragicnpc - 50 R _script dialog@r_JumpToRandomNode 3 16 30 10 #
+5 32130 D _var p z_tragiccard13 > 0 D _var p z_tragicplayer ! 0 D _var p z_tragicplayerhp > 0 D _var p z_tragicnpc > 0 R _var p z_tragiccard13 - 1 R _var p z_tragicplayer - 1 R _var p z_tragicnpc - 80 R _script dialog@r_JumpToRandomNode 3 16 30 10 #
+5 32140 D _var p z_tragiccard14 > 0 D _var p z_tragicplayer ! 0 D _var p z_tragicplayerhp > 0 D _var p z_tragicplayermana > 9 D _var p z_tragicnpc > 0 R _var p z_tragiccard14 - 1 R _var p z_tragicplayer - 1 R _var p z_tragicplayermana - 10 R _var p z_tragicnpc - 50 R _var p z_tragicplayerhp + 50 R _script dialog@r_JumpToRandomNode 3 16 30 10 #
+5 32150 D _var p z_tragiccard15 > 0 D _var p z_tragicplayer ! 0 D _var p z_tragicplayerhp > 0 D _var p z_tragicplayermana > 79 D _var p z_tragicnpc > 0 R _var p z_tragiccard15 - 1 R _var p z_tragicplayer - 1 R _var p z_tragicplayermana - 80 R _var p z_tragicnpc - 80 R _script dialog@r_JumpToRandomNode 3 16 30 10 #
+2 32160 D _var p z_tragicplayer ! 0 D _var p z_tragicplayerhp > 0 D _var p z_tragicplayerhp { 100 R _var p z_tragicplayerhp + 5 R _script dialog@r_JumpToRandomNode 3 16 30 10 #
+2 32170 D _var p z_tragicplayer ! 0 D _var p z_tragicplayerhp > 0 D _var p z_tragicplayermana { 100 R _var p z_tragicplayermana + 20 R _var p z_tragicplayerhp - 15 R _script dialog@r_JumpToRandomNode 3 16 30 10 #
+301 32180 D _var p z_tragicplayer = 0 #
+301 32190 D _var p z_tragicplayerhp < 0 @
+270 33000 None 0 #
+5 33010 D _var p z_tragiccard1 > 0 D _var p z_tragicplayer ! 0 D _var p z_tragicplayerhp > 0 D _var p z_tragicnpc > 0 R _var p z_tragiccard1 - 1 R _var p z_tragicplayer - 1 R _var p z_tragicplayerhp + 40 R _script dialog@r_JumpToRandomNode 3 16 30 10 #
+5 33020 D _var p z_tragiccard2 > 0 D _var p z_tragicplayer ! 0 D _var p z_tragicplayerhp > 0 D _var p z_tragicnpc > 0 R _var p z_tragiccard2 - 1 R _var p z_tragicplayer - 1 R _var p z_tragicnpc - 15 R _script dialog@r_JumpToRandomNode 3 16 30 10 #
+5 33030 D _var p z_tragiccard3 > 0 D _var p z_tragicplayer ! 0 D _var p z_tragicplayerhp > 0 D _var p z_tragicnpc > 0 R _var p z_tragiccard3 - 1 R _var p z_tragicplayer - 1 R _var p z_tragicplayermana + 40 R _script dialog@r_JumpToRandomNode 3 16 30 10 #
+5 33040 D _var p z_tragiccard4 > 0 D _var p z_tragicplayer ! 0 D _var p z_tragicplayerhp > 0 D _var p z_tragicnpc > 0 R _var p z_tragiccard4 - 1 R _var p z_tragicplayer - 1 R _var p z_tragicnpc - 20 R _script dialog@r_JumpToRandomNode 3 16 30 10 #
+5 33050 D _var p z_tragiccard5 > 0 D _var p z_tragicplayer ! 0 D _var p z_tragicplayerhp > 0 D _var p z_tragicnpc > 0 R _var p z_tragiccard5 - 1 R _var p z_tragicplayer - 1 R _var p z_tragicnpc - 5 R _script dialog@r_JumpToRandomNode 3 16 30 10 #
+5 33060 D _var p z_tragiccard6 > 0 D _var p z_tragicplayer ! 0 D _var p z_tragicplayerhp > 0 D _var p z_tragicnpc > 0 R _var p z_tragiccard6 - 1 R _var p z_tragicplayer - 1 R _var p z_tragicnpc - 30 R _script dialog@r_JumpToRandomNode 3 16 30 10 #
+5 33070 D _var p z_tragiccard7 > 0 D _var p z_tragicplayer ! 0 D _var p z_tragicplayerhp > 0 D _var p z_tragicnpc > 0 D _var p z_tragicplayermana > 14 R _var p z_tragiccard7 - 1 R _var p z_tragicplayer - 1 R _var p z_tragicplayermana - 15 R _var p z_tragicnpc - 15 R _script dialog@r_JumpToRandomNode 3 16 30 10 #
+5 33080 D _var p z_tragiccard8 > 0 D _var p z_tragicplayer ! 0 D _var p z_tragicplayerhp > 0 D _var p z_tragicnpc > 0 D _var p z_tragicplayermana > 49 R _var p z_tragiccard8 - 1 R _var p z_tragicplayer - 1 R _var p z_tragicplayermana - 50 R _script dialog@r_JumpToRandomNode 3 16 30 10 #
+5 33090 D _var p z_tragiccard9 > 0 D _var p z_tragicplayer ! 0 D _var p z_tragicplayerhp > 0 D _var p z_tragicplayermana > 49 D _var p z_tragicplayerhp < 100 R _var p z_tragiccard9 - 1 R _var p z_tragicplayer - 1 R _var p z_tragicplayermana - 50 R _var p z_tragicplayerhp + 50 R _script dialog@r_JumpToRandomNode 3 16 30 10 #
+5 33100 D _var p z_tragiccard10 > 0 D _var p z_tragicplayer ! 0 D _var p z_tragicplayerhp > 0 D _var p z_tragicnpc > 0 D _var p z_tragicplayermana > 29 R _var p z_tragiccard10 - 1 R _var p z_tragicplayer - 1 R _var p z_tragicplayermana - 30 R _var p z_tragicnpc - 30 R _script dialog@r_JumpToRandomNode 3 16 30 10 #
+5 33110 D _var p z_tragiccard11 > 0 D _var p z_tragicplayer ! 0 D _var p z_tragicplayerhp > 0 D _var p z_tragicplayerhp > 50 D _var p z_tragicplayermana < 50 D _var p z_tragicnpc > 0 R _var p z_tragiccard11 - 1 R _var p z_tragicplayer - 1 R _var p z_tragicplayerhp - 50 R _var p z_tragicplayermana + 50 R _script dialog@r_JumpToRandomNode 3 16 30 10 #
+5 33120 D _var p z_tragiccard12 > 0 D _var p z_tragicplayer ! 0 D _var p z_tragicplayerhp > 0 D _var p z_tragicnpc > 0 R _var p z_tragiccard12 - 1 R _var p z_tragicplayer - 1 R _var p z_tragicnpc - 50 R _script dialog@r_JumpToRandomNode 3 16 30 10 #
+5 33130 D _var p z_tragiccard13 > 0 D _var p z_tragicplayer ! 0 D _var p z_tragicplayerhp > 0 D _var p z_tragicnpc > 0 R _var p z_tragiccard13 - 1 R _var p z_tragicplayer - 1 R _var p z_tragicnpc - 80 R _script dialog@r_JumpToRandomNode 3 16 30 10 #
+5 33140 D _var p z_tragiccard14 > 0 D _var p z_tragicplayer ! 0 D _var p z_tragicplayerhp > 0 D _var p z_tragicplayermana > 9 D _var p z_tragicnpc > 0 R _var p z_tragiccard14 - 1 R _var p z_tragicplayer - 1 R _var p z_tragicplayermana - 10 R _var p z_tragicnpc - 50 R _var p z_tragicplayerhp + 50 R _script dialog@r_JumpToRandomNode 3 16 30 10 #
+5 33150 D _var p z_tragiccard15 > 0 D _var p z_tragicplayer ! 0 D _var p z_tragicplayerhp > 0 D _var p z_tragicplayermana > 79 D _var p z_tragicnpc > 0 R _var p z_tragiccard15 - 1 R _var p z_tragicplayer - 1 R _var p z_tragicplayermana - 80 R _var p z_tragicnpc - 80 R _script dialog@r_JumpToRandomNode 3 16 30 10 #
+2 33160 D _var p z_tragicplayer ! 0 D _var p z_tragicplayerhp > 0 D _var p z_tragicplayerhp { 100 R _var p z_tragicplayerhp + 5 R _script dialog@r_JumpToRandomNode 3 16 30 10 #
+2 33170 D _var p z_tragicplayer ! 0 D _var p z_tragicplayerhp > 0 D _var p z_tragicplayermana { 100 R _var p z_tragicplayermana + 20 R _var p z_tragicplayerhp - 15 R _script dialog@r_JumpToRandomNode 3 16 30 10 #
+301 33180 D _var p z_tragicplayer = 0 #
+301 33190 D _var p z_tragicplayerhp < 0 @
+280 34000 None 0 #
+5 34010 D _var p z_tragiccard1 > 0 D _var p z_tragicplayer ! 0 D _var p z_tragicplayerhp > 0 D _var p z_tragicnpc > 0 R _var p z_tragiccard1 - 1 R _var p z_tragicplayer - 1 R _var p z_tragicplayerhp + 40 R _script dialog@r_JumpToRandomNode 3 16 30 10 #
+5 34020 D _var p z_tragiccard2 > 0 D _var p z_tragicplayer ! 0 D _var p z_tragicplayerhp > 0 D _var p z_tragicnpc > 0 R _var p z_tragiccard2 - 1 R _var p z_tragicplayer - 1 R _var p z_tragicnpc - 15 R _script dialog@r_JumpToRandomNode 3 16 30 10 #
+5 34030 D _var p z_tragiccard3 > 0 D _var p z_tragicplayer ! 0 D _var p z_tragicplayerhp > 0 D _var p z_tragicnpc > 0 R _var p z_tragiccard3 - 1 R _var p z_tragicplayer - 1 R _var p z_tragicplayermana + 40 R _script dialog@r_JumpToRandomNode 3 16 30 10 #
+5 34040 D _var p z_tragiccard4 > 0 D _var p z_tragicplayer ! 0 D _var p z_tragicplayerhp > 0 D _var p z_tragicnpc > 0 R _var p z_tragiccard4 - 1 R _var p z_tragicplayer - 1 R _var p z_tragicnpc - 20 R _script dialog@r_JumpToRandomNode 3 16 30 10 #
+5 34050 D _var p z_tragiccard5 > 0 D _var p z_tragicplayer ! 0 D _var p z_tragicplayerhp > 0 D _var p z_tragicnpc > 0 R _var p z_tragiccard5 - 1 R _var p z_tragicplayer - 1 R _var p z_tragicnpc - 5 R _script dialog@r_JumpToRandomNode 3 16 30 10 #
+5 34060 D _var p z_tragiccard6 > 0 D _var p z_tragicplayer ! 0 D _var p z_tragicplayerhp > 0 D _var p z_tragicnpc > 0 R _var p z_tragiccard6 - 1 R _var p z_tragicplayer - 1 R _var p z_tragicnpc - 30 R _script dialog@r_JumpToRandomNode 3 16 30 10 #
+5 34070 D _var p z_tragiccard7 > 0 D _var p z_tragicplayer ! 0 D _var p z_tragicplayerhp > 0 D _var p z_tragicnpc > 0 D _var p z_tragicplayermana > 14 R _var p z_tragiccard7 - 1 R _var p z_tragicplayer - 1 R _var p z_tragicplayermana - 15 R _var p z_tragicnpc - 15 R _script dialog@r_JumpToRandomNode 3 16 30 10 #
+5 34080 D _var p z_tragiccard8 > 0 D _var p z_tragicplayer ! 0 D _var p z_tragicplayerhp > 0 D _var p z_tragicnpc > 0 D _var p z_tragicplayermana > 49 R _var p z_tragiccard8 - 1 R _var p z_tragicplayer - 1 R _var p z_tragicplayermana - 50 R _script dialog@r_JumpToRandomNode 3 16 30 10 #
+5 34090 D _var p z_tragiccard9 > 0 D _var p z_tragicplayer ! 0 D _var p z_tragicplayerhp > 0 D _var p z_tragicplayermana > 49 D _var p z_tragicplayerhp < 100 R _var p z_tragiccard9 - 1 R _var p z_tragicplayer - 1 R _var p z_tragicplayermana - 50 R _var p z_tragicplayerhp + 50 R _script dialog@r_JumpToRandomNode 3 16 30 10 #
+5 34100 D _var p z_tragiccard10 > 0 D _var p z_tragicplayer ! 0 D _var p z_tragicplayerhp > 0 D _var p z_tragicnpc > 0 D _var p z_tragicplayermana > 29 R _var p z_tragiccard10 - 1 R _var p z_tragicplayer - 1 R _var p z_tragicplayermana - 30 R _var p z_tragicnpc - 30 R _script dialog@r_JumpToRandomNode 3 16 30 10 #
+5 34110 D _var p z_tragiccard11 > 0 D _var p z_tragicplayer ! 0 D _var p z_tragicplayerhp > 0 D _var p z_tragicplayerhp > 50 D _var p z_tragicplayermana < 50 D _var p z_tragicnpc > 0 R _var p z_tragiccard11 - 1 R _var p z_tragicplayer - 1 R _var p z_tragicplayerhp - 50 R _var p z_tragicplayermana + 50 R _script dialog@r_JumpToRandomNode 3 16 30 10 #
+5 34120 D _var p z_tragiccard12 > 0 D _var p z_tragicplayer ! 0 D _var p z_tragicplayerhp > 0 D _var p z_tragicnpc > 0 R _var p z_tragiccard12 - 1 R _var p z_tragicplayer - 1 R _var p z_tragicnpc - 50 R _script dialog@r_JumpToRandomNode 3 16 30 10 #
+5 34130 D _var p z_tragiccard13 > 0 D _var p z_tragicplayer ! 0 D _var p z_tragicplayerhp > 0 D _var p z_tragicnpc > 0 R _var p z_tragiccard13 - 1 R _var p z_tragicplayer - 1 R _var p z_tragicnpc - 80 R _script dialog@r_JumpToRandomNode 3 16 30 10 #
+5 34140 D _var p z_tragiccard14 > 0 D _var p z_tragicplayer ! 0 D _var p z_tragicplayerhp > 0 D _var p z_tragicplayermana > 9 D _var p z_tragicnpc > 0 R _var p z_tragiccard14 - 1 R _var p z_tragicplayer - 1 R _var p z_tragicplayermana - 10 R _var p z_tragicnpc - 50 R _var p z_tragicplayerhp + 50 R _script dialog@r_JumpToRandomNode 3 16 30 10 #
+5 34150 D _var p z_tragiccard15 > 0 D _var p z_tragicplayer ! 0 D _var p z_tragicplayerhp > 0 D _var p z_tragicplayermana > 79 D _var p z_tragicnpc > 0 R _var p z_tragiccard15 - 1 R _var p z_tragicplayer - 1 R _var p z_tragicplayermana - 80 R _var p z_tragicnpc - 80 R _script dialog@r_JumpToRandomNode 3 16 30 10 #
+2 34160 D _var p z_tragicplayer ! 0 D _var p z_tragicplayerhp > 0 D _var p z_tragicplayerhp { 100 R _var p z_tragicplayerhp + 5 R _script dialog@r_JumpToRandomNode 3 16 30 10 #
+2 34170 D _var p z_tragicplayer ! 0 D _var p z_tragicplayerhp > 0 D _var p z_tragicplayermana { 100 R _var p z_tragicplayermana + 20 R _var p z_tragicplayerhp - 15 R _script dialog@r_JumpToRandomNode 3 16 30 10 #
+301 34180 D _var p z_tragicplayer = 0 #
+301 34190 D _var p z_tragicplayerhp < 0 @
+290 35000 None 0 #
+5 35010 D _var p z_tragiccard1 > 0 D _var p z_tragicplayer ! 0 D _var p z_tragicplayerhp > 0 D _var p z_tragicnpc > 0 R _var p z_tragiccard1 - 1 R _var p z_tragicplayer - 1 R _var p z_tragicplayerhp + 40 R _script dialog@r_JumpToRandomNode 3 16 30 10 #
+5 35020 D _var p z_tragiccard2 > 0 D _var p z_tragicplayer ! 0 D _var p z_tragicplayerhp > 0 D _var p z_tragicnpc > 0 R _var p z_tragiccard2 - 1 R _var p z_tragicplayer - 1 R _var p z_tragicnpc - 15 R _script dialog@r_JumpToRandomNode 3 16 30 10 #
+5 35030 D _var p z_tragiccard3 > 0 D _var p z_tragicplayer ! 0 D _var p z_tragicplayerhp > 0 D _var p z_tragicnpc > 0 R _var p z_tragiccard3 - 1 R _var p z_tragicplayer - 1 R _var p z_tragicplayermana + 40 R _script dialog@r_JumpToRandomNode 3 16 30 10 #
+5 35040 D _var p z_tragiccard4 > 0 D _var p z_tragicplayer ! 0 D _var p z_tragicplayerhp > 0 D _var p z_tragicnpc > 0 R _var p z_tragiccard4 - 1 R _var p z_tragicplayer - 1 R _var p z_tragicnpc - 20 R _script dialog@r_JumpToRandomNode 3 16 30 10 #
+5 35050 D _var p z_tragiccard5 > 0 D _var p z_tragicplayer ! 0 D _var p z_tragicplayerhp > 0 D _var p z_tragicnpc > 0 R _var p z_tragiccard5 - 1 R _var p z_tragicplayer - 1 R _var p z_tragicnpc - 5 R _script dialog@r_JumpToRandomNode 3 16 30 10 #
+5 35060 D _var p z_tragiccard6 > 0 D _var p z_tragicplayer ! 0 D _var p z_tragicplayerhp > 0 D _var p z_tragicnpc > 0 R _var p z_tragiccard6 - 1 R _var p z_tragicplayer - 1 R _var p z_tragicnpc - 30 R _script dialog@r_JumpToRandomNode 3 16 30 10 #
+5 35070 D _var p z_tragiccard7 > 0 D _var p z_tragicplayer ! 0 D _var p z_tragicplayerhp > 0 D _var p z_tragicnpc > 0 D _var p z_tragicplayermana > 14 R _var p z_tragiccard7 - 1 R _var p z_tragicplayer - 1 R _var p z_tragicplayermana - 15 R _var p z_tragicnpc - 15 R _script dialog@r_JumpToRandomNode 3 16 30 10 #
+5 35080 D _var p z_tragiccard8 > 0 D _var p z_tragicplayer ! 0 D _var p z_tragicplayerhp > 0 D _var p z_tragicnpc > 0 D _var p z_tragicplayermana > 49 R _var p z_tragiccard8 - 1 R _var p z_tragicplayer - 1 R _var p z_tragicplayermana - 50 R _script dialog@r_JumpToRandomNode 3 16 30 10 #
+5 35090 D _var p z_tragiccard9 > 0 D _var p z_tragicplayer ! 0 D _var p z_tragicplayerhp > 0 D _var p z_tragicplayermana > 49 D _var p z_tragicplayerhp < 100 R _var p z_tragiccard9 - 1 R _var p z_tragicplayer - 1 R _var p z_tragicplayermana - 50 R _var p z_tragicplayerhp + 50 R _script dialog@r_JumpToRandomNode 3 16 30 10 #
+5 35100 D _var p z_tragiccard10 > 0 D _var p z_tragicplayer ! 0 D _var p z_tragicplayerhp > 0 D _var p z_tragicnpc > 0 D _var p z_tragicplayermana > 29 R _var p z_tragiccard10 - 1 R _var p z_tragicplayer - 1 R _var p z_tragicplayermana - 30 R _var p z_tragicnpc - 30 R _script dialog@r_JumpToRandomNode 3 16 30 10 #
+5 35110 D _var p z_tragiccard11 > 0 D _var p z_tragicplayer ! 0 D _var p z_tragicplayerhp > 0 D _var p z_tragicplayerhp > 50 D _var p z_tragicplayermana < 50 D _var p z_tragicnpc > 0 R _var p z_tragiccard11 - 1 R _var p z_tragicplayer - 1 R _var p z_tragicplayerhp - 50 R _var p z_tragicplayermana + 50 R _script dialog@r_JumpToRandomNode 3 16 30 10 #
+5 35120 D _var p z_tragiccard12 > 0 D _var p z_tragicplayer ! 0 D _var p z_tragicplayerhp > 0 D _var p z_tragicnpc > 0 R _var p z_tragiccard12 - 1 R _var p z_tragicplayer - 1 R _var p z_tragicnpc - 50 R _script dialog@r_JumpToRandomNode 3 16 30 10 #
+5 35130 D _var p z_tragiccard13 > 0 D _var p z_tragicplayer ! 0 D _var p z_tragicplayerhp > 0 D _var p z_tragicnpc > 0 R _var p z_tragiccard13 - 1 R _var p z_tragicplayer - 1 R _var p z_tragicnpc - 80 R _script dialog@r_JumpToRandomNode 3 16 30 10 #
+5 35140 D _var p z_tragiccard14 > 0 D _var p z_tragicplayer ! 0 D _var p z_tragicplayerhp > 0 D _var p z_tragicplayermana > 9 D _var p z_tragicnpc > 0 R _var p z_tragiccard14 - 1 R _var p z_tragicplayer - 1 R _var p z_tragicplayermana - 10 R _var p z_tragicnpc - 50 R _var p z_tragicplayerhp + 50 R _script dialog@r_JumpToRandomNode 3 16 30 10 #
+5 35150 D _var p z_tragiccard15 > 0 D _var p z_tragicplayer ! 0 D _var p z_tragicplayerhp > 0 D _var p z_tragicplayermana > 79 D _var p z_tragicnpc > 0 R _var p z_tragiccard15 - 1 R _var p z_tragicplayer - 1 R _var p z_tragicplayermana - 80 R _var p z_tragicnpc - 80 R _script dialog@r_JumpToRandomNode 3 16 30 10 #
+2 35160 D _var p z_tragicplayer ! 0 D _var p z_tragicplayerhp > 0 D _var p z_tragicplayerhp { 100 R _var p z_tragicplayerhp + 5 R _script dialog@r_JumpToRandomNode 3 16 30 10 #
+2 35170 D _var p z_tragicplayer ! 0 D _var p z_tragicplayerhp > 0 D _var p z_tragicplayermana { 100 R _var p z_tragicplayermana + 20 R _var p z_tragicplayerhp - 15 R _script dialog@r_JumpToRandomNode 3 16 30 10 #
+301 35180 D _var p z_tragicplayer = 0 #
+301 35190 D _var p z_tragicplayerhp < 0 @
+300 36000 None 0 #
+5 36010 D _var p z_tragiccard1 > 0 D _var p z_tragicplayer ! 0 D _var p z_tragicplayerhp > 0 D _var p z_tragicnpc > 0 R _var p z_tragiccard1 - 1 R _var p z_tragicplayer - 1 R _var p z_tragicplayerhp + 40 R _script dialog@r_JumpToRandomNode 3 16 30 10 #
+5 36020 D _var p z_tragiccard2 > 0 D _var p z_tragicplayer ! 0 D _var p z_tragicplayerhp > 0 D _var p z_tragicnpc > 0 R _var p z_tragiccard2 - 1 R _var p z_tragicplayer - 1 R _var p z_tragicnpc - 15 R _script dialog@r_JumpToRandomNode 3 16 30 10 #
+5 36030 D _var p z_tragiccard3 > 0 D _var p z_tragicplayer ! 0 D _var p z_tragicplayerhp > 0 D _var p z_tragicnpc > 0 R _var p z_tragiccard3 - 1 R _var p z_tragicplayer - 1 R _var p z_tragicplayermana + 40 R _script dialog@r_JumpToRandomNode 3 16 30 10 #
+5 36040 D _var p z_tragiccard4 > 0 D _var p z_tragicplayer ! 0 D _var p z_tragicplayerhp > 0 D _var p z_tragicnpc > 0 R _var p z_tragiccard4 - 1 R _var p z_tragicplayer - 1 R _var p z_tragicnpc - 20 R _script dialog@r_JumpToRandomNode 3 16 30 10 #
+5 36050 D _var p z_tragiccard5 > 0 D _var p z_tragicplayer ! 0 D _var p z_tragicplayerhp > 0 D _var p z_tragicnpc > 0 R _var p z_tragiccard5 - 1 R _var p z_tragicplayer - 1 R _var p z_tragicnpc - 5 R _script dialog@r_JumpToRandomNode 3 16 30 10 #
+5 36060 D _var p z_tragiccard6 > 0 D _var p z_tragicplayer ! 0 D _var p z_tragicplayerhp > 0 D _var p z_tragicnpc > 0 R _var p z_tragiccard6 - 1 R _var p z_tragicplayer - 1 R _var p z_tragicnpc - 30 R _script dialog@r_JumpToRandomNode 3 16 30 10 #
+5 36070 D _var p z_tragiccard7 > 0 D _var p z_tragicplayer ! 0 D _var p z_tragicplayerhp > 0 D _var p z_tragicnpc > 0 D _var p z_tragicplayermana > 14 R _var p z_tragiccard7 - 1 R _var p z_tragicplayer - 1 R _var p z_tragicplayermana - 15 R _var p z_tragicnpc - 15 R _script dialog@r_JumpToRandomNode 3 16 30 10 #
+5 36080 D _var p z_tragiccard8 > 0 D _var p z_tragicplayer ! 0 D _var p z_tragicplayerhp > 0 D _var p z_tragicnpc > 0 D _var p z_tragicplayermana > 49 R _var p z_tragiccard8 - 1 R _var p z_tragicplayer - 1 R _var p z_tragicplayermana - 50 R _script dialog@r_JumpToRandomNode 3 16 30 10 #
+5 36090 D _var p z_tragiccard9 > 0 D _var p z_tragicplayer ! 0 D _var p z_tragicplayerhp > 0 D _var p z_tragicplayermana > 49 D _var p z_tragicplayerhp < 100 R _var p z_tragiccard9 - 1 R _var p z_tragicplayer - 1 R _var p z_tragicplayermana - 50 R _var p z_tragicplayerhp + 50 R _script dialog@r_JumpToRandomNode 3 16 30 10 #
+5 36100 D _var p z_tragiccard10 > 0 D _var p z_tragicplayer ! 0 D _var p z_tragicplayerhp > 0 D _var p z_tragicnpc > 0 D _var p z_tragicplayermana > 29 R _var p z_tragiccard10 - 1 R _var p z_tragicplayer - 1 R _var p z_tragicplayermana - 30 R _var p z_tragicnpc - 30 R _script dialog@r_JumpToRandomNode 3 16 30 10 #
+5 36110 D _var p z_tragiccard11 > 0 D _var p z_tragicplayer ! 0 D _var p z_tragicplayerhp > 0 D _var p z_tragicplayerhp > 50 D _var p z_tragicplayermana < 50 D _var p z_tragicnpc > 0 R _var p z_tragiccard11 - 1 R _var p z_tragicplayer - 1 R _var p z_tragicplayerhp - 50 R _var p z_tragicplayermana + 50 R _script dialog@r_JumpToRandomNode 3 16 30 10 #
+5 36120 D _var p z_tragiccard12 > 0 D _var p z_tragicplayer ! 0 D _var p z_tragicplayerhp > 0 D _var p z_tragicnpc > 0 R _var p z_tragiccard12 - 1 R _var p z_tragicplayer - 1 R _var p z_tragicnpc - 50 R _script dialog@r_JumpToRandomNode 3 16 30 10 #
+5 36130 D _var p z_tragiccard13 > 0 D _var p z_tragicplayer ! 0 D _var p z_tragicplayerhp > 0 D _var p z_tragicnpc > 0 R _var p z_tragiccard13 - 1 R _var p z_tragicplayer - 1 R _var p z_tragicnpc - 80 R _script dialog@r_JumpToRandomNode 3 16 30 10 #
+5 36140 D _var p z_tragiccard14 > 0 D _var p z_tragicplayer ! 0 D _var p z_tragicplayerhp > 0 D _var p z_tragicplayermana > 9 D _var p z_tragicnpc > 0 R _var p z_tragiccard14 - 1 R _var p z_tragicplayer - 1 R _var p z_tragicplayermana - 10 R _var p z_tragicnpc - 50 R _var p z_tragicplayerhp + 50 R _script dialog@r_JumpToRandomNode 3 16 30 10 #
+5 36150 D _var p z_tragiccard15 > 0 D _var p z_tragicplayer ! 0 D _var p z_tragicplayerhp > 0 D _var p z_tragicplayermana > 79 D _var p z_tragicnpc > 0 R _var p z_tragiccard15 - 1 R _var p z_tragicplayer - 1 R _var p z_tragicplayermana - 80 R _var p z_tragicnpc - 80 R _script dialog@r_JumpToRandomNode 3 16 30 10 #
+2 36160 D _var p z_tragicplayer ! 0 D _var p z_tragicplayerhp > 0 D _var p z_tragicplayerhp { 100 R _var p z_tragicplayerhp + 5 R _script dialog@r_JumpToRandomNode 3 16 30 10 #
+2 36170 D _var p z_tragicplayer ! 0 D _var p z_tragicplayerhp > 0 D _var p z_tragicplayermana { 100 R _var p z_tragicplayermana + 20 R _var p z_tragicplayerhp - 15 R _script dialog@r_JumpToRandomNode 3 16 30 10 #
+301 36180 D _var p z_tragicplayer = 0 #
+301 36190 D _var p z_tragicplayerhp < 0 @
+301 37000 None 0 #
+302 37010 D _var p z_tragicplayerhp < 0 D _var p z_tragicnpc > 0 #
+303 37020 D _var p z_tragicplayerhp > 0 D _var p z_tragicnpc < 0 #
+304 37030 D _var p z_tragicplayerhp > 0 D _var p z_tragicnpc > 0 @
+302 38000 None 0 #
+305 38010 @
+303 39000 None 0 #
+305 39010 R _item p PID_DECK_OF_TRAGIC_CARDS + 2 R _param p ST_EXPERIENCE + 300 R _item p PID_BOTTLE_CAPS + 300 R _script dialog@r_BulkOrderRewardLow 0  @
+304 40000 None 0 #
+305 40010 R _item p PID_DECK_OF_TRAGIC_CARDS + 1 @
+305 41000 None 0 &
+
+[engl]
+{100}{}{Tragic the Garnering}
+{200}{}{You see a Tragic the Garnering game host.}
+{210}{}{If you've got the cards you can sit down, and play a game of Tragic the Garnering!}
+{1000}{}{Predialogue installations}
+{1010}{}{Answer text}
+{2000}{}{Hey! Do you want to play a game? All you need is your own deck!}
+{2010}{}{Hell yes! Let's play some Tragic!}
+{2020}{}{What's Tragic?}
+{2030}{}{Maybe later.}
+{3000}{}{[He slaps you right across the face!] Tragic the Garnering is the greatest game around! You've never heard of it! You're an idiot! Get out of my face, loser! Before I fucking kill you!}
+{3010}{}{Whoa, geez!}
+{4000}{}{Tragic is life! Tragic is love! Tragic is God!}
+{5000}{}{[You sit down and pull six cards from your deck]}
+{5010}{}{[Whip them out!]}
+{6000}{}{You've drawn! "Shadow Stone"
+
+"Item"
+"Consumable"
+"Health"
+"40"
+}
+{6010}{}{[Whip out another!]}
+{6020}{}{[Begin the game!]}
+{7000}{}{You've drawn! "Adamarato"
+
+"Minion"
+"Weak"
+"Attack"
+"15"
+"Piercing"}
+{7010}{}{[Whip out another!]}
+{7020}{}{[Begin the game!]}
+{8000}{}{You've drawn! "Phantom Sphere"
+
+"Item"
+"Consumable"
+"Mana"
+"40"}
+{8010}{}{[Whip out another!]}
+{8020}{}{[Begin the game!]}
+{9000}{}{You've drawn! "Ragama"
+
+"Minion"
+"Medium"
+"Attack"
+"20"
+"Fire"
+}
+{9010}{}{[Whip out another!]}
+{9020}{}{[Begin the game!]}
+{10000}{}{You've drawn! "Uktabi Thundercats"
+
+"Minion"
+"Weak"
+"Defend"
+"Counter"
+"Lightning"
+}
+{10010}{}{[Whip out another!]}
+{10020}{}{[Begin the game!]}
+{11000}{}{You've drawn! "Trained Longhorn"
+
+"Minion"
+"Strong"
+"Attack"
+"30"
+"Earth"
+}
+{11010}{}{[Whip out another!]}
+{11020}{}{[Begin the game!]}
+{12000}{}{You've drawn! "Firemagick"
+
+"Spell"
+"Mana Cost"
+"Low"
+"15"}
+{12010}{}{[Whip out another!]}
+{12020}{}{[Begin the game!]}
+{13000}{}{You've drawn! "Blocking Road"
+
+"Spell"
+"Mana Cost"
+"High"
+"50"
+}
+{13010}{}{[Whip out another!]}
+{13020}{}{[Begin the game!]}
+{14000}{}{You've drawn! "Ruby Stone"
+
+"Item"
+"Consumable"
+"Sacrifice"
+"Mana for Health"
+"50"
+}
+{14010}{}{[Whip out another!]}
+{14020}{}{[Begin the game!]}
+{15000}{}{You've drawn! "Form of the Whirl"
+
+"Spell"
+"Mana Cost"
+"Medium"
+"30"}
+{15010}{}{[Whip out another!]}
+{15020}{}{[Begin the game!]}
+{16000}{}{You've drawn! "Contagion Whim"
+
+"Item"
+"Consumable"
+"Sacrifice"
+"Health for Mana"
+"50"
+}
+{16010}{}{[Whip out another!]}
+{16020}{}{[Begin the game!]}
+{17000}{}{You've drawn! "Thakalos"
+
+"Minion"
+"Strong"
+"Attack"
+"50"
+"Fire"}
+{17010}{}{[Whip out another!]}
+{17020}{}{[Begin the game!]}
+{18000}{}{You've drawn! "Black Dahlia"
+
+"Hero"
+"Counter"
+"Strong"
+"Attack"
+"75"
+"Lightning"}
+{18010}{}{[Whip out another!]}
+{18020}{}{[Begin the game!]}
+{19000}{}{You've drawn! "Vox Muby"
+
+"Hero"
+"Counter"
+"Heal"
+"High"
+"50"
+"Mana Cost"
+"Low"
+"10"
+}
+{19010}{}{[Whip out another!]}
+{19020}{}{[Begin the game!]}
+{20000}{}{You've drawn! "Earths"
+
+"Spell"
+"Mana Cost"
+"High"
+"80"
+}
+{20010}{}{[Whip out another!]}
+{20020}{}{[Begin the game!]}
+{21000}{}{[The game has begun!]
+
+YOUR HP: 100
+YOUR MANA: 100
+
+ENEMY HP: 100
+ENEMY MANA: 100}
+{21010}{}{Prepare yourself, mortal! For I am LEGEND!!}
+{22000}{}{Your opponent plays: "Shadow Stone"}
+{22010}{}{Play: "Shadow Stone"}
+{22020}{}{Play: "Adamarato"}
+{22030}{}{Play: "Phantom Sphere"}
+{22040}{}{Play: "Ragama"}
+{22050}{}{Play: "Uktabi Thundercats"}
+{22060}{}{Play: "Trained Longhorn"}
+{22070}{}{Play: "Firemagick"}
+{22080}{}{Play: "Blocking Road"}
+{22090}{}{Play: "Ruby Stone"}
+{22100}{}{Play: "Form of the Whirl"}
+{22110}{}{Play: "Contagion Whim"}
+{22120}{}{Play: "Thakalos"}
+{22130}{}{Play: "Black Dahlia"}
+{22140}{}{Play: "Vox Muby"}
+{22150}{}{Play: "Earths"}
+{22160}{}{[Heal 20 HP]}
+{22170}{}{[Regen 20 MANA]}
+{22180}{}{[Out of Cards]}
+{22190}{}{[Accept Death]}
+{23000}{}{Your opponent plays: "Adamarato"}
+{23010}{}{Play: "Shadow Stone"}
+{23020}{}{Play: "Adamarato"}
+{23030}{}{Play: "Phantom Sphere"}
+{23040}{}{Play: "Ragama"}
+{23050}{}{Play: "Uktabi Thundercats"}
+{23060}{}{Play: "Trained Longhorn"}
+{23070}{}{Play: "Firemagick"}
+{23080}{}{Play: "Blocking Road"}
+{23090}{}{Play: "Ruby Stone"}
+{23100}{}{Play: "Form of the Whirl"}
+{23110}{}{Play: "Contagion Whim"}
+{23120}{}{Play: "Thakalos"}
+{23130}{}{Play: "Black Dahlia"}
+{23140}{}{Play: "Vox Muby"}
+{23150}{}{Play: "Earths"}
+{23160}{}{[Heal 20 HP]}
+{23170}{}{[Regen 20 MANA]}
+{23180}{}{[Out of Cards]}
+{23190}{}{[Accept Death]}
+{24000}{}{Your opponent plays: "Phantom Sphere"}
+{24010}{}{Play: "Shadow Stone"}
+{24020}{}{Play: "Adamarato"}
+{24030}{}{Play: "Phantom Sphere"}
+{24040}{}{Play: "Ragama"}
+{24050}{}{Play: "Uktabi Thundercats"}
+{24060}{}{Play: "Trained Longhorn"}
+{24070}{}{Play: "Firemagick"}
+{24080}{}{Play: "Blocking Road"}
+{24090}{}{Play: "Ruby Stone"}
+{24100}{}{Play: "Form of the Whirl"}
+{24110}{}{Play: "Contagion Whim"}
+{24120}{}{Play: "Thakalos"}
+{24130}{}{Play: "Black Dahlia"}
+{24140}{}{Play: "Vox Muby"}
+{24150}{}{Play: "Earths"}
+{24160}{}{[Heal 20 HP]}
+{24170}{}{[Regen 20 MANA]}
+{24180}{}{[Out of Cards]}
+{24190}{}{[Accept Death]}
+{25000}{}{Your opponent plays: "Ragama"}
+{25010}{}{Play: "Shadow Stone"}
+{25020}{}{Play: "Adamarato"}
+{25030}{}{Play: "Phantom Sphere"}
+{25040}{}{Play: "Ragama"}
+{25050}{}{Play: "Uktabi Thundercats"}
+{25060}{}{Play: "Trained Longhorn"}
+{25070}{}{Play: "Firemagick"}
+{25080}{}{Play: "Blocking Road"}
+{25090}{}{Play: "Ruby Stone"}
+{25100}{}{Play: "Form of the Whirl"}
+{25110}{}{Play: "Contagion Whim"}
+{25120}{}{Play: "Thakalos"}
+{25130}{}{Play: "Black Dahlia"}
+{25140}{}{Play: "Vox Muby"}
+{25150}{}{Play: "Earths"}
+{25160}{}{[Heal 20 HP]}
+{25170}{}{[Regen 20 MANA]}
+{25180}{}{[Out of Cards]}
+{25190}{}{[Accept Death]}
+{26000}{}{Your opponent plays: "Uktabi Thundercats"}
+{26010}{}{Play: "Shadow Stone"}
+{26020}{}{Play: "Adamarato"}
+{26030}{}{Play: "Phantom Sphere"}
+{26040}{}{Play: "Ragama"}
+{26050}{}{Play: "Uktabi Thundercats"}
+{26060}{}{Play: "Trained Longhorn"}
+{26070}{}{Play: "Firemagick"}
+{26080}{}{Play: "Blocking Road"}
+{26090}{}{Play: "Ruby Stone"}
+{26100}{}{Play: "Form of the Whirl"}
+{26110}{}{Play: "Contagion Whim"}
+{26120}{}{Play: "Thakalos"}
+{26130}{}{Play: "Black Dahlia"}
+{26140}{}{Play: "Vox Muby"}
+{26150}{}{Play: "Earths"}
+{26160}{}{[Heal 20 HP]}
+{26170}{}{[Regen 20 MANA]}
+{26180}{}{[Out of Cards]}
+{26190}{}{[Accept Death]}
+{27000}{}{Your opponent plays: "Trained Longhorn"}
+{27010}{}{Play: "Shadow Stone"}
+{27020}{}{Play: "Adamarato"}
+{27030}{}{Play: "Phantom Sphere"}
+{27040}{}{Play: "Ragama"}
+{27050}{}{Play: "Uktabi Thundercats"}
+{27060}{}{Play: "Trained Longhorn"}
+{27070}{}{Play: "Firemagick"}
+{27080}{}{Play: "Blocking Road"}
+{27090}{}{Play: "Ruby Stone"}
+{27100}{}{Play: "Form of the Whirl"}
+{27110}{}{Play: "Contagion Whim"}
+{27120}{}{Play: "Thakalos"}
+{27130}{}{Play: "Black Dahlia"}
+{27140}{}{Play: "Vox Muby"}
+{27150}{}{Play: "Earths"}
+{27160}{}{[Heal 20 HP]}
+{27170}{}{[Regen 20 MANA]}
+{27180}{}{[Out of Cards]}
+{27190}{}{[Accept Death]}
+{28000}{}{Your opponent plays: "Firemagick"}
+{28010}{}{Play: "Shadow Stone"}
+{28020}{}{Play: "Adamarato"}
+{28030}{}{Play: "Phantom Sphere"}
+{28040}{}{Play: "Ragama"}
+{28050}{}{Play: "Uktabi Thundercats"}
+{28060}{}{Play: "Trained Longhorn"}
+{28070}{}{Play: "Firemagick"}
+{28080}{}{Play: "Blocking Road"}
+{28090}{}{Play: "Ruby Stone"}
+{28100}{}{Play: "Form of the Whirl"}
+{28110}{}{Play: "Contagion Whim"}
+{28120}{}{Play: "Thakalos"}
+{28130}{}{Play: "Black Dahlia"}
+{28140}{}{Play: "Vox Muby"}
+{28150}{}{Play: "Earths"}
+{28160}{}{[Heal 20 HP]}
+{28170}{}{[Regen 20 MANA]}
+{28180}{}{[Out of Cards]}
+{28190}{}{[Accept Death]}
+{29000}{}{Your opponent plays: "Blocking Road"}
+{29010}{}{Play: "Shadow Stone"}
+{29020}{}{Play: "Adamarato"}
+{29030}{}{Play: "Phantom Sphere"}
+{29040}{}{Play: "Ragama"}
+{29050}{}{Play: "Uktabi Thundercats"}
+{29060}{}{Play: "Trained Longhorn"}
+{29070}{}{Play: "Firemagick"}
+{29080}{}{Play: "Blocking Road"}
+{29090}{}{Play: "Ruby Stone"}
+{29100}{}{Play: "Form of the Whirl"}
+{29110}{}{Play: "Contagion Whim"}
+{29120}{}{Play: "Thakalos"}
+{29130}{}{Play: "Black Dahlia"}
+{29140}{}{Play: "Vox Muby"}
+{29150}{}{Play: "Earths"}
+{29160}{}{[Heal 20 HP]}
+{29170}{}{[Regen 20 MANA]}
+{29180}{}{[Out of Cards]}
+{29190}{}{[Accept Death]}
+{30000}{}{Your opponent plays: "Ruby Stone"}
+{30010}{}{Play: "Shadow Stone"}
+{30020}{}{Play: "Adamarato"}
+{30030}{}{Play: "Phantom Sphere"}
+{30040}{}{Play: "Ragama"}
+{30050}{}{Play: "Uktabi Thundercats"}
+{30060}{}{Play: "Trained Longhorn"}
+{30070}{}{Play: "Firemagick"}
+{30080}{}{Play: "Blocking Road"}
+{30090}{}{Play: "Ruby Stone"}
+{30100}{}{Play: "Form of the Whirl"}
+{30110}{}{Play: "Contagion Whim"}
+{30120}{}{Play: "Thakalos"}
+{30130}{}{Play: "Black Dahlia"}
+{30140}{}{Play: "Vox Muby"}
+{30150}{}{Play: "Earths"}
+{30160}{}{[Heal 20 HP]}
+{30170}{}{[Regen 20 MANA]}
+{30180}{}{[Out of Cards]}
+{30190}{}{[Accept Death]}
+{31000}{}{Your opponent plays: "Form of the Whirl"}
+{31010}{}{Play: "Shadow Stone"}
+{31020}{}{Play: "Adamarato"}
+{31030}{}{Play: "Phantom Sphere"}
+{31040}{}{Play: "Ragama"}
+{31050}{}{Play: "Uktabi Thundercats"}
+{31060}{}{Play: "Trained Longhorn"}
+{31070}{}{Play: "Firemagick"}
+{31080}{}{Play: "Blocking Road"}
+{31090}{}{Play: "Ruby Stone"}
+{31100}{}{Play: "Form of the Whirl"}
+{31110}{}{Play: "Contagion Whim"}
+{31120}{}{Play: "Thakalos"}
+{31130}{}{Play: "Black Dahlia"}
+{31140}{}{Play: "Vox Muby"}
+{31150}{}{Play: "Earths"}
+{31160}{}{[Heal 20 HP]}
+{31170}{}{[Regen 20 MANA]}
+{31180}{}{[Out of Cards]}
+{31190}{}{[Accept Death]}
+{32000}{}{Your opponent plays: "Contagion Whim"}
+{32010}{}{Play: "Shadow Stone"}
+{32020}{}{Play: "Adamarato"}
+{32030}{}{Play: "Phantom Sphere"}
+{32040}{}{Play: "Ragama"}
+{32050}{}{Play: "Uktabi Thundercats"}
+{32060}{}{Play: "Trained Longhorn"}
+{32070}{}{Play: "Firemagick"}
+{32080}{}{Play: "Blocking Road"}
+{32090}{}{Play: "Ruby Stone"}
+{32100}{}{Play: "Form of the Whirl"}
+{32110}{}{Play: "Contagion Whim"}
+{32120}{}{Play: "Thakalos"}
+{32130}{}{Play: "Black Dahlia"}
+{32140}{}{Play: "Vox Muby"}
+{32150}{}{Play: "Earths"}
+{32160}{}{[Heal 20 HP]}
+{32170}{}{[Regen 20 MANA]}
+{32180}{}{[Out of Cards]}
+{32190}{}{[Accept Death]}
+{33000}{}{Your opponent plays: "Thakalos"}
+{33010}{}{Play: "Shadow Stone"}
+{33020}{}{Play: "Adamarato"}
+{33030}{}{Play: "Phantom Sphere"}
+{33040}{}{Play: "Ragama"}
+{33050}{}{Play: "Uktabi Thundercats"}
+{33060}{}{Play: "Trained Longhorn"}
+{33070}{}{Play: "Firemagick"}
+{33080}{}{Play: "Blocking Road"}
+{33090}{}{Play: "Ruby Stone"}
+{33100}{}{Play: "Form of the Whirl"}
+{33110}{}{Play: "Contagion Whim"}
+{33120}{}{Play: "Thakalos"}
+{33130}{}{Play: "Black Dahlia"}
+{33140}{}{Play: "Vox Muby"}
+{33150}{}{Play: "Earths"}
+{33160}{}{[Heal 20 HP]}
+{33170}{}{[Regen 20 MANA]}
+{33180}{}{[Out of Cards]}
+{33190}{}{[Accept Death]}
+{34000}{}{Your opponent plays: "Black Dahlia"}
+{34010}{}{Play: "Shadow Stone"}
+{34020}{}{Play: "Adamarato"}
+{34030}{}{Play: "Phantom Sphere"}
+{34040}{}{Play: "Ragama"}
+{34050}{}{Play: "Uktabi Thundercats"}
+{34060}{}{Play: "Trained Longhorn"}
+{34070}{}{Play: "Firemagick"}
+{34080}{}{Play: "Blocking Road"}
+{34090}{}{Play: "Ruby Stone"}
+{34100}{}{Play: "Form of the Whirl"}
+{34110}{}{Play: "Contagion Whim"}
+{34120}{}{Play: "Thakalos"}
+{34130}{}{Play: "Black Dahlia"}
+{34140}{}{Play: "Vox Muby"}
+{34150}{}{Play: "Earths"}
+{34160}{}{[Heal 20 HP]}
+{34170}{}{[Regen 20 MANA]}
+{34180}{}{[Out of Cards]}
+{34190}{}{[Accept Death]}
+{35000}{}{Your opponent plays: "Vox Muby"}
+{35010}{}{Play: "Shadow Stone"}
+{35020}{}{Play: "Adamarato"}
+{35030}{}{Play: "Phantom Sphere"}
+{35040}{}{Play: "Ragama"}
+{35050}{}{Play: "Uktabi Thundercats"}
+{35060}{}{Play: "Trained Longhorn"}
+{35070}{}{Play: "Firemagick"}
+{35080}{}{Play: "Blocking Road"}
+{35090}{}{Play: "Ruby Stone"}
+{35100}{}{Play: "Form of the Whirl"}
+{35110}{}{Play: "Contagion Whim"}
+{35120}{}{Play: "Thakalos"}
+{35130}{}{Play: "Black Dahlia"}
+{35140}{}{Play: "Vox Muby"}
+{35150}{}{Play: "Earths"}
+{35160}{}{[Heal 20 HP]}
+{35170}{}{[Regen 20 MANA]}
+{35180}{}{[Out of Cards]}
+{35190}{}{[Accept Death]}
+{36000}{}{Your opponent plays: "Earths"}
+{36010}{}{Play: "Shadow Stone"}
+{36020}{}{Play: "Adamarato"}
+{36030}{}{Play: "Phantom Sphere"}
+{36040}{}{Play: "Ragama"}
+{36050}{}{Play: "Uktabi Thundercats"}
+{36060}{}{Play: "Trained Longhorn"}
+{36070}{}{Play: "Firemagick"}
+{36080}{}{Play: "Blocking Road"}
+{36090}{}{Play: "Ruby Stone"}
+{36100}{}{Play: "Form of the Whirl"}
+{36110}{}{Play: "Contagion Whim"}
+{36120}{}{Play: "Thakalos"}
+{36130}{}{Play: "Black Dahlia"}
+{36140}{}{Play: "Vox Muby"}
+{36150}{}{Play: "Earths"}
+{36160}{}{[Heal 20 HP]}
+{36170}{}{[Regen 20 MANA]}
+{36180}{}{[Out of Cards]}
+{36190}{}{[Accept Death]}
+{37000}{}{[The game has concluded! Both you, and your opponent's decks have been depleted!]}
+{37010}{}{[View Results]}
+{37020}{}{[View Results]}
+{37030}{}{[View Results]}
+{38000}{}{[You Lost!]}
+{38010}{}{Damn! Next time, gadget! [You've lost your deck]}
+{39000}{}{[You Won!]}
+{39010}{}{Yes! I am LEGEND!!! [You've won your opponent's deck]}
+{40000}{}{[Draw!]}
+{40010}{}{What?! No way! Gimme back my deck!}
+{41000}{}{Wanna play again?}
+

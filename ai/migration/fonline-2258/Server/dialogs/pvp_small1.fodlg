@@ -1,0 +1,94 @@
+[comment]
+
+
+[data]
+lang=engl
+
+[dialog]
+&
+1 1000 None 0 #
+7 1010 D _var p x_pvpsmall1_trigger = 0 D _param p ST_LEVEL > 11 #
+4 1020 D _var p x_pvpsmall1_trigger = 1 #
+5 1030 D _param p ST_LEVEL { 11 @
+30 2000 None 0 #
+3 2010 D _var p x_pvpsmall1_trigger = 0 R _script dialog@r_PlaySoundDice 1 5 R _var p x_pvpsmall1_trigger = 1 R _script pvp_small1@r_SpawnLoc 0  R _script dialog@r_QuestTimeout 1 720 #
+0 2020 D _var p x_pvpsmall1_trigger = 0 #
+0 2030 D _var p x_pvpsmall1_trigger = 1 @
+3 3000 None 0 @
+20 4000 None 0 @
+4 5000 None 0 @
+5 6000 None 0 @
+7 7000 None 0 #
+11 7010 #
+7 7020 D _script dialog@d_QuestTimeoutNotReady 0  #
+10 7030 D _var p x_pvpsmall1_trigger = 0 D _script dialog@d_QuestTimeoutReady 0  #
+0 7040 D _var p x_pvpsmall1_trigger = 1 #
+0 7050 D _var p x_pvpsmall1_trigger = 0 @
+10 8000 None 0 #
+42 8010 #
+0 8020 @
+40 9000 None 0 #
+10 9010 #
+20 9020 @
+42 10000 None 0 #
+42 10010 R _script dialog@r_JumpToRandomNode 3 3 4 10 @
+11 11000 None 0 #
+12 11010 @
+12 12000 None 0 #
+13 12010 @
+13 13000 None 0 #
+14 13010 @
+14 14000 None 0 #
+15 14010 @
+15 15000 None 0 #
+16 15010 @
+16 16000 None 0 #
+17 16010 @
+17 17000 None 0 #
+7 17010 &
+
+[engl]
+{100}{}{Duster McFillin}
+{200}{}{You see Duster McFillin! The legendary stagecoach robber!}
+{210}{}{What's he doing here, you have no clue! But you do know that he's looking for a couple of good ol' boys and gals to help him rob a stagecoach! }
+{1000}{}{Predialogue installations}
+{1010}{}{not active}
+{1020}{}{active in world}
+{1030}{}{low level}
+{2000}{}{[Duster screams back a loud Yee-haw and grabs your map! He marks down the last known location of a broken down, lost caravan just waiting to be nabbed!] Go! Go! You've got fifteen minutes! Gooooooo!}
+{2010}{}{[Hit that good ol' dusty trail and hit up a new stagecoach caravan!] [+3 Hour Cooldown]}
+{2020}{}{Nevermind. I'll just be going.}
+{2030}{}{Looks like there's already a stagecoach caravan out there for me to rob. Hot-damn!}
+{3000}{}{You boys gone git'it! Lay it into 'errr! Git'errrr'donee! Yeeee-haw! You're always welcome in Las Vegas!}
+{4000}{}{Hey, fella! Relax, why don'tcha! I can always find another! Just give it some time, hombre!}
+{5000}{}{Skedaddle, hombre! This ain't no time to be messin' around! This is some dangerous turf!}
+{6000}{}{Huh? Since when did kids get invited to fucking Las Vegas? Beat it, brats! Come back when you've grown a few inches!}
+{7000}{}{You look like a fucking Vault Dweller! What are you doing out here in Las Vegas? Looking to rob a stagecoach caravan? You could probably handle it, but your other Vault Dwellers might not just let you take the score. You'll have to fight over it.}
+{7010}{}{Las Vegas? Stagecoach Caravan? What the hell are you talking about?}
+{7020}{}{[There are no caravans left out there to rob]}
+{7030}{}{Fuck yeah! Let's rob a stagecoach caravan! Yee-haw!}
+{7040}{}{Looks like there's already a stagecoach caravan out there for me to rob. Hot-damn!}
+{7050}{}{[Walk away]}
+{8000}{}{Now we're talkin'! That's the spirit'n'all! I want you boys to go out there, and I want you to give'em all Hell! Just tell 'em... Tell 'em Bishop sends his regards! Haha! That'll throw 'em off 'mah trail!}
+{8010}{}{Let's rattle some bones, and hit that ol' dusty trail.}
+{8020}{}{Oh second thought... nevermind.}
+{9000}{}{Ah, shucks! Nothing! Want me to try it again?}
+{9010}{}{Yes! Keep going! I can't wait!}
+{9020}{}{No! You blew it! You moron!}
+{10000}{}{[Duster hops on the radio and starts spewing out random caravan talking jibberish, hoping to catch a lead! He asks nothing in return, he just wants to watch New Reno burn!]}
+{10010}{}{[Wait in anticipation for the results!]}
+{11000}{}{Now if you ain't the stupidest...[He points to his right at a very, very, very large sign that screams "Welcome to Las Vegas!", and says] You're in Las Vegas, kid, not for the faint of heart! Huge gambling town ran by rival gangs. Everybody across the NCR is fighting over it. Even the New Reno crime families want a piece.}
+{11010}{}{A piece of what? Old world nostalgia and... gambling? Whole place looks a little... underwhelming to me. Could definitely use an overhaul!}
+{12000}{}{Hah! [He laughs ridiculously] You're telling me! That's what brings all the big boys to the city! People travel hundreds of miles across the Mojave desert just to try and get a piece of all this! I've been watching these idiots for years! Takin' notes!}
+{12010}{}{Notes? On what? I hope it's not their bowel movements!}
+{13000}{}{Nah, shit no! Notes, kid! Notes on the comings and the goings! Who's going where, who's coming from what! Those sorts of notes! And I've been doing fine! You see all these idiot caravans? They're always comin' and goin'.}
+{13010}{}{Sure, what about them?}
+{14000}{}{Well! I've been figuring out their little lingo! Gots me a great system now to intercept their caravans out there! Been gettin' paid to help stir the shit around these pots! }
+{14010}{}{What? What do you mean? What the heck are you talking about?}
+{15000}{}{The NCR don't want nobody gettin' too comfortable in these parts, neither do them boys up in Vault City either. They're paying me to help encourage caravan raids! All the carts comin' in and outta' this city gots some pretty bounties on 'em!}
+{15010}{}{Oh? Go on...}
+{16000}{}{Yessiree! So if you're lookin' for a little rough trouble and 'ta make a quick buckazoid! Let me know, I'll get'ya a stagecoach 'ta rob! Hehehe... [He chuckles fiendishly] There's a whole lot of people that would love to watch this city burn. Guess it's a big potential for some, and a big potential threat 'ta others!}
+{16010}{}{...Welcome to Las Vegas...}
+{17000}{}{Viiiiiiva! Las Vegas, baby! But you know what you look like?}
+{17010}{}{Uh... what?}
+

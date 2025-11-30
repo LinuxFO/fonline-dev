@@ -1,0 +1,24 @@
+[comment]
+
+
+[data]
+lang=engl
+
+[dialog]
+&
+1 1000 None 0 #
+2 1010 @
+2 2000 None 0 &
+[engl]
+{100}{}{Homeless}
+{200}{}{You see a homeless person.}
+{210}{}{You see a homeless person.}
+{1000}{}{Predialogue installations}
+{2000}{}{I had everything.@@Stupid slots.@@Give me some money.@@Do you have any food?@@Learn from my mistakes.@@Its very cold during the night.@@Leave me alone.}
+{100000001}{}{}
+{100000001}{}{}
+{100000001}{}{}
+{100000001}{}{}
+{100000001}{}{}
+{100000001}{}{}
+

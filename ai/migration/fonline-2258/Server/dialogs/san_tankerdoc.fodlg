@@ -1,0 +1,58 @@
+[comment]
+Thomas Sutton Trading Post guy.
+
+[data]
+lang=engl
+
+[dialog]
+&
+1 1000 None 0 #
+2 1010 @
+2 2000 None 0 #
+4 2010 #
+3 2020 #
+0 2030 @
+3 3000 None 0 #
+65506 3010 #
+4 3020 #
+2 3030 @
+4 4000 None 0 #
+5 4010 D _script dialog@d_IsToHeal 0  #
+3 4020 #
+7 4030 #
+8 4040 @
+5 5000 dialog@dlg_ShowHealingPrice 0 #
+6 5010 D _script dialog@d_HealingMoney 0  R _script dialog@r_DocHeal 0  R _script dialog@r_FlushScreen 0  #
+4 5020 @
+6 6000 None 0 @
+7 7000 None 0 #
+4 7010 @
+8 8000 None 0 &
+
+[engl]
+{100}{}{Yaoji}
+{200}{}{You see Yaoji, the Tanker's local healer.}
+{210}{}{She looks a bit young to have as much wisdom as she does. Maybe all those fools seeking their fortunes in the sewers provides her with plenty of experience... and blood to clean up.}
+{1000}{}{Predialogue installations}
+{1010}{}{Intro}
+{2000}{}{Another injured lost soul? Or another traveller looking for remedy? The San Francisco sewers provides both fortune and misery. What brings you here to me? Today? Lost one...}
+{2010}{}{You're a doctor? I might be in need of medical services.}
+{2020}{}{Do you have anything to trade? Poison antidotes? Anti-radiation medicine? Stims?}
+{2030}{}{Nothing for now. Goodbye.}
+{3000}{}{Why, yes, I do. Care to take a look? My prices are always fair, lost one.}
+{3010}{}{Sure! Let's barter.}
+{3020}{}{You're a doctor? I might be in need of medical services.}
+{3030}{}{Maybe later. Let's talk about something else.}
+{4000}{}{I can cure all of your ailments at once, young one, if you have the coin, that is. I can also treat radiation and poison sickness with ease. Let me know, quickly, before I have to treat another.}
+{4010}{}{I could use some healing, Doctor.}
+{4020}{}{Got anything to trade, Doc?}
+{4030}{}{Got a few minutes to talk, Doc? I'd like to know more about your people.}
+{4040}{}{Nothing for now, but I'll let you know if I change my mind.}
+{5000}{}{You are indeed, sick, @pname@. I can cure what troubles you for @lex price@ caps. Do you agree on this fair deal?}
+{5010}{}{Yeah, thanks. Here's the money. I hope this isn't going to hurt...}
+{5020}{}{I'll have to think about it, Doc.}
+{6000}{}{Relax your body... and your mind. I will provide the remedy...}
+{7000}{}{I know many things, young lost one, but I do not know everything. If it's answers you are seeking, seek the Shi, for they are wise. If it is healing you require, then prepare your body... and your wallet.}
+{7010}{}{Maybe later, Doc.}
+{8000}{}{I am always here, lost one. Seek remedy through me when you need. Farewell... for now.}
+

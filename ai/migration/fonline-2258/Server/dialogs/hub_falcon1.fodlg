@@ -1,0 +1,187 @@
+[comment]
+
+
+[data]
+lang=engl
+
+[dialog]
+&
+1 1000 None 0 #
+3 1010 @
+3 2000 None 0 #
+28 2010 D _var p z_dailyq1 = 30 D _item p PID_CARAVAN_BOX > 0 R _var p z_dailyq1 = 31 R _item p PID_CARAVAN_BOX - 1 #
+23 2020 D _var p z_dailyq1 = 22 #
+5 2030 D _param p ST_STRENGTH > 99 #
+9 2040 D _param p ST_STRENGTH > 99 #
+10 2050 D _param p ST_STRENGTH > 99 #
+18 2060 D _script dialog@d_QuestTimeoutReady 0  #
+12 2070 #
+13 2080 #
+0 2090 @
+4 3000 None 0 #
+0 3010 @
+5 4000 None 0 #
+6 4010 #
+4 4020 #
+3 4030 @
+6 5000 None 0 #
+0 5010 @
+7 6000 None 0 @
+8 7000 None 0 @
+9 8000 None 0 #
+3 8010 #
+0 8020 @
+10 9000 None 0 #
+3 9010 #
+0 9020 @
+11 10000 None 0 #
+14 10010 D _item p PID_BOTTLE_CAPS > 1 D _var p bar_drink = 0 R _var p bar_drink = 1 R _script dialog@r_RemoveMoney 1 2 #
+17 10020 D _var p bar_drink = 1 D _item p PID_BOTTLE_CAPS > 1 R _script dialog@r_RemoveMoney 1 2 #
+0 10030 D _var p bar_drink = 2 #
+0 10040 @
+12 11000 dialog@dlg_SayBuyBeer 0 #
+15 11010 D _item p PID_BOTTLE_CAPS > 9 R _item p PID_BEER + 1 R _script dialog@r_RemoveMoney 1 10 #
+0 11020 @
+13 12000 None 0 #
+16 12010 D _item p PID_BOTTLE_CAPS > 9 R _item p PID_BOOZE + 1 R _script dialog@r_RemoveMoney 1 10 #
+0 12020 @
+14 13000 None 0 #
+11 13010 #
+12 13020 #
+13 13030 #
+18 13040 #
+3 13050 #
+0 13060 @
+15 14000 None 0 #
+11 14010 #
+12 14020 #
+13 14030 #
+18 14040 #
+3 14050 #
+0 14060 @
+16 15000 None 0 #
+11 15010 #
+12 15020 #
+13 15030 #
+18 15040 #
+3 15050 #
+0 15060 @
+17 16000 None 0 #
+11 16010 #
+12 16020 #
+13 16030 #
+18 16040 #
+3 16050 #
+0 16060 @
+18 17000 None 0 #
+19 17010 D _script dialog@d_QuestTimeoutReady 0  D _item p PID_BOTTLE_CAPS > 74 R _item p PID_BOTTLE_CAPS - 75 R _script dialog@r_QuestTimeout 1 150 R _script dialog@r_AddExperience 1 1250 R _param p ST_CURRENT_HP + 30 R _param p DAMAGE_RIGHT_ARM = 0 #
+20 17020 D _script dialog@d_QuestTimeoutReady 0  D _item p PID_BOTTLE_CAPS > 74 R _item p PID_BOTTLE_CAPS - 75 R _script dialog@r_QuestTimeout 1 150 R _script dialog@r_AddExperience 1 1250 R _param p ST_CURRENT_HP + 30 R _param p DAMAGE_LEFT_ARM = 0 #
+21 17030 D _script dialog@d_QuestTimeoutReady 0  D _item p PID_BOTTLE_CAPS > 74 R _item p PID_BOTTLE_CAPS - 75 R _script dialog@r_QuestTimeout 1 150 R _script dialog@r_AddExperience 1 1250 R _param p ST_CURRENT_HP + 30 R _param p DAMAGE_RIGHT_LEG = 0 #
+22 17040 D _script dialog@d_QuestTimeoutReady 0  D _item p PID_BOTTLE_CAPS > 74 R _item p PID_BOTTLE_CAPS - 75 R _script dialog@r_QuestTimeout 1 150 R _script dialog@r_AddExperience 1 1250 R _param p ST_CURRENT_HP + 30 #
+3 17050 @
+19 18000 None 0 @
+20 19000 None 0 @
+21 20000 None 0 @
+22 21000 None 0 @
+23 22000 None 0 #
+24 22010 @
+24 23000 None 0 #
+25 23010 @
+25 24000 None 0 #
+26 24010 @
+26 25000 None 0 #
+27 25010 R _var p z_dailyq1 = 23 R _item p PID_ROT_GUT + 1 R _param p ST_EXPERIENCE + 1500 R _param p REPUTATION_HUB + 300 R _param p REPUTATION_LA + 300 R _param p REPUTATION_JUNKTOWN + 300 R _param p REPUTATION_NCR + 300 R _param p ST_KARMA + 1 @
+27 26000 None 0 @
+28 27000 None 0 &
+
+[engl]
+{100}{}{Bartender}
+{200}{}{You see the bartender.}
+{1000}{}{Predialogue installations}
+{1010}{}{Unknown}
+{2000}{}{Welcome to the Maltese Falcon! Hope you're enjoying the music. How can I help you?@@Hi, welcome back. Can I get you anything?@@That was a great last song. Don't you agree?@@What'll be? Beer? Stew?@@Keep your hands off the counter! I just cleaned it.@@Hope you know about our room specials. We might still have a few available.@@Welcome to the Maltese Falcon!}
+{2010}{}{Delivery from the Junktown Brewery! Here you go.}
+{2020}{}{I need a drink! Just one, but one good one!}
+{2030}{}{Can I get a room?}
+{2040}{}{Can I get a room?}
+{2050}{}{I'd like to pay my rent for the room.}
+{2060}{}{What's on the menu?}
+{2070}{}{Gimme a beer.@@I'll take a beer.@@Beer sounds good.@@Beer me.@@I feel like a beer right now. Gimme a beer.@@Beer me, woman.}
+{2080}{}{Liquor.@@Bottle of liquor.@@Gimme a bottle of that house stuff.@@You got any liquor?@@Gimme something strong.@@Give me the strongest thing you got.@@I'll take a bottle.@@Gimme a bottle of liquor.@@Feels like liquor time. Liquor me up something sweet.}
+{2090}{}{Nothing, thanks. I'm out of here.}
+{3000}{}{Typical of you scumbags to try and get somethin' for nothin'. Get the hell out.}
+{3010}{}{Alright, I'm leaving.}
+{4000}{}{We still have a room free and it will cost you @lex price@ caps for @lex time@ days. You want it?}
+{4010}{}{Sounds like a fair price to me. I’ll take it.@@Yes, I'll take the room.}
+{4020}{}{Uh, this is a little rich for me. You couldn't let me sleep there on the house, could ya?}
+{4030}{}{Hmm, maybe later. What about something else?}
+{5000}{}{Alright, let me show you your room...}
+{5010}{}{[Follow]}
+{6000}{}{Hey, dumbass, get out of here!}
+{7000}{}{You should leave this place.}
+{8000}{}{Hmm, sorry - no free rooms here, pal.}
+{8010}{}{Oh well...}
+{8020}{}{[Leave] Damn!}
+{9000}{}{Good, you wouldn't wanna see your stuff changed their owner, right? [A greedy gleam appears in her eyes for a moment]}
+{9010}{}{Right... [Give her the money] Could you tell me something else now?}
+{9020}{}{Right... [Leave]}
+{10000}{}{That'll be two caps.}
+{10010}{}{Sure.@@Okay.}
+{10020}{}{Sure.@@Okay.}
+{10030}{}{I changed my mind... I feel a bit sick.}
+{10040}{}{No, thanks.}
+{11000}{}{That'll be ten caps. [You can use SAY to enter number of items you want to buy]}
+{11010}{}{Sure.@@Okay.}
+{11020}{}{No, thanks.}
+{12000}{}{That'll be ten caps.}
+{12010}{}{Sure.@@Okay.}
+{12020}{}{No, thanks.}
+{13000}{}{Here. [The bartender slides you a dirty tin cup full of some murky water. After drinking the water, you have a strange taste in your mouth.]}
+{13010}{}{Water}
+{13020}{}{Beer.}
+{13030}{}{Liquor.}
+{13040}{}{What's on the menu?}
+{13050}{}{About renting a room...}
+{13060}{}{Nothing.}
+{14000}{}{Here you are. [The bartender hands you a beer bottle.] Anything else?}
+{14010}{}{Water.}
+{14020}{}{Beer.}
+{14030}{}{Liquor.}
+{14040}{}{What's on the menu?}
+{14050}{}{About renting a room...}
+{14060}{}{Nothing.}
+{15000}{}{Here you are. [The bartender hands you a liquor bottle.] Anything else?}
+{15010}{}{Water.}
+{15020}{}{Beer.}
+{15030}{}{Liquor.}
+{15040}{}{What's on the menu?}
+{15050}{}{About renting a room...}
+{15060}{}{Nothing.}
+{16000}{}{Here. [The bartender slides you another cup full of the same murky water, and after you drink it, you're reminded as to how strange it tasted the last time . . .]}
+{16010}{}{Water}
+{16020}{}{Beer.}
+{16030}{}{Liquor.}
+{16040}{}{What's on the menu?}
+{16050}{}{About renting a room...}
+{16060}{}{Nothing.}
+{17000}{}{On the menu? Meat Stew, Gecko Pie, and Iguana Roast. We've also got some fresh water, if you're thirsty. 75 caps each.}
+{17010}{}{I'll take some Meat Stew.}
+{17020}{}{I'll have a Gecko Pie.}
+{17030}{}{Iguana Roast, please.}
+{17040}{}{Sure could go for some water right about now.}
+{17050}{}{Nevermind. I'm not hungry, or thirsty.}
+{18000}{}{One Meat Stew! Coming right up!}
+{19000}{}{One Gecko Pie! Coming right up!}
+{20000}{}{One Iguana Roast! Coming right up!}
+{21000}{}{One glass of fresh water! Here you go, enjoy!}
+{22000}{}{Rough day? You're covered in blood. [She hands you a bottle of Rotgut]}
+{22010}{}{Every day is rough for me, ever since I left the vault.}
+{23000}{}{Paradise lost, eh? [She wipes the counter clean]}
+{23010}{}{Life is angels swimming in a pool of blood.}
+{24000}{}{So what now?}
+{24010}{}{I don't know.}
+{25000}{}{Rough day.}
+{25010}{}{Rough day.}
+{26000}{}{I always wondered what it would be like to be a cop.}
+{27000}{}{Thank God! Beer's here, everyone!}
+

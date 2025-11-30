@@ -1,0 +1,104 @@
+[comment]
+
+
+[data]
+lang=engl
+
+[dialog]
+&
+1 1000 None 0 #
+2 1010 D _var p name_mem_npc_player = 0 #
+11 1020 D _var p name_mem_npc_player = 1 @
+2 2000 None 0 #
+3 2010 #
+3 2020 #
+3 2030 #
+0 2040 @
+3 3000 None 0 #
+4 3010 @
+4 4000 None 0 #
+5 4010 @
+5 5000 None 0 #
+6 5010 @
+6 6000 None 0 #
+7 6010 @
+7 7000 None 0 #
+8 7010 @
+8 8000 None 0 #
+9 8010 @
+9 9000 None 0 #
+10 9010 R _var p name_mem_npc_player = 1 R _script dialog@r_AddExperience 1 175 @
+10 10000 None 0 @
+11 11000 None 0 #
+12 11010 D _var p junktown_monsters = 1 @
+12 12000 None 0 #
+13 12010 @
+13 13000 None 0 #
+14 13010 @
+14 14000 None 0 #
+15 14010 @
+15 15000 None 0 #
+16 15010 @
+16 16000 None 0 #
+17 16010 @
+17 17000 None 0 #
+18 17010 @
+18 18000 None 0 #
+19 18010 @
+19 19000 None 0 #
+20 19010 @
+20 20000 None 0 #
+21 20010 @
+21 21000 None 0 #
+0 21010 R _var p junktown_monsters = 2 &
+
+[engl]
+{100}{}{Old Woman}
+{200}{}{You see an old woman.}
+{210}{}{She looks tired, and frail.}
+{1000}{}{Predialogue installations}
+{1010}{}{Answer text}
+{1020}{}{2}
+{2000}{}{Will things ever get better?}
+{2010}{}{What do you mean?}
+{2020}{}{Things can always get worse.}
+{2030}{}{What's worse than this?}
+{2040}{}{Whatever. I don't have time for this.}
+{3000}{}{You're from a vault, aren't you?}
+{3010}{}{Wha... Why do you ask?}
+{4000}{}{Your vault suit. You never reallly take it off, do you?}
+{4010}{}{No. I guess not. Why'd you assume I was a vault dweller?}
+{5000}{}{You look like you want to be a hero. I'm just not convinced that you act like it quite yet, that's all. I've met a few of you people... vault dwellers, that is. You've big shoes to fill, if you ask me. That Vault Dwelller's legacy sure is something. You consider yourself a hero as well? }
+{5010}{}{A hero?... What is that anyway? Someone who cares about everything? Or just someone who cares about themselves?}
+{6000}{}{Don't be so naive. You know what a hero is, and you're trying to be it. But you fail in all the wrong places, don't you? I'm not stupid, I've heard about you, @pname@. You sure are something, but you aren't what this world needs. Not quite yet.}
+{6010}{}{And what is it that the world needs?}
+{7000}{}{A hero... a true hero. Someone to right all the wrong out there. Someone who wants to make a difference. Someone who only believes in making a difference. A true hero. A savior. A saint. But I guess, it just isn't you, is it?}
+{7010}{}{Who are you exactly? How do you know me?}
+{8000}{}{A faint voice screams in the wind. It called you to me. For if only a moment, this may make you who you are. Crawl through the mud, or watch it dry underneath your feet. It will only matter to you when the time is too late. }
+{8010}{}{After all I've been through, it's already too late. You're crazy, you know that?}
+{9000}{}{You haven't always been a good listener, @pname@...}
+{9010}{}{And I'm sure you used to be a beautiful woman.}
+{10000}{}{Madness... whatever it is... is right and wrong.}
+{11000}{}{Pathetic. Always torn between, when only you know the answer. Why let other forces guide you, @pname@? Can you not feel the slave?@@May my words haunt you, until you finally get things right.@@Some call me old, others call me a Seer. But you and I, we both know. I am but an old, old fool.@@I can see much hope on your shoulders, but much disappointment as well. One day you will know right from wrong. Until then, may the people you hurt never suffer.@@If I thought your heart was pure, what would that make me?@@Too long have I lived, torn between such good, and such evil. When God takes me, may you all suffer for your sins.@@I have seen Hell fall down. I have seen the Devil's eyes. But I have never seen a @sex@|man||woman| so wicked, and broken as you, @pname@. No matter how you try. You will never be "good" enough for these people.@@Run. Run far from your crimes, but you'll never run far enough. I have seen you ruin, @pname@. You can't hide from the great divide.@@There shall come a time, when the sins of man, will be too great to be simply ignored. Where will you stand, @pname@? Amongst the righteous, or the fallen?@@When you die, will you die proud? Screaming to the angels of your cause? Or die broken, begging for an answer?}
+{11010}{}{People have been talking about a... monster out there... Do you know anything?}
+{12000}{}{There are many monsters out there. But none of which are me.}
+{12010}{}{Yeah, people talk about you as well.}
+{13000}{}{*Sigh* People will never change. They'll always fear what they don't understand, and approach the situation with much, much fire.}
+{13010}{}{So what can you tell me?}
+{14000}{}{Hmm... The mystery lies deep. But nothing is ever deep enough to hide a secret. Not forever it seems.}
+{14010}{}{These riddles don't help me get any close to an answer. They just leave me with more questions than I started with.}
+{15000}{}{I'm afraid so. Nothing is perfect. But I'm sorry, I really don't know anything. There are no demons hunting me, and I haven't summoned anything supernatural. These people are silly. It's probably just a Viper in a stupid costume.}
+{15010}{}{Damn, well thanks for the chat. }
+{16000}{}{You can be kind, sometimes, @pname@. But I never know whether to kiss you, or stab you in the back.}
+{16010}{}{Your mystery is beyond me, woman. How long have you been in Junktown for?}
+{17000}{}{A few weeks. My husband used to be a guard a long time ago before we met. After his passing I wanted to come somewhere that reminds me of him. It's a beautiful town, isn't it? So peaceful. But, I guess, that could never last, could it?}
+{17010}{}{Do many people come here to talk with you?}
+{18000}{}{Some. Some think I'm a witch, beyond wisdom. Others think I'm a lunatic. While a handful of kind souls see me as a voice beyond reason.}
+{18010}{}{So how did you find out about this monster? Someone must have came to you.}
+{19000}{}{Oh, why yes, someone did. A few actually. Some to throw stones, some to bicker, some to gossip. But one man did come to me during the night. He was petrified. Spoke beyond comprehension. He spoke of a demonic looking creature that eats the flesh of man. }
+{19010}{}{Do you remember who it was?}
+{20000}{}{No, for the life of me I can't remember. It was dark, cold, the fog hid most of his face. I wish I could be of more help, but now, you have something to follow, don't you? }
+{20010}{}{Yes, you're right. You've been very kind to me. What's your name? [Hold out your hand to greet her]}
+{21000}{}{[She takes your hand, like a woman with class, from an old, forgotten era] Jenene Pinckert. I'm glad to know that you at least still have manners, @pname@. Don't let this... sad world destroy you. There are still flowers growing out there. The Earth has not yet abandoned all of her children.}
+{21010}{}{You're the most beautiful thing I've ever seen, Jenene. Stay well. Thanks for the information.}
+

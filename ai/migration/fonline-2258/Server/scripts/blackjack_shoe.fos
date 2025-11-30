@@ -1,0 +1,380 @@
+/**<
+ *  Shoe class for Blackjack.
+ */
+ 
+#include "blackjack_h.fos"
+#include "blackjack_deck.fos"
+#include "_macros.fos"
+ 
+class CShoe
+{
+    private uint numberOfDecks;        //  Number of card decks (packs) used.
+    private array<CCard@> cards;       //  Cards in the shoe.
+    private uint currentCardIndex;
+ 
+    bool IsEmpty()
+    {
+        if (currentCardIndex >= cards.length())
+            return true;
+        else
+            return false;
+    }
+    uint GetCurrentCardIndex()
+    {
+        return currentCardIndex;
+    }
+    uint GetTotalCards()
+    {
+        return cards.length();
+    }
+    uint GetNumberOfDecks()
+    {
+        return numberOfDecks;
+    }
+ 
+    CShoe(uint decks)
+    {
+        numberOfDecks = CLAMP(decks, BLACKJACK_MIN_DECKS_IN_SHOE, BLACKJACK_MAX_DECKS_IN_SHOE);
+        Init();
+    }
+ 
+    void Init()
+    {
+        currentCardIndex = 0;
+        CDeck@ deck = CDeck();
+        for (uint i = 0; i < numberOfDecks; i++)
+        {
+            for (uint j = 0; j < deck.cards.length(); j++)
+            {
+                cards.insertLast(deck.cards[j]);
+            }
+        }
+    }
+ 
+    void Shuffle()
+    {
+        for (int i = 0; i < 10; i++)
+        {
+            if (Random(0, 1) == 0)
+                HinduShuffle();
+            if (Random(0, 1) == 0)
+                SplitShuffle();
+            if (Random(0, 1) == 0)
+                Cut();
+        }
+    }
+ 
+    //  If you don't know how Hindu shuffle is done, check it on youtube.
+    void HinduShuffle()
+    {
+        int minTake = 5;
+        int maxTake = 15;
+        int maxIndex = cards.length();
+        int index = Random(minTake, maxTake);
+        array<CCard@> tempShoe;
+        int lastIndex = 0;
+        while (index < maxIndex - maxTake)
+        {
+            for (int i = index - 1; i >= lastIndex; i--)
+            {
+                tempShoe.insertLast(cards[i]);
+            }
+            lastIndex = index;
+            index += Random(minTake, maxTake);
+        }
+        for (int i = maxIndex - 1; i >= lastIndex; i--)
+        {
+            tempShoe.insertLast(cards[i]);
+        }
+        array<CCard@> tmp;
+        cards = tmp;
+        for (int i = 0; i < maxIndex; i++)
+        {
+            cards.insertLast(tempShoe[maxIndex - i - 1]);
+        }
+    }
+ 
+    //  Also known as Pharao shuffle, split in half, and mix them up.
+    void SplitShuffle()
+    {
+        uint index = Random(cards.length()*4/10, cards.length()*6/10);
+        array<CCard@> tempCards;
+        uint i = 0;
+        uint j = index;
+        while (i + j - index < cards.length())
+        {
+            if (i < index)
+            {
+                int randomIndex = Random(0, 1);
+                for (int ri = 0; ri < randomIndex; ri++)
+                {
+                    tempCards.insertLast(cards[i + ri]);
+                }
+                i += randomIndex;
+            }
+            if (j < cards.length())
+            {
+                int randomIndex = Random(0, 1);
+                for (int ri = 0; ri < randomIndex; ri++)
+                {
+                    tempCards.insertLast(cards[j + ri]);
+                }
+                j += randomIndex;
+            }
+        }
+        cards = tempCards;
+    }
+ 
+    //  If you don't know what a cut is, get off the Blackjack table.
+    void Cut()
+    {
+        int index = Random(cards.length()/4, cards.length()*3/4);
+        array<CCard@> tempCards;
+        for (uint i = index; i < cards.length(); i++)
+        {
+            tempCards.insertLast(cards[i]);
+        }
+        for (int i = 0; i < index; i++)
+        {
+            tempCards.insertLast(cards[i]);
+        }
+        cards = tempCards;
+    }
+ 
+    //  Used for debugging only
+    void List()
+    {
+        //Log("Listing cards in shoe:");
+        for (uint i = 0; i < cards.length(); i++)
+        {
+            string log = " - ";
+            for (int j = 0; j < cards[i].Value(); j++)
+            {
+                log += "  ";
+            }
+            //Log(log + cards[i].GetCardNotation());
+        }
+        //Log("Total of " + cards.length() + " cards." );
+    }
+ 
+    //  Takes next card, returning it and incrementing the index.
+    CCard@ TakeNextCard()
+    {
+        if (currentCardIndex < cards.length())
+        {
+            CCard@ currentCard = cards[currentCardIndex];
+            currentCardIndex += 1;
+            return currentCard;
+        }
+        else
+        {
+            Shuffle();
+            CCard@ currentCard = cards[0];
+            currentCardIndex = 1;
+            return currentCard;
+        }
+    }
+ 
+    /**< For testing purposes */
+ 
+    //  Even money option shall not be offered.
+    void InsertTestValuesForPlayerBlackjackAndDealerNotAce()
+    {
+        //  dealer
+        cards.insertFirst(CCard(CARD_TYPE_ACE, CARD_SUIT_SPADES));
+        cards.insertFirst(CCard(CARD_TYPE_TEN, CARD_SUIT_SPADES));
+        //  player
+        cards.insertFirst(CCard(CARD_TYPE_JACK, CARD_SUIT_SPADES));
+        cards.insertFirst(CCard(CARD_TYPE_ACE, CARD_SUIT_SPADES));
+    }
+ 
+    void InsertTestValuesForPlayerBlackjackAndDealerIs21()
+    {
+        //  dealer
+        cards.insertFirst(CCard(CARD_TYPE_SEVEN, CARD_SUIT_SPADES));
+        cards.insertFirst(CCard(CARD_TYPE_THREE, CARD_SUIT_SPADES));
+        cards.insertFirst(CCard(CARD_TYPE_ACE, CARD_SUIT_SPADES));
+        //  player
+        cards.insertFirst(CCard(CARD_TYPE_JACK, CARD_SUIT_SPADES));
+        cards.insertFirst(CCard(CARD_TYPE_ACE, CARD_SUIT_SPADES));
+    }
+ 
+    void InsertTestValuesForPlayerBlackjackAndDealerBlackjack()
+    {
+        //  dealer
+        cards.insertFirst(CCard(CARD_TYPE_JACK, CARD_SUIT_SPADES));
+        cards.insertFirst(CCard(CARD_TYPE_ACE, CARD_SUIT_SPADES));
+        //  player
+        cards.insertFirst(CCard(CARD_TYPE_JACK, CARD_SUIT_SPADES));
+        cards.insertFirst(CCard(CARD_TYPE_ACE, CARD_SUIT_SPADES));
+    }
+ 
+    void InsertTestValuesForPlayerBlackjackAndDealerStandOn17()
+    {
+        //  dealer
+        cards.insertFirst(CCard(CARD_TYPE_JACK, CARD_SUIT_SPADES));
+        cards.insertFirst(CCard(CARD_TYPE_ACE, CARD_SUIT_SPADES));
+        //  player
+        cards.insertFirst(CCard(CARD_TYPE_SIX, CARD_SUIT_SPADES));
+        cards.insertFirst(CCard(CARD_TYPE_ACE, CARD_SUIT_SPADES));
+    }
+ 
+    void InsertTestValuesForPlayerDoubleDown20AndDealerBlackjack()
+    {
+        //  player
+        cards.insertFirst(CCard(CARD_TYPE_TEN, CARD_SUIT_SPADES));
+        //  dealer start hand
+        cards.insertFirst(CCard(CARD_TYPE_JACK, CARD_SUIT_SPADES));
+        cards.insertFirst(CCard(CARD_TYPE_ACE, CARD_SUIT_SPADES));
+        //  player start hand
+        cards.insertFirst(CCard(CARD_TYPE_FIVE, CARD_SUIT_SPADES));
+        cards.insertFirst(CCard(CARD_TYPE_FIVE, CARD_SUIT_SPADES));
+    }
+ 
+    void InsertTestValuesForPlayerDoubleDown20AndDealer18()
+    {
+        //  player
+        cards.insertFirst(CCard(CARD_TYPE_TEN, CARD_SUIT_SPADES));
+        //  dealer start hand
+        cards.insertFirst(CCard(CARD_TYPE_JACK, CARD_SUIT_SPADES));
+        cards.insertFirst(CCard(CARD_TYPE_EIGHT, CARD_SUIT_SPADES));
+        //  player start hand
+        cards.insertFirst(CCard(CARD_TYPE_FIVE, CARD_SUIT_SPADES));
+        cards.insertFirst(CCard(CARD_TYPE_FIVE, CARD_SUIT_SPADES));
+    }
+ 
+    void InsertTestValuesForPlayerDoubleDown20AndDealer21()
+    {
+        //  dealer
+        cards.insertFirst(CCard(CARD_TYPE_THREE, CARD_SUIT_SPADES));
+        //  player
+        cards.insertFirst(CCard(CARD_TYPE_TEN, CARD_SUIT_SPADES));
+        //  dealer start hand
+        cards.insertFirst(CCard(CARD_TYPE_JACK, CARD_SUIT_SPADES));
+        cards.insertFirst(CCard(CARD_TYPE_EIGHT, CARD_SUIT_SPADES));
+        //  player start hand
+        cards.insertFirst(CCard(CARD_TYPE_FIVE, CARD_SUIT_SPADES));
+        cards.insertFirst(CCard(CARD_TYPE_FIVE, CARD_SUIT_SPADES));
+    }
+ 
+    void InsertTestValuesForPlayerDoubleDownAfterThirdCard20AndDealer18()
+    {
+        //  player
+        cards.insertFirst(CCard(CARD_TYPE_EIGHT, CARD_SUIT_SPADES));
+        cards.insertFirst(CCard(CARD_TYPE_TWO, CARD_SUIT_SPADES));
+        //  dealer first hand
+        cards.insertFirst(CCard(CARD_TYPE_EIGHT, CARD_SUIT_SPADES));
+        cards.insertFirst(CCard(CARD_TYPE_JACK, CARD_SUIT_SPADES));
+        //  player first hand
+        cards.insertFirst(CCard(CARD_TYPE_FIVE, CARD_SUIT_SPADES));
+        cards.insertFirst(CCard(CARD_TYPE_FIVE, CARD_SUIT_SPADES));
+    }
+ 
+    void InsertTestValuesForPlayerDoubleDownAndBustAndDealer18()
+    {
+        //  player
+        cards.insertFirst(CCard(CARD_TYPE_EIGHT, CARD_SUIT_SPADES));
+        //  dealer first hand
+        cards.insertFirst(CCard(CARD_TYPE_EIGHT, CARD_SUIT_SPADES));
+        cards.insertFirst(CCard(CARD_TYPE_JACK, CARD_SUIT_SPADES));
+        //  player first hand
+        cards.insertFirst(CCard(CARD_TYPE_TEN, CARD_SUIT_SPADES));
+        cards.insertFirst(CCard(CARD_TYPE_FIVE, CARD_SUIT_SPADES));
+    }
+ 
+    /**< Test data for Lucky Ladies side bet. */
+    void InsertTestValuesForLuckyLadiesQohpAndDealerBlackjack()
+    {
+        //  dealer first hand
+        cards.insertFirst(CCard(CARD_TYPE_ACE, CARD_SUIT_SPADES));
+        cards.insertFirst(CCard(CARD_TYPE_JACK, CARD_SUIT_SPADES));
+        //  player first hand
+        cards.insertFirst(CCard(CARD_TYPE_QUEEN, CARD_SUIT_HEARTS));
+        cards.insertFirst(CCard(CARD_TYPE_QUEEN, CARD_SUIT_HEARTS));
+    }
+    void InsertTestValuesForLuckyLadiesQohpAndDealer20()
+    {
+        //  dealer first hand
+        cards.insertFirst(CCard(CARD_TYPE_TEN, CARD_SUIT_SPADES));
+        cards.insertFirst(CCard(CARD_TYPE_JACK, CARD_SUIT_SPADES));
+        //  player first hand
+        cards.insertFirst(CCard(CARD_TYPE_QUEEN, CARD_SUIT_HEARTS));
+        cards.insertFirst(CCard(CARD_TYPE_QUEEN, CARD_SUIT_HEARTS));
+    }
+    void InsertTestValuesForLuckyLadiesMatch()
+    {
+        //  dealer first hand
+        cards.insertFirst(CCard(CARD_TYPE_TEN, CARD_SUIT_SPADES));
+        cards.insertFirst(CCard(CARD_TYPE_JACK, CARD_SUIT_SPADES));
+        //  player first hand
+        cards.insertFirst(CCard(CARD_TYPE_KING, CARD_SUIT_HEARTS));
+        cards.insertFirst(CCard(CARD_TYPE_KING, CARD_SUIT_HEARTS));
+    }
+    void InsertTestValuesForLuckyLadiesSuited()
+    {
+        //  dealer first hand
+        cards.insertFirst(CCard(CARD_TYPE_TEN, CARD_SUIT_SPADES));
+        cards.insertFirst(CCard(CARD_TYPE_JACK, CARD_SUIT_SPADES));
+        //  player first hand
+        cards.insertFirst(CCard(CARD_TYPE_KING, CARD_SUIT_HEARTS));
+        cards.insertFirst(CCard(CARD_TYPE_QUEEN, CARD_SUIT_HEARTS));
+    }
+    void InsertTestValuesForLuckyLadiesUnSuited()
+    {
+        //  dealer first hand
+        cards.insertFirst(CCard(CARD_TYPE_TEN, CARD_SUIT_SPADES));
+        cards.insertFirst(CCard(CARD_TYPE_JACK, CARD_SUIT_SPADES));
+        //  player first hand
+        cards.insertFirst(CCard(CARD_TYPE_KING, CARD_SUIT_CLUBS));
+        cards.insertFirst(CCard(CARD_TYPE_QUEEN, CARD_SUIT_HEARTS));
+    }
+ 
+    /**< Test data for Perfect Pair side bet. */
+    void InsertTestValuesForPerfectPairPlayerPerfectPair()
+    {
+        //  dealer first hand
+        cards.insertFirst(CCard(CARD_TYPE_TEN, CARD_SUIT_SPADES));
+        cards.insertFirst(CCard(CARD_TYPE_JACK, CARD_SUIT_SPADES));
+        //  player first hand
+        cards.insertFirst(CCard(CARD_TYPE_SEVEN, CARD_SUIT_HEARTS));
+        cards.insertFirst(CCard(CARD_TYPE_SEVEN, CARD_SUIT_HEARTS));
+    }
+    void InsertTestValuesForPerfectPairPlayerColoredPair()
+    {
+        //  dealer first hand
+        cards.insertFirst(CCard(CARD_TYPE_TEN, CARD_SUIT_SPADES));
+        cards.insertFirst(CCard(CARD_TYPE_JACK, CARD_SUIT_SPADES));
+        //  player first hand
+        cards.insertFirst(CCard(CARD_TYPE_EIGHT, CARD_SUIT_HEARTS));
+        cards.insertFirst(CCard(CARD_TYPE_EIGHT, CARD_SUIT_DIAMONDS));
+    }
+    void InsertTestValuesForPerfectPairPlayerMixedPair()
+    {
+        //  dealer first hand
+        cards.insertFirst(CCard(CARD_TYPE_TEN, CARD_SUIT_SPADES));
+        cards.insertFirst(CCard(CARD_TYPE_JACK, CARD_SUIT_SPADES));
+        //  player first hand
+        cards.insertFirst(CCard(CARD_TYPE_NINE, CARD_SUIT_HEARTS));
+        cards.insertFirst(CCard(CARD_TYPE_NINE, CARD_SUIT_SPADES));
+    }
+ 
+    /**< Test data for Royal Match side bet. */
+    void InsertTestValuesForRoyalMatchPlayerRoyalMatch()
+    {
+        //  dealer first hand
+        cards.insertFirst(CCard(CARD_TYPE_TEN, CARD_SUIT_SPADES));
+        cards.insertFirst(CCard(CARD_TYPE_JACK, CARD_SUIT_SPADES));
+        //  player first hand
+        cards.insertFirst(CCard(CARD_TYPE_KING, CARD_SUIT_HEARTS));
+        cards.insertFirst(CCard(CARD_TYPE_QUEEN, CARD_SUIT_HEARTS));
+    }
+    void InsertTestValuesForRoyalMatchPlayerSuited()
+    {
+        //  dealer first hand
+        cards.insertFirst(CCard(CARD_TYPE_TEN, CARD_SUIT_SPADES));
+        cards.insertFirst(CCard(CARD_TYPE_JACK, CARD_SUIT_SPADES));
+        //  player first hand
+        cards.insertFirst(CCard(CARD_TYPE_QUEEN, CARD_SUIT_SPADES));
+        cards.insertFirst(CCard(CARD_TYPE_KING, CARD_SUIT_HEARTS));
+    }
+};

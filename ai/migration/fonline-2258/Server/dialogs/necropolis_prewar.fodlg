@@ -1,0 +1,70 @@
+[comment]
+
+
+[data]
+lang=engl
+
+[dialog]
+&
+1 1000 None 0 #
+2 1010 D _var p name_mem_npc_player = 0 #
+15 1020 D _var p name_mem_npc_player = 1 @
+2 2000 None 0 #
+3 2010 #
+0 2020 @
+3 3000 None 0 #
+4 3010 D _param p ST_KARMA } 0 @
+4 4000 None 0 #
+5 4010 @
+5 5000 None 0 #
+6 5010 @
+6 6000 None 0 #
+7 6010 @
+7 7000 None 0 #
+8 7010 @
+8 8000 None 0 #
+10 8010 @
+10 9000 None 0 #
+11 9010 @
+11 10000 None 0 #
+12 10010 @
+12 11000 None 0 #
+13 11010 @
+13 12000 None 0 #
+14 12010 R _var p name_mem_npc_player = 1 R _script dialog@r_AddExperience 1 1000 @
+14 13000 None 0 @
+15 14000 None 0 &
+
+[engl]
+{100}{}{Thrane}
+{200}{}{You see an old, ignorant looking ghoul.}
+{210}{}{It's Thrane. Necropolis' resident know-it-all.}
+{1000}{}{Predialogue installations}
+{1010}{}{Answer text}
+{1020}{}{2}
+{2000}{}{Little vault @sex@|man.||woman.| Look at you, so prestigious. Not a single mutated gene in you. Be careful around the Enclave. I am Thrane. The old. Necropolis is my mother, and I tend to her needs. Welcome. May your journey be righteous, and not full of darkness.}
+{2010}{}{Hi, I'm @pname@. I'm new here. What is with this place? Why is everyone so glum?}
+{2020}{}{[Walk away]}
+{3000}{}{Long time since people smiled, @pname@. Most ghouls have seen the bombs fall. We watched this world turn into... this. I... my children... My wife... she was lost to the fire. It... I... lived. But we never forget. You lived inside your vault. I lived out here. I watched the fire! Take my life away! And I overcame it.}
+{3010}{}{Maybe what I thought was a hero was all wrong. You sir... I'm so sorry. What was her name?}
+{4000}{}{I can't even remember. I can't even remember her face. Her touch is still alive. How I felt when... she was near. Heaven touching me. An old age, gone. Old world blues. }
+{4010}{}{Exactly just how old are you?}
+{5000}{}{I lost count after two hundred and something. I lost myself after the bombs fell. I was like Ringhold, gone. But he... he made up for it. Ringhold is a saint. A SAINT! Me?! I'm an old, broken man. Already suffering. Already lost. }
+{5010}{}{The rain washed the past away. You are still alive, Thrane.}
+{6000}{}{I should have died. Not just me, but my body. We should have all died. You... people... you kill, you rape. There is so much pain, and anger out there, Far beyond hope, No matter what, @pname@... you can't save these people.}
+{6010}{}{I know... but I want to try. If anything, I want to be remembered as a hero. Like the Vault Dweller. I want to do good. I don't care about anything else.}
+{7000}{}{Everyone is the same. What can you do that makes much of a difference? Bring Hell? Punch God in the face? In the end... you're just a man, woman, human.... child. We can't all be heroes. After the good die, the rest take their place. The rest of these... humans. They've ruined us. Soon the NCR will claim this land, and some other darkness will try to claim the rest. War... war, never changes. Man be damned.}
+{7010}{}{We can change. You old coot.}
+{8000}{}{No, not all of us. I'm old, @pname@. I know things you don't. I live in Necropolis because it can't get any worse. You live behind sheltered walls, guards, politics. Things can only get worse for you. The Master is dead. How could I ever experience worse than broken walls, windows, and starvation? There is no tyrant anymore. Just man itself, as a whole. }
+{8010}{}{[Say nothing, and stare out into the darkness]}
+{9000}{}{You vault dwellers. You have so much riding on you. People look at you and think, that's a hero. But I haven't met a single fucking hero yet. Nobody understands right and wrong anymore. Nobody even fucking cares enough to understand it. I've seen more death in this "new" world than I ever had being alive in the old world. It makes me sick. Now... people fight for Necropolis.}
+{9010}{}{Nobody does. It saddens me as well. What is this world that we live in? There is so much ignorance. How can people be so naive? Even if there isn't a God, can't people fear being cruel, and unjust?}
+{10000}{}{Madness... whatever is it...}
+{10010}{}{Is right and wrong.}
+{11000}{}{Heroes aren't born, @pname@. They are what happens to you after you start doing the right thing. Anyone can be a hero, it's just about accepting what's right, and fighting for it. Warm tears guide the pure heart. Let them flow. Let the people understand. Let them become... heroes.}
+{11010}{}{My people can change things. It almost feels like it's our destiny.}
+{12000}{}{When the great vaults opened, it was a sign from God. You saw the light for the first time. In all it's glory. If it ever faded from you. Then you have become the darkness. The world will decide your fate. And that is the only thing that you should fear, @pname@. There is something coming. Run. Before it is too late.}
+{12010}{}{[Feel a great rumble underneath your feet]}
+{13000}{}{They cried, @pname@. All of them.}
+{14000}{}{People keep fighting. And for what? Broken bones? Fools.@@Thousand souls just cried out for a hero... but they were all... just... suddenly silenced.}
+

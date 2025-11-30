@@ -1,0 +1,56 @@
+[comment]
+
+
+[data]
+lang=engl
+
+[dialog]
+&
+1 1000 None 0 #
+2 1010 D _var p name_mem_npc_player = 0 #
+7 1020 D _var p name_mem_npc_player = 1 @
+2 2000 None 0 #
+3 2010 #
+0 2020 @
+3 3000 None 0 #
+4 3010 @
+4 4000 None 0 #
+5 4010 @
+5 5000 None 0 #
+6 5010 @
+6 6000 None 0 #
+0 6010 R _var p name_mem_npc_player = 1 R _var p ncr_condomsq = 1 @
+7 7000 None 0 #
+7 7010 D _item p PID_GREEN_CONDOM > 11 R _item p PID_GREEN_CONDOM - 12 R _script dialog@r_AddExperience 1 300 R _script dialog@r_AddMoney 1 231 R _param p ST_KARMA + 1 R _var p q_merchant + 1 #
+7 7020 D _item p PID_RED_CONDOM > 11 R _item p PID_RED_CONDOM - 12 R _script dialog@r_AddExperience 1 300 R _script dialog@r_AddMoney 1 231 R _param p ST_KARMA + 1 R _var p q_merchant + 1 #
+7 7030 D _item p PID_BLUE_CONDOM > 11 R _item p PID_BLUE_CONDOM - 12 R _script dialog@r_AddExperience 1 300 R _script dialog@r_AddMoney 1 231 R _param p ST_KARMA + 1 R _var p q_merchant + 1 #
+8 7040 D _param p ST_KARMA > 99 #
+0 7050 @
+8 8000 None 0 &
+
+[engl]
+{100}{}{Morbus}
+{200}{}{You see a young priest.}
+{210}{}{It's Morbus, the Christian priest.}
+{1000}{}{Predialogue installations}
+{1010}{}{Answer text}
+{1020}{}{kno}
+{2000}{}{Hello, my child. My greetings to you. Bearer of the light... I hope. Can I offer you a blessing?}
+{2010}{}{Sure! Bless away!}
+{2020}{}{No thank you. Goodbye.}
+{3000}{}{[He waves his hand and says something in latin] Adhuc ambulare: Quia tenebrae expiandum.}
+{3010}{}{Uh... yeah, okay!}
+{4000}{}{Now that I've done something for you... how about doing something for mankind?}
+{4010}{}{Ugh...}
+{5000}{}{[He laughs] The whores of New Reno will not stop. It is simply, what they know. But we can encourage them to stay relatively clean. If you can bring me dozens of condoms, I will repay you.}
+{5010}{}{Hmm... How much?}
+{6000}{}{Whatever the lord can provide. Bring me any twelve condom, and we'll see. May the light shine upon you, my friend. Farewell.}
+{6010}{}{Alright then, Father. I'll be seeing ya. Thanks for the... blessing.}
+{7000}{}{Welcome back. Has the light found you yet?}
+{7010}{}{I've got a dozen Green Condoms for you.}
+{7020}{}{I've got a dozen Red Condoms for you.}
+{7030}{}{I've got a dozen Blue Condoms for you.}
+{7040}{}{I am the light that shines.}
+{7050}{}{Maybe one day. Goodbye.}
+{8000}{}{The light that burns twice as bright burns half as long. But the light that shines, is eternal. The Vault Dweller might have died, but his inspiration lives on in all of us. You, are one that I can proudly call "Hero".}
+

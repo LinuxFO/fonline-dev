@@ -1,0 +1,28 @@
+[comment]
+
+
+[data]
+lang=engl
+
+[dialog]
+&
+1 1000 None 0 #
+2 1010 @
+2 2000 None 0 #
+4 2010 D _var p PCTFW = 1 D _item p PID_SMALL_STATUETTE > 0 R _item p PID_SMALL_STATUETTE - 1 R _var p PCTFW3 = 1 R _script dialog@r_AddExperience 1 10000 R _script dialog@r_TeleportToMap 2 571 666 #
+3 2020 @
+3 3000 None 0 @
+4 4000 None 0 &
+
+[engl]
+{100}{}{Referee}
+{200}{}{You see the finish line!}
+{210}{}{It's the end of the line! I hope you have the token? You do have it don't know?! DON'T YOU?!!!!}
+{1000}{}{Predialogue installations}
+{1010}{}{Answer text}
+{2000}{}{Where's the token?! No winner until I see the token! You've got less than 2 hours left to go! Better hurry, cowboy! Maybe someone already claimed victory? Hmmm? Who knows! Ba dum tis!}
+{2010}{}{I have the token! I am the winner! Yes, yes, yes!!!}
+{2020}{}{What?! Fuck!!!}
+{3000}{}{Loser.}
+{4000}{}{... AND WE HAVE A WINNER!!! GAME OVER!!! GAME OVER!!!! *@pname@* is our grand winner! You go, girl!}
+

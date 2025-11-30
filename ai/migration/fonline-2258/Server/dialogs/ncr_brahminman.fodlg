@@ -1,0 +1,117 @@
+[comment]
+
+
+[data]
+lang=engl
+
+[dialog]
+&
+1 1000 None 0 #
+3 1010 R _script brahmin_trader@r_SetId 1 4 @
+3 2000 None 0 #
+10 2010 D _param p ST_INTELLECT > 3 #
+4 2020 R _script brahmin_trader@r_CheckBuy 1 0 #
+11 2030 R _script brahmin_trader@r_CheckSell 1 0 #
+31 2040 D _script brahmin_trader@d_CleanedSomeDung 0  #
+30 2050 #
+0 2060 D _param p ST_INTELLECT > 3 #
+9 2070 D _param p ST_INTELLECT < 4 @
+10 3000 None 0 #
+4 3010 R _script brahmin_trader@r_CheckBuy 1 0 @
+4 4000 brahmin_trader@dlg_ShowBrahminBuyPrice 0 #
+6 4010 D _script brahmin_trader@d_CanAfford 1 0 D _script brahmin_trader@d_BrahminInPen 1 0 R _script brahmin_trader@r_BuyBrahmin 1 9 #
+0 4020 @
+5 5000 None 0 #
+0 5010 @
+6 6000 None 0 #
+0 6010 @
+7 7000 None 0 #
+0 7010 @
+8 8000 None 0 #
+3 8010 @
+9 9000 None 0 @
+11 10000 None 0 #
+12 10010 D _script brahmin_trader@d_PlayerHasBrahmin 1 0 D _script brahmin_trader@d_BrahminPenNotFull 1 0 #
+0 10020 @
+12 11000 brahmin_trader@dlg_ShowBrahminSellPrice 0 #
+16 11010 R _script brahmin_trader@r_SellBrahmin 1 0 #
+0 11020 @
+17 12000 None 0 #
+0 12010 @
+16 13000 None 0 #
+4 13010 R _script brahmin_trader@r_CheckBuy 1 0 #
+11 13020 R _script brahmin_trader@r_CheckSell 1 0 #
+0 13030 @
+20 14000 None 0 #
+0 14010 @
+21 15000 None 0 #
+0 15010 @
+30 16000 None 0 #
+33 16010 #
+32 16020 D _script dialog@d_QuestTimeoutReady 0  #
+0 16030 @
+31 17000 None 0 #
+0 17010 R _script brahmin_trader@r_CleaningPayment 1 10 @
+32 18000 None 0 #
+33 18010 R _item p PID_OLD_SHOVEL + 1 R _script dialog@r_QuestTimeout 1 24 @
+33 19000 None 0 @
+40 20000 None 0 #
+41 20010 @
+41 21000 None 0 &
+
+[engl]
+{100}{}{Jester}
+{200}{}{You see Jester, the Brahmin trader.}
+{1000}{}{Predialogue installations}
+{1010}{}{Answer text}
+{2000}{}{Hey you! Jester's my name! Do you want to buy a Brahmin? I sell only the best Brahmin!}
+{2010}{}{What would I do with a Brahmin?}
+{2020}{}{Yes, I would like to buy a Brahmin.}
+{2030}{}{I'd like to sell a Brahmin to you.}
+{2040}{}{I've cleaned up some of the crap for you...}
+{2050}{}{Need any help with the business?}
+{2060}{}{Nothing. Bye.@@Nevermind, bye.}
+{2070}{}{Me want two headed rideable donkey.}
+{3000}{}{Raise 'em, sell 'em, kill 'em, eat 'em, trade 'em, make 'em hold stuff... Hell I don't know! Sky's the limit! Do you want one or not?}
+{3010}{}{Maybe, how much you selling them for?}
+{4000}{}{I'm selling a Brahmin for @lex price@ caps, but I only sell the highest of quality. No inbreds, just full one hundred percent two headed bovine. So, you want to trade? These babies can do more than just carry stuff, you know.}
+{4010}{}{I'll take that Brahmin. No, the one over there.}
+{4020}{}{Maybe later, I can't afford anything right now.}
+{5000}{}{Here she is. Take care of this wonderful Brahmin, I beg you.}
+{5010}{}{Thanks, I'll put 'em to good use.}
+{6000}{}{You broke me, what the hell? Report this to the admins.}
+{6010}{}{Yes, of course. I'll do it right away. [Lie]}
+{7000}{}{Not enough vaspene cows. Report this to the admins.}
+{7010}{}{Yes, of course. I'll do it right away. [Lie]}
+{8000}{}{That's too expensive for you.}
+{8010}{}{You're right...}
+{9000}{}{That's too expensive for you.}
+{10000}{}{Selling a Brahmin, eh? Okay, let me see what you have...}
+{10010}{}{I have a perfectly healthy Brahmin here. I'm sure you will like it...}
+{10020}{}{Nevermind, I changed my mind...@@Nevermind, I don't want to sell a Brahmin now.}
+{11000}{}{What a fine Brahmin. I'll give you @lex price@ caps for it}
+{11010}{}{That's a good price. Here, have your new Brahmin.}
+{11020}{}{That's not enough money, I was hoping for more. See ya. }
+{12000}{}{Then don't steal my time.}
+{12010}{}{[Exit]}
+{13000}{}{A good deal. Do you want something else?}
+{13010}{}{Yes, I would like to buy a Brahmin.}
+{13020}{}{I want to sell another Brahmin to you.}
+{13030}{}{Nope, see ya.}
+{14000}{}{I'm sorry, I don't have any brahmin left to sell you.}
+{14010}{}{Ok then, bye.}
+{15000}{}{Sorry, I already have enough brahmin. Come back later.}
+{15010}{}{What a bummer. Oh well, bye.}
+{16000}{}{You see, the authorities here would like to see the town clean. And Brahmin ain't clean creatures. It's hard to go round and round with a shovel, and clean up all the crap. So I guess I could use some help around here.}
+{16010}{}{I'll get right on it! Back in a jiffy.}
+{16020}{}{I'll do it if you hand me a shovel...}
+{16030}{}{Shovel shit? Fuck that. I'm out of here.}
+{17000}{}{Fabulous job. Here, take your payment.}
+{17010}{}{Yeah, my pleasure...}
+{18000}{}{Here, grab this one. But bring it back when you're done with all the poo!}
+{18010}{}{Ugh, yeah thanks.}
+{19000}{}{Be careful inside the pen, the brahmin are domesticated but they're still unpredictable pests! They might poop on yer shoes!}
+{20000}{}{You've got too many people around you, the Brahmin wouldn't follow you. [Too many party members already]}
+{20010}{}{Like flies to honey...}
+{21000}{}{What?}
+

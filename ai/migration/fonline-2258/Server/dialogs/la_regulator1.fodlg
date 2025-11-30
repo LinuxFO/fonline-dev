@@ -1,0 +1,26 @@
+[comment]
+
+
+[data]
+lang=engl
+
+[dialog]
+&
+1 1000 None 0 #
+2 1010 @
+2 2000 None 0 #
+3 2010 D _script dialog@d_IsWearingScaryHelmet 0  @
+3 3000 None 0 #
+0 3010 &
+
+[engl]
+{100}{}{Regulator}
+{200}{}{You see a Regulator.}
+{210}{}{You see a regulator.}
+{1000}{}{Predialogue installations}
+{1010}{}{normal}
+{2000}{}{Careful, stranger! We're cleaning up here!@@We've got no time for you, bud!@@Go away! Or you get a bullet!@@Move along, there's nothing to see here.@@Beat it, vault dweller!@@What? Move! We ain't got time for this shit!@@You are annoying! Get lost before I make you get lost!@@Go to Adytum if you want to trade! Got nothing for you here!@@Go to the Gun Runners if you need weapons, there's nothing much else out here. Just gangs, and radioactive freaks!@@The whole boneyard is a mess. Keep that gun handy, stranger!@@Don't go looking for any of our lost gold reserve maps! We're watching the place like a hawk!}
+{2010}{}{Give me the coordinates to the nearest Gold Reserve, or I'll eat your fucking face off! NOWWWWW!!}
+{3000}{}{Haha! Great joke! Do I look like a fucking idiot to you?}
+{3010}{}{Damn! I really thought that would work...}
+

@@ -1,0 +1,19 @@
+[comment]
+
+[data]
+lang=engl
+
+[dialog]
+&
+1 1000 None 0 #
+2 1010 @
+2 2000 None 0 &
+
+[engl]
+{100}{}{Mechanic}
+{200}{}{You see a mechanic.}
+{210}{}{He is busy repairing something.}
+{1000}{}{Predialogue installations}
+{1010}{}{2}
+{2000}{}{This module needs to be replaced.@@Where is my toolbox..@@Servo-actuator in place.@@Ah, its leaking again.}
+

@@ -1,0 +1,84 @@
+[comment]
+
+
+[data]
+lang=engl
+
+[dialog]
+&
+1 1000 None 0 #
+2 1010 D _var p q_geckoman = 0 R _var p q_geckoman = 1 #
+2 1020 D _var p q_geckoman = 1 @
+2 2000 None 0 #
+2 2010 D _item p PID_GECKO_PELT > 0 R _item p PID_GECKO_PELT - 1 R _script dialog@r_AddMoney 1 25 R _script dialog@r_AddExperience 1 50 #
+2 2020 D _item p PID_GOLDEN_GECKO_PELT > 0 R _item p PID_GOLDEN_GECKO_PELT - 1 R _script dialog@r_AddMoney 1 40 R _script dialog@r_AddExperience 1 62 #
+2 2030 D _item p PID_FIREGECKO_PELT > 0 R _item p PID_FIREGECKO_PELT - 1 R _script dialog@r_AddMoney 1 62 R _script dialog@r_AddExperience 1 75 #
+2 2040 D _item p PID_GECKO_PELT > 11 R _item p PID_GECKO_PELT - 12 R _script dialog@r_AddMoney 1 300 R _script dialog@r_AddExperience 1 600 #
+2 2050 D _item p PID_GOLDEN_GECKO_PELT > 11 R _item p PID_GOLDEN_GECKO_PELT - 12 R _script dialog@r_AddMoney 1 480 R _script dialog@r_AddExperience 1 744 #
+2 2060 D _item p PID_FIREGECKO_PELT > 11 R _item p PID_FIREGECKO_PELT - 12 R _script dialog@r_AddMoney 1 900 R _script dialog@r_AddExperience 1 1200 #
+3 2070 #
+4 2080 #
+5 2090 #
+6 2100 D _var p dungeon_toxic = 0 #
+8 2110 D _param p PE_GECKO_SKINNING = 0 #
+0 2120 @
+3 3000 None 0 #
+2 3010 @
+4 4000 None 0 #
+2 4010 @
+5 5000 None 0 #
+2 5010 @
+6 6000 None 0 #
+7 6010 D _item p PID_BOTTLE_CAPS > 299 D _var p dungeon_toxic = 0 R _item p PID_BOTTLE_CAPS - 300 R _script player_dungeon_toxic@r_SpawnLoc 0  R _var p dungeon_toxic = 1 R _script dialog@r_AddExperience 1 150 #
+0 6020 @
+7 7000 None 0 @
+8 8000 None 0 #
+9 8010 D _item p PID_BOTTLE_CAPS > 499 R _item p PID_BOTTLE_CAPS - 500 R _param p PE_GECKO_SKINNING = 1 #
+9 8020 D _item p PID_BOTTLE_CAPS > 99 D _param p SK_SPEECH > 49 R _item p PID_BOTTLE_CAPS - 100 R _param p PE_GECKO_SKINNING = 1 #
+0 8030 @
+9 9000 None 0 &
+
+[engl]
+{100}{}{Travelling Merchant}
+{200}{}{You see a travelling merchant.}
+{210}{}{His stall smells like formaldehyde and cigarettes. Numerous wet, and dried Gecko pelts litter the area.}
+{1000}{}{Predialogue installations}
+{1010}{}{Answer text}
+{1020}{}{2}
+{2000}{}{Why, hello there, stranger! I'm a travelling merchant from Klamath. If you fancy yourself quite the trapper, I would be willing to purchase any, and all of your gecko hides. Silver, Golden, Fire, whatever you can skin, I will buy.}
+{2010}{}{I have a Silver Gecko pelt for sale. }
+{2020}{}{I have a Golden Gecko pelt for sale. }
+{2030}{}{I have a Fire Gecko pelt for sale. }
+{2040}{}{I have a dozen Silver Gecko pelts for sale. }
+{2050}{}{I have a dozen Golden Gecko pelts for sale. }
+{2060}{}{I have a dozen Fire Gecko pelts for sale. }
+{2070}{}{What are your buying rates?}
+{2080}{}{What do you do with the pelts?}
+{2090}{}{Will you be in town long?}
+{2100}{}{Where can I find some geckos?}
+{2110}{}{Do you know how to skin a gecko? I can't figure it out.}
+{2120}{}{I'll think about it. Goodbye.}
+{3000}{}{Ah, glad you asked. [He points to a sign]
+
+- Silver Gecko Pelt: 25 caps / 300 caps for 12x
+
+- Golden Gecko Pelt: 40 caps / 480 caps for 12x
+
+- Fire Gecko Pelt: 75 caps / 900 caps for 12x
+
+}
+{3010}{}{Interesting.}
+{4000}{}{I sell them here and there. I travel a lot, and people know me. Everybody buys their pelts from either me, or Klamath. Geckos aren't local to everyone. That's how I make my money. [He smiles]}
+{4010}{}{I see.}
+{5000}{}{Sure will. I'm making a killing out here! You guys and gals in those blue suits kill more Geckos than any Trapper I've ever seen! }
+{5010}{}{Hmm. Thanks.}
+{6000}{}{'Sppose I could sell you this here map. An old trapper traded it to me for a Cat's Paw a while back. I'll part with it for... let's say... 300 caps. There's an old, crashed radioactive waste truck over on highway 85, far south-east of here. Geckos like to hang around it, and feel the glow. [Type /combatmode tb or rt to select Turn Based or Real-Time combat before continuing]}
+{6010}{}{It's a deal. Here's the money.}
+{6020}{}{Maybe later.@@I'll have to think about it.}
+{7000}{}{She's all yours.}
+{8000}{}{Yeah, 'sppose I could teach you too, if you're interested. But I charge a flat rate of 500 caps.}
+{8010}{}{Okay, sure. Teach away.}
+{8020}{}{Why don't we make it 100 caps instead, and I'll promise to bring the hides only to you.}
+{8030}{}{Maybe later.@@I'll have to think about it.}
+{9000}{}{...Just don't pierce the butt, or else the skin'll get all dirty...@@Hope you like getting your hands dirty...@@I won't lie, it smells horrible...@@Hope this doesn't take all day...}
+

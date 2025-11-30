@@ -1,0 +1,42 @@
+[comment]
+
+
+[data]
+lang=engl
+
+[dialog]
+&
+1 1000 None 0 #
+2 1010 @
+2 2000 None 0 #
+6 2010 D _var p z_dailyq1 = 26 D _item p PID_MEAT > 49 R _item p PID_MEAT - 50 #
+4 2020 D _var p junktown_monsters = 2 D _var p name_mem_npc_player = 0 R _var p name_mem_npc_player = 1 R _var p junktown_monsters = 3 R _script dialog@r_AddExperience 1 175 R _param p ST_KARMA + 1 #
+5 2030 D _var p q_gasstation = 0 @
+3 3000 None 0 @
+4 4000 None 0 @
+5 5000 None 0 #
+3 5010 R _var p q_gasstation = 1 R _script player_dungeon3@r_SpawnLoc 0  @
+6 6000 None 0 #
+0 6010 R _var p z_dailyq1 = 27 R _script quest_dethboss@r_SpawnLoc 0  &
+
+[engl]
+{100}{}{Scout}
+{200}{}{You see a scout of Junktown.}
+{240}{}{You see a dead guard of Junktown.}
+{260}{}{You see a slain guard of Junktown.}
+{1000}{}{Predialogue installations}
+{1010}{}{Answer text}
+{2000}{}{You'd better watch yourself here.@@Behave, and we won't have to get nasty.@@You're OK.@@Nice day, isn't it?@@We are from Junktown. Nice place to live, as long as you stay on our good side.@@Keep out of trouble.}
+{2010}{}{Can you help me set a trap for The Night Terror?}
+{2020}{}{What can you tell me about this monster I've been hearing about?}
+{2030}{}{Where are all these Vipers coming from?}
+{3000}{}{You'd better watch yourself here.@@This isn't a good town to get in trouble in.@@Behave, and we won't have to get nasty.@@You're OK.@@Nice day, isn't it?@@We come from Junktown. Nice place to live, as long as you stay on our good side.@@Keep out of trouble.}
+{4000}{}{The guy in the suit started the rumours. Ask him.}
+{5000}{}{Beats me. But there's an old, abandoned Gas Station just a few blocks down the way from here. I think people are using it as a Safe House, or something. I'd be careful around there. But if you want to find a good source of bandits, that's where I'd go looking.}
+{5010}{}{Thanks!}
+{6000}{}{Yeah, alright. Me, and the boys'll help ya out. Let's get out of here, and do this.}
+{6010}{}{[Follow him]}
+{100000001}{}{Welcome to Junktown, traveller!}
+{100000002}{}{I'm sorry, the gates are closed for the night. Come back in the morning.}
+{100000003}{}{Guys, get him!}
+

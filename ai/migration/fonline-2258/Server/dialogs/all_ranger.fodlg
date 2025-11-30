@@ -1,0 +1,27 @@
+[comment]
+
+
+[data]
+lang=engl
+
+[dialog]
+&
+1 1000 None 0 #
+2 1010 @
+2 2000 None 0 #
+3 2010 D _var p q_policestation = 0 @
+3 3000 None 0 #
+2 3010 R _var p q_policestation = 1 R _script player_dungeon4@r_SpawnLoc 0  &
+
+[engl]
+{100}{}{Ranger}
+{200}{}{You see a well-armed NCR Ranger.}
+{210}{}{He is still well-armed.}
+{210}{}{He has a clean, well-polished weapon and is wearing some kind of badge on his chest.}
+{1000}{}{Predialogue installations}
+{1010}{}{Answer text}
+{2000}{}{We're looking for slaver patrols. Seen any, stranger?@@Greetings stranger.  Sure hope you're not a slaver - for your own sake.@@Nice meeting you, stranger.  Don't mind us and there won't be any trouble.@@We're the NCR Rangers - we make the world a better place. Just thought you'd like to know.@@We're Rangers. Killing slavers is our business.}
+{2010}{}{Know where I can find some real bad people? I'd love to kill them...}
+{3000}{}{North-East of Reno. There's an old Police Station there. Used to be a local rest stop, and highway patrol outpost. Some Khans or some kind of branch of them have moved in now. They're packing some serious heat. If you think you can take them out, by all means. [To make this location spawn in Turn Based Mode make sure to type /combatmode tb before continuing]}
+{3010}{}{Thanks!}
+

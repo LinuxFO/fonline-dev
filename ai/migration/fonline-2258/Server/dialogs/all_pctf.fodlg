@@ -1,0 +1,63 @@
+[comment]
+
+
+[data]
+lang=engl
+
+[dialog]
+&
+1 1000 None 0 #
+3 1010 D _var p PCTFW = 0 D _var p PCTFW3 = 0 #
+2 1020 D _var p PCTFW = 1 D _var p PCTFW3 = 0 #
+10 1030 D _var p PCTFW3 = 1 @
+2 2000 None 0 @
+3 3000 None 0 #
+3 3010 D _script dialog@d_QuestTimeoutNotReady 0  #
+9 3020 D _var p PCTFW = 0 D _script dialog@d_QuestTimeoutReady 0  #
+4 3030 #
+8 3040 @
+4 4000 None 0 #
+7 4010 #
+5 4020 #
+6 4030 @
+5 5000 None 0 @
+6 6000 None 0 @
+7 7000 None 0 @
+8 8000 None 0 @
+9 9000 None 0 #
+2 9010 D _var p PCTFW = 0 D _param p ST_LEVEL > 23 D _var p PCTFW2 = 1 D _script dialog@d_QuestTimeoutReady 0  R _var p PCTFW = 1 R _script player_CTF@r_SpawnLoc 0  R _var p PCTFW2 = 0 R _var p PCTFW4 = 1 #
+2 9020 D _var p PCTFW = 0 D _param p ST_LEVEL > 23 D _item p PID_BOTTLE_CAPS > 99999 D _var p PCTFW2 = 0 D _script dialog@d_QuestTimeoutReady 0  R _var p PCTFW = 1 R _item p PID_BOTTLE_CAPS - 100000 R _script player_CTF@r_SpawnLoc 0  R _var p PCTFW4 = 1 #
+0 9030 @
+10 10000 None 0 #
+0 10010 R _var p PCTFW = 0 R _var p PCTFW2 = 1 R _var p PCTFW3 = 0 R _script dialog@r_AddExperience 1 35000 R _script dialog@r_AddMoney 1 45000 R _item p PID_KOKOWEEF_MINE_SCRIP + 18000 R _item p PID_MORNING_STAR_MINE + 18000 R _param p REPUTATION_NR_PIMPS + 125 R _param p REPUTATION_SLAVES + 125 R _param p REPUTATION_FREE_TRADERS + 125 R _param p REPUTATION_HUB_CRIMINALS + 125 R _param p REPUTATION_VAGRANTS + 125 R _param p REPUTATION_VORTIS_SLAVERS + 125 R _param p REPUTATION_BISHOPS + 125 R _param p REPUTATION_SLAVERS_GUILD + 125 R _param p REPUTATION_MORDINOS + 125 R _param p REPUTATION_RAIDERS + 125 R _script dialog@r_AddLootSetLevel4 0  R _script dialog@r_AddLootSetLevel3 0  R _script dialog@r_AddLootSetLevel2 0  R _item p PID_DOLLAR2 + 5000 R _item p PID_MR_NIXON_DOLL + 12 R _param p REPUTATION_LA + 125 R _param p REPUTATION_HUB + 125 R _param p REPUTATION_JUNKTOWN + 125 R _param p REPUTATION_NECROPOLIS + 125 R _param p REPUTATION_NEW_RENO + 125 R _param p REPUTATION_BH_GHOULS + 125 R _param p REPUTATION_REDDING + 125 R _param p REPUTATION_GECKO + 125 R _param p REPUTATION_COURTYARD + 125 R _param p REPUTATION_MODOC + 125 R _param p REPUTATION_DEN + 125 R _param p REPUTATION_KLAMATH + 125 R _param p REPUTATION_CORSICAN_BROTHERS + 125 R _param p REPUTATION_SLAVES + 125 R _param p REPUTATION_GUNRUNNERS + 125 R _param p REPUTATION_SCAVENGERS + 125 R _param p REPUTATION_REGULATORS + 125 R _param p REPUTATION_BH_HUMANS + 125 R _param p REPUTATION_BH_MUTANTS + 125 R _param p REPUTATION_NCR + 125 R _script dialog@r_QuestTimeout 1 1440 &
+
+[engl]
+{100}{}{The Vault Runner Host!}
+{200}{}{You see Wink Rayburn Cullen Winkle, the famous game show host!}
+{210}{}{This guy's a riot! A laugh! A barrel of monkeys! A jar of sweat! Oh, boy! He reminds you of the good ol' days of yester-when! He's the goddamn host of Vault Runner! Everyone's favourite game show from the 80's!}
+{1000}{}{Predialogue installations}
+{1010}{}{game off}
+{1020}{}{game on}
+{1030}{}{game won by you}
+{2000}{}{...AAAAAND THE GAME IS ON!!! GEEEET RRRRRREADY TO BEAT SOME ASSSSSSSSSS!!!!}
+{3000}{}{Hey, hey, hey! Daddy-o, Chummers, dames! Ladies, and the old! Come one, come all! To the new and groovy, big tickle, bent eight'o'ride'o of the year-o! Are you ready to experience and host a game of Vault Runner?!}
+{3010}{}{[The show's still cleaning up after your mess! You'll have to wait for someone else to start another episode!]}
+{3020}{}{Hell yes! Let's start the game!!! }
+{3030}{}{Vault Runner?! What's that?!}
+{3040}{}{No way! I'm not crazy! My ass can't fit into one of those suits!}
+{4000}{}{Well, @sex@|flap-top||fuzzy duck|, you need to get with it! Vault Runner is a game for champions! It's a reeeeeeaaaall Fat City! Ya dig? We spawn one battleground with a trinket! Aaaaand! You bring that trinket over to the next battleground! Whoever makes it there alive first, wins the money!!!! Of course, hot shot, once you trigger a round it's anyone's game. These battlegrounds are OPEN FOR BUSINESS!!}
+{4010}{}{Well, far out!}
+{4020}{}{What's the pay?}
+{4030}{}{That sounds stupid! You're stupid! This whole thing is stupid! EVERYONE IS STUPID!!!}
+{5000}{}{Cool it, don't cop a breeze. You'll see! You up for a game? You wanna get HEP?! }
+{6000}{}{You really hit the bottle, hub cap?}
+{7000}{}{It's a real Joe Doe Jelly Roll!}
+{8000}{}{You're a real snowed-out-Sophie-spaz!}
+{9000}{}{For 100,000 caps I'll start the show! [MUST BE LEVEL 24+]
+ Or, if you're a returning Champion you can start a show for free!}
+{9010}{}{I'm a big winner, esti! Let's start the show!!@@I eat clowns for breakfast! Remember my last show?! LET'S DO THIS!!!@@I'm UNDEFEATED!!! LET'S KEEP GOING!!! RRRAAAAAWWWWWGGGHHHH!!!!@@I'm the best. Let's start this madness!@@NOBODY BEATS ME AT VAULT RUNNER! LET'S DO THIS!!!! [+6 Hour Cooldown]}
+{9020}{}{LET'S DO IT!!! [+6 Hour Cooldown]}
+{9030}{}{Damn! What a tease!}
+{10000}{}{Goddamn great performance out there, @pname@! We'll remember you forever! Here's your big prize! Grand slam, daddy-o! You're a victor if I ever did see one, poncho! As a Champion you get to start a new episode for free! After the cooldown period though, get some rest! You've earned it!}
+{10010}{}{Thanks, Wink Dinkle!}
+

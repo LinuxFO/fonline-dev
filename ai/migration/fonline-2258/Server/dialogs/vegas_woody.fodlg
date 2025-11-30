@@ -1,0 +1,24 @@
+[comment]
+
+
+[data]
+lang=engl
+
+[dialog]
+&
+1 1000 None 0 #
+2 1010 @
+2 2000 None 0 #
+65506 2010 #
+0 2020 &
+
+[engl]
+{100}{}{Woody}
+{200}{}{You see Woody the Barman.}
+{210}{}{This man could pass for an ordinary barman if not for the patches and bits of metal sewn into his business suit.}
+{1000}{}{Predialogue installations}
+{1010}{}{-}
+{2000}{}{How about a hot pizza?}
+{2010}{}{Let me see that menu.}
+{2020}{}{No thanks.}
+

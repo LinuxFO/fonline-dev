@@ -1,0 +1,52 @@
+[comment]
+
+
+[data]
+lang=engl
+
+[dialog]
+&
+1 1000 None 0 #
+2 1010 @
+2 2000 None 0 #
+3 2010 D _var p noire1 = 10 #
+8 2020 D _var p noire1 = 12 @
+3 3000 None 0 #
+4 3010 @
+4 4000 None 0 #
+5 4010 @
+5 5000 None 0 #
+6 5010 @
+6 6000 None 0 #
+7 6010 R _param p DAMAGE_LEFT_ARM = 0 R _param p DAMAGE_RIGHT_ARM = 0 R _param p DAMAGE_LEFT_LEG = 0 R _param p DAMAGE_RIGHT_LEG = 0 R _param p DAMAGE_EYE = 0 R _param p ST_CURRENT_HP + 100 R _item p PID_LOCKPICKS + 1 @
+7 7000 None 0 #
+0 7010 R _var p noire1 = 11 R _script dialog@r_AddExperience 1 3000 @
+8 8000 None 0 #
+9 8010 @
+9 9000 None 0 #
+0 9010 R _var p noire1 = 13 R _script dialog@r_AddExperience 1 3000 &
+
+[engl]
+{100}{}{Detective Rockatansky}
+{200}{}{You see Detective Rockatansky.}
+{210}{}{Looks like he's taking a little nap in a pool of his own blood.}
+{1000}{}{Predialogue installations}
+{1010}{}{Answer text}
+{2000}{}{[Detective Rockatansky says nothing]}
+{2010}{}{[Flash your badge] I'm... @pname@. Are you... Rockatansky?}
+{2020}{}{You gonna be alright, bud?}
+{3000}{}{Yeah, that's right... [He says] }
+{3010}{}{I'm... *cough up blood, and spit* your backup. Detective @pname@. The light in the blah blah, hero of the wastes. Let's just get the fuck out of here!}
+{4000}{}{[Detective Rockatansky doesn't seem very impressed] They'll kill us if we walk out of here. Those... fuckers... killed my wife and baby boy! I'm going to make them pay! }
+{4010}{}{We need to get out of here first. I'm assuming that they though we were both dead. }
+{5000}{}{I'm not dead yet, just pissed off! I'm just getting started! But you... you look like hell!}
+{5010}{}{Yeah... some biker broke my arm, and pumped me full of bullets.}
+{6000}{}{I can fix yer arm. Don't move. [Rockatansky grabs your arm and twists it back into place] There... that'll hold. You got stims? I hope... I'll patch you up a bit, but after that you're on yer own.}
+{6010}{}{Arrgggghhhhhhhhhh!!!!!!}
+{7000}{}{As soon as you walk out this door, they'll start shooting. Make sure you're ready for this! They won't know what hit em!}
+{7010}{}{[Continue]}
+{8000}{}{No, but I'll live. Get out of here. I'll handle things from here, mate.}
+{8010}{}{Okay, sure. So... I'll see you at the police station?}
+{9000}{}{Nah. I'm done. I'm taking a bike, and never looking back. [He hands you his .44 Magnum, and badge] Give this to Hayden. Tell him I'll be fine. Hub's got you now, kid.}
+{9010}{}{[Say nothing, and leave]}
+

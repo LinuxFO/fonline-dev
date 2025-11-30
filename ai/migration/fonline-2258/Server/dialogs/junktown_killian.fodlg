@@ -1,0 +1,184 @@
+[comment]
+
+
+[data]
+lang=engl
+
+[dialog]
+&
+1 1000 None 0 #
+2 1010 D _var p name_mem_npc_player = 0 R _var p name_mem_npc_player = 1 #
+8 1020 D _var p name_mem_npc_player = 1 @
+2 2000 None 0 #
+38 2010 D _var p z_dailyq1 = 25 D _var p junktown_monsters = 10 #
+4 2020 R _var p name_mem_npc_player = 1 #
+5 2030 R _var p name_mem_npc_player = 1 #
+6 2040 R _var p name_mem_npc_player = 1 #
+20 2050 D _var p q_la_gunr_courier = 6 D _item p PID_Q_GUNRUNNER_COURIER_BOX > 0 R _param p REPUTATION_JUNKTOWN + 2 R _var p q_la_gunr_courier = 7 R _item p PID_Q_GUNRUNNER_COURIER_BOX - 1 R _var p name_mem_npc_player = 1 #
+0 2060 D _var p hub_postmanq = 8 R _var p hub_postmanq = 98 R _var p name_mem_npc_player = 1 @
+3 3000 None 0 #
+0 3010 @
+4 4000 None 0 #
+65506 4010 #
+0 4020 @
+5 5000 None 0 #
+7 5010 #
+4 5020 #
+6 5030 @
+6 6000 None 0 @
+7 7000 None 0 #
+21 7010 D _var p junktown_monsters = 0 #
+4 7020 #
+0 7030 @
+8 8000 None 0 #
+40 8010 D _var p z_dailyq1 = 28 #
+38 8020 D _var p z_dailyq1 = 25 D _var p junktown_monsters = 10 #
+37 8030 D _var p junktown_monsters = 9 R _script quest_claw@r_DeleteLoc 0  R _script dialog@r_AddMoney 1 4500 R _param p ST_KARMA + 1 R _param p REPUTATION_JUNKTOWN + 100 R _item p PID_SUPER_SLEDGE + 1 R _var p junktown_monsters = 10 R _script dialog@r_AddExperience 1 7000 R _var p z_warrior2 + 1 #
+36 8040 D _var p junktown_monsters = 7 D _item p PID_MEAT > 49 R _item p PID_MEAT - 50 R _var p junktown_monsters = 8 R _script quest_claw@r_SpawnLoc 0  #
+30 8050 D _var p junktown_monsters = 4 #
+4 8060 #
+5 8070 #
+20 8080 D _item p PID_Q_GUNRUNNER_COURIER_BOX > 0 D _var p q_la_gunr_courier = 6 R _item p PID_Q_GUNRUNNER_COURIER_BOX - 1 R _var p q_la_gunr_courier = 7 R _param p REPUTATION_JUNKTOWN + 2 #
+0 8090 D _var p hub_postmanq = 8 R _var p hub_postmanq = 98 #
+6 8100 @
+9 9000 None 0 #
+0 9010 D _var p hub_postmanq = 8 R _var p hub_postmanq = 98 @
+20 10000 None 0 #
+0 10010 @
+21 11000 None 0 #
+22 11010 @
+22 12000 None 0 #
+23 12010 @
+23 13000 None 0 #
+24 13010 @
+24 14000 None 0 #
+25 14010 @
+25 15000 None 0 #
+26 15010 @
+26 16000 None 0 #
+27 16010 #
+27 16020 #
+27 16030 #
+27 16040 @
+27 17000 None 0 #
+28 17010 @
+28 18000 None 0 #
+29 18010 @
+29 19000 None 0 #
+0 19010 R _var p junktown_monsters = 1 @
+30 20000 None 0 #
+31 20010 @
+31 21000 None 0 #
+32 21010 D _param p KILL_DEADCLAW = 0 #
+32 21020 D _param p KILL_DEADCLAW > 0 @
+32 22000 None 0 #
+33 22010 @
+33 23000 None 0 #
+34 23010 @
+34 24000 None 0 #
+35 24010 @
+35 25000 None 0 #
+0 25010 R _var p junktown_monsters = 5 R _script dialog@r_AddMoney 1 500 @
+36 26000 None 0 #
+0 26010 @
+37 27000 None 0 #
+0 27010 @
+38 28000 None 0 #
+39 28010 R _var p z_dailyq1 = 26 @
+39 29000 None 0 @
+40 30000 None 0 #
+41 30010 @
+41 31000 None 0 #
+42 31010 R _var p z_dailyq1 = 29 R _param p ST_EXPERIENCE + 2500 R _script dialog@r_AddMoney 1 2000 R _script dialog@r_BulkOrderRewardGuns 0  R _param p ST_KARMA + 1 R _param p REPUTATION_JUNKTOWN + 300 R _script quest_dethboss@r_DeleteLoc 0  @
+42 32000 None 0 &
+
+[engl]
+{100}{}{Jeremiah}
+{200}{}{You see Jeremiah.}
+{210}{}{Is it Jerimiah, or Jebediah? Ugh! Who knows anymore!}
+{1000}{}{Predialogue installations}
+{1010}{}{Unknown}
+{1020}{}{Familiar}
+{2000}{}{Welcome to Junktown, stranger. What can I help you with?}
+{2010}{}{How goes the town, Jeb? Is it safe again?}
+{2020}{}{I'd like to buy something.@@I want to buy something.@@Show me what you have to sell.}
+{2030}{}{Who are you?}
+{2040}{}{I'd better go.@@Nothing. Thanks.}
+{2050}{}{I've got your Gun Runners shipment with me.}
+{2060}{}{[Deliver Letter]}
+{3000}{}{You're not too bright, are ya. Boys . . . Sorry, I can't understand you. Come back when you get more of a brain.@@Uh, no. You got stupid. Get out of here!}
+{3010}{}{Uh.}
+{4000}{}{Great. Here's what I have.@@Great, always looking for new things.}
+{4010}{}{Alright, let me take a look at it.@@Let me see.}
+{4020}{}{Nevermind. Bye.}
+{5000}{}{The name's Jeremiah. Jeremiah Darkwater, mayor of this fine town. Also I'm the son of Killian Darkwater, founder of Junktown.}
+{5010}{}{How about telling me a bit about this town?}
+{5020}{}{I'd like to buy something.@@I want to buy something.@@Show me what you have to sell.}
+{5030}{}{Thanks for the info, but I need to go. Bye.}
+{6000}{}{See ya 'round town then. Be careful not to get into too much trouble.}
+{7000}{}{Well, Junktown's not much, but it's home. Mostly we trade with people or let 'em forget their troubles for a bit. Of course, we have our share of problems...}
+{7010}{}{Problems?}
+{7020}{}{I'd like to buy something.@@I want to buy something.@@Show me what you have to sell.}
+{7030}{}{Thanks for the info, I need to go. Bye.}
+{8000}{}{You again. What do you want now?@@Well, howdy! What can I do for you today?@@For the last time! I don't care what you heard. There ain't no monster around here! You lookin' to trade, or what?}
+{8010}{}{The Terror Night is dead, Jeb.}
+{8020}{}{How goes the town, Jeb? Is it safe again?}
+{8030}{}{The Deathclaw is dead, Jeb. You can tell people not to worry so much anymore.}
+{8040}{}{Okay, Jeb, I've got 50x pieces of Brahmin Meat to lure the Deathclaw into our trap! I spoke with a Trapper in Klamath, he told me everything that we needed to know.}
+{8050}{}{Looks like this monster is probably just a Deathclaw.}
+{8060}{}{I'd like to buy something.@@I want to buy something.@@Show me what you have to sell.}
+{8070}{}{Who are you?}
+{8080}{}{I've got your Gun Runners shipment with me.}
+{8090}{}{[Deliver Letter]}
+{8100}{}{I'd better go.@@Nothing. Thanks.}
+{9000}{}{Get out of here.@@You're scaring off my customers.@@Door's right behind you.@@You that monster people been talking about? Stay the hell away from Junktown!}
+{9010}{}{[Deliver Letter]}
+{10000}{}{Man, it's about time! Give it to me, had been waiting for the delivery since weeks!@@About time! Give me the package and thanks.@@Thanks for the delivery, @sex@|boy||girl|, it's about time!@@Ah, finally! Hand it over, I'll take care from now on.}
+{10010}{}{Goodbye.}
+{11000}{}{Yeah, problems.}
+{11010}{}{Well... Like what? You guys need parts or something?}
+{12000}{}{That's really not important. Junktown has bigger problems than finding new parts, and recycled junk. If you're interested in that stuff, go walk around town, someone will have something for you. But what I'm talking about...}
+{12010}{}{Just spit it out, already.}
+{13000}{}{People have been coming to me with these stupid stories about shadow people, and monsters. Whatever it is, I'm just sick of these supernatural fairy tales I've been hearing.}
+{13010}{}{Sounds like harmless fun if you ask me.}
+{14000}{}{Yeah, well, it's not. I've been hearing things, and seeing some awful blood stains out there. My patrols have found entire caravans dead, their blood sucked cleaned from their bones. It was madness. }
+{14010}{}{Could have been dogs...}
+{15000}{}{No. It was something bigger, and way meaner. Something wicked, I bet. Some of the local drunks have seen a massive looking critter walking around the gates. And if you listen close enough to one of them at night you can hear whispering.}
+{15010}{}{That's kind of terrifying, Jeb.}
+{16000}{}{You're telling me! One of my guards just swept up and vanished last night. I keep telling people he went AWOL, but I think we both know what got him.}
+{16010}{}{So what do you want to do about this? I'm not running out in the dark out there, no way! Not with a fucking monster on the loose! Jesus Christ, man! I'm shaking in my goddamn boots right now.}
+{16020}{}{Pfft! You're all just a bunch of pussies.}
+{16030}{}{*Gulp!* Oh gee golly! It was the monster, wasn't it?! Oh my God!}
+{16040}{}{Alright, this is getting ridiculous. There are no such things as monsters. Well... Floaters, Centaurs, Aliens, Super Mutants, those are logical... But... Uh... Hmm...}
+{17000}{}{[He shivers in fear] I don't know what to do... My men are pretty scared as well. It's something new... must be some kind of deranged mutated animal... Or just some guy in a costume.}
+{17010}{}{Let's just say, that I found a way to solve this little... monstrosity. How much would you be paying me?}
+{18000}{}{Hmm... I don't know. Give you a good word around town, that's for sure. I'll think of something, but I'll pay you at least a thousand caps.}
+{18010}{}{I'll think about it. But where do you think a @sex@|man||gal| would start looking if @sex@|he||she| were interested in solving this little problem of yours?}
+{19000}{}{Good question. I'd recommend they start at the bar. Ask around, see what comes up. }
+{19010}{}{Alright, Jeb. I'll talk to you later.}
+{20000}{}{A Deathclaw? Great! That's just another problem Junktown doesn't need.}
+{20010}{}{Could we trap it somehow? And take it away from the city?}
+{21000}{}{Trap a Deathclaw? Are you crazy? I'm just going to kill it! Have you ever seen a Deathclaw before?!}
+{21010}{}{I've never killed one.}
+{21020}{}{Deathclaws are nothing.}
+{22000}{}{Yeah, well, this can't be no ordinary Deathclaw. From what I've been hearing it's grey, and twice the size of regular Deathclaws.}
+{22010}{}{So, what do you want to do about this, Jeb?}
+{23000}{}{I don't know. I just... don't know. If it's as tough as I think it is, we'll have to find out where it's living. Won't be able to fight it on it's hunting grounds. We'll have to corner the fucker.}
+{23010}{}{We need to lure it out into the open somehow, and follow it back to it's nest.}
+{24000}{}{Yeah! Good thinking. There's a clever Trapper in Klamath, don't remember their name. But you should head down there, and ask around. See if anybody knows how to attract Deathclaw.}
+{24010}{}{All the way to Klamath?}
+{25000}{}{Far, I know. Here's some caps for the journey. You're doing this town a favour, and I don't want you to forget it. Head to Klamath when you've got time, and find out how to attract Deathclaw from one of the Trappers.}
+{25010}{}{Alright, Jeb. I'll be back eventually. Goodbye.}
+{26000}{}{Good work, pal. I'll have my scouts set the trap for you. I've marked a location on your map, that's where you'll be able to start tracking this thing. Good luck out there.}
+{26010}{}{Thanks. I'll probably need it. See you soon.}
+{27000}{}{No kidding. My boys followed you, damn you did good. I couldn't believe the size of that thing! One of my scouts drew a picture of it. He's a talented artist, I tell ya. Looks so real, I'll pass it around town so people know the critter is dead. Have this here Super Sledge Hammer. You'll need it to mine the higher quality ore. You've earned it.}
+{27010}{}{Thanks, Jeb. Good luck with everything. Time to hit the old dusty trail.}
+{28000}{}{No, another Night Terror has returned. I think they're breeding...}
+{28010}{}{I'll collect some Meat, and lure him out, don't you worry.}
+{29000}{}{This one is different... it's... larger...}
+{30000}{}{That makes me rest easy at night. But tomorrow, we'll probably have to deal with another spawn. None the less, good work, @pname@. Junktown thanks you.}
+{30010}{}{Is there anything else I can help you with?}
+{31000}{}{*sigh* You could help us with our prosperity, a bit. You vault dwellers keep doing great work, could you help out our brewery some more?  You wouldn't believe the revenue it brings in.}
+{31010}{}{Sure! I love beer!}
+{32000}{}{God bless the golden nectar.}
+

@@ -1,0 +1,180 @@
+[comment]
+
+
+[data]
+lang=engl
+
+[dialog]
+&
+1 1000 None 0 #
+2 1010 @
+2 2000 None 0 #
+3 2010 D _var p q_adventure = 34 #
+11 2020 D _var p camp_evil = 10 D _item p PID_FOOLS_GOLD > 0 @
+3 3000 None 0 #
+4 3010 @
+4 4000 None 0 #
+5 4010 @
+5 5000 None 0 #
+6 5010 @
+6 6000 None 0 #
+7 6010 @
+7 7000 None 0 #
+8 7010 @
+8 8000 None 0 #
+9 8010 @
+9 9000 None 0 #
+10 9010 R _var p q_adventure = 35 R _script dialog@r_AddExperience 1 3000 @
+10 10000 None 0 @
+11 11000 None 0 #
+12 11010 @
+12 12000 None 0 #
+13 12010 @
+13 13000 None 0 #
+14 13010 @
+14 14000 None 0 #
+15 14010 @
+15 15000 None 0 #
+16 15010 @
+16 16000 None 0 #
+17 16010 @
+17 17000 None 0 #
+18 17010 @
+18 18000 None 0 #
+19 18010 @
+19 19000 None 0 #
+20 19010 @
+20 20000 None 0 #
+21 20010 @
+21 21000 None 0 #
+22 21010 @
+22 22000 None 0 #
+23 22010 @
+23 23000 None 0 #
+24 23010 @
+24 24000 None 0 #
+25 24010 @
+25 25000 None 0 #
+26 25010 @
+26 26000 None 0 #
+27 26010 @
+27 27000 None 0 #
+28 27010 @
+28 28000 None 0 #
+29 28010 @
+29 29000 None 0 #
+30 29010 @
+30 30000 None 0 #
+31 30010 @
+31 31000 None 0 #
+32 31010 @
+32 32000 None 0 #
+33 32010 @
+33 33000 None 0 #
+34 33010 @
+34 34000 None 0 #
+35 34010 @
+35 35000 None 0 #
+36 35010 @
+36 36000 None 0 #
+37 36010 @
+37 37000 None 0 #
+38 37010 @
+38 38000 None 0 #
+39 38010 R _var p camp_evil = 11 R _script dialog@r_NinjaKillNpc 1 84 R _item p PID_KEEPBRIGE_ROBE + 1 R _param p ST_KARMA - 52 #
+39 38020 R _var p camp_evil = 11 R _script dialog@r_NinjaKillNpc 1 84 R _script dialog@r_AddMoney 1 84 R _item p PID_FLOWER + 1 R _param p ST_KARMA - 52 #
+39 38030 R _var p camp_evil = 11 R _script dialog@r_NinjaKillNpc 1 84 R _item p PID_14MM_PISTOL + 1 R _param p ST_KARMA - 52 #
+39 38040 R _var p camp_evil = 11 R _script dialog@r_NinjaKillNpc 1 84 R _item p PID_FOOLS_GOLD + 2 R _param p ST_KARMA - 52 #
+39 38050 R _var p camp_evil = 11 R _script dialog@r_NinjaKillNpc 1 84 R _item p PID_GAMMA_GULP_BEER + 24 R _param p ST_KARMA - 52 @
+39 39000 None 0 #
+40 39010 R _param p REPUTATION_LA - 1750 R _param p REPUTATION_HUB - 1750 R _param p REPUTATION_JUNKTOWN - 1750 R _param p REPUTATION_NECROPOLIS - 1750 R _param p REPUTATION_BH_GHOULS - 1750 R _param p REPUTATION_REDDING - 1750 R _param p REPUTATION_GECKO - 1750 R _param p REPUTATION_COURTYARD - 1750 R _param p REPUTATION_MODOC - 1750 R _param p REPUTATION_KLAMATH - 1750 R _param p REPUTATION_CATHEDRAL - 1750 R _param p REPUTATION_ELRONOLOGISTS - 1750 R _param p REPUTATION_CHILDREN - 1750 R _param p REPUTATION_FREE_TRADERS - 1750 R _param p REPUTATION_FOLLOWERS - 1750 R _param p REPUTATION_SCAVENGERS - 1750 R _param p REPUTATION_REGULATORS - 1750 R _param p REPUTATION_COMMUNISTS - 1750 R _param p REPUTATION_NCR_RANGERS - 1750 R _param p REPUTATION_BH_MUTANTS - 1750 R _param p REPUTATION_BH_HUMANS - 1750 R _param p REPUTATION_VAULT_CITY - 1750 R _param p REPUTATION_NCR - 1750 R _param p REPUTATION_UNITY - 1750 R _param p REPUTATION_ENCLAVE - 1750 R _param p REPUTATION_BOS - 1750 R _item p PID_BACKPACK + 1 R _item p PID_VIC_WATER_FLASK + 3 R _item p PID_SUPER_SLEDGE + 1 R _item p PID_ACTIVE_DYNAMITE + 3 R _item p PID_BALL_GAG + 1 R _item p PID_IMPROVED_FLAMETHROWER + 1 R _item p PID_CURED_LEATHER_ARMOR + 1 R _item p PID_POWER_FIST + 1 @
+40 40000 None 0 &
+
+[engl]
+{100}{}{Old Creepy Priest}
+{200}{}{You see an old, creepy Priest.}
+{210}{}{This guy makes you shiver. You don't feel very comfortable being here.}
+{1000}{}{Predialogue installations}
+{1010}{}{1}
+{2000}{}{Praise the Holy Flame! That which gave us life! Which grants us death! Praise it! PRRRAAAAIIISSSEEEE IT!}
+{2010}{}{Know anything about Pip Boys?}
+{2020}{}{You, sir! Are a silly! Now, shut up! And examine this rock for me!}
+{3000}{}{The Holy Flame-- Pip Boys? Of course! Why do you ask?}
+{3010}{}{Someone is trying to kill me. I've got my hands on this here Pip Boy 2.0, and need to crack it open to figure out who it is.}
+{4000}{}{Can I see it? }
+{4010}{}{Sure, here you go. But don't even think about running off with it, or trying anything funny. I'll kill you, I mean it.}
+{5000}{}{Yes, yes, maim and murder. Let's have a look see. [He looks over Captain Stone's PipBoy]}
+{5010}{}{It's a modified Pip Boy. We call it a PipBoy, one word. Has GPS, Radio, Vitals, Map Coordinates, Email, Read/Write open source Apps. All sorts of crap.}
+{6000}{}{Fascinating! I've never seen a model this advanced before! Yes, yes! It's amazing! Whoever designed this was a genius!}
+{6010}{}{It was my Father. }
+{7000}{}{He must have been a great man!}
+{7010}{}{He died a long time ago. Before I was born. I never knew him. But he left my people this... his legacy. Do you know how to open it?}
+{8000}{}{Hmm... you'll need to give me some time. I'll need to head over to my workshop, and have a look inside. If your Father was such a brilliant man, I doubt it would be a simple device to hack into.}
+{8010}{}{That's fine. But how much time will you need?}
+{9000}{}{Hard to say. Why don't you go check your mail over in the Hub, @pname@? [He smiles]}
+{9010}{}{What?! Who are you!}
+{10000}{}{Praise the Holy Flame! That which gave us life! Which grants us death! Praise it! PRRRAAAAIIISSSEEEE IT!}
+{11000}{}{[He seems a little put off by your comment] Uh... okay. Do... you have a reservation?}
+{11010}{}{A what?! For rock examinations?! Well, sir! If I would have known in advance then yes! I would have gotten a reservation! I didn't see a fucking sign when I came in!}
+{12000}{}{[He looks unimpressed and impatient, but slowly points his finger towards the back wall] There! Can you read?! [He points to a sign that reads "Gem appraisal by appointment ONLY!"}
+{12010}{}{What?! This is a faux pas! Since when do churches offer... Nevermind! How do I make an appointment?!}
+{13000}{}{[He judgingly stares you down in silence, but after a few moments says] Today, you're lucky! We don't have any appointments, so I can take you right away! Bring yourself and your rock over here now. Let's have a look.}
+{13010}{}{[Walk over to his office]}
+{14000}{}{[You and the creepy priest spend a few minutes rambling on about the stone before he finally says something of absolute interest!] ... it looks like a Godstone.}
+{14010}{}{What the crap is a Godstone?!}
+{15000}{}{[His expression grows bleaker with each word] Not sure. Some say they come from underground. Some say they come from Hell. Some even say they fell down from the sky! }
+{15010}{}{[Puzzled] Well... what does one do with a "Godstone"?}
+{16000}{}{[The priest is just as lost as you are] I... don't know... I've... never seen one before! It's not the kind of thing you want to advertise! That's for sure! Where... where did you find this?!}
+{16010}{}{I... threw my boot at a talking statue, then killed a couple bankers...}
+{17000}{}{[He seems... confused, and doubtful] A talking statue?! In California? Are-- nevermind. I don't even want to know! I've killed plenty of damn bankers and never ONCE received a fucking *Godstone*!}
+{17010}{}{Yes, well... I had to run over a few puppies to get that baby! It wasn't easy! Hell! I'm wanted all over the wasteland! I haven't slept in days! [Laugh]}
+{18000}{}{[The priest is starting to warm up to you] Heh... wanted all over, eh? You sound like an interesting fellow. Care to join the Church of the Holy Flame?}
+{18010}{}{The church of holy what?}
+{19000}{}{[The priest laughs and smiles] The Children of the Cathedral! You've never heard of us? We're pretty... evil...}
+{19010}{}{EVIL?! Why would *I* a renowned archaeologist want to band together with a bunch of... robbers!}
+{20000}{}{[The priest is starting to show signs of confusion and disconnection... or maybe that's you...] Coming from a guy who murders bankers... that's pretty offensive. We aren't "robbers"! We're... }
+{20010}{}{Yes! Evil! Any one who follows someone aside from myself is absolute trash! Do you have any idea who I am?!}
+{21000}{}{[The priest is barely paying attention now, and is just fiddling with your glimmering gem!] Yes, yes, maim and murder... Will you accept two million caps for this stone? I can pay you almost immediately! No catch! I swear!}
+{21010}{}{Two million caps?! Of course...}
+{22000}{}{[The priest's eyes light up with a bright, bright smile!] Oh, delightful! Just give me a moment to send out the collector...}
+{22010}{}{[You suddenly start shouting as wildly and loudly as humanly possible!] NOT! NOT! NOT! It's *MY* gem! D'you hear me, mister man?! MINE!!! [You slap the bejesus out of the priest!]}
+{23000}{}{[His nose, and some of his face start to bleed!] OWWWWW!! Stop it! Stop it! Help! HELP!! Guards?! GUARDS!!}
+{23010}{}{[Pull out your glimmering gem and give the priest a good whacking!]}
+{24000}{}{[Eventually the guards come rushing to your side and attempt to detain you! But the priest stops them just in time to prevent your death!] You're a madman! I like you! Guards!! Put him down at once! Our new friend here is a valuable member of our community! Blessed he is, with a very... powerful stone! Let us pray! [They form an oddly shaped circle and start to pray in a language that seems long forgotten to you]}
+{24010}{}{[Sit in silence and listen to their prayer]}
+{25000}{}{[You're almost hypnotized by the strange, new ritual. You watch in fascination as the priest, his followers, and the church's guards begin to flail each other! Blood flies everywhere! On the walls, on the ground! On the back pews! Everywhere!]}
+{25010}{}{Now this I like! Can I play too?! [Throw your Godstone at the nearest worshipper!]}
+{26000}{}{[Your Godstone stops in the middle of thin air and begins to fly around the room!]}
+{26010}{}{Ohhhh!! That's new! }
+{27000}{}{[It's spinning faster and faster! Violently going in circles! The rest of the room does not notice, as they are too busy flailing off the flesh of the backs of their friends]}
+{27010}{}{I wonder how this is going to turn out? [Smile]}
+{28000}{}{[Eventually one of the worshippers succumbs to his wounds, and dies! Your Godstone makes its way towards the body and begins to... enter it... or so it seems!]}
+{28010}{}{Hey! Stupid rock! Don't go far, damnit! You're worth a fortune to these assholes! }
+{29000}{}{[The stone stretches the body open until the flesh covers the entire building! You are sucked into its gaping vaccum and lose consciousness!]}
+{29010}{}{Huh... ugh... zzzzzzzz...}
+{30000}{}{[Some time later, you are awoken by a strange mist. You are lying inside a dark, hollow room. All around you, you can see big, large, endless openings of darkness and space! The mysterious shades of colour and sound stretch out as far as the eye can see! Never once stopping to make any sense of it all!]}
+{30010}{}{[Hear a proud voice, dark, and loud echo out!]}
+{31000}{}{[A shrouded figure sprawls itself across the horizon of time and space! Stretching its body to encase the entire area! It soon attempts to form an almost recognizable form and begins to speak!]}
+{31010}{}{Oh... YOU again? What is it this time?}
+{32000}{}{[A very frightening face forms from the shadows] @pname@... you... have... something... that... does... not... belong... to... you! Something... worth... more... than... gold...}
+{32010}{}{Yeah, no shit, bud! It's a motherfuckin' Godstone! How the fuck did you retards manage to let THAT get away from your... supernatural paradise? Hmmm? Methinks that you aren't as bright as you think you are... Hmm?}
+{33000}{}{ENOUGH! [Screams the figure] The time for games is OVER! You will deliver the Godstone to where it is meant to go! WITHOUT DELAY!}
+{33010}{}{And where exactly is it supposed to go?}
+{34000}{}{INSIDE YOUR MIND! [Echoes the voice] YOU ARE TO WEAR IT! FOREVER! RELEASE YOUR INNER WORKINGS! EXPOSE THE FLESH TO THE CORE! RELEASE YOUR SPIRIT!}
+{34010}{}{[Stare at the floating Godstone in awe and disillusionment]}
+{35000}{}{[Part of you thinks that you understand what the strange voice is trying to say, but the other part of you thinks that it's full of fucking shit!]}
+{35010}{}{So... what is this? A suppository? Cause... I'm not--}
+{36000}{}{[You can hear painful high pitched screaming coming from all directions! Blaring down on your mind like it's some kind of weak sponge, about to drown in its own inability to process what's happening to it!]}
+{36010}{}{Holy fuck nuts! Okay! Okay! I get it, okay?! I know where it has to go! Geezsus! Just... stop with the damn screaming already! Fuck! You're giving me a massive headache!}
+{37000}{}{[The void seems pleased, almost satisfied that you understand. It releases you from its grasp, and returns you to your world]}
+{37010}{}{I guess I know what's going to happen next... Better get out of here, and find somewhere to hunker down!}
+{38000}{}{[The priest looks half dead, or sleeping. He doesn't even notice you beginning to walk away] Holy... flame... holy... flame... holy... flame... holy...}
+{38010}{}{[Take his robes, and leave]}
+{38020}{}{[Take his money, and leave]}
+{38030}{}{[Take his gun, and leave]}
+{38040}{}{[Take nothing, and leave]}
+{38050}{}{[Take EVERYTHING, and leave!]}
+{39000}{}{... praise it... praise it... praise it... praise...}
+{39010}{}{Huh... well... I'm pretty damn crazy. Better tune in next time for more "Hello! Where is my mind?". Me and Muttley'll figure it out! Ain't that right, boy?}
+{40000}{}{... praise it... praise it... praise it... praise...}
+

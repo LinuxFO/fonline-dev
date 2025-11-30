@@ -1,0 +1,80 @@
+[comment]
+
+
+[data]
+lang=engl
+
+[dialog]
+&
+1 1000 None 0 #
+2 1010 @
+2 2000 None 0 #
+3 2010 #
+8 2020 D _param p ST_LEVEL > 11 D _var p z_citybounties = 0 #
+7 2030 D _param p ST_LEVEL < 11 D _var p z_citybounties = 0 #
+14 2040 D _var p z_citybounties = 2 R _var p z_citybounties = 3 R _script quest_citybounties@r_DeleteLoc 0  R _param p ST_EXPERIENCE + 5000 R _script dialog@r_AddMoney 1 2500 R _script dialog@r_PlaySoundDice 1 1 R _script dialog@r_AddLootSetLevel3 0  R _script dialog@r_AddLootSetLevel3 0  R _script dialog@r_AddLootSetLevel3 0  #
+9 2050 D _var p z_citybounties = 3 #
+11 2060 @
+3 3000 None 0 #
+4 3010 @
+4 4000 None 0 #
+5 4010 @
+5 5000 None 0 #
+6 5010 @
+6 6000 None 0 @
+7 7000 None 0 #
+0 7010 @
+8 8000 None 0 #
+9 8010 @
+9 9000 None 0 #
+10 9010 @
+10 10000 None 0 #
+10 10010 #
+12 10020 #
+11 10030 @
+11 11000 None 0 @
+12 12000 None 0 #
+13 12010 R _var p z_citybounties = 1 R _script quest_citybounties@r_SpawnLoc 0  @
+13 13000 None 0 @
+14 14000 None 0 #
+9 14010 #
+11 14020 &
+
+[engl]
+{100}{}{Fugitive Recovery Services}
+{200}{}{You see an agent for the FRS.}
+{210}{}{The Fugitive Recovery Service is DayGlow's premium Bounty Hunting service. No matter the danger, or the extreme, the FRS can guarantee capture eventually.}
+{1000}{}{Predialogue installations}
+{1010}{}{Answer text}
+{2000}{}{Yeah? Welcome to the FRS. Sorry, we're full up on bounties and can't take any more. But if you're interested in meaningful employment we do have the openings.}
+{2010}{}{The FRS?}
+{2020}{}{I'm interested in taking on a bounty.}
+{2030}{}{I'm interested in taking on a bounty.}
+{2040}{}{Fugitive eliminated, sir. You can scratch another bounty off your list.}
+{2050}{}{I'm ready for another bounty, boss. Let's see the board.}
+{2060}{}{Thanks. But I've got to go.}
+{3000}{}{Fugitive Recovery Services. You've never heard of us? We're California's only premium Bounty Hunting service. We can guarantee apprehension... eventually. Been doing this for about eight years now. Never lost a suspect.}
+{3010}{}{Are you hiring?}
+{4000}{}{We're always hiring if you've got the experience, the weapons, and the skill. Just remember that the people you'll be hunting out there are extremely skilled and dangerous as well. They won't go easy. Hell, most of the time it's a fight to the death to arrest them.}
+{4010}{}{Do you expect your Bounty Hunters to take each criminal in alive?}
+{5000}{}{Alive?! You're joking, right? Ain't nobody taking any of these diehard criminals in alive! Client wants the heads, they want these people dead! Not alive. No exceptions. Not ever.}
+{5010}{}{Geez. Hope nobody ever puts a bounty on my head.}
+{6000}{}{Well, stay out of trouble, play your cards right, and you should be fine.}
+{7000}{}{You? You won't survive out there! Come back when you're a little tougher! [Level 12+ Required]}
+{7010}{}{Fine.}
+{8000}{}{Oh yeah?! That I'm glad to hear! I've lost fifteen hunters this week! It's getting harder, and harder to keep up with the demand. Seems like everybody lately is just interested in making enemies out there, and paying in blood.}
+{8010}{}{Well, you can count on me. Let's see the list of available bounties...}
+{9000}{}{Let's go through the board, and you can take your pick.}
+{9010}{}{[Browse Bounties]}
+{10000}{}{Got an experienced Raider that needs a good killing. Are you ready to accept the bounty?@@Looks like there's an ex Police Officer from the Hub out there that went A.W.O.L. I'll need you to take him down. If you're willing to accept the bounty?@@Damn shame, there's a woman out there that's been killing all of her boyfriends. Guess it's time for you to return the favour... Are you willing to accept this bounty?@@Typical scum bag. Nothing too special, just another degenerate. Are you willing to accept this bounty?@@Got another hardened criminal ready for a beat down, nothing special. Just another dangerous thug. Are you willing to accept the bounty?@@Some renegade Vault Dweller is out there just killing up a storm. I'm assigning you the task of putting him into the ground. Are you willing to accept the bounty?}
+{10010}{}{Hmm, anything else?}
+{10020}{}{Yes. Let's begin.}
+{10030}{}{No, not yet. I'll be back later.}
+{11000}{}{I've always got bounties. Come back any time.}
+{12000}{}{Great! I've marked their last known location on your map. You should get there soon. I don't think they plan on sticking around that place more than an hour. Good luck.}
+{12010}{}{[Head out into the wasteland]}
+{13000}{}{Go get 'em, tiger!}
+{14000}{}{Excellent! Job well done, sport! Here's you payment, and a little extra for your troubles. You ready to take on another bounty?}
+{14010}{}{Sure. Let's see the board.}
+{14020}{}{Not yet. Maybe later.}
+

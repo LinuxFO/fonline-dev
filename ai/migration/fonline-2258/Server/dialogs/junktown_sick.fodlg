@@ -1,0 +1,126 @@
+[comment]
+Random Towny in Junktown who needs some Antidote to cure his kid.
+
+You can give him one of the antidotes you can get from the radscorpion egg quest.
+
+Gets you 225xp 
+
+[data]
+lang=engl russ
+
+[dialog]
+&
+1 1000 None 0 #
+5 1010 D _var p name_mem_player_npc = 1 #
+7 1020 D _var p name_mem_player_npc = 0 D _param p ST_INTELLECT } 3 #
+3 1030 D _param p ST_INTELLECT < 3 D _var p name_mem_player_npc = 0 @
+3 2000 None 0 #
+5 2010 D _item p PID_ANTIDOTE > 0 R _var p name_mem_player_npc = 1 R _script dialog@r_AddExperience 1 225 R _item p PID_ANTIDOTE - 1 #
+6 2020 @
+2 3000 None 0 #
+5 3010 D _item p PID_ANTIDOTE > 0 R _var p name_mem_player_npc = 1 R _item p PID_ANTIDOTE - 1 R _param p ST_KARMA + 1 R _param p REPUTATION_JUNKTOWN + 50 R _script dialog@r_AddExperience 1 1000 #
+6 3020 D _item p PID_ANTIDOTE > 0 #
+0 3030 @
+5 4000 None 0 @
+6 5000 None 0 @
+7 6000 None 0 #
+8 6010 D _param p ST_ENDURANCE > 7 #
+8 6020 #
+8 6030 #
+8 6040 D _param p ST_PERCEPTION > 5 #
+0 6050 @
+8 7000 None 0 #
+6 7010 #
+2 7020 #
+2 7030 #
+2 7040 #
+2 7050 #
+6 7060 #
+0 7070 &
+
+[engl]
+{100}{}{Darion}
+{200}{}{You see what appears to be a sad, single father.}
+{210}{}{He looks depressed, almost as if he recently lost a wife, or someone fairly close to him. You can't help but wonder if he could use some help.}
+{1000}{}{Predialogue installations}
+{1010}{}{known}
+{1020}{}{notknown}
+{1030}{}{dumb}
+{2000}{}{Who the hell are you, and what are you doing here?! Come any closer and I'll shoot! Oh, who am I kidding?! I sold all of my fucking bullets trying to buy medicine for my son, but I dropped it all on the way back here! My son is screwed! It's so hopeless! Oh God! Please! You have to help me! I can't pay you, but you have to find it in your heart to help me! Ever since my Wife died of Cancer I haven't been able to keep up with the bills, and my son is dying. It gets worse everyday, but I figure all I really need is one more bottle of Antidote, I just wish I could afford it! Can you help me, please? It's for my son.}
+{2010}{}{Okay, me give you magic potion. You save little Billy. }
+{2020}{}{Haha, your son die.}
+{3000}{}{Please! You have to help me! I can't pay you, but you have to find it in your heart to help me! Ever since my wife died of cancer I haven't been able to keep up with the bills, and now my son is dying. It gets worse everyday! But I figure all I really need is one more bottle of Antidote, I just wish I could afford it! Can you help me, please? It's for my son.}
+{3010}{}{Of course! Here you go, give it to him immediately. }
+{3020}{}{That's too bad there, stranger. I have this here Antidote but I won't be giving it to you. Looks like little Billy's going to die tonight, sorry.}
+{3030}{}{No, sorry, I wish I could help. I'll come back. }
+{4000}{}{@@Thank you! You really were sent from Heaven weren't you?@@Thank you so much! You must not have a single bad bone in your body, to have helped me the way you did!@@Look son! It's the nice man that help save your life! What do you say? We both say thanks! Take care of yourself out there.@@You're the nicest person in this whole damn wasteland, thank you!}
+{5000}{}{You sick son of a bitch! If I ever see you again, I'll kill you!}
+{6000}{}{Who the hell are you, and what are you doing here?! Come any closer and I'll shoot!}
+{6010}{}{Hah! Do you really bullets are enough to stop ME?!}
+{6020}{}{Whoa! Don't shoot! I'm friendly!}
+{6030}{}{Try it, and you'll be dead before you hit the floor!}
+{6040}{}{Your gun isn't even loaded, old man!}
+{6050}{}{[Run away]}
+{7000}{}{Oh, who am I kidding?! I sold all of my fucking bullets trying to buy medicine for my son, but I dropped it all on the way back here! My son is screwed! It's so hopeless! Oh God! }
+{7010}{}{Don't worry, I'll make sure you and little Billy meet up in Heaven.}
+{7020}{}{What's so helpless? Maybe I can help?}
+{7030}{}{It's not helpless you old coot! Let me help you.}
+{7040}{}{Just spit it out already! What's your problem?}
+{7050}{}{You're lucky I've got time for this!}
+{7060}{}{Oh god! This is the funniest thing I've heard all week! Fuck your son, I'm outta here. }
+{7070}{}{Well, good luck with this. Goodbye.}
+{100000001}{}{Better wash the counter again...}
+{100000002}{}{That's 5 caps buddy. Hey did you hear me? Cough em' up.}
+{100000003}{}{Better change the keg...}
+{100000004}{}{RotGut? You drink that shit?}
+{100000005}{}{Domestic? I got B.E.E.R buddy, do you want one or not?}
+{100000006}{}{Fuckin' dust is getting everywhere. Hey close the fuckin' door!}
+{100000007}{}{I swear if the next asshole doesn't tip. Ima' shoot somebody!}
+{100000008}{}{I got bottles, I got shots, and I got a bat behind the counter for the retards. Your not a retard are you?}
+{100000009}{}{Uh-huh, yeah that's nice buddy. You don't say...What? Of course I'm listening...}
+{100000010}{}{That's 5 caps. FIVE CAPS Tribal! F.I.V.E! }
+{100000011}{}{Shut up and order a fuckin' beer already!}
+{100000012}{}{I swear if I have to serve another drunk, I'm getting the shotgun!}
+{100000013}{}{Look the keg went dry, and it's going to be another month until the caravan shows up again.}
+{100000014}{}{Really? You don't say, buy another drink or get out!}
+{100000015}{}{What? I'm on break.}
+{100000016}{}{Be right with ya'}
+{100000017}{}{Have a sit stranger. I'll be with you in a moment.}
+{100000018}{}{When do we close? Uh, when the place get's shot up, that's when!}
+{100000019}{}{We're fresh outta' cold beer, sorry. You'll just have to drink it warm.}
+{100000020}{}{RotGut? No man, go make that shit yourself! I wouldn't drink it!}
+
+[russ]
+{100}{}{Алкоголик}
+{200}{}{Вы видите пьяницу.}
+{210}{}{Вы видите шатающегося из стороны в сторону пьяного человека в лохмотьях. Лицо его распухло, нос синющий как слива. А аромат рядом с ним такой, что свалит брамина насмерть. Он что-то бормочет про себя и иногда громко поет песни.}
+{210}{}{Вы видите алкаша. Он весьма грязен - кажется, он повалялся в луже, но не особо этим расстроен.}
+{1000}{}{I?aaaeaeiaiaua onoaiiaee}
+{1010}{}{Answer text}
+{1020}{}{notknown}
+{1030}{}{dumb}
+{2000}{}{Welcome to... Junktown...Stranger? Are you okay? You look pretty bad... We've got a doctor that can help you.}
+{2010}{}{Me think that is okay, enjoy the boobies.}
+{2020}{}{Mine! My boobies!}
+{3000}{}{(The man releases a pathetic *Sigh*, when suddenly his eyes light up) Holy crap! A Cats Paw magazine! Can... Can I have it?! Please! I can't pay you, but I'll be ever so grateful! Please! I... I just need something to hold onto! Please!}
+{3010}{}{I can clearly see that this isn't the book that you deserve, but it's the one that you needed. Here ya' go, enjoy!  }
+{3020}{}{I'd rather keep it, thank you. Looks like you'll just have to use your imagination, sorry. }
+{3030}{}{Fuck off, it's my porn!}
+{4000}{}{@@I'm so lonely!@@Oh, God!@@*Sob*@@*Wimper*@@*Cries*@@I wish I had a Cats Paw magazine!@@}
+{5000}{}{You bastard! I'm so lonely! Oh God! Why?!}
+{6000}{}{Who the hell are you, and what are you doing here?! Come any closer and I'll shoot!}
+{6010}{}{Hah! Do you really think a single bullet is enough to stop me?}
+{6020}{}{Whoa! Don't shoot! I'm friendly!}
+{6030}{}{Try it, and you'l be dead before you hit the ground!}
+{6040}{}{Your gun isn't even loaded, old man!}
+{6050}{}{[Run away]}
+{7000}{}{Please! You have to help me! I can't pay you, but you have to find it in your heart to help me! Ever since my Wife died of Cancer I haven't been able to keep up with the bills, and my son is dying. It get's worse everyday, but I figure all I really need is one more bottle of Antidote, I just wish I could afford it! Can you help me, please? It's for my son.
+}
+{7010}{}{Don't worry, I'll make sure you and little Billy meet up in Heaven.}
+{7020}{}{What's so helpless? Maybe I can help?}
+{7030}{}{It's not helpless you old coot! Let me help you.}
+{7040}{}{Just spit it out already! What's your problem?}
+{7050}{}{You're lucky I've got time for this!}
+{7060}{}{Oh god! This is the funniest thing I've heard all week! Fuck you son, I'm outta here. }
+{7070}{}{Well, good luck with this. Goodbye.}
+

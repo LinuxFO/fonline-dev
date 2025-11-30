@@ -1,0 +1,64 @@
+[comment]
+
+
+[data]
+lang=engl
+
+[dialog]
+&
+1 1000 None 0 #
+2 1010 D _param p ST_KARMA } 25 D _var p name_mem_npc_player = 0 #
+3 1020 D _param p ST_KARMA { 25 D _var p name_mem_npc_player = 0 #
+9 1030 D _var p name_mem_npc_player = 1 @
+2 2000 None 0 @
+3 3000 None 0 #
+4 3010 D _var p q_fami = 0 @
+4 4000 None 0 #
+5 4010 #
+65507 4020 #
+0 4030 @
+5 5000 None 0 #
+6 5010 @
+6 6000 None 0 #
+7 6010 @
+7 7000 None 0 #
+8 7010 @
+8 8000 None 0 #
+11 8010 D _var p q_fami = 0 R _var p q_fami = 1 R _script quest_fami@r_SpawnLoc 0  R _var p name_mem_npc_player = 1 R _param p ST_KARMA - 10 #
+0 8020 @
+9 9000 None 0 #
+10 9010 D _var p q_fami = 2 R _script quest_fami@r_DeleteLoc 0  R _var p q_fami = 3 R _param p ST_KARMA - 25 R _script dialog@r_AddExperience 1 3000 R _script dialog@r_AddMoney 1 3000 R _param p REPUTATION_LA - 300 R _param p REPUTATION_HUB - 300 R _param p REPUTATION_JUNKTOWN - 300 R _param p REPUTATION_NCR - 300 R _param p REPUTATION_NCR_RANGERS - 300 R _param p REPUTATION_HUB_CRIMINALS + 300 R _param p REPUTATION_FOLLOWERS - 300 R _param p REPUTATION_SCAVENGERS - 300 R _param p REPUTATION_REGULATORS - 300 R _param p REPUTATION_SLAGS - 300 R _item p PID_FLAMER + 1 R _item p PID_IGUANA_ON_A_STICK + 1 R _var p CRIM + 1 R _script dialog@r_AddLootSetLevel2 0  #
+0 9020 @
+10 10000 None 0 @
+11 11000 None 0 &
+
+[engl]
+{100}{}{Dejerick}
+{200}{}{You see a wicked looking man.}
+{210}{}{Dastardly even. How crude. Thought this town was full of good people.}
+{1000}{}{Predialogue installations}
+{1010}{}{Answer text}
+{1020}{}{2}
+{1030}{}{3}
+{2000}{}{Will you fuck the right off?@@Whoa! Get out of my house.@@Jesus! What is this shit?!@@Get lost!@@Fuck, you want me to call the shotgun squad over?@@The door's right behind you.@@Goddamn hippies.@@Why don't you go vault the fuck out of here?@@Should tare that goddamn statue down, and all you people with it.@@Bombs should have killed you all.@@Goddamn, you're making this place look like shit.@@It got way too bright in here all of a sudden.}
+{3000}{}{You! You walk in here like you own the place. Sorry, let me give you my chair, wipe your ass, and suck your @sex@|dick.||tits.|}
+{3010}{}{Fuck your chair.}
+{4000}{}{What'd'ya want?}
+{4010}{}{To get my hands dirty.}
+{4020}{}{Why don't you start sucking my genitals, smart ass?}
+{4030}{}{From you? Nothing.}
+{5000}{}{Fuck off, go beat it.}
+{5010}{}{What crawled up your ass? You want trouble? Cause I'm chalked full of it.}
+{6000}{}{Man, some dick's been pushing his problems on me. Something about some custody shit, I don't know. I fucked his wife, now he wants money.}
+{6010}{}{So what? Your dick gets you in trouble, and you're mad about it? Fucking loser.}
+{7000}{}{Go get stiff, ya' fucking baffoon. I'm done with that bitch, and her saggy tits. You like money, home bitch? Why don't you go make some, by killing these fucks for me.}
+{7010}{}{What's in it for me? You actually got some fucking money?}
+{8000}{}{Yeah, I got fucking money, Bitch, her husband, two kids, and some cop are waiting for me outside of town. Why don't you show up instead? Fucking kill them.}
+{8010}{}{Hell yeah, give me the location.}
+{8020}{}{Fuck that! Go murder your own children, you piece of shit.}
+{9000}{}{Fuck face. Been fucking lately?}
+{9010}{}{Killed them all. Oh, man, what a rush!}
+{9020}{}{Don't piss yourself waiting.}
+{10000}{}{Yeah, good. Don't ever talk to me again. Here's some money.}
+{11000}{}{Make em' die.}
+

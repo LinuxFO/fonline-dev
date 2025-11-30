@@ -1,0 +1,76 @@
+[comment]
+
+
+[data]
+lang=engl
+
+[dialog]
+&
+1 1000 None 0 #
+2 1010 D _var p name_mem_npc_player = 0 #
+16 1020 D _var p name_mem_npc_player = 1 @
+2 2000 None 0 #
+3 2010 D _var p q_adventure = 17 @
+3 3000 None 0 #
+4 3010 @
+4 4000 None 0 #
+5 4010 @
+5 5000 None 0 #
+6 5010 @
+6 6000 None 0 #
+7 6010 @
+7 7000 None 0 #
+8 7010 @
+8 8000 None 0 #
+9 8010 @
+9 9000 None 0 #
+10 9010 @
+10 10000 None 0 #
+11 10010 @
+11 11000 None 0 #
+12 11010 @
+12 12000 None 0 #
+13 12010 @
+13 13000 None 0 #
+14 13010 @
+14 14000 None 0 #
+15 14010 R _var p q_adventure = 18 R _var p name_mem_npc_player = 1 R _script dialog@r_AddExperience 1 2500 R _item p PID_44_MAGNUM_REVOLVER + 1 R _script quest_advent3@r_DeleteLoc 0  @
+15 15000 None 0 @
+16 16000 None 0 &
+
+[engl]
+{100}{}{Mysterious Stranger}
+{200}{}{You see a Mysterious Stranger.}
+{210}{}{What's this guy all about? What's with the suit?}
+{1000}{}{Predialogue installations}
+{1010}{}{1}
+{1020}{}{2}
+{2000}{}{This place ain't for you, kid. Beat it. Don't make this get ugly.}
+{2010}{}{[Say nothing. and stare the man down]}
+{3000}{}{What? You wanna make out, @sex@|faggot?||dyke?| [He pulls out his .44 Magnum] Or you want something to suck on?}
+{3010}{}{[Put one foot forward, grab his gun with both hands, twist towards the opening between his index finger and thumb, and disarm the man]}
+{4000}{}{You...!}
+{4010}{}{[Put the gun to his head] @pname@. I'm @pname@. The same @pname@ you hired my cousin to kill. Any last words?}
+{5000}{}{Don't shoot me! Don't shoot me! Please! I... I... I'm sorry! Boys! [He mentions to his men] Back off! Back off, okay! I can... I can handle this! Don't worry...}
+{5010}{}{Why did you try to kill me!}
+{6000}{}{We...! I... just wanted your PipBoy! That's all! I didn't think you would just give it up!}
+{6010}{}{You got that right! I love this thing! What the hell did you want it for?!}
+{7000}{}{I just want the Vault City access codes! You got in somehow! I need to know how! You must have Lynette's goddamn user name and password, don't you? Or a backdoor?}
+{7010}{}{Yeah... something like that. What's it to you? }
+{8000}{}{Listen! My boys can cut you in half right now if I let them! Just... just give me the information... and I'll... I'll leave you alone forever! I swear!}
+{8010}{}{Bullshit! [Shoot one of his men in the chest!]}
+{9000}{}{[Your bullet strikes one of the Mysterious Stranger's guards and ricochets off their armor. The Mysterious Stranger screams!] No, no, no! I'm telling you the truth! Look! Someone big hired me to try to kill you, but I was just in it for the Vault City login information! I... I was suckered into the job... I didn't think... I'm sorry, okay! But I'm telling you the truth!}
+{9010}{}{Who hired you?!}
+{10000}{}{[He seems hesistant to answer]}
+{10010}{}{Nothing is stopping me from killing you, and everyone else inside of this entire building! You can either tell me what I want to know, or I'll just start questioning the fucking bodies!}
+{11000}{}{Jesus! You're crazy! I don't know who! Some guy in black armor! He came out of nowhere, and promised me access to the Vault City database! I don't have a name or anything! He just said to find a vault dweller named @pname@! He said everything I wanted would be inside your PipBoy! That's all! I'm just a professional! It was just a job!}
+{11010}{}{Professional?! You call yourself a professional? Don't make me laugh! You're pathetic! Killing innocent travellers for money!}
+{12000}{}{You think you're a fucking saint, or something?! You never killed nobody for money? Or a job?!}
+{12010}{}{[Clench your fist in rage]}
+{13000}{}{Like you're any better! Get out of here, okay?! You've got what you wanted! Just... please leave!}
+{13010}{}{[Lower your gun, and say] War never changes. But that doesn't mean we have to let it destroy us. Here's the access codes to Vault City's mainframe. [Export the codes into a Quiko-Mini Holotape. Standard with every Vault 24 PipBoy. And give it to the man]}
+{14000}{}{Wha-- Wow! Thanks, @pname@... I should have just asked you for it in the first place... I bet you would have sold it to me... Damn... thanks... you sure are something.}
+{14010}{}{Goodbye, stranger. I hope this is over.}
+{15000}{}{It is. Trust me.}
+{16000}{}{@pname@. How do you do? Still a badass, I see.}
+

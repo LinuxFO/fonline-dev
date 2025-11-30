@@ -1,0 +1,549 @@
+[comment]
+
+
+[data]
+lang=engl
+
+[dialog]
+&
+1 1000 None 0 #
+2 1010 D _script follower@d_IsOwner 1 1 D _var n z_folset = 1 R _script follower@r_SetFaction 0  #
+35 1020 D _script follower@d_IsOwner 1 1 D _var n z_folset = 0 R _script follower@r_SetFaction 0  #
+10 1030 @
+2 2000 follower@dlg_ShowLoyality 0 #
+6 2010 D _script follower@d_IsNotMode 1 2 D _script follower@d_CanStay 0  R _script follower@r_FollowMode 1 2 #
+5 2020 D _script follower@d_IsNotMode 1 0 D _script follower@d_CanLeadMoreFollowers 0  D _script follower@d_IsNotMode 1 1 R _script follower@r_FollowMode 1 0 #
+7 2030 R _script npc_common@r_MoveRandom 1 0 #
+3 2040 #
+4 2050 #
+18 2060 #
+17 2070 #
+20 2080 #
+2 2090 R _script follower@r_TellWeaponSkill 0  #
+7 2100 R _script follower@r_ArmBestWeapon 0  #
+7 2110 R _script follower@r_PutDownWeapon 0  #
+0 2120 R _script follower@r_DropAllItems 0  #
+23 2130 #
+27 2140 #
+65506 2150 #
+110 2160 #
+200 2170 #
+0 2180 @
+3 3000 None 0 #
+2 3010 R _script follower@r_Distance 1 0 #
+2 3020 R _script follower@r_Distance 1 1 #
+2 3030 R _script follower@r_Distance 1 2 @
+4 4000 None 0 #
+2 4010 R _script follower@r_AttackPolicy 1 0 #
+2 4020 R _script follower@r_AttackPolicy 1 7 #
+2 4030 R _script follower@r_AttackPolicy 1 6 #
+2 4040 D _param p ST_STRENGTH > 99 R _script follower@r_AttackPolicy 1 2 #
+2 4050 D _param p ST_STRENGTH > 99 R _script follower@r_AttackPolicy 1 3 #
+2 4060 D _param p ST_STRENGTH > 99 R _script follower@r_AttackPolicy 1 4 #
+2 4070 D _param p ST_STRENGTH > 99 R _script follower@r_AttackPolicy 1 5 @
+5 5000 None 0 #
+0 5010 @
+6 6000 None 0 #
+0 6010 @
+7 7000 None 0 @
+8 8000 None 0 @
+10 9000 None 0 #
+24 9010 D _var n z_folss > 0 #
+31 9020 #
+32 9030 #
+0 9040 @
+11 10000 None 0 #
+2 10010 @
+12 11000 None 0 #
+2 11010 @
+13 12000 None 0 #
+2 12010 @
+14 13000 None 0 #
+2 13010 @
+15 14000 None 0 #
+2 14010 @
+16 15000 None 0 #
+2 15010 @
+17 16000 None 0 #
+2 16010 D _script follower@d_IsSpawnPlaceAvailable 1 1 R _script follower@r_SetSpawnPlace 1 1 #
+2 16020 D _script follower@d_IsSpawnPlaceAvailable 1 2 D _param p ST_STRENGTH > 99 R _script follower@r_SetSpawnPlace 1 2 #
+19 16030 D _script follower@d_IsSpawnPlaceAvailable 1 3 D _param p ST_STRENGTH > 99 R _script follower@r_SetSpawnPlace 1 3 #
+2 16040 @
+18 17000 None 0 #
+22 17010 #
+2 17020 R _script follower@r_RemoveArmor 0  #
+2 17030 D _item n PID_PURPLE_ROBE > 0 R _script follower@r_SetArmor 1 113 #
+2 17040 D _item n PID_SAND_ROBE > 0 R _script follower@r_SetArmor 1 750 #
+2 17050 D _item n PID_KEEPBRIGE_ROBE > 0 R _script follower@r_SetArmor 1 524 #
+2 17060 D _item n PID_LEATHER_JACKET > 0 R _script follower@r_SetArmor 1 74 #
+2 17070 D _item n PID_LEATHER_ARMOR > 0 R _script follower@r_SetArmor 1 1 #
+2 17080 D _item n PID_LEATHER_ARMOR_MK_II > 0 R _script follower@r_SetArmor 1 379 #
+2 17090 D _item n PID_CURED_LEATHER_ARMOR > 0 R _script follower@r_SetArmor 1 265 #
+2 17100 D _item n PID_METAL_ARMOR > 0 R _script follower@r_SetArmor 1 2 #
+2 17110 D _item n PID_METAL_ARMOR_MK_II > 0 R _script follower@r_SetArmor 1 380 #
+2 17120 D _item n PID_TESLA_ARMOR > 0 R _script follower@r_SetArmor 1 240 #
+2 17130 D _item n PID_COMBAT_ARMOR > 0 R _script follower@r_SetArmor 1 17 #
+2 17140 D _item n PID_COMBAT_ARMOR_MK_II > 0 R _script follower@r_SetArmor 1 381 #
+2 17150 D _item n PID_NCR_ARMOR > 0 R _script follower@r_SetArmor 1 9654 #
+2 17160 D _item n PID_BROTHERHOOD_COMBAT_ARMOR > 0 R _script follower@r_SetArmor 1 239 #
+2 17170 D _item n PID_ENCLAVE_COMBAT_ARMOR > 0 R _script follower@r_SetArmor 1 752 #
+2 17180 D _item n PID_DESERT_COMBAT_ARMOR > 0 R _script follower@r_SetArmor 1 778 #
+2 17190 D _item n PID_BLACK_ROBE > 0 R _script follower@r_SetArmor 1 780 #
+2 17200 D _item n PID_POWERED_ARMOR > 0 R _script follower@r_SetArmor 1 3 #
+2 17210 D _item n PID_HARDENED_POWER_ARMOR > 0 R _script follower@r_SetArmor 1 232 #
+2 17220 D _item n PID_ADVANCED_POWER_ARMOR > 0 R _script follower@r_SetArmor 1 348 #
+2 17230 D _item n PID_ADVANCED_POWER_ARMOR_MK2 > 0 R _script follower@r_SetArmor 1 349 #
+2 17240 @
+19 18000 follower@dlg_ChooseBase 0 #
+2 18010 @
+20 19000 None 0 #
+21 19010 D _item p PID_NUKA_COLA > 0 R _script follower@r_IncreaseLoyality 2 1 2 R _item p PID_NUKA_COLA - 1 #
+21 19020 D _item p PID_BEER > 0 R _script follower@r_IncreaseLoyality 2 1 2 R _item p PID_BEER - 1 #
+21 19030 D _item p PID_COOKIE > 0 R _script follower@r_IncreaseLoyality 2 1 2 R _item p PID_COOKIE - 1 #
+21 19040 D _item p PID_IGUANA_ON_A_STICK > 0 R _script follower@r_IncreaseLoyality 2 1 2 R _item p PID_IGUANA_ON_A_STICK - 1 #
+21 19050 D _item p PID_BOOZE > 0 R _script follower@r_IncreaseLoyality 2 1 2 R _item p PID_BOOZE - 1 @
+21 20000 None 0 #
+20 20010 #
+2 20020 @
+22 21000 None 0 #
+18 21010 #
+2 21020 R _script follower@r_RemoveHelmet 0  #
+2 21030 D _item n PID_LEATHER_JACKET_HELMET > 0 R _script follower@r_SetHelmet 1 728 #
+2 21040 D _item n PID_COMBAT_LEATHER_JACKET_HELMET > 0 R _script follower@r_SetHelmet 1 729 #
+2 21050 D _item n PID_LEATHER_ARMOR_HELMET > 0 R _script follower@r_SetHelmet 1 730 #
+2 21060 D _item n PID_LEATHER_ARMOR_HELMET_MK2 > 0 R _script follower@r_SetHelmet 1 731 #
+2 21070 D _item n PID_METAL_HELMET > 0 R _script follower@r_SetHelmet 1 732 #
+2 21080 D _item n PID_METAL_HELMET_MK2 > 0 R _script follower@r_SetHelmet 1 733 #
+2 21090 D _item n PID_TESLA_HELMET > 0 R _script follower@r_SetHelmet 1 734 #
+2 21100 D _item n PID_COMBAT_HELMET > 0 R _script follower@r_SetHelmet 1 725 #
+2 21110 D _item n PID_COMBAT_HELMET_MK_II > 0 R _script follower@r_SetHelmet 1 726 #
+2 21120 D _item n PID_BROTHERHOOD_HELMET > 0 R _script follower@r_SetHelmet 1 727 #
+2 21130 D _item n PID_ENCLAVE_COMBAT_HELMET > 0 R _script follower@r_SetHelmet 1 738 #
+2 21140 D _item n PID_DESERT_COMBAT_HELMET > 0 R _script follower@r_SetHelmet 1 740 #
+2 21150 D _item n PID_NCR_HELMET > 0 R _script follower@r_SetHelmet 1 741 #
+2 21160 D _item n PID_HARDENED_POWER_HELMET > 0 R _script follower@r_SetHelmet 1 737 #
+2 21170 D _item n PID_APA_HELMET > 0 R _script follower@r_SetHelmet 1 735 #
+2 21180 D _item n PID_APA_HELMET_MK2 > 0 R _script follower@r_SetHelmet 1 736 #
+2 21190 @
+23 22000 follower@dlg_GiveFollower 0 #
+0 22010 @
+100 23000 None 0 @
+110 24000 follower@dlg_ShowStats 0 #
+2 24010 #
+34 24020 D _param n ST_MAX_LIFE < 336 D _item p PID_MR_NIXON_DOLL > 49 D _param n ST_LEVEL > 1 R _param n ST_MAX_LIFE + 50 R _item p PID_MR_NIXON_DOLL - 50 #
+33 24030 D _item p PID_MR_NIXON_DOLL > 9 D _param n ST_LEVEL > 1 R _item p PID_MR_NIXON_DOLL - 10 R _param n SK_SMALL_GUNS = 300 R _param n SK_BIG_GUNS = 200 R _param n SK_UNARMED = 200 R _param n SK_ENERGY_WEAPONS = 200 R _param n SK_THROWING = 200 #
+33 24040 D _item p PID_MR_NIXON_DOLL > 9 D _param n ST_LEVEL > 1 R _item p PID_MR_NIXON_DOLL - 10 R _param n SK_BIG_GUNS = 300 R _param n SK_SMALL_GUNS = 200 R _param n SK_UNARMED = 200 R _param n SK_ENERGY_WEAPONS = 200 R _param n SK_THROWING = 200 #
+33 24050 D _item p PID_MR_NIXON_DOLL > 9 D _param n ST_LEVEL > 1 R _item p PID_MR_NIXON_DOLL - 10 R _param n SK_ENERGY_WEAPONS = 300 R _param n SK_BIG_GUNS = 200 R _param n SK_SMALL_GUNS = 200 R _param n SK_UNARMED = 200 R _param n SK_THROWING = 200 #
+33 24060 D _item p PID_MR_NIXON_DOLL > 9 D _param n ST_LEVEL > 1 R _item p PID_MR_NIXON_DOLL - 10 R _param n SK_UNARMED = 300 R _param n SK_BIG_GUNS = 200 R _param n SK_SMALL_GUNS = 200 R _param n SK_ENERGY_WEAPONS = 200 R _param n SK_THROWING = 200 #
+33 24070 D _item p PID_MR_NIXON_DOLL > 9 D _param n ST_LEVEL > 1 R _item p PID_MR_NIXON_DOLL - 10 R _param n SK_THROWING = 300 R _param n SK_BIG_GUNS = 200 R _param n SK_SMALL_GUNS = 200 R _param n SK_UNARMED = 200 R _param n SK_ENERGY_WEAPONS = 200 #
+150 24080 D _param n ST_LEVEL > 1 @
+200 25000 None 0 #
+201 25010 R _script follower@r_RemoveFollower 1 114 #
+0 25020 @
+201 26000 None 0 @
+25 27000 None 0 @
+26 28000 None 0 @
+27 29000 follower@dlg_ShowMoney 0 #
+27 29010 D _var n z_folmon > 499 R _var n z_folmon - 500 R _script dialog@r_AddMoney 1 500 #
+28 29020 #
+29 29030 #
+30 29040 #
+2 29050 @
+24 30000 None 0 #
+26 30010 D _var n z_folss > 0 D _item p PID_BOTTLE_CAPS > 149 R _var n z_folss - 1 R _var n z_folmon + 150 R _item p PID_SUPER_STIMPAK + 1 R _item p PID_BOTTLE_CAPS - 150 #
+26 30020 D _var n z_folss } 5 D _item p PID_BOTTLE_CAPS > 749 R _var n z_folss - 5 R _var n z_folmon + 750 R _item p PID_SUPER_STIMPAK + 5 R _item p PID_BOTTLE_CAPS - 750 #
+26 30030 D _var n z_folss } 10 D _item p PID_BOTTLE_CAPS > 1499 R _var n z_folss - 10 R _var n z_folmon + 1500 R _item p PID_SUPER_STIMPAK + 10 R _item p PID_BOTTLE_CAPS - 1500 #
+26 30040 D _var n z_folss } 50 D _item p PID_BOTTLE_CAPS > 7499 R _var n z_folss - 50 R _var n z_folmon + 7500 R _item p PID_SUPER_STIMPAK + 50 R _item p PID_BOTTLE_CAPS - 7500 #
+25 30050 @
+28 31000 follower@dlg_ShowMoney 0 #
+28 31010 D _item p PID_SUPER_STIMPAK > 0 R _item p PID_SUPER_STIMPAK - 1 R _var n z_folss + 1 #
+28 31020 D _item p PID_SUPER_STIMPAK > 4 R _item p PID_SUPER_STIMPAK - 5 R _var n z_folss + 5 #
+28 31030 D _item p PID_SUPER_STIMPAK > 9 R _item p PID_SUPER_STIMPAK - 10 R _var n z_folss + 10 #
+28 31040 D _item p PID_SUPER_STIMPAK > 49 R _item p PID_SUPER_STIMPAK - 50 R _var n z_folss + 50 #
+28 31050 D _var n z_folss > 9 R _var n z_folss - 10 R _item p PID_SUPER_STIMPAK + 10 #
+27 31060 @
+29 32000 follower@dlg_ShowMoney 0 #
+29 32010 D _item p PID_KOKOWEEF_MINE_SCRIP > 999 R _item p PID_KOKOWEEF_MINE_SCRIP - 1000 R _var n z_folkm + 1000 #
+29 32020 D _item p PID_KOKOWEEF_MINE_SCRIP > 4999 R _item p PID_KOKOWEEF_MINE_SCRIP - 5000 R _var n z_folkm + 5000 #
+29 32030 D _item p PID_KOKOWEEF_MINE_SCRIP > 9999 R _item p PID_KOKOWEEF_MINE_SCRIP - 10000 R _var n z_folkm + 10000 #
+29 32040 D _var n z_folkm > 999 R _var n z_folkm - 1000 R _item p PID_KOKOWEEF_MINE_SCRIP + 1000 #
+27 32050 @
+30 33000 follower@dlg_ShowMoney 0 #
+30 33010 D _item p PID_MORNING_STAR_MINE > 999 R _item p PID_MORNING_STAR_MINE - 1000 R _var n z_folmm + 1000 #
+30 33020 D _item p PID_MORNING_STAR_MINE > 4999 R _item p PID_MORNING_STAR_MINE - 5000 R _var n z_folmm + 5000 #
+30 33030 D _item p PID_MORNING_STAR_MINE > 9999 R _item p PID_MORNING_STAR_MINE - 10000 R _var n z_folmm + 10000 #
+29 33040 D _var n z_folmm > 999 R _var n z_folmm - 1000 R _item p PID_MORNING_STAR_MINE + 1000 #
+27 33050 @
+31 34000 follower@dlg_ShowMoney 0 #
+31 34010 D _var n z_folkm > 999 D _item p PID_BOTTLE_CAPS > 2999 R _var n z_folkm - 1000 R _item p PID_KOKOWEEF_MINE_SCRIP + 1000 R _item p PID_BOTTLE_CAPS - 3000 R _var n z_folmon + 3000 #
+10 34020 @
+32 35000 follower@dlg_ShowMoney 0 #
+32 35010 D _var n z_folmm > 999 D _item p PID_BOTTLE_CAPS > 4999 R _var n z_folmm - 1000 R _item p PID_MORNING_STAR_MINE + 1000 R _item p PID_BOTTLE_CAPS - 5000 R _var n z_folmon + 5000 #
+10 35020 @
+33 36000 None 0 @
+34 37000 None 0 @
+35 38000 follower@dlg_ShowStats 0 #
+36 38010 R _var n z_folset = 1 @
+36 39000 follower@dlg_ShowStats 0 #
+37 39010 R _param n SK_SMALL_GUNS = 215 #
+37 39020 R _param n SK_BIG_GUNS = 215 #
+37 39030 R _param n SK_ENERGY_WEAPONS = 215 #
+37 39040 R _param n SK_UNARMED = 215 #
+37 39050 R _param n SK_THROWING = 215 #
+37 39060 @
+37 40000 follower@dlg_ShowStats 0 #
+38 40010 R _param n ST_ACTION_POINTS + 1 #
+38 40020 R _param n ST_LUCK + 2 #
+38 40030 R _param n ST_MAX_LIFE + 50 #
+38 40040 R _param n ST_STRENGTH + 1 R _param n ST_ENDURANCE + 1 #
+38 40050 R _param n ST_PERCEPTION + 2 #
+38 40060 R _param n ST_CRITICAL_CHANCE + 5 #
+38 40070 @
+38 41000 follower@dlg_ShowStats 0 #
+39 41010 R _param n TRAIT_BLOODY_MESS = 1 #
+39 41020 R _param n TRAIT_FAST_METABOLISM = 1 #
+39 41030 R _param n TRAIT_FINESSE = 1 #
+39 41040 R _param n TRAIT_JINXED = 1 #
+39 41050 R _param n TRAIT_ONE_HANDER = 1 #
+39 41060 R _param n TRAIT_KAMIKAZE = 1 #
+39 41070 R _param n TRAIT_HEAVY_HANDED = 1 #
+39 41080 R _param n TRAIT_FAST_SHOT = 1 #
+39 41090 @
+39 42000 follower@dlg_ShowStats 0 #
+40 42010 R _param n PE_EVEN_MORE_CRITICALS = 1 #
+40 42020 R _param n PE_IN_YOUR_FACE = 1 #
+40 42030 R _param n PE_BONUS_HTH_DAMAGE = 1 #
+40 42040 R _param n PE_STONEWALL = 1 #
+40 42050 R _param n PE_HEAVE_HO = 1 #
+40 42060 R _param n PE_BETTER_CRITICALS = 1 #
+40 42070 R _param n PE_ACTION_BOY = 1 #
+40 42080 R _param n PE_MAN_OF_STEEL = 1 #
+40 42090 R _param n PE_MORE_RANGED_DAMAGE = 1 #
+40 42100 R _param n PE_SHARPSHOOTER = 1 #
+40 42110 @
+40 43000 None 0 @
+150 44000 None 0 #
+151 44010 #
+152 44020 #
+156 44030 #
+2 44040 @
+151 45000 None 0 #
+153 45010 D _item p PID_MR_NIXON_DOLL > 9 D _param n PE_BONUS_RANGED_DAMAGE = 0 R _item p PID_MR_NIXON_DOLL - 10 R _param n PE_BONUS_RANGED_DAMAGE = 1 #
+153 45020 D _item p PID_MR_NIXON_DOLL > 14 D _param n PE_MORE_RANGED_DAMAGE = 0 R _item p PID_MR_NIXON_DOLL - 15 R _param n PE_MORE_RANGED_DAMAGE = 1 #
+153 45030 D _item p PID_MR_NIXON_DOLL > 9 D _param n PE_MORE_CRITICALS = 0 R _item p PID_MR_NIXON_DOLL - 10 R _param n PE_MORE_CRITICALS = 1 #
+153 45040 D _item p PID_MR_NIXON_DOLL > 14 D _param n PE_EVEN_MORE_CRITICALS = 0 R _item p PID_MR_NIXON_DOLL - 15 R _param n PE_EVEN_MORE_CRITICALS = 1 #
+153 45050 D _item p PID_MR_NIXON_DOLL > 14 D _param n PE_BETTER_CRITICALS = 0 R _item p PID_MR_NIXON_DOLL - 15 R _param n PE_BETTER_CRITICALS = 1 #
+153 45060 D _item p PID_MR_NIXON_DOLL > 9 D _param n PE_SHARPSHOOTER = 0 R _item p PID_MR_NIXON_DOLL - 10 R _param n PE_SHARPSHOOTER = 1 #
+153 45070 D _item p PID_MR_NIXON_DOLL > 19 D _param n PE_ACTION_BOY = 0 R _item p PID_MR_NIXON_DOLL - 20 R _param n PE_ACTION_BOY = 1 #
+153 45080 D _param n PE_ACTION_BOY = 1 D _item p PID_MR_NIXON_DOLL > 19 R _item p PID_MR_NIXON_DOLL - 20 R _param n PE_ACTION_BOY = 2 #
+2 45090 @
+152 46000 None 0 #
+154 46010 D _item p PID_MR_NIXON_DOLL > 49 D _param n PE_TOUGHNESS = 0 R _item p PID_MR_NIXON_DOLL - 50 R _param n PE_TOUGHNESS = 1 #
+154 46020 D _item p PID_MR_NIXON_DOLL > 49 D _param n PE_EVEN_TOUGHER = 0 R _item p PID_MR_NIXON_DOLL - 50 R _param n PE_EVEN_TOUGHER = 1 #
+154 46030 D _item p PID_MR_NIXON_DOLL > 14 D _param n PE_ADRENALINE_RUSH = 0 R _item p PID_MR_NIXON_DOLL - 15 R _param n PE_ADRENALINE_RUSH = 1 #
+154 46040 D _item p PID_MR_NIXON_DOLL > 9 D _param n PE_STONEWALL = 0 R _item p PID_MR_NIXON_DOLL - 10 R _param n PE_STONEWALL = 1 #
+154 46050 D _item p PID_MR_NIXON_DOLL > 14 D _param n PE_MAN_OF_STEEL = 0 R _item p PID_MR_NIXON_DOLL - 15 R _param n PE_MAN_OF_STEEL = 1 #
+154 46060 D _item p PID_MR_NIXON_DOLL > 19 D _param n PE_LIFEGIVER = 0 R _item p PID_MR_NIXON_DOLL - 20 R _param n PE_LIFEGIVER = 1 #
+154 46070 D _item p PID_MR_NIXON_DOLL > 24 D _param n PE_LIFEGIVER = 1 R _item p PID_MR_NIXON_DOLL - 25 R _param n PE_LIFEGIVER = 2 #
+154 46080 D _item p PID_MR_NIXON_DOLL > 29 D _param n PE_LIFEGIVER = 2 R _item p PID_MR_NIXON_DOLL - 30 R _param n PE_LIFEGIVER = 3 #
+154 46090 D _item p PID_MR_NIXON_DOLL > 19 D _param n PE_IN_YOUR_FACE = 0 R _item p PID_MR_NIXON_DOLL - 20 R _param n PE_IN_YOUR_FACE = 1 #
+2 46100 @
+156 47000 None 0 #
+157 47010 D _item p PID_MR_NIXON_DOLL > 19 D _param n ST_STRENGTH < 10 D _param n PE_GAIN_STRENGTH = 0 R _item p PID_MR_NIXON_DOLL - 20 R _param n PE_GAIN_STRENGTH = 1 #
+157 47020 D _item p PID_MR_NIXON_DOLL > 19 D _param n ST_PERCEPTION < 10 D _param n PE_GAIN_PERCEPTION = 0 R _item p PID_MR_NIXON_DOLL - 20 R _param n PE_GAIN_PERCEPTION = 1 #
+157 47030 D _item p PID_MR_NIXON_DOLL > 19 D _param n ST_ENDURANCE < 10 D _param n PE_GAIN_ENDURANCE = 0 R _item p PID_MR_NIXON_DOLL - 20 R _param n PE_GAIN_ENDURANCE = 1 #
+157 47040 D _item p PID_MR_NIXON_DOLL > 4 D _param n ST_CHARISMA < 10 D _param n PE_GAIN_CHARISMA = 0 R _item p PID_MR_NIXON_DOLL - 5 R _param n PE_GAIN_CHARISMA = 1 #
+157 47050 D _item p PID_MR_NIXON_DOLL > 4 D _param n ST_INTELLECT < 10 D _param n PE_GAIN_INTELLIGENCE = 0 R _item p PID_MR_NIXON_DOLL - 5 R _param n PE_GAIN_INTELLIGENCE = 1 #
+157 47060 D _item p PID_MR_NIXON_DOLL > 19 D _param n ST_AGILITY < 10 D _param n PE_GAIN_AGILITY = 0 R _item p PID_MR_NIXON_DOLL - 20 R _param n PE_GAIN_AGILITY = 1 #
+157 47070 D _item p PID_MR_NIXON_DOLL > 19 D _param n ST_LUCK < 10 D _param n PE_GAIN_LUCK = 0 R _item p PID_MR_NIXON_DOLL - 20 R _param n PE_GAIN_LUCK = 1 #
+2 47080 @
+153 48000 None 0 @
+154 49000 None 0 @
+157 50000 None 0 &
+
+[engl]
+{100}{}{Wastelander}
+{200}{}{You see @lex name@, a well-travelled wastelander.}
+{210}{}{You see @lex name@, a well-travelled wastelander.}
+{240}{}{You see a dead @lex name@.}
+{250}{}{You see a dead @lex name@.}
+{260}{}{You see a dead @lex name@.}
+{270}{}{You see a dead @lex name@.}
+{1000}{}{Predialogue installations}
+{1010}{}{ Is owner}
+{1020}{}{is owner, not setup}
+{1030}{}{Not owner}
+{2000}{}{What's up?
+@lex loyality@@@Yes, my friend?
+@lex loyality@}
+{2010}{}{Stay here.}
+{2020}{}{Let's get going.}
+{2030}{}{You're blocking my way, could you move, please?}
+{2040}{}{I want to talk to you about distance.}
+{2050}{}{I want to talk about combat.}
+{2060}{}{Let's talk about your armor.}
+{2070}{}{If we ever get separated let's talk about our meeting point.}
+{2080}{}{Here, I got you something.}
+{2090}{}{What kind of weapons are you most proficient with?}
+{2100}{}{Arm yourself.}
+{2110}{}{Put your weapon down, now.}
+{2120}{}{Drop everything you're carrying.}
+{2130}{}{I'm thinking about transfering you to a friend...}
+{2140}{}{[Merchantilism]}
+{2150}{}{[Inventory]}
+{2160}{}{[Check stats]}
+{2170}{}{[Disband Follower]}
+{2180}{}{Okay, carry on.@@I'm done here, talk to you later.@@That's everything. See ya.@@Alrighty, I'm done here.@@Talk to you soon.@@That's it for now.@@Nevermind.@@Goodbye.@@I'll talk to you later.}
+{3000}{}{Sure, how far do you want me?}
+{3010}{}{Stay close to me.}
+{3020}{}{Stick to medium range.}
+{3030}{}{Keep your distance, and try to snipe them.}
+{4000}{}{Okay, boss. What are our combat options?}
+{4010}{}{Protect me. Attack anyone who attacks us, unless it's a friend.}
+{4020}{}{Protect me, and my land. I don't take kindly to strangers lurking 'bout.}
+{4030}{}{Stay out of combat! Flee if hostile contacts are spotted.}
+{4040}{}{Kill any NPC you see. (disabled)}
+{4050}{}{Kill anyone, but don't touch me or my friends. (disabled)}
+{4060}{}{Attack enemies of our faction. (disabled)}
+{4070}{}{Attack anyone who isn't a member of our faction (disabled)}
+{5000}{}{Goddamn it, finally.@@Let's get going.@@I was starting to think you were dead, or something.@@Moving out.@@Let's move.@@Heading on out, boss.@@Ten-four.}
+{5010}{}{Alright.}
+{6000}{}{You're shittin' me, right? Fine. I guess I'll just wait here, then.@@Roger, standing guard.@@Yeah, no problem.@@I'll make like a tree, boss.@@Sure thing. No sweat.@@Okay... but don't go off for too long.@@Are you serious? It's fucking hot out here.}
+{6010}{}{See you later.}
+{7000}{}{Sure pal.@@I'll do anything for a friend like you.@@No problem.@@Yeah, anything.@@Will do.@@With pleasure.@@Anything for you, boss.@@Of course!@@Hell yeah, not a problem.}
+{8000}{}{Don't try anything.@@Don't even think about it.@@Boss, this guy cool?@@You looking for trouble? Beat it.@@I don't got time for your shit. Piss off.@@You look like trouble. I'm watching you.}
+{9000}{}{Don't try anything.@@Don't even think about it.@@Boss, this guy cool?@@You looking for trouble? Beat it.@@I don't got time for your shit. Piss off.@@You look like trouble. I'm watching you.}
+{9010}{}{I'll buy some Super Stimpaks.}
+{9020}{}{I'll buy some Kokoweef Minescrips}
+{9030}{}{I'll buy some Morning Star Minescrips.}
+{9040}{}{Nah, not right now.}
+{10000}{}{I prefer using my knuckles to beat the shit out of folks.}
+{10010}{}{Alright}
+{11000}{}{Give me a spear or a sledgehammer, and I'm happy.}
+{11010}{}{Alright.}
+{12000}{}{I like using shotguns, pistols, and assault rifles. That sort of stuff.}
+{12010}{}{Alright.}
+{13000}{}{There's nothing better than seeing burning foes dance! Give me flamethrower or rocket launcher and I'm sold.}
+{13010}{}{Haha, I see.}
+{14000}{}{If I could, I'd rather zap my enemies with a laser pistol or something similar.}
+{14010}{}{Alright.}
+{15000}{}{Do I need to tell you that I love the smell of frag granades in the morning?}
+{15010}{}{Alright.}
+{16000}{}{Sure, where should we meet?}
+{16010}{}{It would be best if we could meet at the tent camp.}
+{16020}{}{At the hotel that I've rented.}
+{16030}{}{At a faction base.}
+{16040}{}{Nevermind.}
+{17000}{}{What kind of armour should I be wearing?}
+{17010}{}{Let's take a look at your headgear.}
+{17020}{}{Take off whatever you're wearing right now.}
+{17030}{}{Robes.}
+{17040}{}{Sand Robes.}
+{17050}{}{Bridgekeeper's Robes.}
+{17060}{}{Leather Jacket.}
+{17070}{}{Leather Armor.}
+{17080}{}{Leather Armor Mark II.}
+{17090}{}{Combat Leather Jacket.}
+{17100}{}{Metal Armor.}
+{17110}{}{Metal Armor Mark II.}
+{17120}{}{Tesla Armor.}
+{17130}{}{Combat Armor.}
+{17140}{}{Combat Armor Mark II.}
+{17150}{}{NCR Ranger Armor.}
+{17160}{}{Brotherhood Armor.}
+{17170}{}{Enclave Armor.}
+{17180}{}{Desert Armor.}
+{17190}{}{Black Robe.}
+{17200}{}{Power Armor.}
+{17210}{}{Hardened Power Armor.}
+{17220}{}{Advanced Power Armor.}
+{17230}{}{Advanced Power Armor MK2.}
+{17240}{}{Nevermind.}
+{18000}{}{Which one? [Type the name of the base]
+-- Faction bases -- 
+@lex bases@}
+{18010}{}{Alright.}
+{19000}{}{Sure, what do you have?}
+{19010}{}{Here, take this bottle of Nuka.}
+{19020}{}{Hey, I've got a bottle of fresh beer.}
+{19030}{}{Looks like I've got a cookie leftover.}
+{19040}{}{Have this Iguana-on-a-stick, it's delicious!}
+{19050}{}{Here's some hard booze, hope you like it.}
+{20000}{}{Thanks, that's delicious!@@Yum yum!@@You have a great taste when it comes to food!}
+{20010}{}{Want some more?}
+{20020}{}{Let's see now...}
+{21000}{}{Which helmet do you think I should use?}
+{21010}{}{Let's talk about your armor again.}
+{21020}{}{Remove your current helmet.}
+{21030}{}{Leather Helmet.}
+{21040}{}{Combat Leather Helmet.}
+{21050}{}{Leather Armor Helmet.}
+{21060}{}{Leather Armor Helmet Mark II.}
+{21070}{}{Metal Mask.}
+{21080}{}{Metal Mask Mark II.}
+{21090}{}{Tesla Helmet.}
+{21100}{}{Combat Helmet.}
+{21110}{}{Combat Helmet Mark II.}
+{21120}{}{Brotherhood Helmet.}
+{21130}{}{Enclave Helmet.}
+{21140}{}{Desert Helmet.}
+{21150}{}{NCR Helmet.}
+{21160}{}{Hardened Power Armor Helmet.}
+{21170}{}{Advanced Power Armor Helmet.}
+{21180}{}{Advanced Power Armor Helmet MK2.}
+{21190}{}{Nevermind.}
+{22000}{}{Well, okay, if that is what you want.. So, who is it?}
+{22010}{}{I've changed my mind, let's get going.}
+{23000}{}{Let's get going.}
+{24000}{}{Current statistics:
+@lex stats@
+
+*You can spend 10x Puppets to unlock new abilities for your NPC companions, or spend Puppets to unlock new Perks!*}
+{24010}{}{[Done]}
+{24020}{}{[Increase Hitpoints] [Costs 50x Puppets] }
+{24030}{}{[Focus Small Guns] [Costs 10x Puppets]}
+{24040}{}{[Focus Big Guns] [Costs 10x Puppets]}
+{24050}{}{[Focus Energy Weapons] [Costs 10x Puppets]}
+{24060}{}{[Focus Close Combat] [Costs 10x Puppets]}
+{24070}{}{[Focus Throwing] [Costs 10x Puppets]}
+{24080}{}{[Learn New Perk] [Cost Varies]}
+{25000}{}{[Are you sure you wish to Disband this Follower? The action is permanent, and all items will drop]}
+{25010}{}{[Permanently Remove NPC]}
+{25020}{}{On second thought, nevermind.}
+{26000}{}{*vanishes into the wasteland*}
+{27000}{}{No shame in just looking at Super Stimpaks.}
+{28000}{}{Boss, I just sold some Super Stims.}
+{29000}{}{You've got some things to trade? Oh, like what? You can also collect your profits, if you have any. You can redeem 500 caps at a time. I've got exactly: @lex money@$ safely tucked away.}
+{29010}{}{Let's collect!}
+{29020}{}{Some Super Stimpaks.}
+{29030}{}{Kokoweef Minescrips}
+{29040}{}{Morning Star Minescrips.}
+{29050}{}{Nevermind.}
+{30000}{}{How many Super Stimpaks do you want to buy?}
+{30010}{}{One.}
+{30020}{}{Five.}
+{30030}{}{Ten.}
+{30040}{}{Fifty.}
+{30050}{}{Nevermind.}
+{31000}{}{How many Super Stimpaks do you want me to sell? I reckon we can get away with selling them for 150 caps each. I've got: @lex stims@x available for sale.}
+{31010}{}{Just one.}
+{31020}{}{Five.}
+{31030}{}{Ten.}
+{31040}{}{Fifty.}
+{31050}{}{Give me back ten Super Stims.}
+{31060}{}{Nevermind.}
+{32000}{}{How many Kokoweef Minescrips do you want to sell? I hear they're worth up to 3 caps a piece. Minimum sale is 1000 scrips. I've got: @lex koka@x available for sale.}
+{32010}{}{A thousand.}
+{32020}{}{Five thousand.}
+{32030}{}{Ten thousand.}
+{32040}{}{Give me back a thousand scrips.}
+{32050}{}{Nevermind.}
+{33000}{}{How many Morning Star Minescrips do you want to sell? They're worth up to 5 caps a piece. Minimum sale is 1000 scrips. I've got: @lex morning@x available for sale.}
+{33010}{}{A thousand.}
+{33020}{}{Five thousand.}
+{33030}{}{Ten thousand.}
+{33040}{}{Give me back a thousand scrips.}
+{33050}{}{Nevermind.}
+{34000}{}{How many Kokoweef Minescrips do you want to buy? Maximum sale is 1000 at a time, and they go for exactly 3 caps a piece. I've got: @lex koka@x available for sale.}
+{34010}{}{I'll buy 1000 scrips for 3000 caps.}
+{34020}{}{Nevermind.}
+{35000}{}{How many Morning Star Minescrips do you want to buy? Maximum sale is 1000 at a time, and they go for exactly 5 caps a piece. I've got: @lex morning@x available for sale.}
+{35010}{}{I'll buy 1000 scrips for 5000 caps.}
+{35020}{}{Nevermind.}
+{36000}{}{Sure thing, I'll start using those types of weapons from now on.}
+{37000}{}{Wow! Thanks! I really needed that!}
+{38000}{}{So! What's the plan, @pname@? We're really heading out there together, eh? *they smile*
+
+Current statistics:
+@lex stats@}
+{38010}{}{Let's get you setup, kiddo. Have a seat. [Begin Customization Process]}
+{39000}{}{What weapons should I use, friend? Or should I just stick to what I know?
+
+Current statistics:
+@lex stats@}
+{39010}{}{Small Guns.}
+{39020}{}{Big Guns.}
+{39030}{}{Energy Weapons.}
+{39040}{}{Close Combat.}
+{39050}{}{Throwing.}
+{39060}{}{Just stick to what you know.}
+{40000}{}{How about strengths? Do I have any?
+
+Current statistics:
+@lex stats@}
+{40010}{}{+1 Action Points.}
+{40020}{}{+2 Luck.}
+{40030}{}{+50 HP.}
+{40040}{}{+1 Strength and +1 Endurance.}
+{40050}{}{+2 Perception.}
+{40060}{}{+5% Critical Chance.}
+{40070}{}{No.}
+{41000}{}{Alright then, how about weaknesses? I'm not perfect, am I? *they flutter their eyelashes*
+
+Current statistics:
+@lex stats@}
+{41010}{}{Bloody Mess.}
+{41020}{}{Fast Metabolism.}
+{41030}{}{Finesse.}
+{41040}{}{Jinxed.}
+{41050}{}{One Hander.}
+{41060}{}{Kamikaze.}
+{41070}{}{Heavy Handed.}
+{41080}{}{Fast Shot.}
+{41090}{}{No.}
+{42000}{}{Anything else special about me?
+
+Current statistics:
+@lex stats@}
+{42010}{}{Even More Criticals.}
+{42020}{}{In Your Face!}
+{42030}{}{Bonus H2H Damage}
+{42040}{}{Stonewall.}
+{42050}{}{Heave Ho!}
+{42060}{}{Better Criticals.}
+{42070}{}{Action Boy.}
+{42080}{}{Man of Steel.}
+{42090}{}{More Ranged Damage.}
+{42100}{}{Sharpshooter.}
+{42110}{}{No.}
+{43000}{}{Well, I guess that's about it! Thanks, friend! Let's get going!}
+{44000}{}{Oh, boy! You want me to learn a new perk? Really?!}
+{44010}{}{[Offensive Perks!]}
+{44020}{}{[Defensive Perks!]}
+{44030}{}{[Attribute Perks!]}
+{44040}{}{Nevermind.}
+{45000}{}{An Offensive Perk? Cool! Which one?}
+{45010}{}{Bonus Ranged Damage [10x Puppets]}
+{45020}{}{More Ranged Damage [15x Puppets]}
+{45030}{}{More Criticals [10x Puppets]}
+{45040}{}{Even More Criticals [15x Puppets]}
+{45050}{}{Better Criticals [15x Puppets]}
+{45060}{}{Sharpshooter [10x Puppets]}
+{45070}{}{Action Boy [20x Puppets]}
+{45080}{}{Action Boy x2 [20x Puppets]}
+{45090}{}{Nevermind.}
+{46000}{}{A Defensive Perk? Neat! Which one?}
+{46010}{}{Toughness [50x Puppets]}
+{46020}{}{Even Tougher [50x Puppets]}
+{46030}{}{Adrenaline Rush [15x Puppets]}
+{46040}{}{Stonewall [10x Puppets]}
+{46050}{}{Man of Steel [15x Puppets]}
+{46060}{}{Lifegiver x1 [20x Puppets]}
+{46070}{}{Lifegiver x2 [25x Puppets]}
+{46080}{}{Lifegiver x3 [30x Puppets]}
+{46090}{}{In Your Face! [20x Puppets]}
+{46100}{}{Nevermind.}
+{47000}{}{An Attribute Perk? Alright! Which one?}
+{47010}{}{Gain Strength [20x Puppets]}
+{47020}{}{Gain Perception [20x Puppets]}
+{47030}{}{Gain Endurance [20x Puppets]}
+{47040}{}{Gain Charisma [5x Puppets]}
+{47050}{}{Gain Intelligence [5x Puppets]}
+{47060}{}{Gain Agility [20x Puppets]}
+{47070}{}{Gain Luck [20x Puppets]}
+{47080}{}{Nevermind.}
+{48000}{}{Wow! It's just like my dream! I'm starting to feel like myself again! Thanks!@@Excellent! I'm starting to feel like a real killer!@@Oh, wow! They'll never know what hit 'em!@@Power overwhelming!!!@@There is no cow level!@@OWWW! What the hell! These Puppets are crawling all over me! Help!!@@Is it supposed to hurt?@@Yes! Yes! I can *feel* the power!@@More! MOOOOARRRRRR! I need more PUPPETS!! GIVE THEM TO MEEEEEE!!!@@Thanks! But this is a little creepy... their fingers are all over me...@@Uh... thanks, but all these puppets are creeping me out!@@Ohhhh yeah! Let's rock 'n roll, baby!@@Uh... thanks, but all these puppets are starting to creep me out!@@Wow! This feeling is incredible! Got any more Puppets?@@The fuel to our deepest darkest desires... but just who is The Puppet Man?}
+{49000}{}{Wow! It's just like my dream! I'm starting to feel like myself again! Thanks!@@Excellent! I'm starting to feel like a real killer!@@Oh, wow! They'll never know what hit 'em!@@Power overwhelming!!!@@There is no cow level!@@OWWW! What the hell! These Puppets are crawling all over me! Help!!@@Is it supposed to hurt?@@Yes! Yes! I can *feel* the power!@@More! MOOOOARRRRRR! I need more PUPPETS!! GIVE THEM TO MEEEEEE!!!@@Thanks! But this is a little creepy... their fingers are all over me...@@Uh... thanks, but all these puppets are creeping me out!@@Ohhhh yeah! Let's rock 'n roll, baby!@@Uh... thanks, but all these puppets are starting to creep me out!@@Wow! This feeling is incredible! Got any more Puppets?@@The fuel to our deepest darkest desires... but just who is The Puppet Man?}
+{50000}{}{Wow! It's just like my dream! I'm starting to feel like myself again! Thanks!@@Excellent! I'm starting to feel like a real killer!@@Oh, wow! They'll never know what hit 'em!@@Power overwhelming!!!@@There is no cow level!@@OWWW! What the hell! These Puppets are crawling all over me! Help!!@@Is it supposed to hurt?@@Yes! Yes! I can *feel* the power!@@More! MOOOOARRRRRR! I need more PUPPETS!! GIVE THEM TO MEEEEEE!!!@@Thanks! But this is a little creepy... their fingers are all over me...@@Uh... thanks, but all these puppets are creeping me out!@@Ohhhh yeah! Let's rock 'n roll, baby!@@Uh... thanks, but all these puppets are starting to creep me out!@@Wow! This feeling is incredible! Got any more Puppets?@@The fuel to our deepest darkest desires... but just who is The Puppet Man?}
+{100000001}{}{Time to kick some asses . . .@@Is it time again?@@It's time again!}
+

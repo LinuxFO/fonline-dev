@@ -1,0 +1,170 @@
+#include "_defines.fos"
+#include "_client_defines.fos"
+#include "_macros.fos"
+#include "_colors.fos"
+#include "lexems_h.fos"
+#include "MsgStr.h"
+#include "_basetypes.fos"
+#include "sprite.fos"
+
+import bool GMToolsAccess() from "client_gmtools";
+import bool IsGMTEnabled() from "client_main";
+#define IsGM    IsGMTEnabled() && GMToolsAccess
+
+import int stringReplaceText(string& s, string@ f, string@ t) from "config_file";
+import int GUI_GetActiveMainScreen() from "client_gui";
+import int GUI_GetActiveScreen() from "client_gui";
+
+array<CritterCl@> crs;
+
+void InitCritterOnHead()	//export
+{
+	__ShowNpcNames = __ConfigShowNpcAwareness;
+}
+
+void DrawCritterOnHead()	//export
+{
+	if(GUI_GetActiveMainScreen() != CLIENT_MAIN_SCREEN_GAME)
+		return;
+
+	crs.resize(0);
+	GetCritters( 0, FIND_ALL, crs );
+
+	int color_b = 0;
+	int color_g = 0;
+	int color_r = 0;
+	int hp_proc = 0;
+	string name;
+	string hp;
+	string inj;
+	string crInjures;
+
+	CritterCl@ chosen = GetChosen();
+
+	for(uint  i = 0, imax = crs.length(); i < imax; i ++)
+	{
+		//OnHeadAwareness
+		uint   dialog = crs[i].Stat[ST_DIALOG_ID];
+        uint16 pid = crs[i].Pid;
+        string head = (crs[i].IsPlayer() ? crs[i].Name : " ");
+
+        if(IsLexem(crs[i], "$@"))
+        {
+            head = GetLexem(crs[i], "$@");
+            if(head.length() == 0)
+                head = " ";
+			
+			stringReplaceText(head, "|", "");
+            head = FormatTags(head, "");
+        }
+
+        if(IsGM())
+        {
+            array<string> gm;
+
+            string        id = "<" + crs[i].Id + ">";
+
+            if((crs[i].IsPlayer() && head != crs[i].Name) || (crs[i].IsNpc() && IsLexem(crs[i], "$@")))
+            {
+                if(crs[i].IsPlayer())
+                    gm.insertLast("Player: " + crs[i].Name);
+                else if(crs[i].IsNpc())
+                    gm.insertLast("NPC: " + GetMsgStr(TEXTMSG_DLG, STR_NPC_NAME(dialog, pid)));
+            }
+
+            if(__ShowCritId)
+                gm.insertLast("ID: " + crs[i].Id);
+
+            if(crs[i].Param[MODE_HIDE] > 0)
+                gm.insertLast("sneaked");
+
+            if(gm.length() > 0)
+            {
+                head += "|" + COLOR_RGB(0xFF, 0xFF, 0xFF) + " ";
+                for(uint g = 0, gLen = gm.length(); g < gLen; g++)
+                {
+                    head += "\n(" + gm[g] + ")";
+                }
+            }
+        }
+
+		if(head != " ")
+		{
+			name = "\n" +  "|" + crs[i].NameColor + " " + head;
+			crs[i].ContourColor = crs[i].ContourColor;
+
+		}
+		else 
+			name = " ";
+
+		if(crs[i].IsPlayer() && !__ConfigShowPlayerAwareness)
+		{
+			crs[i].NameOnHead = name;
+			continue;	
+		}
+		if(crs[i].IsNpc() && !__ConfigShowNpcAwareness)
+		{
+			crs[i].NameOnHead = name;
+			continue;
+		}
+
+		if(crs[i].IsDead() == false)
+		{
+			if(valid(chosen) && __ConfigOnHeadAwareness == 1)
+			{
+				color_g = (255*crs[i].Param[ST_CURRENT_HP])/crs[i].Param[ST_MAX_LIFE];
+				hp_proc = crs[i].Param[ST_CURRENT_HP] * 100 / crs[i].Param[ST_MAX_LIFE];
+
+				if(color_g < 0)
+					color_g = 0;
+				color_r = 255 - color_g;
+				
+				hp = "|" + COLOR_RGB(color_r, color_g, color_b) + " " + crs[i].Param[ST_CURRENT_HP] + "/" + crs[i].Param[ST_MAX_LIFE];
+			}
+			else
+			{
+				string lifeRes = "";
+				switch(crs[i].Stat[ST_HEALTH_LEVEL])
+				{
+					case 4: lifeRes = "****"; break;
+					case 3: lifeRes = "***"; break;
+					case 2: lifeRes = "**"; break;
+					case 1: lifeRes = "*"; break;
+				}
+				
+				hp = "|" + (crs[i].Stat[ST_HEALTH_LEVEL] < 1 ? COLOR_LGRAY : COLOR_RGB(0xff - (0xff * crs[i].Stat[ST_HEALTH_LEVEL]) / 5, (0xff * crs[i].Stat[ST_HEALTH_LEVEL]) / 5, 0)) + " " + lifeRes;
+			}
+			
+			if(valid(chosen) && _CritIsInjured(crs[i]))
+			{
+				crInjures = " ";
+				crInjures += _CritDamaged(crs[i], DAMAGE_EYE) ? "E " : "";
+                crInjures += _CritDamaged(crs[i], DAMAGE_RIGHT_ARM) ? "RA " : "";
+                crInjures += _CritDamaged(crs[i], DAMAGE_LEFT_ARM) ? "LA " : "";
+                crInjures += _CritDamaged(crs[i], DAMAGE_RIGHT_LEG) ? "RL " : "";
+                crInjures += _CritDamaged(crs[i], DAMAGE_LEFT_LEG) ? "LL " : "";
+				inj = "|" + COLOR_RGB(200, 0, 0) + crInjures + "\n"; 
+			}
+			else
+				inj = "";
+		}
+		else 
+		{
+			crs[i].NameOnHead = name;
+			continue;	
+		}
+		
+		crs[i].NameOnHead = inj + hp + name;
+	}
+}
+
+void ChangeOnHeadAwarenessPlayer()	//export
+{
+	__ConfigShowPlayerAwareness = !__ConfigShowPlayerAwareness;
+}
+
+void ChangeOnHeadAwarenessNPC()	//export
+{
+	__ConfigShowNpcAwareness = !__ConfigShowNpcAwareness;
+	__ShowNpcNames =  __ConfigShowNpcAwareness;
+}

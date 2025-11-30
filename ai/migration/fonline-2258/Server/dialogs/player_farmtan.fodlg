@@ -1,0 +1,122 @@
+[comment]
+lighter job 
+
+[data]
+lang=engl russ
+
+[dialog]
+&
+1 1000 None 0 #
+2 1010 D _var p player_farmOwner = 1 D _var n player_farmTanr = 1 #
+5 1020 D _var p player_farmOwner = 1 D _var n player_farmTanr = 0 #
+6 1030 D _var p player_farmOwner = 0 @
+6 2000 None 0 @
+5 3000 None 0 #
+2 3010 D _var p player_farmIncome > 4999 R _var p player_farmIncome - 5000 R _var n player_farmTanr = 1 #
+0 3020 @
+2 4000 None 0 #
+7 4010 D _item p PID_BRAHMIN_HIDE > 11 R _item p PID_BRAHMIN_HIDE - 12 R _var p player_farmIncome + 1200 #
+7 4020 D _item p PID_BRAHMIN_SKIN > 0 R _item p PID_BRAHMIN_SKIN - 1 R _var p player_farmIncome + 350 #
+7 4030 D _item p PID_FIBER > 99 R _item p PID_FIBER - 100 R _var p player_farmIncome + 700 #
+7 4040 D _item p PID_GECKO_PELT > 11 R _item p PID_GECKO_PELT - 12 R _var p player_farmIncome + 1000 #
+7 4050 D _item p PID_GOLDEN_GECKO_PELT > 11 R _item p PID_GOLDEN_GECKO_PELT - 12 R _var p player_farmIncome + 1600 #
+3 4060 #
+4 4070 #
+0 4080 @
+3 5000 None 0 #
+2 5010 @
+4 6000 None 0 #
+2 6010 @
+7 7000 None 0 &
+
+[engl]
+{100}{}{Fur Trader}
+{200}{}{You see a fur trader.}
+{210}{}{The local fur trader and pelt peddler. My own private northern expedition.}
+{1000}{}{Predialogue installations}
+{1010}{}{base}
+{1020}{}{unlck}
+{1030}{}{visiter}
+{2000}{}{Eh, bonjour.@@Comment ca vas?@@Oui?@@Tu veut quelque chose?@@Oui, esti! What you want?@@Eh, calis! You keep poking me, and I will poke you back, eh!@@Did I make a funny? Fuck off.@@You look like a shit, why don't you go make like a tree and fuck off, eh?@@You know Canada it survived the war, esti. Nice place, I tell you. Still got all that maple syrup, calis!@@Dis farm 'ere is nice, eh, but it's too damn hot. I wish it would snow.@@Dis place is like my wife, she don't work.@@You want to skin something. eh, esti. Why don't you go skin your dick?@@You look like you drank too much maple syrup, eh?@@You call that a gun? In Canada they got guns, esti. Make you shit your balloon animal.@@Eh, is winter ever coming or what, calis.@@You know what real bacon is? I keep reading about Canadian Bacon but what the hell is that?@@You look like a moose all covered in maple syrup; delicious!@@You want to go for a ride in my canoe?@@The day 'ere sure is fokken cold, esti. My dick feel like it your size.@@You smell like you ate a bit too much maple syrup, calis.@@You make this place really look like America, you know that, esti.@@You Americans...@@I bet you could suck a golf ball through a calis, d'esti'd water buffalo.}
+{3000}{}{[Renovate this part of your Farm, and unlock the Furtrader! Unlock for 5000$, deducts the money from your Farm Treasury]}
+{3010}{}{Let's renovate!}
+{3020}{}{[Leave]}
+{4000}{}{Eh, boss. Tu veux quelque chose?@@Howdy, der, @sex@|bossman||bossman--err madame|. You want me to get to work, der?@@Bonjour, boss! T'a du travail? I am pretty bored 'er, esti.@@Eh, boss, you got any of dem skins? I can sell dem all, esti.@@You know up north it snow pretty hard. It too damn hot 'ere, esti.@@Hey, hey, der, boss. I am ready to do a business with you.@@You like my fore skin 'ere, eh, boss? It look pretty good, no? You can touch it if you wanna. I don't bite, esti! Hah-Hah!@@Ah, shit, esti! The fire it burn when you aren't in Canada.@@Fuck, esti, it is hot. I might have to take off my toque.}
+{4010}{}{Sell 12x Brahmin Hides.}
+{4020}{}{Sell 1x Brahmin Skin.}
+{4030}{}{Sell 100x Fibers.}
+{4040}{}{Sell 12x Silver Gecko Pelts.}
+{4050}{}{Sell 12x Golden Gecko Pelts.}
+{4060}{}{What can you trade?}
+{4070}{}{What are your rates?}
+{4080}{}{I need to go.}
+{5000}{}{Eh, eh, boss, esti, I am like a great Canadian furtrader, fuck. You bring me some of dem Brahmin Hides, Gecko Pelts, Fibers, or Brahmin Skins, and I can make a couple of dem Farm Dollars, eh.}
+{5010}{}{I see, thanks.}
+{6000}{}{Well, calis, I charge good price for your skins, der, esti, boss. I make dis list just for you, eh.
+
+Buying Rates
+
+Brahmin Hides:   12x for 650 Farm Dollars
+Brahmin Skins:   1x for 200 Farm Dollars
+Silver Gecko Pelts:   12x for 500 Farm Dollars
+Golden Gecko Pelts:   12x for 800 Farm Dollars
+Fibers:   100x for 350 Farm Dollars}
+{6010}{}{Sounds good. Thanks.}
+{7000}{}{Okay, der, boss. It is done, eh. You come back to me when you 'ave more furs to sell. Calis, we make a lot of money together, eh?}
+{100000001}{}{Better wash the counter again...}
+{100000002}{}{That's 5 caps buddy. Hey did you hear me? Cough em' up.}
+{100000003}{}{Better change the keg...}
+{100000004}{}{RotGut? You drink that shit?}
+{100000005}{}{Domestic? I got B.E.E.R buddy, do you want one or not?}
+{100000006}{}{Fuckin' dust is getting everywhere. Hey close the fuckin' door!}
+{100000007}{}{I swear if the next asshole doesn't tip. Ima' shoot somebody!}
+{100000008}{}{I got bottles, I got shots, and I got a bat behind the counter for the retards. Your not a retard are you?}
+{100000009}{}{Uh-huh, yeah that's nice buddy. You don't say...What? Of course I'm listening...}
+{100000010}{}{That's 5 caps. FIVE CAPS Tribal! F.I.V.E! }
+{100000011}{}{Shut up and order a fuckin' beer already!}
+{100000012}{}{I swear if I have to serve another drunk, I'm getting the shotgun!}
+{100000013}{}{Look the keg went dry, and it's going to be another month until the caravan shows up again.}
+{100000014}{}{Really? You don't say, buy another drink or get out!}
+{100000015}{}{What? I'm on break.}
+{100000016}{}{Be right with ya'}
+{100000017}{}{Have a sit stranger. I'll be with you in a moment.}
+{100000018}{}{When do we close? Uh, when the place get's shot up, that's when!}
+{100000019}{}{We're fresh outta' cold beer, sorry. You'll just have to drink it warm.}
+{100000020}{}{RotGut? No man, go make that shit yourself! I wouldn't drink it!}
+
+[russ]
+{100}{}{Алкоголик}
+{200}{}{Вы видите пьяницу.}
+{210}{}{Вы видите шатающегося из стороны в сторону пьяного человека в лохмотьях. Лицо его распухло, нос синющий как слива. А аромат рядом с ним такой, что свалит брамина насмерть. Он что-то бормочет про себя и иногда громко поет песни.}
+{210}{}{Вы видите алкаша. Он весьма грязен - кажется, он повалялся в луже, но не особо этим расстроен.}
+{1000}{}{I?aaaeaeiaiaua onoaiiaee}
+{1010}{}{base}
+{1020}{}{unlck}
+{1030}{}{visiter}
+{2000}{}{Welcome to the Farm. Please don't shoot anybody.@@Uh... hello?@@New ranch hand?@@Just leave your resources somewhere visible, the boss will pick them up eventually.@@Sorry, there's no beds available, you'll have to sleep on the floor.@@Another mouth to feed, eh? Well you'd better pull your weight around here, that's for sure.@@Does the boss know you're here?@@Yes, hi, that's very nice. Who are you again?@@I hope those aren't weapons on you...@@Stay away from the kids! You animal!@@What are you even doing here?@@Who invited you?@@Don't expect to get a map to this place.}
+{3000}{}{[Renovate this part of your Farm, and unlock the Family! -100 Daily Income, but allows you to Breed Cattle, and Trade Resouces! Unlock for 5000$, deducts the money from your Farm Treasury]}
+{3010}{}{Let's renovate!}
+{3020}{}{[Leave]}
+{4000}{}{Dialog text}
+{4010}{}{Sell 12x Brahmin Hides.}
+{4020}{}{Sell 1x Brahmin Skin.}
+{4030}{}{Sell 100x Fibers.}
+{4040}{}{Sell 12x Silver Gecko Pelts.}
+{4050}{}{Sell 12x Golden Gecko Pelts.}
+{4060}{}{What can you trade?}
+{4070}{}{What are your rates?}
+{4080}{}{Not now. But I'll be back when it's time.}
+{5000}{}{Eh, eh, boss, esti, I am like a great Canadian furtrader, fuck. You bring me some of dem Brahmin Hides, Gecko Pelts, Fibers, or Brahmin Skins, and I can make a couple of dem Farm Dollars, eh.}
+{5010}{}{I see, thanks.}
+{6000}{}{Well, calis, I charge good price for your skins, der, esti, boss. I make dis list just for you, eh.
+
+Buying Rates
+
+Brahmin Hides:   12x for 650 Farm Dollars
+Brahmin Skins:   1x for 200 Farm Dollars
+Silver Gecko Pelts:   12x for 500 Farm Dollars
+Golden Gecko Pelts:   12x for 800 Farm Dollars
+Fibers:   100x for 350 Farm Dollars}
+{6010}{}{Sounds good. Thanks.}
+{7000}{}{Okay, der, boss. It is done, eh. You come back to me when you 'ave more furs to sell. Calis, we make a lot of money together, eh?}
+

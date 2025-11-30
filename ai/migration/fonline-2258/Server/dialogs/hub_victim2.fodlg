@@ -1,0 +1,102 @@
+[comment]
+
+
+[data]
+lang=engl
+
+[dialog]
+&
+1 1000 None 0 #
+2 1010 D _var p noire5 = 2 #
+18 1020 D _var p noire5 = 3 @
+2 2000 None 0 #
+3 2010 @
+3 3000 None 0 #
+4 3010 @
+4 4000 None 0 #
+5 4010 @
+5 5000 None 0 #
+6 5010 @
+6 6000 None 0 #
+7 6010 @
+7 7000 None 0 #
+8 7010 @
+8 8000 None 0 #
+9 8010 #
+9 8020 #
+10 8030 #
+10 8040 #
+11 8050 #
+12 8060 #
+13 8070 #
+14 8080 #
+15 8090 @
+9 9000 None 0 #
+8 9010 @
+10 10000 None 0 #
+8 10010 @
+11 11000 None 0 #
+8 11010 @
+12 12000 None 0 #
+16 12010 @
+13 13000 None 0 #
+16 13010 @
+14 14000 None 0 #
+16 14010 @
+15 15000 None 0 #
+16 15010 @
+16 16000 None 0 #
+17 16010 @
+17 17000 None 0 #
+18 17010 R _var p noire5 = 3 R _script dialog@r_NinjaKillNpc 1 100 R _script quest_noire4@r_DeleteLoc 0  R _script dialog@r_AddExperience 1 5000 R _item p PID_BRAHMIN_HIDE + 4 R _item p PID_STEALTH_BOY + 4 R _item p PID_ROPE + 1 @
+18 18000 None 0 &
+
+[engl]
+{100}{}{A ghoul in Man's clothing}
+{200}{}{You see a ghoul in man's clothing.}
+{210}{}{It's wearing assorted sown pieces of human skin over its own. Men, women, children, this ghoul wasn't picky. But his stitching was horrible...}
+{1000}{}{Predialogue installations}
+{1010}{}{Answer text}
+{1020}{}{done}
+{2000}{}{Ughhrhhhgh... have you... seen... the light.. friend...?}
+{2010}{}{[Say nothing, mortified]}
+{3000}{}{[The ghoul starts to approach you, very slowly] Bathed... in its... glory...?}
+{3010}{}{[Say nothing, mortified]}
+{4000}{}{[The ghoul is much too close for comfort, his arms low, and close to his side] You... have... skin... like... I've... never... seen...}
+{4010}{}{Stay... stay back! I'm, uh, a police officer!}
+{5000}{}{[His arms slowly raise from his side] Let... me... feel... you... just... once... is... all... I... need...!}
+{5010}{}{[Kick the ghoul in the chest!] You fuckin' animal! }
+{6000}{}{[Your blow sends him crashing back! A large piece of his skin suit tears apart, and sticks to your boot. You swiftly kick it back towards the ghoul!] }
+{6010}{}{I'm going to make you pay for killing that little girl! Even if it wasn't your fault. Get over here!}
+{7000}{}{[The ghoul rises to his feet, and screams in some sort of strange language you've never seen! In a voice so feral, and high pitched, you can hear death itself screaming your name!]}
+{7010}{}{Don't make me laugh, bucko. You're just going to end up another blood splatter on the wall. Now, why don't you just lie down, and start answering my fucking questions!}
+{8000}{}{[The ghoul is not intimidated by your attempts of intimidation. Looks like you'll have to try a more effective approach]}
+{8010}{}{[Shoot the ghoul in the left leg]}
+{8020}{}{[Shoot the ghoul in the right leg]}
+{8030}{}{[Shoot the ghoul in the left arm]}
+{8040}{}{[Shoot the ghoul in the right arm]}
+{8050}{}{[Shoot the ghoul in the chest]}
+{8060}{}{[Shoot the ghoul in the head]}
+{8070}{}{[Pull out your knife and start hacking at the ghoul]}
+{8080}{}{[Put your hands around his throat, and snap his frail neck]}
+{8090}{}{[Grab one of his arms, pull, and throw him to the ground. Press your knee into his back. Restrain him, and start interrogating the monster]}
+{9000}{}{[You blast the ghoul in the leg, and watch him fall to the ground in confusion and pain!]}
+{9010}{}{We can do this the easy way! Or the fun way! I'll let you decide!}
+{10000}{}{[You blast the ghoul in the arm, and watch him stumble around in confusion and pain!]}
+{10010}{}{We can do this the easy way! Or the fun way! I'll let you decide!}
+{11000}{}{[You blast the ghoul in the chest, and watch him fall to his knees in confusion and pain!]}
+{11010}{}{We can do this the easy way! Or the fun way! I'll let you decide!}
+{12000}{}{[You blast the ghoul in the face, and watch his mind explode all over the back of the wall! You can make out a large chunk of brain matter colouring the walls like some sort of grotesque art piece. Part of you wants to take a picture, but you don't have any film, what a shame!]}
+{12010}{}{[Stare at the body for a while]}
+{13000}{}{[You race the ghoul on the attack, stunning him before he can react to your brutal strikes with your knife! With every stab you make you break one of his ribs, and snap something else as equally painful. The look on the ghoul's face is that of despair, confusion, and pain! After a while his guts are hanging out everywhere, and you aren't quite sure which chunk of flesh is human, or ghoul]}
+{13010}{}{[Stare at the body for a while]}
+{14000}{}{[You simply reach out, and grab the ghoul by the neck! As his frail arms wave around, you lift him off his feet and stare into his monstrous eyes, one final time. With a quick snap of your wrist you break the ghoul's neck, and watch the life escape him. After a while, being confident that he is dead you throw him against the wall, and laugh]}
+{14010}{}{[Stare at the body for a while]}
+{15000}{}{[You attempt to restrain and interrogate the ghoul, but upon smashing him to the ground and due to his frail nature, your knee snaps his spine, killing him instantly. You'll get no answers from this dead man, or woman... whatever it is. It's hard to tell under all that getup]}
+{15010}{}{[Stare at the body for a while]}
+{16000}{}{[You feel nothing]}
+{16010}{}{[Say nothing]}
+{17000}{}{[A cold rain falls gently upon the world as you walk away from another bloody case. A nauseating feeling creeps over you, but you don't quite have it in you to vomit. There's nothing unsual about all this blood, and darkness]}
+{17010}{}{[Walk away, and into the vaste, emptiness of the Californian wastes]}
+{18000}{}{We...are...coming...}
+

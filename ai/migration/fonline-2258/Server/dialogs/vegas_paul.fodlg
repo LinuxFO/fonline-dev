@@ -1,0 +1,555 @@
+[comment]
+
+
+[data]
+lang=engl
+
+[dialog]
+&
+1 1000 None 0 #
+2 1010 @
+2 2000 None 0 #
+65506 2010 #
+5 2020 D _param p ST_LEVEL } 27 #
+0 2030 @
+5 3000 None 0 #
+6 3010 #
+7 3020 #
+8 3030 #
+9 3040 #
+2 3050 @
+6 4000 None 0 #
+61 4010 #
+62 4020 #
+63 4030 #
+64 4040 #
+65 4050 #
+66 4060 #
+2 4070 @
+7 5000 None 0 #
+71 5010 #
+72 5020 #
+2 5030 @
+8 6000 None 0 #
+81 6010 #
+82 6020 #
+83 6030 #
+84 6040 #
+2 6050 @
+9 7000 None 0 #
+91 7010 #
+92 7020 #
+93 7030 #
+94 7040 #
+95 7050 #
+96 7060 #
+2 7070 @
+61 8000 None 0 #
+611 8010 #
+612 8020 @
+62 9000 None 0 #
+621 9010 #
+622 9020 @
+63 10000 None 0 #
+631 10010 #
+632 10020 @
+64 11000 None 0 #
+641 11010 #
+642 11020 @
+71 12000 None 0 #
+711 12010 #
+712 12020 @
+72 13000 None 0 #
+721 13010 #
+722 13020 @
+81 14000 None 0 #
+811 14010 #
+812 14020 @
+82 15000 None 0 #
+821 15010 #
+822 15020 @
+83 16000 None 0 #
+831 16010 #
+832 16020 @
+84 17000 None 0 #
+841 17010 #
+842 17020 @
+91 18000 None 0 #
+911 18010 #
+912 18020 @
+92 19000 None 0 #
+921 19010 #
+922 19020 @
+93 20000 None 0 #
+931 20010 #
+932 20020 @
+94 21000 None 0 #
+941 21010 #
+942 21020 @
+95 22000 None 0 #
+951 22010 #
+952 22020 @
+96 23000 None 0 #
+961 23010 #
+962 23020 @
+65 24000 None 0 #
+990 24010 D _item p PID_BOTTLE_CAPS > 199999 R _item p PID_BOTTLE_CAPS - 200000 R _script dialog@BuyingPancor 0  #
+990 24020 D _item p PID_DOLLAR > 39999 R _item p PID_DOLLAR - 40000 R _script dialog@BuyingPancor 0  #
+990 24030 D _item p PID_DOLLAR2 > 19999 R _item p PID_DOLLAR2 - 20000 R _script dialog@BuyingPancor 0  #
+0 24040 @
+66 25000 None 0 #
+990 25010 D _item p PID_BOTTLE_CAPS > 199999 R _item p PID_BOTTLE_CAPS - 200000 R _script dialog@BuyingXL 0  #
+990 25020 D _item p PID_DOLLAR > 39999 R _item p PID_DOLLAR - 40000 R _script dialog@BuyingXL 0  #
+990 25030 D _item p PID_DOLLAR2 > 19999 R _item p PID_DOLLAR2 - 20000 R _script dialog@BuyingXL 0  #
+0 25040 @
+611 26000 None 0 #
+990 26010 D _item p PID_BOTTLE_CAPS > 499999 R _item p PID_BOTTLE_CAPS - 500000 R _item p PID_PK12_GAUSS_PISTOL + 1 #
+990 26020 D _item p PID_DOLLAR > 99999 R _item p PID_DOLLAR - 100000 R _item p PID_PK12_GAUSS_PISTOL + 1 #
+990 26030 D _item p PID_DOLLAR2 > 49999 R _item p PID_PK12_GAUSS_PISTOL + 1 R _item p PID_DOLLAR2 - 50000 #
+0 26040 @
+612 27000 None 0 #
+990 27010 D _item p PID_BOTTLE_CAPS > 999999 R _item p PID_BOTTLE_CAPS - 1000000 R _script dialog@BuyingGPistol 0  #
+990 27020 D _item p PID_DOLLAR > 199999 R _item p PID_DOLLAR - 200000 R _script dialog@BuyingGPistol 0  #
+990 27030 D _item p PID_DOLLAR2 > 99999 R _item p PID_DOLLAR2 - 100000 R _script dialog@BuyingGPistol 0  #
+0 27040 @
+621 28000 None 0 #
+990 28010 D _item p PID_BOTTLE_CAPS > 799999 R _item p PID_BOTTLE_CAPS - 800000 R _item p PID_M72_GAUSS_RIFLE + 1 #
+990 28020 D _item p PID_DOLLAR > 159999 R _item p PID_DOLLAR - 160000 R _item p PID_M72_GAUSS_RIFLE + 1 #
+990 28030 D _item p PID_DOLLAR2 > 79999 R _item p PID_DOLLAR2 - 80000 R _item p PID_M72_GAUSS_RIFLE + 1 #
+0 28040 @
+622 29000 None 0 #
+990 29010 D _item p PID_BOTTLE_CAPS > 1599999 R _item p PID_BOTTLE_CAPS - 1600000 R _script dialog@BuyingGRifle 0  #
+990 29020 D _item p PID_DOLLAR > 319999 R _item p PID_DOLLAR - 320000 R _script dialog@BuyingGRifle 0  #
+990 29030 D _item p PID_DOLLAR2 > 159999 R _item p PID_DOLLAR2 - 160000 R _script dialog@BuyingGRifle 0  #
+0 29040 @
+631 30000 None 0 #
+990 30010 D _item p PID_BOTTLE_CAPS > 199999 R _item p PID_BOTTLE_CAPS - 200000 R _item p PID_HK_G11 + 1 #
+990 30020 D _item p PID_DOLLAR > 39999 R _item p PID_DOLLAR - 40000 R _item p PID_HK_G11 + 1 #
+990 30030 D _item p PID_DOLLAR2 > 19999 R _item p PID_DOLLAR2 - 20000 R _item p PID_HK_G11 + 1 #
+0 30040 @
+632 31000 None 0 #
+990 31010 D _item p PID_BOTTLE_CAPS > 399999 R _item p PID_BOTTLE_CAPS - 400000 R _script dialog@BuyingHK11 0  #
+990 31020 D _item p PID_DOLLAR > 79999 R _item p PID_DOLLAR - 80000 R _script dialog@BuyingHK11 0  #
+990 31030 D _item p PID_DOLLAR2 > 39999 R _item p PID_DOLLAR2 - 40000 R _script dialog@BuyingHK11 0  #
+0 31040 @
+641 32000 None 0 #
+990 32010 D _item p PID_BOTTLE_CAPS > 499999 R _item p PID_BOTTLE_CAPS - 500000 R _item p PID_HK_G11E + 1 #
+990 32020 D _item p PID_DOLLAR > 99999 R _item p PID_DOLLAR - 100000 R _item p PID_HK_G11E + 1 #
+990 32030 D _item p PID_DOLLAR2 > 49999 R _item p PID_DOLLAR2 - 50000 R _item p PID_HK_G11E + 1 #
+0 32040 @
+642 33000 None 0 #
+990 33010 D _item p PID_BOTTLE_CAPS > 999999 R _item p PID_BOTTLE_CAPS - 1000000 R _script dialog@BuyingHK11E 0  #
+990 33020 D _item p PID_DOLLAR > 199999 R _item p PID_DOLLAR - 200000 R _script dialog@BuyingHK11E 0  #
+990 33030 D _item p PID_DOLLAR2 > 99999 R _item p PID_DOLLAR2 - 100000 R _script dialog@BuyingHK11E 0  #
+0 33040 @
+711 34000 None 0 #
+990 34010 D _item p PID_BOTTLE_CAPS > 999999 R _item p PID_BOTTLE_CAPS - 1000000 R _item p PID_BOZAR + 1 #
+990 34020 D _item p PID_DOLLAR > 199999 R _item p PID_DOLLAR - 200000 R _item p PID_BOZAR + 1 #
+990 34030 D _item p PID_DOLLAR2 > 99999 R _item p PID_DOLLAR2 - 100000 R _item p PID_BOZAR + 1 #
+0 34040 @
+712 35000 None 0 #
+990 35010 D _item p PID_BOTTLE_CAPS > 1999999 R _item p PID_BOTTLE_CAPS - 2000000 R _script dialog@BuyingBozar 0  #
+990 35020 D _item p PID_DOLLAR > 399999 R _item p PID_DOLLAR - 400000 R _script dialog@BuyingBozar 0  #
+990 35030 D _item p PID_DOLLAR2 > 199999 R _item p PID_DOLLAR2 - 200000 R _script dialog@BuyingBozar 0  #
+0 35040 @
+721 36000 None 0 #
+990 36010 D _item p PID_BOTTLE_CAPS > 999999 R _item p PID_BOTTLE_CAPS - 1000000 R _item p PID_VINDICATOR_MINIGUN + 1 #
+990 36020 D _item p PID_DOLLAR > 199999 R _item p PID_DOLLAR - 200000 R _item p PID_VINDICATOR_MINIGUN + 1 #
+990 36030 D _item p PID_DOLLAR2 > 99999 R _item p PID_DOLLAR2 - 100000 R _item p PID_VINDICATOR_MINIGUN + 1 #
+0 36040 @
+722 37000 None 0 #
+990 37010 D _item p PID_BOTTLE_CAPS > 1999999 R _item p PID_BOTTLE_CAPS - 2000000 R _script dialog@BuyingVindi 0  #
+990 37020 D _item p PID_DOLLAR > 399999 R _item p PID_DOLLAR - 400000 R _script dialog@BuyingVindi 0  #
+990 37030 D _item p PID_DOLLAR2 > 199999 R _item p PID_DOLLAR2 - 200000 R _script dialog@BuyingVindi 0  #
+0 37040 @
+811 38000 None 0 #
+990 38010 D _item p PID_BOTTLE_CAPS > 199999 R _item p PID_BOTTLE_CAPS - 200000 R _item p PID_ALIEN_LASER_PISTOL + 1 #
+990 38020 D _item p PID_DOLLAR > 39999 R _item p PID_DOLLAR - 40000 R _item p PID_ALIEN_LASER_PISTOL + 1 #
+990 38030 D _item p PID_DOLLAR2 > 19999 R _item p PID_DOLLAR2 - 20000 R _item p PID_ALIEN_LASER_PISTOL + 1 #
+0 38040 @
+812 39000 None 0 #
+990 39010 D _item p PID_BOTTLE_CAPS > 399999 R _item p PID_BOTTLE_CAPS - 400000 R _script dialog@BuyingAlien 0  #
+990 39020 D _item p PID_DOLLAR > 79999 R _item p PID_DOLLAR - 80000 R _script dialog@BuyingAlien 0  #
+990 39030 D _item p PID_DOLLAR2 > 39999 R _item p PID_DOLLAR2 - 40000 R _script dialog@BuyingAlien 0  #
+0 39040 @
+821 40000 None 0 #
+990 40010 D _item p PID_BOTTLE_CAPS > 199999 R _item p PID_BOTTLE_CAPS - 200000 R _item p PID_YK32_PULSE_PISTOL + 1 #
+990 40020 D _item p PID_DOLLAR > 39999 R _item p PID_DOLLAR - 40000 R _item p PID_YK32_PULSE_PISTOL + 1 #
+990 40030 D _item p PID_DOLLAR2 > 19999 R _item p PID_DOLLAR2 - 20000 R _item p PID_YK32_PULSE_PISTOL + 1 #
+0 40040 @
+822 41000 None 0 #
+990 41010 D _item p PID_BOTTLE_CAPS > 399999 R _item p PID_BOTTLE_CAPS - 400000 R _script dialog@BuyingPulsePistol 0  #
+990 41020 D _item p PID_DOLLAR > 79999 R _item p PID_DOLLAR - 80000 R _script dialog@BuyingPulsePistol 0  #
+990 41030 D _item p PID_DOLLAR2 > 39999 R _item p PID_DOLLAR2 - 40000 R _script dialog@BuyingPulsePistol 0  #
+0 41040 @
+831 42000 None 0 #
+990 42010 D _item p PID_BOTTLE_CAPS > 999999 R _item p PID_BOTTLE_CAPS - 1000000 R _item p PID_YK42B_PULSE_RIFLE + 1 #
+990 42020 D _item p PID_DOLLAR > 199999 R _item p PID_DOLLAR - 200000 R _item p PID_YK42B_PULSE_RIFLE + 1 #
+990 42030 D _item p PID_DOLLAR2 > 99999 R _item p PID_DOLLAR2 - 100000 R _item p PID_YK42B_PULSE_RIFLE + 1 #
+0 42040 @
+832 43000 None 0 #
+990 43010 D _item p PID_BOTTLE_CAPS > 1999999 R _item p PID_BOTTLE_CAPS - 2000000 R _script dialog@BuyingPulseRifle 0  #
+990 43020 D _item p PID_DOLLAR > 399999 R _item p PID_DOLLAR - 400000 R _script dialog@BuyingPulseRifle 0  #
+990 43030 D _item p PID_DOLLAR2 > 199999 R _item p PID_DOLLAR2 - 200000 R _script dialog@BuyingPulseRifle 0  #
+0 43040 @
+841 44000 None 0 #
+990 44010 D _item p PID_BOTTLE_CAPS > 799999 R _item p PID_BOTTLE_CAPS - 800000 R _item p PID_TURBO_PLASMA_RIFLE + 1 #
+990 44020 D _item p PID_DOLLAR > 159999 R _item p PID_DOLLAR - 160000 R _item p PID_TURBO_PLASMA_RIFLE + 1 #
+990 44030 D _item p PID_DOLLAR2 > 79999 R _item p PID_DOLLAR2 - 80000 R _item p PID_TURBO_PLASMA_RIFLE + 1 #
+0 44040 @
+842 45000 None 0 #
+990 45010 D _item p PID_BOTTLE_CAPS > 1599999 R _item p PID_BOTTLE_CAPS - 1600000 R _script dialog@BuyingTBR 0  #
+990 45020 D _item p PID_DOLLAR > 319999 R _item p PID_DOLLAR - 320000 R _script dialog@BuyingTBR 0  #
+990 45030 D _item p PID_DOLLAR2 > 159999 R _item p PID_DOLLAR2 - 160000 R _script dialog@BuyingTBR 0  #
+0 45040 @
+911 46000 None 0 #
+990 46010 D _item p PID_BOTTLE_CAPS > 99999 R _item p PID_BOTTLE_CAPS - 100000 R _item p PID_BROTHERHOOD_COMBAT_ARMOR + 1 R _item p PID_BROTHERHOOD_HELMET + 1 #
+990 46020 D _item p PID_DOLLAR > 19999 R _item p PID_DOLLAR - 20000 R _item p PID_BROTHERHOOD_COMBAT_ARMOR + 1 R _item p PID_BROTHERHOOD_HELMET + 1 #
+990 46030 D _item p PID_DOLLAR2 > 9999 R _item p PID_DOLLAR2 - 10000 R _item p PID_BROTHERHOOD_COMBAT_ARMOR + 1 R _item p PID_BROTHERHOOD_HELMET + 1 #
+0 46040 @
+912 47000 None 0 #
+990 47010 D _item p PID_BOTTLE_CAPS > 199999 R _item p PID_BOTTLE_CAPS - 200000 R _script dialog@BuyingBOS 0  #
+990 47020 D _item p PID_DOLLAR > 39999 R _item p PID_DOLLAR - 40000 R _script dialog@BuyingBOS 0  #
+990 47030 D _item p PID_DOLLAR2 > 19999 R _item p PID_DOLLAR2 - 20000 R _script dialog@BuyingBOS 0  #
+0 47040 @
+921 48000 None 0 #
+990 48010 D _item p PID_BOTTLE_CAPS > 99999 R _item p PID_BOTTLE_CAPS - 100000 R _item p PID_DESERT_COMBAT_ARMOR + 1 R _item p PID_DESERT_COMBAT_HELMET + 1 #
+990 48020 D _item p PID_DOLLAR > 19999 R _item p PID_DOLLAR - 20000 R _item p PID_DESERT_COMBAT_ARMOR + 1 R _item p PID_DESERT_COMBAT_HELMET + 1 #
+990 48030 D _item p PID_DOLLAR2 > 9999 R _item p PID_DOLLAR2 - 10000 R _item p PID_DESERT_COMBAT_ARMOR + 1 R _item p PID_DESERT_COMBAT_HELMET + 1 #
+0 48040 @
+922 49000 None 0 #
+990 49010 D _item p PID_BOTTLE_CAPS > 199999 R _item p PID_BOTTLE_CAPS - 200000 R _script dialog@BuyingDesert 0  #
+990 49020 D _item p PID_DOLLAR > 39999 R _item p PID_DOLLAR - 40000 R _script dialog@BuyingDesert 0  #
+990 49030 D _item p PID_DOLLAR2 > 19999 R _item p PID_DOLLAR2 - 20000 R _script dialog@BuyingDesert 0  #
+0 49040 @
+931 50000 None 0 #
+990 50010 D _item p PID_BOTTLE_CAPS > 99999 R _item p PID_BOTTLE_CAPS - 100000 R _item p PID_ENCLAVE_COMBAT_ARMOR + 1 R _item p PID_ENCLAVE_COMBAT_HELMET + 1 #
+990 50020 D _item p PID_DOLLAR > 19999 R _item p PID_DOLLAR - 20000 R _item p PID_ENCLAVE_COMBAT_ARMOR + 1 R _item p PID_ENCLAVE_COMBAT_HELMET + 1 #
+990 50030 D _item p PID_DOLLAR2 > 9999 R _item p PID_DOLLAR2 - 10000 R _item p PID_ENCLAVE_COMBAT_ARMOR + 1 R _item p PID_ENCLAVE_COMBAT_HELMET + 1 #
+0 50040 @
+932 51000 None 0 #
+990 51010 D _item p PID_BOTTLE_CAPS > 199999 R _item p PID_BOTTLE_CAPS - 200000 R _script dialog@BuyingEnclave 0  #
+990 51020 D _item p PID_DOLLAR > 39999 R _item p PID_DOLLAR - 40000 R _script dialog@BuyingEnclave 0  #
+990 51030 D _item p PID_DOLLAR2 > 19999 R _item p PID_DOLLAR2 - 20000 R _script dialog@BuyingEnclave 0  #
+0 51040 @
+941 52000 None 0 #
+990 52010 D _item p PID_BOTTLE_CAPS > 99999 R _item p PID_BOTTLE_CAPS - 100000 R _item p PID_NCR_ARMOR + 1 R _item p PID_NCR_HELMET + 1 #
+990 52020 D _item p PID_DOLLAR > 19999 R _item p PID_DOLLAR - 20000 R _item p PID_NCR_ARMOR + 1 R _item p PID_NCR_HELMET + 1 #
+990 52030 D _item p PID_DOLLAR2 > 9999 R _item p PID_DOLLAR2 - 10000 R _item p PID_NCR_ARMOR + 1 R _item p PID_NCR_HELMET + 1 #
+0 52040 @
+942 53000 None 0 #
+990 53010 D _item p PID_BOTTLE_CAPS > 199999 R _item p PID_BOTTLE_CAPS - 200000 R _script dialog@BuyingNCR 0  #
+990 53020 D _item p PID_DOLLAR > 39999 R _item p PID_DOLLAR - 40000 R _script dialog@BuyingNCR 0  #
+990 53030 D _item p PID_DOLLAR2 > 19999 R _item p PID_DOLLAR2 - 20000 R _script dialog@BuyingNCR 0  #
+0 53040 @
+951 54000 None 0 #
+990 54010 D _item p PID_BOTTLE_CAPS > 599999 R _item p PID_BOTTLE_CAPS - 600000 R _item p PID_POWERED_ARMOR + 1 #
+990 54020 D _item p PID_DOLLAR > 119999 R _item p PID_DOLLAR - 120000 R _item p PID_POWERED_ARMOR + 1 #
+990 54030 D _item p PID_DOLLAR2 > 59999 R _item p PID_DOLLAR2 - 60000 R _item p PID_POWERED_ARMOR + 1 #
+0 54040 @
+952 55000 None 0 #
+990 55010 D _item p PID_BOTTLE_CAPS > 1199999 R _item p PID_BOTTLE_CAPS - 1200000 R _script dialog@BuyingPA 0  #
+990 55020 D _item p PID_DOLLAR > 239999 R _item p PID_DOLLAR - 240000 R _script dialog@BuyingPA 0  #
+990 55030 D _item p PID_DOLLAR2 > 119999 R _item p PID_DOLLAR2 - 120000 R _script dialog@BuyingPA 0  #
+0 55040 @
+961 56000 None 0 #
+990 56010 D _item p PID_BOTTLE_CAPS > 999999 R _item p PID_BOTTLE_CAPS - 1000000 R _item p PID_HARDENED_POWER_ARMOR + 1 R _item p PID_HARDENED_POWER_HELMET + 1 #
+990 56020 D _item p PID_DOLLAR > 199999 R _item p PID_DOLLAR - 200000 R _item p PID_HARDENED_POWER_ARMOR + 1 R _item p PID_HARDENED_POWER_HELMET + 1 #
+990 56030 D _item p PID_DOLLAR2 > 99999 R _item p PID_DOLLAR2 - 100000 R _item p PID_HARDENED_POWER_ARMOR + 1 R _item p PID_HARDENED_POWER_HELMET + 1 #
+0 56040 @
+962 57000 None 0 #
+990 57010 D _item p PID_BOTTLE_CAPS > 1999999 R _item p PID_BOTTLE_CAPS - 2000000 R _script dialog@BuyingHPA 0  #
+990 57020 D _item p PID_DOLLAR > 399999 R _item p PID_DOLLAR - 400000 R _script dialog@BuyingHPA 0  #
+990 57030 D _item p PID_DOLLAR2 > 199999 R _item p PID_DOLLAR2 - 200000 R _script dialog@BuyingHPA 0  #
+0 57040 @
+990 58000 None 0 &
+
+[engl]
+{100}{}{Paul Tibbett}
+{200}{}{You see Paul Tibbett, owner of the Grand Bazaar and luxury trade shop!}
+{210}{}{This place is a palace of wealth and premium gear! You can't believe what's on display, or the price tags! But this place has everything a real, rich Vault Dweller needs!}
+{1000}{}{Predialogue installations}
+{1010}{}{-}
+{2000}{}{Hey, amigo! Welcome to the fabulous Las Vegas, eh! You here for some guns, ese? We got plenty of guns! Taco stand out back too! Viva la revolucion, eh! What can I get'chu?}
+{2010}{}{Let's see what you got in stock, hombre.}
+{2020}{}{Cut the crap Paul, I'm here for the *REAL* equipment! Y'know, the stuff you keep locked under that counter.}
+{2030}{}{[Walk away]
+}
+{3000}{}{[He looks around suspiciously for a moment, then he grins]
+
+Alright hombre, who am I to deny a customer? What are you looking for?
+}
+{3010}{}{Small guns. Only the best though, no mass-produced junk.}
+{3020}{}{Big guns. I need serious firepower.}
+{3030}{}{Energy Guns. These civilian models just aint cutting it.}
+{3040}{}{Armor. Combat armor isn't enough anymore.}
+{3050}{}{Nevermind.}
+{4000}{}{[He opens a latch on the counter and reveals several high-tier small guns, then looks at you with a proud smile.]
+}
+{4010}{}{(Gauss Pistol) I want that PK12 Gauss Pistol there.}
+{4020}{}{(Gauss Rifle) That M72 Rifle is calling my name...}
+{4030}{}{(G11) An HK G11? I want it.}
+{4040}{}{(G11e) The HK G11e is just what I'm looking for.}
+{4050}{}{(Pancor Jackhammer) Oh a Pancor. Basic, but effective.}
+{4060}{}{(XL70E3) Wow you even have XLs? I'll take one.}
+{4070}{}{Nevermind.}
+{5000}{}{[He pulls a key from his pocket and unlocks a cabinet on the counter, revealing some wicked looking big guns.]
+}
+{5010}{}{(Bozar) Christ, man! I NEED that Bozar!}
+{5020}{}{(Vindicator) Vin-Dee-Cay-Tor?! I've never seen one in real life!}
+{5030}{}{Nevermind.}
+{6000}{}{[Paul quickly types a code into a keypad, and a door slides open on the counter. There are several high-tech weapons inside.]
+}
+{6010}{}{(Alien Blaster) What the hell is that weird pistol?}
+{6020}{}{(Pulse Pistol) Nice, a YK32 handheld. I'll take one.}
+{6030}{}{(Pulse Rifle) How did you get your hands on a YK42 Rifle?! I need it!}
+{6040}{}{(Turbo Plasma Rifle) Classic modified Plasma Caster. Can't go wrong with that.}
+{6050}{}{Nevermind.}
+{7000}{}{[He taps the side of a shelf, and a false front pops open, revealing military-grade armor sets.]
+}
+{7010}{}{(Brotherhood Combat Armor) I'll take a set of the Brotherhood Armor.}
+{7020}{}{(Desert Combat Armor) Howabout a set of the Desert Armor?}
+{7030}{}{(Enclave Combat Armor) I like the colors on that Enclave Armor.}
+{7040}{}{(NCR Ranger Armor) The NCR Armor will do me fine.}
+{7050}{}{(Power Armor) Powered Armor from the BoS? How much for THAT?!}
+{7060}{}{(Hardened Power Armor) As if normal Power Armor wasn't enough... *gulp* How much we talking?}
+{7070}{}{Nevermind.}
+{8000}{}{Gauss Pistol ese? Do you want it stock, or upgraded?
+}
+{8010}{}{Stock.}
+{8020}{}{Upgraded.}
+{9000}{}{Gauss Rifle. Nice pick hombre. Do you want it stock, or upgraded?
+}
+{9010}{}{Stock.}
+{9020}{}{Upgraded.}
+{10000}{}{The G11? Bien. Stock, or upgraded?
+}
+{10010}{}{Stock.}
+{10020}{}{Upgraded.}
+{11000}{}{Ah, a G11e. Buena eleccion. Stock, or upgraded?
+}
+{11010}{}{Stock.}
+{11020}{}{Upgraded.}
+{12000}{}{Ayayay, the Bozar! Careful with that thing! How do you want it?
+}
+{12010}{}{Stock.}
+{12020}{}{Upgraded.}
+{13000}{}{Guau! Going for the big Vindi ese? You want it stock, or upgraded?
+}
+{13010}{}{Stock.}
+{13020}{}{Upgraded.}
+{14000}{}{I love Alien tech hombre! Fucking with that shit is wild! You want it stock, or upgraded?
+}
+{14010}{}{Stock.}
+{14020}{}{Upgraded.}
+{15000}{}{The Pulse Pistol is muy bueno in the right hands. Nice choice. Did you want it stock, or upgraded?
+}
+{15010}{}{Stock.}
+{15020}{}{Upgraded.}
+{16000}{}{OK persona rica, a Pulse Rifle it is. Stock, or upgraded?
+}
+{16010}{}{Stock.}
+{16020}{}{Upgraded.}
+{17000}{}{A good old TPR, ese? How do you want it?
+}
+{17010}{}{Stock.}
+{17020}{}{Upgraded.}
+{18000}{}{This BoS gear is HOT right now. Do you want it stock, or upgraded?
+}
+{18010}{}{Stock.}
+{18020}{}{Upgraded.}
+{19000}{}{Desert Armor for a desert traveler... Lo coges? Nevermind... How do you want it?
+}
+{19010}{}{Stock.}
+{19020}{}{Upgraded.}
+{20000}{}{Enclave Armor? Menos Mal! I thought I'd never get rid of these. How do you want it?
+}
+{20010}{}{Stock.}
+{20020}{}{Upgraded.}
+{21000}{}{This NCR gear is pretty good amigo. Stock, or upgraded?
+}
+{21010}{}{Stock.}
+{21020}{}{Upgraded.}
+{22000}{}{This Power Armor is rare as hell ese. How do you want it?
+}
+{22010}{}{Stock.}
+{22020}{}{Upgraded.}
+{23000}{}{Hardened Power Armor is serious business guey. You want it stock, or upgraded?
+}
+{23010}{}{Stock.}
+{23020}{}{Upgraded.}
+{24000}{}{Pancor Jackhammer. Muy bien. I only offer upgraded ones though compa. How do you want to pay? You can pay with 200,000 caps, 40,000 old world dollars, or 20,000 NCR dollars.
+}
+{24010}{}{200,000 Caps.}
+{24020}{}{40,000 Old World Dollars.}
+{24030}{}{20,000 NCR Dollars.}
+{24040}{}{I don't have the money now. I'll be back later.}
+{25000}{}{XL70E3. Excellente. I only have the upgraded ones though. What are you paying with ese? 200,000 caps, 40,000 old world dollars, or 20,000 NCR dollars?}
+{25010}{}{200,000 Caps.}
+{25020}{}{40,000 Old World Dollars.}
+{25030}{}{20,000 NCR Dollars.}
+{25040}{}{I don't have the money now. I'll be back later.}
+{26000}{}{Stock Gauss Pistol. OK then. Cash or credit? Just kidding heh. It'll be 500,000 caps, 100,000 old world dollars, or 50,000 NCR dollars.
+}
+{26010}{}{500,000 Caps.}
+{26020}{}{100,000 Old World Dollars.}
+{26030}{}{50,000 NCR Dollars.}
+{26040}{}{I don't have the money now. I'll be back later.}
+{27000}{}{Upgraded Gauss Pistol. Sure. 1,000,000 caps, 200,000 old world dollars, or 100,000 NCR dollars. What are you offering ese?
+}
+{27010}{}{1,000,000 Caps.}
+{27020}{}{200,000 Old World Dollars.}
+{27030}{}{100,000 NCR Dollars.}
+{27040}{}{I don't have the money now. I'll be back later.}
+{28000}{}{Stock Gauss Rifle. Got it. 800,000 caps, 160,000 old world dollars, or 80,000 NCR dollars. How do you wanna pay, amigo?}
+{28010}{}{800,000 Caps.}
+{28020}{}{160,000 Old World Dollars.}
+{28030}{}{80,000 NCR Dollars.}
+{28040}{}{I don't have the money now. I'll be back later.}
+{29000}{}{Upgraded Gauss Rifle, bueno. That'll be 1,600,000 caps, 320,000 old world dollars, or 160,000 NCR dollars. Let's deal.}
+{29010}{}{1,600,000 Caps.}
+{29020}{}{320,000 Old World Dollars.}
+{29030}{}{160,000 NCR Dollars.}
+{29040}{}{I don't have the money now. I'll be back later.}
+{30000}{}{Stock G11. Got it. How did you wanna pay, amigo? With 200,000 caps, 40,000 old world dollars, or 20,000 NCR dollars?}
+{30010}{}{200,000 Caps.}
+{30020}{}{40,000 Old World Dollars.}
+{30030}{}{20,000 NCR Dollars.}
+{30040}{}{I don't have the money now. I'll be back later.}
+{31000}{}{Upgraded G11. Alright, what are we working with hombre, 400,000 caps, 80,000 old world dollars, or 40,000 NCR dollars?}
+{31010}{}{400,000 Caps.}
+{31020}{}{80,000 Old World Dollars.}
+{31030}{}{40,000 NCR Dollars.}
+{31040}{}{I don't have the money now. I'll be back later.}
+{32000}{}{Stock G11e. No problem guey. It's 500,000 caps, 100,000 old world dollars, or 50,000 NCR dollars. Pay up.}
+{32010}{}{500,000 Caps.}
+{32020}{}{100,000 Old World Dollars.}
+{32030}{}{50,000 NCR Dollars.}
+{32040}{}{I don't have the money now. I'll be back later.}
+{33000}{}{Upgraded G11e. OK, pull out the dolares! 1,000,000 caps, 200,000 old world dollars, or 100,000 NCR dollars.}
+{33010}{}{1,000,000 Caps.}
+{33020}{}{200,000 Old World Dollars.}
+{33030}{}{100,000 NCR Dollars.}
+{33040}{}{I don't have the money now. I'll be back later.}
+{34000}{}{Stock Bozar. No problemo. This one is 1,000,000 caps, 200,000 old world dollars, or 100,000 NCR dollars. Hand me the money and it's all yours.}
+{34010}{}{1,000,000 Caps.}
+{34020}{}{200,000 Old World Dollars.}
+{34030}{}{100,000 NCR Dollars.}
+{34040}{}{I don't have the money now. I'll be back later.}
+{35000}{}{Upgraded Bozar. Great. This one is muy caro! 2,000,000 caps, 400,000 old world dollars, or 200,000 NCR dollars. [He holds his hand out expecting payment]}
+{35010}{}{2,000,000 Caps.}
+{35020}{}{400,000 Old World Dollars.}
+{35030}{}{200,000 NCR Dollars.}
+{35040}{}{I don't have the money now. I'll be back later.}
+{36000}{}{Stock Vindicator. Okay then, pay up. This gun is 1,000,000 caps, 200,000 old world dollars, or 100,000 NCR dollars.}
+{36010}{}{1,000,000 Caps.}
+{36020}{}{200,000 Old World Dollars.}
+{36030}{}{100,000 NCR Dollars.}
+{36040}{}{I don't have the money now. I'll be back later.}
+{37000}{}{Upgraded Vindicator. Mucho frio. How you paying this time amigo? 2,000,000 caps, 400,000 old world dollars, or 200,000 NCR dollars.}
+{37010}{}{2,000,000 Caps.}
+{37020}{}{400,000 Old World Dollars.}
+{37030}{}{200,000 NCR Dollars.}
+{37040}{}{I don't have the money now. I'll be back later.}
+{38000}{}{Stock Alien Blaster. 200,000 caps, 40,000 old world dollars, or 20,000 NCR dollars. Hand me the cash hombre.}
+{38010}{}{200,000 Caps.}
+{38020}{}{40,000 Old World Dollars.}
+{38030}{}{20,000 NCR Dollars.}
+{38040}{}{I don't have the money now. I'll be back later.}
+{39000}{}{Upgraded Alien Blaster. I need 400,000 caps, 80,000 old world dollars, or 40,000 NCR dollars.  [He holds his hand out for payment]}
+{39010}{}{400,000 Caps.}
+{39020}{}{80,000 Old World Dollars.}
+{39030}{}{40,000 NCR Dollars.}
+{39040}{}{I don't have the money now. I'll be back later.}
+{40000}{}{Stock Pulse Pistol. Ok, no problamo. Pay me first though. 200,000 caps, 40,000 old world dollars, or 20,000 NCR dollars.}
+{40010}{}{200,000 Caps.}
+{40020}{}{40,000 Old World Dollars.}
+{40030}{}{20,000 NCR Dollars.}
+{40040}{}{I don't have the money now. I'll be back later.}
+{41000}{}{Upgraded Pulse Pistol. Got it. How did you wanna pay, amigo? 400,000 caps, 80,000 old world dollars, or 40,000 NCR dollars.}
+{41010}{}{400,000 Caps.}
+{41020}{}{80,000 Old World Dollars.}
+{41030}{}{40,000 NCR Dollars.}
+{41040}{}{I don't have the money now. I'll be back later.}
+{42000}{}{Stock Pulse Rifle. Si amigo. Paying with caps, or something else? It's 1,000,000 caps, 200,000 old world dollars, or 100,000 NCR dollars.}
+{42010}{}{1,000,000 Caps.}
+{42020}{}{200,000 Old World Dollars.}
+{42030}{}{100,000 NCR Dollars.}
+{42040}{}{I don't have the money now. I'll be back later.}
+{43000}{}{Upgraded Pulse Rifle. OK, lets do this. This one is 2,000,000 caps, 400,000 old world dollars, or 200,000 NCR dollars.}
+{43010}{}{2,000,000 Caps.}
+{43020}{}{400,000 Old World Dollars.}
+{43030}{}{200,000 NCR Dollars.}
+{43040}{}{I don't have the money now. I'll be back later.}
+{44000}{}{Stock Turbo Plasma Rifle. No worries amigo. Payment? 800,000 caps, 160,000 old world dollars, or 80,000 NCR dollars.}
+{44010}{}{800,000 Caps.}
+{44020}{}{160,000 Old World Dollars.}
+{44030}{}{80,000 NCR Dollars.}
+{44040}{}{I don't have the money now. I'll be back later.}
+{45000}{}{Upgraded Turbo Plasma Rifle. Right on hombre. Your turn. 1,600,000 caps, 320,000 old world dollars, or 160,000 NCR dollars.}
+{45010}{}{1,600,000 Caps.}
+{45020}{}{320,000 Old World Dollars.}
+{45030}{}{160,000 NCR Dollars.}
+{45040}{}{I don't have the money now. I'll be back later.}
+{46000}{}{Stock Brotherhood Armor. Sure thing. How you gonna pay, 100,000 caps, 20,000 old world dollars, or 10,000 NCR dollars?}
+{46010}{}{100,000 Caps.}
+{46020}{}{20,000 Old World Dollars.}
+{46030}{}{10,000 NCR Dollars.}
+{46040}{}{I don't have the money now. I'll be back later.}
+{47000}{}{Upgraded Brotherhood Armor. OK then. What are you paying with ese? 200,000 caps, 40,000 old world dollars, or 20,000 NCR dollars.}
+{47010}{}{200,000 Caps.}
+{47020}{}{40,000 Old World Dollars.}
+{47030}{}{20,000 NCR Dollars.}
+{47040}{}{I don't have the money now. I'll be back later.}
+{48000}{}{Stock Desert Armor. Excellente. Now, lets talk money. It's gonna be 100,000 caps, 20,000 old world dollars, or 10,000 NCR dollars.}
+{48010}{}{100,000 Caps.}
+{48020}{}{20,000 Old World Dollars.}
+{48030}{}{10,000 NCR Dollars.}
+{48040}{}{I don't have the money now. I'll be back later.}
+{49000}{}{Upgraded Desert Armor. Nice. The price is 200,000 caps, 40,000 old world dollars, or 20,000 NCR dollars.}
+{49010}{}{200,000 Caps.}
+{49020}{}{40,000 Old World Dollars.}
+{49030}{}{20,000 NCR Dollars.}
+{49040}{}{I don't have the money now. I'll be back later.}
+{50000}{}{Stock Enclave Armor. Sounds good amigo. Let's get this done. 100,000 caps, 20,000 old world dollars, or 10,000 NCR dollars.}
+{50010}{}{100,000 Caps.}
+{50020}{}{20,000 Old World Dollars.}
+{50030}{}{10,000 NCR Dollars.}
+{50040}{}{I don't have the money now. I'll be back later.}
+{51000}{}{Upgraded Enclave Armor. Bien. Show me the dolares! 200,000 caps, 40,000 old world dollars, or 20,000 NCR dollars.}
+{51010}{}{200,000 Caps.}
+{51020}{}{40,000 Old World Dollars.}
+{51030}{}{20,000 NCR Dollars.}
+{51040}{}{I don't have the money now. I'll be back later.}
+{52000}{}{Stock NCR Armor. Got it. How did you wanna pay, amigo? 100,000 caps, 20,000 old world dollars, or 10,000 NCR dollars.}
+{52010}{}{100,000 Caps.}
+{52020}{}{20,000 Old World Dollars.}
+{52030}{}{10,000 NCR Dollars.}
+{52040}{}{I don't have the money now. I'll be back later.}
+{53000}{}{Upgraded NCR Armor. Good stuff hombre. Let's talk business. You can pay with 200,000 caps, 40,000 old world dollars, or 20,000 NCR dollars.}
+{53010}{}{200,000 Caps.}
+{53020}{}{40,000 Old World Dollars.}
+{53030}{}{20,000 NCR Dollars.}
+{53040}{}{I don't have the money now. I'll be back later.}
+{54000}{}{Stock Power Armor. Got it. What are you paying with, 600,000 caps, 120,000 old world dollars, or 60,000 NCR dollars?}
+{54010}{}{600,000 Caps.}
+{54020}{}{120,000 Old World Dollars.}
+{54030}{}{60,000 NCR Dollars.}
+{54040}{}{I don't have the money now. I'll be back later.}
+{55000}{}{Upgraded Power Armor. Mucho excellente. This will be a good payday ese. It's gonna be 1,200,000 caps, 240,000 old world dollars, or 120,000 NCR dollars.}
+{55010}{}{1,200,000 Caps.}
+{55020}{}{240,000 Old World Dollars.}
+{55030}{}{120,000 NCR Dollars.}
+{55040}{}{I don't have the money now. I'll be back later.}
+{56000}{}{Stock Hardened Power Armor. Si amigo. Time for payment. 1,000,000 caps, 200,000 old world dollars, or 100,000 NCR dollars.}
+{56010}{}{1,000,000 Caps.}
+{56020}{}{200,000 Old World Dollars.}
+{56030}{}{100,000 NCR Dollars.}
+{56040}{}{I don't have the money now. I'll be back later.}
+{57000}{}{Upgraded Hardened Power Armor. Top shelf goods here ese. Show me the money bag amigo. 2,000,000 caps, 400,000 old world dollars, or 200,000 NCR dollars.}
+{57010}{}{2,000,000 Caps.}
+{57020}{}{400,000 Old World Dollars.}
+{57030}{}{200,000 NCR Dollars.}
+{57040}{}{I don't have the money now. I'll be back later.}
+{58000}{}{Gracias amigo, but don't tell anyone where you got that, si?}
+

@@ -1,0 +1,1905 @@
+                                                                                                                                                                                                                                                                                                              
+
+uint __GetColor(int r,int g,int b,int a=0xFF)
+{
+	r=(((r)>(255))?(255):(((r)<(0))?(0):(r)));
+	g=(((g)>(255))?(255):(((g)<(0))?(0):(g)));
+	b=(((b)>(255))?(255):(((b)<(0))?(0):(b)));
+	a=(((a)>(255))?(255):(((a)<(0))?(0):(a)));
+	return(uint(((a)<<24)|(((r)&0xFF)<<16)|(((g)&0xFF)<<8)|((b)&0xFF)));
+}                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                      
+
+shared class Sprite
+{
+	Sprite()
+	{
+		Id=0;
+		Width=0;
+		Height=0;
+		FrmCount=0;
+	}
+	
+	bool Load(string&name,int path)
+	{
+		if(name.length()>0)
+		{
+			Id=LoadSprite(name,path);
+			Filename=name;
+		}
+		else
+		Id=0;
+		RefreshData();
+		return Id!=0;
+	}
+	
+	void LoadHash(uint nameHash,uint8 dir)
+	{
+		Id=LoadSprite(nameHash,dir);
+		RefreshData();
+	}
+	
+	void LoadByIni(string&iniKey,int path)
+	{
+		string@name=GetIfaceIniStr(iniKey);
+		if(@name!=null&&name.length()>0)
+		Id=LoadSprite(name,path);
+		else
+		Id=0;
+		RefreshData();
+	}
+	
+	void Draw(int x,int y)
+	{
+		if(Id!=0)
+		DrawSprite(Id,-1,x,y,0);
+	}
+	
+	private void RefreshData()
+	{
+		if(Id!=0)
+		{
+			Width=GetSpriteWidth(Id,0);
+			Height=GetSpriteHeight(Id,0);
+			FrmCount=GetSpriteCount(Id);
+		}
+		else
+		{
+			Width=0;
+			Height=0;
+			FrmCount=0;
+			Filename="";
+		}
+	}
+	
+	uint Id;
+	int Width;
+	int Height;
+	uint FrmCount;
+	string Filename;
+};       
+
+shared interface IGuiManager
+{
+	void RegisterControl(IControl@control);
+};
+
+shared class CGuiManager:IGuiManager
+{
+	array<IControl@>windows;   
+	
+	void RegisterControl(IControl@control)
+	{
+		windows.insertLast(@control);
+	}   
+	
+	void Draw()
+	{
+		for(uint i=0,j=windows.length();i<j;i++)
+		{
+			if(windows[i].IsVisible())
+			windows[i].Draw();
+		}
+	}  
+	
+	void Update()
+	{
+		for(uint i=0,j=windows.length();i<j;i++)
+		{
+			if(windows[i].IsActive())
+			windows[i].Update();
+		}
+	}   
+	
+	bool MouseDown(int click)
+	{
+		bool intercepted=false;
+		for(uint i=0,j=windows.length();i<j;i++)
+		{
+			if(windows[i].IsVisible()&&windows[i].IsActive())
+			intercepted=windows[i].MouseDown(click)?true:intercepted;
+		}
+		return intercepted;
+	}
+	bool MouseUp(int click)
+	{
+		bool intercepted=false;
+		for(uint i=0,j=windows.length();i<j;i++)
+		{
+			if(windows[i].IsVisible()&&windows[i].IsActive())
+			intercepted=windows[i].MouseUp(click)?true:intercepted;
+		}
+		return intercepted;
+	}
+	void MouseMove(int x,int y)
+	{
+		for(uint i=0,j=windows.length();i<j;i++)
+		{
+			if(windows[i].IsVisible()&&windows[i].IsActive())
+			windows[i].MouseMove(x,y);
+		}
+	}
+	bool KeyDown(uint8 key)
+	{
+		bool intercepted=false;
+		for(uint i=0,j=windows.length();i<j;i++)
+		{
+			if(windows[i].IsVisible()&&windows[i].IsActive())
+			intercepted=windows[i].KeyDown(key)?true:intercepted;
+		}
+		return intercepted;
+	}
+	bool KeyUp(uint8 key)
+	{
+		for(uint i=0,j=windows.length();i<j;i++)
+		{
+			if(windows[i].IsVisible()&&windows[i].IsActive())
+			windows[i].KeyUp(key);
+		}
+		return false;
+	}
+	
+	bool AnyVisible()
+	{
+		for(uint i=0,j=windows.length();i<j;i++)
+		if(windows[i].IsVisible())
+		return true;
+		
+		return false;
+	}
+};   
+
+shared interface IControl
+{
+	void SetParent(IControl@parent); 
+	
+	bool IsVisible();
+	bool IsActive();
+	
+	void Disable();
+	void Enable();
+	
+	void Show();
+	void Show(int left,int top);
+	void Hide();
+	
+	int Left();
+	int Right();
+	int Top();
+	int Bottom();
+	int Width();
+	int Height();
+	
+	void Draw();
+	void Update();
+	bool MouseDown(int click);
+	bool MouseUp(int click);
+	void MouseMove(int x,int y);
+	bool KeyDown(uint8 key);
+	void KeyUp(uint8 key);
+};   
+
+shared class Control:IControl
+{
+	
+	IControl@parent;
+	
+	array<IControl@>controls; 
+	
+	int left;
+	int top;
+	int width;
+	int height;     
+	
+	bool active;
+	
+	bool visible;
+	
+	bool focus; 
+	
+	bool mousePressed;
+	
+	Control(int left,int top,int width,int height)
+	{
+		active=true;
+		visible=true;
+		focus=false;
+		
+		mousePressed=false;
+		
+		this.left=left;
+		this.top=top;
+		this.width=width;
+		this.height=height;
+	}    
+	
+	bool IsVisible(){return visible;}
+	bool IsActive(){return active;}   
+	
+	int Left()
+	{
+		if((@parent!=null))
+		return parent.Left()+left;
+		else
+		return left;
+	}
+	int Top()
+	{
+		if((@parent!=null))
+		return parent.Top()+top;
+		else
+		return top;
+	}
+	int Right()
+	{
+		return Left()+width;
+	}
+	int Bottom()
+	{
+		return Top()+height;
+	}
+	int Height()
+	{
+		return height;
+	}
+	int Width()
+	{
+		return width;
+	}  
+	
+	bool IsInside(int x,int y)
+	{
+		return(x>=Left())&&(x<Right())&&(y>=Top())&&(y<Bottom());
+	}   
+	
+	void SetParent(IControl@control)
+	{
+		@parent=control;
+	}   
+	
+	void Enable(){active=true;}
+	void Disable(){active=false;}   
+	
+	void Show()
+	{
+		visible=true;
+		for(uint i=0,j=controls.length();i<j;i++)
+		controls[i].Show();
+	}
+	void Show(int dx,int dy)
+	{
+		this.left=dx;
+		this.top=dy;
+		visible=true;
+		for(uint i=0,j=controls.length();i<j;i++)
+		controls[i].Show();
+	}
+	void Hide()
+	{
+		visible=false;
+		for(uint i=0,j=controls.length();i<j;i++)
+		controls[i].Hide();
+	}   
+	
+	void SetFocus(bool focused)
+	{
+		this.focus=focused;
+		
+		if(focused)
+		GotFocus();
+		else
+		LostFocus();
+	}   
+	
+	void AddControl(IControl@control)
+	{
+		control.SetParent(this);
+		controls.insertLast(@control);
+	}    
+	
+	bool MouseDown(int click)
+	{
+		bool intercepted=false;
+		if(IsInside(__MouseX,__MouseY))
+		{
+			mousePressed=true;
+			SetFocus(true);
+			intercepted=true;
+		}
+		else
+		{
+			SetFocus(false);
+		}
+		for(uint i=0,j=controls.length();i<j;i++)
+		{
+			if(controls[i].IsVisible()&&controls[i].IsActive())
+			intercepted=controls[i].MouseDown(click)?true:intercepted;
+		}
+		return intercepted;
+	}
+	bool MouseUp(int click)
+	{
+		bool intercepted=false;
+		if(IsInside(__MouseX,__MouseY)&&mousePressed)
+		{
+			
+			Click();
+			intercepted=true;
+		}
+		
+		mousePressed=false;
+		
+		for(uint i=0,j=controls.length();i<j;i++)
+		{
+			if(controls[i].IsVisible()&&controls[i].IsActive())
+			intercepted=controls[i].MouseUp(click)?true:intercepted;
+		}
+		return intercepted;
+	}
+	void MouseMove(int x,int y)
+	{
+		for(uint i=0,j=controls.length();i<j;i++)
+		{
+			if(controls[i].IsVisible()&&controls[i].IsActive())
+			controls[i].MouseMove(x,y);
+		}
+	}
+	bool KeyDown(uint8 key)
+	{
+		bool intercepted=false;
+		for(uint i=0,j=controls.length();i<j;i++)
+		{
+			if(controls[i].IsVisible()&&controls[i].IsActive())
+			intercepted=controls[i].KeyDown(key)?true:intercepted;
+		}
+		return intercepted;
+	}
+	void KeyUp(uint8 key)
+	{
+		for(uint i=0,j=controls.length();i<j;i++)
+		{
+			if(controls[i].IsVisible()&&controls[i].IsActive())
+			controls[i].KeyUp(key);
+		}
+	}   
+	
+	void Draw()
+	{
+		for(uint i=0,j=controls.length();i<j;i++)
+		{
+			if(controls[i].IsVisible())
+			controls[i].Draw();
+		}
+	}  
+	
+	void Update()
+	{
+		for(uint i=0,j=controls.length();i<j;i++)
+		{
+			if(controls[i].IsActive())
+			controls[i].Update();
+		}
+	}        
+	
+	void Click()
+	{}  
+	
+	void GotFocus()
+	{}  
+	
+	void LostFocus()
+	{}
+};       
+
+shared class CButton:Control
+{
+	string caption;
+	Sprite spriteUp;
+	Sprite spriteDown;
+	
+	CButton(int left,int top,string@caption)
+	{
+		super(left,top,119,30);
+		spriteUp.Load("wm_tab.png",(4));
+		spriteDown.Load("wm_blanktab.png",(4));
+		this.caption=caption;
+	}  
+	
+	void SetCaption(string@caption){this.caption=caption;}
+	
+	void Draw()
+	{
+		
+		if(mousePressed)
+		DrawSprite(spriteDown.Id,0,Left(),Top(),0);
+		else
+		DrawSprite(spriteUp.Id,0,Left(),Top(),0);
+		int color=active?0:0xffaaaaaa;
+		DrawText(caption,Left()+30,Top(),Width()-30,Height(),color,(5),(0x0008)|(0x0400));
+	}
+};
+
+shared class CDialogRedButton:Control
+{
+	Sprite spriteDown;
+	
+	CDialogRedButton(int left,int top)
+	{
+		super(left,top,16,16);
+		spriteDown.Load("di_rdbt1.frm",(4));
+	}  
+	
+	void Draw()
+	{
+		if(mousePressed)
+		DrawSprite(spriteDown.Id,0,Left(),Top(),0);
+	}
+};
+
+shared class CSmallButton:Control
+{
+	Sprite spriteDown;
+	
+	CSmallButton(int left,int top)
+	{
+		super(left,top,16,16);
+		spriteDown.Load("lilreddn.frm",(4));
+	}  
+	
+	void Draw()
+	{
+		if(mousePressed)
+		DrawSprite(spriteDown.Id,0,Left(),Top(),0);
+	}
+};
+
+shared class CSmallArrowUp:Control
+{
+	Sprite spriteDown;
+	
+	CSmallArrowUp(int left,int top)
+	{
+		super(left,top,16,16); 
+		
+	}  
+	
+	void Draw()
+	{ 
+		
+	}
+};
+
+shared class CSmallArrowDown:Control
+{
+	Sprite spriteDown;
+	
+	CSmallArrowDown(int left,int top)
+	{
+		super(left,top,16,16); 
+		
+	}  
+	
+	void Draw()
+	{ 
+		
+	}
+};   
+
+shared class CLabel:Control
+{
+	int font;
+	int color;
+	int format;
+	string@caption;
+	
+	CLabel(int left,int top,int width,int height,string@caption)
+	{
+		super(left,top,width,height);
+		@this.caption=@caption;
+		this.color=0;
+		font=(5);
+		format=(0x0008)|(0x0400);
+	}
+	CLabel(int left,int top,int width,int height,string@caption,int font)
+	{
+		super(left,top,width,height);
+		@this.caption=@caption;
+		this.color=0;
+		this.font=font;
+		format=(0x0008)|(0x0400);
+	}
+	void SetCaption(string@caption)
+	{
+		@this.caption=@caption;
+	}
+	void SetColor(uint color)
+	{
+		this.color=color;
+	}
+	void SetFormat(uint format)
+	{
+		this.format=format;
+	}
+	void Draw()
+	{
+		DrawText(caption,Left(),Top(),Width(),Height(),color,font,format);
+	}
+};   
+
+shared class CTextBox:Control
+{
+	
+	string text;
+	
+	string drawnText;
+	uint cursorPos;
+	
+	uint cursorTime;
+	
+	uint cursorChangedTime;
+	
+	int showCursor;
+	
+	string cursor1;
+	string cursor2; 
+	
+	int color;
+	int format;
+	int font;
+	
+	CTextBox(int left,int top,int width,int height,string@text)
+	{
+		super(left,top,width,height);
+		this.text=text;
+		cursorPos=text.length();
+		cursorTime=400;
+		cursorChangedTime=0;
+		showCursor=0;
+		cursor1="!";
+		cursor2=".";
+		drawnText=text;
+		
+		color=0;
+		font=(5);
+		format=(0x0400);
+	}  
+	
+	string@Text()
+	{
+		return text;
+	}  
+	
+	string@GetCursor()
+	{
+		if(showCursor==0)
+		return"";
+		else if(showCursor==1)
+		return cursor1;
+		else
+		return cursor2;
+	}
+	void SetColor(uint color)
+	{
+		this.color=color;
+	}
+	void SetFormat(uint format)
+	{
+		this.format=format;
+	}
+	void SetText(string@text)
+	{
+		this.text=text;
+		cursorPos=text.length();
+	}  
+	
+	void ShowCursor(int show)
+	{
+		showCursor=show;
+		if(show>0)
+		{
+			if(cursorPos==text.length())
+			drawnText=text+GetCursor();
+			else
+			drawnText=substring(text,0,cursorPos)+GetCursor()+substring(text,cursorPos,text.length()-cursorPos);
+		}
+		else
+		drawnText=text;
+	}  
+	
+	void InsertChar(uint8 key)
+	{
+		
+		string k=GetMsgStr((3),2000000+key);
+		
+		if(k.length()==1)
+		{
+			text=substring(text,0,cursorPos)+k+substring(text,cursorPos,text.length()-cursorPos);
+			cursorPos++;
+		}
+	}
+	
+	void Draw()
+	{
+		uint tick=GetTick();
+		
+		if(tick-cursorChangedTime>cursorTime)
+		{
+			cursorChangedTime=tick;
+			if(showCursor==1)
+			ShowCursor(2);
+			else if(focus)
+			ShowCursor(1);
+			else
+			ShowCursor(0);
+		} 
+		
+		DrawText(drawnText,Left(),Top(),Width(),Height(),color,font,format);
+	}
+	
+	bool KeyDown(uint8 key)
+	{
+		if(focus)
+		{
+			
+			if(key==0x0E)
+			{
+				if(text.length()>0&&cursorPos>0)
+				{
+					text=substring(text,0,cursorPos-1)+substring(text,cursorPos,text.length()-cursorPos);
+					cursorPos--;
+				}
+			}
+			else if(key==0xD3)
+			{
+				if(text.length()>0&&cursorPos<text.length())
+				{
+					text=substring(text,0,cursorPos)+substring(text,cursorPos+1,text.length()-cursorPos-1);
+				}
+			}
+			
+			else if(key==0xC7)
+			{
+				cursorPos=0;
+			}
+			else if(key==0xCF)
+			{
+				cursorPos=text.length();
+			}
+			
+			else if(key==0xCB)
+			{
+				if(cursorPos>0)
+				cursorPos--;
+			}
+			else if(key==0xCD)
+			{
+				if(cursorPos<text.length())
+				cursorPos++;
+			}
+			
+			else if(key==0x01)
+			{
+				SetFocus(false);
+			}
+			else
+			{
+				InsertChar(key);
+			}
+			
+			return true;
+		}
+		return Control::KeyDown(key);
+	}
+};   
+
+shared class CSprite:Control
+{
+	Sprite sprite;
+	
+	CSprite(int left,int top,int width,int height,string@spriteName)
+	{
+		super(left,top,width,height);
+		sprite.Load(spriteName,(4));
+	}
+	
+	void Draw()
+	{
+		DrawSprite(sprite.Id,0,Left(),Top(),0);
+		Control::Draw();
+	}
+};   
+
+shared class CListBox:Control
+{
+	array<string@>elements;
+	
+	uint start;
+	
+	uint index;
+	
+	uint textHeight;
+	
+	CListBox(int left,int top,int width,int height)
+	{
+		super(left,top,width,height);
+		start=0;
+		textHeight=12;
+	}   
+	
+	uint GetRowCount()
+	{
+		return height/textHeight;
+	}  
+	
+	uint GetIndex()
+	{
+		return index;
+	}  
+	
+	void AddElement(string@elem)
+	{
+		elements.insertLast(elem);
+	}  
+	
+	void Scroll(int d)
+	{
+		start=(((int(start)+d)>(int(elements.length()-1)))?(int(elements.length()-1)):(((int(start)+d)<(0))?(0):(int(start)+d)));
+	}  
+	
+	void Draw()
+	{
+		for(uint i=start,j=(((elements.length())<(start+uint(Height()/textHeight)))?(elements.length()):(start+uint(Height()/textHeight)));i<j;i++)
+		{
+			DrawText(elements[i],Left(),Top()+(i-start)*textHeight,Width(),textHeight,i==index?0xffffffff:0,(5),(0x0400));
+		}
+	}   
+	
+	void Click()
+	{
+		uint el=start+(__MouseY-Top())/textHeight;
+		Message(""+el);
+		if(el<elements.length())
+		index=el;
+		Control::Click();
+	}
+};                          
+
+class CSetEntry
+{
+	bool isGroup;
+	uint8 role;
+	uint ent1;
+	uint ent2;
+	array<uint>entries;
+	array<uint>horizincident;
+	array<uint>vertincident;
+	
+	CSetEntry()
+	{
+		isGroup=false;
+		role=0;
+	}
+	CSetEntry(uint part1,uint part2)
+	{
+		isGroup=false;
+		role=(0);
+		ent1=part1;
+		ent2=part2;
+	}
+	CSetEntry(uint part1,uint part2,uint8 newrole)
+	{
+		isGroup=false;
+		role=newrole;
+		ent1=0;
+		ent2=0;
+		entries.resize(2);
+		entries[0]=part1;
+		entries[1]=part2;
+	}
+	CSetEntry(array<uint>&nentries)
+	{
+		isGroup=false;
+		role=(0);
+		ent1=0;
+		ent2=0;
+		uint len=nentries.length();
+		entries.resize(len);
+		for(uint i=0;i<len;i++)
+		entries[i]=nentries[i];
+	}
+	
+	void AddIncident(uint id,bool verti)
+	{
+		if(verti)
+		{
+			vertincident.insertLast(id);
+		}
+		else
+		{
+			horizincident.insertLast(id);
+		}
+	}
+	void AddIncidents(array<uint>&ids,bool verti)
+	{
+		if(verti)
+		{
+			do{uint a1len=vertincident.length();uint a2len=a2len=ids.length();vertincident.resize(a1len+a2len);for(uint iter=0;iter<a2len;iter++){vertincident[a1len+iter]=ids[iter];}}while(false);;
+		}
+		else
+		{
+			do{uint a1len=horizincident.length();uint a2len=a2len=ids.length();horizincident.resize(a1len+a2len);for(uint iter=0;iter<a2len;iter++){horizincident[a1len+iter]=ids[iter];}}while(false);;
+		}
+	}
+	
+};
+
+class CWallSet
+{
+	uint id;
+	string name;
+	array<uint>walls_nw;
+	array<uint>walls_se;
+	array<uint>walls_ne;
+	array<uint>walls_sw;
+	array<uint>wall_blank_nw;
+	array<uint>wall_blank_se;
+	array<uint>wall_blank_ne;
+	array<uint>wall_blank_sw;
+	array<uint>corners_n;
+	array<uint>corners_e;
+	array<uint>corners_w;
+	array<uint>corners_s;
+	array<uint>junctions_nw;
+	array<uint>junctions_ne;
+	array<uint>junctions_sw;
+	array<uint>junctions_se;
+	array<uint>crosses;
+	array<uint>tilegroups;
+	array<uint>roofgroups;
+	
+	CWallSet()
+	{
+		id=0;
+		name="";
+	}
+	CWallSet(uint nid)
+	{
+		id=nid;
+		name="";
+	}
+};           
+
+import bool StrToInt(string@s,uint64&inout val)from"strtoint";
+import bool StrToInt(string@s,uint&inout val)from"strtoint";
+import bool StrToInt(string@s,uint16&inout val)from"strtoint";
+import bool StrToInt(string@s,uint8&inout val)from"strtoint";
+import bool StrToInt(string@s,int64&inout val)from"strtoint";
+import bool StrToInt(string@s,int16&inout val)from"strtoint";
+import bool StrToInt(string@s,int8&inout val)from"strtoint";           
+
+shared interface IMapperPlugin
+{
+	void Render(uint layer);
+	void RenderMap();
+	bool MouseDown(int click);
+	bool MouseUp(int click);
+	void MouseMove(int x,int y);
+	bool KeyDown(uint8 key);
+	bool KeyUp(uint8 key);
+	void InputLost();
+	void Loop();
+	bool Message(string&message);
+}; 
+
+import bool Plugins_Register(IMapperPlugin@plugin)from"mapper_plugin";
+import void Plugins_Render(uint layer)from"mapper_plugin";
+import void Plugins_RenderMap()from"mapper_plugin";
+import bool Plugins_MouseDown(int click)from"mapper_plugin";
+import bool Plugins_MouseUp(int click)from"mapper_plugin";
+import void Plugins_MouseMove(int x,int y)from"mapper_plugin";
+import bool Plugins_KeyDown(uint8 key)from"mapper_plugin";
+import bool Plugins_KeyUp(uint8 key)from"mapper_plugin";
+import void Plugins_InputLost()from"mapper_plugin";
+import void Plugins_Loop()from"mapper_plugin";
+import bool Plugins_Message(string&message)from"mapper_plugin";                        
+
+class CContextButton:CButton
+{
+	uint16 hexX;
+	uint16 hexY;
+	uint16 tileX;
+	uint16 tileY;
+	MapperObject@object;
+	
+	CContextButton(int x,int y,string caption)
+	{
+		super(x,y,caption);
+		hexX=0;
+		hexY=0;
+		tileX=0;
+		tileY=0;
+		@object=null;
+	}   
+	
+	void SetHex(uint16 x,uint16 y)
+	{
+		this.hexX=x;
+		this.hexY=y;
+	}
+	
+	void SetTile(uint16 x,uint16 y)
+	{
+		this.tileX=x;
+		this.tileY=y;
+	}
+	
+	void SetObject(MapperObject@obj)
+	{
+		@this.object=obj;
+	}
+}; 
+
+class CSomeButton:CContextButton
+{
+	CSomeButton(int x,int y)
+	{
+		super(x,y,"button");
+	}
+	
+	void Click()
+	{
+		Message("clicked!");
+	}
+};    
+
+class CContextMenu:Control
+{
+	CButton@title;
+	CSomeButton@some;
+	
+	CContextMenu(IGuiManager@manager)
+	{
+		int top=0;
+		super(0,0,119,30);
+		visible=false;
+		
+		@title=CButton(0,top,"caption");
+		title.Disable();
+		AddControl(@title);
+		@some=CSomeButton(0,top+30);
+		AddControl(@some);
+	}
+	
+	void Show(int x,int y)
+	{
+		Control::Show(x,y);
+		Enable();
+	}
+	
+	bool MouseUp(int click)
+	{
+		if(!IsInside(__MouseX,__MouseY))
+		{
+			visible=false;
+			active=false;
+		}
+		return Control::MouseUp(click);
+	}
+};     
+
+uint[]wallsNW={(5001),(5003)};
+uint[]wallsSE={(5001),(5003)};
+uint[]wallsNE={(5018),(5015)};
+uint[]wallsSW={(5018),(5015)};
+uint[]cornerN={5020,0};
+uint[]cornerS={5022,5003};
+uint[]cornerE={5021,0};
+uint[]cornerW={5019,5003};
+
+int[]autowallData={0,0,int(0xFF00FF00),0,0,int(0xFF00FF00)};
+int[]autowallRoomData={0,0,int(0xFF00FF00),0,0,int(0xFF00FF00),0,0,int(0xFF00FF00),0,0,int(0xFF00FF00),0,0,int(0xFF00FF00)};
+
+class CAutowall:CGuiManager
+{
+	bool buttonPressed;
+	bool lClick;
+	bool autowallSet;
+	bool autowallUsed;
+	bool autowallHoriz;
+	bool autowallRoom;
+	uint16 autowallX;
+	uint16 autowallY;
+	int autowallMode;
+	
+	dictionary entrynames;
+	array<CSetEntry@>entries;
+	array<CWallSet@>wallsets;
+	uint entrycount;
+	array<uint>horizincident;
+	array<uint>vertincident;
+	int wallset;
+	
+	CContextMenu@context;
+	
+	CAutowall()
+	{
+		buttonPressed=false;
+		lClick=false;
+		autowallSet=false;
+		autowallUsed=false;
+		autowallHoriz=false;
+		autowallRoom=false;
+		autowallX=0;
+		autowallY=0;
+		autowallMode=(0);
+		entrycount=0;
+		wallset=-1;
+		@context=CContextMenu(this);
+		RegisterControl(@context);
+	}
+	
+	void Draw()
+	{
+		CGuiManager::Draw();
+		
+		if(autowallSet)
+		{
+			int x=__MouseX,y=__MouseY;
+			uint16 hX=0,hY=0; 
+			
+			if(GetMonitorHex(x,y,hX,hY))
+			{
+				hX+=((int(hX)-int(autowallX))>0?((int(hX)-int(autowallX))%2==1?1:0):((-(int(hX)-int(autowallX)))%2==1?-1:0));
+				hY+=((int(hY)-int(autowallY))>0?((int(hY)-int(autowallY))%2==1?1:0):((-(int(hY)-int(autowallY)))%2==1?-1:0));
+				
+				if((((int(hX)-int(autowallX))>0)?(int(hX)-int(autowallX)):(-(int(hX)-int(autowallX))))>3&&(((int(hY)-int(autowallY))>0)?(int(hY)-int(autowallY)):(-(int(hY)-int(autowallY))))>3)
+				{
+					DrawText("Room placement",10,10,768,80,((uint((0xFF<<24)|(((0)&0xFF)<<16)|(((0xC8)&0xFF)<<8)|((0)&0xFF)))),(7),0);
+					autowallUsed=true;
+					autowallRoom=true;
+					bool ok=true;
+					if(GetHexPos(autowallX,autowallY,autowallRoomData[0],autowallRoomData[1])&&GetHexPos(hX,autowallY,autowallRoomData[3],autowallRoomData[4]))
+					{
+						
+						if((((int(hX)-int(autowallX))>0)?(int(hX)-int(autowallX)):(-(int(hX)-int(autowallX))))%2==1)
+						{
+							int dx=0,dy=0;
+							if(GetHexPos(hX,autowallY+1-2*(autowallX%2),dx,dy))
+							{
+								autowallRoomData[3]+=dx;
+								autowallRoomData[3]>>=1;
+								autowallRoomData[4]+=dy;
+								autowallRoomData[4]>>=1;
+								
+							}
+						}
+					}
+					else
+					ok=false;
+					if(!(GetHexPos(autowallX,hY,autowallRoomData[9],autowallRoomData[10])))
+					ok=false;
+					
+					if(GetHexPos(hX,hY,autowallRoomData[6],autowallRoomData[7]))
+					{
+						if((((int(hX)-int(autowallX))>0)?(int(hX)-int(autowallX)):(-(int(hX)-int(autowallX))))%2==1)
+						{
+							int dx=0,dy=0;
+							if(GetHexPos(hX,hY+1-2*(autowallX%2),dx,dy))
+							{
+								autowallRoomData[6]+=dx;
+								autowallRoomData[6]>>=1;
+								autowallRoomData[7]+=dy;
+								autowallRoomData[7]>>=1;
+								
+							}
+						}
+					}
+					else
+					ok=false;
+					
+					autowallRoomData[12]=autowallRoomData[0];
+					autowallRoomData[13]=autowallRoomData[1]; 
+					
+					if(ok)
+					DrawPrimitive((2),autowallRoomData);
+				}
+				else if(hX!=autowallX||hY!=autowallY)
+				{
+					autowallUsed=true;
+					autowallRoom=false;
+					if((((int(hX)-int(autowallX))>0)?(int(hX)-int(autowallX)):(-(int(hX)-int(autowallX))))>(((int(hY)-int(autowallY))>0)?(int(hY)-int(autowallY)):(-(int(hY)-int(autowallY)))))
+					{
+						if(GetHexPos(autowallX,autowallY,autowallData[0],autowallData[1])&&GetHexPos(hX,autowallY,autowallData[3],autowallData[4]))
+						{
+							if((((int(hX)-int(autowallX))>0)?(int(hX)-int(autowallX)):(-(int(hX)-int(autowallX))))%2==1)
+							{
+								int dx=0,dy=0;
+								if(GetHexPos(hX,autowallY+1-2*(autowallX%2),dx,dy))
+								{
+									autowallData[3]+=dx;
+									autowallData[3]>>=1;
+									autowallData[4]+=dy;
+									autowallData[4]>>=1;
+									DrawText(((hY<autowallY)?"South":"North")+" wall placement",10,10,768,80,((uint((0xFF<<24)|(((0)&0xFF)<<16)|(((0xC8)&0xFF)<<8)|((0)&0xFF)))),(7),0);
+									DrawPrimitive((1),autowallData);
+									autowallHoriz=true;
+								}
+							}
+							else
+							{
+								DrawText(((hY<autowallY)?"South":"North")+" wall placement",10,10,768,80,((uint((0xFF<<24)|(((0)&0xFF)<<16)|(((0xC8)&0xFF)<<8)|((0)&0xFF)))),(7),0);
+								DrawPrimitive((1),autowallData);
+								autowallHoriz=true;
+							}
+						}
+					}
+					else if(GetHexPos(autowallX,autowallY,autowallData[0],autowallData[1])&&GetHexPos(autowallX,hY,autowallData[3],autowallData[4]))
+					{
+						DrawText(((hX<autowallX)?"West":"East")+" wall placement",10,10,768,80,((uint((0xFF<<24)|(((0)&0xFF)<<16)|(((0xC8)&0xFF)<<8)|((0)&0xFF)))),(7),0);
+						DrawPrimitive((1),autowallData);
+						autowallHoriz=false;
+					}
+				}
+				else
+				autowallUsed=false;
+			}
+		}
+	}
+	
+	bool MouseDown(int click)
+	{
+		if(CGuiManager::MouseDown(click))
+		return true;
+		if(click==(0))
+		lClick=true;
+		if(buttonPressed&&!autowallSet)
+		{
+			autowallSet=GetMonitorHex(__MouseX,__MouseY,autowallX,autowallY);
+			if(autowallX%2==1)
+			autowallX--;
+		}
+		return buttonPressed;
+	}
+	
+	bool MouseUp(int click)
+	{
+		if(!autowallUsed)
+		{
+			if(buttonPressed)
+			{
+				Message("Showing context for: "+__MouseX+","+__MouseY);
+				context.Show(__MouseX,__MouseY);
+			}
+			else
+			CGuiManager::MouseUp(click);
+		}
+		
+		if(CGuiManager::AnyVisible())
+		{
+			autowallSet=false;
+			autowallUsed=false;
+		}
+		
+		if(click==(0))
+		lClick=false;
+		if(autowallUsed)
+		{
+			uint16 hX=0,hY=0;
+			if(GetMonitorHex(__MouseX,__MouseY,hX,hY))
+			{
+				hX+=((int(hX)-int(autowallX))>0?((int(hX)-int(autowallX))%2==1?1:0):((-(int(hX)-int(autowallX)))%2==1?-1:0));
+				hY+=((int(hY)-int(autowallY))>0?((int(hY)-int(autowallY))%2==1?1:0):((-(int(hY)-int(autowallY)))%2==1?-1:0));
+				array<MapperMap@>maps;
+				int index=GetLoadedMaps(maps);
+				MapperMap@map=maps[index];
+				
+				if(autowallRoom)
+				{
+					if(cornerN[1]!=0)
+					map.AddObject((((hX)<(autowallX))?(hX):(autowallX))-1,(((hY)<(autowallY))?(hY):(autowallY)),(2),cornerN[1]);
+					if(cornerN[0]!=0)
+					map.AddObject((((hX)<(autowallX))?(hX):(autowallX)),(((hY)<(autowallY))?(hY):(autowallY)),(2),cornerN[0]);
+					
+					if(cornerS[1]!=0)
+					map.AddObject((((hX)>(autowallX))?(hX):(autowallX))-1,(((hY)>(autowallY))?(hY):(autowallY)),(2),cornerS[1]);
+					if(cornerS[0]!=0)
+					map.AddObject((((hX)>(autowallX))?(hX):(autowallX)),(((hY)>(autowallY))?(hY):(autowallY)),(2),cornerS[0]);
+					
+					if(cornerW[1]!=0)
+					map.AddObject((((hX)>(autowallX))?(hX):(autowallX))-1,(((hY)<(autowallY))?(hY):(autowallY)),(2),cornerW[1]);
+					if(cornerW[0]!=0)
+					map.AddObject((((hX)>(autowallX))?(hX):(autowallX)),(((hY)<(autowallY))?(hY):(autowallY)),(2),cornerW[0]);
+					
+					if(cornerE[1]!=0)
+					map.AddObject((((hX)<(autowallX))?(hX):(autowallX))-1,(((hY)>(autowallY))?(hY):(autowallY)),(2),cornerE[1]);
+					if(cornerE[0]!=0)
+					map.AddObject((((hX)<(autowallX))?(hX):(autowallX)),(((hY)>(autowallY))?(hY):(autowallY)),(2),cornerE[0]);
+					
+					for(uint16 i=(((hX)<(autowallX))?(hX):(autowallX))+1,j=(((hX)>(autowallX))?(hX):(autowallX))-2;i<=j;i++)
+					if(wallsNW[i%2]!=0)
+					map.AddObject(i,(((hY)<(autowallY))?(hY):(autowallY)),(2),wallsNW[i%2]);
+					for(uint16 i=(((hX)<(autowallX))?(hX):(autowallX))+1,j=(((hX)>(autowallX))?(hX):(autowallX))-2;i<=j;i++)
+					if(wallsSE[i%2]!=0)
+					map.AddObject(i,(((hY)>(autowallY))?(hY):(autowallY)),(2),wallsSE[i%2]);
+					
+					for(uint16 i=(((hY)<(autowallY))?(hY):(autowallY))+2,j=(((hY)>(autowallY))?(hY):(autowallY))-1;i<=j;i++)
+					if(wallsNE[i%2]!=0)
+					map.AddObject((((hX)<(autowallX))?(hX):(autowallX)),i,(2),wallsNE[i%2]);
+					for(uint16 i=(((hY)<(autowallY))?(hY):(autowallY))+2,j=(((hY)>(autowallY))?(hY):(autowallY))-1;i<=j;i++)
+					if(wallsSW[i%2]!=0)
+					map.AddObject((((hX)>(autowallX))?(hX):(autowallX)),i,(2),wallsSW[i%2]);
+				}
+				else
+				{
+					if(autowallHoriz)
+					{
+						bool isSouth=(hY<autowallY);
+						for(uint16 i=(((hX)<(autowallX))?(hX):(autowallX)),j=(((hX)>(autowallX))?(hX):(autowallX));i<=j;i++)
+						if((isSouth?wallsSE[i%2]:wallsNW[i%2])!=0)
+						map.AddObject(i,autowallY,(2),isSouth?wallsSE[i%2]:wallsNW[i%2]);
+					}
+					else
+					{
+						bool isWest=(hX<autowallX);
+						for(uint16 i=(((hY)<(autowallY))?(hY):(autowallY)),j=(((hY)>(autowallY))?(hY):(autowallY));i<=j;i++)
+						if((isWest?wallsSW[i%2]:wallsNE[i%2])!=0)
+						map.AddObject(autowallX,i,(2),isWest?wallsSW[i%2]:wallsNE[i%2]);
+					}
+				}
+			}
+			autowallSet=false;
+			autowallUsed=false;
+		}
+		return buttonPressed;
+	}
+	
+	void MouseMove(int x,int y)
+	{
+		CGuiManager::MouseMove(x,y);
+	}
+	
+	bool KeyDown(uint8 key)
+	{
+		if(key==(0x1E))
+		buttonPressed=true;
+		return CGuiManager::KeyDown(key);
+	}
+	bool KeyUp(uint8 key)
+	{
+		if(key==(0x1E))
+		{
+			buttonPressed=false;
+			autowallSet=false;
+			autowallUsed=false;
+		}
+		
+		return CGuiManager::KeyUp(key);
+	}
+	
+	void InputLost()
+	{
+		buttonPressed=false;
+		lClick=false;
+		autowallSet=false;
+	}   
+	
+	bool RegisterEntry(string name,CSetEntry&entry)
+	{
+		if(name.length()==0)
+		{
+			Message("Trying to register empty entry name");
+			return false;
+		}
+		if(entrynames.exists(name))
+		{
+			Message("Entry "+name+" already registered");
+			return false;
+		}
+		uint len=entries.length();
+		entries.resize(len+1);
+		@entries[len]=entry;
+		entrynames.set(name,len);
+		return true;
+	}
+	
+	CSetEntry@GetEntry(string name)
+	{
+		uint num=0;
+		if(!entrynames.get(name,num))
+		return null;
+		return entries[num];
+	}
+	
+	CSetEntry@GetEntry(uint num)
+	{
+		if(num>=entries.length())
+		return null;
+		return entries[num];
+	}
+	
+	void SetRoles(array<uint>numbers,uint role)
+	{
+		for(uint i=0,j=numbers.length();i<j;i++)
+		{
+			CSetEntry@entry=GetEntry(numbers[i]);
+			if((@entry!=null))
+			entry.role=role;
+			else
+			Message("Internal error #1: setting role "+role+" to number "+numbers[i]);
+		}
+	}
+	
+	void LogEntry(uint n)
+	{
+		CSetEntry@entry=GetEntry(n);
+		if(!(@entry!=null))
+		{
+			Message("Entry not found");
+			return;
+		}
+		Message("Entry "+n+(entry.isGroup?" (group)":"")+": role="+entry.role+", ("+entry.ent1+","+entry.ent2+"), length "+entry.entries.length());
+	}
+	
+	void AddIncidents(uint num1,uint num2,bool verti)
+	{
+		CSetEntry@ent1=GetEntry(num1);
+		CSetEntry@ent2=GetEntry(num2);
+		if(ent1.isGroup)
+		for(uint i=0,j=ent1.entries.length();i<j;i++)
+		AddIncidents(ent1.entries[i],num2,verti);
+		else
+		{
+			if(ent2.isGroup)
+			{
+				ent1.AddIncidents(ent2.entries,verti);
+				for(uint i=0,j=ent2.entries.length();i<j;i++)
+				horizincident[num1*entrycount+ent2.entries[i]]=1;
+			}
+			else
+			{
+				ent1.AddIncident(num2,verti);
+				horizincident[num1*entrycount+num2]=1;
+			}
+		}
+	}
+	
+	bool ParseSets()
+	{
+		uint section=(0);
+		uint set=0;
+		dictionary sections;
+		
+		sections.set("Tile Groups",(1));
+		sections.set("Roof Groups",(2));
+		sections.set("Wall Sections",(3));
+		sections.set("Horizontal Incidents",(4));
+		sections.set("Vertical Incidents",(5));
+		
+		file f;
+		if(f.open("data/scripts/autowall.txt","r")==-1)
+		{
+			Message("File data/scripts/autowall.txt not found");
+			return false;
+		}
+		uint linecount=0;
+		uint len=0;
+		uint act=0;
+		
+		while(!f.isEndOfFile())
+		{
+			string line; 
+			
+			len=f.readLine(line);
+			linecount++;
+			if(len==0)
+			continue;
+			act=0;
+			while(line[act]!=10&&line[act]!=13&&line[act]!=35&&act<len)
+			act++;
+			if(act==0)
+			continue;
+			line=substring(line,0,act);
+			act=0;
+			len=line.length();
+			while((line[act]==32||line[act]==9)&&act<len)
+			act++;
+			line=substring(line,act,line.length()-act);
+			if(line.length()==0)
+			continue;
+			act=line.length()-1;
+			while((line[act]==32||line[act]==9)&&act>0)
+			act--;
+			line=substring(line,0,act+1);
+			len=line.length();
+			if(len==0)
+			continue;  
+			
+			if(line[0]==91)
+			{
+				array<string@>@splittedline=split(line,"]");
+				if(splittedline.length()>2||splittedline.length()<2||splittedline[1].length()>0)
+				{
+					Message("Line "+linecount+": cannot load a section: '"+line+"': illegal characters at the end");
+					f.close();
+					return false;
+				}
+				
+				if(substring(splittedline[0],0,4)=="[Set")
+				{
+					StrToInt(substring(splittedline[0],5,splittedline[0].length()-5),set);
+					if(set==0)
+					{
+						Message("Line "+linecount+": cannot load a section: '"+line+"': can't parse a set number");
+						f.close();
+						return false;
+					}
+					section=(6);
+					
+					CWallSet@newset=CWallSet(set);
+					wallsets.insertLast(newset);
+					set=wallsets.length()-1;
+					wallset=set;
+					continue;
+				}
+				splittedline[0]=substring(splittedline[0],1,splittedline[0].length()-1);
+				if(!sections.exists(splittedline[0]))
+				{
+					Message("Line "+linecount+": cannot load a section: '"+line+"': section '"+splittedline[0]+"' does not exist");
+					f.close();
+					return false;
+				}
+				else
+				{
+					uint newsection=0;
+					sections.get(splittedline[0],newsection);
+					if(newsection<=section)
+					{
+						Message("Wrong section order, "+newsection+"<="+section);
+						f.close();
+						return false;
+					}
+					section=newsection;
+					if(newsection==(4))
+					{
+						entrycount=entries.length();
+						horizincident.resize(entrycount*entrycount);
+						vertincident.resize(entrycount*entrycount);
+					}
+					
+					continue;
+				}
+			} 
+			
+			switch(section)
+			{
+				case(0):
+				Message("Line "+linecount+": illegal line outside section");
+				f.close();
+				return false;
+				
+				case(1):
+				{
+					array<string@>@splittedline2=split(line,"=");
+					if(splittedline2.length()!=2||splittedline2[0].length()==0||splittedline2[1].length()==0)
+					{
+						Message("Line "+linecount+": cannot parse tile definition: '"+line+"'");
+						f.close();
+						return false;
+					}
+					array<string@>@picstrings=split(splittedline2[1],",");
+					array<uint>pictures(picstrings.length());
+					for(uint i=0,j=picstrings.length();i<j;i++)
+					{
+						StrToInt(picstrings[i],pictures[i]);
+						if(pictures[i]==0)
+						{
+							Message("Line "+linecount+": cannot parse integer in tile definition: '"+line+"'");
+							f.close();
+							return false;
+						}
+					}
+					CSetEntry@newentry=CSetEntry(pictures);
+					newentry.role=(14);
+					if(!RegisterEntry(splittedline2[0],newentry))
+					{
+						Message("Line "+linecount+": failed to register: '"+line+"'");
+						f.close();
+						return false;
+					}
+					continue;
+				}
+				
+				case(2):
+				{
+					array<string@>@splittedline2=split(line,"=");
+					if(splittedline2.length()!=2||splittedline2[0].length()==0||splittedline2[1].length()==0)
+					{
+						Message("Line "+linecount+": cannot parse roof tile definition: '"+line+"'");
+						f.close();
+						return false;
+					}
+					array<string@>@picstrings=split(splittedline2[1],",");
+					array<uint>pictures(picstrings.length());
+					for(uint i=0,j=picstrings.length();i<j;i++)
+					{
+						StrToInt(picstrings[i],pictures[i]);
+						if(pictures[i]==0)
+						{
+							Message("Line "+linecount+": cannot parse integer in roof tile definition: '"+line+"'");
+							f.close();
+							return false;
+						}
+					}
+					CSetEntry@newentry=CSetEntry(pictures);
+					newentry.role=(15);
+					if(!RegisterEntry(splittedline2[0],newentry))
+					{
+						Message("Line "+linecount+": failed to register: '"+line+"'");
+						f.close();
+						return false;
+					}
+					continue;
+				}
+				
+				case(3):
+				{
+					array<string@>@splittedline2=split(line,"=");
+					if(splittedline2.length()!=2||splittedline2[0].length()==0||splittedline2[1].length()==0)
+					{
+						Message("Line "+linecount+": cannot parse wall section definition: '"+line+"'");
+						f.close();
+						return false;
+					}
+					array<string@>@splittedline3=split(splittedline2[1],",");
+					array<uint>pids(splittedline3.length());
+					for(uint i=0,j=splittedline3.length();i<j;i++)
+					{
+						StrToInt(splittedline3[i],pids[i]);
+						if(pids[i]==0)
+						{
+							Message("Line "+linecount+": cannot parse integer in wall section definition: '"+line+"'");
+							f.close();
+							return false;
+						}
+					}
+					CSetEntry@newentry=CSetEntry(pids.length()>0?pids[0]:0,pids.length()>1?pids[1]:0);
+					if(!RegisterEntry(splittedline2[0],newentry))
+					{
+						Message("Line "+linecount+": failed to register: '"+line+"'");
+						f.close();
+						return false;
+					}
+					continue;
+				}
+				
+				case(4):
+				{
+					
+					array<string@>@splittedline=split(line,"=");
+					if(splittedline.length()>2)
+					{
+						Message("Line "+linecount+": failed to parse a group: '"+line+"'");
+						f.close();
+						return false;
+					}
+					if(splittedline.length()==2)
+					{
+						array<string@>@splittedline2=split(splittedline[1],",");
+						array<uint>ids(splittedline2.length());
+						for(uint i=0,j=splittedline2.length();i<j;i++)
+						if(!entrynames.get(splittedline2[i],ids[i]))
+						{
+							Message("Line "+linecount+": entry name '"+splittedline2[i]+"' in group definition '"+line+"' is not registered");
+							f.close();
+							return false;
+						}
+						CSetEntry@newentry=CSetEntry(ids);
+						newentry.isGroup=true;
+						if(!RegisterEntry(splittedline[0],newentry))
+						{
+							Message("Line "+linecount+": entry already exists, failed to register: '"+line+"'");
+							f.close();
+							return false;
+						}
+						
+						continue;
+					}
+					
+					splittedline=split(line,",");
+					if(splittedline.length()!=2||splittedline[0].length()==0||splittedline[1].length()==0)
+					{
+						Message("Line "+linecount+": failed to parse incident definition: '"+line+"'");
+						f.close();
+						return false;
+					}
+					uint part1=0;
+					uint part2=0;
+					if(!entrynames.get(splittedline[0],part1))
+					{
+						Message("Line "+linecount+": entry name '"+splittedline[0]+"' in incident definition: '"+line+"' is not registered");
+						f.close();
+						return false;
+					}
+					if(!entrynames.get(splittedline[1],part2))
+					{
+						Message("Line "+linecount+": entry name '"+splittedline[1]+"' in incident definition: '"+line+"' is not registered");
+						f.close();
+						return false;
+					}
+					
+					AddIncidents(part1,part2,false);
+					continue;
+				}
+				
+				case(5):
+				{
+					
+					array<string@>@splittedline=split(line,"=");
+					if(splittedline.length()>2)
+					{
+						Message("Line "+linecount+": failed to parse a group: '"+line+"'");
+						f.close();
+						return false;
+					}
+					if(splittedline.length()==2)
+					{
+						array<string@>@splittedline2=split(splittedline[1],",");
+						array<uint>ids(splittedline2.length());
+						for(uint i=0,j=splittedline2.length();i<j;i++)
+						if(!entrynames.get(splittedline2[i],ids[i]))
+						{
+							Message("Line "+linecount+": entry name '"+splittedline2[i]+"' in group definition '"+line+"' is not registered");
+							f.close();
+							return false;
+						}
+						CSetEntry@newentry=CSetEntry(ids);
+						newentry.isGroup=true;
+						if(!RegisterEntry(splittedline[0],newentry))
+						{
+							Message("Line "+linecount+": entry already exists, failed to register: '"+line+"'");
+							f.close();
+							return false;
+						}
+						
+						continue;
+					}
+					
+					splittedline=split(line,",");
+					if(splittedline.length()!=2||splittedline[0].length()==0||splittedline[1].length()==0)
+					{
+						Message("Line "+linecount+": failed to parse incident definition: '"+line+"'");
+						f.close();
+						return false;
+					}
+					uint part1=0;
+					uint part2=0;
+					if(!entrynames.get(splittedline[0],part1))
+					{
+						Message("Line "+linecount+": entry name '"+splittedline[0]+"' in incident definition: '"+line+"' is not registered");
+						f.close();
+						return false;
+					}
+					if(!entrynames.get(splittedline[1],part2))
+					{
+						Message("Line "+linecount+": entry name '"+splittedline[1]+"' in incident definition: '"+line+"' is not registered");
+						f.close();
+						return false;
+					}
+					
+					AddIncidents(part1,part2,true);
+					continue;
+				}
+				
+				case(6):
+				{
+					array<string@>@splittedline=split(line,"=");
+					if(splittedline.length()!=2||splittedline[0].length()==0)
+					{
+						Message("Line "+linecount+": failed to parse set entry definition: '"+line+"'");
+						f.close();
+						return false;
+					}
+					array<string@>@splittedline2=split(splittedline[1],",");
+					array<uint>numbers;
+					if(splittedline[0]!="Name"&&splittedline2[0].length()>0)
+					{
+						numbers.resize(splittedline2.length());
+						for(uint i=0,j=splittedline2.length();i<j;i++)
+						if(!entrynames.get(splittedline2[i],numbers[i]))
+						{
+							Message("Line "+linecount+": entry name '"+splittedline2[i]+"' in set entry definition '"+line+"' is not registered");
+							f.close();
+							return false;
+						}
+					}
+					if(splittedline[0]=="Name")
+					wallsets[set].name=splittedline[1];
+					else if(splittedline[0]=="Walls_nw")
+					{
+						do{uint a1len=wallsets[set].walls_nw.length();uint a2len=a2len=numbers.length();wallsets[set].walls_nw.resize(a1len+a2len);for(uint iter=0;iter<a2len;iter++){wallsets[set].walls_nw[a1len+iter]=numbers[iter];}}while(false);;
+						SetRoles(numbers,(1));
+					}
+					else if(splittedline[0]=="Walls_se")
+					{
+						do{uint a1len=wallsets[set].walls_se.length();uint a2len=a2len=numbers.length();wallsets[set].walls_se.resize(a1len+a2len);for(uint iter=0;iter<a2len;iter++){wallsets[set].walls_se[a1len+iter]=numbers[iter];}}while(false);;
+						SetRoles(numbers,(2));
+					}
+					else if(splittedline[0]=="Walls_ne")
+					{
+						do{uint a1len=wallsets[set].walls_ne.length();uint a2len=a2len=numbers.length();wallsets[set].walls_ne.resize(a1len+a2len);for(uint iter=0;iter<a2len;iter++){wallsets[set].walls_ne[a1len+iter]=numbers[iter];}}while(false);;
+						SetRoles(numbers,(3));
+					}
+					else if(splittedline[0]=="Walls_sw")
+					{
+						do{uint a1len=wallsets[set].walls_sw.length();uint a2len=a2len=numbers.length();wallsets[set].walls_sw.resize(a1len+a2len);for(uint iter=0;iter<a2len;iter++){wallsets[set].walls_sw[a1len+iter]=numbers[iter];}}while(false);;
+						SetRoles(numbers,(4));
+					}
+					else if(splittedline[0]=="Wall_blank_nw")
+					{
+						do{uint a1len=wallsets[set].wall_blank_nw.length();uint a2len=a2len=numbers.length();wallsets[set].wall_blank_nw.resize(a1len+a2len);for(uint iter=0;iter<a2len;iter++){wallsets[set].wall_blank_nw[a1len+iter]=numbers[iter];}}while(false);;
+					}
+					else if(splittedline[0]=="Wall_blank_se")
+					{
+						do{uint a1len=wallsets[set].wall_blank_se.length();uint a2len=a2len=numbers.length();wallsets[set].wall_blank_se.resize(a1len+a2len);for(uint iter=0;iter<a2len;iter++){wallsets[set].wall_blank_se[a1len+iter]=numbers[iter];}}while(false);;
+					}
+					else if(splittedline[0]=="Wall_blank_ne")
+					{
+						do{uint a1len=wallsets[set].wall_blank_ne.length();uint a2len=a2len=numbers.length();wallsets[set].wall_blank_ne.resize(a1len+a2len);for(uint iter=0;iter<a2len;iter++){wallsets[set].wall_blank_ne[a1len+iter]=numbers[iter];}}while(false);;
+					}
+					else if(splittedline[0]=="Wall_blank_sw")
+					{
+						do{uint a1len=wallsets[set].wall_blank_sw.length();uint a2len=a2len=numbers.length();wallsets[set].wall_blank_sw.resize(a1len+a2len);for(uint iter=0;iter<a2len;iter++){wallsets[set].wall_blank_sw[a1len+iter]=numbers[iter];}}while(false);;
+					}
+					else if(splittedline[0]=="Corners_n")
+					{
+						do{uint a1len=wallsets[set].corners_n.length();uint a2len=a2len=numbers.length();wallsets[set].corners_n.resize(a1len+a2len);for(uint iter=0;iter<a2len;iter++){wallsets[set].corners_n[a1len+iter]=numbers[iter];}}while(false);;
+						SetRoles(numbers,(6));
+					}
+					else if(splittedline[0]=="Corners_e")
+					{
+						do{uint a1len=wallsets[set].corners_e.length();uint a2len=a2len=numbers.length();wallsets[set].corners_e.resize(a1len+a2len);for(uint iter=0;iter<a2len;iter++){wallsets[set].corners_e[a1len+iter]=numbers[iter];}}while(false);;
+						SetRoles(numbers,(7));
+					}
+					else if(splittedline[0]=="Corners_w")
+					{
+						do{uint a1len=wallsets[set].corners_w.length();uint a2len=a2len=numbers.length();wallsets[set].corners_w.resize(a1len+a2len);for(uint iter=0;iter<a2len;iter++){wallsets[set].corners_w[a1len+iter]=numbers[iter];}}while(false);;
+						SetRoles(numbers,(5));
+					}
+					else if(splittedline[0]=="Corners_s")
+					{
+						do{uint a1len=wallsets[set].corners_s.length();uint a2len=a2len=numbers.length();wallsets[set].corners_s.resize(a1len+a2len);for(uint iter=0;iter<a2len;iter++){wallsets[set].corners_s[a1len+iter]=numbers[iter];}}while(false);;
+						SetRoles(numbers,(8));
+					}
+					else if(splittedline[0]=="Junctions_nw")
+					{
+						do{uint a1len=wallsets[set].junctions_nw.length();uint a2len=a2len=numbers.length();wallsets[set].junctions_nw.resize(a1len+a2len);for(uint iter=0;iter<a2len;iter++){wallsets[set].junctions_nw[a1len+iter]=numbers[iter];}}while(false);;
+						SetRoles(numbers,(9));
+					}
+					else if(splittedline[0]=="Junctions_ne")
+					{
+						do{uint a1len=wallsets[set].junctions_ne.length();uint a2len=a2len=numbers.length();wallsets[set].junctions_ne.resize(a1len+a2len);for(uint iter=0;iter<a2len;iter++){wallsets[set].junctions_ne[a1len+iter]=numbers[iter];}}while(false);;
+						SetRoles(numbers,(10));
+					}
+					else if(splittedline[0]=="Junctions_sw")
+					{
+						do{uint a1len=wallsets[set].junctions_sw.length();uint a2len=a2len=numbers.length();wallsets[set].junctions_sw.resize(a1len+a2len);for(uint iter=0;iter<a2len;iter++){wallsets[set].junctions_sw[a1len+iter]=numbers[iter];}}while(false);;
+						SetRoles(numbers,(11));
+					}
+					else if(splittedline[0]=="Junctions_se")
+					{
+						do{uint a1len=wallsets[set].junctions_se.length();uint a2len=a2len=numbers.length();wallsets[set].junctions_se.resize(a1len+a2len);for(uint iter=0;iter<a2len;iter++){wallsets[set].junctions_se[a1len+iter]=numbers[iter];}}while(false);;
+						SetRoles(numbers,(12));
+					}
+					else if(splittedline[0]=="Crosses")
+					{
+						do{uint a1len=wallsets[set].crosses.length();uint a2len=a2len=numbers.length();wallsets[set].crosses.resize(a1len+a2len);for(uint iter=0;iter<a2len;iter++){wallsets[set].crosses[a1len+iter]=numbers[iter];}}while(false);;
+						SetRoles(numbers,(13));
+					}
+					else if(splittedline[0]=="Tilegroups")
+					{
+						do{uint a1len=wallsets[set].tilegroups.length();uint a2len=a2len=numbers.length();wallsets[set].tilegroups.resize(a1len+a2len);for(uint iter=0;iter<a2len;iter++){wallsets[set].tilegroups[a1len+iter]=numbers[iter];}}while(false);;
+						SetRoles(numbers,(14));
+					}
+					else if(splittedline[0]=="Roofgroups")
+					{
+						do{uint a1len=wallsets[set].roofgroups.length();uint a2len=a2len=numbers.length();wallsets[set].roofgroups.resize(a1len+a2len);for(uint iter=0;iter<a2len;iter++){wallsets[set].roofgroups[a1len+iter]=numbers[iter];}}while(false);;
+						SetRoles(numbers,(15));
+					}
+					else
+					{
+						Message("Line "+linecount+": entry name '"+splittedline[0]+"' in set entry definition '"+line+"' is invalid");
+						f.close();
+						return false;
+					}
+					continue;
+				}
+			}
+		}
+		f.close();
+		Message("Autowall initialized");
+		return true;
+	}
+	
+	void SetWallset(uint n)
+	{
+		if(n<wallsets.length())
+		wallset=int(n);
+	}
+	void SetWallsetById(uint id)
+	{
+		for(uint i=0,j=wallsets.length();i<j;i++)
+		{
+			if(wallsets[i].id==id)
+			wallset=int(i);
+		}
+	}
+	void SetWallsetByName(string name)
+	{
+		for(uint i=0,j=wallsets.length();i<j;i++)
+		{
+			if(wallsets[i].name==name)
+			wallset=int(i);
+		}
+	} 
+	
+	void MakeWall(uint16 tx,uint16 ty,uint length,uint8 type,bool justblank)
+	{
+		array<uint>@use;
+		CWallSet@set=wallsets[wallset];               
+		
+		array<uint>p1;
+		array<uint>p2;
+		
+	}
+};
+
+class CAutowallPlugin:IMapperPlugin
+{
+	CAutowall@autowall;
+	CAutowallPlugin()
+	{
+		@autowall=@CAutowall();
+	}
+	
+	void Render(uint layer)
+	{
+		if(layer==2)
+		autowall.Draw();
+	}
+	bool MouseDown(int click){return autowall.MouseDown(click);}
+	bool MouseUp(int click){return autowall.MouseUp(click);}
+	void MouseMove(int x,int y){autowall.MouseMove(x,y);}
+	bool KeyDown(uint8 key){return autowall.KeyDown(key);}
+	bool KeyUp(uint8 key){return autowall.KeyUp(key);}
+	void InputLost(){autowall.InputLost();}
+	void Loop(){}
+	bool Message(string&){return false;}
+	void RenderMap(){}
+};
+
+void RegisterAutowall()
+{
+	IMapperPlugin@autowall=CAutowallPlugin();
+	
+	if(Plugins_Register(autowall))
+	Message("Autowall (WIP) registered.");
+}

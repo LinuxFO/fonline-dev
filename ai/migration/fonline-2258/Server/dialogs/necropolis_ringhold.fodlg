@@ -1,0 +1,184 @@
+[comment]
+ringhold lore quest
+
+[data]
+lang=engl russ
+
+[dialog]
+&
+1 1000 None 0 #
+2 1010 D _var p name_mem_npc_player = 0 D _var p san_bancq = 3 #
+8 1020 D _var p name_mem_npc_player = 1 D _var p san_bancq = 3 #
+11 1030 D _var p san_bancq = 4 #
+12 1040 D _var p san_bancq = 5 #
+11 1050 D _var p name_mem_npc_player = 0 D _var p san_bancq = 0 @
+2 2000 None 0 #
+3 2010 @
+3 3000 None 0 #
+4 3010 @
+4 4000 None 0 #
+5 4010 @
+5 5000 None 0 #
+6 5010 @
+6 6000 None 0 #
+7 6010 @
+7 7000 None 0 #
+10 7010 D _item p PID_REFINED_ORE > 0 D _var p san_bancqring = 0 R _item p PID_REFINED_ORE - 1 R _script dialog@r_AddExperience 1 500 R _var p san_bancqring = 1 #
+0 7020 R _var p name_mem_npc_player = 1 @
+8 8000 None 0 #
+10 8010 D _item p PID_REFINED_ORE > 0 D _var p san_bancqring = 0 R _item p PID_REFINED_ORE - 1 #
+9 8020 @
+9 9000 None 0 @
+10 10000 None 0 #
+0 10010 R _var p san_bancq = 4 R _var p san_bancqring = 1 @
+11 11000 None 0 @
+12 12000 None 0 #
+13 12010 D _item p PID_BOTTLE_CAPS > 1499 R _item p PID_BOTTLE_CAPS - 1500 R _item p PID_REFINED_ORE + 1 #
+14 12020 D _var p z_mutantq = 0 #
+17 12030 D _var p z_mutantq = 4 #
+0 12040 @
+13 13000 None 0 @
+14 14000 None 0 #
+15 14010 @
+15 15000 None 0 #
+16 15010 R _var p z_mutantq = 1 @
+16 16000 None 0 #
+0 16010 R _item p PID_HOLODISK + 1 R _param p REPUTATION_NECROPOLIS + 50 @
+17 17000 None 0 #
+18 17010 @
+18 18000 None 0 #
+19 18010 @
+19 19000 None 0 #
+21 19010 D _item p PID_HYPODERMIC_NEEDLE > 0 R _item p PID_HYPODERMIC_NEEDLE - 1 R _param p ST_KARMA - 3 R _script dialog@r_AddExperience 1 3000 R _var p z_mutantq = 5 #
+20 19020 #
+0 19030 @
+20 20000 None 0 @
+21 21000 None 0 &
+
+[engl]
+{100}{}{Charles Ringhold}
+{200}{}{You see a charismatic looking ghoul.}
+{210}{}{He's the prettiest ghoul you've ever seen. He looks like a man older than the wastes itself. }
+{1000}{}{Predialogue installations}
+{1010}{}{unknown}
+{1020}{}{known}
+{1030}{}{answer 5 done trade}
+{1040}{}{final}
+{1050}{}{other}
+{2000}{}{[The ghoul looks at you in amazement] It's you! Vault Dweller! How it's been so long, I thought you were dead? I watched you die... I ... Raised your daughter...}
+{2010}{}{I'm sorry, have we met?}
+{3000}{}{[The ghoul looks at you with sad eyes] You don't remember me? It's me Ringhold! We.. We... [He looks away, forgetting his train of thought] I'm sorry, have we met? I'm pretty busy with the vault here, could you... Leave?}
+{3010}{}{Sorry, but what are you talking about? Who do you think I am?}
+{4000}{}{[The ghoul is off in some distant void] Harold? No... Richard? No... You killed him...  The dead walk, but not with two legs... I ... I have seen the clouds of space and time, whisper it's darkness into the light. Falling down on to the lives of innocent men. But I've never seen it's face...}
+{4010}{}{Anyway, I'm here to establish a trade route between San Francisco and Necropolis. They have recently come into a surplus of uranium and are interested in trading for any spare parts your vault may have.}
+{5000}{}{[He smiles] Who are you anyways? You look like a vault hick, but there's something different about you. You've changed so much, more then I ever have. }
+{5010}{}{I'm @pname@, I'm from a a vault, but I don't think I'm who you're thinking of. My vault just recently opened.}
+{6000}{}{[The ghoul looks sad, as if remembering someone very close to him that's no longer here] It doesn't matter anymore, when the dust settles, the last flakes are gone. So just what is San Fran willing to offer my people?}
+{6010}{}{There is a strange scientist in San Fran, his name is Ban Chao. He just recently created his very own uranium processor. I helped him establish a trade route between Broken Hills and them. San Fran is able to process the uranium twice as fast as Broken Hills can, they just can't mine it themselves. }
+{7000}{}{[The ghoul smiles] Neither can we, stranger. Broken Hills turned us down a few years back when we needed uranium... Guess there's no reason to turn San Fran down now, since they've got the materials we need. But how can you guarantee San Fran's uranium is just as good as Broken Hill's? Why don't you bring me a sample? Just one piece should be enough. }
+{7010}{}{I've got a sample right here, take it.}
+{7020}{}{I'll be back with your sample of uranium, just give me some time. }
+{8000}{}{[Ringhold stares you down] Vault Dweller? You're back! How's Alisssa? Is she still strong?}
+{8010}{}{I've got a sample of uranium for you, here take it.}
+{8020}{}{I'm sorry, I'll just be going now.}
+{9000}{}{Remember when I shot that Overseer? Hah!}
+{10000}{}{[His eyes light up with a smile] This is perfect! This is fucking magical! I've never seen uranium so pure before, and I've been alive for a long fucking time! You tell San Franciso that if they can provide me with a crate minimum a month, then they've got a deal. Whatever they need from our vault is theirs. Thanks, Vault Dweller! I'm surprised, that after all these years... You're still a hero. }
+{10010}{}{Uh, yeah sure... Let's go with that...}
+{11000}{}{Vault Dweller! I'm a little busy, but I want to talk with you later. Come by in a few days, okay?}
+{12000}{}{[Ringhold smiles] Vault hick! You're alive! What're you? Older than I am now? I have some uranium for sale, thanks to your help. I can sell one for 1500 caps. }
+{12010}{}{Could I buy some uranium from you?}
+{12020}{}{Why do you keep calling me a vault hick?}
+{12030}{}{Hello, Ringhold. Father of the wasteland.}
+{12040}{}{Nothing today, see ya.}
+{13000}{}{Of course! Here you go. }
+{14000}{}{[Ringhold fades away] You don't remember?... I... }
+{14010}{}{I... What?}
+{15000}{}{[Ringhold as softly as the wind, can't remember anything] I ... Wrote it .. All down... In case you'd ever come back... Here... Take it... It's my whole life, on holotape. This is the truth... From the very beginning... Take it... For what's it... Worth... My old friend. }
+{15010}{}{[Take the holotape, and walk away]}
+{16000}{}{[You spend a few hours wrapping your head around what you just read. According to Ringhold, he's who's responsible for the F.E.V and all these mutations. But over the course of his long, and miserable life, he's been working on a cure for it and all of its mistakes. Unfortunately, due to his mental illness, he is no doubt unable to continue his research. You're sitting on gold, however, and you really wonder whether or not it's worth investigating further. Looks like you'll need to find the help of a some really good wasteland scientists]}
+{16010}{}{Hmm... is this world even worth it?}
+{17000}{}{[He seems saddened by what you've said] Yes, and how my children have lived, and died. All this before me. My eyes see, far too much. }
+{17010}{}{If you had a choice... what would you do with your research? Would you continue it, or keep trying to find the cure?}
+{18000}{}{[Ringhold does not seem to fully understand your question, and his mind begins to wander away] Vault hick, remember the first days? When the child was born... what crawled from out the sand?}
+{18010}{}{Huh? I don't understand. What're you talking about, ghoul?}
+{19000}{}{[His eyes light up with fire, as Ringhold remembers a much older self] Nightmare creatures. Horrors from the F.E.V. Remember when you said they were a mistake? How could I ever forgive myself? I made these. I made this ALL!!!}
+{19010}{}{[Grab Ringhold, and inject him with a needle] Sorry, but I need your blood, old man.}
+{19020}{}{Can I have some of your blood?}
+{19030}{}{I think I'll just be going now... sorry...}
+{20000}{}{No... not again. What flows in my blood is poison. It's not meant for scientists. It's...}
+{21000}{}{WHAT ARE YOU DOING?! YOU FOOL! GIVE THAT BACK!!!! YOU DON'T KNOW WHAT IT'S CAPABLE OF!!!}
+{100000001}{}{Better wash the counter again...}
+{100000002}{}{That's 5 caps buddy. Hey did you hear me? Cough em' up.}
+{100000003}{}{Better change the keg...}
+{100000004}{}{RotGut? You drink that shit?}
+{100000005}{}{Domestic? I got B.E.E.R buddy, do you want one or not?}
+{100000006}{}{Fuckin' dust is getting everywhere. Hey close the fuckin' door!}
+{100000007}{}{I swear if the next asshole doesn't tip. Ima' shoot somebody!}
+{100000008}{}{I got bottles, I got shots, and I got a bat behind the counter for the retards. Your not a retard are you?}
+{100000009}{}{Uh-huh, yeah that's nice buddy. You don't say...What? Of course I'm listening...}
+{100000010}{}{That's 5 caps. FIVE CAPS Tribal! F.I.V.E! }
+{100000011}{}{Shut up and order a fuckin' beer already!}
+{100000012}{}{I swear if I have to serve another drunk, I'm getting the shotgun!}
+{100000013}{}{Look the keg went dry, and it's going to be another month until the caravan shows up again.}
+{100000014}{}{Really? You don't say, buy another drink or get out!}
+{100000015}{}{What? I'm on break.}
+{100000016}{}{Be right with ya'}
+{100000017}{}{Have a sit stranger. I'll be with you in a moment.}
+{100000018}{}{When do we close? Uh, when the place get's shot up, that's when!}
+{100000019}{}{We're fresh outta' cold beer, sorry. You'll just have to drink it warm.}
+{100000020}{}{RotGut? No man, go make that shit yourself! I wouldn't drink it!}
+
+[russ]
+{100}{}{Алкоголик}
+{200}{}{Вы видите пьяницу.}
+{210}{}{Вы видите шатающегося из стороны в сторону пьяного человека в лохмотьях. Лицо его распухло, нос синющий как слива. А аромат рядом с ним такой, что свалит брамина насмерть. Он что-то бормочет про себя и иногда громко поет песни.}
+{210}{}{Вы видите алкаша. Он весьма грязен - кажется, он повалялся в луже, но не особо этим расстроен.}
+{1000}{}{I?aaaeaeiaiaua onoaiiaee}
+{1010}{}{known}
+{1020}{}{known}
+{1030}{}{answer 5 done trade}
+{1040}{}{final}
+{1050}{}{other}
+{2000}{}{Thank you! Thank you! }
+{2010}{}{I'm sorry, have we met?}
+{3000}{}{[The ghoul looks at you with sad eyes] You don't remember me? It's me Ringhold! We.. We... [He looks away, forgetting his train of thought] I'm sorry, have we met? I'm pretty busy with the vault here, could you... Leave?}
+{3010}{}{Sorry, but what are you talking about? Who do you think I am?}
+{4000}{}{[The ghoul is off, in some distant void] Harold? No... Richard? No... You killed him...  The dead walk, but not with two legs... I ... I have seen the clouds of space and time, whisper it's darkness into the light. Falling down on the lives of innocent men. But I've never seen it's face...}
+{4010}{}{Anyway, I'm here to establish a trade route between San Francisco and Necropolis. They have recently come into a surplus of uranium and are interested in trading for any spare parts your vault may have.}
+{5000}{}{[He smiles] Who are you anyways? You look like a vault hick, but there's something different about you. You've changed so much, more then I ever have. }
+{5010}{}{I'm @pname@, I'm from a a vault, not I don't think I'm who you're thinking of. My vault just recently opened.}
+{6000}{}{[The ghout looks sad, as if remembering someone very close to him that's no longer here] }
+{6010}{}{There is a strange scientist in San Fran, his name is Ban Chao. He just recently created his very own uranium processor. I helped him establish a trade route between Broken Hills and them. San Fran is able to process  the uranium twice as fast as Broken Hills can, they just can't mine it themselves. }
+{7000}{}{[The ghoul smiles] Neither can we, stranger. Broken Hills turned us down a few years back when we needed uranium... Guess there's no reason to turn San Fran down, since they've got the materials we need. But how can you guarantee San Fran's uranium is just as good as Broken Hill's? Why don't you bring me a sample? Just one piece should be enough. }
+{7010}{}{I've got a sample right here, take it.}
+{7020}{}{I'll be back with your sample of uranium, give me some time. }
+{8000}{}{[Ringhold stares you down] Vault Dweller? You're back! How's Alisssa? Is she still strong?}
+{8010}{}{I've got a sample of uranium for you, here take it.}
+{8020}{}{I'm sorry, I'll just be going now.}
+{9000}{}{Remember when I shot that Overseer? Hah!}
+{10000}{}{[His eyes light up with a smile] This is perfect! This is fucking magical! I've never seen uranium so pure before, and I've been alive for a long fucking time! You tell San Franciso that if the can provide me with a crate minimum a month, then they've got a deal. Whatever they need from our vault is theirs. Thanks, Vault Dweller! I'm surprised, that after all these years... You're still a hero. }
+{10010}{}{Uh, yeah sure... Let's go with that...}
+{11000}{}{Vault Dweller! I'm a little busy, but I want to talk with you later. Come by in a few days, okay?}
+{12000}{}{[Ringhold smiles] Vault hick! You're alive! What're you? Older than I am now? }
+{12010}{}{Could I buy some uranium from you?}
+{12020}{}{Why do you keep calling me a vault hick?}
+{12030}{}{Hello, Ringhold. Father of the wasteland.}
+{12040}{}{Nothing today, see ya.}
+{13000}{}{Of course! Here you go. }
+{14000}{}{[Ringhold fades away] You don't remember?... I... }
+{14010}{}{I, what?}
+{15000}{}{[Ringhold as softly as the wind, can't remember anything] I ... Wrote it .. All down... In case you'd ever come back... Here... Take it... It's my whole life, on holotape. This is the truth... From the very beginning... Take it... For what's it... Worth... My old friend. }
+{15010}{}{[Take the holotape, and walk away]}
+{16000}{}{[You spend a few hours wrapping your head around what you just read. According to Ringhold, he's who's responsible for the F.E.V and all these mutations. But over the course of his long, and miserable life, he's been working on a cure for it and all of its mistakes. Unfortunately, due to his mental illness, he is no doubt unable to continue his research. You're sitting on gold, however, and you really wonder whether or not it's worth investigating further. Looks like you'll need to find the help of a some really good wasteland scientists]}
+{16010}{}{Hmm... is this world even worth it?}
+{17000}{}{[He seems saddened by what you've said] Yes, and how my children have lived, and died. All this before me. My eyes see, far too much. }
+{17010}{}{If you had a choice... what would you do with your research? Would you continue, or try to find a cure?}
+{18000}{}{[Ringhold does not seem to fully understand your question, and his mind begins to wander away] Vault hick, remember the first days? When the child was born... what crawled from out the sand?}
+{18010}{}{Huh? I don't understand. What're you talking about, ghoul?}
+{19000}{}{[His eyes light up with fire, as Ringhold remembers a much older self] Nightmare creatures. Horrors from the F.E.V. Remember when you said they were a mistake? How could I ever forgive myself? I made these. I made this ALL!!!}
+{19010}{}{[Grab Ringhold, and inject him with a needle] Sorry, but I need your blood, old man.}
+{19020}{}{Can I have some of your blood?}
+{19030}{}{I think I'll just be going now... sorry...}
+{20000}{}{No... not again. What flows in my blood is poison. It's not meant for scientists.}
+{21000}{}{WHAT ARE YOU DOING?! YOU FOOL! GIVE THAT BACK!!!!}
+

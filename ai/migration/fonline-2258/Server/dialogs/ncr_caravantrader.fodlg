@@ -1,0 +1,99 @@
+[comment]
+
+
+[data]
+lang=engl
+
+[dialog]
+&
+1 1000 None 0 #
+2 1010 @
+2 2000 None 0 #
+3 2010 #
+10 2020 R _script car_seller@r_CheckCar 1 0 #
+0 2030 @
+3 3000 car_seller@dlg_PrepareBuy 0 #
+39 3010 D _item p PID_BOTTLE_CAPS > 14999 D _script car_seller@d_CanAffordCaravanWhite 0  R _item p PID_BOTTLE_CAPS - 15000 R _script car_seller@r_BuyCaravanWhite 1 0 #
+12 3020 #
+13 3030 #
+0 3040 @
+5 4000 None 0 @
+6 5000 None 0 @
+7 6000 None 0 #
+0 6010 @
+8 7000 None 0 #
+0 7010 @
+10 8000 car_seller@dlg_SellCar 0 #
+11 8010 R _script car_seller@r_SellCar 1 0 #
+0 8020 @
+11 9000 None 0 @
+12 10000 car_seller@dlg_PrepareBuy 0 #
+39 10010 D _script follower@d_HasBrahmin 1 0 D _script car_seller@d_CanAffordCaravanOrange 0  R _script car_seller@r_BuyCaravanOrange 1 0 R _script follower@r_RemoveBrahmin 1 0 #
+14 10020 D _script follower@d_HasNoBrahmin 1 0 #
+14 10030 D _script car_seller@d_CanNotAffordCaravanOrange 0  #
+0 10040 @
+13 11000 car_seller@dlg_PrepareBuy 0 #
+39 11010 D _script follower@d_HasBrahmin 1 0 D _script car_seller@d_CanAffordCaravanWhite 0  R _script car_seller@r_BuyCaravanWhite 1 0 R _script follower@r_RemoveBrahmin 1 0 #
+14 11020 D _script follower@d_HasNoBrahmin 1 0 #
+14 11030 D _script car_seller@d_CanNotAffordCaravanWhite 0  #
+0 11040 @
+14 12000 None 0 @
+37 13000 None 0 @
+38 14000 None 0 @
+39 15000 None 0 @
+40 16000 None 0 @
+100 17000 None 0 @
+101 18000 None 0 @
+102 19000 None 0 @
+103 20000 None 0 @
+50 21000 None 0 @
+58 22000 None 0 &
+
+[engl]
+{100}{}{Caravan Carts & Co}
+{200}{}{You see the local CC&C caravan cart seller.}
+{210}{}{He's selling these fabulous caravan carts! Oh my!}
+{1000}{}{Preddialogue settings}
+{1010}{}{2}
+{2000}{}{Welcome to Caravan Carts & Co! I'm Paul, I think! That's what we always call ourselves! You lookin' to buy youself a fine o'to'ma'beel?!}
+{2010}{}{You're the one selling all these caravan carts I keep seeing around? You must make a fortune!}
+{2020}{}{I want to sell my car. Are you interested?}
+{2030}{}{Not today, thanks.}
+{3000}{}{"Do I sell caravan carts?" @sex@|Buddy!||Lady!| I've been salesman of the year fifteen years in a row! If you want to buy yourself a cart! The only thing you need to know is: Do I want a big one, or medium sized one?
+But... you also got to supply your own brahmin because I don't think you could push one of these things on your own... and I don't have that many in stock, personally. Might want to try the pens if you're short on beef.}
+{3010}{}{What? No! Here's 15,000 caps! Just give me a goddamn caravan cart, already! Round up the cost and we've got a deal!}
+{3020}{}{I'd like to buy a medium size caravan cart, please.}
+{3030}{}{How much are larger caravan carts going for?}
+{3040}{}{Maybe next time.}
+{4000}{}{If you've got the money, honey, I've got your caravan. No money, no caravan.}
+{5000}{}{Sorry! Looks like our garage is too full right now. Come back when we have more room. }
+{6000}{}{[He gives you the key to the caravan] Here, take it. If you ever need another cart you know where to find me.}
+{6010}{}{Thanks!}
+{7000}{}{[He gives you the key to the caravan] Here, take it. If you ever need another cart you know where to find me.}
+{7010}{}{Thanks!}
+{8000}{}{Hmm, maybe. Let me take a look at it...  [He examines the vehicle very well] Okay, I'll give you @lex sell_cost@ for it.}
+{8010}{}{Deal!}
+{8020}{}{Not today. I'll hang onto it for now.}
+{9000}{}{Great! What's that smell though? Seriously? Did somebody die in this thing?!}
+{10000}{}{Medium size, mhmmm... Okay, I can sell you one for @lex orange@ caps. Do you have a brahmin with you?}
+{10010}{}{Of course! Here's the money.}
+{10020}{}{Whoops! Forgot about the brahmin!}
+{10030}{}{Sorry, I can't afford this right now.}
+{10040}{}{I changed my mind. I'll come back later... maybe.}
+{11000}{}{Big size, mhmmm... Okay, I can sell you one for @lex white@ caps. Do you have a brahmin with you?}
+{11010}{}{Of course! Here's the money.}
+{11020}{}{Whoops! Forgot about the brahmin!}
+{11030}{}{Sorry, I can't afford this right now.}
+{11040}{}{I changed my mind. I'll come back later... maybe.}
+{12000}{}{Caravan Carts & Co is always open! I'm high on Jet!}
+{13000}{}{If you've got the money, honey, I've got your caravan. No money, no caravan.}
+{14000}{}{You don't need these particular amen-ities, aiight?}
+{15000}{}{All set. Take her easy, now.}
+{16000}{}{Aiight, this ain't my normal bitness though, y'hear? You get any wheels, you drop by.}
+{17000}{}{I am very sorry but I don't have the time to talk to you right now.}
+{18000}{}{I have no clue about what car you're talking about. Show me the key or get lost.}
+{19000}{}{Yes, I can see the key. But where's the car?}
+{20000}{}{I have no clue about what car you're talking about. Show me the key or get lost.}
+{21000}{}{Better go and play somewhere else. Okay?}
+{22000}{}{Oh my God! A monster! Guards! Guards!}
+

@@ -1,0 +1,20 @@
+[comment]
+
+
+[data]
+lang=engl
+
+[dialog]
+&
+1 1000 None 0 #
+2 1010 @
+2 2000 None 0 &
+
+[engl]
+{100}{}{Super Mutant General}
+{200}{}{You see the leader of this band of mutants.}
+{210}{}{I bet that if I kill this guy the rest of them would retreat eventually... I have a feeling that I could end this mission quickly if I assassinated it.}
+{1000}{}{Predialogue installations}
+{1010}{}{Answer text}
+{2000}{}{RAAAAAGGGGGGGGHHHHHH!!!!!! ME SMASH YOUR FACE IN WITH BIG SHINY FUCK STICK!!!!!!@@ME MAKE YOU SALAD!!!!!@@YOU WANT TWO LUMPS OR FIFTEEN?!!!!!!}
+

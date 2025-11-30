@@ -1,0 +1,4556 @@
+//
+// FOnline: 2238
+// Rotators
+//
+// dialog.fos
+//
+
+#ifndef __DIALOG__
+#define __DIALOG__
+
+#include "_macros.fos"
+#include "economy_h.fos"
+#include "factions_h.fos"
+#include "follower_common_h.fos"
+#include "lexems_h.fos"
+#include "mapdata_h.fos"
+#include "messages_h.fos"
+#include "npc_common_h.fos"
+#include "npc_roles_h.fos"
+#include "world_common_h.fos"
+#include "logging_h.fos"
+#include "broadcast_h.fos"
+#include "_colors.fos"
+#include "entire.fos"
+#include "utils_h.fos"
+
+/**
+ * \~english @defgroup DialogFuncs Dialog module
+ * List of dialog module dialog functions.
+ * \~ @ingroup FOnline2238
+ */
+/*@{*/
+
+
+#include "dialog_factions.fos"
+#include "dialog_reputations.fos"
+
+
+import void AffectRadiation(Critter& cr, int value) from "radiation";
+import void DropPoison(Critter& cr) from "poison";
+import void DropRadiation(Critter& cr) from "radiation";
+import void FlushScreen(Critter& cr, bool fadeOut, uint timeMs) from "effects";
+import void PlaySound(Critter& cr, string& soundName) from "media";
+
+import int stringReplaceText(string& s, string@ f, string@ t) from "config_file";
+
+import bool AddAnotherBonus(Item@ item) from "item_bonus";
+import void SetWear(Item&item,int wearProcent) from "repair";
+import void SetMinWear(Item&item,int wearProcent) from "repair";
+import void AddSpecialBonusRaidersFarm(Item@ it) from "item_bonus";   //this adds stats to items
+
+
+/**
+ * \~english @name General
+ *
+ * \~ @weight 550
+ */
+// @{
+
+/**
+ * Check if the player is the owner of the currently occupied location
+ */
+bool d_IsLocationOwner(Critter& player, Critter@ npc)
+{
+    Map@ map = player.GetMap();
+    if(!valid(map))
+        return false;
+    return int(player.Id) == GetRootMapData(map, MAP_DATA_OWNER);
+}
+
+/**
+ * Check if the player is not the owner of the currently occupied location
+ */
+bool d_IsNotLocationOwner(Critter& player, Critter@ npc)
+{
+    return !d_IsLocationOwner(player, npc);
+}
+
+/**
+ * Check if a player is already talking to the NPC.
+ */
+bool d_IsBusy(Critter& player, Critter@ npc)
+{
+    return(npc.GetTalkedPlayers(null) > 0);
+}
+
+/**
+ * Add some experience to the player.
+ * This is the prefered method to add experience, instead of doing it manually in dialog editor.
+ * @param val Amount of experience to add
+ */
+void r_AddExperience(Critter& player, Critter@ npc, int val)
+{
+    int mapId = 0;
+    if(valid(player.GetMap()))
+        mapId = player.GetMap().Id;
+
+    int npcId = -1;
+    int dialogId = -1;
+
+    if(valid(npc))
+    {
+        npcId = npc.Id;
+        dialogId = npc.Param[ST_DIALOG_ID];
+    }
+
+    FLog(LOG_DIALOG_EXP, "Experience: " + val + " player: [" + player.Id + "] " + player.Name + " mapId: " + mapId + " npc: " + npcId + " dialog: " + dialogId);
+
+    player.StatBase[ST_EXPERIENCE] += val;
+
+    //if(mapId > 0)
+        //TC_QuestExpReward(player, val);
+}
+
+/**
+ * Add some caps to the player.
+ * This is the prefered method to add caps, instead of doing it manually in dialog editor.
+ * @param val Amount of money to add
+ */
+void r_AddMoney(Critter& player, Critter@ npc, int val)
+{
+    int mapId = 0;
+    if(valid(player.GetMap()))
+        mapId = player.GetMap().Id;
+
+    int npcId = -1;
+    int dialogId = -1;
+
+    if(valid(npc))
+    {
+        npcId = npc.Id;
+        dialogId = npc.Param[ST_DIALOG_ID];
+    }
+
+    FLog(LOG_DIALOG_REWARD, "Reward - Money: " + val + " player: [" + player.Id + "] " + player.Name + " mapId: " + mapId + " npc: " + npcId + " dialog: " + dialogId);
+
+    BanksTransferToCritter(player, val, TRANSACTION_DEFAULT, false);
+
+    //if(mapId > 0)
+        //TC_QuestCapsReward(player, val);
+}
+
+/**
+ * Flush the screen black and back.
+ */
+void r_FlushScreen(Critter& cr, Critter@ tray)
+{
+    FlushScreen(cr, false, 500);
+    FlushScreen(cr, true, 5000);
+}
+
+/**
+ * Remove some caps from the player.
+ * This is the prefered method to remove caps, instead of doing it manually in dialog editor.
+ * @param val Amount of money to subtract
+ */
+void r_RemoveMoney(Critter& player, Critter@ npc, int val)
+{
+    BanksTransferFromCritter(player, val, TRANSACTION_DEFAULT, false);
+}
+
+/**
+ * Check if the amount of money is available in all banks combined.
+ * @param val The given amount.
+ */
+bool d_IsMoneyAvailable(Critter& player, Critter@ npc, int val)
+{
+    return(int(BanksGetTotalMoney()) >= val);
+}
+
+bool d_IsWearingArmor(Critter& player, Critter@ npc)
+{
+    uint8 dummy = 0;
+    return valid(player.GetSlotProto(SLOT_ARMOR, dummy));
+}
+
+bool d_IsWearingScaryHelmet(Critter& player, Critter@ npc)
+{
+    uint16[] scaryHelmets =
+    {
+        PID_METAL_HELMET,
+        PID_METAL_HELMET_MK2
+    };
+
+    Item@ helmet = player.GetItem(0, SLOT_HEAD);
+    if(valid(helmet) && Present(helmet.GetProtoId(), scaryHelmets))
+        return(true);
+    else
+        return(false);
+}
+
+/**
+ * Remove the items the player has in Slot1 and 2. 1 drops to ground, 2 goes to inv.
+ */
+void r_RemoveWeapon(Critter& player, Critter@ tray)
+{
+    Item@ item = player.GetItem(0, SLOT_HAND1);
+    if(valid(item))
+        player.MoveItem(item.Id, 0, SLOT_GROUND);
+    @item = player.GetItem(0, SLOT_HAND2);
+    if(valid(item))
+        player.MoveItem(item.Id, 0, SLOT_INV);
+}
+
+/**
+ * Drops armor to ground.
+ */
+void r_RemoveArmor(Critter& player, Critter@ tray)
+{
+    Item@ armor = player.GetItem(0, SLOT_ARMOR);
+    if(valid(armor))
+        player.MoveItem(armor.Id, 0, SLOT_GROUND);
+}
+
+/**
+ * Send messages to everyone that sees the player, ordering them to attack.
+ */
+void r_Alert(Critter& player, Critter@npc)
+{
+    player.SendMessage(MSG_ATTACK_ME, 0, MESSAGE_TO_WHO_SEES_ME);
+}
+
+/**
+ * Teleport player to a map.
+ * @param mappid PID of map to teleport to
+ * @param entid Entire id on map, 0 is default entry point.
+ */
+void r_TeleportToMap(Critter& player, Critter@npc, int mappid, int entid)
+{
+    Map@ map = GetMapByPid(mappid, 0);
+    if(!valid(map))
+    {
+        Log("r_TeleportToMap failed, map " + mappid + " not found.");
+        return;
+    }
+    player.TransitToMap(map.Id, entid);
+}
+
+void r_TeleportToMapFollowers(Critter& player, Critter@npc, int mappid, int entid)
+{
+    array<Critter@> followers;
+    uint            num = GetFollowers(player, player.GetMap(), followers);
+    Map@            map = GetMapByPid(mappid, 0);
+    if(!valid(map))
+    {
+        Log("r_TeleportToMapFollowers failed, map " + mappid + " not found.");
+        return;
+    }
+    for(uint i = 0; i < num; i++)
+        followers[i].TransitToMap(map.Id, entid);
+}
+
+/**
+ * Delete all items in player's inventory
+ */
+void r_ClearInventory(Critter& player, Critter@npc)
+{
+    array<Item@> items;
+    int          count = player.GetItems(-1, items);
+    DeleteItems(items);
+}
+
+void r_RunAway(Critter& player, Critter@ npc)
+{
+    r_RunAway(player, npc, 10, 20);
+}
+
+void r_RunAway(Critter& player, Critter@ npc, int distance)
+{
+    r_RunAway(player, npc, distance, distance);
+}
+
+void r_RunAway(Critter& player, Critter@ npc, int minDistance, int maxDistance)
+{
+    if(valid(npc))
+        MoveRandom(npc, Random(minDistance, maxDistance), true);
+}
+
+// @}
+
+/**
+ * \~english @name World related
+ *
+ * \~ @weight 530
+ */
+// @{
+
+/**
+ * Check if it's night in the world. Night is defined as 22:00-06:59.
+ */
+bool d_CheckNight(Critter& player, Critter@ npc)
+{
+    return(IsNight());
+}
+
+/**
+ * Check if it's day in the world. Day is defined as 07:00-21:59.
+ */
+bool d_CheckDay(Critter& player, Critter@ npc)
+{
+    return(!IsNight());
+}
+
+/**
+ * Check if it's morning in the world. Morning is defined as 07:00-11:59.
+ */
+bool d_CheckMorning(Critter& player, Critter@ npc)
+{
+    return(IsMorning());
+}
+
+/**
+ * Check if it's afternoon in the world. Afternoon is defined as 12:00-17:59.
+ */
+bool d_CheckAfternoon(Critter& player, Critter@ npc)
+{
+    return(IsAfternoon());
+}
+
+/**
+ * Check if it's evening in the world. Evening is defined as 18:00-21:59.
+ */
+bool d_CheckEvening(Critter& player, Critter@ npc)
+{
+    return(IsEvening());
+}
+
+/**
+ * Check if a player can see a location.
+ * @param locationId Unique id of the location.
+ */
+bool d_IsLocationVisible(Critter& player, Critter@ npc, int locationId)
+{
+    return player.IsKnownLoc(false, locationId);
+}
+
+/**
+ * Check if a player can not see a location.
+ * @param locationId Unique id of the location.
+ */
+bool d_IsLocationNotVisible(Critter& player, Critter@ npc, int locationId)
+{
+    return !player.IsKnownLoc(false, locationId);
+}
+
+/**
+ * Show location to the player.
+ * @param locationId Unique id of the location.
+ */
+void r_ShowLocation(Critter& player, Critter@ npc, int locationId)
+{
+    player.SetKnownLoc(false, locationId);
+}
+
+/**
+ * Mark the current location as autogarbage-ready.
+ */
+void r_RetireLocation(Critter& player, Critter@ npc)
+{
+    Location@ loc = player.GetMap().GetLocation();
+    if(!loc.IsInstancedQuest())
+        return;
+    loc.AutoGarbage = true;
+}
+
+// @}
+
+/**
+ * \~english @name Critter state
+ *
+ * \~ @weight 545
+ */
+// @{
+
+/**
+ * Check if player's current HP is under 25% of his maximum HP.
+ */
+bool d_HpVeryLow(Critter& player, Critter@ npc)   // these functions return Hit Points
+{
+    // there are 4 levels: <25%, <50%, <75%, <100%
+    return player.Stat[ST_CURRENT_HP] < player.Stat[ST_MAX_LIFE] / 4;
+}
+
+/**
+ * Check if player's current HP is under 50% of his maximum HP.
+ */
+bool d_HpLow(Critter& player, Critter@ npc)
+{
+    return player.Stat[ST_CURRENT_HP] < player.Stat[ST_MAX_LIFE] * 2 / 4;
+}
+
+/**
+ * Check if player's current HP is under 75% of his maximum HP.
+ */
+bool d_HpAverage(Critter& player, Critter@ npc)
+{
+    return player.Stat[ST_CURRENT_HP] < player.Stat[ST_MAX_LIFE] * 3 / 4;
+}
+
+/**
+ * Check if player's current HP is under 100% of his maximum HP.
+ */
+bool d_HpHigh(Critter& player, Critter@ npc)
+{
+    return player.Stat[ST_CURRENT_HP] < player.Stat[ST_MAX_LIFE]; // use them in this order to get something useful
+}                                                                 // it can be used with d_IsToHeal too
+
+/**
+ * Check if NPC's current HP is under 25% of his maximum HP.
+ */
+bool d_NPCHpVeryLow(Critter& player, Critter@ npc)                // these functions return Hit Points
+{
+    // there are 4 levels: <25%, <50%, <75%, <100%
+    return npc.Stat[ST_CURRENT_HP] < npc.Stat[ST_MAX_LIFE] / 4;
+}
+
+/**
+ * Check if NPC's current HP is under 50% of his maximum HP.
+ */
+bool d_NPCHpLow(Critter& player, Critter@ npc)
+{
+    return npc.Stat[ST_CURRENT_HP] < npc.Stat[ST_MAX_LIFE] * 2 / 4;
+}
+
+/**
+ * Check if NPC's current HP is under 75% of his maximum HP.
+ */
+bool d_NPCHpAverage(Critter& player, Critter@ npc)
+{
+    return npc.Stat[ST_CURRENT_HP] < npc.Stat[ST_MAX_LIFE] * 3 / 4;
+}
+
+/**
+ * Check if NPC's current HP is under 100% of his maximum HP.
+ */
+bool d_NPCHpHigh(Critter& player, Critter@ npc)
+{
+    return npc.Stat[ST_CURRENT_HP] < npc.Stat[ST_MAX_LIFE];     // use them in this order to get something useful
+}
+
+// Define healing price
+
+// #define HEALING_PRICE #(player) (player.Stat[ST_LEVEL] * 50)	// money needed for healing
+#define HEALING_PRICE                                                                                                                              \
+    # (player)                                                                                                                                     \
+    (                                                                                                                                              \
+        ((player.Param[ST_MAX_LIFE] - player.Param[ST_CURRENT_HP]) * 2) +                                                                          \
+        ((player.Param[DAMAGE_LEFT_ARM] + player.Param[DAMAGE_RIGHT_ARM] + player.Param[DAMAGE_LEFT_LEG] + player.Param[DAMAGE_RIGHT_LEG]) * 40) + \
+        (player.Param[DAMAGE_EYE] * 50) +                                                                                                          \
+        (player.Param[ST_RADIATION_LEVEL] + (player.Param[ST_RADIATION_LEVEL] > 0 ? 100 : 0)) +                                                    \
+        (player.Param[ST_POISONING_LEVEL] * 3)                                                                                                     \
+    )
+
+/**
+ * Check if player has enough caps for healing.
+ */
+bool d_HealingMoney(Critter& player, Critter@ npc)
+{
+    uint price = HEALING_PRICE(player);
+
+    return _CritCountItem(player, PID_BOTTLE_CAPS) >= price;
+}
+
+/**
+ * Check if player can be healed.
+ */
+bool d_IsToHeal(Critter& player, Critter@ npc)
+{
+    return player.Stat[ST_CURRENT_HP] < player.Stat[ST_MAX_LIFE] ||
+           _CritIsInjured(player) ||
+           player.Stat[ST_POISONING_LEVEL] > 0 ||
+           player.Stat[ST_RADIATION_LEVEL] > 0;
+}
+
+/**
+ * Removes poision, radiation, heals limbs and returns HP to max.
+ */
+void r_DocHeal(Critter& player, Critter@ npc)             // use this for healing Docs only, it fixes limbs too
+{
+    uint price = HEALING_PRICE(player);
+
+    player.DamageBase[DAMAGE_EYE] = 0;
+    player.DamageBase[DAMAGE_RIGHT_ARM] = 0;
+    player.DamageBase[DAMAGE_LEFT_ARM] = 0;
+    player.DamageBase[DAMAGE_RIGHT_LEG] = 0;
+    player.DamageBase[DAMAGE_LEFT_LEG] = 0;
+    player.StatBase[ST_CURRENT_HP] = player.Stat[ST_MAX_LIFE];
+
+    DropPoison(player);
+    DropRadiation(player);
+
+    // reduce money
+    _CritDeleteItem(player, PID_BOTTLE_CAPS, price);
+}
+
+/**
+ * Show how much healing costs. @lex price@ is used.
+ */
+void dlg_ShowHealingPrice(Critter& player, Critter@ npc, string@ text)    // shows the price for healing
+{
+    if(!IS_DIALOG_GENERATED(text))
+        return;
+
+    uint price = HEALING_PRICE(player);
+    text = "$price" + price;
+}
+
+/**
+ * Check if a player is addicted to anything.
+ * This includes: Nuka Cola, Buffout, Mentats, Psycho, Radaway, Jet or Tragic (the card game).
+ */
+bool d_IsAddict(Critter& player, Critter@ npc)
+{
+    return player.Addiction[ADDICTION_NUKA_COLA] > 0 ||
+           player.Addiction[ADDICTION_BUFFOUT] > 0 ||
+           player.Addiction[ADDICTION_MENTATS] > 0 ||
+           player.Addiction[ADDICTION_PSYCHO] > 0 ||
+           player.Addiction[ADDICTION_RADAWAY] > 0 ||
+           player.Addiction[ADDICTION_JET] > 0 ||
+           player.Addiction[ADDICTION_TRAGIC] > 0;
+}
+
+/**
+ * Checks if player is not addicted to anything.
+ * @see d_IsAddict
+ */
+bool d_IsNotAddict(Critter& player, Critter@ npc)
+{
+    return !d_IsAddict(player, npc);
+}
+
+/**
+ * Checks if player have any weapon in active slot
+ */
+bool d_WeaponInHand(Critter& player, Critter@ npc)
+{
+    Item@ item = _CritGetItemHand(player);
+    if(!valid(item))
+        return false;
+    return item.GetType() == ITEM_TYPE_WEAPON;
+}
+
+/**
+ * Checks if player DOESNT have any weapon in active slot
+ */
+bool d_NoWeaponInHand(Critter& player, Critter@ npc)
+{
+    return !d_WeaponInHand(player, npc);
+}
+
+/**
+ * Checks if player have specified item in active slot
+ */
+bool d_ItemInHand(Critter& player, Critter@ npc, int pid)
+{
+    Item@ item = _CritGetItemHand(player);
+    if(!valid(item))
+        return false;
+    return item.GetProtoId() == uint(pid);
+}
+
+/**
+ * Heal HP to players' maximum.
+ */
+void r_ToHeal(Critter& player, Critter@ npc)
+{
+    player.StatBase[ST_CURRENT_HP] = player.Stat[ST_MAX_LIFE];
+}
+
+/**
+ * Kill the player with a given animation
+ * @param val Animation number
+ */
+void r_ToDead(Critter& player, Critter@ npc, int val)
+{
+    player.ToDead(val, null);
+}
+
+/**
+ * Kills the NPC, player is the killer.
+ * @param val Death animation number
+ */
+void r_KillNpc(Critter& player, Critter@ npc, int val)
+{
+    npc.ToDead(val, player);
+}
+/**
+ * Kills the NPC, no one is the killer.
+ * @param val Death animation number
+ */
+void r_NinjaKillNpc(Critter& player, Critter@ npc, int val)
+{
+    npc.ToDead(val, null);
+}
+
+/**
+ * Checks whether npc is on a map with given protoid
+ */
+bool d_NpcOnMap(Critter& player, Critter@ npc, int mappid)
+{
+    if(!valid(npc) || !valid(npc.GetMap()))
+        return false;
+    return npc.GetMapProtoId() == uint(mappid);
+}
+/**
+ * Checks whether npc is in location with given protoid.
+ */
+bool d_NpcInLocation(Critter& player, Critter@ npc, int locpid)
+{
+    if(!valid(npc) || !valid(npc.GetMap()))
+        return false;
+    return npc.GetMap().GetLocation().GetProtoId() == uint(locpid);
+}
+
+/////////////
+// RADIATION
+/////////////
+
+
+/**
+ * Irradiate or de-radiate the player.
+ * @param val Amount of radiation to receive (negative value will result in radiation decrease)
+ */
+void r_Irradiate(Critter& player, Critter@ npc, int val)
+{
+    AffectRadiation(player, val);
+}
+
+// @}
+
+/**
+ * \~english @name Stat checks and random rolls
+ *
+ * \~ @weight 540
+ */
+// @{
+
+
+/**
+ * Jump to a node between min and max nodes.
+ * @param min Minimum node.
+ * @param max Maximum node.
+ * @param multiplier Multiplier. If multiplier is 10 and minimum node is 1 and maximum node is 5, then 10,20,30,40,50 are nodes that can be randomized
+ */
+uint r_JumpToRandomNode(Critter& player, Critter@ npc, int min, int max, int multiplier)
+{
+    return Random(min, max) * multiplier;
+}
+
+/**
+ * Jump to a node between min and max nodes.
+ * @param min Minimum node.
+ * @param max Maximum node.
+ */
+uint r_JumpToRandomNode(Critter& player, Critter@ npc, int min, int max)
+{
+    return Random(min, max);
+}
+
+uint r_NodeChancePercent(Critter& player, Critter@ npc, int chance, int node)
+{
+    if(Random(1, 100) <= chance)
+        return(node);
+
+    return(0);
+}
+
+uint r_NodeChancePercent(Critter& player, Critter@ npc, int chance, int nodeOK, int nodeFAIL)
+{
+    if(Random(1, 100) <= chance)
+        return(nodeOK);
+
+    return(nodeFAIL);
+}
+
+/**
+ * Make a random dice roll which is true only if 1==n
+ * @param n As in the function description.
+ * n is the input value you provide
+ * Some example of chances when providing different values:
+ * 1 - Always true.
+ * 2 - Will be true in 50% of cases
+ * 5 - Will be true in 20% of cases.
+ */
+bool d_Random(Critter& player, Critter@ npc, int n)
+{
+    return Random(1, n) == 1;
+}
+
+/**
+ * Make a random roll which has a certain % chance of being true.
+ * @param chance A number between 0 and 100.
+ */
+bool d_RandomPercent(Critter& player, Critter@ npc, int chance)
+{
+    chance = CLAMP(chance, 0, 100);
+    return Random(1, 100) <= chance;
+}
+
+uint r_Roll(Critter& player, Critter@ npc, int from, int to, int need, int jump)
+{
+    if(Random(from, to) == need)
+        return(jump);
+    return(0);
+}
+
+/**
+ * Does a roll for skill, then redirects the dialog in case of success
+ * @param     skill           Skill to be checked
+ * @param     successnode     Node to redirect to in case of success
+ */
+uint r_SkillRoll(Critter& player, Critter@ npc, int skill, int successnode)
+{
+    if(SkillRoll(player, skill, 0))
+        return successnode;
+    return 0;
+}
+
+/**
+ * Does a roll for skill with specified skill bonus, then redirects the dialog in case of success
+ * @param     skill           Skill to be checked
+ * @param     skillbonus      Bonus to the checked skill
+ * @param     successnode     Node to redirect to in case of success
+ */
+uint r_SkillRoll(Critter& player, Critter@ npc, int skill, int bonus, int successnode)
+{
+    if(SkillRoll(player, skill, bonus))
+        return successnode;
+    return 0;
+}
+
+/**
+ * Does a roll for stat, then redirects the dialog in case of success
+ * @param     stat            Stat to be checked
+ * @param     successnode     Node to redirect to in case of success
+ */
+uint r_StatRoll(Critter& player, Critter@ npc, int stat, int successnode)
+{
+    if(player.Stat[stat] >= Random(1, 10))
+        return successnode;
+    return 0;
+}
+
+/**
+ * Does  aroll for stat with specified stat bonus, then redirects the dialog in case of success
+ * @param     stat            Stat to be checked
+ * @param     statbonus       Bonus to the checked stat
+ * @param     successnode     Node to redirect to in case of success
+ */
+uint r_StatRoll(Critter& player, Critter@ npc, int stat, int bonus, int successnode)
+{
+    if(player.Stat[stat] + bonus >= Random(1, 10))
+        return successnode;
+    return 0;
+}
+
+// @}
+
+/**
+ * \~english @name Special
+ *
+ * \~ @weight 510
+ */
+// @{
+
+/**
+ * Add Vault City daypass to player.
+ */
+void r_ReceiveDayPass(Critter& player, Critter@ npc)
+{
+    Item@ daypass = player.AddItem(PID_DAY_PASS2, 1);
+    daypass.Val5 = player.Id;
+}
+
+/**
+ * Check if player has a valid Vault City daypass.
+ */
+bool d_HasValidDayPass(Critter& player, Critter@ npc)
+{
+    Item@ daypass = player.GetItem(PID_DAY_PASS2, -1);
+    if(!valid(daypass))
+        return false;
+    return(uint(daypass.Val5) == player.Id);
+}
+
+//
+// lisac
+// These functions test different checks in game
+//
+
+// JUNK
+bool d_LillyCheckQuest(Critter& player, Critter@ npc, int val)
+{
+    return((GetLocalVar(val, player.Id) == 1) || (GetLocalVar(val, player.Id) > 3));
+}
+
+bool d_VCCheckLK(Critter& player, Critter@ npc, int val)
+{
+    return(Random(0, val) < player.Stat[ST_LUCK]);
+}
+
+void r_TransferItemsToContainer(Critter& player, Critter@npc, int mappid, int entid, int contpid, int itemtypes)
+{
+    Map@ map = GetMapByPid(mappid, 0);
+    if(!valid(map))
+        return;
+
+    TransferItemsToContOnMap(player, map, entid, contpid, itemtypes);
+}
+
+void r_TransferItemsFromContainer(Critter& player, Critter@npc, int mappid, int entid, int contpid)
+{
+    Map@ map = GetMapByPid(mappid, 0);
+    if(!valid(map))
+        return;
+
+    TransferItemsFromContOnMap(player, map, entid, contpid);
+}
+
+/////////////////
+//  Scenarios  //
+/////////////////
+
+// A general purpose function, gives all num party members val/num exp (rounded down)
+// Used by:
+// Scenario: MFC Crafting - Gives XP according to MFC you hand over to your superiors (Enclave/BoS)
+void r_AddExpTeam(Critter& player, Critter@ npc, int val)
+{
+    AddExpTeam(player, val);
+
+    Location@ loc = GetLocation(LOCATION_Navarro);
+    Map@      map = loc.GetMapByIndex(1);   // Navarro sublevel
+    Item@     locker;                       // = map.GetItem(63, 90, PID_LOCKER_CLEAN_RIGHT);	// Commander's locker
+    int       mfc = val / 25;               // 20% for Enclave, do not edit! val/25 is correct!
+    locker.AddItem(PID_MICRO_FUSION_CELL, mfc, 0);
+
+    // the rest 80% go to Renesco's inventory (not to new reno limbo, but his inventory)
+
+}
+
+/////////////////
+//   SOUNDS    //
+/////////////////
+
+// lisac2k
+// ugly for now, maybe I bother with this later
+// wipe
+// made it bit better
+void r_PlaySound(Critter& player, Critter@ npc, int val)
+{
+    // passing 1 and 2 for duel atmosphere with Tamira
+    if(val == 1)
+        PlaySound(player, "flute_duel.ogg");
+    else if(val == 2)
+        PlaySound(player, "crickets_duel.ogg");
+}
+
+void r_PlaySoundDice(Critter& player, Critter@ npc, int val)
+{
+    // dice rolling
+    if(val == 1)
+        PlaySound(player, "DICE.ACM");
+    else if(val == 2)
+        PlaySound(player, "DICE1.ACM");
+		
+}
+
+void r_PlaySoundGun(Critter& player, Critter@ npc, int val)
+{
+    // blackjack and russian roulette 
+    if(val == 1)
+        PlaySound(player, "SHUFFLE.ACM");
+    else if(val == 2)
+	PlaySound(player, "WAE1XXX2.ACM");
+    else if(val == 3)
+    PlaySound(player, "WOV1XXX1.ACM");
+    else if(val == 4)
+    PlaySound(player, "RLAUNCH.ACM");
+    else if(val == 5)
+    PlaySound(player, "HOWITZER.ACM");
+		
+}
+
+/////////////////
+//    MISC     //
+/////////////////
+
+void r_GunRunnerInsult(Critter& player, Critter@ npc)
+{
+    array<Critter@> crits;
+    uint            n = player.GetMap().GetCritters(0, FIND_LIFE | FIND_ONLY_NPC, crits);
+    for(uint i = 0; i < n; i++)
+        if(crits[i].Stat[ST_NPC_ROLE] == ROLE_GUNRUNNERS_OHREALLY)
+        {
+            crits[i].Say(SAY_NORM_ON_HEAD, "Oh really?");
+            AttackCritter(crits[i], player);
+        }
+}
+
+
+/**
+ * Places item in random container on map with given pid.
+ * @param	mapPid		PID of map to spawn the item in (MAPS.TXT) - Val1.
+ * @param	itemPid		PID of item to be spawned - Val2.
+ * @remarks	Since it uses GetMapByPid with skipCount 0, it takes first map with given pid.
+ */
+void r_SpawnInRandomContainer(Critter& player, Critter@ npc, int mapPid, int itemPid)
+{
+    Map@ map = GetMapByPid(mapPid, 0);
+    if(!valid(map))
+    {
+        Log("ERR: Incorrect mapPid");
+        player.Say(SAY_NETMSG, "Dialog error, wrong map proto: " + mapPid);
+        return;
+    }
+    array<Item@> items;
+    array<Item@> containers;
+    uint         num = map.GetItems(0, items);
+    for(uint i = 0; i < num; i++)
+    {
+        if(items[i].GetType() == ITEM_TYPE_CONTAINER)
+            containers.insertLast(items[i]);
+    }
+    Item@ cont = random_from_array(containers);
+    Item@ item = npc.AddItem(itemPid, 1);
+    if(!valid(item))
+    {
+        Log("ERR: Incorrect itemPid");
+        player.Say(SAY_NETMSG, "Dialog error, wrong itemPid: " + itemPid);
+        return;
+    }
+    MoveItem(item, 0, cont, 0);
+    #ifdef __DEBUG__
+    player.StatBase[ST_VAR0] = cont.Id;
+    #endif
+}
+void test_SpawnInRandomContainer(Critter& cr, int p0, int p1, int p2)
+{
+    r_SpawnInRandomContainer(cr, cr, p0, p1);
+    Item@  cont = GetItem(cr.Stat[ST_VAR0]);
+    Map@   map;
+    uint16 hx = 0, hy = 0;
+    @map = cont.GetMapPosition(hx, hy);
+    cr.TransitToMap(map.Id, hx, hy, 0);
+}
+
+// @}
+
+/**
+ * \~english @name Quest timeouts
+ *
+ * \~ @weight 525
+ */
+// @{
+
+/**
+ * Checks timeout for given npc, in order to check if some repeatable quest can be given again.
+ * It works per npc-player, so you can't make it for each quest. But it's simplier that way.
+ * @return true - quest can be given, false - need to wait
+ */
+bool d_QuestTimeoutReady(Critter& player, Critter@ npc)
+{
+    if(!valid(player) || !valid(npc))
+        return true;
+
+    GameVar@ var = GetUnicumVar(UVAR_quest_timeout, npc.Id, player.Id);
+    DLog("var value: " + var.GetValue());
+    return var.GetValue() == 0 || uint(var.GetValue()) <= ELAPSED_TIME;
+}
+
+/**
+ * Checks timeout for given npc, in order to check if some repeatable quest can NOT be given again.
+ * It works per npc-player, so you can't make it for each quest. But it's simplier that way.
+ * @return true - quest cannot be given, false - quest is available
+ */
+bool d_QuestTimeoutNotReady(Critter& player, Critter@ npc)
+{
+    if(!valid(player) || !valid(npc))
+        return false;
+
+    GameVar@ var = GetUnicumVar(UVAR_quest_timeout, npc.Id, player.Id);
+
+    return var.GetValue() != 0 && uint(var.GetValue()) > ELAPSED_TIME;
+}
+/**
+ * Assignes timeout for given npc so he will remember that player made some quest for him lately.
+ * @param timeout       Quest timeout in ingame hours
+ */
+void r_QuestTimeout(Critter& player, Critter@ npc, int timeout)
+{
+    if(!valid(player) || !valid(npc))
+        return;
+
+    GameVar@ var = GetUnicumVar(UVAR_quest_timeout, npc.Id, player.Id);
+    var = AFTER(GAME_HOUR(timeout));
+}
+
+/**
+ * Checks timeout for given npc, in order to check if some repeatable quest can be given again.
+ * It works per npc, so you can't make it for each quest. But it's simplier that way.
+ * @return true - quest can be given, false - need to wait
+ */
+bool d_CommonTimeoutReady(Critter& player, Critter@ npc)
+{
+    if(!valid(player) || !valid(npc))
+        return true;
+
+    GameVar@ var = GetLocalVar(LVAR_common_timeout, npc.Id);
+    DLog("var value: " + var.GetValue());
+    return var.GetValue() == 0 || uint(var.GetValue()) <= ELAPSED_TIME;
+}
+
+/**
+ * Checks timeout for given npc, in order to check if some repeatable quest can NOT be given again.
+ * It works per npc, so you can't make it for each quest. But it's simplier that way.
+ * @return true - quest cannot be given, false - quest is available
+ */
+bool d_CommonTimeoutNotReady(Critter& player, Critter@ npc)
+{
+    if(!valid(player) || !valid(npc))
+        return false;
+
+    GameVar@ var = GetLocalVar(LVAR_common_timeout, npc.Id);
+
+    return var.GetValue() != 0 && uint(var.GetValue()) > ELAPSED_TIME;
+}
+/**
+ * Assignes timeout for given npc so he will remember that player made some quest for him lately.
+ * @param timeout       Quest timeout in ingame hours
+ */
+void r_CommonTimeout(Critter& player, Critter@ npc, int timeout)
+{
+    if(!valid(player) || !valid(npc))
+        return;
+
+    GameVar@ var = GetLocalVar(LVAR_common_timeout, npc.Id);
+    var = AFTER(GAME_HOUR(timeout));
+}
+
+/**
+ * \~english @name Holodisks
+ *
+ * \~ @weight 400
+ */
+// @{
+
+/**
+ * Checks if the player has holodisk containing specific information.
+ * @param val   Number of holodisk information
+ */
+bool d_HasHolodisk(Critter& player, Critter@ npc, int val)
+{
+    array<Item@> items;
+    uint         n = player.GetItemsByType(ITEM_TYPE_MISC, items);     // how about proto without slot?
+    for(uint i = 0; i < n; i++)
+        if(items[i].GetProtoId() == PID_HOLODISK && items[i].HolodiskNumber == uint(val))
+            return true;
+    return false;
+}
+
+/**
+ * Checks if the player has specific holodisk information stored in pipboy.
+ * @param val   Number of holodisk information
+ */
+bool d_HasHoloInfo(Critter& player, Critter@ npc, int val)
+{
+    return player.IsHolodiskInfo(val);
+}
+
+/**
+ * Gives the player a holodisk containing specific information.
+ * @param val   Number of holodisk information
+ */
+void r_GiveHolodisk(Critter& player, Critter@ npc, int val)
+{
+    Item@ item = player.AddItem(PID_HOLODISK, 1);
+    item.HolodiskNumber = val;
+    item.Update();
+}
+
+// @}
+
+/**
+ * \~english @name Professions
+ *
+ * \~ @weight 515
+ */
+// @{
+
+///////////////////
+//  Professions  //
+///////////////////
+
+// Check if player has still some profession point that he can acquire profession for
+
+bool d_CheckProfession(Critter& player, Critter@ npc, int val)
+{
+    return true;
+    /*uint count = 0;
+       for(uint i = PE_PROFESSION_BEGIN; i <= PE_PROFESSION_END; i++)
+       {
+            count += player.Perk[i];
+       }
+       if(count > PROFESSIONS_MAX)
+            // assert;)
+            Log("ERR: Too many professions...you cheater.");
+       return count < PROFESSIONS_MAX;*/
+}
+
+// todo: move to perks
+bool CheckProfession(Critter& player, int prof, int currentLevel)
+{
+    if(currentLevel > 1)
+        return false;
+    if(player.Perk[prof] != currentLevel)
+        return false;
+    if(!d_CheckProfession(player, null, 0))
+        return false;
+
+    int skill = SK_REPAIR;
+    switch(prof)
+    {
+    case PE_PROFESSION_DOCTOR:
+        skill = SK_DOCTOR;
+        break;
+    case PE_PROFESSION_ENERGY_EXPERT:
+        skill = SK_SCIENCE;
+        break;
+    case PE_PROFESSION_DEMOLITION_EXPERT:
+        skill = SK_TRAPS;
+        break;
+    default:
+        ;
+    }
+
+    return player.Skill[skill] >= 50 * (currentLevel + 1);
+}
+
+// check Armorer
+bool d_CheckArmorer0(Critter& player, Critter@ npc, int val)
+{
+    return CheckProfession(player, PE_PROFESSION_ARMORER, 0);
+}
+
+bool d_CheckArmorer1(Critter& player, Critter@ npc, int val)
+{
+    return CheckProfession(player, PE_PROFESSION_ARMORER, 1);
+}
+
+bool d_CheckArmorer2(Critter& player, Critter@ npc, int val)
+{
+    return CheckProfession(player, PE_PROFESSION_ARMORER, 2);
+}
+
+// check Gunsmith Small Guns
+
+bool d_CheckGunsmithS0(Critter& player, Critter@ npc, int val)
+{
+    return CheckProfession(player, PE_PROFESSION_GUNSMITH_S, 0);
+}
+
+bool d_CheckGunsmithS1(Critter& player, Critter@ npc, int val)
+{
+    return CheckProfession(player, PE_PROFESSION_GUNSMITH_S, 1);
+}
+
+bool d_CheckGunsmithS2(Critter& player, Critter@ npc, int val)
+{
+    return CheckProfession(player, PE_PROFESSION_GUNSMITH_S, 2);
+}
+
+// check Gunsmith Big Guns
+
+bool d_CheckGunsmithB0(Critter& player, Critter@ npc, int val)
+{
+    return CheckProfession(player, PE_PROFESSION_GUNSMITH_B, 0);
+}
+
+bool d_CheckGunsmithB1(Critter& player, Critter@ npc, int val)
+{
+    return CheckProfession(player, PE_PROFESSION_GUNSMITH_B, 1);
+}
+
+bool d_CheckGunsmithB2(Critter& player, Critter@ npc, int val)
+{
+    return CheckProfession(player, PE_PROFESSION_GUNSMITH_B, 2);
+}
+
+// check Energy Expert
+
+bool d_CheckEnergyExpert0(Critter& player, Critter@ npc, int val)
+{
+    return CheckProfession(player, PE_PROFESSION_ENERGY_EXPERT, 0);
+}
+
+bool d_CheckEnergyExpert1(Critter& player, Critter@ npc, int val)
+{
+    return CheckProfession(player, PE_PROFESSION_ENERGY_EXPERT, 1);
+}
+
+bool d_CheckEnergyExpert2(Critter& player, Critter@ npc, int val)
+{
+    return CheckProfession(player, PE_PROFESSION_ENERGY_EXPERT, 2);
+}
+
+// check Demolition Expert
+
+bool d_CheckDemolitionExpert0(Critter& player, Critter@ npc, int val)
+{
+    return CheckProfession(player, PE_PROFESSION_DEMOLITION_EXPERT, 0);
+}
+
+bool d_CheckDemolitionExpert1(Critter& player, Critter@ npc, int val)
+{
+    return CheckProfession(player, PE_PROFESSION_DEMOLITION_EXPERT, 1);
+}
+
+// check Doctor
+
+bool d_CheckDoctor0(Critter& player, Critter@ npc, int val)
+{
+    return CheckProfession(player, PE_PROFESSION_DOCTOR, 0);
+}
+
+bool d_CheckDoctor1(Critter& player, Critter@ npc, int val)
+{
+    return CheckProfession(player, PE_PROFESSION_DOCTOR, 1);
+}
+
+bool d_CheckDoctor2(Critter& player, Critter@ npc, int val)
+{
+    return CheckProfession(player, PE_PROFESSION_DOCTOR, 2);
+}
+
+// @}
+
+/*@}*/
+
+// undocumented
+// for Shren child, in Hub
+void dlg_ShrenRumour(Critter& player, Critter@ npc, string@ text)
+{
+    if(!IS_DIALOG_GENERATED(text))
+        return;
+
+    float interests = 0;
+    uint  bank = 0;
+    for(uint i = 1; i < BANK_COUNT; i++)
+    {
+        float newinterests = BankGetSaveInterest(i);
+        if(interests < newinterests)
+        {
+            interests = newinterests;
+            bank = i;
+        }
+    }
+    text = "$bank";
+    if(interests == 0)
+        bank = Random(0, BANK_COUNT - 1);
+    switch(bank)
+    {
+    case BANK_VAULTCITY:
+        text += "Vault City";
+        break;
+    case BANK_REDDING:
+        text += "Redding";
+        break;
+    case BANK_BROKENHILLS:
+        text += "Broken Hills";
+        break;
+    case BANK_SANFRANCISCO:
+        text += "San Francisco";
+        break;
+    case BANK_NCR:
+        text += "NCR";
+        break;
+    case BANK_HUB:
+        text += "Hub";
+        break;
+    default:
+    }
+
+}
+
+
+/**
+ * Checks if PC can see all locations needed to take the Explorer perk.
+ */
+bool d_ExploredWasteland(Critter& player, Critter@ npc)
+{
+    if
+    (
+        player.IsKnownLoc(false, LOCATION_TheDen)       &&
+        player.IsKnownLoc(false, LOCATION_Klamath)      &&
+        player.IsKnownLoc(false, LOCATION_Modoc)        &&
+        player.IsKnownLoc(false, LOCATION_VaultCity)    &&
+        player.IsKnownLoc(false, LOCATION_Gecko)        &&
+        player.IsKnownLoc(false, LOCATION_BrokenHills)  &&
+        player.IsKnownLoc(false, LOCATION_NewReno)      &&
+        player.IsKnownLoc(false, LOCATION_NCR)          &&
+        player.IsKnownLoc(false, LOCATION_Redding)      &&
+        player.IsKnownLoc(false, LOCATION_SanFrancisco) &&
+        player.IsKnownLoc(false, LOCATION_Junktown)     &&
+        player.IsKnownLoc(false, LOCATION_Necropolis)   &&
+        player.IsKnownLoc(false, LOCATION_Hub)          &&
+        player.IsKnownLoc(false, LOCATION_Boneyard)     &&
+        player.IsKnownLoc(false, LOCATION_Trainyard1)   &&
+        player.IsKnownLoc(false, LOCATION_Trainyard2)   &&
+        player.IsKnownLoc(false, LOCATION_Trainyard3)   &&
+        player.IsKnownLoc(false, LOCATION_Trainyard4)
+    )
+        return true;
+    return false;
+}
+
+
+
+
+//////////////
+//  Tatoos  //
+//////////////
+
+bool d_IsTatoo(Critter& player, Critter@ npc)
+{
+    if(IsLexem(player, "$tatoo") && GetLexem(player, "$tatoo").length() > 0)
+        return(true);
+    else
+        return(false);
+}
+
+bool d_NoTatoo(Critter& player, Critter@ npc)
+{
+    return(!d_IsTatoo(player, npc));
+}
+
+// fight against typos
+#define _Tatoo_Corsican    "Corsican Brothers"
+
+bool d_HaveCorsicanBrothersTatoo(Critter& player, Critter@ npc)
+{
+    if(d_IsTatoo(player, npc) && GetLexem(player, "$tatoo") == _Tatoo_Corsican)
+        return(true);
+    else
+        return(false);
+}
+
+void r_SetCorsicanBrothersTatoo(Critter& player, Critter@ npc)
+{
+    SetLexem(player, "$tatoo", _Tatoo_Corsican);
+}
+
+uint dlg_EnterTatoo(Critter& player, Critter@ npc, string@ say)
+{
+    if(!IS_DIALOG_SAY_MODE(say))
+        return 0;
+
+    if(!valid(say) || say.length() == 0 || say.length() > 12)
+        return(14);
+    else
+    {
+        stringReplaceText(say, "@pname@", "" + player.Name);
+
+        SetLexem(player, "$tatoo", say);
+        return(12);
+    }
+}
+
+bool d_SetDialogImage(Critter& player, Critter@ npc, int x, int y, int imageId)
+{
+    player.RunClientScript("client_interface@_DialogImage", x, y, imageId, null, null);
+    return(false);
+}
+
+// Returns true if a param in specific param range has the highest value.
+// It can be used for example to test if a skill is the best combat skill.
+bool d_IsHighestParamInRange(Critter& player, Critter@ npc, int param, int paramFrom, int paramTo)
+{
+    for(int i = paramFrom; i <= paramTo; i++)
+    {
+        if(player.Param[i] > player.Param[param])
+        {
+            return false;
+        }
+    }
+    return true;
+}
+
+
+
+/**
+ * Outfitter - gives NOT LEGIT items to players and sets outfitted var
+ */
+
+array<array<uint16> > outfitData =
+{
+    { PID_METAL_ARMOR_MK_II, 1, PID_METAL_HELMET_MK2, 1, PID_ASSAULT_RIFLE_EXT_MAG, 1, PID_5MM_AP, 480, PID_5MM_JHP, 240 },
+    { PID_COMBAT_ARMOR_MK_II, 1, PID_COMBAT_HELMET_MK_II, 1, PID_HK_P90C, 2, PID_10MM_AP, 480, PID_10MM_JHP, 240 },
+    { PID_COMBAT_ARMOR_MK_II, 1, PID_COMBAT_HELMET_MK_II, 1, PID_PANCOR_JACKHAMMER, 1, PID_SHOTGUN_SHELLS, 300 },
+    { PID_METAL_ARMOR_MK_II, 1, PID_METAL_HELMET_MK2, 1, PID_223_PISTOL, 1, PID_223_FMJ, 100 },
+    { PID_CURED_LEATHER_ARMOR, 1, PID_COMBAT_LEATHER_JACKET_HELMET, 1, PID_SNIPER_RIFLE, 1, PID_223_FMJ, 100 },
+
+    { PID_COMBAT_ARMOR, 1, PID_COMBAT_HELMET, 1, PID_LIGHT_SUPPORT_WEAPON, 1, PID_223_FMJ, 500 },
+    { PID_COMBAT_ARMOR, 1, PID_COMBAT_HELMET, 1, PID_AVENGER_MINIGUN, 1, PID_5MM_AP, 960, PID_5MM_JHP, 480 },
+    { PID_METAL_ARMOR_MK_II, 1, PID_METAL_HELMET_MK2, 1, PID_M60, 1, PID_7_62MM_AMMO, 600 },
+    { PID_METAL_ARMOR, 1, PID_METAL_HELMET, 1, PID_ROCKET_LAUNCHER, 1, PID_ROCKET_AP, 25 },
+    { PID_COMBAT_ARMOR_MK_II, 1, PID_COMBAT_HELMET_MK_II, 1, PID_IMPROVED_FLAMETHROWER, 1, PID_FLAMETHROWER_FUEL_MK_II, 40 },
+
+    { PID_METAL_ARMOR_MK_II, 1, PID_METAL_HELMET_MK2, 1, PID_PLASMA_RIFLE, 1, PID_MICRO_FUSION_CELL, 100 },
+    { PID_METAL_ARMOR, 1, PID_METAL_HELMET, 1, PID_LASER_RIFLE_EXT_CAP, 1, PID_MICRO_FUSION_CELL, 100 },
+    { PID_METAL_ARMOR_MK_II, 1, PID_METAL_HELMET_MK2, 1, PID_GATLING_LASER, 1, PID_MICRO_FUSION_CELL, 600 },
+    { PID_COMBAT_ARMOR, 1, PID_COMBAT_HELMET, 1, PID_MAGNETO_LASER_PISTOL, 1, PID_PLASMA_PISTOL, 1, PID_SMALL_ENERGY_CELL, 120 },
+
+    { PID_COMBAT_ARMOR_MK_II, 1, PID_COMBAT_HELMET_MK_II, 1, PID_MEGA_POWER_FIST, 1, PID_SMALL_ENERGY_CELL, 200 },
+    { PID_COMBAT_ARMOR_MK_II, 1, PID_COMBAT_HELMET_MK_II, 1, PID_ROCK, 1 },
+
+    { PID_COMBAT_ARMOR_MK_II, 1, PID_COMBAT_HELMET_MK_II, 1, PID_SUPER_SLEDGE, 1 },
+    { PID_COMBAT_ARMOR_MK_II, 1, PID_COMBAT_HELMET_MK_II, 1, PID_SUPER_CATTLE_PROD, 1, PID_SMALL_ENERGY_CELL, 200 },
+
+    { PID_CURED_LEATHER_ARMOR, 1, PID_COMBAT_LEATHER_JACKET_HELMET, 1, PID_FRAG_GRENADE, 30, PID_PLASMA_GRENADE, 15 },
+    { PID_CURED_LEATHER_ARMOR, 1, PID_COMBAT_LEATHER_JACKET_HELMET, 1, PID_THROWING_KNIFE, 40 },
+
+    { PID_SUPER_STIMPAK, 6 },
+    { PID_CIGARETTES, 2, PID_LIGHTER, 1 },
+    { PID_NUKA_COLA, 2 },
+    { PID_BUFFOUT, 1 },
+    { PID_PSYCHO, 1 },
+    { PID_JET, 3 },
+    { PID_MENTATS, 1 },
+
+    { PID_TESLA_HELMET, 1 },
+    { PID_SPECTACLES, 1 },
+    { PID_MOTION_SENSOR, 1, PID_GOGGLES, 1 },
+    { PID_SUPER_STIMPAK, 3 },
+    { PID_COOKIE, 10 },
+    { PID_MIRROR_SHADES, 1 }
+};
+
+
+void r_Outfitter(Critter& player, Critter@npc, int outfitId)
+{
+    for(uint i = 0, j = outfitData[outfitId].length(); i < j; i += 2)
+    {
+        Item@ item = player.AddItem(outfitData[outfitId][i], outfitData[outfitId][i + 1]);
+        item.Val9 = int(0xFFFFFFFF);
+    }
+    GameVar@ outfitted = GetLocalVar(LVAR_event_outfitted, player.Id);
+    outfitted = 1;
+}
+
+bool d_IsAdmin( Critter& player, Critter@ )
+{
+    return( player.GetAccess() == ACCESS_ADMIN );
+}
+
+uint dlg_SayBuyJet(Critter& player, Critter@ npc, string@ text)
+{
+    if(!IS_DIALOG_SAY_MODE(text))
+        return DIALOG_END;
+
+    uint price = 500;
+    uint cnt = 0;
+    if(!StrToInt(text, cnt))
+        return DIALOG_END;
+
+    if(cnt > 0)
+    {
+        if(_CritCountItem(player, PID_BOTTLE_CAPS) >= price*cnt)
+        {
+            _CritDeleteItem(player, PID_BOTTLE_CAPS, (price*cnt));
+            player.AddItem(PID_JET, cnt);
+            npc.Say(SAY_NORM_ON_HEAD, "Pleasure doing business.");
+        }
+        else
+        {
+            npc.Say(SAY_NORM_ON_HEAD, "Come back with money!");
+            return DIALOG_END;
+        }
+    }
+    return DIALOG_END;
+}
+
+
+
+uint dlg_SayBuyNuka(Critter& player, Critter@ npc, string@ text)
+{
+    if(!IS_DIALOG_SAY_MODE(text))
+        return DIALOG_END;
+
+    uint price = 100;
+    uint cnt = 0;
+    if(!StrToInt(text, cnt))
+        return DIALOG_END;
+
+    if(cnt > 5000)
+    {
+            npc.Say(SAY_NORM_ON_HEAD, "Sorry pal, local law forbids me to sell so much to one customer in a single visit. I can do a smaller amount but I can't risk getting shut down");
+            return DIALOG_END;
+    }   
+    if(cnt > 0)
+    {
+        if(_CritCountItem(player, PID_BOTTLE_CAPS) >= price*cnt)
+        {
+            _CritDeleteItem(player, PID_BOTTLE_CAPS, (price*cnt));
+            player.AddItem(PID_NUKA_COLA, cnt);
+            npc.Say(SAY_NORM_ON_HEAD, "Pleasure doing business with you.");
+        }
+        else
+        {
+            npc.Say(SAY_NORM_ON_HEAD, "Come back with money!");
+            return DIALOG_END;
+        }
+    }
+    return DIALOG_END;
+}
+
+uint dlg_SayBuyBeer(Critter& player, Critter@ npc, string@ text)
+{
+    if(!IS_DIALOG_SAY_MODE(text))
+        return DIALOG_END;
+
+    uint price = 10;
+    uint cnt = 0;
+    if(!StrToInt(text, cnt))
+        return DIALOG_END;
+
+    if(cnt > 5000)
+    {
+            npc.Say(SAY_NORM_ON_HEAD, "Sorry pal, local law forbids me to sell so much to one customer in a single visit. I can do a smaller amount but I can't risk getting shut down");
+            return DIALOG_END;
+    }       
+    if(cnt > 0)
+    {
+        if(_CritCountItem(player, PID_BOTTLE_CAPS) >= price*cnt)
+        {
+            _CritDeleteItem(player, PID_BOTTLE_CAPS, (price*cnt));
+            player.AddItem(PID_BEER, cnt);
+            npc.Say(SAY_NORM_ON_HEAD, "Pleasure doing business with you.");
+        }
+        else
+        {
+            npc.Say(SAY_NORM_ON_HEAD, "Come back with money!");
+            return DIALOG_END;
+        }
+    }
+    return DIALOG_END;
+}
+
+uint dlg_SayBuyBooze(Critter& player, Critter@ npc, string@ text)
+{
+    if(!IS_DIALOG_SAY_MODE(text))
+        return DIALOG_END;
+
+    uint price = 10;
+    uint cnt = 0;
+    if(!StrToInt(text, cnt))
+        return DIALOG_END;
+      
+    if(cnt > 5000)
+    {
+            npc.Say(SAY_NORM_ON_HEAD, "Sorry pal, local law forbids me to sell so much to one customer in a single visit. I can do a smaller amount but I can't risk getting shut down");
+            return DIALOG_END;
+    }     
+    if(cnt > 0)
+    {
+        if(_CritCountItem(player, PID_BOTTLE_CAPS) >= price*cnt)
+        {
+            _CritDeleteItem(player, PID_BOTTLE_CAPS, (price*cnt));
+            player.AddItem(PID_BOOZE, cnt);
+            npc.Say(SAY_NORM_ON_HEAD, "Pleasure doing business with you.");
+        }
+        else
+        {
+            npc.Say(SAY_NORM_ON_HEAD, "Come back with money!");
+            return DIALOG_END;
+        }
+    }
+    return DIALOG_END;
+}
+
+uint dlg_SayBuyCigarettes(Critter& player, Critter@ npc, string@ text)
+{
+    if(!IS_DIALOG_SAY_MODE(text))
+        return DIALOG_END;
+
+    uint price = 100;
+    uint cnt = 0;
+    if(!StrToInt(text, cnt))
+        return DIALOG_END;
+     
+    if(cnt > 5000)
+    {
+            npc.Say(SAY_NORM_ON_HEAD, "While I appreciate the business, I've got other customers to think about so I've gotta limit the amount I sell to one person. You understand, right?");
+            return DIALOG_END;
+    }      
+    if(cnt > 0)
+    {
+        if(_CritCountItem(player, PID_BOTTLE_CAPS) >= price*cnt)
+        {
+            _CritDeleteItem(player, PID_BOTTLE_CAPS, (price*cnt));
+            player.AddItem(PID_CIGARETTES, cnt);
+            npc.Say(SAY_NORM_ON_HEAD, "Pleasure doing business with you.");
+        }
+        else
+        {
+            npc.Say(SAY_NORM_ON_HEAD, "Come back with money!");
+            return DIALOG_END;
+        }
+    }
+    return DIALOG_END;
+}
+
+uint dlg_SayBuyLighter(Critter& player, Critter@ npc, string@ text)
+{
+    if(!IS_DIALOG_SAY_MODE(text))
+        return DIALOG_END;
+
+    uint price = 100;
+    uint cnt = 0;
+    if(!StrToInt(text, cnt))
+        return DIALOG_END;
+
+    if(cnt > 5000)
+    {
+            npc.Say(SAY_NORM_ON_HEAD, "While I appreciate the business, I've got other customers to think about so I've gotta limit the amount I sell to one person. You understand, right?");
+            return DIALOG_END;
+    }       
+    if(cnt > 0)
+    {
+        if(_CritCountItem(player, PID_BOTTLE_CAPS) >= price*cnt)
+        {
+            _CritDeleteItem(player, PID_BOTTLE_CAPS, (price*cnt));
+            player.AddItem(PID_LIGHTER, cnt);
+            npc.Say(SAY_NORM_ON_HEAD, "Pleasure doing business with you.");
+        }
+        else
+        {
+            npc.Say(SAY_NORM_ON_HEAD, "Come back with money!");
+            return DIALOG_END;
+        }
+    }
+    return DIALOG_END;
+}
+
+uint dlg_SayBuyMedGel(Critter& player, Critter@ npc, string@ text)
+{
+    if(!IS_DIALOG_SAY_MODE(text))
+        return DIALOG_END;
+
+    uint price = 25;
+    uint cnt = 0;
+    if(!StrToInt(text, cnt))
+        return DIALOG_END;
+
+    if(cnt > 5000)
+    {
+            npc.Say(SAY_NORM_ON_HEAD, "Sorry friend, local law limits purchase to 5000 or less, it's due to concerns that some people have been using my products to mass-manufacture drugs - of course I'm not suggesting that you would do that!");
+            return DIALOG_END;
+    }   
+    if(cnt > 0)
+    {
+        if(_CritCountItem(player, PID_BOTTLE_CAPS) >= price*cnt)
+        {
+            _CritDeleteItem(player, PID_BOTTLE_CAPS, (price*cnt));
+            player.AddItem(PID_BIO_GEL, cnt);
+            npc.Say(SAY_NORM_ON_HEAD, "Pleasure doing business with you.");
+        }
+        else
+        {
+            npc.Say(SAY_NORM_ON_HEAD, "Come back with money!");
+            return DIALOG_END;
+        }
+    }
+    return DIALOG_END;
+}
+
+uint dlg_SayBuyRum(Critter& player, Critter@ npc, string@ text)
+{
+    if(!IS_DIALOG_SAY_MODE(text))
+        return DIALOG_END;
+
+    uint price = 200;
+    uint cnt = 0;
+    if(!StrToInt(text, cnt))
+        return DIALOG_END;
+
+    if(cnt > 5000)
+    {
+            npc.Say(SAY_NORM_ON_HEAD, "Sorry pal, local law forbids me to sell so much to one customer in a single visit. I can do a smaller amount but I can't risk getting shut down");
+            return DIALOG_END;
+    }   
+    if(cnt > 0)
+    {
+        if(_CritCountItem(player, PID_BOTTLE_CAPS) >= price*cnt)
+        {
+            _CritDeleteItem(player, PID_BOTTLE_CAPS, (price*cnt));
+            player.AddItem(PID_ROENTGEN_RUM, cnt);
+            npc.Say(SAY_NORM_ON_HEAD, "Alright, enjoy. Hope your piss don't glow, hah!");
+        }
+        else
+        {
+            npc.Say(SAY_NORM_ON_HEAD, "Come back with money!");
+            return DIALOG_END;
+        }
+    }
+    return DIALOG_END;
+}
+
+uint dlg_SayBuyGamma(Critter& player, Critter@ npc, string@ text)
+{
+    if(!IS_DIALOG_SAY_MODE(text))
+        return DIALOG_END;
+
+    uint price = 200;
+    uint cnt = 0;
+    if(!StrToInt(text, cnt))
+        return DIALOG_END;
+
+    if(cnt > 5000)
+    {
+            npc.Say(SAY_NORM_ON_HEAD, "Sorry pal, local law forbids me to sell so much to one customer in a single visit. I can do a smaller amount but I can't risk getting shut down");
+            return DIALOG_END;
+    }   
+    if(cnt > 0)
+    {
+        if(_CritCountItem(player, PID_BOTTLE_CAPS) >= price*cnt)
+        {
+            _CritDeleteItem(player, PID_BOTTLE_CAPS, (price*cnt));
+            player.AddItem(PID_GAMMA_GULP_BEER, cnt);
+            npc.Say(SAY_NORM_ON_HEAD, "Alright, enjoy. Hope your piss don't glow, hah!");
+        }
+        else
+        {
+            npc.Say(SAY_NORM_ON_HEAD, "Come back with money!");
+            return DIALOG_END;
+        }
+    }
+    return DIALOG_END;
+}
+
+uint dlg_SayBuyNeedles(Critter& player, Critter@ npc, string@ text)
+{
+    if(!IS_DIALOG_SAY_MODE(text))
+        return DIALOG_END;
+
+    uint price = 10;
+    uint cnt = 0;
+    if(!StrToInt(text, cnt))
+        return DIALOG_END;
+
+    if(cnt > 5000)
+    {
+            npc.Say(SAY_NORM_ON_HEAD, "Hold up! You seem to be confusin' Jules with the Super Duper Mart! Let's talk some realistic numbers");
+            return DIALOG_END;
+    }   
+    if(cnt > 0)
+    {
+        if(_CritCountItem(player, PID_BOTTLE_CAPS) >= price*cnt)
+        {
+            _CritDeleteItem(player, PID_BOTTLE_CAPS, (price*cnt));
+            player.AddItem(PID_HYPODERMIC_NEEDLE, cnt);
+            npc.Say(SAY_NORM_ON_HEAD, "They're not sterile...");
+        }
+        else
+        {
+            npc.Say(SAY_NORM_ON_HEAD, "Come back with money!");
+            return DIALOG_END;
+        }
+    }
+    return DIALOG_END;
+}
+
+uint dlg_SayBuyJetCan(Critter& player, Critter@ npc, string@ text)
+{
+    if(!IS_DIALOG_SAY_MODE(text))
+        return DIALOG_END;
+
+    uint price = 20;
+    uint cnt = 0;
+    if(!StrToInt(text, cnt))
+        return DIALOG_END;
+
+    if(cnt > 5000)
+    {
+            npc.Say(SAY_NORM_ON_HEAD, "Hold up! You seem to be confusin' Jules with the Super Duper Mart! Let's talk some realistic numbers");
+            return DIALOG_END;
+    }   
+    if(cnt > 0)
+    {
+        if(_CritCountItem(player, PID_BOTTLE_CAPS) >= price*cnt)
+        {
+            _CritDeleteItem(player, PID_BOTTLE_CAPS, (price*cnt));
+            player.AddItem(PID_EMPTY_JET, cnt);
+            npc.Say(SAY_NORM_ON_HEAD, "Put 'em to good use, my friend!");
+        }
+        else
+        {
+            npc.Say(SAY_NORM_ON_HEAD, "Come back with money!");
+            return DIALOG_END;
+        }
+    }
+    return DIALOG_END;
+}
+
+void dlg_TryEnchantItemPuppet(Critter& player, Critter@ npc, string@ text)  //item enchant for puppets
+{
+    if(!IS_DIALOG_GENERATED(text))
+        return;
+ 
+    Map@ map = player.GetMap();
+ 
+    if( !valid(map) )
+    {
+        player.Say( SAY_NETMSG, "Dialog error, blame random dev." );
+        text = "DIALOG ERROR";
+        return;
+    }
+
+    Item@ item = player.GetItem(0, SLOT_HAND1);
+    if(!valid(item))
+    {
+        text = "$enchantResult" + "Hold the item you want upgraded in your hand...";
+        return;
+    }
+
+    if( !(item.GetType() == ITEM_TYPE_WEAPON && !item.IsStackable()) && !(item.GetType() == ITEM_TYPE_ARMOR) )
+    {
+        text = "$enchantResult" + " Nothing can be done with this item.";
+        return;   
+    }
+
+    if(item.GetType() == ITEM_TYPE_ARMOR && npc.Stat[ST_DIALOG_ID] != DIALOG_all_holy_people)
+    {
+        text = "$enchantResult" + " I can't help you with this item.";
+        return;     
+    }
+
+    if(item.GetType() == ITEM_TYPE_WEAPON)
+    {
+        switch(item.Proto.Weapon_Skill_0)
+        {
+            case SK_SMALL_GUNS:
+                if(npc.Stat[ST_DIALOG_ID] != DIALOG_all_holy_people)
+                {
+                    text = "$enchantResult" + " I can't help you with this item.";
+                    return; 
+                }
+                break;
+            case SK_BIG_GUNS:
+                if(npc.Stat[ST_DIALOG_ID] != DIALOG_all_holy_people)
+                {
+                    text = "$enchantResult" + " I can't help you with this item.";
+                    return; 
+                }
+                break;
+            case SK_ENERGY_WEAPONS:
+                if(npc.Stat[ST_DIALOG_ID] != DIALOG_all_holy_people)
+                {
+                    text = "$enchantResult" + " I can't help you with this item.";
+                    return; 
+                }
+                break;
+            case SK_UNARMED:
+            case SK_THROWING:
+                if(npc.Stat[ST_DIALOG_ID] != DIALOG_all_holy_people)
+                {
+                    text = "$enchantResult" + " I can't help you with this item.";
+                    return; 
+                }
+                break;
+            default:
+                    text = "$enchantResult" + " I can't help you with this item. Don't know if anyone can...";
+                    return; 
+        }          
+    }
+
+    if(player.CountItem(PID_MR_NIXON_DOLL) < 5 || !player.DeleteItem(PID_MR_NIXON_DOLL, 5))
+    {
+        text = "$enchantResult" + " You got the item, now you need cute little puppets. Bring me 5 Puppets and we can talk.";
+        return;
+    }
+    
+    uint roll = Random(0, 100);
+    if(roll < 35)
+    {
+        if(AddAnotherBonus(item))
+            text = "$enchantResult" + "*ITEM ENHANCED!!!*";
+        else
+            text = "$enchantResult" + " Can't do anything more with this item.";
+    }
+    /*else if(roll < 25)
+    {
+        if(item.GetType() == ITEM_TYPE_ARMOR)
+        {
+            player.AddItem(PID_FIBER, Random(2, 5));
+            if(item.Proto.Material == MATERIAL_METAL)
+            {
+                player.AddItem(PID_METAL_PARTS, Random(1, 3));
+                player.AddItem(PID_ALLOYS, Random(1, 3));
+            }
+            else
+            {
+                player.AddItem(PID_BRAHMIN_HIDE, Random(1, 3));
+                player.AddItem(PID_GECKO_PELT, Random(1, 3));
+            }
+        }
+        else
+        {
+            player.AddItem(PID_PUMP_PARTS, Random(2, 5));
+
+            switch(item.Proto.Weapon_Skill_0)
+            {
+                case SK_SMALL_GUNS:
+                case SK_BIG_GUNS:
+                    player.AddItem(PID_METAL_PARTS, Random(1, 3));
+                    player.AddItem(PID_ALLOYS, Random(1, 3));
+                    break;
+                case SK_ENERGY_WEAPONS:
+                    player.AddItem(PID_ELECTRONIC_PARTS, 3);
+                    player.AddItem(PID_ALLOYS, Random(1, 3));
+                    break;
+                default:
+                    player.AddItem(PID_FIREWOOD, Random(1, 3));
+                    player.AddItem(PID_METAL_PARTS, Random(2, 5));
+            }
+        }
+        DeleteItem(item);
+        text = "$enchantResult" + "*Item Destroyed!*";
+    }*/
+    else if(roll < 60 && item.IsDeteriorable())
+    {
+        if(AddAnotherBonus(item))
+            text = "$enchantResult" + "*ITEM ENHANCED!!!*";
+        else
+            text = "$enchantResult" + " Can't do anything more with this item.";
+    }
+    else
+        text = "$enchantResult" + "*Enhancement Failed!*";
+}
+
+void dlg_TryEnchantItem(Critter& player, Critter@ npc, string@ text)  //player farm stat checker
+{
+    if(!IS_DIALOG_GENERATED(text))
+        return;
+ 
+    Map@ map = player.GetMap();
+ 
+    if( !valid(map) )
+    {
+        player.Say( SAY_NETMSG, "Dialog error, blame random dev." );
+        text = "DIALOG ERROR";
+        return;
+    }
+
+    Item@ item = player.GetItem(0, SLOT_HAND1);
+    if(!valid(item))
+    {
+        text = "$enchantResult" + " I don't see any item in your hand...";
+        return;
+    }
+
+    if( !(item.GetType() == ITEM_TYPE_WEAPON && !item.IsStackable()) && !(item.GetType() == ITEM_TYPE_ARMOR) )
+    {
+        text = "$enchantResult" + " Nothing can be done with this item.";
+        return;   
+    }
+
+    if(item.GetType() == ITEM_TYPE_ARMOR && npc.Stat[ST_DIALOG_ID] != DIALOG_mod_baltas)
+    {
+        text = "$enchantResult" + " I can't help you with this item. Balthas in Modoc is an expert when it comes to armors, you should talk with him about it.";
+        return;     
+    }
+
+    if(item.GetType() == ITEM_TYPE_WEAPON)
+    {
+        switch(item.Proto.Weapon_Skill_0)
+        {
+            case SK_SMALL_GUNS:
+                if(npc.Stat[ST_DIALOG_ID] != DIALOG_den_flik)
+                {
+                    text = "$enchantResult" + " I can't help you with this item. Flick in Den is an expert when it comes to small guns, you should talk with him about it.";
+                    return; 
+                }
+                break;
+            case SK_BIG_GUNS:
+                if(npc.Stat[ST_DIALOG_ID] != DIALOG_bh_marcus)
+                {
+                    text = "$enchantResult" + " I can't help you with this item. Marcus in Broken Hills is an expert when it comes to big guns, you should talk with him about it.";
+                    return; 
+                }
+                break;
+            case SK_ENERGY_WEAPONS:
+                if(npc.Stat[ST_DIALOG_ID] != DIALOG_geck_sceetr)
+                {
+                    text = "$enchantResult" + " I can't help you with this item. Skeeter in Gecko is an expert when it comes to energy weapons, you should talk with him about it.";
+                    return; 
+                }
+                break;
+            case SK_UNARMED:
+            case SK_THROWING:
+                if(npc.Stat[ST_DIALOG_ID] != DIALOG_klam_sulik)
+                {
+                    text = "$enchantResult" + " I can't help you with this item. Sulik in Klamath is an expert when it comes to this kind of weapons, you should talk with him about it.";
+                    return; 
+                }
+                break;
+            default:
+                    text = "$enchantResult" + " I can't help you with this item. Don't know if anyone can...";
+                    return; 
+        }          
+    }
+
+    if(player.CountItem(PID_BOTTLE_CAPS) < 10000 || !player.DeleteItem(PID_BOTTLE_CAPS, 10000))
+    {
+        text = "$enchantResult" + " You got the item, now you need money. Bring me 10000 and we can talk.";
+        return;
+    }
+    
+    uint roll = Random(0, 100);
+    if(roll < 25)
+    {
+        if(AddAnotherBonus(item))
+            text = "$enchantResult" + " I managed to upgrade it a little. It wasn't easy, I hope you will like it.";
+        else
+            text = "$enchantResult" + " Can't do anything more with this item.";
+    }
+    else if(roll < 30)
+    {
+        if(item.GetType() == ITEM_TYPE_ARMOR)
+        {
+            player.AddItem(PID_FIBER, Random(2, 5));
+            if(item.Proto.Material == MATERIAL_METAL)
+            {
+                player.AddItem(PID_METAL_PARTS, Random(1, 3));
+                player.AddItem(PID_ALLOYS, Random(1, 3));
+            }
+            else
+            {
+                player.AddItem(PID_BRAHMIN_HIDE, Random(1, 3));
+                player.AddItem(PID_GECKO_PELT, Random(1, 3));
+            }
+        }
+        else
+        {
+            player.AddItem(PID_PUMP_PARTS, Random(2, 5));
+
+            switch(item.Proto.Weapon_Skill_0)
+            {
+                case SK_SMALL_GUNS:
+                case SK_BIG_GUNS:
+                    player.AddItem(PID_METAL_PARTS, Random(1, 3));
+                    player.AddItem(PID_ALLOYS, Random(1, 3));
+                    break;
+                case SK_ENERGY_WEAPONS:
+                    player.AddItem(PID_ELECTRONIC_PARTS, 3);
+                    player.AddItem(PID_ALLOYS, Random(1, 3));
+                    break;
+                default:
+                    player.AddItem(PID_FIREWOOD, Random(1, 3));
+                    player.AddItem(PID_METAL_PARTS, Random(2, 5));
+            }
+        }
+        DeleteItem(item);
+        text = "$enchantResult" + " I have no idea how it happened... well... I warned you there is a chance things might go wrong... here, that's all that I managed to salvaged.";
+    }
+    else if(roll < 70 && item.IsDeteriorable())
+    {
+        SetMinWear(item, item.BrokenCount-10);
+        SetWear(item, (item.Deterioration/100)-10);
+        text = "$enchantResult" + " I wasn't able to make anything spectacular but I managed to improve your item's condition a little.";
+    }
+    else
+        text = "$enchantResult" + " I was trying really hard but I couldn't do anything this time. You can come back if you want to try again...";
+}
+
+//For water merchant job
+void r_CrateSpawn3(Critter& player, Critter@ npc)
+{
+    player.AddItem(PID_WATER_BARREL, 3);
+}
+
+void r_CrateSpawn(Critter& player, Critter@ npc)
+{
+    player.AddItem(PID_WATER_BARREL, 1);
+}
+
+void r_RemoveCrate(Critter& player, Critter@ npc)
+{
+    _CritDeleteItem(player, PID_WATER_BARREL, 1);
+}
+
+//for the dark priest
+void dlg_Kid(Critter& player, Critter@ npc, string@ text)    // shows army stats @lex KidsLeft@
+{
+    if(!IS_DIALOG_GENERATED(text))
+        return;
+        
+    text  = "$KidsLeft" + GetGvar( GVAR_KIDS );
+	
+}
+
+
+
+void ProcessRewardTable( Critter& player, const uint[][][]& table )
+{
+    if( !player.IsPlayer() )
+    {
+        Log( "RewardTable processing for npc<"+player.Name+"> ignored" );
+        return;
+    }
+    else if( table.length() == 0 )
+    {
+        player.Say( SAY_NETMSG, "Invalid reward table, please report" );
+        return;
+    }
+
+    uint set = Random( 0, table.length() - 1 );
+
+    if( table[set].length() == 0 )
+    {
+        player.Say( SAY_NETMSG, "Invalid reward table: set<"+set+"> is empty, please report" );
+        return;
+    }
+
+    for( uint i=0, iLen=table[set].length(); i<iLen; i++ )
+    {
+        array<uint> reward = table[set][i];
+        uint rLen = reward.length();
+
+        if( rLen < 1 || rLen > 3 )
+        {
+            player.Say( SAY_NETMSG, "Invalid reward table: set<"+set+"> reward<"+i+"> - length<"+rLen+">, please report" );
+            continue;
+        }
+
+        uint pid = reward[0];
+        uint min = (rLen < 2 ? 1 : reward[1]);
+        uint max = (rLen < 3 ? min : reward[2]);
+
+        if( min > max || max < min )
+        {
+            player.Say( SAY_NETMSG, "Invalid reward table: set<"+set+"> reward<"+i+"> - min<"+min+"> max<"+max+">, please report" );
+            continue;
+        }
+
+        player.AddItem( pid, Random( min, max ));
+    }
+}
+
+
+
+void r_BulkOrderRewardPuppetGuns(Critter& player, Critter@ npc)
+{
+    int mapId = 0;
+    if(valid(player.GetMap()))
+        mapId = player.GetMap().Id;
+
+    int npcId = -1;
+    int dialogId = -1;
+
+    if(valid(npc))
+    {
+        npcId = npc.Id;
+        dialogId = npc.Param[ST_DIALOG_ID];
+    }
+
+    FLog(LOG_DIALOG_REWARD, "Reward - RewardBOPuppetGuns player: [" + player.Id + "] " + player.Name + " mapId: " + mapId + " npc: " + npcId + " dialog: " + dialogId);
+
+    ProcessRewardTable( player, RewardBOPuppetGuns);
+    
+    if(Random(1, 5) == 1)
+        player.AddItem(PID_BOOK, 5);
+}
+
+
+const uint[][][] RewardBOPuppetGuns =
+    
+{	
+	{
+        { PID_FRAG_GRENADE, 24 },
+	    { PID_PLASMA_GRENADE, 24 },     
+		{ PID_PULSE_GRENADE, 24 },
+		{ PID_LOUISVILLE_SLUGGER, 1 },
+		{ PID_SUPER_CATTLE_PROD, 1 },
+		{ PID_BOOK, 5 }        
+    },
+    {
+        { PID_GATLING_LASER, 1 },
+        { PID_MICRO_FUSION_CELL, 1000 },
+	    { PID_BOOK, 5 }        
+    },
+    {
+        { PID_PLASMA_RIFLE, 1 },
+        { PID_MICRO_FUSION_CELL, 1000 },
+		{ PID_BOOK, 5 }        
+    },
+    {
+        { PID_LIGHT_SUPPORT_WEAPON, 1 },      
+	    { PID_MEGA_POWER_FIST, 1 }, 
+		{ PID_MICRO_FUSION_CELL, 1000 },
+		{ PID_BOOK, 5 }		
+    },
+    {
+        { PID_SOLAR_SCORCHER, 1 },
+	    { PID_MICRO_FUSION_CELL, 1000 },
+		{ PID_BOOK, 5 }
+    },
+    {   
+        { PID_PLASMA_PISTOL, 1 },        
+		{ PID_MICRO_FUSION_CELL, 1000 },
+		{ PID_BOOK, 5 }
+    }	
+};
+
+void r_BulkOrderRewardPuppetArmor(Critter& player, Critter@ npc)
+{
+    int mapId = 0;
+    if(valid(player.GetMap()))
+        mapId = player.GetMap().Id;
+
+    int npcId = -1;
+    int dialogId = -1;
+
+    if(valid(npc))
+    {
+        npcId = npc.Id;
+        dialogId = npc.Param[ST_DIALOG_ID];
+    }
+
+    FLog(LOG_DIALOG_REWARD, "Reward - RewardBOPuppetArmor player: [" + player.Id + "] " + player.Name + " mapId: " + mapId + " npc: " + npcId + " dialog: " + dialogId);
+
+    ProcessRewardTable( player, RewardBOPuppetArmor);
+    
+    if(Random(1, 5) == 1)
+        player.AddItem(PID_BOOK, 5);
+}
+
+const uint[][][] RewardBOPuppetArmor =
+    
+{	
+	{
+        { PID_METAL_ARMOR_MK_II, 1 },
+	    { PID_METAL_ARMOR, 1 },
+		{ PID_TESLA_ARMOR, 1 },     
+		{ PID_COMBAT_ARMOR, 1 },
+		{ PID_ENCLAVE_COMBAT_HELMET, 1 },
+		{ PID_DESERT_COMBAT_HELMET, 1 },
+		{ PID_COMBAT_ARMOR_MK_II, 1 },
+		{PID_THERMAL_LEATHER_ARMOR, 1 },
+		{ PID_BOOK, 5 }        
+    },
+    {
+        { PID_COMBAT_ARMOR_MK_II, 3 },
+        { PID_COMBAT_HELMET_MK_II, 3 },
+	    { PID_BOOK, 5 }        
+    },
+    {
+        { PID_BROTHERHOOD_COMBAT_ARMOR, 2 },
+		{ PID_BOOK, 5 }        
+    },
+    {
+        { PID_COMBAT_HELMET_MK_II, 1 },      
+	    { PID_TESLA_HELMET, 1 },
+		{ PID_ENCLAVE_COMBAT_HELMET, 1 },
+		{ PID_DESERT_COMBAT_HELMET, 1 },
+		{ PID_DESERT_COMBAT_ARMOR, 1 },
+		{ PID_COMBAT_ARMOR_MK_II, 1 },
+		{ PID_BOOK, 5 }		
+    },
+    {
+        { PID_TESLA_ARMOR, 1 },
+	    { PID_THERMAL_LEATHER_ARMOR, 1 },
+		{ PID_COMBAT_ARMOR_MK_II, 3 },
+		{ PID_ENCLAVE_COMBAT_HELMET, 1 },        
+		{ PID_BOOK, 5 }
+    },
+    {
+        { PID_METAL_HELMET_MK2, 1 },
+	    { PID_COMBAT_HELMET, 1 },
+		{ PID_COMBAT_HELMET_MK_II, 1 },
+		{ PID_DESERT_COMBAT_HELMET, 1 },
+		{ PID_ENCLAVE_COMBAT_HELMET, 1 },
+		{ PID_BOOK, 5 }
+    },
+    {   
+        { PID_DESERT_COMBAT_ARMOR, 2 },        
+		{ PID_BOOK, 5 }
+    },
+	{   
+        { PID_DESERT_COMBAT_HELMET, 1 },        
+		{ PID_DESERT_COMBAT_ARMOR, 1 },
+		{ PID_BOOK, 5 }
+    },
+	{   
+        { PID_ENCLAVE_COMBAT_ARMOR, 2 },        
+		{ PID_BOOK, 5 }
+    },
+	{   
+        { PID_ENCLAVE_COMBAT_HELMET, 1 },        
+		{ PID_ENCLAVE_COMBAT_ARMOR, 1 },
+		{ PID_BOOK, 5 }
+    },
+	{   
+        { PID_PURPLE_ROBE, 3 },        
+		{ PID_SAND_ROBE, 3 },
+		{ PID_BLACK_ROBE, 3 },
+		{ PID_ENCLAVE_COMBAT_HELMET, 1 },
+		{ PID_DESERT_COMBAT_HELMET, 1 },
+		{ PID_COMBAT_HELMET_MK_II, 1 },
+		{ PID_BOOK, 5 }
+	},
+	{   
+        { PID_DESERT_COMBAT_ARMOR, 1 },
+        { PID_ENCLAVE_COMBAT_HELMET, 1 },        
+		{ PID_BOOK, 5 }
+    }	
+};
+
+void r_BulkOrderRewardPuppet(Critter& player, Critter@ npc)
+{
+    int mapId = 0;
+    if(valid(player.GetMap()))
+        mapId = player.GetMap().Id;
+
+    int npcId = -1;
+    int dialogId = -1;
+
+    if(valid(npc))
+    {
+        npcId = npc.Id;
+        dialogId = npc.Param[ST_DIALOG_ID];
+    }
+
+    FLog(LOG_DIALOG_REWARD, "Reward - RewardBOPuppet player: [" + player.Id + "] " + player.Name + " mapId: " + mapId + " npc: " + npcId + " dialog: " + dialogId);
+
+    ProcessRewardTable( player, RewardBOPuppet);
+    
+    if(Random(1, 5) == 1)
+        player.AddItem(PID_MR_NIXON_DOLL, 1);
+}
+
+const uint[][][] RewardBOPuppet =
+{
+    {
+        { PID_BOOK, 1 }        
+    },
+    {
+        { PID_BOOK, 1 }        
+    },
+    {
+        { PID_BOOK, 1 }        
+    },
+    {
+        { PID_BOOK, 2 }        
+    },
+    {
+        { PID_BOOK, 3 }        
+    },
+    {
+        { PID_BOOK, 4 }        
+    },
+    {   
+        { PID_BOOK, 5 }        
+    }   
+};
+
+void r_BulkOrderRewardPrints(Critter& player, Critter@ npc)
+{
+    int mapId = 0;
+    if(valid(player.GetMap()))
+        mapId = player.GetMap().Id;
+
+    int npcId = -1;
+    int dialogId = -1;
+
+    if(valid(npc))
+    {
+        npcId = npc.Id;
+        dialogId = npc.Param[ST_DIALOG_ID];
+    }
+
+    FLog(LOG_DIALOG_REWARD, "Reward - RewardBOPrints player: [" + player.Id + "] " + player.Name + " mapId: " + mapId + " npc: " + npcId + " dialog: " + dialogId);
+
+    ProcessRewardTable( player, RewardBOPrints);
+    
+    if(Random(1, 5) == 1)
+        player.AddItem(PID_BOTTLE_CAPS, 5000);
+}
+
+const uint[][][] RewardBOPrints =
+{
+    {
+        { PID_BLUEPRINT_SUPER_STIMPAK, 1 }        
+    },
+    {
+        { PID_BLUEPRINT_STIMPAK, 1 }        
+    },
+    {
+        { PID_BLUEPRINT_JET, 1 }        
+    },
+    {
+        { PID_BLUEPRINT_BUFFOUT, 1 }        
+    },
+    {
+        { PID_BLUEPRINT_MENTATS, 1 }        
+    },
+    {
+        { PID_BLUEPRINT_PSYCHO, 1 }        
+    },
+    {   
+        { PID_BLUEPRINT_RADAWAY, 1 }        
+    },   
+    {   
+        { PID_BLUEPRINT_RADX, 1 }        
+    },   
+	{   
+        { PID_BLUEPRINT_14MM_PISTOL, 1 }        
+    },   
+	{   
+        { PID_BLUEPRINT_NEEDLER_PISTOL, 1 }        
+    },   
+	{   
+        { PID_BLUEPRINT_223_PISTOL, 1 }        
+    },   
+	{   
+        { PID_BLUEPRINT_ASSAULT_RIFLE, 1 }        
+    },       
+	{   
+        { PID_BLUEPRINT_FN_FAL, 1 }        
+    }, 
+    {   
+        { PID_BLUEPRINT_SNIPER_RIFLE, 1 }        
+    },   
+    {   
+        { PID_BLUEPRINT_P90, 1 }        
+    },   
+    {   
+        { PID_BLUEPRINT_PLASMA_PISTOL, 1 }        
+    },   
+    {   
+        { PID_BLUEPRINT_LASER_RIFLE, 1 }        
+    },   
+    {   
+        { PID_BLUEPRINT_PLASMA_RIFLE, 1 }        
+    },   
+    {   
+        { PID_BLUEPRINT_MEGA_POWER_FIST, 1 }        
+    },   	
+    {   
+        { PID_BLUEPRINT_SUPER_CATTLE_PROD, 1 }        
+    }, 
+	{   
+        { PID_BLUEPRINT_RIPPER, 1 }        
+    }, 
+	{   
+        { PID_BLUEPRINT_ROCKET_LAUNCHER, 1 }        
+    }, 
+	{   
+        { PID_BLUEPRINT_LIGHT_SUPPORT_WEAPON, 1 }        
+    }, 
+	{   
+        { PID_BLUEPRINT_MINIGUN, 1 }        
+    }, 
+    {   
+        { PID_BLUEPRINT_SUPER_SLEDGE, 1 }        
+    }, 
+	{   
+        { PID_BLUEPRINT_IMPROVED_FLAMETHROWER, 1 }        
+    }, 
+    {   
+        { PID_BLUEPRINT_HK_CAWS, 1 }        
+    },
+	{   
+        { PID_BLUEPRINT_METAL_ARMOR_MK_II, 1 }        
+    }, 
+	{   
+        { PID_BLUEPRINT_TESLA_ARMOR, 1 }        
+    }, 
+	{   
+        { PID_BLUEPRINT_COMBAT_ARMOR, 1 }        
+    }, 
+	{   
+        { PID_BLUEPRINT_METAL_HELMET_MK2, 1 }        
+    }, 
+    {   
+        { PID_BLUEPRINT_TESLA_HELMET, 1 }        
+    }, 
+	{   
+        { PID_BLUEPRINT_COMBAT_HELMET, 1 }        
+    }, 
+	{   
+        { PID_BLUEPRINT_PLASMA_GRENADE, 1 }        
+    }, 
+	{   
+        { PID_BLUEPRINT_DYNAMITE, 1 }        
+    }, 
+	{   
+        { PID_BLUEPRINT_PLASTIC_EXPLOSIVES, 1 }        
+    }
+
+};
+
+void r_BulkOrderRewardGuns(Critter& player, Critter@ npc)
+{
+    int mapId = 0;
+    if(valid(player.GetMap()))
+        mapId = player.GetMap().Id;
+
+    int npcId = -1;
+    int dialogId = -1;
+
+    if(valid(npc))
+    {
+        npcId = npc.Id;
+        dialogId = npc.Param[ST_DIALOG_ID];
+    }
+
+    FLog(LOG_DIALOG_REWARD, "Reward - RewardBOGuns player: [" + player.Id + "] " + player.Name + " mapId: " + mapId + " npc: " + npcId + " dialog: " + dialogId);
+
+    ProcessRewardTable( player, RewardBOGuns);
+    
+    if(Random(1, 5) == 1)
+        player.AddItem(PID_DYNAMITE, 3);
+}
+
+const uint[][][] RewardBOGuns =
+{
+    {
+        { PID_LASER_RIFLE, 1 }        
+    },
+    {
+        { PID_PLASMA_RIFLE, 1 }        
+    },
+    {
+        { PID_ROCKET_LAUNCHER, 1 }        
+    },
+    {
+        { PID_HK_P90C, 1 }        
+    },
+    {
+        { PID_M60, 1 }        
+    },
+    {
+        { PID_223_PISTOL, 1 }        
+    },
+    {   
+        { PID_SUPER_SLEDGE, 1 }        
+    }   
+};
+
+void r_BulkOrderRewardInde(Critter& player, Critter@ npc)
+{
+    int mapId = 0;
+    if(valid(player.GetMap()))
+        mapId = player.GetMap().Id;
+
+    int npcId = -1;
+    int dialogId = -1;
+
+    if(valid(npc))
+    {
+        npcId = npc.Id;
+        dialogId = npc.Param[ST_DIALOG_ID];
+    }
+
+    FLog(LOG_DIALOG_REWARD, "Reward - RewardBOInde player: [" + player.Id + "] " + player.Name + " mapId: " + mapId + " npc: " + npcId + " dialog: " + dialogId);
+
+    ProcessRewardTable( player, RewardBOInde);
+    
+    if(Random(1, 5) == 1)
+        player.AddItem(PID_BARLEY, 6);
+}
+
+const uint[][][] RewardBOInde =
+{
+    {
+        { PID_RADAWAY, 2 }        
+    },
+    {
+        { PID_URANIUM_ORE, 2 }        
+    },
+    {
+        { PID_BOTTLE_CAPS, 200 }        
+    },
+    {
+        { PID_NECKLACE, 2 }        
+    },
+    {
+        { PID_GOLD_TOOTH, 6 }        
+    },
+    {
+        { PID_DECK_OF_TRAGIC_CARDS, 8 }        
+    },
+    {   
+        { PID_GOLD_NUGGET, 3 }        
+    }   
+};
+
+void r_BulkOrderRewardFoundry(Critter& player, Critter@ npc)
+{
+    int mapId = 0;
+    if(valid(player.GetMap()))
+        mapId = player.GetMap().Id;
+
+    int npcId = -1;
+    int dialogId = -1;
+
+    if(valid(npc))
+    {
+        npcId = npc.Id;
+        dialogId = npc.Param[ST_DIALOG_ID];
+    }
+
+    FLog(LOG_DIALOG_REWARD, "Reward - RewardBOFoundry player: [" + player.Id + "] " + player.Name + " mapId: " + mapId + " npc: " + npcId + " dialog: " + dialogId);
+
+    ProcessRewardTable( player, RewardBOFoundry);
+    
+    if(Random(1, 5) == 1)
+        player.AddItem(PID_ALLOYS, 1);
+}
+
+const uint[][][] RewardBOFoundry =
+{
+    {
+        { PID_9MM_MAUSER, 1 }
+    },
+    {
+        { PID_COMBAT_KNIFE, 1 }        
+    },
+    {
+        { PID_SPIKED_KNUCKLES, 1 }        
+    },
+    {
+        { PID_LEATHER_JACKET, 1 }        
+    },
+    {
+        { PID_SHOTGUN, 1 }        
+    },
+    {
+        { PID_10MM_PISTOL, 1 }        
+    },
+    {   
+        { PID_BRAHMIN_HIDE, 4 }        
+    }   
+};
+
+void r_BulkOrderRewardJunk(Critter& player, Critter@ npc)
+{
+    int mapId = 0;
+    if(valid(player.GetMap()))
+        mapId = player.GetMap().Id;
+
+    int npcId = -1;
+    int dialogId = -1;
+
+    if(valid(npc))
+    {
+        npcId = npc.Id;
+        dialogId = npc.Param[ST_DIALOG_ID];
+    }
+
+    FLog(LOG_DIALOG_REWARD, "Reward - RewardBOJunk player: [" + player.Id + "] " + player.Name + " mapId: " + mapId + " npc: " + npcId + " dialog: " + dialogId);
+
+    ProcessRewardTable( player, RewardBOJunk);
+    
+    if(Random(1, 5) == 1)
+        player.AddItem(PID_MINERALS2, 1);
+}
+
+const uint[][][] RewardBOJunk =
+{
+    {
+        { PID_RIPPER, 1 },
+        { PID_SMALL_ENERGY_CELL, 60 }
+    },
+    {
+        { PID_HUNTING_RIFLE, 1 },
+        { PID_223_FMJ, 60 }
+    },
+    {
+        { PID_LASER_PISTOL, 1 },
+        { PID_SMALL_ENERGY_CELL, 80 }
+    },
+    {
+        { PID_METAL_ARMOR, 1 },
+        { PID_DOCTORS_BAG, 1}
+    },
+    {
+        { PID_CURED_LEATHER_ARMOR, 1 },
+        { PID_FIRST_AID_KIT, 1}
+    },
+    {
+        { PID_FLAMER, 1 },
+        { PID_FLAMETHROWER_FUEL, 60},
+        { PID_STIMPAK, 2}
+    },
+    {   
+        { PID_10MM_SMG, 1 },
+        { PID_10MM_JHP, 120 }
+    }   
+};
+
+void r_BulkOrderRewardHub(Critter& player, Critter@ npc)
+{
+    int mapId = 0;
+    if(valid(player.GetMap()))
+        mapId = player.GetMap().Id;
+
+    int npcId = -1;
+    int dialogId = -1;
+
+    if(valid(npc))
+    {
+        npcId = npc.Id;
+        dialogId = npc.Param[ST_DIALOG_ID];
+    }
+
+    FLog(LOG_DIALOG_REWARD, "Reward - RewardBOHub player: [" + player.Id + "] " + player.Name + " mapId: " + mapId + " npc: " + npcId + " dialog: " + dialogId);
+
+    ProcessRewardTable( player, RewardBOHub);
+    
+    if(Random(1, 5) == 1)
+        player.AddItem(PID_ORE2, 1);
+}
+
+const uint[][][] RewardBOHub =
+{
+    {
+        { PID_HN_AP_NEEDLER_CARTRIDGE, 200 },
+        { PID_NEEDLER_PISTOL, 1}
+    },
+    {
+        { PID_MENTATS, 5 },
+        { PID_HYPODERMIC_NEEDLE, 10 }
+    },
+    {
+        { PID_BUFFOUT, 5 },
+        { PID_HYPODERMIC_NEEDLE, 10 }
+    },
+    {
+        { PID_PSYCHO, 5 },
+        { PID_HYPODERMIC_NEEDLE, 10 }
+    },
+    {
+        { PID_JET, 5 },
+        { PID_HYPODERMIC_NEEDLE, 10 }
+    },
+    {
+        { PID_SMALL_ENERGY_CELL, 200 },
+        { PID_MAGNETO_LASER_PISTOL, 1 }
+    },
+    {   
+        { PID_MICRO_FUSION_CELL, 150 },
+        { PID_IMPROVED_FLAMETHROWER, 1 }
+    },
+    {
+        { PID_7_62MM_AMMO, 200 },
+        { PID_TOMMY_GUN, 1}
+    },
+    {
+		{ PID_SUPER_STIMPAK, 1 },
+        { PID_STIMPAK, 8 },
+        { PID_DOCTORS_BAG, 1 },
+        { PID_FIRST_AID_KIT, 1 }
+    }
+};
+
+void r_BulkOrderRewardLow(Critter& player, Critter@ npc)
+{
+    int mapId = 0;
+    if(valid(player.GetMap()))
+        mapId = player.GetMap().Id;
+
+    int npcId = -1;
+    int dialogId = -1;
+
+    if(valid(npc))
+    {
+        npcId = npc.Id;
+        dialogId = npc.Param[ST_DIALOG_ID];
+    }
+
+    FLog(LOG_DIALOG_REWARD, "Reward - RewardBOLow player: [" + player.Id + "] " + player.Name + " mapId: " + mapId + " npc: " + npcId + " dialog: " + dialogId);
+
+    ProcessRewardTable( player, RewardBOLow);
+    
+    if(Random(1, 5) == 1)
+        player.AddItem(PID_MULTI_TOOL, 1);
+}
+
+const uint[][][] RewardBOLow =
+{
+    {
+        { PID_COOKIE, 1}
+    },
+    {
+        { PID_BEER, 1 }
+    },
+    {
+        { PID_CIGARETTES, 2 }
+    },
+    {
+        { PID_LIGHTER, 1 }
+    },
+    {
+        { PID_IGUANA_ON_A_STICK, 2 }
+    },
+    {
+        { PID_10MM_AP, 30 }
+    },
+    {   
+        { PID_SHOTGUN_SHELLS, 30 }
+    },
+    {
+        { PID_ROT_GUT, 2 }
+    },
+    {
+        { PID_SUPER_STIMPAK, 1}
+    },
+    {
+        { PID_STIMPAK, 2 }
+    }
+};
+
+void r_DogsQuestReward(Critter& player, Critter@ npc)
+{
+    ProcessRewardTable( player, RewardDogs );
+
+    if(Random(1, 100) == 1)
+        player.AddItem(PID_HOWITZER_SHELL, 1);
+}
+
+const uint[][][] RewardDogs =
+{
+    {
+        { PID_5MM_JHP, 350 }
+    },
+    {
+        { PID_5MM_AP, 350 }
+    },
+    {
+        { PID_10MM_JHP, 350 }
+    },
+    {
+        { PID_SHOTGUN_SHELLS, 350 }
+    },
+    {
+        { PID_9MM_BALL, 350 }
+    },
+    {
+        { PID_EXPLOSIVE_ROCKET, 4 },
+        { PID_ROCKET_AP, 4 }
+    },
+    {
+
+		{ PID_10MM_AP, 350 }
+    }
+};
+
+//MagicItemSpawner - Tier 1 - Easy 
+void r_AddLootSetLevel1 (Critter& player, Critter@ npc)    // use this to spawn low statted random chance items, gives 1 gun, helmet, armor, and ammo set, potentially with stats
+{
+
+//[][]   loot level (0 to 2) + item category (0 = armor 1 = guns 2= misc 3= misc)
+array<array<array<uint>>> raidersItems = 
+{
+    {   // easy
+        {   //armors
+            PID_LEATHER_JACKET, PID_LEATHER_JACKET_HELMET, PID_CURED_LEATHER_ARMOR, PID_COMBAT_LEATHER_JACKET_HELMET,
+            PID_LEATHER_ARMOR, PID_LEATHER_ARMOR_HELMET, PID_LEATHER_ARMOR_MK_II, PID_LEATHER_ARMOR_HELMET_MK2, PID_METAL_ARMOR, PID_METAL_HELMET
+        },
+        {   //guns
+            PID_ZIP_GUN, PID_9MM_MAUSER, PID_10MM_PISTOL, PID_DESERT_EAGLE, PID_44_MAGNUM_REVOLVER, PID_LASER_PISTOL,
+            PID_HUNTING_RIFLE, PID_SCOPED_HUNTING_RIFLE, PID_RED_RYDER_BB_GUN, PID_SHOTGUN, PID_10MM_SMG,
+            PID_MOLOTOV_COCKTAIL, PID_THROWING_KNIFE, PID_COMBAT_KNIFE, PID_SWITCHBLADE, PID_SHARP_SPEAR, PID_SLEDGEHAMMER, PID_SPIKED_KNUCKLES
+        },
+        {   //other
+            PID_NUKA_COLA, PID_BEER, PID_GAMMA_GULP_BEER, PID_ROENTGEN_RUM, PID_ROT_GUT, PID_MUTATED_FRUIT, PID_CIGARETTES
+        }
+    },
+    {   //medium
+        {   //armors
+            PID_LEATHER_ARMOR, PID_LEATHER_ARMOR_HELMET, PID_LEATHER_ARMOR_MK_II, PID_LEATHER_ARMOR_HELMET_MK2, PID_METAL_HELMET,
+            PID_METAL_ARMOR, PID_METAL_HELMET, PID_METAL_ARMOR_MK_II, PID_METAL_HELMET_MK2, PID_TESLA_ARMOR, PID_TESLA_HELMET, PID_COMBAT_ARMOR, PID_COMBAT_HELMET
+        },
+        {   //guns
+            PID_14MM_PISTOL, PID_223_PISTOL, PID_GRENADE_PISTOL, PID_TOMMY_GUN, PID_GREASE_GUN, PID_MAGNETO_LASER_PISTOL, PID_PLASMA_PISTOL, 
+            PID_ASSAULT_RIFLE, PID_FN_FAL, PID_HK_P90C, PID_COMBAT_SHOTGUN, PID_HK_CAWS, PID_FLAMER, PID_MINIGUN, PID_M60,
+            PID_FRAG_GRENADE, PID_CATTLE_PROD, PID_POWER_FIST, PID_WAKIZASHI_BLADE, PID_RIPPER
+        },
+        {   //other
+            PID_MENTATS, PID_RADAWAY, PID_RAD_X
+        }
+    },
+    {   //hard
+        {   //armors
+            PID_METAL_ARMOR_MK_II, PID_METAL_HELMET_MK2, PID_TESLA_ARMOR, PID_TESLA_HELMET, PID_COMBAT_ARMOR, PID_COMBAT_HELMET,
+            PID_COMBAT_ARMOR_MK_II, PID_COMBAT_HELMET_MK_II, PID_DESERT_COMBAT_ARMOR, PID_DESERT_COMBAT_HELMET
+        },
+        {   //guns
+            PID_SNIPER_RIFLE, PID_ASSAULT_RIFLE_EXT_MAG, PID_GRENADE_LAUNCHER, PID_HK_CAWS, PID_HK_G11, PID_FN_FAL,
+            PID_IMPROVED_FLAMETHROWER, PID_ROCKET_LAUNCHER, PID_MINIGUN, PID_LIGHT_SUPPORT_WEAPON, 
+            PID_LASER_RIFLE, PID_PLASMA_RIFLE,
+            PID_PLASMA_GRENADE, PID_SUPER_SLEDGE, PID_SUPER_CATTLE_PROD, PID_MEGA_POWER_FIST
+        },
+        {   //other
+            PID_JET, PID_BUFFOUT, PID_PSYCHO, PID_HYPO
+        }
+    }
+};
+
+					//gun + ammo
+                    uint gunPid = random_from_array(raidersItems[0][1]);
+                    uint gunCnt = 1;
+
+                    if(gunPid == PID_MOLOTOV_COCKTAIL || gunPid == PID_PLASMA_GRENADE || gunPid == PID_FRAG_GRENADE || gunPid == PID_SHARP_SPEAR || gunPid == PID_THROWING_KNIFE)
+                        gunCnt = Random(3, 10);
+
+                    Item@ gun = player.AddItem(gunPid, gunCnt);
+
+                    player.SetFavoriteItem(SLOT_HAND1, gunPid);
+                    if(valid(gun))
+                    {
+                        if(gun.IsDeteriorable())
+                        {
+                            uint wear = Random(0, 0);
+                            SetMinWear(gun, wear);
+                            SetWear(gun, wear);
+                        }
+
+                        //player.MoveItem(gun.Id, gun.GetCount(), SLOT_HAND1);
+                        if(gun.Proto.Weapon_DefaultAmmoPid > 0)
+                        {
+                            if(gun.Proto.Weapon_DefaultAmmoPid == PID_ROCKET_AP || gun.Proto.Weapon_DefaultAmmoPid == PID_EXPLOSIVE_ROCKET)
+                                player.AddItem(gun.Proto.Weapon_DefaultAmmoPid, Random(10, 15)); 
+                            else if(gun.Proto.Weapon_DefaultAmmoPid == PID_40MM_GRENADE)
+                                player.AddItem(gun.Proto.Weapon_DefaultAmmoPid, Random(15, 25));    
+                            else
+                            {
+                                uint rounds = MAX(gun.Proto.Weapon_Round_0, gun.Proto.Weapon_Round_1);
+                                player.AddItem(gun.Proto.Weapon_DefaultAmmoPid, rounds * Random(25, 35));
+                            }
+                        }
+
+                        if(Random(1, 1) == 1)
+                            AddSpecialBonusRaidersFarm(gun);
+            
+				//armor
+                    uint armorPos = Random(0, raidersItems[0][0].length()-1);
+                    if(armorPos%2 != 0)
+                        --armorPos;
+                    uint armorPid = raidersItems[0][0][armorPos];
+                    Item@ armor = player.AddItem(armorPid, 1);
+                    player.SetFavoriteItem(SLOT_ARMOR, armorPid);
+                    if(valid(armor))
+                    {
+                        uint wear = Random(0, 0);
+                        SetMinWear(armor, wear);
+                        SetWear(armor, wear);
+                        //int crover = ( (player.Stat[ST_GENDER] == GENDER_MALE) ? armor.Proto.Armor_CrTypeMale : armor.Proto.Armor_CrTypeFemale );
+                        //player.StatBase[ST_BASE_CRTYPE] = crover;
+                        //player.MoveItem(armor.Id, 1, SLOT_ARMOR);
+                        if(Random(1, 1) == 0)
+                            AddSpecialBonusRaidersFarm(armor);
+                    }
+
+                    uint helmetPid = raidersItems[0][0][armorPos+1];
+                    if(helmetPid > 0)
+                    {
+                        Item@ helmet = player.AddItem(helmetPid, 1);
+                        if(valid(helmet))
+                        {
+                            uint wear = Random(0, 0);
+                            SetMinWear(helmet, wear);
+                            SetWear(helmet, wear);
+                            //player.MoveItem(helmet.Id, 1, SLOT_HEAD);
+                            if(Random(1, 1) == 0)
+                                AddSpecialBonusRaidersFarm(helmet);
+                        }
+                    }			
+					
+				}
+            
+        
+
+
+
+
+
+}
+
+//MagicItemSpawner - Tier 2 - Medium 
+void r_AddLootSetLevel2 (Critter& player, Critter@ npc)    // use this to spawn medium statted random chance items, gives 1 gun, helmet, armor, and ammo set, potentially with stats
+{
+
+//[][]   loot level (0 to 2) + item category (0 = armor 1 = guns 2= misc 3= misc)
+array<array<array<uint>>> raidersItems = 
+{
+    {   // easy
+        {   //armors
+            PID_LEATHER_JACKET, PID_LEATHER_JACKET_HELMET, PID_CURED_LEATHER_ARMOR, PID_COMBAT_LEATHER_JACKET_HELMET,
+            PID_LEATHER_ARMOR, PID_LEATHER_ARMOR_HELMET, PID_LEATHER_ARMOR_MK_II, PID_LEATHER_ARMOR_HELMET_MK2, PID_METAL_ARMOR, PID_METAL_HELMET
+        },
+        {   //guns
+            PID_ZIP_GUN, PID_9MM_MAUSER, PID_10MM_PISTOL, PID_DESERT_EAGLE, PID_44_MAGNUM_REVOLVER, PID_LASER_PISTOL,
+            PID_HUNTING_RIFLE, PID_SCOPED_HUNTING_RIFLE, PID_RED_RYDER_BB_GUN, PID_SHOTGUN, PID_10MM_SMG,
+            PID_MOLOTOV_COCKTAIL, PID_THROWING_KNIFE, PID_COMBAT_KNIFE, PID_SWITCHBLADE, PID_SHARP_SPEAR, PID_SLEDGEHAMMER, PID_SPIKED_KNUCKLES
+        },
+        {   //other
+            PID_NUKA_COLA, PID_BEER, PID_GAMMA_GULP_BEER, PID_ROENTGEN_RUM, PID_ROT_GUT, PID_MUTATED_FRUIT, PID_CIGARETTES
+        }
+    },
+    {   //medium
+        {   //armors
+            PID_LEATHER_ARMOR, PID_LEATHER_ARMOR_HELMET, PID_LEATHER_ARMOR_MK_II, PID_LEATHER_ARMOR_HELMET_MK2, PID_METAL_HELMET,
+            PID_METAL_ARMOR, PID_METAL_ARMOR_MK_II, PID_METAL_HELMET_MK2, PID_TESLA_ARMOR, PID_TESLA_HELMET, PID_COMBAT_ARMOR, PID_COMBAT_HELMET
+        },
+        {   //guns
+            PID_14MM_PISTOL, PID_223_PISTOL, PID_GRENADE_PISTOL, PID_TOMMY_GUN, PID_GREASE_GUN, PID_MAGNETO_LASER_PISTOL, PID_PLASMA_PISTOL, 
+            PID_ASSAULT_RIFLE, PID_FN_FAL, PID_HK_P90C, PID_COMBAT_SHOTGUN, PID_HK_CAWS, PID_FLAMER, PID_MINIGUN, PID_M60,
+            PID_FRAG_GRENADE, PID_CATTLE_PROD, PID_POWER_FIST, PID_WAKIZASHI_BLADE, PID_RIPPER
+        },
+        {   //other
+            PID_MENTATS, PID_RADAWAY, PID_RAD_X
+        }
+    },
+    {   //hard
+        {   //armors
+            PID_METAL_ARMOR_MK_II, PID_METAL_HELMET_MK2, PID_TESLA_ARMOR, PID_TESLA_HELMET, PID_COMBAT_ARMOR, PID_COMBAT_HELMET,
+            PID_COMBAT_ARMOR_MK_II, PID_COMBAT_HELMET_MK_II, PID_DESERT_COMBAT_ARMOR, PID_DESERT_COMBAT_HELMET
+        },
+        {   //guns
+            PID_SNIPER_RIFLE, PID_ASSAULT_RIFLE_EXT_MAG, PID_GRENADE_LAUNCHER, PID_HK_CAWS, PID_HK_G11, PID_FN_FAL,
+            PID_IMPROVED_FLAMETHROWER, PID_ROCKET_LAUNCHER, PID_MINIGUN, PID_LIGHT_SUPPORT_WEAPON, 
+            PID_LASER_RIFLE, PID_PLASMA_RIFLE,
+            PID_PLASMA_GRENADE, PID_SUPER_SLEDGE, PID_SUPER_CATTLE_PROD, PID_MEGA_POWER_FIST
+        },
+        {   //other
+            PID_JET, PID_BUFFOUT, PID_PSYCHO, PID_HYPO
+        }
+    }
+};
+
+					//gun + ammo
+                    uint gunPid = random_from_array(raidersItems[1][1]);
+                    uint gunCnt = 1;
+
+                    if(gunPid == PID_MOLOTOV_COCKTAIL || gunPid == PID_PLASMA_GRENADE || gunPid == PID_FRAG_GRENADE || gunPid == PID_SHARP_SPEAR || gunPid == PID_THROWING_KNIFE)
+                        gunCnt = Random(3, 10);
+
+                    Item@ gun = player.AddItem(gunPid, gunCnt);
+
+                    player.SetFavoriteItem(SLOT_HAND1, gunPid);
+                    if(valid(gun))
+                    {
+                        if(gun.IsDeteriorable())
+                        {
+                            uint wear = Random(0, 0);
+                            SetMinWear(gun, wear);
+                            SetWear(gun, wear);
+                        }
+
+                        //player.MoveItem(gun.Id, gun.GetCount(), SLOT_HAND1);
+                        if(gun.Proto.Weapon_DefaultAmmoPid > 0)
+                        {
+                            if(gun.Proto.Weapon_DefaultAmmoPid == PID_ROCKET_AP || gun.Proto.Weapon_DefaultAmmoPid == PID_EXPLOSIVE_ROCKET)
+                                player.AddItem(gun.Proto.Weapon_DefaultAmmoPid, Random(10, 15)); 
+                            else if(gun.Proto.Weapon_DefaultAmmoPid == PID_40MM_GRENADE)
+                                player.AddItem(gun.Proto.Weapon_DefaultAmmoPid, Random(15, 25));    
+                            else
+                            {
+                                uint rounds = MAX(gun.Proto.Weapon_Round_0, gun.Proto.Weapon_Round_1);
+                                player.AddItem(gun.Proto.Weapon_DefaultAmmoPid, rounds * Random(25, 35));
+                            }
+                        }
+
+                        if(Random(1, 1) == 1)
+                            AddSpecialBonusRaidersFarm(gun);
+            
+				//armor
+                    uint armorPos = Random(0, raidersItems[1][0].length()-1);
+                    if(armorPos%2 != 0)
+                        --armorPos;
+                    uint armorPid = raidersItems[1][0][armorPos];
+                    Item@ armor = player.AddItem(armorPid, 1);
+                    player.SetFavoriteItem(SLOT_ARMOR, armorPid);
+                    if(valid(armor))
+                    {
+                        uint wear = Random(0, 0);
+                        SetMinWear(armor, wear);
+                        SetWear(armor, wear);
+                        //int crover = ( (player.Stat[ST_GENDER] == GENDER_MALE) ? armor.Proto.Armor_CrTypeMale : armor.Proto.Armor_CrTypeFemale );
+                        //player.StatBase[ST_BASE_CRTYPE] = crover;
+                        //player.MoveItem(armor.Id, 1, SLOT_ARMOR);
+                        if(Random(1, 1) == 1)
+                            AddSpecialBonusRaidersFarm(armor);
+                    }
+
+                    uint helmetPid = raidersItems[1][0][armorPos+1];
+                    if(helmetPid > 0)
+                    {
+                        Item@ helmet = player.AddItem(helmetPid, 1);
+                        if(valid(helmet))
+                        {
+                            uint wear = Random(0, 0);
+                            SetMinWear(helmet, wear);
+                            SetWear(helmet, wear);
+                            //player.MoveItem(helmet.Id, 1, SLOT_HEAD);
+                            if(Random(1, 1) == 1)
+                                AddSpecialBonusRaidersFarm(helmet);
+                        }
+                    }			
+					
+				}
+            
+        
+
+
+
+
+
+}
+
+//MagicItemSpawner - Tier 3 - Hard 
+void r_AddLootSetLevel3 (Critter& player, Critter@ npc)    // use this to spawn high level statted random chance items, gives 1 gun, helmet, armor, and ammo set, potentially with stats
+{
+
+//[][]   loot level (0 to 2) + item category (0 = armor 1 = guns 2= misc 3= misc)
+array<array<array<uint>>> raidersItems = 
+{
+    {   // easy
+        {   //armors
+            PID_LEATHER_JACKET, PID_LEATHER_JACKET_HELMET, PID_CURED_LEATHER_ARMOR, PID_COMBAT_LEATHER_JACKET_HELMET,
+            PID_LEATHER_ARMOR, PID_LEATHER_ARMOR_HELMET, PID_LEATHER_ARMOR_MK_II, PID_LEATHER_ARMOR_HELMET_MK2, PID_METAL_ARMOR, PID_METAL_HELMET
+        },
+        {   //guns
+            PID_ZIP_GUN, PID_9MM_MAUSER, PID_10MM_PISTOL, PID_DESERT_EAGLE, PID_44_MAGNUM_REVOLVER, PID_LASER_PISTOL,
+            PID_HUNTING_RIFLE, PID_SCOPED_HUNTING_RIFLE, PID_RED_RYDER_BB_GUN, PID_SHOTGUN, PID_10MM_SMG,
+            PID_MOLOTOV_COCKTAIL, PID_THROWING_KNIFE, PID_COMBAT_KNIFE, PID_SWITCHBLADE, PID_SHARP_SPEAR, PID_SLEDGEHAMMER, PID_SPIKED_KNUCKLES
+        },
+        {   //other
+            PID_NUKA_COLA, PID_BEER, PID_GAMMA_GULP_BEER, PID_ROENTGEN_RUM, PID_ROT_GUT, PID_MUTATED_FRUIT, PID_CIGARETTES
+        }
+    },
+    {   //medium
+        {   //armors
+            PID_LEATHER_ARMOR, PID_LEATHER_ARMOR_HELMET, PID_LEATHER_ARMOR_MK_II, PID_LEATHER_ARMOR_HELMET_MK2, PID_METAL_HELMET,
+            PID_METAL_ARMOR, PID_METAL_HELMET, PID_METAL_ARMOR_MK_II, PID_METAL_HELMET_MK2, PID_TESLA_ARMOR, PID_TESLA_HELMET, PID_COMBAT_ARMOR, PID_COMBAT_HELMET
+        },
+        {   //guns
+            PID_14MM_PISTOL, PID_223_PISTOL, PID_GRENADE_PISTOL, PID_TOMMY_GUN, PID_GREASE_GUN, PID_MAGNETO_LASER_PISTOL, PID_PLASMA_PISTOL, 
+            PID_ASSAULT_RIFLE, PID_FN_FAL, PID_HK_P90C, PID_COMBAT_SHOTGUN, PID_HK_CAWS, PID_FLAMER, PID_MINIGUN, PID_M60,
+            PID_FRAG_GRENADE, PID_CATTLE_PROD, PID_POWER_FIST, PID_WAKIZASHI_BLADE, PID_RIPPER
+        },
+        {   //other
+            PID_MENTATS, PID_RADAWAY, PID_RAD_X
+        }
+    },
+    {   //hard
+        {   //armors
+            PID_METAL_ARMOR_MK_II, PID_METAL_HELMET_MK2, PID_TESLA_ARMOR, PID_TESLA_HELMET, PID_COMBAT_ARMOR, PID_COMBAT_HELMET,
+            PID_COMBAT_ARMOR_MK_II, PID_COMBAT_HELMET_MK_II, PID_DESERT_COMBAT_ARMOR, PID_DESERT_COMBAT_HELMET
+        },
+        {   //guns
+            PID_SNIPER_RIFLE, PID_ASSAULT_RIFLE_EXT_MAG, PID_GRENADE_LAUNCHER, PID_HK_CAWS, PID_HK_G11, PID_FN_FAL,
+            PID_IMPROVED_FLAMETHROWER, PID_ROCKET_LAUNCHER, PID_MINIGUN, PID_LIGHT_SUPPORT_WEAPON, 
+            PID_LASER_RIFLE, PID_PLASMA_RIFLE,
+            PID_AVENGER_MINIGUN, PID_SUPER_SLEDGE, PID_SUPER_CATTLE_PROD, PID_MEGA_POWER_FIST
+        },
+        {   //other
+            PID_JET, PID_BUFFOUT, PID_PSYCHO, PID_HYPO
+        }
+    }
+};
+
+					//gun + ammo
+                    uint gunPid = random_from_array(raidersItems[2][1]);
+                    uint gunCnt = 1;
+
+                    if(gunPid == PID_MOLOTOV_COCKTAIL || gunPid == PID_PLASMA_GRENADE || gunPid == PID_FRAG_GRENADE || gunPid == PID_SHARP_SPEAR || gunPid == PID_THROWING_KNIFE)
+                        gunCnt = Random(3, 10);
+
+                    Item@ gun = player.AddItem(gunPid, gunCnt);
+
+                    player.SetFavoriteItem(SLOT_HAND1, gunPid);
+                    if(valid(gun))
+                    {
+                        if(gun.IsDeteriorable())
+                        {
+                            uint wear = Random(0, 0);
+                            SetMinWear(gun, wear);
+                            SetWear(gun, wear);
+                        }
+
+                        //player.MoveItem(gun.Id, gun.GetCount(), SLOT_HAND1);
+                        if(gun.Proto.Weapon_DefaultAmmoPid > 0)
+                        {
+                            if(gun.Proto.Weapon_DefaultAmmoPid == PID_ROCKET_AP || gun.Proto.Weapon_DefaultAmmoPid == PID_EXPLOSIVE_ROCKET)
+                                player.AddItem(gun.Proto.Weapon_DefaultAmmoPid, Random(10, 15)); 
+                            else if(gun.Proto.Weapon_DefaultAmmoPid == PID_40MM_GRENADE)
+                                player.AddItem(gun.Proto.Weapon_DefaultAmmoPid, Random(15, 25));    
+                            else
+                            {
+                                uint rounds = MAX(gun.Proto.Weapon_Round_0, gun.Proto.Weapon_Round_1);
+                                player.AddItem(gun.Proto.Weapon_DefaultAmmoPid, rounds * Random(25, 35));
+                            }
+                        }
+
+                        if(Random(1, 1) == 1)
+                            AddSpecialBonusRaidersFarm(gun);
+            
+				//armor
+                    uint armorPos = Random(0, raidersItems[2][0].length()-1);
+                    if(armorPos%2 != 0)
+                        --armorPos;
+                    uint armorPid = raidersItems[2][0][armorPos];
+                    Item@ armor = player.AddItem(armorPid, 1);
+                    player.SetFavoriteItem(SLOT_ARMOR, armorPid);
+                    if(valid(armor))
+                    {
+                        uint wear = Random(0, 0);
+                        SetMinWear(armor, wear);
+                        SetWear(armor, wear);
+                        //int crover = ( (player.Stat[ST_GENDER] == GENDER_MALE) ? armor.Proto.Armor_CrTypeMale : armor.Proto.Armor_CrTypeFemale );
+                        //player.StatBase[ST_BASE_CRTYPE] = crover;
+                        //player.MoveItem(armor.Id, 1, SLOT_ARMOR);
+                        if(Random(1, 1) == 1)
+                            AddSpecialBonusRaidersFarm(armor);
+                    }
+
+                    uint helmetPid = raidersItems[2][0][armorPos+1];
+                    if(helmetPid > 0)
+                    {
+                        Item@ helmet = player.AddItem(helmetPid, 1);
+                        if(valid(helmet))
+                        {
+                            uint wear = Random(0, 0);
+                            SetMinWear(helmet, wear);
+                            SetWear(helmet, wear);
+                            //player.MoveItem(helmet.Id, 1, SLOT_HEAD);
+                            if(Random(1, 1) == 1)
+                                AddSpecialBonusRaidersFarm(helmet);
+                        }
+                    }			
+					
+				}
+            
+        
+
+
+
+
+
+}
+
+//MagicItemSpawner - Tier 4-5
+void r_AddLootSetLevel4 (Critter& player, Critter@ npc)    // use this to spawn high level statted random chance items, gives 1 gun, helmet, armor, and ammo set, potentially with stats
+{
+
+//[][]   loot level (0 to 2) + item category (0 = armor 1 = guns 2= misc 3= misc)
+array<array<array<uint>>> raidersItems = 
+{
+    {   // easy
+        {   //armors
+            PID_LEATHER_JACKET, PID_LEATHER_JACKET_HELMET, PID_CURED_LEATHER_ARMOR, PID_COMBAT_LEATHER_JACKET_HELMET,
+            PID_LEATHER_ARMOR, PID_LEATHER_ARMOR_HELMET, PID_LEATHER_ARMOR_MK_II, PID_LEATHER_ARMOR_HELMET_MK2, PID_METAL_ARMOR, PID_METAL_HELMET
+        },
+        {   //guns
+            PID_ZIP_GUN, PID_9MM_MAUSER, PID_10MM_PISTOL, PID_DESERT_EAGLE, PID_44_MAGNUM_REVOLVER, PID_LASER_PISTOL,
+            PID_HUNTING_RIFLE, PID_SCOPED_HUNTING_RIFLE, PID_RED_RYDER_BB_GUN, PID_SHOTGUN, PID_10MM_SMG,
+            PID_MOLOTOV_COCKTAIL, PID_THROWING_KNIFE, PID_COMBAT_KNIFE, PID_SWITCHBLADE, PID_SHARP_SPEAR, PID_SLEDGEHAMMER, PID_SPIKED_KNUCKLES
+        },
+        {   //other
+            PID_NUKA_COLA, PID_BEER, PID_GAMMA_GULP_BEER, PID_ROENTGEN_RUM, PID_ROT_GUT, PID_MUTATED_FRUIT, PID_CIGARETTES
+        }
+    },
+    {   //medium
+        {   //armors
+            PID_LEATHER_ARMOR, PID_LEATHER_ARMOR_HELMET, PID_LEATHER_ARMOR_MK_II, PID_LEATHER_ARMOR_HELMET_MK2, PID_METAL_HELMET,
+            PID_METAL_ARMOR, PID_METAL_HELMET, PID_METAL_ARMOR_MK_II, PID_METAL_HELMET_MK2, PID_TESLA_ARMOR, PID_TESLA_HELMET, PID_COMBAT_ARMOR, PID_COMBAT_HELMET
+        },
+        {   //guns
+            PID_14MM_PISTOL, PID_223_PISTOL, PID_GRENADE_PISTOL, PID_TOMMY_GUN, PID_GREASE_GUN, PID_MAGNETO_LASER_PISTOL, PID_PLASMA_PISTOL, 
+            PID_ASSAULT_RIFLE, PID_FN_FAL, PID_HK_P90C, PID_COMBAT_SHOTGUN, PID_HK_CAWS, PID_FLAMER, PID_MINIGUN, PID_M60,
+            PID_FRAG_GRENADE, PID_CATTLE_PROD, PID_POWER_FIST, PID_WAKIZASHI_BLADE, PID_RIPPER
+        },
+        {   //other
+            PID_MENTATS, PID_RADAWAY, PID_RAD_X
+        }
+    },
+    {   //tier 4-5
+        {   //armors
+            PID_POWERED_ARMOR, PID_HARDENED_POWER_ARMOR, PID_BROTHERHOOD_COMBAT_ARMOR, PID_ENCLAVE_COMBAT_ARMOR, PID_BROTHERHOOD_HELMET, PID_HARDENED_POWER_HELMET, PID_ENCLAVE_COMBAT_HELMET
+        },
+        {   //guns
+            PID_ALIEN_LASER_PISTOL, PID_TURBO_PLASMA_RIFLE, PID_BOZAR, PID_INDEPENDENT, PID_SOLAR_SCORCHER,
+            PID_HK_G11E, PID_M72_GAUSS_RIFLE, PID_PHAZER, PID_YK32_PULSE_PISTOL, PID_PK12_GAUSS_PISTOL, PID_PANCOR_JACKHAMMER
+        },
+        {   //other
+            PID_FIELD_MEDIC_KIT, PID_PARAMEDICS_BAG, PID_OIL_CAN, PID_HYPO
+        }
+    }
+};
+
+					//gun + ammo
+                    uint gunPid = random_from_array(raidersItems[2][1]);
+                    uint gunCnt = 1;
+
+                    if(gunPid == PID_MOLOTOV_COCKTAIL || gunPid == PID_PLASMA_GRENADE || gunPid == PID_FRAG_GRENADE || gunPid == PID_SHARP_SPEAR || gunPid == PID_THROWING_KNIFE)
+                        gunCnt = Random(3, 10);
+
+                    Item@ gun = player.AddItem(gunPid, gunCnt);
+
+                    player.SetFavoriteItem(SLOT_HAND1, gunPid);
+                    if(valid(gun))
+                    {
+                        if(gun.IsDeteriorable())
+                        {
+                            uint wear = Random(0, 0);
+                            SetMinWear(gun, wear);
+                            SetWear(gun, wear);
+                        }
+
+                        //player.MoveItem(gun.Id, gun.GetCount(), SLOT_HAND1);
+                        if(gun.Proto.Weapon_DefaultAmmoPid > 0)
+                        {
+                            if(gun.Proto.Weapon_DefaultAmmoPid == PID_ROCKET_AP || gun.Proto.Weapon_DefaultAmmoPid == PID_EXPLOSIVE_ROCKET)
+                                player.AddItem(gun.Proto.Weapon_DefaultAmmoPid, Random(10, 15)); 
+                            else if(gun.Proto.Weapon_DefaultAmmoPid == PID_40MM_GRENADE)
+                                player.AddItem(gun.Proto.Weapon_DefaultAmmoPid, Random(15, 25));    
+                            else
+                            {
+                                uint rounds = MAX(gun.Proto.Weapon_Round_0, gun.Proto.Weapon_Round_1);
+                                player.AddItem(gun.Proto.Weapon_DefaultAmmoPid, rounds * Random(25, 35));
+                            }
+                        }
+
+                        if(Random(1, 1) == 1)
+                            AddSpecialBonusRaidersFarm(gun);
+            
+				//armor
+                    uint armorPos = Random(0, raidersItems[2][0].length()-1);
+                    if(armorPos%2 != 0)
+                        --armorPos;
+                    uint armorPid = raidersItems[2][0][armorPos];
+                    Item@ armor = player.AddItem(armorPid, 1);
+                    player.SetFavoriteItem(SLOT_ARMOR, armorPid);
+                    if(valid(armor))
+                    {
+                        uint wear = Random(0, 0);
+                        SetMinWear(armor, wear);
+                        SetWear(armor, wear);
+                        //int crover = ( (player.Stat[ST_GENDER] == GENDER_MALE) ? armor.Proto.Armor_CrTypeMale : armor.Proto.Armor_CrTypeFemale );
+                        //player.StatBase[ST_BASE_CRTYPE] = crover;
+                        //player.MoveItem(armor.Id, 1, SLOT_ARMOR);
+                        if(Random(1, 1) == 1)
+                            AddSpecialBonusRaidersFarm(armor);
+                    }
+
+                    uint helmetPid = raidersItems[2][0][armorPos+1];
+                    if(helmetPid > 0)
+                    {
+                        Item@ helmet = player.AddItem(helmetPid, 1);
+                        if(valid(helmet))
+                        {
+                            uint wear = Random(0, 0);
+                            SetMinWear(helmet, wear);
+                            SetWear(helmet, wear);
+                            //player.MoveItem(helmet.Id, 1, SLOT_HEAD);
+                            if(Random(1, 1) == 1)
+                                AddSpecialBonusRaidersFarm(helmet);
+                        }
+                    }			
+					
+				}
+            
+        
+
+
+
+
+
+}
+
+//for mining bonus
+void dlg_Burnham(Critter& player, Critter@ npc, string@ text)    // shows trents profits @lex pointsHAM@
+{
+    if(!IS_DIALOG_GENERATED(text))
+        return;
+        
+    text  = "$pointsHAM" + GetGvar( GVAR_BURNHAM );
+
+}
+
+void FoolsGold(Critter& player, Critter@ npc)
+{
+    int mapId = 0;
+    if(valid(player.GetMap()))
+        mapId = player.GetMap().Id;
+
+    int npcId = -1;
+    int dialogId = -1;
+
+    if(valid(npc))
+    {
+        npcId = npc.Id;
+        dialogId = npc.Param[ST_DIALOG_ID];
+    }
+
+    //FLog(LOG_DIALOG_REWARD, "FoolsGold Usage player: [" + player.Id + "] " + player.Name + " mapId: " + mapId + " npc: " + npcId + " dialog: " + dialogId);
+
+    ProcessRewardTable( player, FoolsGoldReward);
+    
+    if(Random(1, 12) == 1)
+        player.AddItem(PID_GOLD_NUGGET, 1);
+}
+
+const uint[][][] FoolsGoldReward =
+{
+    {
+        { PID_ELECTRONIC_PARTS, 1}
+    },
+    {
+        { PID_ELECTRONIC_PARTS2, 1 }
+    },
+    {
+        { PID_ALLOYS, 1 }
+    },
+    {
+        { PID_ALLOYS2, 1 }
+    },
+    {
+        { PID_METAL_PARTS, 1 }
+    },
+    {
+        { PID_METAL_PARTS2, 1 }
+    },
+    {   
+        { PID_CHEMICALS, 1 }
+    },
+    {
+        { PID_CHEMICALS2, 1 }
+    },
+    {
+        { PID_GUNPOWDER, 1}
+    },
+    {
+        { PID_GUNPOWDER2, 1 }
+    },
+    {
+        { PID_MINERAL, 1 }
+    },
+    {
+        { PID_MINERALS2, 1 }
+    },
+    {
+        { PID_FIBER, 1 }
+    },
+    {
+        { PID_FIBRE2, 1 }
+    },
+    {
+        { PID_DOLLAR, 1 }
+    },
+    {
+        { PID_ORE2, 1 }
+    },
+    {
+        { PID_FLINT, 1 }
+    },
+    {
+        { PID_GOLD_TOOTH, 1 }
+    },
+    {
+        { PID_POLYMER, 1 }
+    },
+    {
+        { PID_FIREWOOD, 1 }
+    },
+    {
+        { PID_BARLEY, 1 }
+    },
+    {
+        { PID_BRAHMINSHIT, 1 }
+    },	
+    {
+        { PID_TOBACCO, 1 }
+    }		
+	
+	
+	
+};
+
+void GoldNugget(Critter& player, Critter@ npc)
+{
+    int mapId = 0;
+    if(valid(player.GetMap()))
+        mapId = player.GetMap().Id;
+
+    int npcId = -1;
+    int dialogId = -1;
+
+    if(valid(npc))
+    {
+        npcId = npc.Id;
+        dialogId = npc.Param[ST_DIALOG_ID];
+    }
+
+    //FLog(LOG_DIALOG_REWARD, "GoldNugget Usage player: [" + player.Id + "] " + player.Name + " mapId: " + mapId + " npc: " + npcId + " dialog: " + dialogId);
+
+    ProcessRewardTable( player, GoldNuggetReward);
+    
+    if(Random(1, 12) == 1)
+        player.AddItem(PID_FOOLS_GOLD, 1);
+}
+
+const uint[][][] GoldNuggetReward =
+{
+    {
+        { PID_ELECTRONIC_PARTS, 3}
+    },
+    {
+        { PID_ELECTRONIC_PARTS2, 3 }
+    },
+    {
+        { PID_ALLOYS, 3 }
+    },
+    {
+        { PID_ALLOYS2, 3 }
+    },
+    {
+        { PID_METAL_PARTS, 3 }
+    },
+    {
+        { PID_METAL_PARTS2, 3 }
+    },
+    {   
+        { PID_CHEMICALS, 3 }
+    },
+    {
+        { PID_CHEMICALS2, 3 }
+    },
+    {
+        { PID_GUNPOWDER, 3}
+    },
+    {
+        { PID_GUNPOWDER2, 3 }
+    },
+    {
+        { PID_MINERAL, 3 }
+    },
+    {
+        { PID_MINERALS2, 3 }
+    },
+    {
+        { PID_FIBER, 3 }
+    },
+    {
+        { PID_FIBRE2, 3 }
+    },
+    {
+        { PID_DOLLAR, 3 }
+    },
+    {
+        { PID_ORE2, 3 }
+    },
+    {
+        { PID_FLINT, 3 }
+    },
+    {
+        { PID_GOLD_TOOTH, 3 }
+    },
+    {
+        { PID_POLYMER, 3 }
+    },
+    {
+        { PID_FIREWOOD, 3 }
+    },
+    {
+        { PID_BARLEY, 3 }
+    },
+    {
+        { PID_BRAHMINSHIT, 3 } 
+    },	
+    {
+        { PID_TOBACCO, 3 }
+    }		
+	
+	
+	
+};
+
+void UraniumOre(Critter& player, Critter@ npc)
+{
+    int mapId = 0;
+    if(valid(player.GetMap()))
+        mapId = player.GetMap().Id;
+
+    int npcId = -1;
+    int dialogId = -1;
+
+    if(valid(npc))
+    {
+        npcId = npc.Id;
+        dialogId = npc.Param[ST_DIALOG_ID];
+    }
+
+    //FLog(LOG_DIALOG_REWARD, "UraniumOre Usage player: [" + player.Id + "] " + player.Name + " mapId: " + mapId + " npc: " + npcId + " dialog: " + dialogId);
+
+    ProcessRewardTable( player, UraniumOreReward);
+    
+    if(Random(1, 12) == 1)
+        player.AddItem(PID_GOLD_NUGGET, 1);
+}
+
+const uint[][][] UraniumOreReward =
+{
+    {
+        { PID_ELECTRONIC_PARTS, 3}
+    },
+    {
+        { PID_ELECTRONIC_PARTS2, 3 }
+    },
+    {
+        { PID_ALLOYS, 3 }
+    },
+    {
+        { PID_ALLOYS2, 3 }
+    },
+    {
+        { PID_METAL_PARTS, 3 }
+    },
+    {
+        { PID_METAL_PARTS2, 3 }
+    },
+    {   
+        { PID_CHEMICALS, 3 }
+    },
+    {
+        { PID_CHEMICALS2, 3 }
+    },
+    {
+        { PID_GUNPOWDER, 3}
+    },
+    {
+        { PID_GUNPOWDER2, 3 }
+    },
+    {
+        { PID_MINERAL, 3 }
+    },
+    {
+        { PID_MINERALS2, 3 }
+    },
+    {
+        { PID_FIBER, 3 }
+    },
+    {
+        { PID_FIBRE2, 3 }
+    },
+    {
+        { PID_DOLLAR, 3 }
+    },
+    {
+        { PID_ORE2, 3 }
+    },
+    {
+        { PID_FLINT, 3 }
+    },
+    {
+        { PID_GOLD_TOOTH, 3 }
+    },
+    {
+        { PID_POLYMER, 3 }
+    },
+    {
+        { PID_FIREWOOD, 3 }
+    },
+    {
+        { PID_BARLEY, 3 }
+    },
+    {
+        { PID_BRAHMINSHIT, 3 } 
+    },	
+    {
+        { PID_TOBACCO, 3 }
+    }		
+	
+	
+	
+};
+
+//for war public system between followers and cathedral
+void dlg_WarFC(Critter& player, Critter@ npc, string@ text)    // shows war points for fota vs cotc @lex pointsFOTA@ @lex pointsCOTC@
+{
+    if(!IS_DIALOG_GENERATED(text))
+        return;
+		
+		    Map@ map = player.GetMap();
+ 
+    if( !valid(map) )
+    {
+        player.Say( SAY_NETMSG, "Dialog error, blame random dev." );
+        text = "DIALOG ERROR";
+        return;
+    }
+ 
+    uint locId = map.GetLocation().Id;
+		       
+    text = "$pointsFOTA" + GetGvar( GVAR_FOTA );
+    text += "$pointsCOTC" + GetGvar( GVAR_COTC );
+    text += "$pointsCRIS" + GetGvar( GVAR_CRIS );
+    text += "$pointsDHAR" + GetGvar( GVAR_DHAR );
+    text += "$pointsHUBO" + GetGvar( GVAR_HUBO );
+    text += "$pointsMORM" + GetGvar( GVAR_MORM );
+    text += "$pointsRENU" + GetGvar( GVAR_RENU );
+    text += "$pointsREV"  + GetGvar( GVAR_REV  );
+	text += "$faithpoints" + GetLLvar( locId, LLVAR_q_faithpoints );
+}
+
+//giving player item in specified condition
+void r_GiveDeterioratedItem(Critter& player, Critter@ npc, int pid, int det)
+{
+    Item@ itm = player.AddItem(pid, 1);
+
+    if(valid(itm))
+    {
+        if(itm.IsDeteriorable())
+        {
+            SetMinWear(itm, det);
+            SetWear(itm, det);
+        }
+    }
+}
+
+//Puppet Healing
+void r_PuppetHeal(Critter& player, Critter@ npc)             // use this for healing Docs only, it fixes limbs too
+{
+    player.DamageBase[DAMAGE_EYE] = 0;
+    player.DamageBase[DAMAGE_RIGHT_ARM] = 0;
+    player.DamageBase[DAMAGE_LEFT_ARM] = 0;
+    player.DamageBase[DAMAGE_RIGHT_LEG] = 0;
+    player.DamageBase[DAMAGE_LEFT_LEG] = 0;
+    player.StatBase[ST_CURRENT_HP] = player.Stat[ST_MAX_LIFE];
+
+    DropPoison(player);
+    DropRadiation(player);
+}
+
+//MagicItemSpawner - Tier 4-5 for TESTING ONE ITEM
+void r_AddTestLoot (Critter& player, Critter@ npc)    // use this to spawn high level statted random chance items, gives 1 gun, helmet, armor, and ammo set, potentially with stats
+{
+
+//[][]   loot level (0 to 2) + item category (0 = armor 1 = guns 2= misc 3= misc)
+array<array<array<uint>>> raidersItems = 
+{
+    {   // easy
+        {   //armors
+            PID_LEATHER_JACKET, PID_LEATHER_JACKET_HELMET, PID_CURED_LEATHER_ARMOR, PID_COMBAT_LEATHER_JACKET_HELMET,
+            PID_LEATHER_ARMOR, PID_LEATHER_ARMOR_HELMET, PID_LEATHER_ARMOR_MK_II, PID_LEATHER_ARMOR_HELMET_MK2, PID_METAL_ARMOR, PID_METAL_HELMET
+        },
+        {   //guns
+            PID_ZIP_GUN, PID_9MM_MAUSER, PID_10MM_PISTOL, PID_DESERT_EAGLE, PID_44_MAGNUM_REVOLVER, PID_LASER_PISTOL,
+            PID_HUNTING_RIFLE, PID_SCOPED_HUNTING_RIFLE, PID_RED_RYDER_BB_GUN, PID_SHOTGUN, PID_10MM_SMG,
+            PID_MOLOTOV_COCKTAIL, PID_THROWING_KNIFE, PID_COMBAT_KNIFE, PID_SWITCHBLADE, PID_SHARP_SPEAR, PID_SLEDGEHAMMER, PID_SPIKED_KNUCKLES
+        },
+        {   //other
+            PID_NUKA_COLA, PID_BEER, PID_GAMMA_GULP_BEER, PID_ROENTGEN_RUM, PID_ROT_GUT, PID_MUTATED_FRUIT, PID_CIGARETTES
+        }
+    },
+    {   //medium
+        {   //armors
+            PID_LEATHER_ARMOR, PID_LEATHER_ARMOR_HELMET, PID_LEATHER_ARMOR_MK_II, PID_LEATHER_ARMOR_HELMET_MK2, PID_METAL_HELMET,
+            PID_METAL_ARMOR, PID_METAL_HELMET, PID_METAL_ARMOR_MK_II, PID_METAL_HELMET_MK2, PID_TESLA_ARMOR, PID_TESLA_HELMET, PID_COMBAT_ARMOR, PID_COMBAT_HELMET
+        },
+        {   //guns
+            PID_14MM_PISTOL, PID_223_PISTOL, PID_GRENADE_PISTOL, PID_TOMMY_GUN, PID_GREASE_GUN, PID_MAGNETO_LASER_PISTOL, PID_PLASMA_PISTOL, 
+            PID_ASSAULT_RIFLE, PID_FN_FAL, PID_HK_P90C, PID_COMBAT_SHOTGUN, PID_HK_CAWS, PID_FLAMER, PID_MINIGUN, PID_M60,
+            PID_FRAG_GRENADE, PID_CATTLE_PROD, PID_POWER_FIST, PID_WAKIZASHI_BLADE, PID_RIPPER
+        },
+        {   //other
+            PID_MENTATS, PID_RADAWAY, PID_RAD_X
+        }
+    },
+    {   //tier 4-5
+        {   //armors
+            PID_ADVANCED_POWER_ARMOR_MK2, PID_APA_HELMET_MK2
+        },
+        {   //guns
+            PID_ADVANCED_POWER_ARMOR_MK2, PID_APA_HELMET_MK2
+        },
+        {   //other
+            PID_ADVANCED_POWER_ARMOR_MK2, PID_APA_HELMET_MK2
+        }
+    }
+};
+
+					//gun + ammo
+                    uint gunPid = random_from_array(raidersItems[2][1]);
+                    uint gunCnt = 1;
+
+                    if(gunPid == PID_MOLOTOV_COCKTAIL || gunPid == PID_PLASMA_GRENADE || gunPid == PID_FRAG_GRENADE || gunPid == PID_SHARP_SPEAR || gunPid == PID_THROWING_KNIFE)
+                        gunCnt = Random(3, 10);
+
+                    Item@ gun = player.AddItem(gunPid, gunCnt);
+
+                    player.SetFavoriteItem(SLOT_HAND1, gunPid);
+                    if(valid(gun))
+                    {
+                        if(gun.IsDeteriorable())
+                        {
+                            uint wear = Random(0, 0);
+                            SetMinWear(gun, wear);
+                            SetWear(gun, wear);
+                        }
+
+                        //player.MoveItem(gun.Id, gun.GetCount(), SLOT_HAND1);
+                        if(gun.Proto.Weapon_DefaultAmmoPid > 0)
+                        {
+                            if(gun.Proto.Weapon_DefaultAmmoPid == PID_ROCKET_AP || gun.Proto.Weapon_DefaultAmmoPid == PID_EXPLOSIVE_ROCKET)
+                                player.AddItem(gun.Proto.Weapon_DefaultAmmoPid, Random(10, 15)); 
+                            else if(gun.Proto.Weapon_DefaultAmmoPid == PID_40MM_GRENADE)
+                                player.AddItem(gun.Proto.Weapon_DefaultAmmoPid, Random(15, 25));    
+                            else
+                            {
+                                uint rounds = MAX(gun.Proto.Weapon_Round_0, gun.Proto.Weapon_Round_1);
+                                player.AddItem(gun.Proto.Weapon_DefaultAmmoPid, rounds * Random(25, 35));
+                            }
+                        }
+
+                        if(Random(1, 1) == 1)
+                            AddSpecialBonusRaidersFarm(gun);
+            
+				//armor
+                    uint armorPos = Random(0, raidersItems[2][0].length()-1);
+                    if(armorPos%2 != 0)
+                        --armorPos;
+                    uint armorPid = raidersItems[2][0][armorPos];
+                    Item@ armor = player.AddItem(armorPid, 1);
+                    player.SetFavoriteItem(SLOT_ARMOR, armorPid);
+                    if(valid(armor))
+                    {
+                        uint wear = Random(0, 0);
+                        SetMinWear(armor, wear);
+                        SetWear(armor, wear);
+                        //int crover = ( (player.Stat[ST_GENDER] == GENDER_MALE) ? armor.Proto.Armor_CrTypeMale : armor.Proto.Armor_CrTypeFemale );
+                        //player.StatBase[ST_BASE_CRTYPE] = crover;
+                        //player.MoveItem(armor.Id, 1, SLOT_ARMOR);
+                        if(Random(1, 1) == 1)
+                            AddSpecialBonusRaidersFarm(armor);
+                    }
+
+                    uint helmetPid = raidersItems[2][0][armorPos+1];
+                    if(helmetPid > 0)
+                    {
+                        Item@ helmet = player.AddItem(helmetPid, 1);
+                        if(valid(helmet))
+                        {
+                            uint wear = Random(0, 0);
+                            SetMinWear(helmet, wear);
+                            SetWear(helmet, wear);
+                            //player.MoveItem(helmet.Id, 1, SLOT_HEAD);
+                            if(Random(1, 1) == 1)
+                                AddSpecialBonusRaidersFarm(helmet);
+                        }
+                    }			
+					
+				}
+            
+        
+
+
+
+
+
+}
+
+//for barter guild
+void dlg_Guild(Critter& player, Critter@ npc, string@ text)    // shows stats @lex @
+{
+    if(!IS_DIALOG_GENERATED(text))
+        return;
+        
+    text  = "$pointsMEM" + GetGvar( GVAR_GuildMembers );
+	text  += "$pointsPRI" + GetGvar( GVAR_GuildPrints );
+}
+
+//for world trader
+void dlg_WTDR(Critter& player, Critter@ npc, string@ text)    // shows stats @lex @
+{
+    if(!IS_DIALOG_GENERATED(text))
+        return;
+		 
+    Map@ map = player.GetMap();
+ 
+    if( !valid(map) )
+    {
+        player.Say( SAY_NETMSG, "Dialog error, blame random dev." );
+        text = "DIALOG ERROR";
+        return;
+    }
+ 
+    uint locId = map.GetLocation().Id;
+        
+    text  =  "$wtMetal"     + GetGvar( GVAR_WTM);
+    text  += "$wtMetal2"    + GetGvar( GVAR_WTM2);
+    text  += "$wtCombat"    + GetGvar( GVAR_WTC);
+    text  += "$wtCombat2"   + GetGvar( GVAR_WTC2);
+    text  += "$wtCombat3"   + GetGvar( GVAR_WTC3);
+    text  += "$wtPower"     + GetGvar( GVAR_WTP);
+	text  += "$wtPower2"    + GetGvar( GVAR_WTP2);
+    text  += "$wtFunds"     + GetGvar( GVAR_WTT );
+	text  += "$wtPoints"    + GetLLvar( locId, LLVAR_WTTP  );
+}
+
+//for lonestar agency
+void dlg_GuildWar(Critter& player, Critter@ npc, string@ text)    // shows stats @lex @
+{
+    if(!IS_DIALOG_GENERATED(text))
+        return;
+        
+    text  = "$pointsMEM2" + GetGvar( GVAR_GuildMembersWar );
+	text  += "$pointsPRI2" + GetGvar( GVAR_GuildPrintsWar );
+}
+
+bool d_IsAreaScouted(Critter& player, Critter@ npc, int zoneSX, int zoneSY, int zoneEX, int zoneEY)
+{
+    bool scouted = true;
+
+    int maxX = __GlobalMapWidth;
+    int maxY = __GlobalMapHeight;
+
+    zoneSX = CLAMP(zoneSX, 0, maxX);
+    zoneEX = CLAMP(zoneEX, zoneSX, maxX);
+    zoneSY = CLAMP(zoneSY, 0, maxY);
+    zoneEY = CLAMP(zoneEY, zoneSY, maxY);
+
+    for(int x=zoneSX; x <= zoneEX && scouted; ++x)
+    {
+        for(int y=zoneSY; y <= zoneEY && scouted; ++y)
+        {
+            if(player.GetFog(x, y) != FOG_NONE)
+                scouted = false;
+
+        }
+    }
+
+    return scouted;
+}
+
+
+//for cops vs robbers
+void dlg_Cops(Critter& player, Critter@ npc, string@ text)    // shows army stats @lex Cops@
+{
+    if(!IS_DIALOG_GENERATED(text))
+        return;
+        
+    text  =    "$Cop" + GetGvar( GVAR_LAW );
+	text  += "$Crime" + GetGvar( GVAR_CRIM );
+	text  += "$GunL" + GetGvar( GVAR_GUNSL );
+	text  += "$GunC" + GetGvar( GVAR_GUNSC );
+	text  += "$HPL" + GetGvar( GVAR_HPLAW );
+	text  += "$HPC" + GetGvar( GVAR_HPCRIM );	
+}
+
+//for player farm totals
+void dlg_FarmStatus(Critter& player, Critter@ npc, string@ text)  //player farm stat checker
+{
+    if(!IS_DIALOG_GENERATED(text))
+        return;
+ 
+    Map@ map = player.GetMap();
+ 
+    if( !valid(map) )
+    {
+        player.Say( SAY_NETMSG, "Dialog error, blame random dev." );
+        text = "DIALOG ERROR";
+        return;
+    }
+ 
+    uint locId = map.GetLocation().Id;
+ 
+    text   = "$farmHP"      + GetLLvar( locId, LLVAR_player_farmHP      );
+    text  += "$farmIncome"  + GetLLvar( locId, LLVAR_player_farmIncome  );
+    text  += "$farmProfits" + GetLLvar( locId, LLVAR_player_farmProfits );
+    text  += "$farmWater"   + GetLLvar( locId, LLVAR_player_farmWater   );
+    text  += "$farmFood"    + GetLLvar( locId, LLVAR_player_farmFood    );
+    text  += "$farmWood"    + GetLLvar( locId, LLVAR_player_farmWood    );
+    text  += "$farmApples"  + GetLLvar( locId, LLVAR_player_farmApples  );
+    text  += "$farmPowder"  + GetLLvar( locId, LLVAR_player_farmPowder  );
+    text  += "$farmRotgut"  + GetLLvar( locId, LLVAR_player_farmRotgut  );
+    text  += "$farmCrate"   + GetLLvar( locId, LLVAR_player_farmCrate   );
+    text  += "$farmCrops"   + GetLLvar( locId, LLVAR_player_farmCrops   );
+    text  += "$farmCows"    + GetLLvar( locId, LLVAR_player_farmCows    );
+    text  += "$farmSH1"     + GetLLvar( locId, LLVAR_player_farmCivi1hp );
+    text  += "$farmSH2"     + GetLLvar( locId, LLVAR_player_farmCivi2hp );
+	text  += "$farmSH3"     + GetLLvar( locId, LLVAR_player_farmCivi3hp );
+	text  += "$farmSH4"     + GetLLvar( locId, LLVAR_player_farmCivi4hp );
+	text  += "$farmSH5"     + GetLLvar( locId, LLVAR_player_farmCivi5hp );
+    text  += "$farmSH6"     + GetLLvar( locId, LLVAR_player_farmCivi6hp );
+    text  += "$farmSH7"     + GetLLvar( locId, LLVAR_player_farmCivi7hp );
+    text  += "$farmSHA1"    + GetLLvar( locId, LLVAR_player_farmCivi1ha );
+    text  += "$farmSHA2"    + GetLLvar( locId, LLVAR_player_farmCivi2ha );	
+    text  += "$farmSHA3"    + GetLLvar( locId, LLVAR_player_farmCivi3ha );
+    text  += "$farmSHA4"    + GetLLvar( locId, LLVAR_player_farmCivi4ha );	
+    text  += "$farmSHA5"    + GetLLvar( locId, LLVAR_player_farmCivi5ha );	
+    text  += "$farmSHA6"    + GetLLvar( locId, LLVAR_player_farmCivi6ha );	
+    text  += "$farmSHA7"    + GetLLvar( locId, LLVAR_player_farmCivi7ha );	
+    text  += "$farmtax"     + GetLLvar( locId, LLVAR_player_farmTax );	
+}
+
+void dlg_FarmGen(Critter& player, Critter@ npc, string@ text)  //player farm stat checker
+{   
+    if(!IS_DIALOG_GENERATED(text))
+        return;
+ 
+    Map@ map = player.GetMap();
+ 
+    if( !valid(map) )
+    {
+        player.Say( SAY_NETMSG, "Dialog error, blame random dev." );
+        text = "DIALOG ERROR";
+        return;
+    }
+ 
+    uint locId = map.GetLocation().Id;
+    int myLittleMonnies = GetLLvar( locId, LLVAR_player_farmProfits ) + GetLLvar( locId, LLVAR_player_farmIncome );
+    //SetLLvar( locId, LLVAR_player_farmIncome, myLittleMonnies );
+	Location@ loc = GetLocation(locId);
+	SetLLvar(loc, LLVAR_player_farmIncome, myLittleMonnies);
+	text  += "$farmGen" + myLittleMonnies;
+}
+
+void TriggerRandomBroadcast(Critter& player, Critter@ npc)
+{
+    // List of potential broadcast messages
+    array<string> messages = {
+        "Attention all Vault Dwellers! The Puppet Man and his cronies are terrorizing L.A! Reinforcements needed! %COUNTDOWN%",
+        "Attention all Vault Dwellers! The Puppet Man and his cronies are terrorizing Vault City! Reinforcements needed! %COUNTDOWN%",
+        "Attention all Vault Dwellers! The Puppet Man and his cronies are terrorizing the Hub! Reinforcements needed! %COUNTDOWN%",
+        "Attention all Vault Dwellers! The Puppet Man and his cronies are terrorizing the NCR! Reinforcements needed! %COUNTDOWN%",
+        "Attention all Vault Dwellers! The Puppet Man and his cronies are terrorizing San Francisco! Reinforcements needed! %COUNTDOWN%"
+    };
+
+    // Randomly choose one message
+    int randIndex = Random(0, int(messages.length()) - 1);
+    string chosenMessage = messages[randIndex];
+
+    // Trigger the server event with the selected message
+    ServerEventCNTSet(chosenMessage, 131, 11, REAL_MINUTE(60));
+}
+
+void TriggerRandomEvent(Critter& player, Critter@ npc)
+{
+    // List of messages, PIDs, and optional map coloring or parameters
+    array<string> messages = {
+        "A large army of Floaters and Centaurs have been spotted near L.A! %COUNTDOWN%",
+        "Heavy super mutant activity near Shady Sands. Evacuation may be necessary. %COUNTDOWN%",
+        "Brotherhood patrols report sightings of Deathclaws near New Reno. Proceed with caution. %COUNTDOWN%",
+        "A horde of wild ghouls is sweeping across the desert near The Hub! %COUNTDOWN%",
+        "Bandit raiders have begun a siege on Vault City. Reinforcements needed! %COUNTDOWN%"
+    };
+
+    array<array<uint>> spawnCoords = {
+        {1170, 974},
+        {1326, 988},
+        {1476, 1066},
+        {1522, 1172},
+        {1718, 982}
+    };
+
+    // Pick random index
+    int randIndex = Random(0, int(messages.length()) - 1);
+    string chosenMessage = messages[randIndex];
+
+    // Random coordinates and location PID
+    array<uint16> locationIds = {234, 232, 231, 230}; // Expandable
+    uint16 locPid = locationIds[Random(0, locationIds.length() - 1)];
+    uint wx = spawnCoords[randIndex][0];
+    uint wy = spawnCoords[randIndex][1];
+
+    // Create location
+    Critter@[] players = { player };
+    int loc = CreateLocation(locPid, wx, wy, players);
+    if (loc == 0) return;
+    player.SetKnownLoc(true, loc);
+
+    GameVar@ locidv = GetLocalVar(LVAR_x_pvpsmall1_locid, player.Id);
+    locidv = loc;
+
+    Location@ location = GetLocation(loc);
+    location.Color = COLOR_TEAL;
+    location.AutoGarbage = false;
+    location.Update();
+
+    array<Map@> maps;
+    uint count = location.GetMaps(maps);
+    for (uint i = 0; i < count; i++) {
+        maps[i].SetScript(null);
+        maps[i].SetEvent(MAP_EVENT_IN_CRITTER, null);
+        maps[i].SetEvent(MAP_EVENT_CRITTER_DEAD, null);
+    }
+
+    Map@ map = location.GetMapByIndex(0);
+    //SetOwnerId(map, player.Id);
+
+    // Broadcast the custom event
+    ServerEventCNTSet(chosenMessage, 234, 11, REAL_MINUTE(16));
+
+    // Optional: spawn mobs or call reused setup
+    SpawnMobsAtMap(map, player, npc);
+    //SetQuestGarbager(16, player.Id, loc, LVAR_x_pvpsmall1_trigger, QUEST_FAILED);
+    DynamicLocationAddLog(player, npc, locidv, "pvp_small1");
+}
+
+void SpawnMobsAtMap(Map@ map, Critter& player, Critter@ npc)
+{
+	array<uint16> ClownPids = { 957 };   // spawns the enemy
+    array<Entire> entires;
+    ParseEntires(map, entires, 666);
+    Entire@ ent = random_from_array(entires);
+    uint16 hx = ent.HexX, hy = ent.HexY;
+    map.GetHexCoord(hx, hy, hx, hy, Random(0, 359), Random(3, 7));
+
+    for (uint i = 0, j = Random(12, 12); i < j; i++) {
+        uint8 dir = Random(0, 5);
+        map.MoveHexByDir(hx, hy, dir, Random(1, 2));
+        uint16 npcPid = ClownPids[Random(0, ClownPids.length() - 1)];
+        int[] params = {
+            ST_TEAM_ID, 5001,
+            ST_KILL_EXPERIENCE, 1000,
+            ST_REPLICATION_TIME, REPLICATION_NEVER,
+            ST_LEVEL, 12,
+            ST_DIALOG_ID, 87,
+        };
+        Critter@ clown = map.AddNpc(npcPid, hx, hy, Random(0, 5), params, null, "pvp_small1@_ClownInit");
+        if (valid(clown)) break;
+    }
+}
+
+
+void Easter(Critter& player, Critter@ npc)
+{
+    int mapId = 0;
+    if(valid(player.GetMap()))
+        mapId = player.GetMap().Id;
+
+    int npcId = -1;
+    int dialogId = -1;
+
+    if(valid(npc))
+    {
+        npcId = npc.Id;
+        dialogId = npc.Param[ST_DIALOG_ID];
+    }
+
+    FLog(LOG_DIALOG_REWARD, "Easter Reward Usage player: [" + player.Id + "] " + player.Name + " mapId: " + mapId + " npc: " + npcId + " dialog: " + dialogId);
+
+    ProcessRewardTable( player, EasterReward);
+    
+    if(Random(1, 100) == 1)
+        player.AddItem(PID_EASTER_EGG, 1);
+}
+
+const uint[][][] EasterReward =
+{
+    {
+        { PID_IMPLANT_DERMAL, 1}
+    },
+    {
+        { PID_IMPLANT_PHOENIX, 1 }
+    },
+    {
+        { PID_IMPLANT_NEMEAN, 1 }
+    },
+    {
+        { PID_IMPLANT_STRENGTH, 1 }
+    },
+    {
+        { PID_IMPLANT_PERCEPTION, 1 }
+    },
+    {
+        { PID_IMPLANT_ENDURANCE, 1 }
+    },
+    {   
+        { PID_IMPLANT_CHARISMA, 1 }
+    },
+    {
+        { PID_IMPLANT_INTELLIGENCE, 1 }
+    },
+    {
+        { PID_IMPLANT_AGILITY, 1}
+    },
+    {
+        { PID_IMPLANT_LUCK, 1 }
+    },
+    {
+        { PID_CATS_PAW_ISSUE_5, 25 }
+    },
+    {
+        { PID_BIG_BOOK_OF_SCIENCE, 25 }
+    },
+    {
+        { PID_DEANS_ELECTRONICS, 25 }
+    },
+    {
+        { PID_FIRST_AID_BOOK, 25 }
+    },
+    {
+        { PID_SCOUT_HANDBOOK, 25 }
+    },
+    {
+        { PID_BARTER_BOOK, 25 }
+    },
+    {
+        { PID_GUNS_AND_BULLETS, 25 }
+    },
+    {
+        { PID_CHEMISTRY_MANUAL, 25 }
+    },
+    {
+        { PID_TECHNICAL_MANUAL, 25 }
+    },
+    {
+        { PID_ACCOUNT_BOOK, 25 }
+    },
+    {
+        { PID_BECKY_BOOK, 25 }
+    },
+    {
+        { PID_CATS_PAW, 25 } 
+    },	
+    {
+        { PID_BOTTLE_CAPS, 50000 }
+    },
+    {
+        { PID_MR_NIXON_DOLL, 25 }
+    },
+    {
+        { PID_DOLLAR, 50000 }
+    },
+    {
+        { PID_OIL_CAN, 3 }
+    },
+    {
+        { PID_MONUMENT_CHUNCK, 3 }
+    },
+    {
+        { PID_POWERED_ARMOR, 1 } 
+    },	
+    {
+        { PID_ADVANCED_POWER_ARMOR_MK2, 1 }
+    },	
+    {
+        { PID_HYPO, 25 }
+    },
+    {
+        { PID_SUPER_STIMPAK, 100 }
+    },
+    {
+        { PID_HOLY_HAND_GRENADE, 3 }
+    },
+    {
+        { PID_HARDENED_POWER_ARMOR, 1 }
+    },
+    {
+        { PID_KOKOWEEF_MINE_SCRIP, 50000 }
+    },
+    {
+        { PID_MORNING_STAR_MINE, 50000 } 
+    },	
+    {
+        { PID_ADVANCED_POWER_ARMOR, 1 }
+    }	
+	
+	
+};
+
+void r_BulkOrderRewardDrugs(Critter& player, Critter@ npc)
+{
+    int mapId = 0;
+    if(valid(player.GetMap()))
+        mapId = player.GetMap().Id;
+
+    int npcId = -1;
+    int dialogId = -1;
+
+    if(valid(npc))
+    {
+        npcId = npc.Id;
+        dialogId = npc.Param[ST_DIALOG_ID];
+    }
+
+    FLog(LOG_DIALOG_REWARD, "Reward - RewardBODrugs player: [" + player.Id + "] " + player.Name + " mapId: " + mapId + " npc: " + npcId + " dialog: " + dialogId);
+
+    ProcessRewardTable( player, RewardBODrugs);
+    
+    if(Random(1, 5) == 1)
+        player.AddItem(PID_BEER, 6);
+}
+
+const uint[][][] RewardBODrugs =
+{
+    {
+        { PID_JET, 1 },
+		{ PID_PSYCHO, 1 }
+        
+    },
+    {
+        { PID_BUFFOUT, 1 },
+		{ PID_MENTATS, 1 }
+        
+    },
+    {
+        { PID_PSYCHO, 1 },
+		{ PID_RADAWAY, 1 }
+        
+    },
+    {
+        { PID_MENTATS, 1 },
+        { PID_RAD_X, 1 }
+    },
+    {
+        { PID_RADAWAY, 1 },
+        { PID_JET, 1 }
+    },
+    {
+        { PID_RAD_X, 1 },
+		{ PID_PSYCHO, 1 }
+        
+    },
+    {   
+        { PID_JET, 1 },
+		{ PID_BUFFOUT, 1 }
+        
+    }   
+};
+
+void BuyingPancor(Critter& player, Critter@ npc)
+{
+    Item@ spawn = player.AddItem(PID_PANCOR_JACKHAMMER, 1);  // replace this with your choice of item    
+
+    if (valid(spawn))
+    {
+        AddSpecialBonusRaidersFarm(spawn); //adds fancy bonuses
+    }
+}
+
+void BuyingXL(Critter& player, Critter@ npc)
+{
+    Item@ spawn = player.AddItem(PID_INDEPENDENT, 1);  // replace this with your choice of item    
+
+    if (valid(spawn))
+    {
+        AddSpecialBonusRaidersFarm(spawn); //adds fancy bonuses
+    }
+}
+
+void BuyingGPistol(Critter& player, Critter@ npc)
+{
+    Item@ spawn = player.AddItem(PID_PK12_GAUSS_PISTOL, 1);  // replace this with your choice of item    
+
+    if (valid(spawn))
+    {
+        AddSpecialBonusRaidersFarm(spawn); //adds fancy bonuses
+    }
+}
+
+void BuyingGRifle(Critter& player, Critter@ npc)
+{
+    Item@ spawn = player.AddItem(PID_M72_GAUSS_RIFLE, 1);  // replace this with your choice of item    
+
+    if (valid(spawn))
+    {
+        AddSpecialBonusRaidersFarm(spawn); //adds fancy bonuses
+    }
+}
+
+void BuyingHK11(Critter& player, Critter@ npc)
+{
+    Item@ spawn = player.AddItem(PID_HK_G11, 1);  // replace this with your choice of item    
+
+    if (valid(spawn))
+    {
+        AddSpecialBonusRaidersFarm(spawn); //adds fancy bonuses
+    }
+}
+
+void BuyingHK11E(Critter& player, Critter@ npc)
+{
+    Item@ spawn = player.AddItem(PID_HK_G11E, 1);  // replace this with your choice of item    
+
+    if (valid(spawn))
+    {
+        AddSpecialBonusRaidersFarm(spawn); //adds fancy bonuses
+    }
+}
+
+void BuyingBozar(Critter& player, Critter@ npc)
+{
+    Item@ spawn = player.AddItem(PID_BOZAR, 1);  // replace this with your choice of item    
+
+    if (valid(spawn))
+    {
+        AddSpecialBonusRaidersFarm(spawn); //adds fancy bonuses
+    }
+}
+
+void BuyingVindi(Critter& player, Critter@ npc)
+{
+    Item@ spawn = player.AddItem(PID_VINDICATOR_MINIGUN, 1);  // replace this with your choice of item    
+
+    if (valid(spawn))
+    {
+        AddSpecialBonusRaidersFarm(spawn); //adds fancy bonuses
+    }
+}
+
+void BuyingAlien(Critter& player, Critter@ npc)
+{
+    Item@ spawn = player.AddItem(PID_ALIEN_LASER_PISTOL, 1);  // replace this with your choice of item    
+
+    if (valid(spawn))
+    {
+        AddSpecialBonusRaidersFarm(spawn); //adds fancy bonuses
+    }
+}
+
+void BuyingPulsePistol(Critter& player, Critter@ npc)
+{
+    Item@ spawn = player.AddItem(PID_YK32_PULSE_PISTOL, 1);  // replace this with your choice of item    
+
+    if (valid(spawn))
+    {
+        AddSpecialBonusRaidersFarm(spawn); //adds fancy bonuses
+    }
+}
+
+void BuyingPulseRifle(Critter& player, Critter@ npc)
+{
+    Item@ spawn = player.AddItem(PID_YK42B_PULSE_RIFLE, 1);  // replace this with your choice of item    
+
+    if (valid(spawn))
+    {
+        AddSpecialBonusRaidersFarm(spawn); //adds fancy bonuses
+    }
+}
+
+void BuyingTBR(Critter& player, Critter@ npc)
+{
+    Item@ spawn = player.AddItem(PID_TURBO_PLASMA_RIFLE, 1);  // replace this with your choice of item    
+
+    if (valid(spawn))
+    {
+        AddSpecialBonusRaidersFarm(spawn); //adds fancy bonuses
+    }
+}
+
+void BuyingBOS(Critter& player, Critter@ npc)
+{
+    Item@ spawn = player.AddItem(PID_BROTHERHOOD_COMBAT_ARMOR, 1);  // replace this with your choice of item    
+    Item@ spawn2 = player.AddItem(PID_BROTHERHOOD_HELMET, 1);
+    if (valid(spawn))
+    {
+        AddSpecialBonusRaidersFarm(spawn); //adds fancy bonuses
+    }
+    if (valid(spawn2))
+    {
+        AddSpecialBonusRaidersFarm(spawn); //adds fancy bonuses
+    }	
+}
+
+void BuyingDesert(Critter& player, Critter@ npc)
+{
+    Item@ spawn = player.AddItem(PID_DESERT_COMBAT_ARMOR, 1);  // replace this with your choice of item    
+    Item@ spawn2 = player.AddItem(PID_DESERT_COMBAT_HELMET, 1);
+    if (valid(spawn))
+    {
+        AddSpecialBonusRaidersFarm(spawn); //adds fancy bonuses
+    }
+    if (valid(spawn2))
+    {
+        AddSpecialBonusRaidersFarm(spawn); //adds fancy bonuses
+    }
+}
+
+void BuyingEnclave(Critter& player, Critter@ npc)
+{
+    Item@ spawn = player.AddItem(PID_ENCLAVE_COMBAT_ARMOR, 1);  // replace this with your choice of item    
+    Item@ spawn2 = player.AddItem(PID_ENCLAVE_COMBAT_HELMET, 1);
+    if (valid(spawn))
+    {
+        AddSpecialBonusRaidersFarm(spawn); //adds fancy bonuses
+    }
+    if (valid(spawn2))
+    {
+        AddSpecialBonusRaidersFarm(spawn); //adds fancy bonuses
+    }	
+}
+
+void BuyingNCR(Critter& player, Critter@ npc)
+{
+    Item@ spawn = player.AddItem(PID_NCR_ARMOR, 1);  // replace this with your choice of item    
+	Item@ spawn2 = player.AddItem(PID_NCR_HELMET, 1);
+    if (valid(spawn))
+    {
+        AddSpecialBonusRaidersFarm(spawn); //adds fancy bonuses
+    }
+    if (valid(spawn2))
+    {
+        AddSpecialBonusRaidersFarm(spawn); //adds fancy bonuses
+    }	
+}
+
+void BuyingPA(Critter& player, Critter@ npc)
+{
+    Item@ spawn = player.AddItem(PID_POWERED_ARMOR, 1);  // replace this with your choice of item    
+	Item@ spawn2 = player.AddItem(PID_POWER_HELMET, 1);
+    if (valid(spawn))
+    {
+        AddSpecialBonusRaidersFarm(spawn); //adds fancy bonuses
+    }
+    if (valid(spawn))
+    {
+        AddSpecialBonusRaidersFarm(spawn2); //adds fancy bonuses
+    }
+}
+
+void BuyingHPA(Critter& player, Critter@ npc)
+{
+    Item@ spawn = player.AddItem(PID_HARDENED_POWER_ARMOR, 1);  // replace this with your choice of item 
+	Item@ spawn2 = player.AddItem(PID_HARDENED_POWER_HELMET, 1);
+	
+    if (valid(spawn))
+    {
+        AddSpecialBonusRaidersFarm(spawn); //adds fancy bonuses
+    }
+	
+    if (valid(spawn2))
+    {
+        AddSpecialBonusRaidersFarm(spawn2); //adds fancy bonuses
+    }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+#endif // __DIALOG__ //

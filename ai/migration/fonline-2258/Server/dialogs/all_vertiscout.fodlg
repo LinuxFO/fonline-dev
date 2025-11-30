@@ -1,0 +1,69 @@
+[comment]
+
+
+[data]
+lang=engl
+
+[dialog]
+&
+1 1000 None 0 #
+7 1010 D _var p z_bigeventworld = 0 #
+4 1020 D _var p z_bigeventworld = 1 @
+30 2000 None 0 #
+3 2010 D _var p z_bigeventworld = 0 R _script dialog@r_PlaySoundGun 1 5 R _var p z_bigeventworld = 1 R _script quest_bigevent@r_SpawnLoc 0  #
+0 2020 D _var p z_bigeventworld = 0 #
+0 2030 D _var p z_bigeventworld = 1 @
+3 3000 None 0 @
+20 4000 None 0 @
+4 5000 None 0 @
+5 6000 None 0 @
+7 7000 None 0 #
+10 7010 D _var p z_bigeventworld = 0 #
+0 7020 D _var p z_bigeventworld = 0 #
+0 7030 D _var p z_bigeventworld = 1 @
+8 8000 None 0 #
+41 8010 R _script dialog@r_PlaySoundGun 1 1 @
+10 9000 None 0 #
+42 9010 D _item p PID_HOWITZER_SHELL > 0 R _script dialog@r_PlaySoundGun 1 4 R _item p PID_HOWITZER_SHELL - 1 #
+0 9020 @
+40 10000 None 0 @
+41 11000 None 0 #
+41 11010 R _script dialog@r_PlaySoundGun 1 1 R _script dialog@r_JumpToRandomNode 3 1 2 10 @
+42 12000 None 0 #
+42 12010 R _script dialog@r_JumpToRandomNode 3 3 4 10 &
+
+[engl]
+{100}{}{Skywatcher}
+{200}{}{You see a delusional skywatcher.}
+{210}{}{With one eye always to the skies, and the other on their belongings this individual looks like they haven't slept in weeks. You can't help but wonder what they're doing here though...}
+{1000}{}{Predialogue installations}
+{1010}{}{not active}
+{1020}{}{active in world}
+{2000}{}{Looks like we got a hit! There's a Vertibird going down right now as we speak! I'll give you the location if you want it.}
+{2010}{}{Sure, show me where this crash site is on my map.}
+{2020}{}{Nevermind. I'll just be going.}
+{2030}{}{Guess I'd better go hunt down that Vertibird...}
+{3000}{}{Hehe! Yeah! I'll mark the location on your map! Hurry up and grab the loot before someone else does! You've only got an hour until it's completely gone.}
+{4000}{}{Yeah, but bummer. Our boys missed! It didn't go down! Come back later. Maybe next time we'll hit a ship.}
+{5000}{}{A Vertibird has already crashed! It's out there somewhere! You'll find it if you look. Just be careful! The whole state is eager to get their hands on that Enclave loot!}
+{6000}{}{Huh? What? Can't you see I'm busy here? Way too busy to deal with you youngsters! Come back once you've grown a few more inches.}
+{7000}{}{I'm a Skywatcher! The NCR is paying me top dollar to scout out any signs of Enclave Vertibirds. Once I get their coordinates I shoot 'em down. Fifty/Fifty chance it goes splat. The other? It flies away. }
+{7010}{}{Have you seen any Vertibirds lately?}
+{7020}{}{Nevermind. I'll just be going.}
+{7030}{}{Guess I'd better go hunt down that Vertibird.}
+{8000}{}{Let me check the logs!}
+{8010}{}{[Wait for results]}
+{9000}{}{Looks like we got a lock on another fancy Enclave Vertibird! Let's shoot it down!!! You got a howitzer shell by any chance? 
+
+AMMO NEEDED!
+
+
+1x Howitzer Shell}
+{9010}{}{Fire!! [Consume Howitzer Shell]}
+{9020}{}{I'll be back with some spare ammo, eventually.}
+{10000}{}{Oh, damnit! We missed! Ohhhhhh, so close! Come back later, buddy. Maybe next time we'll strike it rich.}
+{11000}{}{[You watch and listen as the machine infront of you begins to rotate, beep, hum, and direct itself towards a viable target!]}
+{11010}{}{[Eagerly await the results]}
+{12000}{}{[The AA cannon fires off a round! The shockwave nearly knocks you to the ground!]}
+{12010}{}{[Wait in anticipation for the results!]}
+

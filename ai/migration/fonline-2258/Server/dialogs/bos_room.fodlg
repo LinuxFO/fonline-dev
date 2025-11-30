@@ -1,0 +1,64 @@
+[comment]
+
+
+[data]
+lang=engl
+
+[dialog]
+&
+1 1000 None 0 #
+18 1010 D _script dialog@d_IsNotMemberOf 1 FACTION_BOS #
+2 1020 @
+2 2000 None 0 #
+5 2010 D _param p ST_STRENGTH > 99 #
+9 2020 D _param p ST_STRENGTH > 99 #
+22 2030 D _param p ST_STRENGTH > 99 #
+0 2040 @
+4 3000 None 0 #
+19 3010 #
+0 3020 @
+5 4000 None 0 #
+6 4010 #
+4 4020 #
+0 4030 @
+6 5000 None 0 #
+0 5010 @
+9 6000 None 0 #
+20 6010 @
+18 7000 None 0 @
+19 8000 None 0 @
+20 9000 None 0 @
+21 10000 None 0 @
+22 11000 None 0 #
+21 11010 &
+
+[engl]
+{100}{}{Melerina}
+{200}{}{You see Melerina, the hotel owner.}
+{210}{}{She looks very strong and healthy for an elderly woman, and has the demeanor of an old, retired military officer. Most likely a retired Brotherhood of Steel Knight, or Elder.}
+{1000}{}{Predialogue installations}
+{1010}{}{Unknown}
+{1020}{}{Familiar}
+{2000}{}{Hello, @sex@|brother!||sister!| Welcome to the Alpha Bunker! Home for veteran soldiers and officers of the Brotherhood of Steel. Are you looking to rent a room here?}
+{2010}{}{Yes! I would like to rent a room! Are there any available?}
+{2020}{}{Yes! I would like to rent a room! Are there any available?}
+{2030}{}{Hi! I'm @pname@. I'm here to pay my rent. The room is still available, yes?}
+{2040}{}{No, not today. Goodbye.}
+{3000}{}{Sorry, it's policy. This is a prestigious Hotel, available only for Brotherhood of Steel veterans that know how to manage their bottle caps. Please come back later when you have the money.}
+{3010}{}{This is ridiculous! Do you know who I am?! @pname@! Hero of the wastes! I save babies!}
+{3020}{}{How unfortunate. Well, goodbye.}
+{4000}{}{Sure, we've still got at least one room available. That'll cost you... @lex price@ caps for @lex time@ days. Would you like to rent it out?}
+{4010}{}{Deal. I'll take it. Care to show me to my room, please?}
+{4020}{}{WHAT?! But I'm a Brotherhood of Steel veteran! Why do I have to pay?! Give me the room for free, damnit!}
+{4030}{}{Hmm, maybe later. Thanks.}
+{5000}{}{With pleasure, @pname@! Right this way, please. We'll find you a free room.}
+{5010}{}{Lead the way! [Follow]}
+{6000}{}{Sorry, @sex@|brother!||sister!| All of our rooms have been taken.}
+{6010}{}{Hmm... that's terribly disappointing. But I suppose it's okay. Guess I'll just have to come back later and ask again.}
+{7000}{}{An outsider?! You're not supposed to be here! You'd better have an escort! Or I will shoot you myself!}
+{8000}{}{@pname@?! Oh, wow! Great job out there! Sorry I can't give you a free room. My hands are tied, but I would if I could.}
+{9000}{}{Come back in about a week, or a couple of days. You never know around here. People come and go.}
+{10000}{}{Every month!@@Once a month!@@Errrr-- I knew I forgot to do something!@@What? Sure. Whatever.@@Why?! Did they move?!@@Oh? No, not yet. They haven't "moved" yet. At all.@@I normally wait until they're filthy and covered with lice first.@@Why? Don't you like the warm, sweaty smell of someone else?@@For the price you're paying... did you really expect otherwise?@@Ah, one day. But probably not today.@@Um... I suppose I could...@@What?! Do I look like your maid?! I used to be an Elder! Change your own damn sheets!!@@No! And I never will! Let it go! This is what I have available! I don't care how sticky the sheets get!@@Nope. Enjoy!@@Hmm, let's check the chart, shall we? And-- OH MY GOD!!! That's not good!}
+{11000}{}{Yes it is. Thanks for paying your rent. I would have confiscated all your possessions if you didn't [She smirks] The room is still yours though. Come back anytime. Bye!}
+{11010}{}{Thanks! Did you change the sheets yet?}
+

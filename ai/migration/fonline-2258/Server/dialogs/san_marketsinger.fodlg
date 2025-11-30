@@ -1,0 +1,86 @@
+[comment]
+
+
+[data]
+lang=engl
+
+[dialog]
+&
+1 1000 None 0 #
+2 1010 @
+2 2000 None 0 &
+
+[engl]
+{100}{}{Dix Sung}
+{200}{}{You see the local legendary Sino-American singer! Dix Sung!}
+{210}{}{Part of a trio of legendary singers,  this troup has been entertaining the locals for generations!}
+{240}{}{You see a dead caravan guard.}
+{260}{}{You see a slain caravan guard.}
+{1000}{}{Predialogue installations}
+{1010}{}{-}
+{2000}{}{Can't you see I'm busy, round-eye?!@@Get off my stage!@@This isn't erectric boogaroo, go away!@@Are you high on'a Jet?! Get'a rost!@@I don't want your spicy noodle, go aray!@@Beat it, round-eye!@@You vault dwellers all the same! You always poke nose where it don't berong!@@Aiiiiieeeeeeeiiiiiiiiiiiii! Ouuuuuuuwuuuuuuuu-ooooohhhhh!@@Aiiieeeaiiiieeeeeee aiiiiiiii-ahhhhooooohhhhuuuuuwuuuuu!}
+{100000001}{}{How do you stop the rain?! How do you stop the rain! How do you stop, how do you stop?!}
+{100000002}{}{Love, love me darlin', come and go with me. Don't send me beyond the sea...}
+{100000003}{}{When I want you... In my arms... When I want you... And all your charms... Whenever I want you... All I have to do is dream...}
+{100000004}{}{Dream lover, where are you with a love, oh, so true? And a hand that I can hold, to feel you near as I grow old}
+{100000005}{}{I want a, dream lover, so I don't have to dream alone... So I don't have to dream alone...}
+{100000006}{}{In the still of the night, I held you... Held you tight... Cause I love you... Love you soooo... Promise I'll never... Let you go...}
+{100000007}{}{I can sit and whisper, to the trees, but the only sound they make is breeze... The waters ... Don't say a word but drown... Like fallen lovers, risen from the ground...}
+{100000008}{}{Do you remember, all the times, the earth shook by your rage... Least you never forget, the worlds you'll destroy...}
+{100000009}{}{What a difference a day made... Twenty four little hours... Brought the sun and the flowers... Where there use to be rain...}
+{100000010}{}{My yesterday was blue dear... But today I'm a part of you dear... All my lonely nights are through dear... Since you said you were mine, now everything's going to be fine!}
+{100000011}{}{Got my mojo workin', but it just don't work on you! Got my mojo workin', but it just don't work on you! I want to love you so bad, till I ... Don't know what to do...}
+{100000012}{}{Now, you say you're lonely... You cried the whole night through... Well you can, cry me a river... Cry me a river... I cried a river, over youuuu...}
+{100000013}{}{*whistles*}
+{100000014}{}{*hums*}
+{100000015}{}{*coughs*}
+{100000016}{}{*sneezes*}
+{100000017}{}{*snorts and farts*}
+{100000018}{}{Oh yes... I'm the great pretender... Pretending that I'm doing so well...}
+{100000019}{}{I caught a train... I met a dame... She was a hepster... And a real gone dame... She was pretty... From New York City...}
+{100000020}{}{Well, I give you all of my money, but you just won't treat me right! You like to ball every morning, don't come back till late at night...}
+{100000021}{}{Tough job, geez.}
+{100000022}{}{What's with all these vault dwellers lately?}
+{100000023}{}{What the hell is that thing? On their wrist?}
+{100000024}{}{Just let me hear some other rock n roll music! Any ol' way you choose it! It's got a backin' you can't lose it! Any ol' time you use it!}
+{100000025}{}{Anyone got a light?}
+{100000026}{}{Don't forget the water this time, boss.}
+{100000027}{}{When I fall in love... It will be forever... And I'll never! Fall in love in a restless world, like this is...}
+{100000028}{}{I've got you... Under my skin... I've got you... Deep in the heart of me... So deep in my heart, that you're really a part of meeee...}
+{100000029}{}{Junktown's got problems again, you hear? Something about a monster...}
+{100000030}{}{*laughs*}
+{100000031}{}{You hear? Someone tried to assasinate the NCR's President Tandi!}
+{100000032}{}{I left my love in San Francisco! Too eager was the gentle fight! Something's bound to be given, when all your love is spent!}
+{100000033}{}{Oh he told me he was from Reno, had a silver nugget in his pocket...Told me I'd be like candy, come take a fly on his Jet...}
+{100000034}{}{People today... what gives?}
+{100000035}{}{Mentat me into tomorrow, because yesterday is gone... No wonder the sun is so warm, over the shores of Navarro...}
+{100000036}{}{Begin again, in the night, let's sway again, tonight. Your arm on my shoulder. Your cheek against mine. Where can we go? Where will we find, that we know? To let go?}
+{100000037}{}{Does anybody here remember Vera Lynn? Remember how she said that "we would meet again, some sunny day"? Vera! Vera! What has become of you? Does anybody else in here feel the way I do?}
+{100000038}{}{I can't believe we made it out of that! I... need to rest...}
+{100000039}{}{Things won't ever change. That's why we all have guns.}
+{100000040}{}{Maybe, You'll think of me, When you are all alone. Maybe, The one who is waiting for you Will prove untrue Then, what, Will you do}
+{100000041}{}{Other arms reach out to me...Other eyes smile tenderly...Still in peaceful dreams I see...The road leads back to you...}
+{100000042}{}{Woah, Georgia, Georgia... No peace, no peace I find... Just an old, sweet song... Keeps Georgia on my mind...}
+{100000043}{}{I look at you and I see nothing, I look to you to see the truth. You live your life, You go in shadows. You''ll come apart and you'll go blind. Some kind of night into your darkness, colours your eyes with what's not there...}
+{100000044}{}{Days go on, I wonder, How long until the rain... Falls down from the darkened skies and takes away our lives...}
+{100000045}{}{What do you know anyway?}
+{100000046}{}{I want to own disaster, cripple the reason why... Good men die. All for an illusion, answers to my mind...}
+{100000047}{}{It doesn't matter. Nothing matters anymore.}
+{100000048}{}{I wish I could quit this stupid job, but how am I going to feed my kids?}
+{100000049}{}{Give me a reason...To love you... Give me a reason to be.. A woman...}
+{100000050}{}{I hear there's a lot more life in Nevada...}
+{100000051}{}{You see those tribals? What's with the outfit? }
+{100000052}{}{East. That's where they all came from...}
+{100000053}{}{*Aiiiiiieeeeeeeeee eeeeeeoooooooohhhhwuuuuu ohhhhhhhhhhh!*}
+{100000054}{}{The NCR can't take care of things...}
+{100000055}{}{From this time, unchained, we're all looking at a different picture, from this new frame of mine... A thousand flowers could bloom, move over and give us some room, yeah!}
+{100000056}{}{We won't be part of the NCR!}
+{100000057}{}{Feels like we've been occupied, doesn't it?}
+{100000058}{}{I don't know... I never asked for communism...}
+{100000059}{}{If you ask me, the old world died for a reason...}
+{100000060}{}{Praise the Emperor!}
+{100000061}{}{This next song is for the Emperor!}
+{100000062}{}{Praise the Shi!}
+{100000063}{}{This next song is for the Shi!}
+{100000064}{}{Who is the Puppet Man?}
+

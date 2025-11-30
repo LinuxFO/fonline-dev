@@ -1,0 +1,68 @@
+[comment]
+
+
+[data]
+lang=engl
+
+[dialog]
+&
+1 1000 None 0 #
+2 1010 D _var p name_mem_npc_player = 0 #
+2 1020 D _var p name_mem_npc_player = 1 @
+2 2000 None 0 #
+3 2010 #
+4 2020 #
+5 2030 D _var p q_sher = 0 #
+6 2040 D _var p q_sher = 1 D _param p ST_LEVEL > 11 #
+7 2050 D _var p q_sher = 4 #
+8 2060 D _var p q_sher = 3 R _var p q_sher = 4 R _script quest_sher@r_DeleteLoc 0  R _script dialog@r_BulkOrderRewardHub 0  R _param p ST_KARMA + 1 R _param p REPUTATION_COMMUNISTS + 70 R _script dialog@r_AddMoney 1 1800 R _script dialog@r_AddExperience 1 2250 R _var p z_warrior2 + 1 #
+0 2070 @
+3 3000 None 0 #
+2 3010 @
+4 4000 None 0 #
+2 4010 @
+5 5000 None 0 #
+6 5010 D _param p ST_LEVEL > 11 @
+6 6000 None 0 #
+9 6010 R _var p q_sher = 1 @
+7 7000 None 0 #
+9 7010 @
+8 8000 None 0 #
+0 8010 @
+9 9000 None 0 #
+10 9010 R _var p q_sher = 2 R _script quest_sher@r_SpawnLoc 0  #
+2 9020 @
+10 10000 None 0 &
+
+[engl]
+{100}{}{San Marino}
+{200}{}{You see a Bounter Hunter.}
+{210}{}{He looks like one bad mother--}
+{1000}{}{Predialogue installations}
+{1010}{}{Answer text}
+{1020}{}{2}
+{2000}{}{Hi, and welcome to the San Francisco Communist Bounty Hall. My name's San Marino, and I'm the King Shit of Bounty Hunters! What can I do for ya?}
+{2010}{}{What can you tell me about San Francisco?}
+{2020}{}{What's a communist?}
+{2030}{}{You got any work?}
+{2040}{}{You got any bounties?}
+{2050}{}{I'm here for another bounty.}
+{2060}{}{I took care of that bounty for you.}
+{2070}{}{Nothing today, thanks.}
+{3000}{}{This is the last piece of Chinese history right here! After the Great War, what was left of the Chinese ended up here. We're slowly rebuilding our home, and nothing is going to stop us. Not you, or the NCR.}
+{3010}{}{Well alright then.}
+{4000}{}{A Communist is a fine outstanding individual! It's also our form of government. We're communists. We believe in equality for all! A better today, tomorrow, and yesterday!}
+{4010}{}{Sure.}
+{5000}{}{I only hire Bounty Hunters. If you're looking for work why don't you go shovel some shit?}
+{5010}{}{You got any bounties then?}
+{6000}{}{Hell yes. Some bad people out here all over the ruins. They keep attacking the caravans. I've been tracking them down, and marking their locations all over the map. The Communists are willing to pay anyone that can get the job done.}
+{6010}{}{Go on. What else can you tell me?}
+{7000}{}{Good. Got some mean mother fuckers ready to kill. Are you ready to head out now?}
+{7010}{}{We'll see, won't we?}
+{8000}{}{No shit? Tough guy, damn. Great job out there. Here's your payment. I've got some more bounties if you're interested. Just let me know. I'll be here.}
+{8010}{}{I will. Thanks for the caps. See you around.}
+{9000}{}{I've never seen anything tougher than these assholes. I'm talking elite. These guys I've been tracking are way too dangerous for me to handle myself. That's why I'm looking for outside help. I can't say how many there will be, but if you're really ready for this I can give you a location. [If you would like to play this mission in Turn Based mode type /combatmode tb before continuing]}
+{9010}{}{I'm ready. Let's do this.}
+{9020}{}{Maybe I'm not so ready. Nevermind.}
+{10000}{}{Here's their location. Good luck out there. Be smart.}
+

@@ -1,0 +1,28 @@
+[comment]
+
+
+[data]
+lang=engl
+
+[dialog]
+&
+1 1000 None 0 #
+2 1010 D _var p name_mem_npc_player = 0 #
+16 1020 D _var p name_mem_npc_player = 1 @
+2 2000 None 0 #
+3 2010 D _var p q_adventure = 23 @
+3 3000 None 0 #
+0 3010 R _var p q_adventure = 24 R _script quest_advent4@r_SpawnLoc 0  &
+
+[engl]
+{100}{}{Private}
+{200}{}{You see a soldier in black armour.}
+{210}{}{Definitely looks like a newbie. Most likely one of the new Privates.}
+{1000}{}{Predialogue installations}
+{1010}{}{1}
+{1020}{}{2}
+{2000}{}{Beat it. I'm taking a piss.}
+{2010}{}{I just saw Richard Nixon, and a Transvestite burning an American Flag over there!}
+{3000}{}{WHAAAAAT?! Where?! [If you'd like to do this misson in Turn Based Mode type /combatmode tb before continuing]}
+{3010}{}{Just over here! Follow me!}
+

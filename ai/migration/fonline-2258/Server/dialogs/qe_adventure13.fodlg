@@ -1,0 +1,52 @@
+[comment]
+
+
+[data]
+lang=engl
+
+[dialog]
+&
+1 1000 None 0 #
+2 1010 @
+2 2000 None 0 #
+3 2010 D _var p q_adventure = 31 @
+3 3000 None 0 #
+4 3010 @
+4 4000 None 0 #
+5 4010 @
+5 5000 None 0 #
+6 5010 @
+6 6000 None 0 #
+7 6010 @
+7 7000 None 0 #
+8 7010 @
+8 8000 None 0 #
+9 8010 @
+9 9000 None 0 #
+10 9010 R _var p q_adventure = 32 R _script dialog@r_AddExperience 1 3000 R _script quest_advent6@r_SpawnLoc 0  @
+10 10000 None 0 &
+
+[engl]
+{100}{}{Mister Handy Alpha Model}
+{200}{}{You see a Mister Handy.}
+{210}{}{This looks like an old Vault-Tek model of the Mister Handy vault model. You saw a whole bunch of these in your vault growing up.}
+{1000}{}{Predialogue installations}
+{1010}{}{1}
+{2000}{}{Greetings, @pname@. Are you having a lovely day?}
+{2010}{}{No. I'm having a horrible day. Everyone I know is a jerk. People are trying to kill me. My Overseer is fulll of shit, and my own family hates my guts. I need to get the hell out of California.}
+{3000}{}{Judging by the odds, your chances of survival beyond California is 99% percent. It would be highly recommended you leave, @pname@.}
+{3010}{}{Yes. Soon. There's a better home for me somewhere. I'll leave once I'm finished here. But right now, there's a lot of shit out there that I'm going to have to clean up!}
+{4000}{}{Thank you for visiting Enclave Safe House Digit 99204. You have ONE message waiting for you. Say "Message" if you would like to continue.}
+{4010}{}{Message.}
+{5000}{}{"It's Stone. Report. What is your status, over."}
+{5010}{}{Stone? Is this the same Captain Stone from my vault?}
+{6000}{}{Captain Jason Stone is available by Intercom. Would you like to connect to him now?}
+{6010}{}{Yes!}
+{7000}{}{Connecting. Please wait.}
+{7010}{}{[Clench your Fist]}
+{8000}{}{This is The Captain. Report, over.}
+{8010}{}{This is @pname@. Looks like your men failed. Care to try again? Captain Jason Stone.}
+{9000}{}{@pname@?! You're alive?! Sit tight I'm coming for you! There's a little rock outside of your new Safe House that would be a perfect place to meet. I'm sure I'll find you there, sweetheart. [Type /combatmode tb for Turn Based Combat before continuing]}
+{9010}{}{You're dead, Stone.}
+{10000}{}{We'll see about that. Stone out.}
+

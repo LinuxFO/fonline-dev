@@ -1,0 +1,80 @@
+[comment]
+
+
+[data]
+lang=engl
+
+[dialog]
+&
+1 1000 None 0 #
+7 1010 D _var p name_mem_npc_player = 0 #
+2 1020 D _var p name_mem_npc_player = 1 @
+2 2000 None 0 #
+6 2010 D _var p q_zomb = 1 D _script dialog@d_CommonTimeoutReady 0  R _script quest_zomb@r_SpawnLoc 0  R _var p q_zomb = 2 #
+5 2020 D _var p q_zomb = 3 R _script quest_zomb@r_DeleteLoc 0  R _script dialog@r_AddExperience 1 3000 R _var p q_zomb = 1 R _script dialog@r_BulkOrderRewardJunk 0  R _param p ST_KARMA + 1 R _param p REPUTATION_JUNKTOWN + 32 R _param p REPUTATION_NECROPOLIS - 18 R _script dialog@r_AddMoney 1 1500 R _script dialog@r_CommonTimeout 1 4 R _var p z_warrior2 + 1 R _script dialog@r_AddLootSetLevel3 0  R _script dialog@r_AddLootSetLevel2 0  R _script dialog@r_AddLootSetLevel1 0  #
+0 2030 D _var p q_zomb = 1 D _script dialog@d_CommonTimeoutNotReady 0  #
+3 2040 #
+4 2050 #
+13 2060 D _var p junktown_monsters = 2 #
+0 2070 @
+3 3000 None 0 #
+2 3010 @
+4 4000 None 0 #
+2 4010 @
+5 5000 None 0 #
+0 5010 @
+6 6000 None 0 #
+0 6010 @
+7 7000 None 0 #
+8 7010 @
+8 8000 None 0 #
+9 8010 @
+9 9000 None 0 #
+10 9010 @
+10 10000 None 0 #
+11 10010 @
+11 11000 None 0 #
+12 11010 @
+12 12000 None 0 #
+0 12010 R _var p name_mem_npc_player = 1 R _var p q_zomb = 1 @
+13 13000 None 0 @
+14 14000 None 0 &
+
+[engl]
+{100}{}{Lee}
+{200}{}{You see a very paranoid looking Bounty Hunter.}
+{210}{}{Boy, this guy sure looks nervous. You wonder why?}
+{1000}{}{Predialogue installations}
+{1010}{}{Answer text}
+{1020}{}{2}
+{2000}{}{That army of ghouls is still on their way. Better do something. I'm thinking of just packing up and running away. Honestly. It's your problem now, bucko. [MUST BE LEVEL 12+] [If you'd like to do this mission in Turn Based mode. type /combatmode tb before accepting it]}
+{2010}{}{I'll do it. But let a real professional take care of things next time.}
+{2020}{}{I slaughtered those mindless zombies. I hope their body parts make good fertilizer.}
+{2030}{}{I'll come back in a few hours where there's more ghouls out there to kill. So far there isn't enough out there to worry about.}
+{2040}{}{Tell me about those ghouls again.}
+{2050}{}{How'd you become a Bounty Hunter anyway?}
+{2060}{}{Hey, you know anything about a monster that's been haunting Junktown, or whatever? People been talking...}
+{2070}{}{Leave.}
+{3000}{}{There's a hoard of ghouls out there, and on their way here. Could be up to forty of them. I need you to kill them for me, and I'll pay you a nice chunk of caps to do it.}
+{3010}{}{I see...}
+{4000}{}{Used to hunt down fugitives for the Hub Police. Then I started going into business for myself, made a name, you know? Eventually people just starting coming towards me with their problems. Guess some things just get too out of hand.}
+{4010}{}{I guess.}
+{5000}{}{Damn, you really did it? Did you see how many more there were out there?}
+{5010}{}{Yes, hundreds... thousands even. You'll need to do this again eventually.}
+{6000}{}{Okay! Good luck! Here's their location from this morning. They don't move very fast so they can't be far. Just look for the massive hoard of rotting flesh.}
+{6010}{}{Will do.}
+{7000}{}{Whoa, settle down there, padner. I'm Lee. This here is my temporary shack.}
+{7010}{}{Sorry, I was just looking around. Didn't mean to bother you none. I'll just be leaving}
+{8000}{}{Now, now, there's no need for that. I was just thinkin' about hiring some outside help...}
+{8010}{}{Outside help? Well... I might be interested.}
+{9000}{}{Yeah, yeah, that's good ta' hear, padner, but this one's a tough job. Not for the inexperienced if you get me...}
+{9010}{}{Well, what is it? What do you need help with?}
+{10000}{}{Junktown hired me to keep the city safe from those damn ghouls from Necropolis. Most of them are fine, I guess... The one's that can talk anyway. But it's these damn ferals, and crazies that don't know their ass from their elbow. They keep attacking the city whenever they wander too far from Necropolis.}
+{10010}{}{You can't handle a bunch of ghouls? Let alone Junktown? I'm pretty surprised...}
+{11000}{}{Yeah, well, don't be an ass. These aren't just regular ghouls. These ones hang out in groups, I've seen fourty of them at once. Shambling out in the wasteland. I have to pack my Hummer full of C4, and drive it into them. I'm not doing that again. Goddamn cars are expensive.}
+{11010}{}{Fourty ghouls? That's an army! You want me to help you kill an entire army?}
+{12000}{}{Not we, just you. I'll pay you the majority of what I'm making. But I'm not going out there. Not again. }
+{12010}{}{I'll think about it.}
+{13000}{}{A MONSTER?! IN JUNKTOWN?! HOLY FUCKING SHIT!}
+{14000}{}{YOU WHAT?! OH, MAN! OH, MAN! OH, NOOOOOOOOO!!}
+

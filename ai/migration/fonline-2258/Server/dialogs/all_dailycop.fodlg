@@ -1,0 +1,94 @@
+[comment]
+
+
+[data]
+lang=engl
+
+[dialog]
+&
+1 1000 None 0 #
+2 1010 @
+2 2000 None 0 #
+3 2010 D _var p z_dailyq1 = 20 D _script dialog@d_QuestTimeoutReady 0  R _script dialog@r_QuestTimeout 1 1 #
+4 2020 D _var p z_dailyq1 = 20 D _script dialog@d_QuestTimeoutNotReady 0  @
+3 3000 None 0 #
+5 3010 @
+4 4000 None 0 @
+5 5000 None 0 #
+6 5010 R _script dialog@r_JumpToRandomNode 3 1 6 10 @
+10 6000 None 0 #
+6 6010 D _item p PID_CIGARETTES > 0 R _item p PID_CIGARETTES - 1 @
+20 7000 None 0 #
+6 7010 D _item p PID_BEER > 0 R _item p PID_BEER - 1 @
+30 8000 None 0 #
+6 8010 D _item p PID_PSYCHO > 0 R _item p PID_PSYCHO - 1 @
+40 9000 None 0 #
+6 9010 D _item p PID_BUFFOUT > 0 R _item p PID_BUFFOUT - 1 @
+50 10000 None 0 #
+6 10010 D _item p PID_JET > 0 R _item p PID_JET - 1 @
+60 11000 None 0 #
+6 11010 D _item p PID_MENTATS > 0 R _item p PID_MENTATS - 1 @
+6 12000 None 0 #
+7 12010 @
+7 13000 None 0 #
+7 13010 R _script dialog@r_JumpToRandomNode 3 7 10 10 @
+70 14000 None 0 #
+5 14010 @
+80 15000 Attack 0 #
+8 15010 @
+90 16000 None 0 #
+9 16010 @
+100 17000 None 0 #
+5 17010 R _script dialog@r_JumpToRandomNode 3 11 12 10 @
+8 18000 Attack 0 @
+9 19000 None 0 @
+110 20000 Attack 0 @
+120 21000 None 0 #
+11 21010 R _var p z_dailyq1 = 21 R _script quest_dailycopboss@r_SpawnLoc 0  @
+11 22000 None 0 &
+
+[engl]
+{100}{}{Veteran Police Officer}
+{200}{}{You see a veteran police officer.}
+{210}{}{For years this man has stood in the line of fire all in the name of Lady Justice. God bless them.}
+{1000}{}{Predialogue installations}
+{1010}{}{Answer text}
+{2000}{}{Citizen.@@Move along, Citizen.@@Welcome to the city, please behave.@@That's a nice Pip Boy, I wish I had one.@@Been doing this job for a long time, I tell ya. Almost time to retire.@@I've heard it all, I've seen it all. Please move along.@@The NCR is the only real law around, remember that.@@This town'll swallow you alive if you're not careful.@@The Detectives in NCR are heroes. The story they could tell...}
+{2010}{}{Hey, chummer!}
+{2020}{}{Hey, chummer!}
+{3000}{}{How can I help you, Citizen?}
+{3010}{}{Come over here...}
+{4000}{}{I'm sorry, Citizen, I'm too busy right now. Come back later.}
+{5000}{}{Yeah?}
+{5010}{}{What'chu need, brother? What'chu really need?}
+{6000}{}{I'm dying for a smoke.}
+{6010}{}{I got what you need, boss. Here.}
+{7000}{}{Could go for a beer.}
+{7010}{}{I got what you need, boss. Here.}
+{8000}{}{I could use a hit of Psycho right about now.}
+{8010}{}{I got what you need, boss. Here.}
+{9000}{}{Craving some Buffout.}
+{9010}{}{I got what you need, boss. Here.}
+{10000}{}{Jet, man. Fuck.}
+{10010}{}{I got what you need, boss. Here.}
+{11000}{}{I'd kill for a few Mentats to munch on.}
+{11010}{}{I got what you need, boss. Here.}
+{12000}{}{Heh, mighty kind of ya.}
+{12010}{}{You like girls?}
+{13000}{}{Well, yeah... wait, what? What d'you mean? Why do you ask?}
+{13010}{}{How about kids?}
+{14000}{}{The fuck?!}
+{14010}{}{I'm just kidding man! Haha! Come closer...}
+{15000}{}{Die! You goddamn pedophile!}
+{15010}{}{Oh, shit!}
+{16000}{}{Well, yeah. I love kids. Who doesn't? They're precious. Why do you think I became a cop?}
+{16010}{}{Yeah, you're right. Carry on, Officer.}
+{17000}{}{Heh, maybe sometimes. A little bit too much... here, and there.}
+{17010}{}{You wanna fuck some kids?}
+{18000}{}{@pname@!! You're under arrest!!!}
+{19000}{}{Keep the peace, Citizen.}
+{20000}{}{WHAT THE FUCK?!! Die, you evil thing!}
+{21000}{}{Oh, yeah! Yeah! Oh, yeah! [He rubs his genitals] Show me! Show me, show me, show me!}
+{21010}{}{You're dirty. [Smile]}
+{22000}{}{Better get out of here.}
+

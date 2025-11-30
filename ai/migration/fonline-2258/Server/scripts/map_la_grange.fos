@@ -1,0 +1,379 @@
+//
+// FOnline: 2258
+// Rinzler
+//
+// map_la_grange.fos
+//
+
+//For La Grange this creates a system where keys are not needed and the doors can`t be byspassed with explosives.
+//Players must get to the middle terminal which opens door1 - left hand building.
+//Terminal 2 will open door2 - far right building.
+//Finally Terminal 3 will open the middle building which leads to the 2nd level.
+//Players must pass a science check to operate a terminal, which is their own skill minus random 20-30 - must be >60 to pass.
+//After 10 minutes the doors will close again, anybody inside will be trapped. People will cry but this is no different from Glow level 5 and they are happy with that.
+//Below are included some new mob functions which will make the fights much more challenging. 
+//I also updated _Maps.fos with la_grange properly defined there, do this for all new locations, world editor is supposed to do it but it doesn`t.
+
+
+#include "_colors.fos"
+#include "_macros.fos"
+#include "_vars.fos"
+#include "_maps.fos"
+#include "guard_h.fos"
+#include "mapdata_h.fos"
+#include "messages_h.fos"
+#include "mob.fos"
+#include "MsgStr.h"
+#include "utils_h.fos"
+
+
+
+import void SwitchState(Item& locker) from "lockers";
+
+
+//Prevent enterprising players from blowing up the doors and thus, the entire system!
+
+void map_init(Map& map, bool firstTime)
+{
+    if(firstTime)
+    {
+    array<Item@> doors;
+		for(uint i = 0, j = map.GetItemsByType(ITEM_TYPE_DOOR, doors); i < j; i++)
+		{
+			if(doors[i].Val6 == 0) 
+			{
+				doors[i].Val7 = 9999999;
+				doors[i].Val6 = 9999999;
+			}
+		}
+		
+	}	
+}
+
+
+
+
+//Player interaction with the doors
+
+void ondoor1(Item& item, bool firstTime)
+{
+	
+	item.SetEvent(ITEM_EVENT_SKILL, "_UseDoor1");
+	
+}
+
+void ondoor2(Item& item, bool firstTime)
+{
+	
+	item.SetEvent(ITEM_EVENT_SKILL, "_UseDoor2");
+	
+}
+
+
+void ondoor3(Item& item, bool firstTime)
+{
+	
+	item.SetEvent(ITEM_EVENT_SKILL, "_UseDoor3");
+	
+}
+
+
+//Logic for Terminals and door closing
+
+bool s_Door1(Critter& player, Scenery& terminal, int skill, Item@ item)
+{
+    if (!player.IsPlayer() || skill != SK_SCIENCE)
+    {   
+        player.Say(SAY_NETMSG, "It might need a more scientific approach.");
+        return false;
+    }
+
+    Map@ map = player.GetMap();
+    if (!valid(map)) return false;
+
+    Item@ Door1 = null;
+
+    switch (map.GetProtoId())
+    {
+        case MAP_La_Grange_Surface:
+            @Door1 = map.GetItem(94, 81, 2959);
+            break;
+        default:
+            return false;
+    }
+
+    array<uint> Door1data = { Door1.Id, map.Id };
+    uint value = player.Skill[SK_SCIENCE] - Random(20, 30);
+
+    if (value > 60)
+    {
+        if (!FLAG(Door1.LockerCondition, LOCKER_ISOPEN))
+        {
+            CreateTimeEvent(AFTER(REAL_MINUTE(20)), "CloseDoor1", Door1data, true);
+            SwitchState(Door1);
+            player.Say(SAY_NETMSG, "You hear noise from the western building.");
+            return true;
+        }
+        player.Say(SAY_NETMSG, "The door is already open.");
+        return true;  // Door is already open, successful hack
+    }
+    
+    player.Say(SAY_NETMSG, "You've failed to hack the security system.");
+    return true; 
+}
+
+
+uint CloseDoor1(array<uint>@ values)
+{
+	Item@ Door1 = GetItem(values[0]);
+	Map@ map = GetMap(values[1]);	
+	
+    if(!valid(Door1))
+        return 0;
+		
+	if(FLAG(Door1.LockerCondition, LOCKER_ISOPEN))
+	{
+		SwitchState(Door1);
+		
+	}	
+	return 0;
+}
+
+bool s_Door2(Critter& player, Scenery& terminal, int skill, Item@ item)
+{
+    if (!player.IsPlayer() || skill != SK_SCIENCE)
+    {   
+        player.Say(SAY_NETMSG, "It might need a more scientific approach.");
+        return false;
+    }
+
+    Map@ map = player.GetMap();
+    if (!valid(map)) return false;
+
+    Item@ Door2 = null;
+
+    switch (map.GetProtoId())
+    {
+        case MAP_La_Grange_Surface :
+            @Door2 = map.GetItem(56, 62, 2259); // Adjust the coordinates and ID accordingly
+            break;
+        default:
+            return false;
+    }
+
+    array<uint> Door2data = { Door2.Id, map.Id };
+    uint value = player.Skill[SK_SCIENCE] - Random(20, 30);
+
+    if (value > 60)
+    {
+        if (!FLAG(Door2.LockerCondition, LOCKER_ISOPEN))
+        {
+            CreateTimeEvent(AFTER(REAL_MINUTE(20)), "CloseDoor2", Door2data, true);
+            SwitchState(Door2);
+            player.Say(SAY_NETMSG, "You hear noise from the building on the east side.");
+            return true;
+        }
+        player.Say(SAY_NETMSG, "The door is already open.");
+        return true;  // Door is already open, successful hack
+    }
+
+    player.Say(SAY_NETMSG, "You've failed to hack the security system.");
+    return true; 
+}
+
+
+uint CloseDoor2(array<uint>@ values)
+{
+	Item@ Door2 = GetItem(values[0]);
+	Map@ map = GetMap(values[1]);	
+	
+    if(!valid(Door2))
+        return 0;
+		
+	if(FLAG(Door2.LockerCondition, LOCKER_ISOPEN))
+	{
+		SwitchState(Door2);
+		
+	}	
+	return 0;
+}
+
+bool s_Door3(Critter& player, Scenery& terminal, int skill, Item@ item)
+{
+    if (!player.IsPlayer() || skill != SK_SCIENCE)
+    {   
+        player.Say(SAY_NETMSG, "It might need a more scientific approach.");
+        return false;
+    }
+
+    Map@ map = player.GetMap();
+    if (!valid(map)) return false;
+
+    Item@ Door3 = null;
+
+    switch (map.GetProtoId())
+    {
+        case MAP_La_Grange_Surface :
+            @Door3 = map.GetItem(82, 65, 2481); // Adjust the coordinates and ID accordingly
+            break;
+        default:
+            return false;
+    }
+
+    array<uint> Door3data = { Door3.Id, map.Id };
+    uint value = player.Skill[SK_SCIENCE] - Random(20, 30);
+
+    if (value > 60)
+    {
+        if (!FLAG(Door3.LockerCondition, LOCKER_ISOPEN))
+        {
+            CreateTimeEvent(AFTER(REAL_MINUTE(20)), "CloseDoor3", Door3data, true);
+            SwitchState(Door3);
+            player.Say(SAY_NETMSG, "You hear noise from the warehouse building.");
+            return true;
+        }
+        player.Say(SAY_NETMSG, "The door is already open.");
+        return true;  // Door is already open, successful hack
+    }
+
+    player.Say(SAY_NETMSG, "You've failed to hack the security system.");
+    return true;
+}
+
+
+
+
+
+uint CloseDoor3(array<uint>@ values)
+{
+	Item@ Door3 = GetItem(values[0]);
+	Map@ map = GetMap(values[1]);	
+	
+    if(!valid(Door3))
+        return 0;
+		
+	if(FLAG(Door3.LockerCondition, LOCKER_ISOPEN))
+	{
+		SwitchState(Door3);
+		
+	}	
+	return 0;
+}
+
+
+//Signal to players that there is a non-linear solution to opening the door and prevent trolls from shutting the door on other players
+
+bool _UseDoor1(Item& item, Critter& player, int skill)
+{
+	// Opening / Closing
+	player.Animate(ANIM1_UNARMED, ANIM2_USE, item, true, true);
+	
+    if((skill == -1) || (skill == SK_LOCKPICK))
+    {	
+		Map@ map = GetMap(item.MapId);
+		Item@ Door1=map.GetItem(94, 81, 2959);
+		array<uint> door1data = { Door1.Id, map.Id };
+		
+		if(FLAG(Door1.LockerCondition, LOCKER_ISOPEN))
+		{
+			player.Say(SAY_NETMSG, "The door is stuck.");
+		}
+        else
+            {
+		       player.Say(SAY_NETMSG, "The door is locked, it would appear to be an electronic lock");
+			}
+		
+        return true;
+    }
+	return false;
+}
+
+bool _UseDoor2(Item& item, Critter& player, int skill)
+{
+	// Opening / Closing
+	player.Animate(ANIM1_UNARMED, ANIM2_USE, item, true, true);
+	
+    if((skill == -1) || (skill == SK_LOCKPICK))
+    {	
+		Map@ map = GetMap(item.MapId);
+		Item@ Door2=map.GetItem(56, 62, 2259);
+		array<uint> door2data = { Door2.Id, map.Id };
+		
+		if(FLAG(Door2.LockerCondition, LOCKER_ISOPEN))
+		{
+			player.Say(SAY_NETMSG, "The door is stuck.");
+		}
+        else
+            {
+		       player.Say(SAY_NETMSG, "The door is locked, it would appear to be an electronic lock");
+			}
+		
+        return true;
+    }
+	return false;
+}
+
+bool _UseDoor3(Item& item, Critter& player, int skill)
+{
+	// Opening / Closing
+	player.Animate(ANIM1_UNARMED, ANIM2_USE, item, true, true);
+	
+    if((skill == -1) || (skill == SK_LOCKPICK))
+    {	
+		Map@ map = GetMap(item.MapId);
+		Item@ Door3=map.GetItem(82, 65, 2481);
+		array<uint> door3data = { Door3.Id, map.Id };
+		
+		if(FLAG(Door3.LockerCondition, LOCKER_ISOPEN))
+		{
+			player.Say(SAY_NETMSG, "The door is stuck.");
+		}
+        else
+            {
+		       player.Say(SAY_NETMSG, "The door is locked, it would appear to be an electronic lock");
+			}
+		
+        return true;
+    }
+	return false;
+}
+
+//Mob Functions
+
+//Control key stats of mobs from here. 
+
+//They won`t be laughing anymore
+void _Boss(Critter& mob, bool firstTime)
+{    
+    critter_init(mob, firstTime); //Import basic mob behaviour from mob.fos
+    mob.StatBase[ST_MAX_LIFE] = 1985; // Standardise HP for each critter. 
+    mob.StatBase[ST_CURRENT_HP] = 2000; 
+    mob.StatBase[ST_KILL_EXPERIENCE] = 2000; // Standardise experience for each critter
+    mob.StatBase[ST_REPLICATION_TIME] = 900;
+    mob.PerkBase[PE_BONUS_RANGED_DAMAGE] = 1; // Not doing enough damage? Turn it up!
+    mob.PerkBase[PE_MORE_RANGED_DAMAGE] = 1; 
+    mob.ModeBase[MODE_NO_HOME] = 0;
+    mob.ModeBase[MODE_NO_LOOT] = 1; // Players shouldn’t get loot from dungeon mobs
+    mob.ModeBase[MODE_NO_DROP] = 1;
+    mob.ModeBase[MODE_NO_STEAL] = 1;
+    mob.ModeBase[MODE_NO_BARTER] = 1;
+    mob.ModeBase[MODE_UNLIMITED_AMMO] = 1;
+   
+}
+
+void _Ripper(Critter& mob, bool firstTime)
+{    
+    critter_init(mob, firstTime); //Import basic mob behaviour from mob.fos
+    mob.StatBase[ST_MAX_LIFE] = 300; // Standardise HP for each critter. 
+    mob.StatBase[ST_CURRENT_HP] = 315; 
+    mob.StatBase[ST_KILL_EXPERIENCE] = 1000; // Standardise experience for each critter
+    mob.StatBase[ST_REPLICATION_TIME] = 900;
+    mob.PerkBase[PE_BONUS_RANGED_DAMAGE] = 1; // Not doing enough damage? Turn it up!
+    mob.ModeBase[MODE_NO_HOME] = 0;
+    mob.ModeBase[MODE_NO_LOOT] = 1; // Players shouldn’t get loot from dungeon mobs
+    mob.ModeBase[MODE_NO_DROP] = 1;
+    mob.ModeBase[MODE_NO_STEAL] = 1;
+    mob.ModeBase[MODE_NO_BARTER] = 1;
+    mob.ModeBase[MODE_UNLIMITED_AMMO] = 1;
+    
+}

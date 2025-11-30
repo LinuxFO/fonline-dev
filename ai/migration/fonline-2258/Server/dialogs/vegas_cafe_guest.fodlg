@@ -1,0 +1,24 @@
+[comment]
+
+
+[data]
+lang=engl
+
+[dialog]
+&
+1 1000 None 0 #
+2 1010 @
+2 2000 None 0 &
+[engl]
+{100}{}{Citizen}
+{200}{}{You see a Las Vegas citizen.}
+{210}{}{You see a Las Vegas citizen.}
+{1000}{}{Predialogue installations}
+{2000}{}{He is awesome.@@At least some place to relax.@@Don't try their food.@@Shhh. I am listening.@@Could you stop bothering me?@@Oh, I know this song!}
+{100000001}{}{At least some place to relax.}
+{100000001}{}{Don't try their food.}
+{100000001}{}{Shhh. I am listening.}
+{100000001}{}{Could you stop bothering me?}
+{100000001}{}{You must be new.}
+{100000001}{}{Oh, I know this song!}
+

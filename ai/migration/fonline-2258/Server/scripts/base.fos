@@ -1,0 +1,797 @@
+/* 
+ * Base Control
+ * ------------
+ *
+ * How to run:
+ * 
+ * ---define base maps---
+ * 
+ * const uint16[]  CarMaps = { MAP_cath_enter, MAP_SierraArmyDepot_TheBattlefield, MAP_MilitaryBaseEntrance };
+ * const uint[]    TerminalMaps = { MAP_Cathedral_Enter, MAP_SierraArmyDepot_Level1, MAP_MilitaryBaseLevel1 };
+ * 
+ * ---adjust timers---
+ *
+ * #define BASE_REFRESH_TIME           (REAL_MINUTE(Random(min, max)))         // base control refresh + car spawn trigger
+ * #define BASE_MOB_WAVE_TIME          (REAL_MINUTE(Random(min, max)))         // time between mob waves
+ * 
+ * In mapper:
+ *
+ * ---add map Entires on cars map---
+ * EntireNumber = 77        for mob waves spawns
+ * EntireNumber = 50        for cars with reward
+ *
+ * ---add terminals on terminal maps---
+ * ScriptName = base
+ * FuncName = s_Terminal
+ *
+ */
+
+
+#include "_macros.fos"
+#include "entire.fos"
+#include "pids_groups.fos"
+#include "utils_h.fos"
+#include "npc_roles_h.fos"
+#include "base_h.fos"
+#include "broadcast_h.fos"
+
+#define CATHEDRAL_BASE       (0)
+#define SIERRA_BASE          (1)
+#define MARIPOSA_BASE        (2)
+#define MAX_BASES            (3)
+
+#define ORG_ENCLAVE          (1)
+#define ORG_BOS              (2)
+
+#define BASE_REFRESH_TIME           (REAL_MINUTE(Random(3, 4)))         // base control refresh + car spawn trigger
+#define BASE_CAR_SPAWN_DELAY        (REAL_SECOND(30))                   // delay of spawning car after base refresh
+#define BASE_MOB_WAVE_TIME          (REAL_MINUTE(Random(1, 2)))         // time between mob waves
+#define Base_MOB_WAVE_DELAY         (REAL_SECOND(30))                   // delay of spawning mog wave
+#define BASE_MOB_WAVE_DELETE_DELAY  (REAL_MINUTE(1))                    // delay of deleting wave mobs after losing control
+#define BASE_CHECK_TIME             (REAL_MINUTE(1))                    // time between each check if base control is still valid
+#define CAR_WAIT_TIME               (REAL_MINUTE(1))                    // delay of deleting car after spawn
+#define BROADCAST_MSG_TIME          (REAL_SECOND(20))                   // showing broadcast msg time
+
+#define ENTIRE_SUPPLY_CAR    (50)
+#define ENTIRE_MOB_SPAWN     (77)
+
+import bool AddAttackPlane( Critter& npc, uint priority, Critter& target ) from "npc_planes";
+import bool GetFactionNameStr(uint faction, string& out name) from "factions";
+
+const uint16[]  CarMaps = { MAP_Cathedral_Enter, MAP_SierraArmyDepot_TheBattlefield, MAP_MilitaryBaseEntrance };
+const uint[]    TerminalMaps = { MAP_Cathedral_Main, MAP_SierraArmyDepot_Level1, MAP_MilitaryBaseLevel1 };
+
+const uint[]    GvarController = { GVAR_base_cathedral_rule, 
+                                   GVAR_base_sierra_rule, 
+                                   GVAR_base_mariposa_rule };
+
+const uint[]    GvarOrganisation = { GVAR_base_cathedral_org, 
+                                     GVAR_base_sierra_org, 
+                                     GVAR_base_mariposa_org };
+
+const uint[]    GvarRefreshTimeEvent = { GVAR_base_cathedral_refresh_time_event_id,
+                                         GVAR_base_sierra_refresh_time_event_id,
+                                         GVAR_base_mariposa_refresh_time_event_id };
+
+const uint[]    GvarMobWaveTimeEvent = { GVAR_base_cathedral_mob_wave_time_event_id,
+                                         GVAR_base_sierra_mob_wave_time_event_id,
+                                         GVAR_base_mariposa_mob_wave_time_event_id };
+
+const uint[]    GvarCheckTimeEvent = { GVAR_base_cathedral_check_time_event_id,
+                                       GVAR_base_sierra_check_time_event_id,
+                                       GVAR_base_mariposa_check_time_event_id };
+
+const int[]     ScoreCur = { SCORE_CATHEDRAL_CUR, 
+                             SCORE_SIERRA_CUR, 
+                             SCORE_MARIPOSA_CUR };
+
+const string[]  baseName = { "Catherdral", "Sierra", "Mariposa" };
+const string[]  orgName = { "", "Enclave", "Brotherhood" };
+
+
+/*************************
+ * SPAWN MOB WAVES start *
+ *************************/
+
+uint e_BaseMobWave(uint[] @ values)
+{
+    MobWaveBase(values[0], values[1]);
+    return 0;
+}
+
+/* MobWaveBase
+ * executed after BASE_MOB_WAVE_TIME time
+ * gives info about approaching mob wave to players controlling base and starts actual mob spawning time event
+ * @int base - base number
+ * @int wave - current mob wave number
+ */
+void MobWaveBase(int base, int wave)
+{
+    Map@ map = GetMapByPid(CarMaps[base], 0);
+    if(not valid(map))
+        return;
+
+    if(!ForceBaseCheck(base))
+        return;
+
+    GameVar@ varController = GetGlobalVar(GvarController[base]);
+    if(varController.GetValue() < 200)
+        return;
+
+    GameVar@ varOrg = GetGlobalVar(GvarOrganisation[base]);
+    if(varOrg == 0)
+        return;
+
+    string msg = "<"+orgName[varOrg.GetValue()]+" radio> : We spotted big group of enemies approaching your direction. Expect contact in 30 seconds.";
+    baseControlRadio(msg, 10, map.Id, varController.GetValue());
+
+    array<uint> dataSpawn = { base, wave };
+    GameVar@ varMobWaveTimeEvent = GetGlobalVar(GvarMobWaveTimeEvent[base]);
+    varMobWaveTimeEvent = CreateTimeEvent( __FullSecond + Base_MOB_WAVE_DELAY, "e_BaseMobWaveSpawn", dataSpawn, true ); 
+}
+
+uint e_BaseMobWaveSpawn(uint[] @ values)
+{
+    SpawnMobWaveBase(values[0], values[1]);
+    return 0;
+}
+
+/* SpawnMobWaveBase
+ * executed after Base_MOB_WAVE_DELAY time
+ * run mob spawning function for defines mob waves and starts another wave spawn time event
+ * @int base - base number
+ * @int wave - current mob wave number
+ */
+void SpawnMobWaveBase(int base, int wave)
+{
+    if(!ForceBaseCheck(base))
+        return;
+
+    Log(baseName[base]+": spawning mob wave #"+wave+".");
+
+    Map@ map = GetMapByPid(CarMaps[base], 0);
+    if(not valid(map))
+        return;
+
+    GameVar@ varOrg = GetGlobalVar(GvarOrganisation[base]);
+    if(varOrg == 0)
+        return;
+
+    /*************************************************************************************
+
+                        HERE DEFINE MOB WAVES
+
+        we can use here
+        - mob wave number
+        example:
+        if(wave > 10)
+            SpawnMobs(map, MOB_TYPE_ULTRA_HARD_ROBOTS, wave, 9999, true);
+
+        - base type             (base == CATHEDRAL_BASE/SIERRA_BASE/MARIPOSA_BASE)
+        example: 
+        switch(base)
+        {
+            case CATHEDRAL_BASE:
+                SpawnMobs(map, MOB_TYPE_CATHEDRAL_MOBS,  size, level, false);
+                break;
+            case SIERRA_BASE:
+                SpawnMobs(map, MOB_TYPE_SIERRA_MOBS,  size, level, false);
+                break;
+            case MARIPOSA_BASE:
+                SpawnMobs(map, MOB_TYPE_MARIPOSA_MOBS,  size, level, false);
+                break;
+            default:
+                break;
+        }
+
+        - organization type     (varOrg.GetValue == ORG_ENCLAVE/ORG_BOS)
+        example:
+        switch(base)
+        {
+            case ORG_ENCLAVE:
+                SpawnMobs(map, MOB_TYPE_CATHEDRAL_MOBS,  size, level, false);
+                break;
+            case ORG_BOS:
+                SpawnMobs(map, MOB_TYPE_SIERRA_MOBS, size, level, false);
+                break;
+            default:
+                break;
+        }
+
+        !!! BIG GROUPS SHOULD BE SPAWNED RANDOMLY !!!
+        !!!         (last param = true)           !!!
+        !!!  +just in case add many spawn points  !!!
+        !!!   to avoid possible npc spawn errors  !!! 
+
+    ****************************************************************************************/
+
+    SpawnMobs(map, MOB_TYPE_SUPER_MUTANT_LASER, 5+wave, 4*wave, true);
+    SpawnMobs(map, MOB_TYPE_SUPER_MUTANT_PLASMA, 5+wave, 4*wave, true);
+    SpawnMobs(map, MOB_TYPE_TOUGH_NIGHTKIN_ROCKET, 5+wave, 4*wave, true);
+
+    array<uint> data = { base, (wave+1) };
+    GameVar@ varMobWaveTimeEvent = GetGlobalVar(GvarMobWaveTimeEvent[base]);
+    varMobWaveTimeEvent = CreateTimeEvent( __FullSecond + BASE_MOB_WAVE_TIME, "e_BaseMobWave", data, true );
+}
+
+/* SpawnMobWaveBase
+ * spawns defined mob waves on ENTIRE_MOB_SPAWN entry points
+ * @Map map         - base map
+ * @uint mobType    - id of mob type to spawn (defined in base_h.fos)
+ * @uint size       - size of mob group to spawn
+ * @uint lvl        - level of mobs to spawn
+ * @bool randomized - if(true) spawn each mob from group in randomized spawn point 
+ *                    if(false) spawn all group in one spawn point
+ */
+void SpawnMobs(Map@ map, uint mobType, uint size, uint lvl, bool randomized)
+{
+    if(not valid(map))
+        return;
+
+    int pid = MobWaves[mobType][0];
+    int bagId = MobWaves[mobType][1];
+    uint16 hx, hy;
+
+    if(!randomized)
+    {
+        Entire[] entires;
+        ParseEntires(map, entires, ENTIRE_MOB_SPAWN);
+        if(entires.length() == 0)
+            return;
+
+        uint i = Random(0, entires.length()-1);
+        hx = entires[i].HexX;
+        hy = entires[i].HexY;
+    }
+
+    for(uint i=0; i < size; ++i)
+    {
+        if(randomized)
+        {
+            Entire[] entires;
+            ParseEntires(map, entires, ENTIRE_MOB_SPAWN);
+            if(entires.length() == 0)
+                return;
+
+            uint i = Random(0, entires.length()-1);
+            hx = entires[i].HexX;
+            hy = entires[i].HexY;
+        }
+
+        Critter@ SpawnedNpc = AddNpc(map, pid, hx, hy, Random(0, 6), 0, "mob@critter_init_aggr", 0, bagId, 0, true, lvl);
+        if(!valid(SpawnedNpc))
+        {
+            Log("Failed to spawn NPC.");
+            return;
+        }
+        SpawnedNpc.ModeBase[MODE_NO_LOOT] = 1;
+        SpawnedNpc.ModeBase[MODE_NO_DROP] = 1;
+        SpawnedNpc.ModeBase[MODE_NO_STEAL] = 1;
+        SpawnedNpc.ModeBase[MODE_UNLIMITED_AMMO] = 1;
+        SpawnedNpc.ParamBase[ST_NPC_ROLE] = ROLE_MOB_WAVE;
+        SpawnedNpc.ParamBase[ST_REPLICATION_TIME] = REPLICATION_DELETE_FAST;
+
+        Critter@[] players;
+        uint playersCnt = map.GetCritters(0, FIND_LIFE_AND_KO | FIND_ONLY_PLAYERS, players);
+        if(playersCnt > 0)
+        {
+            AddAttackPlane(SpawnedNpc, 0, players[Random(0, players.length()-1)]);
+            AddAttackPlane(SpawnedNpc, 0, players[Random(0, players.length()-1)]);
+            AddAttackPlane(SpawnedNpc, 0, players[Random(0, players.length()-1)]);
+        }
+    }
+}
+
+/*** SPAWN MOB WAVES end ***/
+
+/********************
+ * BASE CHECK start *
+ ********************/
+
+uint e_BaseCheck(uint[] @ values)
+{
+    CheckBase(values[0]);
+    return 0;
+}
+
+/* every BASE_CHECK_TIME check if base control is still valid */
+void CheckBase(int base)
+{
+    bool validControl = false;
+    if(base >= MAX_BASES)
+    return;
+
+    GameVar@ varController = GetGlobalVar(GvarController[base]);
+    if(varController.GetValue() < 200)
+        return;
+    string factionname;
+    GetFactionNameStr(varController.GetValue(), factionname);
+
+    //get alive players on base map
+    Map@ map = GetMapByPid(CarMaps[base], 0);
+    if(not valid(map))
+        return;
+
+    array<Critter@> critters;
+    uint n = map.GetCritters(0, FIND_ONLY_PLAYERS | FIND_LIFE_AND_KO, critters);
+
+    //still some alive players on map
+    if(n > 0)
+    {
+        //check if any from controlling faction and not sneaking
+        for(uint i=0; i < n; ++i)
+        {
+            if(critters[i].StatBase[ST_TEAM_ID] != varController.GetValue() || critters[i].Mode[MODE_HIDE] != 0)
+            {
+                critters.removeAt(i);
+                --i;
+                --n;
+            }
+        }
+    }
+    if(n > 0)
+        validControl = true;
+
+    if(validControl)
+    {
+        GameVar@ varCheckTimeEvent = GetGlobalVar(GvarCheckTimeEvent[base]);
+        varCheckTimeEvent = CreateTimeEvent( __FullSecond + BASE_CHECK_TIME, "e_BaseCheck", base, true ); 
+    } 
+    else
+    {
+        Log(baseName[base]+": "+factionname+" have lost control over base.");
+        TerminateTimeEvents(base);
+        CreateTimeEvent( __FullSecond + BASE_MOB_WAVE_DELETE_DELAY, "e_BaseDeleteWaveMobs", base, true ); 
+        SetBestScore( ScoreCur[base], null, "---" );
+
+        string broadcastMsg = factionname+" have lost controll over "+baseName[base]+".";
+        baseControl(broadcastMsg, base, BROADCAST_MSG_TIME); 
+    }
+}
+
+/* forced check if base control is still valid */
+bool ForceBaseCheck(int base)
+{
+    bool validControl = false;
+    if(base >= MAX_BASES)
+    return validControl;
+
+    GameVar@ varController = GetGlobalVar(GvarController[base]);
+    if(varController.GetValue() < 200)
+        return validControl;
+    string factionname;
+    GetFactionNameStr(varController.GetValue(), factionname);
+
+    Map@ map = GetMapByPid(CarMaps[base], 0);
+    if(not valid(map))
+        return validControl;
+
+    array<Critter@> critters;
+    uint n = map.GetCritters(0, FIND_ONLY_PLAYERS | FIND_LIFE_AND_KO, critters);
+
+    if(n > 0)
+    {
+        for(uint i=0; i < n; ++i)
+        {
+            if(critters[i].StatBase[ST_TEAM_ID] != varController.GetValue() || critters[i].Mode[MODE_HIDE] != 0)
+            {
+                critters.removeAt(i);
+                --i;
+                --n;
+            }
+        }
+    }
+    if(n > 0)
+        validControl = true;
+
+    if(!validControl)
+    {
+        Log(baseName[base]+": "+factionname+" have lost control over base.");
+        TerminateTimeEvents(base);
+        CreateTimeEvent( __FullSecond + BASE_MOB_WAVE_DELETE_DELAY, "e_BaseDeleteWaveMobs", base, true ); 
+        SetBestScore( ScoreCur[base], null, "---" );
+
+        string broadcastMsg = factionname+" have lost controll over "+baseName[base]+".";
+        baseControl(broadcastMsg, base, BROADCAST_MSG_TIME); 
+    }
+
+    return validControl;
+}
+
+/*** BASE CHECK end ***/
+
+/*****************
+ * CLEANUP start *
+ *****************/
+
+uint e_BaseDeleteWaveMobs(uint[] @ values)
+{
+    DeleteWaveMobs(values[0]);
+    return 0;
+}
+
+/* after BASE_MOB_WAVE_DELETE_DELAY delete all spawned mobs in location (used if base control is lost) */
+void DeleteWaveMobs(int base)
+{
+    if(base >= MAX_BASES)
+    return;
+
+    Map@ map = GetMapByPid(CarMaps[base], 0);
+    if(not valid(map))
+        return;
+
+    uint mobsNum = map.GetNpcCount(ROLE_MOB_WAVE, FIND_ONLY_NPC | FIND_ALL);
+    for(uint j = 0; j < mobsNum; j++)
+    {
+        Critter@ mob = map.GetNpc(ROLE_MOB_WAVE, FIND_ONLY_NPC | FIND_ALL, j);
+        DeleteNpc(mob);
+    }
+
+    Log(baseName[base]+": clearing wave mobs from base.");
+}
+
+/* delete main time events for given base (used if base control is lost) */
+void TerminateTimeEvents(int base)
+{
+    //kill refresh time events
+    GameVar@ varRefreshTimeEvent = GetGlobalVar(GvarRefreshTimeEvent[base]);
+    if(varRefreshTimeEvent != 0)
+    {
+        EraseTimeEvent(varRefreshTimeEvent.GetValue());
+        varRefreshTimeEvent = 0;
+    }
+    
+    //kill check time events
+     GameVar@ varCheckTimeEvent = GetGlobalVar(GvarCheckTimeEvent[base]);
+    if(varCheckTimeEvent != 0)
+    {
+        EraseTimeEvent(varCheckTimeEvent.GetValue());
+        varCheckTimeEvent = 0;
+    }
+
+    //kill mob wave time events
+    GameVar@ varMobWaveTimeEvent = GetGlobalVar(GvarMobWaveTimeEvent[base]);
+    if(varMobWaveTimeEvent != 0)
+    {
+        EraseTimeEvent(varMobWaveTimeEvent.GetValue());
+        varMobWaveTimeEvent = 0;
+    }
+}
+
+/*** CLEANUP end ***/
+
+/*****************************
+ * BASE STATUS REFERSH start *
+ *****************************/
+
+uint e_BaseRefresh(uint[] @ values)
+{
+    RefreshBase(values[0], values[1]);
+    return 0;
+}
+
+/* refresh base control status, gives info about car spawn to players controlling base and starts car spawning time event */
+void RefreshBase(int base, int wave)
+{
+    if(!ForceBaseCheck(base))
+        return;
+
+    //check if valid base index
+    if(base >= MAX_BASES)
+        return;
+
+    //check if valid base controller (player id)
+    GameVar@ varController = GetGlobalVar(GvarController[base]);
+    if(varController.GetValue() < 200)
+        return;
+
+    //check if valid organisation (enclave/bos)
+    GameVar@ varOrg = GetGlobalVar(GvarOrganisation[base]);
+    if(varOrg == 0)
+        return;
+
+    //check if valid map to spawn car
+    Map@ map = GetMapByPid(CarMaps[base], 0);
+    if(not valid(map))
+        return;
+
+    array<uint> carData = { map.GetProtoId(), base, varOrg.GetValue(), wave, varController.GetValue()};
+    GameVar@ varRefreshTimeEvent = GetGlobalVar(GvarRefreshTimeEvent[base]);
+    varRefreshTimeEvent = CreateTimeEvent(__FullSecond + BASE_CAR_SPAWN_DELAY, "e_SupplyCar", carData, true); 
+
+    string msg = "<"+orgName[varOrg.GetValue()]+" radio> : supply car will arrive in 30 seconds. You will have 1 minute to unload the trunk.";
+    baseControlRadio(msg, 10, map.Id, varController.GetValue());
+}
+
+/*** BASE STATUS REFRESH end ***/
+
+/**********************
+ * CAR SPAWNING start *
+ **********************/
+
+uint e_SupplyCar(uint[] @ values)
+{
+    CreateSupplyCar(values[0], values[1], values[2], values[3], values[4]);
+    return 0;
+}
+
+/* CreateSupplyCar
+ * spawns car with defined loot in random ENTIRE_SUPPLY_CAR entr point
+ * @int mapPid    - base map
+ * @int base      - base number
+ * @int org       - id of current organization
+ * @int wave      - current mob wave number
+ * @int factionID - size of mob group to spawn
+ */
+void CreateSupplyCar(int mapPid, int base, int org, int wave, int factionId)
+{
+    if(!ForceBaseCheck(base))
+        return;
+
+    Map@ map = GetMapByPid(mapPid, 0);
+    if(not valid(map))
+        return;
+
+    Entire[] entires;
+    ParseEntires(map, entires, ENTIRE_SUPPLY_CAR);
+
+    uint16 carPid = (org == ORG_BOS ? PID_HUMMER : PID_SCOUT);
+
+    uint16 hx, hy;
+    for(int i=0, j=entires.length(); i <= j; i++)
+    {
+        if(i == j)
+            return;
+
+        Entire@ ent = entires[i];
+        if(map.CheckPlaceForItem(ent.HexX, ent.HexY, carPid))
+        {
+            hx = ent.HexX;
+            hy = ent.HexY;
+            break;
+        }
+    }
+
+    Item@ car = map.AddItem(hx, hy, carPid, 1);
+    if(not valid(car))
+        return;
+    
+    car.LockerId = 1;
+    car.LockerComplexity = Random(100, 150);
+    car.Charge = Random(0, car.Proto.Car_TankVolume);
+    car.Deterioration = Random(0, car.Proto.Car_MaxDeterioration);
+
+    Item@ bag = car.GetChild(0);
+    if(valid(bag))
+    {
+        /*************************************************************
+
+                        HERE DEFINE CAR LOOT
+
+            you can use for example:
+            - wave - wave number to increase % chance to spawn items
+            - org  - org type to spawn items specific for them
+            - base - base type to spawn items for specific location
+
+            check pids_groups.fos
+            for example pid groups specified for base control loot
+
+         *************************************************************/
+
+        if(org == ORG_ENCLAVE)
+        {
+            if( Random(1, 100) <= 10*wave )
+            {
+                bag.AddItem( PID_ENCLAVE_COMBAT_ARMOR, 1, 0 );
+                bag.AddItem( PID_ENCLAVE_COMBAT_HELMET, 1, 0 );
+            }
+            if( Random(1, 100) <= 10*wave )
+            {
+                bag.AddItem( PID_KEEPBRIGE_ROBE, 1, 0 );
+                bag.AddItem( PID_ENCLAVE_COMBAT_HELMET_MK2, 1, 0 );
+            }
+        }
+        else
+        {
+            if( Random(1, 100) <= 10*wave )
+            {
+                bag.AddItem( PID_BROTHERHOOD_COMBAT_ARMOR, 1, 0 );
+                bag.AddItem( PID_BROTHERHOOD_HELMET, 1, 0 );
+            }
+            if( Random(1, 100) <= 10*wave )
+            {
+                bag.AddItem( PID_NCR_ARMOR, 1, 0 );
+                bag.AddItem( PID_NCR_HELMET, 1, 0 );
+            }
+        }
+
+        //ARMORS
+        if( Random(1, 100) <= wave )
+        {
+            bag.AddItem( PID_POWERED_ARMOR, 1, 0 );
+            bag.AddItem( PID_POWER_HELMET, 1, 0 );
+        }
+        if( Random(1, 200) <= wave )
+        {
+            bag.AddItem( PID_HARDENED_POWER_ARMOR, 1, 0 );
+            bag.AddItem( PID_HARDENED_POWER_HELMET, 1, 0 );
+        }
+        if( Random(1, 100) <= 15*wave )
+        {
+            bag.AddItem( PID_DESERT_COMBAT_ARMOR, 1, 0 );
+            bag.AddItem( PID_DESERT_COMBAT_HELMET, 1, 0 );
+        }
+        if( Random(1, 100) <= 20*wave )
+        {
+            bag.AddItem( PID_COMBAT_ARMOR_MK_II, 1, 0 );
+            bag.AddItem( PID_COMBAT_HELMET_MK_II, 1, 0 );
+        }
+        
+        //GUNS
+        FillBag( bag, Pids_Base_NormalGuns, Random(2, 3), 1, 1, 90 );
+        FillBag( bag, Pids_Base_GoodGuns, Random(1, 2), 1, 1, 60 );
+        FillBag( bag, Pids_Base_MeleeWeapons, Random(1, 3), 1, 1, 80 );
+        FillBag( bag, Pids_Base_ThrowingWeapons, Random(1, 3), 5, 20, 80 );
+        if( Random(1, 200) <= wave )
+            FillBag( bag, Pids_Base_TopWeapons, 1, 1, 1, 100 );
+
+        //AMMO
+        FillBag( bag, Pids_Base_NormalBurstAmmo, 0, 350, 700, 100 );
+        FillBag( bag, Pids_Base_NormalSingleAmmo, 0, 40, 80, 100 );
+        if( Random(1, 100) <= 2*wave )
+            bag.AddItem( PID_4_7MM_CASELESS, Random(250, 500), 0 );
+        if( Random(1, 100) <= 2*wave )
+            bag.AddItem( PID_2MM_EC_AMMO, Random(50, 100), 0 );
+
+        //OTHER
+        bag.AddItem( PID_BOTTLE_CAPS, Random( 1000, 10000 ), 0 );
+        bag.AddItem( PID_SUPER_STIMPAK, Random( 10, 50 ), 0 );
+        bag.AddItem( PID_STIMPAK, Random( 10, 50 ), 0 );
+        FillBag( bag, Pids_Base_Drugs, 0, 5, 10, 100 );
+        FillBag( bag, Pids_Base_Explosives, 1, 1, 5, 100 );
+        FillBag( bag, Pids_Base_Misc, 3, 1, 1, 100 );
+        FillBag( bag, Pids_Base_Blueprints, 2, 1, 1, 100 );
+        if( Random(1, 100) <= 2*wave )
+            bag.AddItem( PID_HYPO, Random(1, 5), 0 );
+    }
+
+    Log(baseName[base]+": spawning reward for controlling base (car #"+wave+")");
+
+    array<uint> data = { base, (wave+1) };
+    GameVar@ varRefreshTimeEvent = GetGlobalVar(GvarRefreshTimeEvent[base]);
+    varRefreshTimeEvent = CreateTimeEvent(__FullSecond + BASE_REFRESH_TIME, "e_BaseRefresh", data, true); 
+
+    CreateTimeEvent( __FullSecond + CAR_WAIT_TIME, "e_DeleteCar", car.Id, true );
+
+    string factionname;
+    GetFactionNameStr(factionId, factionname);
+    SetBestScore(ScoreCur[base], null, factionname);
+    string broadcastMsg = factionname+" are still controlling "+baseName[base]+".";
+    baseControl(broadcastMsg, base, BROADCAST_MSG_TIME); 
+}
+
+/* Fill given <bag> with <cnt> items selected from group <pids> 
+ * for each item check <chance> to get it and if true spawn from <min> to <max> items
+ * if cnt == 0 try spawning each item from group <pids> with given <chance>
+ * @Item@ bag       - car trunk
+ * @uint16[]& pids  - array of item pids defined in pids_groups.fos
+ * @uint cnt        - number of attempts to spawn items from given pids group (0 - try to spawn them all)
+ * @uint min        - min ammount of selected item to spawn
+ * @uint max        - max ammount of selected item to spawn
+ * @int chance      - chance to spawn selected item
+ */
+void FillBag(Item@ bag, uint16[]& pids, uint cnt, uint min, uint max, int chance)
+{
+    if(cnt == 0)
+    {
+        for(uint i=0; i < pids.length(); ++i)
+        {
+            if(Random(1, 100) <= chance)
+                bag.AddItem(pids[i], Random(min, max), 0);
+        }
+    }
+    else
+    {
+        for(uint i=0; i < cnt; ++i)
+        {
+            if(Random(1, 100) <= chance)
+                bag.AddItem(pids[Random(0, pids.length() - 1)], Random(min, max), 0);
+        }
+    }
+}
+
+uint e_DeleteCar(uint[] @ values)
+{
+    Item@ car = GetItem(values[0]);
+    if(valid(car))
+        DeleteItem(car);
+    return 0;
+}
+
+/*** CAR SPAWNING end ***/
+
+/**************************
+ * DIALOG FUNCTIONS start *
+ **************************/
+
+/* dialog init */
+bool s_Terminal(Critter& player, Scenery& terminal, int skill, Item@ item)
+{
+    if(player.IsPlayer() && skill == -1 && not valid(item))
+        RunDialog(player, DIALOG_base_terminal, terminal.HexX, terminal.HexY, false);
+    return true;
+}
+
+/* control base for enclave */
+void r_BaseToEnclave(Critter& player, Critter@ terminal, int val)
+{
+    BaseTo(player, ORG_ENCLAVE);
+}
+
+/* control base for brotherhood */
+void r_BaseToBos(Critter& player, Critter@ terminal, int val)
+{
+    BaseTo(player, ORG_BOS);
+}
+
+/* start base control time events */
+void BaseTo(Critter@ player, int org)
+{
+    int base = GetBaseByMap(player.GetMap());
+    if( base == -1 )
+        return;
+
+    GameVar@ varController = GetGlobalVar(GvarController[base]);
+    varController = player.StatBase[ST_TEAM_ID];
+
+    GameVar@ varOrg = GetGlobalVar(GvarOrganisation[base]);
+    varOrg = org;
+
+    string factionname;
+    GetFactionNameStr(varController.GetValue(), factionname);
+    SetBestScore(ScoreCur[base], null, factionname);
+
+    // Delete old
+    TerminateTimeEvents(base);
+    CreateTimeEvent( __FullSecond + BASE_MOB_WAVE_DELETE_DELAY, "e_BaseDeleteWaveMobs", base, true ); 
+    // Create new
+    array<uint> data = { base, 1 };
+    GameVar@ varRefreshTimeEvent = GetGlobalVar(GvarRefreshTimeEvent[base]);
+    varRefreshTimeEvent = CreateTimeEvent(__FullSecond + BASE_REFRESH_TIME, "e_BaseRefresh", data, true);
+
+    GameVar@ varCheckTimeEvent = GetGlobalVar(GvarCheckTimeEvent[base]);
+    varCheckTimeEvent = CreateTimeEvent( __FullSecond + BASE_CHECK_TIME, "e_BaseCheck", base, true ); 
+
+    GameVar@ varMobWaveTimeEvent = GetGlobalVar(GvarMobWaveTimeEvent[base]);
+    varMobWaveTimeEvent = CreateTimeEvent( __FullSecond + BASE_MOB_WAVE_TIME, "e_BaseMobWave", data, true ); 
+    Log(baseName[base]+": "+factionname+" started base control "+"("+orgName[org]+").");
+
+    string broadcastMsg = factionname+" are now controlling "+baseName[base]+".";
+    baseControl(broadcastMsg, base, BROADCAST_MSG_TIME); 
+}
+
+int GetBaseByMap(Map@ map)
+{
+    if(not valid(map))
+        return -1;
+    uint16 mapPid = map.GetProtoId();
+    for(int i=0, j=TerminalMaps.length(); i < j; i++)
+        if(TerminalMaps[i] == mapPid)
+            return i;
+    return -1;
+}
+
+bool d_CheckTerminalLock(Critter& player, Critter@ terminal, int val)
+{
+    return true;
+}
+
+/* check if valid player's faction before you allow to start base control */
+bool d_CheckPlayerNotInFaction(Critter& player, Critter@ terminal)
+{
+    if(player.StatBase[ST_TEAM_ID] >= 200)
+        return false;
+    return true;
+}
+
+/*** DIALOG FUNCTIONS end ***/

@@ -1,0 +1,30 @@
+[comment]
+
+
+[data]
+lang=engl
+
+[dialog]
+&
+1 1000 None 0 #
+2 1010 D _var p name_mem_npc_player = 0 #
+4 1020 D _var p name_mem_npc_player = 1 @
+2 2000 None 0 #
+3 2010 D _item p PID_DOCTORS_BAG } 1 R _script dialog@r_AddExperience 1 500 R _param p ST_KARMA + 1 R _var p name_mem_npc_player = 1 R _item p PID_DOCTORS_BAG - 1 R _param p REPUTATION_NCR + 7 #
+0 2020 @
+3 3000 None 0 @
+4 4000 None 0 &
+
+[engl]
+{100}{}{Rickon}
+{200}{}{You see a man with a broken limb.}
+{210}{}{Looks like he could use some help.}
+{1000}{}{Predialogue installations}
+{1010}{}{Answer text}
+{1020}{}{2}
+{2000}{}{[You see a man with a broken leg. He's barely walking... But he is headed towards you. It seems like he wants something] Hello! My leg is a mess... You don't happen to have a doctor's bag I could have, would you? So I can fix this goddamn leg... Please?}
+{2010}{}{Yeah I have one... Take it.}
+{2020}{}{Sorry, don't have one.}
+{3000}{}{[He uses the doctor's bag and fixes his broken limb] Ohh nice, it's like having a new one! Thank you!}
+{4000}{}{Thank you for helping me!}
+

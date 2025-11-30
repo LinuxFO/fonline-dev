@@ -1,0 +1,34 @@
+[comment]
+
+
+[data]
+lang=engl
+
+[dialog]
+&
+1 1000 None 0 #
+3 1010 D _script dialog@d_IsNotMemberOf 1 FACTION_BOS #
+2 1020 @
+2 2000 None 0 #
+5 2010 #
+4 2020 @
+3 3000 None 0 @
+4 4000 None 0 @
+5 5000 dialog@dlg_SayBuyMedGel 0 #
+4 5010 &
+
+[engl]
+{100}{}{Medical Technician}
+{200}{}{You see a local medical technician.}
+{210}{}{Just another local helping out the Brotherhood of Steel. They look retired, however. }
+{1000}{}{Predialogue installations}
+{1010}{}{Answer text}
+{1020}{}{Answer text}
+{2000}{}{Hello, @sex@|brother||sister|. Are you looking to buy any Medical Gel? I am able to sell it in bulk. 25 caps per individual unit.}
+{2010}{}{Let's barter for some Medical Gel!}
+{2020}{}{Not right now, but thanks.}
+{3000}{}{Where's your escort? This is a private building! Brotherhood of Steel members ONLY!}
+{4000}{}{I'll be here. This vat full of goop isn't going anywhere either.}
+{5000}{}{Sure, just use the SAY command to let me know how many units you want to buy at 25 caps each. I've got enough to supply an army, so don't worry about limits.}
+{5010}{}{Okay! That's enough for now, thanks a lot. Goodbye.}
+

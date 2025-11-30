@@ -1,0 +1,252 @@
+#ifndef __NPC_SCHEDULES_H__
+#define __NPC_SCHEDULES_H__
+
+// standard set for all schedules needs
+#include "_defines.fos"
+#include "_macros.fos"
+#include "_animation.fos"
+#include "_colors.fos"
+#include "_dialogs.fos"
+#include "_entires.fos"
+#include "_maps.fos"
+#include "_npc_pids.fos"
+#include "_time.fos"
+#include "ITEMPID.h"
+#include "buffer_h.fos"
+#include "entire.fos"
+#include "lexems_h.fos"
+#include "npc_roles_h.fos"
+#include "npc_schedule_h.fos"
+#include "pdata_h.fos"
+
+#ifdef __ASCOMPILER
+	#pragma bindfunc "void NPC_SCHEDULES_DUMMY() -> Utils.dll SERVER"
+#endif
+
+#define PATROL_CHANCE (500) // needs tuning
+
+#define FREE_HEX#(_map,_hx,_hy)      (map.IsHexPassed(_hx, _hy) && @(map.GetCritter(_hx, _hy)) == null)
+#define PATH_HEX#(_map,_npc,_hx,_hy) (_map.GetPathLength(_npc,_hx,_hy,0) > 0)
+
+enum HardcodedSchedules
+{
+	GENERIC_RESERVED = 0,
+
+	RADIATED_AI,	// 1
+	GRAVE_KEEPER,	// 2
+	COURIER,		// 3
+
+	GENERIC_PATROL_EX_0   = 50,
+	GENERIC_PATROL_EX_1, // 51
+	GENERIC_PATROL_EX_2, // 52
+	GENERIC_PATROL_EX_3, // 53
+	GENERIC_PATROL_EX_4, // 54
+	GENERIC_PATROL_EX_5, // 55
+	GENERIC_PATROL_EX_6, // 56
+	GENERIC_PATROL_EX_7, // 57
+	GENERIC_PATROL_EX_8, // 58
+	GENERIC_PATROL_EX_9, // 59
+
+	// 60-69 reserved
+
+	GENERIC_PATROL_0   = 70,
+	GENERIC_PATROL_1, // 71
+	GENERIC_PATROL_2, // 72
+	GENERIC_PATROL_3, // 73
+	GENERIC_PATROL_4, // 74
+	GENERIC_PATROL_5, // 75
+	GENERIC_PATROL_6, // 76
+	GENERIC_PATROL_7, // 77
+	GENERIC_PATROL_8, // 78
+	GENERIC_PATROL_9, // 79
+
+	// 80-89 reserved
+
+	GENERIC_PATROL_EX = 98,
+	GENERIC_PATROL,	// 99
+
+	// Ares
+	ARES_RESERVED = 100,
+	// Arroyo
+	ARROYO_RESERVED = 200,
+	// Barter Ground
+	BARTERGROUND_RESERVED = 300,
+	// Boneyard
+	BONEYARD_RESERVED = 400,
+	// Boneyard Fortress
+	BONEYARD_FORTRESS_RESERVED = 500,
+	// Boneyard Library
+	BONEYARD_LIBRARY_RESERVED = 600,
+	// Boneyard Scavenger
+	BONEYARD_SCAVENGER_RESERVED = 700,
+	// Boneyard Train Station
+	BONEYARD_TRAIN_RESERVED = 800,
+	// Bounty Hunters
+	BOUNTYHUNTERS_RESERVED = 900,
+	// Broken Hills
+	BROKENHILLS_RESERVED = 1000,
+	// Brotherhood of Steel
+	BROTHERHOODOFSTEEL_RESERVED = 1100,
+	// Cathedral
+	CATHEDRAL_RESERVED = 1200,
+	// Crater
+	CRATER_RESERVED = 1300,
+	// Den
+	DEN_RESERVED = 1400,
+	// Gordon's Gas Station
+	GASSTATION_RESERVED = 1500,
+	// Gecko
+	GECKO_RESERVED = 1600,
+	// Ghost Farm
+	GHOSTFARM_RESERVED = 1700,
+	// Ghost Town
+	GHOSTTOWN_RESERVED = 1800,
+	// Glow
+	GLOW_RESERVED = 1900,
+	// Golgotha
+	GOLGOTHA_RESERVED = 2000,
+	// Hinkley
+	HINKLEY_RESERVED = 2100,
+	// Hub
+	HUB_RESERVED = 2200,
+	HUB_FATHER_OSHAUGHNESSY,	// 2201
+	HUB_SERMON_LISTENER,		// 2202
+	// Jail
+	JAIL_RESERVED = 2300,
+	JAIL_TECHNIC,
+	JAIL_GUARD1,
+	// Junktown
+	JUNKTOWN_RESERVED = 2400,
+	// Junktown Mine
+	JUNKTOWN_MINE_RESERVED = 2500,
+	// Junkyard
+	JUNKYARD_RESERVED = 2600,
+	JUNKYARD,
+	// Klamath
+	KLAMATH_RESERVED = 2700,
+	// Klamath Mine
+	KLAMATH_MINE_RESERVED = 2800,
+	// Klamath Toxic Caves
+	KLAMATH_TOXICCAVES_RESERVED = 2900,
+	// Mariposa
+	MARIPOSA_RESERVED = 3000,
+	// Modoc
+	MODOC_RESERVED = 3100,
+	// Navarro
+	NAVARRO_RESERVED = 3200,
+	NAVARRO_PATROL_WEST,	// 3201
+	NAVARRO_PATROL_EAST,	// 3202
+	NAVARRO_PATROL_OUTSIDE,	// 3203
+	NAVARRO_SARGE,			// 3204
+	NAVARRO_DRIVER,			// 3205
+	NAVARRO_PASSENGER,		// 3206
+	// Necropolis
+	NECROPOLIS_RESERVED = 3300,
+	// New Reno
+	NEWRENO_RESERVED = 3400,
+	// New Reno Stables
+	NEWRENO_STABLES_RESERVED = 3500,
+	// NCR
+	NCR_RESERVED = 3600,
+	NCR_PATROL_BAZAAR,	// 3601
+	// NCR Army
+	NCR_ARMY_RESERVED = 3700,
+	// NCR Mine
+	NCR_MINE_RESERVED = 3800,
+	// NCR Prison
+	NCR_PRISON_RESERVED = 3900,
+	// NCR Train Station
+	NCR_TRAIN_RESERVED = 4000,
+	// Noob Camp
+	NOOBCAMP_RESERVED = 4100,
+	NOOBCAMP_PATROL_INNER,	// 4101
+	NOOBCAMP_PATROL_OUTER,	// 4102
+	// NPC Schedules TEST
+	TEST_RESERVED = 4200,
+	// NPC Map
+	NPCMAP_RESERVED = 4300,
+	// Raiders North
+	RAIDERS_NORTH_RESERVED = 4400,
+	// Raiders South
+	RAIDERS_SOUTH_RESERVED = 4500,
+	// Redding
+	REDDING_RESERVED = 4600,
+	// Replication 1
+	REPLICATION1_RESERVED = 4700,
+	// Replication 2
+	REPLICATION2_RESERVED = 4800,
+	// Replication 3
+	REPLICATION3_RESERVED = 4900,
+	// Replication 4
+	REPLICATION4_RESERVED = 5000,
+	// Replication 5
+	REPLICATION5_RESERVED = 5100,
+	// Replication 6
+	REPLICATION6_RESERVED = 5200,
+	// Replication 7
+	REPLICATION7_RESERVED = 5300,
+	// Replication 8
+	REPLICATION8_RESERVED = 5400,
+	// Replication 9
+	REPLICATION9_RESERVED = 5500,
+	// Replication 10
+	REPLICATION10_RESERVED = 5600,
+	// San Francisco
+	SANFRANCISCO_RESERVED = 5700,
+	// San Francisco Mine
+	SANFRANCISCO_MINE_RESERVED = 5800,
+	// San Francisco Train Station
+	SANFRANCISCO_TRAIN_RESERVED = 5900,
+	// Sierra Army Depot
+	SIERRA_RESERVED = 6000,
+	// Tal Chem
+	TALCHEM_RESERVED = 6100,
+	// Tesla Tower
+	TESLATOWER_RESERVED = 6200,
+	// Theme Park
+	THEMEPARK_RESERVED = 6300,
+	// Tobacco Farm
+	TOBACCOFARM_RESERVED = 6400,
+	// Vault 13
+	VAULT13_RESERVED = 6500,
+	// Vault 15
+	VAULT15_RESERVED = 6600,
+	// Vault City
+	VAULTCITY_RESERVED = 6700,
+	// Vault City Mine
+	VAULTCITY_MINE_RESERVED = 6800,
+	// Vault City Train Station
+	VAULTCITY_TRAIN_RESERVED = 6900,
+	// Waterworks
+	WATERWORKS_RESERVED = 7000,
+	// Warehouse
+	WAREHOUSE_RESERVED = 7100,
+
+	/*
+    SETH_GENERIC = 300,
+    SETH_OUTSIDE,
+    SETH_ARMORER,
+    SETH_COOK,
+    SETH_PRISONER,
+    SETH_RANGER,
+
+    SETH_GUARD_DBM1 = 320,
+    SETH_GUARD_DBM2,
+    SETH_GUARD_DBL1,
+    SETH_GUARD_DBL2,
+    SETH_GUARD_DBR1,
+    SETH_GUARD_DBR2,
+    SETH_GUARD_NBL1,
+    SETH_GUARD_NBL2,
+    SETH_GUARD_NBR1,
+    SETH_GUARD_NBR2,
+    SETH_GUARD_NBM1,
+    SETH_GUARD_NBM2,
+    SETH_GUARD_RANGER1,
+    SETH_GUARD_RANGER2
+	*/
+
+	HARDCODED_SCHEDULES_END = 10000
+};
+
+#endif // __NPC_SCHEDULES_H__ //

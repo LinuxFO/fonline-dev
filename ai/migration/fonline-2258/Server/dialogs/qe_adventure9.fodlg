@@ -1,0 +1,190 @@
+[comment]
+
+
+[data]
+lang=engl
+
+[dialog]
+&
+1 1000 None 0 #
+2 1010 @
+2 2000 None 0 #
+3 2010 D _var p q_adventure = 19 #
+3 2020 D _var p q_adventure = 22 #
+44 2030 D _var p q_adventure = 25 R _var p q_adventure = 26 R _script dialog@r_AddExperience 1 2000 R _script quest_advent4@r_DeleteLoc 0  @
+3 3000 None 0 #
+4 3010 @
+4 4000 None 0 #
+5 4010 D _var p q_adventure = 19 R _var p q_adventure = 20 R _script dialog@r_AddExperience 1 2000 #
+6 4020 D _var p q_adventure = 22 @
+5 5000 None 0 @
+6 6000 None 0 #
+7 6010 @
+7 7000 None 0 #
+8 7010 @
+8 8000 None 0 #
+9 8010 @
+9 9000 None 0 #
+10 9010 @
+10 10000 None 0 #
+11 10010 @
+11 11000 None 0 #
+12 11010 @
+12 12000 None 0 #
+13 12010 @
+13 13000 None 0 #
+14 13010 @
+14 14000 None 0 #
+15 14010 @
+15 15000 None 0 #
+16 15010 @
+16 16000 None 0 #
+17 16010 @
+17 17000 None 0 #
+18 17010 @
+18 18000 None 0 #
+19 18010 @
+19 19000 None 0 #
+20 19010 @
+20 20000 None 0 #
+21 20010 @
+21 21000 None 0 #
+22 21010 @
+22 22000 None 0 #
+23 22010 @
+23 23000 None 0 #
+24 23010 @
+24 24000 None 0 #
+25 24010 @
+25 25000 None 0 #
+26 25010 @
+26 26000 None 0 #
+27 26010 @
+27 27000 None 0 #
+28 27010 @
+28 28000 None 0 #
+29 28010 @
+29 29000 None 0 #
+30 29010 @
+30 30000 None 0 #
+31 30010 @
+31 31000 None 0 #
+32 31010 @
+32 32000 None 0 #
+33 32010 @
+33 33000 None 0 #
+34 33010 @
+34 34000 None 0 #
+35 34010 @
+35 35000 None 0 #
+36 35010 @
+36 36000 None 0 #
+37 36010 @
+37 37000 None 0 #
+38 37010 @
+38 38000 None 0 #
+39 38010 @
+39 39000 None 0 #
+40 39010 @
+40 40000 None 0 #
+41 40010 @
+41 41000 None 0 #
+42 41010 @
+42 42000 None 0 #
+43 42010 R _var p q_adventure = 23 R _script dialog@r_AddExperience 1 2000 @
+43 43000 None 0 @
+44 44000 None 0 &
+
+[engl]
+{100}{}{Communist Mainframe}
+{200}{}{You see a working computer.}
+{210}{}{This appears to be fully functional.}
+{1000}{}{Predialogue installations}
+{1010}{}{1}
+{2000}{}{Welcome to the San Francisco Communist Mainframe. All hail the Emperor! How can I help you today, guest?}
+{2010}{}{[Insert your PipBoy into the machine]}
+{2020}{}{[Insert your PipBoy into the machine]}
+{2030}{}{[Insert your PipBoy into the machine]}
+{3000}{}{Welcome to the San Francisco Communist Mainframe, @pname@. All hail the Emperor! How can I help you today, guest?}
+{3010}{}{Available Commands.}
+{4000}{}{You have no privileges on this server, @pname@. You'll need a 24-digit pin to enable read/write access.}
+{4010}{}{Where can I get a 24-digit pin?}
+{4020}{}{2405-DEPX-9998-1337-XEPX-1101.}
+{5000}{}{Invalid Command. Please try again later, guest.}
+{6000}{}{Privileges upgraded! Welcome to the San Francisco Communist Mainframe, @pname@. All hail the Emperor! How can I help you today, @sex@|sir?||ma'am?|}
+{6010}{}{Available Commands.}
+{7000}{}{Console mode is active. Please input commands manually.}
+{7010}{}{Uh... shit.}
+{8000}{}{"A shit" is not a valid command. Please try again.}
+{8010}{}{Install, and Run, "bkdrENC.exe" from my PipBoy.}
+{9000}{}{Processing.}
+{9010}{}{[Wait]}
+{10000}{}{Processing..}
+{10010}{}{[Wait]}
+{11000}{}{Processing...}
+{11010}{}{[Wait]}
+{12000}{}{Processing...}
+{12010}{}{[Wait]}
+{13000}{}{Processing ...}
+{13010}{}{[Wait]}
+{14000}{}{Processing  ...}
+{14010}{}{[Wait]}
+{15000}{}{Processing   ...}
+{15010}{}{[Wait]}
+{16000}{}{Processing    ..}
+{16010}{}{[Wait]}
+{17000}{}{Processing     .}
+{17010}{}{[Wait]}
+{18000}{}{Processing     }
+{18010}{}{[Wait]}
+{19000}{}{Processing complete.}
+{19010}{}{[Wait]}
+{20000}{}{Running "bkdrENC.exe". Please wait.}
+{20010}{}{Finally!}
+{21000}{}{Warning! Virus scanner detected malicious software within "bkdrENC.exe"! Proceed anyway?}
+{21010}{}{Yes.}
+{22000}{}{Vault 24 is requesting permission to remote into our networks. Do you wish to allow it?}
+{22010}{}{Yes.}
+{23000}{}{[A voice screams from the Computer Monitor] @pname@? Is that you, you ol' bastard!}
+{23010}{}{Whoa, whoa! Keep it down!}
+{24000}{}{Rather sorry about that, @pname@! I see that you're going all cloak & dagger inside the Communist headquarters! Good for you, ol' chap! Good for you!}
+{24010}{}{So what now, boss?}
+{25000}{}{I was hoping that you would know that one, @pname@! Ahah! Give me a few minutes please... Let us have a look over the Chinese database...}
+{25010}{}{[Wait some more]}
+{26000}{}{This is interesting! It appears that the bloody Chinese are trying to take over Vault 12! They want to make Necropolis their next city. Kill off all the bloody ghouls, and fill it full of communists! Not surprising at all. Bloody snakes.}
+{26010}{}{So, did they plug into the vault terminals as well?}
+{27000}{}{No, no. They don't have the technology for that, remember? This "U.S Government" is behind it all, I know it! But who the bloody hell are they? The Chinese database talks about an Oil Rig, but it looks like it blew up years ago. That's the last known location of this... "government".}
+{27010}{}{I've been out here for a while... I haven't heard of any "U.S Government" before. But I have seen a few militaries parading around though.}
+{28000}{}{Yes, no doubt the NCR. We've been tracking the surface activity for years. We don't know of any "U.S Government" either. There is an intact military installation to the North of San Francisco however. Navarro, I believe it's called. }
+{28010}{}{Yeah, I've heard of that. Listen, Overseer... my cousin Felix... He tried to kill me. I'm the one that silenced his vital signs...}
+{29000}{}{@pname@! That's horrible! You should be ashamed of yourself! He was your fucking cousin! You couldn't talk it over! My God, man! Are you becoming a monster out there?!}
+{29010}{}{You don't understand! This... world! It... It changes you! It makes you do things you don't want to do! Just to survive! Felix... he... he was PAID to kill me! Paid in BOTTLE CAPS!}
+{30000}{}{@pname@! Listen to yourself! You're mad! Are you telling me that bottle caps are worth more than a man's life?!}
+{30010}{}{Yes, Overseer! Yes! Out here this is how it is! Nothing matters but bottle caps! It's a mad house, I tell you! A mad house!}
+{31000}{}{Calm yourself, @pname@! Tell me about Felix... why... why did he kill you? Who hired him? What do you mean?}
+{31010}{}{I don't know, Overseer. I really don't. I found a man in town who wanted my PipBoy. He told me that he only needed the access codes to Vault City's Mainframe. That we were the only ones who were able to access it...}
+{32000}{}{You didn't give him the codes, did you? That would be... catastrophic!}
+{32010}{}{Uh... No. No, I didn't. [Lie]}
+{33000}{}{Good! Go on.}
+{33010}{}{He was the man that had hired Felix to kill me, and take my PipBoy! I confronted him and--}
+{34000}{}{You didn't kill him, did you?!}
+{34010}{}{No, no... I... left him alive.}
+{35000}{}{That's good. @pname@. You are able to show restraint. Go on.}
+{35010}{}{He told me that a man in black armour had approached him with a contract on my life! But that's as far as I got. I don't know anymore. But Felix, and Cira are dead! And it's all your fucking fault! You're a goddamn asshole, Overseer! An asshole!}
+{36000}{}{Calm down, calm down! The wasteland is harsh, @pname@! This is your new life, and there's no coming back from it! You were destined for this! To shape the world into something we can all live in again! It is your destiny! Don't ever forget it! You're an American now! Act like it!}
+{36010}{}{Yes, sir! [Start singing the American National Anthem]}
+{37000}{}{[You and the Overseer start singing. You can hear music in the background] Oh, say! can you see, by the dawn's early light, What so proudly, we hailed, at the twilight's last gleaming...}
+{37010}{}{Whose broad stripes and bright stars, through the perilous fight...}
+{38000}{}{Good, good, @pname@. You're learning well. Might be a bright future for America after all.}
+{38010}{}{[Stop singing, and say Nothing]}
+{39000}{}{What's wrong, @pname@? What is it?}
+{39010}{}{Who are these black armoured people from Navarro?}
+{40000}{}{No clue, @pname@. Why don't you go over there and... find out? Hmm? Care to tango with a bloody post-apocalyptic military?}
+{40010}{}{Yeah... actually, I do. Got something against that?}
+{41000}{}{@pname@, please! Don't think that you're ready to take on a bloody fucking army! I don't think we're quite ready for that just yet. Let us be smart here, @pname@. Someone opened our vault doors. It wasn't the NCR, Vault City, the Ghouls, or the Chinese. It was someone much more organized than that.}
+{41010}{}{Yeah... you're probably right. No sense in getting killed for nothing. What do you think we should do now, Overseer?}
+{42000}{}{If men in black armour are trying to kill you, we need to find these "men in black armour". If you think that Navarro is the place to look, then by all means, go look. Our sensors do show of an installation, but I highly doubt you'll just be able to bloody walk in!}
+{42010}{}{Can't be that hard. I think I'll figure it out. Thanks, Overseer. I'll take it from here.}
+{43000}{}{Jolly good show, ol' chap! What a wonderful American you're turning out to be! Overseer sigining off! Do leave that little "Feature" behind for me, please! Tally-ho! Cheerio and all that!}
+{44000}{}{ERROR. TERMINAL LOCKED. PLEASE STEP AWAY FROM THE AREA.}
+

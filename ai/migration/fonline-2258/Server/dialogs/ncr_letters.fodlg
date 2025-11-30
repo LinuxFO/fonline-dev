@@ -1,0 +1,130 @@
+[comment]
+
+
+[data]
+lang=engl
+
+[dialog]
+&
+1 1000 None 0 #
+2 1010 D _var p ncr_letters = 0 #
+13 1020 D _var p ncr_letters = 1 #
+14 1030 D _var p ncr_letters = 2 #
+18 1040 D _var p ncr_letters = 3 @
+2 2000 None 0 #
+3 2010 #
+5 2020 #
+3 2030 #
+4 2040 #
+3 2050 #
+0 2060 @
+3 3000 None 0 #
+9 3010 #
+8 3020 #
+4 3030 @
+4 4000 None 0 @
+5 5000 None 0 #
+6 5010 #
+3 5020 #
+3 5030 #
+3 5040 #
+0 5050 @
+6 6000 None 0 #
+7 6010 #
+3 6020 #
+7 6030 @
+7 7000 None 0 #
+3 7010 #
+65507 7020 #
+0 7030 @
+8 8000 None 0 #
+10 8010 @
+9 9000 None 0 #
+8 9010 #
+4 9020 @
+10 10000 None 0 #
+11 10010 @
+11 11000 None 0 #
+12 11010 R _var p ncr_letters = 1 #
+0 11020 @
+12 12000 None 0 #
+0 12010 @
+13 13000 None 0 #
+0 13010 @
+14 14000 None 0 #
+15 14010 @
+15 15000 None 0 #
+16 15010 @
+16 16000 None 0 #
+17 16010 R _item p PID_SHOTGUN + 1 R _var p ncr_letters = 3 R _script dialog@r_AddExperience 1 200 R _param p ST_KARMA + 1 #
+17 16020 R _item p PID_10MM_PISTOL + 1 R _var p ncr_letters = 3 R _script dialog@r_AddExperience 1 200 R _param p ST_KARMA + 1 #
+17 16030 R _item p PID_LEATHER_JACKET + 1 R _var p ncr_letters = 3 R _script dialog@r_AddExperience 1 200 R _param p ST_KARMA + 1 #
+17 16040 R _item p PID_MULTI_TOOL + 1 R _var p ncr_letters = 3 R _script dialog@r_AddExperience 1 200 R _param p ST_KARMA + 1 #
+17 16050 R _item p PID_FIRST_AID_KIT + 1 R _var p ncr_letters = 3 R _script dialog@r_AddExperience 1 200 R _param p ST_KARMA + 1 #
+17 16060 R _script dialog@r_AddMoney 1 100 R _var p ncr_letters = 3 R _script dialog@r_AddExperience 1 200 R _param p ST_KARMA + 2 @
+17 17000 None 0 @
+18 18000 None 0 &
+
+[engl]
+{100}{}{Nora}
+{200}{}{You see a young woman.}
+{210}{}{Looks like she's in love, or drunk. You aren't quite sure.}
+{1000}{}{Predialogue installations}
+{1010}{}{Answer text}
+{1020}{}{Answer text2}
+{1030}{}{Answer text3}
+{1040}{}{Answer text4}
+{2000}{}{[She looks pretty bummed out] Hi, I'm Nora. You ever been in love before?}
+{2010}{}{Why do you ask?}
+{2020}{}{Love is for fools only looking for trouble.}
+{2030}{}{You mean sex? Sure I've done that. This one time in the vault...}
+{2040}{}{You got some sad story too, bimbo? Don't worry, I've heard it all.}
+{2050}{}{If I sit down and listen, will you promise not to cry any tears into my beer?}
+{2060}{}{Not interested.}
+{3000}{}{I'm in love, at least I think I'm in love. I don't know how they feel though. That's why I wrote this vague letter. I was thinking about sending it anonymously.}
+{3010}{}{Why don't you just take a chance, and tell them how you really feel?}
+{3020}{}{So? You want me to deliver the letter?}
+{3030}{}{That's nice, but I don't care about your problems.}
+{4000}{}{Wow, beat it then, @sex@|jerk!||bitch!|}
+{5000}{}{Then write a big fool on my face with permanent marker.}
+{5010}{}{Uhm... Okay. I don't have a marker, but I'll use some dirt...}
+{5020}{}{What's the problem? }
+{5030}{}{What do you want?}
+{5040}{}{[Say nothing]}
+{5050}{}{Well... there goes my time. See ya.}
+{6000}{}{[She bats your hand out of her face] Whoa! I was just kidding!}
+{6010}{}{Part of me knew that.}
+{6020}{}{So what's the problem? Just tell me already.}
+{6030}{}{Actually, I insist. I'm going to paint your face with dirt until you blend into the background!}
+{7000}{}{[She's shocked!] I don't know if you're joking, or if I should call the guards!}
+{7010}{}{All right, all right. Let's talk about your problem.}
+{7020}{}{[Attack her!]}
+{7030}{}{Well that's all I wanted to do, see ya!}
+{8000}{}{Yes! If you could do that, I'd be really grateful!}
+{8010}{}{I could, but what's in it for me? I can't just play cupid for everybody.}
+{9000}{}{Me? No! I don't think she'll understand. What if... }
+{9010}{}{Do you want me to deliver the letter for you?}
+{9020}{}{So you like girls, eh?}
+{10000}{}{Well... It's not very far, but I guess I could give you this old Shotgun, or a 10mm pistol. Maybe even a First Aid kit? I'll let you pick which one.}
+{10010}{}{Sure. Hand me the letter. I'll go give it to your potential lover. But who is she?}
+{11000}{}{Her... her name, is... Oh God! I don't know. She's the electric engineer downtown. By the industrial side. I barely know her, but she's something to me. Just... just run over there. Hand the letter, but don't say who it was from. I want to see if she can figure it out. Maybe she'll remember the first time we met...}
+{11010}{}{This doesn't seem too hard. Okay, hand me that letter!}
+{11020}{}{This is really stupid. I'm sorry, but you'll have to find someone else to deliver your lame love letters.}
+{12000}{}{You'll do it?! Really?! Oh thank you! [She runs over and gives you a big hug] This is so romantic! }
+{12010}{}{Uh-huh. I'll be back... eventually.}
+{13000}{}{It's you! What did she say? Did she say anything?! Tell me, tell me, tell me!}
+{13010}{}{I haven't delivered the letter yet, but I will. I just thought you were someone else, sorry.}
+{14000}{}{It's you again! What did she say? Did she say anything?! Tell me, tell me, tell me!}
+{14010}{}{Yeah, it's done. But she didn't say much. Just ol' grumpy Dorothy.}
+{15000}{}{Oh she's always like that! I love it! I'm so excited! Maybe... maybe I'll just run over there right now! My lovers name is Dorothy! Oh boy! Nora and Dorothy! So romantic, isn't it?}
+{15010}{}{Relax there, hun. Let the magic do it's work. Now let's talk about my reward.}
+{16000}{}{Yes, yes! I'm so happy! Thank you so much for this! Do you want a Shotgun, 10mm Pistol, Leather Jacket, a Tool, or a First Aid Kit?}
+{16010}{}{Give me that Shotgun. Looks like a real bang.}
+{16020}{}{I'll take the 10mm pistol. It's new, right?}
+{16030}{}{A Leather Jacket for sure.}
+{16040}{}{The Tool, definitely. }
+{16050}{}{First Aid Kit, please.}
+{16060}{}{Nothing. Just give me a hundred caps.}
+{17000}{}{Bye, buddy! Thanks a million!}
+{18000}{}{@@She wasn't into girls...@@*sobs*}
+

@@ -1,0 +1,19 @@
+[comment]
+
+[data]
+lang=engl
+
+[dialog]
+&
+1 1000 None 0 #
+2 1010 @
+2 2000 None 0 &
+
+[engl]
+{100}{}{Police commander}
+{200}{}{You see a Police commander.}
+{210}{}{You can see that he is clearly occupied.}
+{1000}{}{Predialogue installations}
+{1010}{}{2}
+{2000}{}{Crime level is finally decreasing.@@We should focus to spread our forces around the town.@@Northern perimeter looks safe.}
+

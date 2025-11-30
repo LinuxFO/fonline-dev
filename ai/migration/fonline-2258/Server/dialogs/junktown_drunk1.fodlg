@@ -1,0 +1,110 @@
+[comment]
+Requires 3 Intel
+Requires 3 Char
+
+Junktown barpatron near the entrance, bar needs atmosphere. Talking to him and buying him a drink gets you 150xp at the cost of 5 caps.
+Ask about his son and hear the story. Gives noob advice on how to make cash, and mentions some quests in town.  
+
+Adds Life to Junktown
+Easy 150xp
+
+dialogs.masm = 1726
+_dialogs.fos = #define DIALOG_junktown_drunk1              		(1726)
+
+[data]
+lang=engl
+
+[dialog]
+&
+1 1000 None 0 #
+15 1010 D _var p name_mem_player_npc = 1 #
+16 1020 D _param p ST_INTELLECT < 3 #
+2 1030 D _param p ST_INTELLECT > 2 D _var p name_mem_player_npc = 0 #
+17 1040 D _param p ST_CHARISMA < 3 @
+3 2000 None 0 @
+2 3000 None 0 #
+4 3010 #
+11 3020 #
+5 3030 #
+5 3040 #
+8 3050 D _item p PID_BOTTLE_CAPS } 4 R _item p PID_BOTTLE_CAPS - 5 #
+3 3060 @
+4 4000 None 0 #
+9 4010 @
+9 5000 None 0 #
+10 5010 @
+10 6000 None 0 #
+8 6010 D _item p PID_BOTTLE_CAPS } 4 R _item p PID_BOTTLE_CAPS - 5 #
+11 6020 @
+11 7000 None 0 @
+5 8000 None 0 #
+6 8010 @
+6 9000 None 0 #
+7 9010 @
+7 10000 None 0 #
+8 10010 D _item p PID_BOTTLE_CAPS } 4 R _item p PID_BOTTLE_CAPS - 5 #
+11 10020 @
+8 11000 None 0 #
+12 11010 #
+3 11020 @
+12 12000 None 0 #
+13 12010 @
+13 13000 None 0 #
+14 13010 @
+14 14000 None 0 #
+0 14010 R _var p name_mem_player_npc = 1 R _script dialog@r_AddExperience 1 150 R _param p ST_KARMA + 1 R _param p REPUTATION_JUNKTOWN + 50 @
+15 15000 None 0 @
+16 16000 None 0 @
+17 17000 None 0 &
+
+[engl]
+{100}{}{A bar regular}
+{200}{}{You see a mildly inebriated man.}
+{210}{}{He looks like a retired Caravaner. Once you get past the attitude he looks like he might have some cool stories to tell. }
+{220}{}{He looks: Knocked Out.}
+{230}{}{He's Knocked Out.}
+{240}{}{He looks: Almost Dead.}
+{250}{}{He's Almost Dead.}
+{260}{}{He looks: Dead}
+{270}{}{He's Dead.}
+{1000}{}{Predialogue installations}
+{1010}{}{Known}
+{1020}{}{retard}
+{1030}{}{notknown}
+{1040}{}{ugly}
+{2000}{}{Go on then, git'!}
+{3000}{}{[The man doesn't even look up as you approach] What d'ya want? }
+{3010}{}{Hi, I'm @pname@!}
+{3020}{}{Hey drunk, don't you think you've had enough?}
+{3030}{}{What can you tell me about Junktown?}
+{3040}{}{What's there to do around here?}
+{3050}{}{Can I buy you a drink?}
+{3060}{}{Nothing, I was just leaving.}
+{4000}{}{Yeah? That's nice. [He takes a long swig from his glass] What brings you to Junktown?}
+{4010}{}{Guess you could say I'm looking for work. }
+{5000}{}{Well you came to the right place, that's for sure. That is... If you like slaving for shit pay, and inadequate working conditions.}
+{5010}{}{Things can't be that bad around here.}
+{6000}{}{Nah, they're not... I'm just drunk. Sure could use another one though...}
+{6010}{}{Yeah alright, Bartender!}
+{6020}{}{I think you've had enough...}
+{7000}{}{I'll tell you when I've had enough! Bartender! Get me another drink before I break this little prick's neck!}
+{8000}{}{Junktown? Ain't nothing to do here but work, and drink. Hell, it's driving me crazy! Wish I could get out more, but the goddamn wasteland is too harsh for me.}
+{8010}{}{If you could get out there, what would you do?}
+{9000}{}{Heh, if I could do anything... I'd pick up a gun, and start mowing down those fucking Bandits! They... they killed my boy a few years back, ain't never been the same since... Fuckers. Goddamn lowlives! *Hic* Kill... Kill em' all. }
+{9010}{}{Anything I can do to help?}
+{10000}{}{Yeah... Help Junktown deal with these Bandits once and for all! I hear the lead Scout is looking for some more guns. Aside from that, shit... There's not much, really. You could buy me a drink...}
+{10010}{}{Yeah, alright. Bartender!}
+{10020}{}{I think you've had enough.}
+{11000}{}{Thanks a lot, stranger. What was your name again? }
+{11010}{}{@pname@.}
+{11020}{}{None of your damn business!}
+{12000}{}{Well, nice to meet ya @pname@! I'm Grisham, used to run caravans back in the day, but I'm retired now. Couldn't stand to be out there another day without my boy... Poor bastard never even saw it coming, *Sigh*.}
+{12010}{}{What happened?}
+{13000}{}{I used to trade ore, mined it myself, and sold it over to the Hub. Whatever the merchants couldn't buy, I'd sell in Junktown. This town will buy anything. You can make a pretty good living going back and forth. But the roads are too dangerous now, you can't survive out there on your own anymore. My son and I learnt the hard way...We were ambushed right after we left the Hub, and my boy took a bullet to the groin...Tore him right to pieces...*Sob*}
+{13010}{}{Wow, that's horrible. That poor kid. }
+{14000}{}{Yeah... It's too bad really... Hey @pname@, thanks for hearing me out. Nobody gives a shit about the sad drunks anymore. }
+{14010}{}{No problem, take care of yourself, Grisham.}
+{15000}{}{@@Hey @pname@, good to see ya.@@@pname@! There's my favorite wastelander!@@...And then this GIANT Deathclaw...Hey! @pname@! Come over and hear this story!@@You gotta listen to this!@@Kill any Bandits lately?@@Sure, I'll have a Gamma!@@Rotgut? Uh... That shit gives me the shakes.@@Thanks for letting me ramble on about my boy, I needed that.@@Ugh...I need a drink.@@Wow, you look like shit. You should take a day off.@@Junktown ain't so bad, isn't it?@@}
+{16000}{}{Beat it, mongoloid.}
+{17000}{}{Beat it, ugly.}
+

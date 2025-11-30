@@ -1,0 +1,68 @@
+[comment]
+
+
+[data]
+lang=engl
+
+[dialog]
+&
+1 1000 None 0 #
+2 1010 @
+2 2000 None 0 #
+3 2010 D _var p q_bos_initiatequest_start = 52 #
+4 2020 D _var p q_bos_initiatequest_start = 53 #
+12 2030 D _var p q_bos_initiatequest_start = 54 D _script dialog@d_CommonTimeoutReady 0  #
+13 2040 D _var p q_bos_initiatequest_start = 56 R _var p q_bos_initiatequest_start = 54 R _script dialog@r_AddExperience 1 5000 R _var p factions_points_bos + 2000 R _script dialog@r_CommonTimeout 1 2 R _script quest_bosalpha@r_DeleteLoc 0  R _var p z_warrior2 + 1 @
+3 3000 None 0 #
+0 3010 @
+4 4000 None 0 #
+5 4010 @
+5 5000 None 0 #
+6 5010 @
+6 6000 None 0 #
+7 6010 @
+7 7000 None 0 #
+8 7010 @
+8 8000 None 0 #
+9 8010 @
+9 9000 None 0 #
+10 9010 @
+10 10000 None 0 #
+11 10010 R _var p q_bos_initiatequest_start = 54 @
+11 11000 None 0 @
+12 12000 None 0 #
+0 12010 R _var p q_bos_initiatequest_start = 55 R _script quest_bosalpha@r_SpawnLoc 0  @
+13 13000 None 0 &
+
+[engl]
+{100}{}{Commander Carter}
+{200}{}{You see Commander Carter.}
+{210}{}{Commander Carter is one of the highest ranking members of the Brotherhood of Steel. He leads, and commands the men stationed inside the Alpha Bunker.}
+{1000}{}{Predialogue installations}
+{1010}{}{Answer text}
+{2000}{}{What is it, Paladin @pname@?}
+{2010}{}{Reporting for duty, sir! This is my first time here.}
+{2020}{}{Commander Carter, I was told to report straight to you for a very serious briefing!}
+{2030}{}{I'm ready for an Enclave target, sir!}
+{2040}{}{Supply patrol eliminated, sir! You can send the troops over to collect the remains.}
+{3000}{}{I can see that. Go into the office behind me, and meet with Elder Maxson. We'll want to introduce himself to you. You're part of the elite core now. A real royal unit. }
+{3010}{}{Thank you, sir! It's an honour.}
+{4000}{}{That's correct, Paladin. Have a seat, and join the others.}
+{4010}{}{[Sit down and listen to the briefing]}
+{5000}{}{[The Commander dims the lights, and begins to play a holotape recording]}
+{5010}{}{[Watch a short video describing Delta Squads most recent Enclave scouting]}
+{6000}{}{[The recording shows a routine supply run by the remnants of the Enclave, and explores the numerous tactical options behind ambushing them]}
+{6010}{}{[The camera man begins a slow, stealthy walk into a very interesting looking Enclave Vertibird]}
+{7000}{}{[Suddenly, the faces in the videos turn their attention to the camera, and begin shooting. You watch as Delta Squad is mowed down by machine gun fire]}
+{7010}{}{[The holotape projection ends, and Commander Carter turns on the lights]}
+{8000}{}{Well, that was unfortunate. Lieutenant Daniels will be surely missed. What a waste of a good soldier! Those bastards! [He slams his fist into the podium] Regardless as to our losses, we have gained something very valuable here today, gentlemen!}
+{8010}{}{What's that, sir?}
+{9000}{}{Why, Paladin @pname@! Knowledge! The knowledge that the Enclave is pushing supplies out of their hiding places, and exposing their contents to the wasteland! Do you know what that means, Paladin?}
+{9010}{}{We can ambush them, and steal the resources for ourselves!}
+{10000}{}{Exactly! And that's exactly what we're going to do! This next operation is dubbed, "Operation Juno". We will discover key Enclave supply locations, and diismantle their lines. Each of you is trained, and experienced to run their own squad. So! Paladins! Form up, gather your men, and come see me when you're ready for your individual targets! Good luck, gentlemen!}
+{10010}{}{Sir, yes, sir!}
+{11000}{}{That is all! Carry on, Paladins.}
+{12000}{}{Excellent! I've marked one of their locations on your map. You've only got an hour to get in, and get out. Once the entire squad has been eliminated, bring back the supply crate directly to me! Godpseed, Paladin!}
+{12010}{}{Moving out now, sir!}
+{13000}{}{Outstanding work, Paladin! One more Enclave patrol has been defeated! Keep it up! Come back when you're ready to set up another ambush.}
+

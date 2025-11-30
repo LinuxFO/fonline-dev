@@ -1,0 +1,112 @@
+[comment]
+
+
+[data]
+lang=engl
+
+[dialog]
+&
+1 1000 None 0 #
+2 1010 D _var p q_adventure = 0 #
+22 1020 D _var p q_adventure = 1 @
+2 2000 None 0 #
+3 2010 @
+3 3000 None 0 #
+4 3010 @
+4 4000 None 0 #
+5 4010 @
+5 5000 None 0 #
+6 5010 @
+6 6000 None 0 #
+7 6010 D _param p ST_KARMA } 0 #
+7 6020 D _param p ST_KARMA = 0 #
+7 6030 #
+7 6040 D _param p ST_KARMA > 0 @
+7 7000 None 0 #
+8 7010 @
+8 8000 None 0 #
+9 8010 @
+9 9000 None 0 #
+10 9010 @
+10 10000 None 0 #
+11 10010 @
+11 11000 None 0 #
+12 11010 @
+12 12000 None 0 #
+13 12010 @
+13 13000 None 0 #
+14 13010 @
+14 14000 None 0 #
+15 14010 @
+15 15000 None 0 #
+16 15010 @
+16 16000 None 0 #
+17 16010 @
+17 17000 None 0 #
+18 17010 @
+18 18000 None 0 #
+19 18010 @
+19 19000 None 0 #
+20 19010 @
+20 20000 None 0 #
+21 20010 R _var p q_adventure = 1 R _script dialog@r_NinjaKillNpc 1 117 R _script dialog@r_AddExperience 1 1000 @
+21 21000 None 0 @
+22 22000 None 0 #
+0 22010 #
+65506 22020 #
+65507 22030 &
+
+[engl]
+{100}{}{Mysterious Stranger}
+{200}{}{You see a mysterious stranger.}
+{210}{}{She looks beautiful. Who it is, I wonder... }
+{1000}{}{Predialogue installations}
+{1010}{}{Answer text}
+{1020}{}{2}
+{2000}{}{Hi, @pname@. Remember me?}
+{2010}{}{Can't say that I do. Did you follow me here?}
+{3000}{}{Sure did, ol' fella. Been watching you ever since you left the vault.}
+{3010}{}{What! Why? Who are you? What's with that vault suit?}
+{4000}{}{*Sigh* You really don't remember me, do you?}
+{4010}{}{No, I don't. What do you want?}
+{5000}{}{It's me, Cira Morris! Vault 24's Security Officer! We used to work together!}
+{5010}{}{Cira? Cira! Oh! I'm sorry! I didn't even recognize you! I never thought I'd see you again! I missed you so much! [Hug her]}
+{6000}{}{Finally! It's good to see you too, @pname@! How are you finding things? You seem to be doing alright.}
+{6010}{}{I'm doing great!}
+{6020}{}{I'm alright.}
+{6030}{}{No, not at all! This place is horrible!}
+{6040}{}{[Say nothing]}
+{7000}{}{[She says nothing] It's bad out here. I can't sleep. I can't eat. I haven't even walked into a town yet. Just been following you around.}
+{7010}{}{Where did you get those dogs?}
+{8000}{}{I don't know! I found a cave, and they just started following me. They've been useful. Helping me avoid strangers, and... creatures. I found the caravan cart in the middle of the desert, and tamed a wild brahmin with some rope to pull it.}
+{8010}{}{Good job, Cira. Looks like you're adapting well. I'm just about to place a tent out there somewhere.}
+{9000}{}{Well... before you do... I got a radio message from the Overseer today...}
+{9010}{}{What?!}
+{10000}{}{Yeah... that's why I had to come find you... you weren't easy to find, you know. I've got a job for you from the big man.}
+{10010}{}{A job? Take a look around, there's no vault here. What makes the Overseer so sure I'll even complete it?}
+{11000}{}{Frankly, @pname@, I don't give a damn. An order's an order. }
+{11010}{}{Whatever. What's this job? What's the Overseer want this time?}
+{12000}{}{You forgot to close the fridge.}
+{12010}{}{You're kidding?! The Overseer sent you all the way over here just to tell me that?!}
+{13000}{}{[She laughs] No, no. I have a holotape for you. Here, insert it into your PipBoy and download the message.}
+{13010}{}{Gimme a sec.}
+{14000}{}{[You insert the holotape into your PipBoy and run the message]}
+{14010}{}{[Push some buttons]}
+{15000}{}{[You push a bunch of your PipBoy buttons]}
+{15010}{}{[Push some more buttons]}
+{16000}{}{[You push a few more buttons]}
+{16010}{}{[Push even more buttons]}
+{17000}{}{[Finally, your PipBoy begins to play the message]}
+{17010}{}{[Push more buttons]}
+{18000}{}{@pname@. Stop. Find Vault 12. Stop. Connect PipBoy to Terminal Seven. Stop. Run vemxp.exe. Stop. Send data back to command. Stop. }
+{18010}{}{Vault 12? What the hell...}
+{19000}{}{Yeah [Cira says] weird, eh? Don't know what the Overseer wants with Vault 12's computers... Do they even work? Where is Vault 12 anyways? I've never heard of it. }
+{19010}{}{I don't know, but I guess I'll have to find out. Thanks for the message, Cira.}
+{20000}{}{Anytime, @sex@|handsome!||beautiful!| Say, can I come with you? I really don't want to be alone anymore. I can't handle it out here... it's not the same without you, @pname@. I really missed you, a lot. I...}
+{20010}{}{I...}
+{21000}{}{[You hear the distant whisper of a gun shot, and Cira falls dead to the ground. Her mind explodes everywhere as you fall to your knees and scream] }
+{22000}{}{[Cira is dead. This is just the ghost of her memory. You'll never get her back]}
+{22010}{}{Cira...No...}
+{22020}{}{Bring her back! Bring her back!!!}
+{22030}{}{No! You're dead! Cira's dead! You aren't real! YOU AREN'T REAL!!!}
+

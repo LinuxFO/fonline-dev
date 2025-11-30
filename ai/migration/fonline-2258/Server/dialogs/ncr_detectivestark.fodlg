@@ -1,0 +1,262 @@
+[comment]
+
+
+[data]
+lang=engl russ
+
+[dialog]
+&
+1 1000 None 0 #
+2 1010 @
+2 2000 None 0 #
+3 2010 #
+4 2020 D _var p hub_hopeq = 7 D _var p ncr_investigation1 = 0 D _param p ST_KARMA > 1 #
+15 2030 D _var p ncr_investigation1 > 1 D _var p ncr_investigation1 < 4 #
+28 2040 D _var p ncr_investigation1 = 4 #
+30 2050 D _var p ncr_investigation1 = 6 R _script quest_sext@r_DeleteLoc 0  #
+0 2060 @
+3 3000 None 0 #
+0 3010 @
+4 4000 None 0 #
+5 4010 @
+5 5000 None 0 #
+6 5010 @
+6 6000 None 0 #
+7 6010 @
+7 7000 None 0 #
+8 7010 @
+8 8000 None 0 #
+9 8010 @
+9 9000 None 0 #
+10 9010 @
+10 10000 None 0 #
+11 10010 @
+11 11000 None 0 #
+12 11010 @
+12 12000 None 0 #
+13 12010 @
+13 13000 None 0 #
+14 13010 @
+14 14000 None 0 #
+0 14010 R _var p ncr_investigation1 = 1 @
+15 15000 None 0 #
+16 15010 @
+16 16000 None 0 #
+17 16010 #
+18 16020 #
+19 16030 #
+20 16040 #
+0 16050 @
+17 17000 None 0 #
+16 17010 @
+18 18000 None 0 #
+16 18010 @
+19 19000 None 0 #
+16 19010 @
+20 20000 None 0 #
+21 20010 D _var p ncr_investigation1 = 2 #
+16 20020 @
+21 21000 None 0 #
+22 21010 @
+22 22000 None 0 #
+23 22010 @
+23 23000 None 0 #
+24 23010 @
+24 24000 None 0 #
+25 24010 @
+25 25000 None 0 #
+26 25010 @
+26 26000 None 0 #
+27 26010 @
+27 27000 None 0 #
+0 27010 R _var p ncr_investigation1 = 3 @
+28 28000 None 0 #
+29 28010 @
+29 29000 None 0 #
+0 29010 R _var p ncr_investigation1 = 5 R _script quest_sext@r_SpawnLoc 0  @
+30 30000 None 0 #
+31 30010 @
+31 31000 None 0 #
+32 31010 @
+32 32000 None 0 #
+0 32010 R _var p ncr_investigation1 = 7 R _script dialog@r_AddMoney 1 2000 R _param p ST_KARMA + 3 R _script dialog@r_AddExperience 1 3000 R _param p REPUTATION_LA + 125 R _param p REPUTATION_HUB + 125 R _param p REPUTATION_JUNKTOWN + 125 R _param p REPUTATION_NEW_RENO + 125 R _param p REPUTATION_REDDING + 125 R _param p REPUTATION_MODOC + 125 R _param p REPUTATION_KLAMATH + 125 R _param p REPUTATION_FOLLOWERS + 125 R _param p REPUTATION_REGULATORS + 125 R _param p REPUTATION_FREE_TRADERS + 125 R _param p REPUTATION_NCR_RANGERS + 125 R _param p REPUTATION_NCR + 125 R _param p REPUTATION_VAULT_CITY + 125 R _param p REPUTATION_RAIDERS - 300 R _param p REPUTATION_HUB_CRIMINALS - 300 R _param p REPUTATION_NR_PIMPS - 300 R _item p PID_COMBAT_HELMET + 1 R _var p z_warrior2 + 1 &
+
+[engl]
+{100}{}{Detective Stark}
+{200}{}{You see Detective Stark.}
+{210}{}{He's a mean looking detective for the NCR government. Looks well travelled.}
+{1000}{}{Predialogue installations}
+{1010}{}{base}
+{2000}{}{[The man is sitting behind his desk filling out reports. He tips his fedora as you approach, and looks up] What do you want? We got a lot of work to do.}
+{2010}{}{Who are you?}
+{2020}{}{Hello, detective, my name is @pname@. I have some experience doing police work over in the Hub, and I'm interested in bringing some justice back to the wastes.}
+{2030}{}{[Put on your Fedora, light up a smoke and say] Let's solve some crime.}
+{2040}{}{I figured out who's been selling girls. Here, I strung up a shifty pervert over at one of the bars and he gave me the location of his bosses. Four guys from the East got a camp a few days away. }
+{2050}{}{It's done, Stark. For good, I hope. }
+{2060}{}{Sorry, didn't mean to bother you.}
+{3000}{}{I'm detective Ransom Stark, what do you want?}
+{3010}{}{Oh, nothing. Just looking around.}
+{4000}{}{[It begins to rain as the sky grows dark. A calm breeze rushes through the room and sends a cold chill down your spine] You're @pname@? The shining light in the darkness, or whatever, eh? Hmpf! Thought you'd be taller. Twice the @sex@|man||gal| you are now.}
+{4010}{}{No, I'm just the same @sex@|man||woman| with the same old shoes to fill.}
+{5000}{}{[The loud sounds of rain remind you of the empty feeling you felt back in the Hub. Detective Stark looks you over, and says] So, what do you think of the new world? I hear you Vault Dwellers are supposed to be heroes or something... That what you go around parading yerself to be?}
+{5010}{}{There are no heroes. I don't even know what that means anymore. I've got a gun, and want to point it at somebody that deserves it. }
+{6000}{}{[The cold air makes you gringe, as the sounds of rain keep pouring]  This ain't the Hub, padner. We don't go around pretending to be anything. Here in NEW California, we got rules, traditions. Hope ain't so black and white 'round here.}
+{6010}{}{Tell me, why did you become a cop?}
+{7000}{}{[A calm flash of lightning appears near the corner of your eye as the rain calms down. Detective Stark pauses for a long moment before saying] I... don't remember...}
+{7010}{}{It's supposed to be about justice. But somewhere along the line we all lose sight of that. I've been out here for long enough to know when a @sex@|man||woman| needs to stop, and make a stand.}
+{8000}{}{[Detective Stark flashes you a calm smile] So then tell me, where do you stand? You might have the eye for human weakness, but do you have the stomach?}
+{8010}{}{I really don't know anymore.}
+{9000}{}{[Whatever look he gave me almost broke my spirits. I didn't know whether I should cry, or punch him] Would you be willing to plant corroborative evidence on a suspect you knew to be guilty, in order to ensure an indictment? Would you be willing to beat a confession out of a suspect you knew were guilty? Would you be willing to shoot a hardened criminal in the back, in order to offset the chance that some... lawyer...}
+{9010}{}{Stark, I know you mean well, but I don't need to do things the way you do, or the NCR. }
+{10000}{}{[The rain is cold, hard, and reminds you of something you lost a long time ago] Go back to Jersey, sonny. This is the City of the Angels, and you haven't got any wings.}
+{10010}{}{No, I just want to do things right.}
+{11000}{}{[Detective Stark sits back in his chair and lights up a cigarette. He takes his fedora off and throws it on his desk] Guess we could sit here all day howlerin' on about what it means to be a good person, but I reckon we're the kind of folk who don't need to question each other. You want a badge? You think you got what it takes to paint this whole world green again? Then by all means, you go @sex@|sir.||girl.|}
+{11010}{}{All I ever wanted was to measure up to the original Vault Dweller.}
+{12000}{}{[Detective Stark throws you a badge, and says] Now's your chance. He died somewhere in the wasteland, didn't he? }
+{12010}{}{He died a real hero.}
+{13000}{}{[You pick up the badge Stark threw at you and stare at it for a while. The sound of rain fills your heart and soul with anxiety. It looks like you're back in the saddle. But is the saddle ready for you? Detective Stark says] Guess you ain't a kid no more.}
+{13010}{}{[Pin the badge to your shirt] Dying in the desert's no better than dying anywhere else. }
+{14000}{}{[It's cold and damp, but something about it all feels right, no matter what] Well, welcome to the NCR police force. [He shakes your hand] Looks like you're just in time for some real action. We've got a lot of trouble in NCR. You ready to hear what you've gotten yourself into?}
+{14010}{}{No. Now that I think about it, there's something I need to do first. I'll be right back.}
+{15000}{}{[The day is cold and dark, but the smooth sounds of rain remind you of a better age] Welcome back, @pname@, or should I say Detective @pname@? Hmm, maybe you haven't earned that title just yet. }
+{15010}{}{Point me in the right direction, boss.}
+{16000}{}{[Detective Stark sits back in his chair and lights up a cigarette] Well, got a few cases you can check out. Someone tried to kill President Tandi recently, Detective Gallows is investigating that one, you can go see her if you'd like. Detective Pint is looking into the matter of a missing little girl. Detective Deckard is investigating the killings of a half dozen broads, and I'm looking into this fucked up sex trade that's going on. What's your poison?}
+{16010}{}{Tell me about the Assassination of President Tandi.}
+{16020}{}{Tell me about the missing kid.}
+{16030}{}{Tell me about the string of murders.}
+{16040}{}{Tell me about the sex trade.}
+{16050}{}{I don't know yet. I'll come be back to deal with this later.}
+{17000}{}{[He sighs] It's politics, bud. Lot of people don't like talking about this shit, and a lot of people like killing other people over it as well. Someone took a shot at Tandi as she was leaving the office, we have no idea who. Got no witnesses, nothing. Just an empty .223 casing, and we don't even know if it was the one that was fired. Gallows will know more, talk to her.}
+{17010}{}{Let's talk about the other cases.}
+{18000}{}{[He takes a shot of Rotgot] Poor little girl, she's so scared and alone, I bet... out there somewhere. Screaming for a fucking hero, and we got nothing. For all I know, fuck... she's getting diddled by some creep down in Necropolis. Pint is all over it like a mad man.}
+{18010}{}{Let's talk about the other cases.}
+{19000}{}{[He takes a long drag from his cigarette, and says] This city lately... Lot of pretty girls been goin' missing, lot of em' usually end up found in pieces too. Cut up, and torn something fierce. We think it's the same guy, but I fear he might be too clever for us. Deckard knows more, he's the smart one, he should be able to figure it out.}
+{19010}{}{Let's talk about the other cases.}
+{20000}{}{[He spits in disgust] Someone ain't just selling whores, they're turning people into sellable whores. Against their fucking will. I personally plan on killing them all, I don't care what it takes, or high far up the fucking ladder it goes. You asked me why I became a cop, and I didn't want to tell you. Well I became a cop to protect the lives of the innocent and make sure people don't get away with hurtin' nobody. You want to help me, I could use all the help I can get.}
+{20010}{}{Sounds like the right people to kill, I'm in.}
+{20020}{}{Let's talk about the other cases.}
+{21000}{}{[Detective Stark pours you a glass of Rotgut, and throws you a case file. You sign your name under acting detectives, and hand the file back over to Stark] You're coming on a bit late for this one, I've been at it for months now. Office is just swamped, so I could use someone that ain't tied down. Back when this all started a dame walked in here howlering about this whole affair. But before we could open an official case she wound up dead.}
+{21010}{}{Who was she?}
+{22000}{}{[He takes a long pull off his cigarette] Some hooker from Reno, we don't know. Maybe just some kid that gone run off from her folks, who knows. But she came in here saying she met a man down there, a Mr. Hopskins, promising girls careers as lounge dancers for some high class gentlemen's club opening up down East. }
+{22010}{}{Go on.}
+{23000}{}{[He kills his cigarette as the rain pours down lounder than before] Long story short there wasn't no gentlemen's club down East, just a rape factory for some inbreds. Lord knows how she got her way back here, but I reckon someone gave her an awfully slippery traillin' and slit her poor little throat before she could tell us anymore. Girl was way too shaken up to give us a proper statement, had to let her sleep it off. God, fuck, wish I didn't. }
+{23010}{}{So this Mr. Hopskins, where is he? Did you pick him up?}
+{24000}{}{[Detective Stark stares out into the rain as it pours down] Yeah, long time ago. Beat the fuck out of him for everything he was worth, then hung him by the balls and smashed his head off. We found the place the poor girl was talking about too, but there was nothing there. Just a used up warehouse with a big "V" painted inside. }
+{24010}{}{Big "V"?}
+{25000}{}{[He lights up another cigarette] Big "V". Figured it had something to do with Vortis. We smashed his face up good but it wasn't him either. Vortis ain't no saint but he don't take kindly to all that dirty crap. Almost felt bad after beating him so hard. None the less, we were drawing up blanks for a while till we spotted some no gooders in the bar one day. Now, we don't take too kindly to strangers, but we'll let ya be, but if you come walking in town looking mighty shifty, we'll beat you for information. It's policy. }
+{25010}{}{Sounds about right to me.}
+{26000}{}{[Detective Stark sits back in his chair, and sips some Rotgut] Yeah, me too. Well anyway these boys been scooping around town looking for new birds to cage, so we strung em up too. Didn't get much information from beating them but we stopped the missing dame problem for a while. But then it started happening again, dumb pretty gals started going missing or running off with hipsters just to wind up slaves. I reckon we haven't killed the ring leader yet, that's all. Been looking into this for a while, and I'm starting to think he's living here somewhere.}
+{26010}{}{In the city? Any idea where?}
+{27000}{}{[He tilts his head] Nah... We just been keeping eyes on the dumb pretty ones, some creep is bound to try something. We got things under control, but we haven't killed the problem yet. I guess that's where you come in. Go hit the streets, solve this shit before we gotta send in another clean up crew to squash some thug's brains.}
+{27010}{}{Yeah, alright. I'll let you know if I find anything, Detective. }
+{28000}{}{[Detective Stark pats you on the back, and says] Damn fine job, @sex@|son!||hun!| But we need to make sure that location is legit. If you left the punk alive I'll send a cop over to pick him up, but you and I should go check out this camp. }
+{28010}{}{Let me handle it. I want to murder these fuckers myself.}
+{29000}{}{[Detective Stark tries to calm you down] Remember, you're a cop now. Never lose track of what's right. I'll let you handle this one, but don't get too carried away. You kill em, but kill em good. [If you'd like to do this mission in Turn Based mode type /combatmode tb before continuing!]}
+{29010}{}{With pleasure. I'll be right back.}
+{30000}{}{[He seems worried] Yeah, okay. You look like you've seen enough, kid. Why don't you sit down? Take a load off. I want to talk to you about something.}
+{30010}{}{Got any more cases, detective?}
+{31000}{}{[Detective Stark smiles] Always got trouble. But listen, you sure you're up for it? You seem to be taking things a little too personally. You gotta disconnect from your ideals, or else sooner or later they'll destroy you. Eh, what am I saying? You're fine! Get out of here, you did one hell of a job. You deserve a rest, but when you're ready for the next case go talk with Detective Pint. You and him will get a long real well. }
+{31010}{}{He's looking for that little girl, isn't he?}
+{32000}{}{[He lights up a smoke, and sips his Rotgut] Yeah, it's grim. He's handling things like you are, but Pint's a good guy, he'll get to the bottom of things. He's in the office, you'll find him. Alright, here. It's the report. File it then go take a load off.}
+{32010}{}{[Fill out the report] You know I'm... Ah, never mind. I'll see you around, detective.}
+{100000001}{}{Better wash the counter again...}
+{100000002}{}{That's 5 caps buddy. Hey did you hear me? Cough em' up.}
+{100000003}{}{Better change the keg...}
+{100000004}{}{RotGut? You drink that shit?}
+{100000005}{}{Domestic? I got B.E.E.R buddy, do you want one or not?}
+{100000006}{}{Fuckin' dust is getting everywhere. Hey close the fuckin' door!}
+{100000007}{}{I swear if the next asshole doesn't tip. Ima' shoot somebody!}
+{100000008}{}{I got bottles, I got shots, and I got a bat behind the counter for the retards. Your not a retard are you?}
+{100000009}{}{Uh-huh, yeah that's nice buddy. You don't say...What? Of course I'm listening...}
+{100000010}{}{That's 5 caps. FIVE CAPS Tribal! F.I.V.E! }
+{100000011}{}{Shut up and order a fuckin' beer already!}
+{100000012}{}{I swear if I have to serve another drunk, I'm getting the shotgun!}
+{100000013}{}{Look the keg went dry, and it's going to be another month until the caravan shows up again.}
+{100000014}{}{Really? You don't say, buy another drink or get out!}
+{100000015}{}{What? I'm on break.}
+{100000016}{}{Be right with ya'}
+{100000017}{}{Have a sit stranger. I'll be with you in a moment.}
+{100000018}{}{When do we close? Uh, when the place get's shot up, that's when!}
+{100000019}{}{We're fresh outta' cold beer, sorry. You'll just have to drink it warm.}
+{100000020}{}{RotGut? No man, go make that shit yourself! I wouldn't drink it!}
+
+[russ]
+{100}{}{Алкоголик}
+{200}{}{Вы видите пьяницу.}
+{210}{}{Вы видите шатающегося из стороны в сторону пьяного человека в лохмотьях. Лицо его распухло, нос синющий как слива. А аромат рядом с ним такой, что свалит брамина насмерть. Он что-то бормочет про себя и иногда громко поет песни.}
+{210}{}{Вы видите алкаша. Он весьма грязен - кажется, он повалялся в луже, но не особо этим расстроен.}
+{1000}{}{I?aaaeaeiaiaua onoaiiaee}
+{1010}{}{base}
+{2000}{}{Dialog text}
+{2010}{}{Who are you?}
+{2020}{}{Hello, detective, my name is @pname@. I have some experience doing police over in the Hub, and I'm interested in bringing some justice back to the wastes.}
+{2030}{}{[Put on your Fedora, light up a smoke and say] Let's solve some crime.}
+{2040}{}{I figured out who's been selling girls. Here, I strung up a shifty pervert over at one of the bars and he gave me the location of his bosses. Four guys from the East got a camp a few days away. }
+{2050}{}{It's done, Stark. For good, I hope. }
+{2060}{}{Sorry to bother you. I'll just be going.}
+{3000}{}{I'm a detective for the NCR, what do you want?}
+{3010}{}{Oh, nothing. Just looking around.}
+{4000}{}{[It begins to rain as the sky grows dark. A calm breeze rushes through the room and sends a cold chill down your spine] You're @pname@? The shining light in the darkness, or whatever, eh? Hmpf! Thought you'd be taller. Twice @sex@|man||gal| you are now.}
+{4010}{}{No, I'm just the same @pname@|man||woman| with the same old shoes to fill.}
+{5000}{}{[The loud sounds of rain remind you of the empty feeling you felt back in the Hub. Detective Stark looks you over, and says] So, what do you think of the new world? I hear you Vault Dwellers are supposed to be heroes or something... That what you go around parading yerself to be?}
+{5010}{}{There are no heroes. I don't even know what that means anymore. I've got a gun, and want to point it at somebody that deserves it. }
+{6000}{}{[The cold air makes you gringe, as the sounds of rain keep pouring]  This ain't the Hub, padner. We don't go around pretending to be anything. Here in NEW California, we got rules, traditions. Hope ain't so black and white around here.}
+{6010}{}{Tell me, why did you become a cop?}
+{7000}{}{[A calm flash of lightning appears near the corner of your eye, as the rain calms down. Detective Stark pauses for a long moment before saying] I... don't remember...}
+{7010}{}{It's supposed to be about justice. But somewhere along the line we all lose sight of that. I've been out here for long enough to know when a @sex@|man||woman| needs to stop, and make a stand.}
+{8000}{}{[Detective Stark flashes you a calm smile] So then tell me, where do you stand? You might have the eye for human weakness, but do you have the stomach?}
+{8010}{}{I really don't know anymore.}
+{9000}{}{[Whatever look he gave me almost broke my spirits. I didn't know whether I should cry, or punch him] Would you be willing to plant corroborative evidence on a suspect you knew to be guilty, in order to ensure an indictment? Would you be willing to beat a confession out of a suspect you knew were guilty? Would you be willing to shoot a hardened criminal in the back, in order to offset the chance that some... lawyer...}
+{9010}{}{Stark, I know you mean well, but I don't need to do things the way you do, or the NCR. }
+{10000}{}{[The rain is cold, hard, and reminds you of something you lost a long time ago] Go back to Jersey, sonny. This is the City of the Angels, and you haven't got any wings.}
+{10010}{}{No, I just want to do things right.}
+{11000}{}{[Detective Stark sits back in his chair and lights up a cigarette. He takes his fedora off and throws in on his desk] Guess we could sit here all day howlerin' on about what it means to be a good person, but I reckon we're the kind of folk who need to question each other. You want a badge? You think you got what it takes to paint this whole world green again? Then by all means, you go @sex@sir.||girl.|}
+{11010}{}{All I ever wanted was to measure up to the original Vault Dweller.}
+{12000}{}{[Detective Stark throws you a badge, and says] Now's your chance. He died somewhere in the wasteland, didn't he? }
+{12010}{}{He died a real hero.}
+{13000}{}{[You pick up the badge Stark threw at you and stare at it for a while. The sound of rain fills your heart and soul with anxiety. It looks like you're back in the saddle. But is the saddle ready for you? Detective Stark says] You ever danced with the devil before?}
+{13010}{}{[Pin the badge to your shirt] }
+{14000}{}{[It's cold and damp, but something about it all feels right, no matter what] Well welcome to the NCR police force. [He shakes your hand] Looks like you're just in time for some real action. We've got a lot of trouble in NCR. You ready to hear what you've gotten yourself into?}
+{14010}{}{No. Now that I think about it, there's something I need to do. I'll be right back.}
+{15000}{}{[The day is cold and dark, but the smooth sounds of rain remind you of a better age] Welcome back, @pname@, or should I say Detective @pname@? Hmm, maybe you haven't earned that title just yet. }
+{15010}{}{Point me in the right direction, boss.}
+{16000}{}{[Detective Stark sits back in his chair and lights up a cigarette] Well, got a few cases you can check out. Someone tried to kill President Tandi recently, Detective Gallows is investigating that one, you can go see her if you'd like. Detective Pint is looking into the matter of a missing little girl. Detective Deckard is investigating the killings of a half dozen broads, and I'm looking into this fucked up sex trade that's going on. }
+{16010}{}{Tell me about the Assassination of President Tandi.}
+{16020}{}{Tell me about the missing kid.}
+{16030}{}{Tell me about the string of murders.}
+{16040}{}{Tell me about the sex trade.}
+{16050}{}{I'll come be back to deal with this later.}
+{17000}{}{[He sighs] It's politics, bud. Lot of people don't like talking about this shit, and a lot of people like killing other people over it as well. Someone took a shot at Tandi as she was leaving the office, we have no idea who. Got no witnesses, nothing. Just an empty .223 casing, and we don't even know if it was the one fired.}
+{17010}{}{Let's talk about the other cases.}
+{18000}{}{[He takes a shot of Rotgot] Poor little girl, she's so scared and alone, I bet, out there somewhere. Screaming for a fucking hero, and we got nothing. For all I know, fuck, she's getting diddled by some creep down in Necropolis. Pint is all over it like a mad man.}
+{18010}{}{Let's talk about the other cases.}
+{19000}{}{[He takes a long drag from his cigarette, and says] This city lately... Lot of pretty girls been goin' missing, lot of em' usually end up found in pieces too. Cut up, and torn something fierce. We think it's the same guy, but I fear he might be too clever for us. Deckard knows more, he's the smart one, he should be able to figure it out.}
+{19010}{}{Let's talk about the other cases.}
+{20000}{}{[He spits in disgust] Someone ain't just selling whores, they're turning people into sellable whores. Against their fucking will. I personally plan on killing them all, I don't care what it takes, or high far up the fucking ladder it goes. You asked me why I became a cop, and I didn't want to tell you. Well I became a cop to protect the lives of the innocent and make sure people don't get away with hurtin' nobody. You want to help me, I could use all the help I can get.}
+{20010}{}{Sounds like the right people to kill, I'm in.}
+{20020}{}{Let's talk about the other cases.}
+{21000}{}{[Detective Stark pours you a glass of Rotgot, and throws you a case file. You sign your name under acting detectives, and hand the file back over to Stark] You're coming on a bit late on this one, I've been at it for months now. Office is just swamped, so I could use someone that ain't tied down. Back when this all started a dame walked in here howlering about this whole affair. But before we could open an official case she wound up dead.}
+{21010}{}{Who was she?}
+{22000}{}{[He takes a long pull off his cigarette] Some hooker from Reno, we don't know. Maybe just some kid that gone run off from her folks, who knows. But she came in here saying she met a man down there, a Mr. Hopskins, promising girls careers as lounge dancers for some high class gentlemen's club opening up down East. }
+{22010}{}{Go on.}
+{23000}{}{[He kills his cigarette as the rain pours down lounder than before] Long story short there wasn't no gentlemen's club down East, just a rape factory for some inbreds. Lord knows how she got her way back here, but I reckon someone gave her an awfully slippery traillin' and slit her poor little throat before she could tell us anymore. Girl was way too shaken up to give us a proper statement, had to let her sleep it off. God, fuck, wish I didn't. }
+{23010}{}{So this Mr. Hopskins, where is he? Did you pick him up?}
+{24000}{}{[Detective Stark stares out into the rain as it pours down] Yeah, long time ago. Beat the fuck out of him for everything he was worth, then hung him by the balls and smashed his head off. We found the place the poor girl was talking about too, but there was nothing there. Just a used up warehouse with a big "V" painted inside. }
+{24010}{}{Big "V"?}
+{25000}{}{[He lights up another cigarette] Big "V". Figured it had something to do with Vortis. We smashed his face up good but it wasn't him either. Vortis ain't no saint but he don't take kindly to all that dirty crap. Almost felt bad after beating him so hard. None the less, we were drawing up blanks for a while till we spotted some no gooders in the bar one day. Now, we don't take too kindly to strangers, but we'll let ya be, but if you come walking in town looking like mighty shifty, we'll beat you for information. It's policy. }
+{25010}{}{Sounds right to me.}
+{26000}{}{[Detective Stark sits back in his chair, and sips some Rotgut] Yeah, me too. Well anyway these boys been scooping around town looking for new birds to cage, so we strung em up too. Didn't get much information from beating them but we stopped the missing dame problem for a while. But then it started happening again, dumb pretty gals started going missing or running off with hipsters just to wind up slaves. I reckon we haven't killed the ring leader yet, that's all. Been looking into this for a while, and I'm starting to think he's living here somewhere.}
+{26010}{}{In the city? Any idea where?}
+{27000}{}{[He tilts his head] Nah... We just been keeping eyes on the dumb pretty ones, some creep is bound to try something. We got things under control, but we haven't killed the problem yet. I guess that's where you come in. Go hit the streets, solve this shit before we gotta send in another clean up crew to squash some thug's brains.}
+{27010}{}{Yeah, alright. I'll let you know if I find anything, Detective. }
+{28000}{}{[Detective Stark pats you on the back, and says] Damn fine job, @sex@|son!||hun!| But we need to make sure that location is legit. If you left the punk alive I'll send a cop over to pick him but you and I should go check out this camp. }
+{28010}{}{Let me handle it. I want to murder these fuckers myself.}
+{29000}{}{[Detective Stark tries to calm you down] Remember, you're a cop now. Never lose track of what's right. I'll let you handle this one, but don't get too carried away. You kill em, but kill em good. }
+{29010}{}{With pleasure. I'll be right back.}
+{30000}{}{[He seems worried] Yeah, okay. You look like you've seen enough, kid. Why don't you sit? Take a load off. I want to talk to you about something.}
+{30010}{}{Got any more cases, detective?}
+{31000}{}{[Detective Stark smiles] Always got trouble. But listen, you sure you're up for it? You seem to be taking things a little too personally. You gotta disconnect from your ideals, or else sooner or later they'll destroy you. Eh, what am I saying? You're fine! Get out of here, you did one hell of a fine job. You deserve a rest, but when you're ready for the next case go talk with Detective Pint. You and him will get a long real well. }
+{31010}{}{He's looking for that little girl, isn't he?}
+{32000}{}{[He lights up a smoke, and sips his Rotgut] Yeah, it's grim. He's handling things like you are, but Pint's a good guy, he'll get to the bottom of things. He's in the office, you'll find him. Alright here, it's the report. File it then go take a load off.}
+{32010}{}{[Fill out the report] You know I'm... Ah, never mind.}
+

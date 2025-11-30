@@ -1,0 +1,46 @@
+[comment]
+
+
+[data]
+lang=engl
+
+[dialog]
+&
+1 1000 None 1 #
+2 1010 D _param p DAMAGE_LEFT_ARM < 1 D or D _param p DAMAGE_RIGHT_ARM < 1 @
+2 2000 None 0 #
+10 2010 D _item p PID_BOTTLE_CAPS } 100 R _item p PID_BOTTLE_CAPS - 100 #
+0 2020 D _item p PID_BOTTLE_CAPS } 100 #
+0 2030 D _item p PID_BOTTLE_CAPS < 100 @
+10 3000 slots@dlg_Score 0 #
+10 3010 D _item p PID_BOTTLE_CAPS } 100 R _item p PID_BOTTLE_CAPS - 100 #
+2 3020 R _script slots@HitMachine 0  #
+0 3030 @
+27 4000 None 0 #
+0 4010 @
+28 5000 None 0 #
+0 5010 @
+29 6000 None 0 #
+2 6010 #
+0 6020 &
+
+[engl]
+{100}{}{none}
+{1000}{}{Predialogue installations}
+{1010}{}{.}
+{2000}{}{It's a slot machine with a picture of a nuclear explosion on the side. It costs 100 coins to play.}
+{2010}{}{[Insert 100 coins]}
+{2020}{}{[Leave]}
+{2030}{}{[You stare at the slot machine realizing you don't have enough to play, and you curse your poverty. Perhaps another time]}
+{3000}{}{@lex score@}
+{3010}{}{[Insert 100 coins]}
+{3020}{}{[Hit the machine]}
+{3030}{}{[Leave]}
+{4000}{}{[The "OUT OF SERVICE" light on the slot machine is flashing on and off.]}
+{4010}{}{I think I've gotta go.}
+{5000}{}{*Hehehe, why don't you just give up sweetie.* [It looks that the slot machine is pretty tough, as the only result is your broken arm]}
+{5010}{}{[Take a deep breath, walk away.]}
+{6000}{}{[You hear strange noises coming from the machine, as it flashes wildly for a moment]}
+{6010}{}{Maybe I should try again.}
+{6020}{}{Enough of this bullshit, I'm outta here.}
+

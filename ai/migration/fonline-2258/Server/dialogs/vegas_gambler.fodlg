@@ -1,0 +1,24 @@
+[comment]
+
+
+[data]
+lang=engl
+
+[dialog]
+&
+1 1000 None 0 #
+2 1010 @
+2 2000 None 0 &
+[engl]
+{100}{}{Gambler}
+{200}{}{You see a gambler.}
+{210}{}{You see a gambler.}
+{1000}{}{Predialogue installations}
+{2000}{}{I have to win.@@Come on, come on!.@@I'll definitely win this time.@@I should split the stakes.@@Black or red? Black..Shit!@@I am trying to win. Go bother someone else.@@Maybe different game.}
+{100000001}{}{}
+{100000001}{}{}
+{100000001}{}{}
+{100000001}{}{}
+{100000001}{}{}
+{100000001}{}{}
+

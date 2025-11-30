@@ -1,0 +1,46 @@
+[comment]
+
+
+[data]
+lang=engl
+
+[dialog]
+&
+1 1000 None 0 #
+2 1010 @
+2 2000 None 0 #
+3 2010 D _var p q_boss7 = 0 #
+7 2020 D _var p q_boss7 = 2 R _param p ST_KARMA + 1 R _var p q_boss7 = 0 R _script dialog@r_AddExperience 1 6000 R _param p REPUTATION_NCR + 60 R _script dialog@r_AddMoney 1 3000 R _script quest_boss7@r_DeleteLoc 0  R _script dialog@r_BulkOrderRewardLow 0  R _script dialog@r_BulkOrderRewardJunk 0  R _script dialog@r_BulkOrderRewardInde 0  R _var p z_warrior2 + 1 R _item p PID_MR_NIXON_DOLL + 3 #
+0 2030 @
+3 3000 None 0 #
+4 3010 @
+4 4000 None 0 #
+5 4010 @
+5 5000 None 0 #
+8 5010 D _param p ST_LEVEL } 12 R _script quest_boss7@r_SpawnLoc 0  R _var p q_boss7 = 1 #
+6 5020 @
+6 6000 None 0 @
+7 7000 None 0 @
+8 8000 None 0 &
+
+[engl]
+{100}{}{Telltale}
+{200}{}{You see a local story teller.}
+{210}{}{So much wit, and skill, this raconteur. But how can we believe anything anymore?}
+{1000}{}{Predialogue installations}
+{1010}{}{Answer text}
+{2000}{}{Come closer, and hear the tale of The Ambassador of Pain.}
+{2010}{}{Tell me your story, old man. I am not afraid.}
+{2020}{}{Silence your words! Your story is no longer truth. The Ambassador of Pain is dead!}
+{2030}{}{Maybe some other time, I don't think I'm ready for this.}
+{3000}{}{Once there was a judge, an honest man by any other name. He brought justice across the wastes, and united the government. He turned helped turn the old, selfish tribes, into dignified extortionists. But whatever you call government makes no difference. For a terrible fate fell upon this once blessed judge.}
+{3010}{}{Go on...}
+{4000}{}{A fate so terrible, it took the once proud hero, and turned him into a horrible monster of a man. A broken shell, with the strength of an atom bomb! For when those wastelanders took his family away, it took both his spirit, innocence... and humanity! He know walks these lands known as the Ambassador of Pain! And will make all who hear his name suffer a terrible fate just as he once did!}
+{4010}{}{*Gulp* Go on...}
+{5000}{}{[He hands you a piece of paper with the last known location of The Ambassador of Pain. It's recommended that you're at least Level 21, and come prepared for a fight. Type /combatmode rt or tb for Real-Time, or Turn-Based combat before continuing]}
+{5010}{}{[Challenge the Legendary Villain?]}
+{5020}{}{[Throw the paper away, and leave, refusing to fight]}
+{6000}{}{I too, am afraid, young adventurer.}
+{7000}{}{It is done! The Ambassador of Pain is dead! Thank the name of @pname@! May their story be told across the ocean!}
+{8000}{}{Prepare yourself, this is no ordinary politician.}
+

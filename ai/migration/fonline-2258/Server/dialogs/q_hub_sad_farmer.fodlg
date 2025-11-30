@@ -1,0 +1,66 @@
+[comment]
+
+
+[data]
+lang=engl
+
+[dialog]
+&
+1 1000 None 0 #
+2 1010 D _var p q_hub_sad_farmer = 0 #
+12 1020 D _var p q_hub_sad_farmer = 1 #
+12 1030 D _var p q_hub_sad_farmer = 2 #
+22 1040 @
+2 2000 None 0 #
+3 2010 #
+0 2020 @
+3 3000 None 0 #
+4 3010 D _param p ST_LEVEL } 5 #
+6 3020 D _param p ST_LEVEL < 5 #
+0 3030 @
+4 4000 None 0 #
+5 4010 R _var p q_hub_sad_farmer = 1 R _script quest_hub_sad_farmer@r_SpawnFarmhouse 0  #
+0 4020 @
+5 5000 None 0 #
+0 5010 @
+6 6000 None 0 @
+12 7000 None 0 #
+13 7010 D _var p q_hub_sad_farmer = 2 R _var p q_hub_sad_farmer = 3 R _script quest_hub_sad_farmer@r_RemoveFarmhouse 0  R _script dialog@r_AddExperience 1 2500 R _param p SK_UNARMED + 15 #
+14 7020 D _var p q_hub_sad_farmer = 1 @
+13 8000 None 0 #
+0 8010 @
+14 9000 None 0 #
+0 9010 @
+22 10000 None 0 &
+
+[engl]
+{100}{}{Sad Farmer}
+{200}{}{You see a Sad Farmer.}
+{210}{}{You see and old man tired of his life. He looks as if was thinking about something, something that does not give him peace.}
+{1000}{}{Predialogue installations}
+{1010}{}{Quest available.}
+{1020}{}{Quest taken.}
+{1030}{}{Rats killed.}
+{1040}{}{Quest done.}
+{2000}{}{[You see and old man tired of his life. He looks as if was thinking about something, something that does not give him peace.]}
+{2010}{}{Hello, what's bothering you old man?}
+{2020}{}{It's some weirdo, I'm out of here.}
+{3000}{}{Young man, when I was your age, there was nothing that could stand in my way. Now, when old age caught up with me, I lost everything... [He gaze at the sky]}
+{3010}{}{What happened to you? Maybe I could help somehow?}
+{3020}{}{What happened to you? Maybe I could help somehow?}
+{3030}{}{I got no time for your stories.}
+{4000}{}{You see youngster, I was a great farmer back in the days. I used to trade my crops with citizens of Hub and Junktown but I was forced to stop about an year ago. [He sighs and thinks for a second...] My farm was invaded my real monsters that forced me to flee. If I were a bit younger I would deal with them myself. Sadly, I'm too old for this, I'm forced to spend the rest of my life here, away from home. [He turns his head to hide tears]}
+{4010}{}{You know what grandpa. I'm not a real warrior but I think that I will be able to getting rid of those pests. I will gladly help you, just show me the way to your farm.}
+{4020}{}{What a weirdo, I'm out of here. [Leave]}
+{5000}{}{My far is not far from here [he marks location on your map]. Come back to me once you kill all those creatures and I will share my secret with you.}
+{5010}{}{Expect me soon and it better be worth it.}
+{6000}{}{Come back when you get stronger.}
+{7000}{}{[Old man is looking at you, you can see great hope in his eyes]}
+{7010}{}{They are all dead. It was not easy but you can go back to your farm now.}
+{7020}{}{Old man, it's taking a bit longer than I expected but don't be afraid, I always finish what I start.}
+{8000}{}{Thank you youngster! [you can see a gleam in the eyes] Come closer, I will share my secret with you as I promised... [He is whisperingyou some story about how he defeated numerous enemies with his bare hands and shares few secrets about close combat.] }
+{8010}{}{Thank you. [Leave]}
+{9000}{}{Take care and come back soon with good news.}
+{9010}{}{Thank you. [Leave]}
+{10000}{}{Thanks again, I can finally go back to my farm...}
+

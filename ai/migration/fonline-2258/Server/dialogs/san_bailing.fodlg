@@ -1,0 +1,68 @@
+[comment]
+
+
+[data]
+lang=engl
+
+[dialog]
+&
+1 1000 None 0 #
+2 1010 D _var p name_mem_npc_player = 0 D _var p san_bailing = 0 #
+6 1020 D _var p name_mem_npc_player = 1 D _var p san_bailing = 0 #
+9 1030 D _var p san_bailing = 1 D _var p name_mem_npc_player = 1 @
+2 2000 None 0 #
+3 2010 #
+0 2020 @
+3 3000 None 0 #
+4 3010 @
+4 4000 None 0 #
+5 4010 @
+5 5000 None 0 #
+0 5010 R _var p name_mem_npc_player = 1 @
+6 6000 None 0 #
+7 6010 #
+8 6020 D _var p san_bancq = 5 D _var p san_bailing = 0 R _var p san_bailing = 1 #
+0 6030 @
+7 7000 None 0 #
+0 7010 @
+8 8000 None 0 #
+0 8010 #
+0 8020 @
+9 9000 None 0 #
+10 9010 D _item p PID_ALLOYS2 > 19 R _item p PID_ALLOYS2 - 20 R _script dialog@r_AddExperience 1 3000 R _script dialog@r_AddMoney 1 1500 R _script dialog@r_BulkOrderRewardHub 0  R _var p q_merchant + 1 #
+10 9020 D _item p PID_ELECTRONIC_PARTS > 39 R _item p PID_ELECTRONIC_PARTS - 40 R _script dialog@r_AddExperience 1 2000 R _script dialog@r_AddMoney 1 1000 R _script dialog@r_BulkOrderRewardHub 0  R _var p q_merchant + 1 #
+0 9030 @
+10 10000 None 0 &
+
+[engl]
+{100}{}{Bai Ling}
+{200}{}{You see Bai Ling.}
+{210}{}{You see a serious and stern woman.}
+{1000}{}{Predialogue installations}
+{1010}{}{unknown}
+{1020}{}{known}
+{1030}{}{return}
+{2000}{}{[As you approach, the woman stares you down. As your eyes meet it sends a shiver through your entire body] Yes!? What do you want?}
+{2010}{}{Well, hello there. I'm @pname@, and I'm new in town, just looking for work, or something to do.}
+{2020}{}{Nothing, never mind.}
+{3000}{}{Good for you... Do you want some kind of reward? Maybe a Scratch-N-Sniff banana sticker?!}
+{3010}{}{Well! Gee golly! That sure does sound nice! [You pause for a second] Wait, you're being sarcastic, aren't you?}
+{4000}{}{[Her eyes widen in amazement at your gullibility] Wow, you really are something special... I like you!}
+{4010}{}{Well, that's all fine and dandy ma'am, but do you got any work?}
+{5000}{}{[She stops, and thinks for a few moments] Nothing right now, but keep asking around, and I'll probably have something for you later.}
+{5010}{}{Thanks anyways, I'll keep you in mind.}
+{6000}{}{[The woman stares you down] You again! What is it this time?}
+{6010}{}{Just wondering if you had any work yet?}
+{6020}{}{Ban Chao has asked me to help out around town, just seeing if you needed anything?}
+{6030}{}{Nothing, never mind.}
+{7000}{}{[Annoyed, she just stares at you] No!}
+{7010}{}{[Hang your head in shame, and walk away]}
+{8000}{}{[Her eyes light up and she smiles from ear to ear] Oh, Ban Chao you say! Yes! Yes! You bring me 20x High Quality Alloys, or 40x Electronic Parts, and rewarded you shall be!}
+{8010}{}{That sounds good to me, I'll be back as soon as possible!}
+{8020}{}{Maybe some other time.}
+{9000}{}{[With a sinister look in her eyes] You return! Have you brought me 20x High Quality Alloys, or 40x Electronic parts?}
+{9010}{}{Sure did! Got them right here. [Hand over High Quality Alloys]}
+{9020}{}{Sure did! Got them right here. [Hand over Electronic Parts]}
+{9030}{}{Not yet, still working on it.}
+{10000}{}{Thank you very much! You come back any time.}
+

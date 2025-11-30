@@ -1,0 +1,42 @@
+[comment]
+
+
+[data]
+lang=engl
+
+[dialog]
+&
+1 1000 None 0 #
+2 1010 D _var p name_mem_npc_player = 0 #
+4 1020 D _var p name_mem_npc_player = 1 @
+2 2000 None 0 #
+3 2010 #
+0 2020 @
+3 3000 None 0 #
+4 3010 R _var p name_mem_npc_player = 1 #
+0 3020 @
+4 4000 None 0 #
+5 4010 @
+5 5000 None 0 #
+6 5010 R _var p name_mem_npc_player = 1 @
+6 6000 None 0 &
+
+[engl]
+{100}{}{Kingston}
+{200}{}{You see an ancient looking ghoul.}
+{210}{}{He appears to be salvaging for something.}
+{1000}{}{Predialogue installations}
+{1010}{}{Answer text}
+{1020}{}{2}
+{2000}{}{Ughh... King... ston. I'm...}
+{2010}{}{Hi, Kingston. Nice to meet you. I'm @pname@.}
+{2020}{}{Whoa, relax pal. [Slowly back away]}
+{3000}{}{Nice... to... meet...you. Can... you... give... me a... hand?}
+{3010}{}{Uh, sure... but, with what?}
+{3020}{}{No, not right now.}
+{4000}{}{[The old ghoul jumps out at you, latches onto your chest and starts screaming]}
+{4010}{}{Jesus! You smell awful! Get off me!}
+{5000}{}{RAWWWWWGHHHH!!!! HELLLPPP MEEEEEEARRGGHH!!}
+{5010}{}{[Knee him in the gut, then throw him away from you]}
+{6000}{}{Ughhh.... }
+

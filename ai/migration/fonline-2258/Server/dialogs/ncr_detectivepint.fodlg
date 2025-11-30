@@ -1,0 +1,208 @@
+[comment]
+
+
+[data]
+lang=engl russ
+
+[dialog]
+&
+1 1000 None 0 #
+2 1010 @
+2 2000 None 0 #
+3 2010 #
+4 2020 D _var p ncr_investigation1 = 7 D _var p ncr_investigation2 = 0 #
+19 2030 D _var p ncr_investigation2 = 6 R _script quest_meli@r_DeleteLoc 0  #
+25 2040 D _var p ncr_investigation2 = 2 #
+25 2050 D _var p ncr_investigation2 = 3 #
+25 2060 D _var p ncr_investigation2 = 4 #
+0 2070 @
+3 3000 None 0 #
+0 3010 @
+4 4000 None 0 #
+5 4010 @
+5 5000 None 0 #
+6 5010 @
+6 6000 None 0 #
+7 6010 @
+7 7000 None 0 #
+8 7010 @
+8 8000 None 0 #
+9 8010 @
+9 9000 None 0 #
+10 9010 @
+10 10000 None 0 #
+11 10010 @
+11 11000 None 0 #
+12 11010 @
+12 12000 None 0 #
+13 12010 @
+13 13000 None 0 #
+14 13010 @
+14 14000 None 0 #
+15 14010 @
+15 15000 None 0 #
+16 15010 @
+16 16000 None 0 #
+17 16010 @
+17 17000 None 0 #
+18 17010 @
+18 18000 None 0 #
+0 18010 R _var p ncr_investigation2 = 1 @
+19 19000 None 0 #
+20 19010 @
+20 20000 None 0 #
+21 20010 @
+21 21000 None 0 #
+22 21010 @
+22 22000 None 0 #
+23 22010 @
+23 23000 None 0 #
+24 23010 @
+24 24000 None 0 #
+0 24010 R _var p ncr_investigation2 = 7 R _param p ST_KARMA + 3 R _script dialog@r_AddExperience 1 3000 R _script dialog@r_AddMoney 1 2000 R _item p PID_ASSAULT_RIFLE_EXT_MAG + 1 R _item p PID_5MM_AP + 120 R _param p REPUTATION_LA + 75 R _param p REPUTATION_JUNKTOWN + 75 R _param p REPUTATION_HUB + 75 R _param p REPUTATION_REDDING + 75 R _param p REPUTATION_MODOC + 75 R _param p REPUTATION_KLAMATH + 75 R _param p REPUTATION_FREE_TRADERS + 75 R _param p REPUTATION_FOLLOWERS + 75 R _param p REPUTATION_NCR_RANGERS + 75 R _param p REPUTATION_REGULATORS + 75 R _param p REPUTATION_NCR + 75 R _var p z_warrior2 + 1 @
+25 25000 None 0 #
+0 25010 R _var p ncr_investigation2 = 5 R _script quest_meli@r_SpawnLoc 0  &
+
+[engl]
+{100}{}{Detective Pint}
+{200}{}{You see Detective Pint.}
+{210}{}{He's a detective for the NCR government. Looks tough.}
+{1000}{}{Predialogue installations}
+{1010}{}{base}
+{2000}{}{[The man is sitting behind his desk, smoking a cigarette. He tips his fedora as you approach, and looks up] @sex@|Sir?||Ma'am?| }
+{2010}{}{Who are you?}
+{2020}{}{Tell me about this little girl you're looking for.}
+{2030}{}{I saved the child. It was messy. I don't really want to talk about it. I'm just glad these people are dead.}
+{2040}{}{I found a suspect. He gave me the location of the girl. I fucked him up good, but he'll live. Go find him a proper noose.}
+{2050}{}{I found a suspect. He gave me the location of the girl. Then I killed him.}
+{2060}{}{I found a suspect. He gave me the location of the girl. I didn't hurt him much. Go find him a proper noose.}
+{2070}{}{Sorry, didn't mean to bother you.}
+{3000}{}{I'm detective Roger Pint, what do you want?}
+{3010}{}{Oh, nothing. Just looking around.}
+{4000}{}{[He gives you an uneasy look as the rain pours down] Eh? You a cop?}
+{4010}{}{Detective @pname@, I solved the sex trade operation in NCR. I'd like to think that, that was just the beginning, }
+{5000}{}{[He nods] Yeah okay... Guess I don't need to tell you how I feel about this. }
+{5010}{}{No, you don't. I came from a vault, where people were treated equal. We didn't steal nobody. Our people had rights. Where I grew up all people had rights. I don't give a fuck about nothing else but doing what's right. Either I'm too stupid to care, or this world needs a fucking hero, and I wish it was me. }
+{6000}{}{[He laughs] I wish it was you too! You sure are something you know that? Geez! But you can talk all you want, but it will never make you a better person. It ain't about intelligence, it's about action. The dumbest people in the world can be good hearted, and that could make them a saint. I think right is mesured by absolute tolerence to all people, no prejudice aside.}
+{6010}{}{The war changed the way we look at things. War always changes everything. War, but it never changes anything, never changes... }
+{7000}{}{You okay buddy?}
+{7010}{}{[You suffer a bit from your previous experiences in the wasteland. Call it PTSD, who cares] }
+{8000}{}{[You've seen the world turn itself into ABSOLUTE CHAOS. No heaven. No hope. What is this madness that calls itself life? You sit up late at night and wonder, but there's no hope it seems. No clarity in the madness that makes itself an answer. Just more madness. You kill, and kill, and kill. But nothing ever takes away that feeling you felt. Whatever it is. You wish that you stayed inside the vault. War]}
+{8010}{}{War...}
+{9000}{}{Never.}
+{9010}{}{Changes.}
+{10000}{}{[I dreamt one time, of a people. An entire nation that had dreams. Hopes. A future they could call their own. But it was all swept away by a dozen strangers, armed to the teeth pleading nothing but ignorance. They took what they wanted and killed the rest. Selfish people that sought tomorrow alone. Selfish people. Selfish humanity that seeks tomorrow, the future. The whole world for themselves. After all the tears shed over life, doesn't death feel any remourse? Is there no greater light in this world than me, and my darkness? }
+{10010}{}{I fall to my knees, and pray for a hero. But nothing I hear can call to me. For I am alone. Madness, whatever it is. Is right and wrong. }
+{11000}{}{[He pushes you] You alright. buddy?}
+{11010}{}{I'm fine. Tell me about the girl. What's her name?}
+{12000}{}{[The clash of thunder fills your ears as the rain pours down a heavy wave. Detective Pint lights up a cigarette and sits back in his chair] Her name is Melinda, she's only twelve years old, and she's been missing for almost a week now. Her parents are worried sick, and the father started hitting the bottle. Pretty soon, he might start hitting the wife, who knows. We need to find the kid before all hell breaks loose.}
+{12010}{}{Yeah, I won't be messing around. We got any leads? What can you tell me?}
+{13000}{}{[He takes a long, hard drag off his cigarette, and says] I can hear this faint crying in the back of my mind. Little girl can't be far, I don't think she's in the city, but someone in town must know where she is. I've been having a hard time choosing who to ring up over this. She disappeared one morning on her way to school, someone probably snatched her but they didn't a leave a note so it's not a kidnapping. }
+{13010}{}{Poor girl. It's probably worse than that. You got a picture?}
+{14000}{}{[He hands you sketch of the girl's face. She looks almost like she could be your very own daughter, it's sad] There she is. I've tried going around the bars, didn't find much, but haven't had time to check anywhere else. Might want to walk around and see what you can find out. We know her name, her age, what she was doing before she disappeared, and that it wasn't a kidnapping. }
+{14010}{}{What was she wearing?}
+{15000}{}{[He thinks for a moment] Red coat, black boots, blue jeans. She's a brunette. I tell ya buddy, we better find her soon. }
+{15010}{}{Hmm, no real leads, eh?}
+{16000}{}{[He lowers his head] Nah, not really. Had a witness who said he saw a black guy in metal armor running off, but that's not much of a lead. }
+{16010}{}{Can I speak with the parents?}
+{17000}{}{[He kills his cigarette as the rain seems to calm down a bit] Nah... I don't know. They're pretty shaken up, we pressed them pretty hard ourselves too. Had to be sure it wasn't something sicker than it already is. They don't know anything, or seen anything, and they're nobodies. Just people that can't find one of their kids.}
+{17010}{}{Well... If this ain't a kidnapping, it's rape. You got any leads on some sex offenders I can press?}
+{18000}{}{[He pours himself a shot of Rotgut and hands you the bottle. You refuse] Nothing like that in NCR, we hang people around here for whatever we can get away with. The Hub might just have some of these kinds of people you're thinking of though. Maybe some fucker snatched her and brough her back to the Hub? There's a place called Old Town, you might find something there. Shit, that's mighty fine idea actually. Go check it out, bucko.}
+{18010}{}{Yeah, alright. I'll let you know if I find anything.}
+{19000}{}{[Detective Pint patiently waits for you to tell him the whole story. You and him sit down for a while and discuss life in the wasteland. He's a good man, and he's very interested in hearing about your life in the vault. But after some time he notices that the wasteland is starting to take it's toll on you. He thinks that you should probably see a doctor about your PTSD]}
+{19010}{}{I'm fine. It's just hard trying to let go of the old world. In the vault everything seemed like a big joke. Vault-Tek made the outside seem like a camping trip compared to what I've experienced.}
+{20000}{}{[He seems fascinated] I have no idea what you're talking about, but it's damn interesting. I wish I could see one of these vaults myself. Hell, growing up in one sounds like a fucking paradise.}
+{20010}{}{They were raping that little girl! And selling her off as a whore! I don't know how many of them got to her before I got there! But I fucking killed them all!}
+{21000}{}{[Detective Pint tries to calm you down] I know, I know... I figured as much. Damn, just calm down. This is normal stuff out there.}
+{21010}{}{Normal?! Normal?! You don't fuck kids! You don't kidnap people and turn them into hookers! You don't do this shit! If I knew the world would have been this full of shit I'd never of left the vault!}
+{22000}{}{[He pours you a shot of Rotgut, but you smack it away] You should have a drink, it'll help.}
+{22010}{}{There's too much vice in this new world! Even after everybody killed themselves, they still found a way to come back and start poisoning their bodies all over again. }
+{23000}{}{[He pours himself a drink] Nothing changes. Good people just keep it up. You're a hero, don't worry so much. As long as you're around, people are safe, right?}
+{23010}{}{Yeah... Sure. Thanks for the drink, detective. But I think I'll be going.}
+{24000}{}{[He lights up a cigarette and says] Great work out there, kid. Go see the other detectives if you want to keep it up. World needs you, can you hear it scream?}
+{24010}{}{Every day.}
+{25000}{}{[Detective Pint doesn't say much] And the girl? [If you'd like to do this mission in Turn Based mode type /combatmode tb before continuing!]}
+{25010}{}{[Say nothing and leave]}
+{100000001}{}{Better wash the counter again...}
+{100000002}{}{That's 5 caps buddy. Hey did you hear me? Cough em' up.}
+{100000003}{}{Better change the keg...}
+{100000004}{}{RotGut? You drink that shit?}
+{100000005}{}{Domestic? I got B.E.E.R buddy, do you want one or not?}
+{100000006}{}{Fuckin' dust is getting everywhere. Hey close the fuckin' door!}
+{100000007}{}{I swear if the next asshole doesn't tip. Ima' shoot somebody!}
+{100000008}{}{I got bottles, I got shots, and I got a bat behind the counter for the retards. Your not a retard are you?}
+{100000009}{}{Uh-huh, yeah that's nice buddy. You don't say...What? Of course I'm listening...}
+{100000010}{}{That's 5 caps. FIVE CAPS Tribal! F.I.V.E! }
+{100000011}{}{Shut up and order a fuckin' beer already!}
+{100000012}{}{I swear if I have to serve another drunk, I'm getting the shotgun!}
+{100000013}{}{Look the keg went dry, and it's going to be another month until the caravan shows up again.}
+{100000014}{}{Really? You don't say, buy another drink or get out!}
+{100000015}{}{What? I'm on break.}
+{100000016}{}{Be right with ya'}
+{100000017}{}{Have a sit stranger. I'll be with you in a moment.}
+{100000018}{}{When do we close? Uh, when the place get's shot up, that's when!}
+{100000019}{}{We're fresh outta' cold beer, sorry. You'll just have to drink it warm.}
+{100000020}{}{RotGut? No man, go make that shit yourself! I wouldn't drink it!}
+
+[russ]
+{100}{}{Алкоголик}
+{200}{}{Вы видите пьяницу.}
+{210}{}{Вы видите шатающегося из стороны в сторону пьяного человека в лохмотьях. Лицо его распухло, нос синющий как слива. А аромат рядом с ним такой, что свалит брамина насмерть. Он что-то бормочет про себя и иногда громко поет песни.}
+{210}{}{Вы видите алкаша. Он весьма грязен - кажется, он повалялся в луже, но не особо этим расстроен.}
+{1000}{}{I?aaaeaeiaiaua onoaiiaee}
+{1010}{}{base}
+{2000}{}{Dialog text}
+{2010}{}{Who are you?}
+{2020}{}{Tell me abou this little girl you're looking for.}
+{2030}{}{I saved the child. It was messy. I don't really want to talk about it. I'm just glad these people are dead.}
+{2040}{}{I found a suspect. He gave me the location of the girl.}
+{2050}{}{I found a suspect. He gave me the location of the girl.}
+{2060}{}{I found a suspect. He gave me the location of the girl.}
+{2070}{}{Sorry to bother you. I'll just be going.}
+{3000}{}{I'm a detective for the NCR, what do you want?}
+{3010}{}{Oh, nothing. Just looking around.}
+{4000}{}{[He gives you an uneasy look as the rain pours down] Eh? You a cop?}
+{4010}{}{Detective @pname@, I solved the sex trade operation in NCR. I'd like to think that, that was just the beginning, }
+{5000}{}{{he nods] Yeah okay... Guess I don't need to tell you how I feel about this. }
+{5010}{}{No, you don't. I came from a vault, where people were treated equal. We didn't steal nobody. OUr people had rights. WHere i grew up all people had rights. I don't give afuck about nothing else but doing what's right. Either I'm too stupid to care, or this world needs a fucking hero, and I wish it was me. }
+{6000}{}{[He lauhghs] I wish it was you too! You sure are something you know that? Geez! But you can talk all you want, but it will will never make you a better person. It ain't about intelligence, it's about action. The dumbest people in the world can be good hearted, and that could make them a saint. I think right is mesured by absolute tolerence to all people, no prejudice aside.}
+{6010}{}{War changed te way we look at things. War always changes everything. War, but it never changes anything, never changes. }
+{7000}{}{You okay buddy?}
+{7010}{}{[You suffer a bit from your previous experiences in the wasteland. Call it PTSD, who cares] }
+{8000}{}{[You've seen the world turn itself into aBSOLUTE CHAOS. No heaven. No hope. What is this madness that calls itself life? You sit up late at night and wonder, but there's no hope it seems. No clarity in the madness that makes itself an answer. JUst more madness. You kill, and kill, and kill. But nothing ever takes away that feeling you felt. Whatever it is. You wish that you stayed inside the vault]}
+{8010}{}{War...}
+{9000}{}{Never.}
+{9010}{}{Changes.}
+{10000}{}{[I dreamt one time, of a people. An entire nation that had dreams. Hopes. A future they could call their own. But it was all swept away but a dozen strangers, armed to the teeth pleading nothing but ignorance. They took what they wanted and killed the rest. Selfish people that sought tomorrow alone. Selfish people. Selifhs humanity that seeks tomorrow, the future. The whole world for themselves. After all the tears shed over life, doesn't death feel remourse? Is there no greater light in this world than me, and my darkness? }
+{10010}{}{I fall t o  my knees, and pray for a hero. But nothing I hear can call to me. For i am alone. Madness, whatever it is. Is right and wrong. }
+{11000}{}{[He pushes you] You alright. buddy?}
+{11010}{}{I'm fine. Tell me about the girl. What's her name?}
+{12000}{}{[The clash of thunder fills your ears as the rain pours down a heavy wave. Detective Pint lights up a cigarette and sits back in his chair] Her name is Melinda, she's only twelve years old, and she's been missing for almost a week now. Her parents are worried sick, and the father started hitting the bottle. Pretty soon, he might start hitting the wife, who knows. We need to find the kid before all hell breaks loose.}
+{12010}{}{Yeah, I won't be messing around. We got any leads? What can you tell me?}
+{13000}{}{[He takes a long, hard drag off his cigarette, and says] I can hear this faint crying in the back of my mind. Little girl can't be far, I don't think she's in the city, but someone in town must know where she is. I've been having a hard time choosing who to ring up over this. She disappeared one morning on her way to school, someone probably snatched her but they didn't a leave a note so it's not a kidnapping. }
+{13010}{}{Poor girl. It's probably worse than that.}
+{14000}{}{[He hands you sketch of the girl's face. She looks almost like she could be your very own daughter, it's sad] There she is. I've tried going around the bars, didn't find much, but haven't had time to check anywhere else. Might want to walk around and see what you can find out. We know her name, her age, what she was doing before she disappeared, and that it wasn't a kidnapping. }
+{14010}{}{What was she wearing?}
+{15000}{}{[He thinks for a moment] Red coat, black boots, blue jeans. She's a brunette. I tell ya buddy, we better find her soon. }
+{15010}{}{Hmm, no real leads, eh?}
+{16000}{}{[He lowers his head] Nah, not really. Had a witness who said he saw a black guy in metal armor running off, but that's not much of a lead. }
+{16010}{}{Can I speak with the parents?}
+{17000}{}{[He kills his cigarette as the rain seems to calm down a bit] Nah... I don't know. They're pretty shaking up, we pressed them pretty hard ourselves too. Had to be sure it wasn't something sicker than it already is. They don't know anything, or see anything, and they're nobodies. Just people that can't find one of their kids.}
+{17010}{}{Well... If this ain't a kidnapping, it's rape. You got any leads on some sex offenders I can press?}
+{18000}{}{[He pours himself a shot of Rotgut and hands you the bottle. You refuse] Nothing like that in NCR, we hang people around here for whatever we can get away with. The Hub might just have some of these kinds of people you're thinking of though. Maybe some fucker snatched her and brough her back to the Hub? There's a place called Old Town, you might find something there. Shit, that's mighty fine idea actually. Go check it out, bucko.}
+{18010}{}{Yeah, alright. I'll let you know if I find anything.}
+{19000}{}{[Detective Pint patiently waits for you to tell him the whole story. You and him sit down for a while and discuss life in the wasteland. You should probably see a doctor about your PTSD]}
+{19010}{}{I'm fine. It's just hard trying to let go of the old world. In the vault everything seemed like a big joke. Vault-Tek made the outside seem like a camping trip compared to what I've experienced.}
+{20000}{}{[He seems fascinated] I have no idea what you're talking about, but it's damn interesting. I wish I could see one of these vaults myself. Hell, growing up in one sounds like a fucking paradise.}
+{20010}{}{They were raping that little girl! And selling her off as a whore! I don't know how many of them got to her before I got there! But I fucking killed them all!}
+{21000}{}{[Detective Pint tries to calm you down] I know, I know... I figured as much. Damn, just calm down. This is normal stuff out there.}
+{21010}{}{Normal?! Normal?! You don't fuck kids! You don't kidnap people and turn them into hookers! You don't do this shit! If I knew the world would have been this full of shit I'd of never left the vault!}
+{22000}{}{[He pours you a shot of Rotgut, but you smack it away] You should have a drink, it'll help.}
+{22010}{}{There's too much vice in this new world! Even after everybody killed themselves, they still found a way to back and start poisoning their bodies all over again. }
+{23000}{}{[He pours himself a drink] Nothing changes. Good people just keep it up. You're a hero, don't worry so much. As long as you're around, people are safe, right?}
+{23010}{}{Yeah... Sure. Thanks for the drink, detective. But I think I'll be going.}
+{24000}{}{[He lights up a cigarette and says] Great work out there, kid. Go see the other detectives if you want to keep it up. World needs you, can you hear it scream?}
+{24010}{}{Every day.}
+{25000}{}{[Detective Pint doesn't say much] The girl?}
+{25010}{}{[Say nothing and leave]}
+

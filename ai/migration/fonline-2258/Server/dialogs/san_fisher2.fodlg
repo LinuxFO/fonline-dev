@@ -1,0 +1,20 @@
+[comment]
+
+
+[data]
+lang=engl
+
+[dialog]
+&
+1 1000 None 0 #
+2 1010 @
+2 2000 None 0 &
+
+[engl]
+{100}{}{Pier 39 Guard}
+{200}{}{You see a local guard.}
+{210}{}{He's well armed, and no doubt experienced enough to work alone out here...}
+{1000}{}{Predialogue installations}
+{1010}{}{Answer text}
+{2000}{}{You no cause trouble!@@We sell fish. Only fish... and seaweed! But mostly fish!@@How many fish?@@Two fish.@@You come to buy fish?@@We like fish here. You like fish too?@@Fish, fish!@@No cause trouble! Gun very good!!!!}
+

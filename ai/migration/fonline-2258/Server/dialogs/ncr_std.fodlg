@@ -1,0 +1,36 @@
+[comment]
+
+
+[data]
+lang=engl
+
+[dialog]
+&
+1 1000 None 0 #
+2 1010 D _var p name_mem_npc_player = 0 #
+4 1020 D _var p name_mem_npc_player = 1 @
+2 2000 None 0 #
+2 2010 #
+2 2020 #
+3 2030 D _item p PID_RADAWAY > 0 R _item p PID_RADAWAY - 1 R _item p PID_RED_CONDOM + 1 R _item p PID_RUBBER_BOOTS + 1 R _item p PID_ROPE + 1 R _item p PID_ROT_GUT + 1 R _item p PID_CIGARETTES + 1 R _item p PID_FROZEN_DINNER + 1 R _var p name_mem_npc_player = 1 R _script dialog@r_AddExperience 1 1500 #
+0 2040 @
+3 3000 None 0 #
+4 3010 @
+4 4000 None 0 &
+
+[engl]
+{100}{}{Poor Dwayne}
+{200}{}{You see a man in excruciating pain!}
+{210}{}{It's poor Dwayne. The unlucky.}
+{1000}{}{Predialogue installations}
+{1010}{}{Answer text}
+{1020}{}{Answer text2}
+{2000}{}{Ugh! The pain!@@It's not supposed to look this way!@@Oh God! What's wrong with it!@@Why?! Why didn't I use a condom?!@@Got any Rad-Away?! I need some man!@@You've got to help me!@@If she says her name's "Candy", run!@@Stop looking at it! It's normal!@@Oh God! Is it going to fall off?!@@What are you starring at?!@@Stop looking at me!@@My dick hurts so much!@@Oh God! Why?! Why!!!! Why???!@@Does my dick look infected to you? It does to me!@@Momma named me Dwayne... she shoulda called me In-flamed!}
+{2010}{}{What's wrong with you?}
+{2020}{}{Damn, you sure are unlucky! The whole town knows about you.}
+{2030}{}{Here! Have some Rad-Away! What you should do is see a fucking doctor already!}
+{2040}{}{[Leave]}
+{3000}{}{No! That last time I went to see a doctor I ended up with this! Give me that damn Rad-Away! [He quickly injects it into his genitals]}
+{3010}{}{[Vomit]}
+{4000}{}{Ugh... I feel... funny...}
+

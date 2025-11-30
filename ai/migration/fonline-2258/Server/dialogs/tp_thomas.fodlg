@@ -1,0 +1,48 @@
+[comment]
+Thomas Sutton Trading Post guy.
+
+[data]
+lang=engl
+
+[dialog]
+&
+1 1000 None 0 #
+2 1010 @
+2 2000 None 0 #
+3 2010 #
+4 2020 @
+3 3000 None 0 #
+4 3010 @
+4 4000 None 0 #
+5 4010 D _script dialog@d_IsToHeal 0  #
+65506 4020 #
+7 4030 #
+8 4040 @
+5 5000 dialog@dlg_ShowHealingPrice 0 #
+6 5010 D _script dialog@d_HealingMoney 0  R _script dialog@r_DocHeal 0  @
+6 6000 None 0 @
+7 7000 None 0 @
+8 8000 None 0 &
+
+[engl]
+{100}{}{Thomas Sutton}
+{200}{}{You see an old, grizzled trader.}
+{210}{}{He's wearing dusty worn out clothing and a snazzy hat. He looks like he's seen his fair share of crazy and doesn't tolerate a whole heck of a lot around here. But his shop is nice and clean. You could probably relax here for a while.}
+{1000}{}{Predialogue installations}
+{1010}{}{Intro}
+{2000}{}{Welcome to my trading post, stranger. Rules are simple. No fighting, no stealing, and no damn hootenannys... And I mean that last one!}
+{2010}{}{But I like hootenannys.}
+{2020}{}{I got it, I got it. Okay, geez?! No hootenannys!}
+{3000}{}{*The old man suddenly stares deep into your soul with a piercing glance* And you'd be wrong!}
+{3010}{}{Alright, I get it! No hootenannys.}
+{4000}{}{Good. What can I get for you then, wastelander. I've got a nice selection of drugs and alcohol, medical expertise, and a few... knick·knacks from the last time I had to deal with a hootenanny. Just lemme know when you're ready. I'll be here. *He spits into a disgusting looking bucket*}
+{4010}{}{I could use some healing, Doctor.}
+{4020}{}{Let's see what you got, trader. [Barter]}
+{4030}{}{How about telling me a little about yourself? How'd you end up all the way out here anyways?}
+{4040}{}{Nothing for now, but I'll let you know if I change my mind.}
+{5000}{}{Let's have a look then... Hmm... You're alive... I guess that's good. I can patch the rest of you up for... let's say... @lex price@ caps. Deal?}
+{5010}{}{Yeah, thanks. Here's the money. I hope this isn't going to hurt...}
+{6000}{}{Probably will. Hold still, and I'll patch you right up. There! All done. Now get out there and make something out of yourself, wastelander.}
+{7000}{}{To you? No, thank you. Get lost, wastelander.}
+{8000}{}{Yeah, alright. Pisser's out back. Lemme know if you need anything. *He spits*}
+

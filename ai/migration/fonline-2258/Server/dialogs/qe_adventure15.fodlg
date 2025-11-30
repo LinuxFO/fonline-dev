@@ -1,0 +1,78 @@
+[comment]
+
+
+[data]
+lang=engl
+
+[dialog]
+&
+1 1000 None 0 #
+2 1010 @
+2 2000 None 0 #
+3 2010 @
+3 3000 None 0 #
+4 3010 @
+4 4000 None 0 #
+5 4010 @
+5 5000 None 0 #
+6 5010 @
+6 6000 None 0 #
+7 6010 @
+7 7000 None 0 #
+8 7010 @
+8 8000 None 0 #
+9 8010 @
+9 9000 None 0 #
+10 9010 @
+10 10000 None 0 #
+11 10010 @
+11 11000 None 0 #
+12 11010 @
+12 12000 None 0 #
+13 12010 @
+13 13000 None 0 #
+14 13010 @
+14 14000 None 0 #
+15 14010 @
+15 15000 None 0 #
+16 15010 @
+16 16000 None 0 #
+0 16010 R _script dialog@r_TeleportToMap 2 45 0 R _var p q_adventure = 46 R _script dialog@r_AddExperience 1 10000 R _item p PID_DOG_TAGS + 1 &
+
+[engl]
+{100}{}{Brotherhood Elder}
+{200}{}{You see an Elder of the Brotherhood of Steel.}
+{210}{}{Many years ago, this man used to be a Paladin, and it shows. }
+{1000}{}{Predialogue installations}
+{1010}{}{1}
+{2000}{}{What are you doing here?@@Why are you here?@@What is it that you want?@@Yes?@@There had better be a good reason why you're here.}
+{2010}{}{Hello, Elder. My name is @pname@. I'm here on behalf of Vault 24, and the NCR in order to negotiate a temporary alliance between all three of our factions. The Enclave is trying to conquer California, and we can't stop them without your help.}
+{3000}{}{The Enclave is a powerful thorn in our side, indeed. But the NCR can be just as bad. Who is this... Vault 24 you speak of? Are you a vault dweller?}
+{3010}{}{Yes, I am. [Show him your PipBoy, and Vault Suit] Vault 24 opened abruptly. My Overseer and I, have been trying to figure out why for days now. We've concluded that the Enclave is trying to get a hold of the contents of both Vault 24, and my people.}
+{4000}{}{Hmm... that is a possibility. The Enclave has always taken much interest in the vaults, and their people. Go on.}
+{4010}{}{I'm being hunted down by the Enclave, they want my PipBoy. It's a highly advanced, and modified version of the original Vault-Tek Pip Boys. The location to Vault 24 is hardcoded into it, but nobody seems to know how to access it.}
+{5000}{}{Irrelevant to us, @pname@. The Brotherhood of Steel does not need simple... Vault-Tek. The Enclave is no doubt looking to further their research into human genetic modification. We've seen it before. There were many vault dwellers before you, @pname@. }
+{5010}{}{I've heard stories...}
+{6000}{}{More truth than fiction, no doubt. This is why we will help you. The Brotherhood of Steel is forever in the debt of you vault dwellers. You do much good, without even knowing it. We've learnt many things from you people. Many things, indeed.}
+{6010}{}{So, you'll help us?}
+{7000}{}{Yes, but under one condition.}
+{7010}{}{What is it? I'll do anything!}
+{8000}{}{You leave the Californian wasteland within four years. }
+{8010}{}{What?! Why?!}
+{9000}{}{We will help the NCR destroy Navarro. But the Enclave will never forget the damage you've done. They will chase you down until the moment you die. They will not rest. That is why you will leave California forever! You will let the Enclave chase you, and that will drive them away.}
+{9010}{}{...}
+{10000}{}{You will begin a new project for us. Project Purity.}
+{10010}{}{What? I'm not capable of that! I'm just a vault dweller!}
+{11000}{}{Exactly. You will go to the Capital Wasteland. We have bases, and scientists over there. We are trying to bring clean water across this country. You can help. We have faith in you, @pname@.}
+{11010}{}{Clean water?! I don't know anything about science, or medicine! At least not enough to do anything with it that big!}
+{12000}{}{There is a vault. Vault 101. The Overseer over there has been in contact with us for years. He will help provide you with everything you need to know. }
+{12010}{}{I... I can't! This is too much! I can't do this alone!}
+{13000}{}{There is another vault dweller. One from your Vault. @sex@|Her name is Catherine. Do you know her? She will go with you. Together you will succeed. I know it.||His name is James. Do you know him? He will go with you. Together you will succeed. I know it.|}
+{13010}{}{@sex@|Catherine...?!||James...?!|}
+{14000}{}{For now, that is another story. At this moment, we must unite under one flag, and eliminate the Enclave once and for all! Are you ready, @pname@?}
+{14010}{}{As ready as I'll ever be...}
+{15000}{}{Good. When your Vault, and the NCR are ready, come back and speak with us. We will go over the battle plan, and start forming ranks. I hope that you will join us on the battlefield, @sex@|James.||Catherine.|}
+{15010}{}{You know my real name?}
+{16000}{}{We know everything about you. I'm surprised you didn't come to us sooner. Hurry now, and tell the NCR that we will form this alliance.}
+{16010}{}{Thank you, brother! Together we will help change the world!}
+

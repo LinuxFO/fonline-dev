@@ -1,0 +1,20 @@
+[comment]
+
+
+[data]
+lang=engl
+
+[dialog]
+&
+1 1000 None 0 #
+2 1010 @
+2 2000 None 0 &
+
+[engl]
+{100}{}{Watson Winston}
+{200}{}{You see the famous outlaw Watson Winston.}
+{210}{}{Looks like his goose his cooked. You wonder how long he'll last?}
+{1000}{}{Predialogue installations}
+{1010}{}{Answer text}
+{2000}{}{Goddamn coppers!@@You ain't never takin' me alive!@@My goose is cooked!@@This is my last stand, ya bastards!@@Bro! Grab the money! And ruuuuun!}
+

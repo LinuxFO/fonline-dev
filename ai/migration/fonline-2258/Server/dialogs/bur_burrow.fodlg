@@ -1,0 +1,20 @@
+[comment]
+
+
+[data]
+lang=engl
+
+[dialog]
+&
+1 1000 None 0 #
+2 1010 @
+2 2000 None 0 &
+
+[engl]
+{100}{}{Burrow}
+{200}{}{You see a Burrow.}
+{210}{}{It's some sort of mutated raccoon! How in the world did this happen, you wonder. But you've seen worse, much worse. At least this thing looks friendly. Might even make for a great hat! Err-- no, nevermind.}
+{1000}{}{Predialogue installations}
+{1010}{}{Answer text}
+{2000}{}{Hu-man.@@What bring you here?@@Where fur?@@You smell.@@No trouble. Calm.@@You look sleep.@@Eat. You are small.@@Are cold? Grow hair.@@Soft. Squishy.@@You like fur?@@I old. Fight many battle. See mark?@@You are welcome. For now.@@This is home. Our home.@@I like it here. But, no warm.@@The water here... tastes... bad.@@You look like silly. Why you no have fur?@@I hope you don't eat us.}
+

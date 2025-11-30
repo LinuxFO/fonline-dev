@@ -1,0 +1,155 @@
+#include "quest_killmobs_h.fos"
+#include "mapdata_h.fos"						
+#include "utils_h.fos"
+#include "worldmap_h.fos"
+#include "npc_planes_h.fos"
+#include "entire.fos"
+#include "_colors.fos"
+#include "logging_h.fos"
+
+#define QUEST_ALL_KILLED            (2)  //value of quest lvar in case all dogs are killed
+#define QUEST_FAILED                (0)  //value of quest lvar in case of quest failed
+ 
+#define DIALOG                      (0) //dialog id of npc spawned in location - all_raider
+ 
+array<uint16> telltalePids = { 957 };   // spawns telltale boss to kill
+ 
+//function called as request from dialog to spawn quest location
+void r_SpawnLoc(Critter& player, Critter@ npc)
+{
+    //roll X,Y value of WM zone index, in this case from 3x2 zones area under Hub
+    uint zoneX = Random(25, 25);    
+    uint zoneY = Random(42, 42);    
+ 
+    //get X,Y value of quest location position on WM in zone we picked above
+    uint   wx = zoneX * __GlobalMapZoneLength;          //get zone X,Y start value
+    uint   wy = zoneY * __GlobalMapZoneLength;
+    wx += Random(0, __GlobalMapZoneLength);             //add random value from 0 to zone size
+    wy += Random(0, __GlobalMapZoneLength);
+ 
+    //get Id value of locations in current zone (encounters maps id)
+   
+    //commented for now because random maps are ugly and empty
+//    array<uint16> locationIds;
+//    IZone@ zone = GetZone(wx, wy);
+//    uint num = zone.GetLocationPids(locationIds);
+ 
+    //version with defined set of maps, comment this one and uncomment lines about to use zone maps
+    array<uint16> locationIds = { 151 };
+    uint num = locationIds.length;
+ 
+    //pick random encounter map
+    uint16        locPid = locationIds[Random(0, num - 1)];
+   
+    //create quest location
+    Critter@[] crits = { player };
+    int           loc = CreateLocation(locPid, wx, wy, crits);
+    if(loc == 0)
+        return;
+    player.SetKnownLoc(true, loc);
+   
+    //set location id to quest lvar (used when you need to delete location)
+    GameVar@  locidv = GetLocalVar(LVAR_boss5_locid, player.Id);
+    locidv = loc;
+   
+    //change location color on WM
+    Location@ location = GetLocation(loc);
+    location.Color = COLOR_WM_QUEST;
+    location.Update();
+ 
+    //set TB combat mode if needed
+    if(player.Mode[MODE_DEFAULT_COMBAT] == COMBAT_MODE_TURN_BASED)
+        SetTurnBasedAvailability(location);
+ 
+    //player can die and come back
+    location.AutoGarbage = false;
+ 
+    //dissable default encounter's script and functions
+    array<Map@> maps;
+    uint        mapcount = location.GetMaps(maps);
+    for(uint c = 0; c < mapcount; c++)
+    {
+        maps[c].SetScript(null);
+        maps[c].SetEvent(MAP_EVENT_IN_CRITTER, null);
+        maps[c].SetEvent(MAP_EVENT_CRITTER_DEAD, null);
+    }
+ 
+    //set player as owner of the map
+    Map@ map = location.GetMapByIndex(0);
+	map.SetData(MAP_DATA_TELLTALE5_OWNER, player.Id);
+
+																						
+    //set time after which location will be removed and quest will count as failed
+    //here it's 12*60 minutes so 12h
+    //if location is deleted this way quest lvar will be set QUEST_FAILED value
+    SetQuestGarbager(1 * 60, player.Id, loc, LVAR_q_boss5, QUEST_FAILED);
+    DynamicLocationAddLog(player, npc, locidv, "quest_boss5");
+}
+ 
+//dialog function used in request to delete quest location (after player report finishing the quest)
+void r_DeleteLoc(Critter& player, Critter@ npc)
+{
+    GameVar@ var = GetLocalVar(LVAR_boss5_locid, player.Id);
+    DeleteLocation(var.GetValue());
+    DynamicLocationDelLog(player, npc, var, "quest_boss5");
+}
+ 
+//set functions for basic critter events
+void critter_init(Critter& cr, bool firstTime)
+{
+	cr.StatBase[ST_KILL_EXPERIENCE] = 900;									  
+    cr.StatBase[ST_REPLICATION_TIME] = REPLICATION_NEVER;
+    cr.SetEvent(CRITTER_EVENT_DEAD, "_telltaleDead");
+    cr.SetEvent(CRITTER_EVENT_ATTACKED, "_telltaleAttacked");
+    cr.SetEvent(CRITTER_EVENT_MESSAGE, "_telltaleOnMessage");
+    cr.SetEvent(CRITTER_EVENT_IDLE, "_telltaleIdle");
+    cr.SetEvent(CRITTER_EVENT_SHOW_CRITTER, "_telltaleShowCritter");							   
+ 
+    _CritSetExtMode(cr, MODE_EXT_MOB);
+	if(firstTime)
+    {
+        cr.SetHomePos(cr.HexX, cr.HexY, cr.Dir);
+        Map @map = cr.GetMap();
+        map.SetData(MAP_DATA_TELLTALE5, map.GetData(MAP_DATA_TELLTALE5) + 1);
+    }			  	 
+}
+ 
+void _telltaleIdle(Critter& mob)
+{
+    MobIdle(mob);
+}
+ 
+void _telltaleShowCritter(Critter& mob, Critter& showCrit)
+{
+    if(_IsFollower(showCrit) || showCrit.IsPlayer())
+        AddAttackPlane(mob, AI_PLANE_ATTACK_PRIORITY, showCrit);
+}
+ 
+//check if all Vipers are killed, if yes, than set quest lvar to QUEST_ALL_KILLED value
+void _telltaleDead(Critter& cr, Critter@ killer)
+{
+    Map@ map = cr.GetMap();
+    map.SetData(MAP_DATA_TELLTALE5, map.GetData(MAP_DATA_TELLTALE5) - 1);
+    if(map.GetData(MAP_DATA_TELLTALE5) == 0)
+    {
+        GameVar@ var = GetLocalVar(LVAR_q_boss5, ReturnOwnerId(map));
+		
+        var = QUEST_ALL_KILLED;
+    }
+}
+uint ReturnOwnerId(Map& map)
+{
+    return map.GetData(MAP_DATA_TELLTALE5_OWNER);
+}							
+ 
+bool _telltaleAttacked(Critter& cr, Critter& attacker)
+{
+    return MobAttacked(cr, attacker);
+}
+ 
+void _telltaleOnMessage(Critter& cr, Critter& fromCr, int message, int value)
+{
+    MobOnMessage(cr, fromCr, message, value);
+}
+
+

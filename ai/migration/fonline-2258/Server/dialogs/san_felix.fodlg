@@ -1,0 +1,100 @@
+[comment]
+san fran job
+
+[data]
+lang=engl
+
+[dialog]
+&
+1 1000 None 0 #
+2 1010 D _var p name_mem_npc_player = 0 #
+10 1020 D _var p name_mem_npc_player = 1 @
+2 2000 None 0 #
+3 2010 #
+3 2020 #
+3 2030 #
+0 2040 @
+3 3000 None 0 #
+4 3010 #
+4 3020 #
+4 3030 #
+0 3040 @
+4 4000 None 0 #
+5 4010 #
+6 4020 #
+5 4030 @
+5 5000 None 0 #
+8 5010 #
+0 5020 @
+6 6000 None 0 #
+8 6010 #
+0 6020 @
+8 7000 None 0 #
+9 7010 D _param p ST_LEVEL > 11 R _var p name_mem_npc_player = 1 #
+9 7020 D _param p ST_LEVEL > 11 R _var p name_mem_npc_player = 1 #
+0 7030 @
+9 8000 None 0 @
+10 9000 None 0 #
+11 9010 #
+13 9020 #
+0 9030 @
+13 10000 None 0 #
+0 10010 @
+11 11000 None 0 #
+12 11010 D _item p PID_RIPPER } 8 R _script dialog@r_AddExperience 1 3000 R _script dialog@r_BulkOrderRewardLow 0  R _script dialog@r_BulkOrderRewardHub 0  R _item p PID_RIPPER - 8 R _var p q_merchant + 1 R _script dialog@r_AddMoney 1 1400 #
+12 11020 D _item p PID_METAL_ARMOR_MK_II } 8 R _script dialog@r_AddExperience 1 3000 R _script dialog@r_BulkOrderRewardLow 0  R _script dialog@r_BulkOrderRewardHub 0  R _item p PID_METAL_ARMOR_MK_II - 8 R _var p q_merchant + 1 R _script dialog@r_AddMoney 1 1970 #
+12 11030 D _item p PID_METAL_HELMET_MK2 } 8 R _script dialog@r_AddExperience 1 3000 R _script dialog@r_BulkOrderRewardLow 0  R _script dialog@r_BulkOrderRewardHub 0  R _item p PID_METAL_HELMET_MK2 - 8 R _var p q_merchant + 1 R _script dialog@r_AddMoney 1 1360 #
+12 11040 D _item p PID_POWER_FIST } 8 R _script dialog@r_AddExperience 1 3000 R _script dialog@r_BulkOrderRewardLow 0  R _script dialog@r_BulkOrderRewardHub 0  R _item p PID_POWER_FIST - 8 R _var p q_merchant + 1 R _script dialog@r_AddMoney 1 1400 #
+0 11050 @
+12 12000 None 0 #
+11 12010 #
+9 12020 &
+
+[engl]
+{100}{}{Felix Mallard}
+{200}{}{You see Felix Mallard.}
+{210}{}{You see a very well travelled man. He looks to be a trader of some sort. One of the many in the wastes. }
+{1000}{}{Predialogue installations}
+{1010}{}{Good - unknown}
+{1020}{}{Good - Known}
+{2000}{}{Well look at what we got here! You look like the kind of person who's got some time to kill.}
+{2010}{}{You damn right I do!}
+{2020}{}{Sure let's go with that.}
+{2030}{}{Well, that depends...}
+{2040}{}{Sorry I got things to do.}
+{3000}{}{Well if you're up for a challenge, I'm looking for some help.}
+{3010}{}{Alright, what sort of help we talking about?}
+{3020}{}{Well gee willikers mister, that sure does sound fun!}
+{3030}{}{This challenge paying?}
+{3040}{}{Maybe later.}
+{4000}{}{The name's Felix, Felix Mallard, I've been travelling all over the place, collecting, trading, collecting more things... You get the point. What I've come to notice is people are in desperate need of weapons and armor, and I just can't keep up with the demand.}
+{4010}{}{Okay? Where do I fit in to all this?}
+{4020}{}{I see where this is going...}
+{4030}{}{That's nice, what do you want?}
+{5000}{}{You bring me the weapons and armor, and in return I'll take them off your hands for some caps.}
+{5010}{}{Sure thing, what kind are we talking about? And how much?}
+{5020}{}{Maybe later, I'll think about it.}
+{6000}{}{Smart man, you bring me the weapons and armor, and in return you get some caps.}
+{6010}{}{Sure thing, what kind are we talking about? And how much?}
+{6020}{}{Maybe later, I'll think about it.}
+{7000}{}{You bring me eight Rippers, Metal Armor MK2, Metal Masks MK2, or Power Fists, and I'll give you 3000 Caps.}
+{7010}{}{Sounds like a good deal to me.}
+{7020}{}{Gee golly mister, sounds like a plan to me.}
+{7030}{}{Maybe some other time.}
+{8000}{}{I'll be here for a while. Let me know if you need anything.}
+{9000}{}{Welcome back! I'll be in town for a while, and I'm always looking for gear. So let me know if you've anything to sell. }
+{9010}{}{Hey Felix, I got some gear for you.}
+{9020}{}{What kind of gear are you looking for again?}
+{9030}{}{Just saying hi.}
+{10000}{}{I need eight Rippers, Metal Armor MK2, Metal Masks MK2, or Power Fists, and in return i'll give you 3000 caps.}
+{10010}{}{Oh okay, thanks for the reminder.}
+{11000}{}{Great! Let's see what you got.}
+{11010}{}{I've got 8x Rippers.}
+{11020}{}{I've got 8x Metal Armor MK2.}
+{11030}{}{I've got 8x Metal Masks MK2.}
+{11040}{}{I've got 8x Power Fists.}
+{11050}{}{Oh, nevermind.}
+{12000}{}{Thanks a lot! And in return caps! Anything else to sell?}
+{12010}{}{Yes.}
+{12020}{}{No.}
+

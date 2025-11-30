@@ -1,0 +1,400 @@
+[comment]
+Ford Crystler, big job for Junktown.
+
+Needs you to talk to the Hub's Sheriff -> Gets you 300xp (can earn an extra 50xp if your barter skills are over 40)
+After you come back you can sell bulk items to him, and accept a Junktown "job"
+
+He buys bulk items, regardless of item it'll get you 500 xp and 500 caps.
+
+12x 10mm Pistol, 44 Magnum, DEagle, Leather Armor
+50x Junk or Wood or GunPowder
+35x Metal Parts
+
+Completing his Quest allows access to the Hub's even greater Bulk Order Jobs, which can't be done unless set up here.  
+
+[data]
+lang=engl russ
+
+[dialog]
+&
+1 1000 None 0 #
+2 1010 D _var p name_mem_player_npc = 0 D _var p q_jt_talked = 0 #
+12 1020 D _var p name_mem_player_npc = 1 D _var p q_jt_talked = 0 #
+26 1030 D _var p q_jt_talked < 2 #
+36 1040 D _var p q_jt_talked = 3 #
+26 1050 D _var p q_jt_talked = 2 @
+2 2000 None 0 #
+3 2010 D _param p ST_KARMA } 0 #
+9 2020 #
+0 2030 @
+9 3000 None 0 @
+27 4000 None 0 #
+28 4010 #
+29 4020 @
+29 5000 None 0 @
+28 6000 None 0 #
+0 6010 #
+0 6020 #
+0 6030 @
+10 7000 None 0 #
+3 7010 #
+0 7020 @
+3 8000 None 0 #
+5 8010 #
+5 8020 #
+6 8030 #
+7 8040 #
+11 8050 #
+4 8060 #
+8 8070 #
+9 8080 @
+4 9000 None 0 #
+14 9010 R _var p name_mem_player_npc = 1 #
+15 9020 @
+5 10000 None 0 #
+14 10010 R _var p name_mem_player_npc = 1 #
+15 10020 @
+6 11000 None 0 #
+14 11010 R _var p name_mem_player_npc = 1 #
+15 11020 @
+7 12000 None 0 #
+14 12010 R _var p name_mem_player_npc = 1 #
+15 12020 @
+8 13000 None 0 #
+13 13010 #
+9 13020 #
+11 13030 @
+11 14000 None 0 @
+13 15000 None 0 #
+14 15010 R _var p name_mem_player_npc = 1 #
+15 15020 @
+14 16000 None 0 #
+18 16010 #
+15 16020 #
+0 16030 @
+15 17000 None 0 #
+17 17010 #
+16 17020 #
+0 17030 R _var p name_mem_player_npc = 1 @
+12 18000 None 0 #
+18 18010 #
+15 18020 #
+0 18030 @
+16 19000 None 0 #
+17 19010 #
+0 19020 R _var p name_mem_player_npc = 1 @
+17 20000 None 0 #
+16 20010 #
+0 20020 R _var p name_mem_player_npc = 1 @
+18 21000 None 0 #
+19 21010 @
+19 22000 None 0 #
+21 22010 #
+20 22020 D _param p SK_BARTER } 40 @
+20 23000 None 0 #
+21 23010 @
+21 24000 None 0 #
+22 24010 @
+22 25000 None 0 #
+23 25010 @
+23 26000 None 0 #
+24 26010 D _param p SK_SPEECH < 39 #
+25 26020 D _param p SK_SPEECH } 40 #
+24 26030 @
+24 27000 None 0 #
+0 27010 R _var p q_jt_talked = 1 @
+25 28000 None 0 #
+0 28010 R _var p q_jt_talked = 1 @
+26 29000 None 0 #
+30 29010 D _var p q_jt_talked = 2 #
+0 29020 @
+30 30000 None 0 #
+31 30010 @
+31 31000 None 0 #
+32 31010 R _script dialog@r_AddExperience 1 300 R _script dialog@r_AddMoney 1 300 R _var p q_jt_talked = 3 R _param p ST_KARMA + 1 R _param p REPUTATION_HUB + 50 R _param p REPUTATION_JUNKTOWN + 50 @
+32 32000 None 0 #
+34 32010 #
+35 32020 #
+0 32030 @
+34 33000 None 0 #
+35 33010 #
+36 33020 @
+35 34000 None 0 #
+34 34010 #
+36 34020 @
+36 35000 None 0 #
+34 35010 #
+35 35020 #
+37 35030 #
+0 35040 @
+37 36000 None 0 #
+38 36010 D _item p PID_10MM_PISTOL > 5 R _script dialog@r_AddExperience 1 500 R _script dialog@r_AddMoney 1 500 R _script dialog@r_BulkOrderRewardJunk 0  R _item p PID_10MM_PISTOL - 6 R _var p q_merchant + 1 #
+38 36020 D _item p PID_44_MAGNUM_REVOLVER > 5 R _script dialog@r_AddExperience 1 500 R _script dialog@r_AddMoney 1 500 R _script dialog@r_BulkOrderRewardJunk 0  R _item p PID_44_MAGNUM_REVOLVER - 6 R _var p q_merchant + 1 #
+38 36030 D _item p PID_DESERT_EAGLE > 5 R _script dialog@r_AddExperience 1 500 R _script dialog@r_AddMoney 1 500 R _script dialog@r_BulkOrderRewardJunk 0  R _item p PID_DESERT_EAGLE - 6 R _var p q_merchant + 1 #
+38 36040 D _item p PID_LEATHER_ARMOR > 5 R _script dialog@r_AddExperience 1 500 R _script dialog@r_AddMoney 1 500 R _script dialog@r_BulkOrderRewardJunk 0  R _item p PID_LEATHER_ARMOR - 6 R _var p q_merchant + 1 #
+38 36050 D _item p PID_METAL_PARTS > 34 R _item p PID_METAL_PARTS - 35 R _script dialog@r_AddExperience 1 500 R _script dialog@r_AddMoney 1 500 R _script dialog@r_BulkOrderRewardLow 0  #
+38 36060 D _item p PID_GUNPOWDER > 49 R _item p PID_GUNPOWDER - 50 R _script dialog@r_AddExperience 1 500 R _script dialog@r_AddMoney 1 500 R _script dialog@r_BulkOrderRewardLow 0  #
+38 36070 D _item p PID_PUMP_PARTS > 49 R _item p PID_PUMP_PARTS - 50 R _script dialog@r_AddExperience 1 250 R _script dialog@r_BulkOrderRewardLow 0  R _script dialog@r_AddMoney 1 300 #
+38 36080 D _item p PID_FIREWOOD > 49 R _item p PID_FIREWOOD - 50 R _script dialog@r_AddExperience 1 150 R _script dialog@r_BulkOrderRewardLow 0  R _script dialog@r_AddMoney 1 125 #
+0 36090 @
+38 37000 None 0 #
+37 37010 #
+0 37020 &
+
+[engl]
+{100}{}{Ford Crystler}
+{200}{}{You see Ford Crystler.}
+{210}{}{You see a well dressed, heavy set man. He appears to be flipping through files, looking for something.}
+{1000}{}{Predialogue installations}
+{1010}{}{greet}
+{1020}{}{greetkno}
+{1030}{}{return}
+{1040}{}{final}
+{1050}{}{return 2}
+{2000}{}{[You see a middle aged man sitting behind a desk. He stands up to greet you as you aproach] Ah, you must be a new comer, welcome. My name is Ford Crystler, my scouts just told me that yet another wastelander has stumbled into my town. Hard to say why you people keep on showin' up here, but it ain't bothering me none. I've got plenty of work for you small-timers. So, what's your name? }
+{2010}{}{My name is @pname@.}
+{2020}{}{None of your damn business.}
+{2030}{}{[Walk away]}
+{3000}{}{Get back to the fucking wasteland, jerk.}
+{4000}{}{Yes?}
+{4010}{}{Hai!}
+{4020}{}{You have some job?}
+{5000}{}{Oh, no, not for you I'm afraid. You wouldn't understand why I'm doing it, sorry.}
+{6000}{}{Hello, I didn't take you as too bright. Enjoy your stay in Junktown, stranger. Just stay out of trouble alright?}
+{6010}{}{Oh-kay!}
+{6020}{}{Derrrr?}
+{6030}{}{Me sad now.}
+{7000}{}{[You see a middle aged man sitting behind a desk, he doesn't stand up as you approach] What do YOU want? }
+{7010}{}{Sorry, we must have gotten' off on the wrong foot, my name is @pname@.}
+{7020}{}{Nothing, I'm leaving. }
+{8000}{}{[The man smiles as he hears your name] Ah, good, nice to meet you @pname@! [He shakes your hand] Have a seat. So tell me, what brings you to New California? Hmm?}
+{8010}{}{Actually, my vault just opened up, and now... Here I am. Don't really know what to do with myself, but I'm sure it'll make for some great stories one day.}
+{8020}{}{I've heard great stories, of fame, fortune, and I want my chance at the action.}
+{8030}{}{The dust storm brought me here, that's the only thing I can remember. [Lie]}
+{8040}{}{Not sure. Had the urge to head West. Been going West every since.}
+{8050}{}{[Say nothing]}
+{8060}{}{I've got my reasons. }
+{8070}{}{I...Need to burn this world to the ground...}
+{8080}{}{I didn't come half a million miles to smile and talk, I'm out of here.}
+{9000}{}{Ya, everybody's got their reasons now a days. I trust you know how to handle yourself out there? }
+{9010}{}{Sure}
+{9020}{}{Not really}
+{10000}{}{Great stories, eh? Nothing left here kid, but death and poverty. Hate to break it to you, sorry. Look... do you even know how to handle yourself out there?}
+{10010}{}{Sure}
+{10020}{}{Not really}
+{11000}{}{Took a bonk on the good ol' noggin' eh? You remember how to handle yourself out there?}
+{11010}{}{Sure}
+{11020}{}{Not really}
+{12000}{}{Well, I hate to break it to you, but you should just pack your bags, and head back East. There ain't nothing left here but death and poverty. I trust you know how to handle yourself out there?}
+{12010}{}{Sure}
+{12020}{}{Not really}
+{13000}{}{[The man looks deep into your eyes] Yeah... I know that look. You best be on your best behavior inside my town, ya' hear? Now, I understand why a man needs to kill another man, but you don't go killin' no one in my town. Ya hear?! You drag that bastard outside, and do it there!}
+{13010}{}{Yes sir. }
+{13020}{}{Man, fuck you!}
+{13030}{}{[Say nothing]}
+{14000}{}{Not much of a speaker, eh? Well you can come back once you've learned how to use your words. Now git'!}
+{15000}{}{Glad to know we are on the same page, @pname@. So tell me, do you know how to handle yourself out there?}
+{15010}{}{Sure}
+{15020}{}{Not really}
+{16000}{}{Good, good, I figured as much. You did manage to find the city after all. Well, I've got some work that needs help doing if you're willing. }
+{16010}{}{What kind of work? }
+{16020}{}{Can I ask you a few questions first?}
+{16030}{}{Sorry, I'm not interested right now. [Walk away]}
+{17000}{}{I was afraid of that, *sigh* I'm sorry but I really don't have the manpower, or the time to teach you the ropes. I suggest you head over to Shady Sands north-east of here, or go to the over Boneyard south of here. That's where I usually send the inexperienced, NCR just loves fresh meat.   }
+{17010}{}{So you're just going to cast me out into the wastes? Can't you help me at all? Without weapons or armor, I won't survive out there!}
+{17020}{}{Gee, thanks. Do you know where I can find someone in NCR or the Boneyard that can help me? }
+{17030}{}{[Walk away]}
+{18000}{}{What can I do for you @pname@?}
+{18010}{}{Tell me about that job.}
+{18020}{}{I'm still not quite sure what I'm doing.}
+{18030}{}{Sorry, wrong room.}
+{19000}{}{Well, the gun merchant over in NCR is a friend of mine, his name is Buster. He'll be able to teach you a thing or two about the city life, might even have a job for you. Something small, no doubt. }
+{19010}{}{How about the Boneyard? Know anyone there?}
+{19020}{}{Thanks!}
+{20000}{}{Yeah, there's a small town called New Adytum out there, between all the ruins of the abandoned warehouses. I just sent one of you wastelanders over there, young punk, pretty. She was wearing a leather jacket, I remember her saying something about needing junk to craft a gun. I'm sure if you go find her she'll be more than willing to teach you something about crafting. }
+{20010}{}{What was that about Shady Sands?}
+{20020}{}{Thanks!}
+{21000}{}{Had a little run in with the local Hub Police, ever heard of them? Well our borders co-exist alongside theirs, I'm sure a man like you can understand what the problem is? There's 300 caps in it for ya'.}
+{21010}{}{No, what is it?}
+{22000}{}{We're killing each other! That's what it is! I need you to go over to the police station, and have a goddamn talk with the sheriff. Now before you go on ramblin' on about how, "Oh why don't I send one of my own men." I'll tell you why [The man stands up and points across the room, into the wasteland] it's because I need someone with no ties to Junktown representing Junktown. The good ol' Hub sheriff and I have been at each other's throats for months. We've been competing on caravan prices. }
+{22010}{}{What can I do about it? }
+{22020}{}{I could negotiate a better price if you'd like.}
+{23000}{}{Negotiate? No, no, that'll only complicate things further. I appreciate the initiative though. It's not about getting a better price, it's about getting the Hub to agree on sharing the goods. You see, if we can beat the price the Hub pays the caravan companies, we get all their supplies and sell them back for a hefty profit. It's a vicious cycle really, one month we outbid them, the next they outbid us. I need you to get them to stop the bidding war. }
+{23010}{}{Junktown doesn't seem to be struggling, why stop the bids?}
+{24000}{}{It's not about getting a better price, it's about getting the Hub to agree on sharing the goods. You see, if we can beat the price the Hub pays the caravan companies, we get all their supplies and sell them back for a hefty profit. It's a vicious cycle really, one month we outbid them, the next they outbid us. I need you to get them to stop the bidding war. }
+{24010}{}{Junktown doesn't seem to be struggling, why stop the bids?}
+{25000}{}{Because this isn't how civilized societies should work! It's bad enough that the Hub has 80% percent of the clean water in California but they also have one of the only contracts set up with the Gun Runners. If Junktown is going to survive, we need more water and we need more guns. We know for a fact that the Hub buys all our spare parts to maintain the city, and we are only selling these parts because we can't run a city without ammunition, water, or food. We need the caps that the spare parts bring in to buy the needed supplies from the Hub, but with this constant bid war we are losing more and more supplies each day. Inflation just keeps going up, and it's starting to hurt both our cities.}
+{25010}{}{So you want me to go over there and preach the good word of Junktown? }
+{26000}{}{I need you to show him that both our cities can work together! We'll give them all the spare parts they need in exchange for 1/3 of their excess water and ammo. It's a pretty good deal, damnit! We might lose out on a bit of caps here and there, but they sure as hell won't be. Everytime we win a bid we take back a little more than half of their excess goods, just to sell it all right back to them a week later. It's a useless vicious cycle and all it has caused so far has been bureaucratic headaches and dead patrols.  }
+{26010}{}{I'm not too good with words, I don't think he'll listen to me. }
+{26020}{}{I get it now, politics are more than just caps. }
+{26030}{}{Uh, okay.}
+{27000}{}{*Sigh* It doesn't matter if he'll listen to you or not. I've been sending countless runners over to him. Eventually he will listen to reason, I'm not expecting you to work a miracle, I'm just expecting you to try. Just tell him that whatever past we had is over with, I forgive him, "politics is more than just caps".  }
+{27010}{}{I'll go talk to him.}
+{28000}{}{I'm glad you understand what I'm trying to tell you. We need to work together before we either kill each other, or starve to death. Tell him that I forgive him, and that our past has been wiped clean. I'm not expecting you to work a miracle here, I'm just expecting you to try.  }
+{28010}{}{I'll go talk to him.}
+{29000}{}{Hey there @pname@, any news?}
+{29010}{}{I talked to Ford...}
+{29020}{}{Still working on it.}
+{30000}{}{Oh? And?}
+{30010}{}{You didn't have to lie to me.}
+{31000}{}{[The man laughs] Hah! Yeah but I needed to know if your heart was in the right place. Durango must have told you a bit of the details, we just need grunts to do the grunt work. It pays grunt pay but in the long run you'll be benefiting both yourself and the city you are working for. It's the little things here and there that make the biggest difference. }
+{31010}{}{Well I'm looking for work, what do you have available? }
+{32000}{}{We've got more or less the same deal going as the one you were offered in the Hub, our jobs are just easier. We mostly need resources from the mines, junk parts from the Boneyard, and wood from the surrounding areas. We do need some basic combat gear however. Leather armor, Desert Eagles, 44. Magnums, and 10mm Pistols are also in high demand. It's getting too expensive buying new gear from the Gun Runners every week so we are turning to the outside. Durango and I needed a way to scout out potential workers looking to make an honest buck. This is it @pname@.}
+{32010}{}{Tell me about mining for Junktown.}
+{32020}{}{Let's talk about the combat gear you needed.}
+{32030}{}{I'll think about it, goodbye.}
+{33000}{}{It's labour there's really not too much to say about it. Grab a sledgehammer head over to the mines and start producing Metal Parts or Gunpowder. I'll buy batches of 35x Metal Parts and batches of 50x boxes of Gunpowder. If you're not into mining for a living you can chop down some trees, or collect Junk over in the Boneyard. I'll pay you for every 50x pieces of Junk you bring me, or 50x pieces of Wood you collect.  }
+{33010}{}{You mentioned something about needing combat gear?}
+{33020}{}{Sounds good. }
+{34000}{}{I need lots of basic weaponry, we're talking half-crates of 10mm pistols, .44 magnums, or Desert Eagles. A half-dozen of any of those guns will get you a good price around here, either with me or Darkwater. Trade them to whoever you want but just remember that I'm the only guy that can guarantee you'll get caps. I also need a half-dozen sets of Leather Armor, I don't care if they're used or covered in mud they're still good. You keep bringing me what Junktown needs and I'll make sure you've always got yourself a job to do. }
+{34010}{}{You mentioned something about a mining job?}
+{34020}{}{Sounds good. }
+{35000}{}{So @pname@, what's the news? Got any crates to sell?}
+{35010}{}{Tell me about mining for Junktown.}
+{35020}{}{Let's talk about the combat gear you needed.}
+{35030}{}{Yeah, let's trade.}
+{35040}{}{No, not today.}
+{36000}{}{Feels good to do some real work for a change, doesn't it? What do you have, @pname@?}
+{36010}{}{6x 10mm Pistols.}
+{36020}{}{6x .44 Magnums.}
+{36030}{}{6x Desert Eagles.}
+{36040}{}{6x Leather Armor.}
+{36050}{}{35x Metal Parts.}
+{36060}{}{50x Boxes of Gunpowder.}
+{36070}{}{50x Pieces of Junk.}
+{36080}{}{50x Pieces of Wood.}
+{36090}{}{Nothing actually, I'll be back.}
+{37000}{}{Let's have a look here... Everything seems to be in order. You've done some good things for Junktown, and we appreciate it. Here's 500 caps, @pname@. Keep these crates coming, and you'll always be welcome in Junktown. }
+{37010}{}{I've got some more crates to sell.}
+{37020}{}{Thanks for the caps, see you around.}
+
+[russ]
+{100}{}{Алкоголик}
+{200}{}{Вы видите пьяницу.}
+{210}{}{Вы видите шатающегося из стороны в сторону пьяного человека в лохмотьях. Лицо его распухло, нос синющий как слива. А аромат рядом с ним такой, что свалит брамина насмерть. Он что-то бормочет про себя и иногда громко поет песни.}
+{210}{}{Вы видите алкаша. Он весьма грязен - кажется, он повалялся в луже, но не особо этим расстроен.}
+{1000}{}{I?aaaeaeiaiaua onoaiiaee}
+{1010}{}{Answer text}
+{1020}{}{greetkno}
+{1030}{}{return}
+{1040}{}{final}
+{1050}{}{return 2}
+{2000}{}{@@Urp.@@Glug-glug-glug.@@I needed that.@@Mmm-hmmm.@@How dry I amпїЅ (whistles)@@99 bottles of beer on the wall, 99 bottles of beerпїЅ@@What're you looking at?@@Hic... hic...@@Quit hassling me, you're bringing my buzz down.}
+{2010}{}{@pname@}
+{2020}{}{None of your damn business.}
+{2030}{}{Nothing, I'm leaving. }
+{3000}{}{Get back to the fucking wasteland then, jerk.}
+{4000}{}{Yes?}
+{4010}{}{Hi!}
+{4020}{}{You have job?}
+{5000}{}{Oh, no, not for you I'm afraid. You wouldn't understand why I'm doing it.}
+{6000}{}{Hello.}
+{6010}{}{Oh-kay!}
+{6020}{}{Derrrr?}
+{6030}{}{Me sad now.}
+{7000}{}{[You see a middle aged man sitting behind a desk, he doesn't stand up as you approach] What do YOU want? }
+{7010}{}{Sorry, we must have gotten' off on the wrong foot, my name is @pname@}
+{7020}{}{Nothing, I'm leaving. }
+{8000}{}{[The man smiles as he hears your name] Ah, good, nice to meet you @pname@! [He shakes your hand] Have a sit. So tell me, what brings you to New California? Hmm?}
+{8010}{}{Actually, my vault just opened up, and now... Here I am. Don't really know what to do with myself, but I'm sure it'll make for some great stories one day.}
+{8020}{}{I've heard great stories, of fame, fortune. I want my chance at the action.}
+{8030}{}{The dust storm brought me here, that's the only thing I can remember.}
+{8040}{}{Not sure. Had the urge to head West. Been going West every since.}
+{8050}{}{[Say nothing]}
+{8060}{}{I've got my reasons. }
+{8070}{}{I...Need to burn this world to the ground...}
+{8080}{}{I didn't come half a million miles to smile and talk, I'm out of here}
+{9000}{}{Ya, everybody's got their reasons now-a-days. I trust you know how to handle yourself out there? }
+{9010}{}{Sure}
+{9020}{}{Not really}
+{10000}{}{Great stories, eh? Nothing left here kid, but death and poverty. Hate to break it to you, sorry. Look... do you even know how to handle yourself out there?}
+{10010}{}{Sure}
+{10020}{}{Not really}
+{11000}{}{Took a bonk on the good ol' noggin' eh? You remember how to handle yourself out there?}
+{11010}{}{Sure}
+{11020}{}{Not really}
+{12000}{}{Well, I hate to break it to you, but you should just pack your bags, and head back East. There ain't nothing left here but death and poverty. I trust you know how to handle yourself out there?}
+{12010}{}{Sure}
+{12020}{}{Not really}
+{13000}{}{[The man looks deep into your eyes] Yeah... I know that look. You best be on your best behavior inside my town, ya' hear? Now, I understand why a man needs to kill another man, but you don't go killin' no one in my town. Ya hear?! }
+{13010}{}{Yes sir. }
+{13020}{}{Man, fuck you!}
+{13030}{}{[Say nothing]}
+{14000}{}{Not much of a speaker, eh? Well you can come back once you've learned how to use your words. Now git'!}
+{15000}{}{Glad to know we are on the same page, @pname@. So tell me, do you know how to handle yourself out there?}
+{15010}{}{Sure}
+{15020}{}{Not really}
+{16000}{}{Good, good, I figured as much. You did manage to find the city after all. Well, I've got some work that needs help doing if you're willing. }
+{16010}{}{What kind of work? }
+{16020}{}{Can I ask you a few questions first?}
+{16030}{}{Sorry, I'm not interested right now. [Walk away]}
+{17000}{}{I was afraid of that, *sigh* I'm sorry but I really don't have the manpower, or the time to teach you the ropes. I suggest you head over to Shady Sands north-east of here, or go to the over Boneyard south of here. That's where I usually send the inexperienced, NCR just loves fresh meat.   }
+{17010}{}{So your just going to cast me out into the wastes? Can't you help me at all? Without weapons or armor I won't survive out there!}
+{17020}{}{Gee, thanks. Do you know where I can find someone in NCR or the Boneyard that can help me? }
+{17030}{}{[Walk away]}
+{18000}{}{What can I do for you @pname@?}
+{18010}{}{Tell me about that job.}
+{18020}{}{I'm still not quite sure what I'm doing.}
+{18030}{}{Sorry, wrong room.}
+{19000}{}{Well, the gun merchant over in NCR is a friend of mine, his name is Buster. He'll be able to teach you a thing or two about the city life, might even have a job for you. Something small, no doubt. }
+{19010}{}{How about the Boneyard? Know anyone there?}
+{19020}{}{Thanks!}
+{20000}{}{Yeah, there's a small town called New Adytum over there, between all the ruins of the abandoned warehouses. I just sent one of you wastelanders over there, young punk, pretty. She was wearing a leather jacket, I remember her saying something about needing junk to craft a gun. I'm sure if you go find her she'll be more than willing to teach you something. }
+{20010}{}{Tell me about Buster again. }
+{20020}{}{Thanks!}
+{21000}{}{Had a little run in with the local Hub Police, ever heard of them? Well our borders co-exist alongside there's, I'm sure a man like you can understand what the problem is?}
+{21010}{}{No, what is it?}
+{22000}{}{We're killing each other! That's what it is! I need you to go over to the police station, and have a goddamn talk with the sheriff. Now before you go on ramblin' on about how, "Oh why don't I send one of my own men." I'll tell you why [The man stands up and points across the room, into the wasteland] it's because I need someone with no ties to Junktown representing Junktown. The good ol' Hub sheriff and I have been at each other's throats for months. We've been competing on caravan prices. }
+{22010}{}{What can I do about it? }
+{22020}{}{I could negotiate a better price if you'd like.}
+{23000}{}{Negotiate? No, no, that'l only complicate things further. I appreciate the initiative though. It's not about getting a better price, it's about getting the Hub to agree on sharing the goods. You see, if we can beat the price the Hub pays the caravan companies, we get all their supplies and sell them back for a hefty profit. It's a vicious cycle really, one month we outbid them, the next they outbid us. I need you to get them to stop the bidding war. }
+{23010}{}{Junktown doesn't seem to be struggling, why stop the bids?}
+{24000}{}{It's not about getting a better price, it's about getting the Hub to agree on sharing the goods. You see, if we can beat the price the Hub pays the caravan companies, we get all their supplies and sell them back for a hefty profit. It's a vicious cycle really, one month we outbid them, the next they outbid us. I need you to get them to stop the bidding war. }
+{24010}{}{Junktown doesn't seem to be struggling, why stop the bids?}
+{25000}{}{Because this isn't how civilized societies should work! It's bad enough that the Hub has 80% percent of the clean water in California but they also have one of the only contracts set up with the Gun Runners. If Junktown is going to survive, we need more water and we need more guns. We know for a fact that the Hub buys all our spare parts to maintain the city, and we are only selling these parts because we can't run a city without ammunition, water, or food. We need the caps that the spare parts bring in to buy the needed supplies from the Hub, but with this constant bid war we are losing more and more supplies each day. Inflation just keeps going up, and it's starting to hurt both our cities.}
+{25010}{}{So you want me to go over there and preach the good word of Junktown? }
+{26000}{}{I need you to show him that both our cities can work together! We'll give them all the spare parts they need in exchange for 1/3 of their excess water and ammo. It's a pretty good deal, damnit! We might lose out on a bit of caps here and there, but they sure as hell won't be. Everytime we win a bid we take back a little more than half of their excess goods, just to sell it all right back to them a week later. It's a useless vicious cycle and all it has caused so far has been bureaucratic headaches and dead patrols.  }
+{26010}{}{I'm not too good with words, I don't think he'll listen to me. }
+{26020}{}{I get it now, politics are more than just caps. }
+{26030}{}{Uh, okay.}
+{27000}{}{*Sigh* It doesn't matter if he'll listen to you or not. I've been sending countless runners over to him. Eventually he will listen to reason, I'm not expecting you to work a miracle, I'm just expecting you to try. Just tell him that whatever past we had is over with, I forgive him, "politics is more than just caps".  }
+{27010}{}{I'll go talk to him.}
+{28000}{}{I'm glad you understand what I'm trying to tell you. We need to work together before we either kill each other, or starve to death. Tell him that I forgive him, and that our past has been wiped clean. I'm not expecting you to work a miracle here, I'm just expecting you to try.  }
+{28010}{}{I'll go talk to him.}
+{29000}{}{Hey there @pname@, any news?}
+{29010}{}{I talked to Ford...}
+{29020}{}{Still working on it.}
+{30000}{}{Oh? And?}
+{30010}{}{You didn't have to lie to me.}
+{31000}{}{[The man laughs] Hah! Yeah but I needed to know if your heart was in the right place. Durango must have told you a bit of the details, we just need grunts to do the grunt work. It pays grunt pay but in the long run you'll be benefiting both yourself and the city you are working for. It's the little things here and there that make the biggest difference. }
+{31010}{}{Well I'm looking for work, what do you have available? }
+{32000}{}{We've got more or less the same deal going as the one you were offered in the Hub, our jobs are just easier. We mostly need resources from the mines, junk parts from the Boneyard, and wood from the surrounding areas. We do need some basic combat gear however. Leather armor, Desert Eagles, 44. Magnums, and 10mm Pistols are also in high demand. It's getting too expensive buying new gear from the Gun Runners every week so we are turning to the outside. Durango and I needed a way to scout out potential workers looking to make an honest buck. This is it @pname@.}
+{32010}{}{I'll keep this in mind, thanks for the opportunity. }
+{32020}{}{Let's talk about the combat gear you needed.}
+{32030}{}{I'll think about it, goodbye.}
+{33000}{}{It's labour there's really not too much to say about it. Grab a sledgehammer head over to the mines and start producing Metal Parts or Gunpowder. I'll buy batches of 35x Metal Parts and batches of 50x boxes of Gunpowder. If your not into mining for a living you can chop down some trees or collect Kunk over in the Boneyard. I'll pay you for every 50x pieces of Kunk you bring me, or 50x pieces of Wood you collect.  }
+{33010}{}{You mentioned something about armor and weapons?}
+{33020}{}{Sounds good. }
+{34000}{}{I need lots of basic weaponry, we're talking crates of 10mm pistols, .44 magnums, or Desert Eagles. A dozen of any of those guns will get you a good price around here, either with me or Killian. Trade them to whoever you want but just remember that I'm the only guy that can guarantee you'll get caps.  }
+{34010}{}{You mentioned something about a mining job?}
+{34020}{}{Sounds good. }
+{35000}{}{Hey @pname@, what's the news? Got any crates to sell?}
+{35010}{}{Tell me about mining for Junktown.}
+{35020}{}{Let's talk about the combat gear you needed.}
+{35030}{}{Yeah, let's trade.}
+{35040}{}{No, not today.}
+{36000}{}{Feels good to do some real work for a change, doesn't it? What do you have, @pname@?}
+{36010}{}{12x 10mm Pistols}
+{36020}{}{12x .44 Magnums.}
+{36030}{}{12x Desert Eagles.}
+{36040}{}{12x Leather Armor.}
+{36050}{}{35x Metal Parts.}
+{36060}{}{50x Boxes of Gunpowder.}
+{36070}{}{50x Pieces of Junk.}
+{36080}{}{50x Pieces of Wood.}
+{36090}{}{Nothing actually, I'll be back.}
+{37000}{}{Let's have a look here... Everything seems to be in order. You've done some good things for Junktown, and we appreciate it. Here's 500 caps, @pname@. Keep these crates coming, and you'll always be welcome in Junktown. }
+{37010}{}{I've got some more crates to sell.}
+{37020}{}{Thanks for the caps, see you around.}
+

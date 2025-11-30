@@ -1,0 +1,62 @@
+[comment]
+
+
+[data]
+lang=engl
+
+[dialog]
+&
+1 1000 None 0 #
+2 1010 #
+6 1020 @
+2 2000 None 0 #
+3 2010 #
+5 2020 #
+0 2030 @
+3 3000 None 0 #
+4 3010 #
+4 3020 #
+4 3030 #
+4 3040 #
+0 3050 @
+4 4000 None 0 #
+4 4010 #
+4 4020 #
+4 4030 #
+4 4040 #
+4 4050 @
+5 5000 None 0 #
+2 5010 @
+6 6000 None 0 #
+6 6010 #
+0 6020 &
+
+[engl]
+{100}{}{Blunderspor Dome Manager}
+{200}{}{You see the manager, and host of Blunderspor Dome!}
+{210}{}{Nothing says victory like Blunderspor!}
+{1000}{}{Predialogue installations}
+{1010}{}{Answer text}
+{1020}{}{Active session}
+{2000}{}{Intro Node}
+{2010}{}{Enter Arena}
+{2020}{}{Ask about }
+{2030}{}{Exit}
+{3000}{}{Choose Difficulty [Levels 3 - 30]}
+{3010}{}{Beginner [Level 3]}
+{3020}{}{Novice [Level 12]}
+{3030}{}{Journeyman [Level 24]}
+{3040}{}{Elite [Level 30]}
+{3050}{}{[Exit]}
+{4000}{}{Are you ready to enter the arena?}
+{4010}{}{Yes. level 3}
+{4020}{}{Yes. level 12}
+{4030}{}{Yes. level 24}
+{4040}{}{Yes. level 30}
+{4050}{}{No.}
+{5000}{}{INFO}
+{5010}{}{[Go back]}
+{6000}{}{You're in game and talking to arena guy to continue tournament}
+{6010}{}{[Continue]}
+{6020}{}{[Wait]}
+

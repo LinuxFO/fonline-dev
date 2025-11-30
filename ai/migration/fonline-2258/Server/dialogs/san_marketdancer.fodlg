@@ -1,0 +1,86 @@
+[comment]
+
+
+[data]
+lang=engl
+
+[dialog]
+&
+1 1000 None 0 #
+2 1010 @
+2 2000 None 0 &
+
+[engl]
+{100}{}{Market Dancer}
+{200}{}{You see one of the local market dancers dancing around.}
+{210}{}{Part of a trio of legendary singers,  this troup has been entertaining the locals for generations!}
+{240}{}{You see a dead caravan guard.}
+{260}{}{You see a slain caravan guard.}
+{1000}{}{Predialogue installations}
+{1010}{}{-}
+{2000}{}{Can't you see I'm busy, round-eye?!@@Get off my stage!@@This isn't erectric boogaroo, go away!@@Are you high on'a Jet?! Get'a rost!@@I don't want your spicy noodle, go aray!@@Beat it, round-eye!@@You vault dwellers all the same! You always poke nose where it don't berong!@@Aiiiiieeeeeeeiiiiiiiiiiiii! Ouuuuuuuwuuuuuuuu-ooooohhhhh!@@Aiiieeeaiiiieeeeeee aiiiiiiii-ahhhhooooohhhhuuuuuwuuuuu!}
+{100000001}{}{*clinging sounds*}
+{100000002}{}{*twangy sounds*}
+{100000003}{}{*annoying tingy sounds*}
+{100000004}{}{*annoying twangy sounds*}
+{100000005}{}{*sounds like pots and pans*}
+{100000006}{}{*sounds of a dead cat screaming*}
+{100000007}{}{*some sort of ping and pong sound*}
+{100000008}{}{*confusing musical melodies*}
+{100000009}{}{*guitar... you think*}
+{100000010}{}{*some sort of drum beat*}
+{100000011}{}{*music... you guess*}
+{100000012}{}{Aiiiiieeeeeeeee!!!!}
+{100000013}{}{Ohhhhhhhhhhh!!!}
+{100000014}{}{Weeeeeeeee-ohhhhhhhhhh!}
+{100000015}{}{Ohhhhhhhh-weeeeeeeeee!}
+{100000016}{}{Uuuuuwuuuuuu weeeeee ohhhhhhhh ewwwwww!}
+{100000017}{}{Aiiiiieeeeee yaaaaahhhh yaaaahhhhh ieeeeeee!}
+{100000018}{}{Ohhhhhhhh! Aieeeee eiiiiiiiii whooooooo!}
+{100000019}{}{For the Emperor!}
+{100000020}{}{For the Shi!}
+{100000021}{}{*strings instrument*}
+{100000022}{}{Oh ro! I roke a string!}
+{100000023}{}{Oh ro! I roke a skin!}
+{100000024}{}{*drops guitar pick*}
+{100000025}{}{*drops drum stick*}
+{100000026}{}{*drops goofy looking hat*}
+{100000027}{}{*throws sweaty goofy hat to the crowd*}
+{100000028}{}{Rank roo! Rank roo! We are here all reak!}
+{100000029}{}{Roo rika my ram? I reant from the Hub!}
+{100000030}{}{*laughs*}
+{100000031}{}{*sneezes*}
+{100000032}{}{*snorts*}
+{100000033}{}{*farts*}
+{100000034}{}{*snorts and farts*}
+{100000035}{}{*sneezes and farts*}
+{100000036}{}{Allllllright! For my next song...}
+{100000037}{}{Stupid round-eye! You step on my rand!}
+{100000038}{}{...You rook rike wanted poster...}
+{100000039}{}{This next song is for the Hubologists!}
+{100000040}{}{Praise the Emperor!}
+{100000041}{}{Praise the Shi!}
+{100000042}{}{*screams in Chinese*}
+{100000043}{}{*music... you assume*}
+{100000044}{}{*horrible tones*}
+{100000045}{}{*out of key sounds*}
+{100000046}{}{*clinging and clanging*}
+{100000047}{}{*the sound of pots and pans hitting together*}
+{100000048}{}{*the sounds of somebody falling down the stairs*}
+{100000049}{}{*you have no idea what they're doing... but you hate it*}
+{100000050}{}{*this guy is awful*}
+{100000051}{}{*you'll never forget how horrible this sounds*}
+{100000052}{}{*he makes super mutants sound like angels singing*}
+{100000053}{}{*Aiiiiiieeeeeeeeee eeeeeeoooooooohhhhwuuuuu ohhhhhhhhhhh!*}
+{100000054}{}{Sorry! Wrong key!}
+{100000055}{}{Sorry! Had the music upside down!}
+{100000056}{}{Oh wow, this sounds awful... even for me!}
+{100000057}{}{Are roo not entertained?! }
+{100000058}{}{Ugh! Even I get sick of that song!}
+{100000059}{}{Ris run is a rew run! I rall it...}
+{100000060}{}{Praise the Emperor!}
+{100000061}{}{This next song is for the Emperor!}
+{100000062}{}{Praise the Shi!}
+{100000063}{}{This next song is for the Shi!}
+{100000064}{}{Who is the Puppet Man?}
+

@@ -1,0 +1,22 @@
+[comment]
+
+
+[data]
+lang=engl
+
+[dialog]
+&
+1 1000 None 0 #
+2 1010 @
+2 2000 None 0 #
+2 2010 D _var p q_packages = 15 D _item p PID_CARAVAN_BOX > 0 R _var p q_packages = 98 R _item p PID_CARAVAN_BOX - 1 &
+
+[engl]
+{100}{}{Ezzo}
+{200}{}{You see Ezzo.}
+{210}{}{Not much is known about this man. However, Ezzo is known to be a special martial artist, and very silent.}
+{1000}{}{Predialogue installations}
+{1010}{}{Answer text}
+{2000}{}{*Ezzo says nothing*@@*Ezzo shows you the door*}
+{2010}{}{[Deliver Package]}
+

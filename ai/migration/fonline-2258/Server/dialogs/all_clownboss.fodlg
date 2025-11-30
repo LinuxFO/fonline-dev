@@ -1,0 +1,20 @@
+[comment]
+
+
+[data]
+lang=engl
+
+[dialog]
+&
+1 1000 None 0 #
+2 1010 @
+2 2000 None 0 &
+
+[engl]
+{100}{}{Payaso, the Clown}
+{200}{}{You see a laughing, maniacal monster dressed in human clothing.}
+{210}{}{They're covered in blood and other foul things, but seem to be having an overall pretty good time. They're probably in some kind of deranged gang. Looks like they're worshipping a box, and this one looks in charge.}
+{1000}{}{Predialogue installations}
+{1010}{}{Answer text}
+{2000}{}{@@Hey, little kid... do you like clowns? @@Come closer... I want to tell you a secret...@@Don't run! I have a present for you!@@*chuckles*@@What? No make up? Not even a joke?! What is this?!@@Let's turn that frown upside down...@@It's just like the circus! Weeeee!@@You want to smell my flower?@@I've got all sorts of presents for you...@@Give me a smile... on second thought... maybe I'll just take it...@@Take a bath in the ooze, kid! It'll make you smile!@@Boo! Surprise!@@Ahahahhaahaha!!}
+

@@ -1,0 +1,164 @@
+[comment]
+
+
+[data]
+lang=engl
+
+[dialog]
+&
+1 1000 None 0 #
+2 1010 D _var p junk_beerq = 0 #
+12 1020 D _var p junk_beerq > 0 @
+2 2000 None 0 #
+3 2010 #
+13 2020 #
+14 2030 #
+0 2040 @
+3 3000 None 0 #
+4 3010 #
+0 3020 @
+4 4000 None 0 #
+5 4010 @
+5 5000 None 0 #
+6 5010 @
+6 6000 None 0 #
+7 6010 @
+7 7000 None 0 #
+9 7010 #
+8 7020 @
+8 8000 None 0 @
+9 9000 None 0 #
+10 9010 @
+10 10000 None 0 #
+11 10010 @
+11 11000 None 0 #
+0 11010 R _var p junk_beerq = 1 @
+12 12000 None 0 #
+33 12010 D _var p z_dailyq1 = 35 #
+32 12020 D _var p z_dailyq1 = 33 R _var p z_dailyq1 = 34 R _item p PID_CARAVAN_BOX + 1 #
+31 12030 D _var p z_dailyq1 = 31 R _var p z_dailyq1 = 32 R _item p PID_CARAVAN_BOX + 1 R _param p ST_EXPERIENCE + 1000 #
+29 12040 D _var p junk_beerq = 4 D _var p z_dailyq1 = 29 #
+16 12050 D _var p name_mem_npc_player = 0 #
+23 12060 D _item p PID_FIREWOOD > 29 D _var p junk_beerq = 1 R _item p PID_FIREWOOD - 30 R _var p junk_beerq = 2 R _item p PID_BEER + 2 R _script dialog@r_AddExperience 1 500 #
+25 12070 D _var p junk_beerq = 2 D _item p PID_MUTATED_FRUIT > 79 R _var p junk_beerq = 3 R _item p PID_BEER + 2 R _item p PID_BOOZE + 1 R _item p PID_GAMMA_GULP_BEER + 1 R _item p PID_MUTATED_FRUIT - 80 R _script dialog@r_AddExperience 1 1000 #
+28 12080 D _var p junk_beerq = 3 D _item p PID_ALLOYS2 > 0 R _var p junk_beerq = 4 R _item p PID_ALLOYS2 - 1 R _item p PID_5MM_JHP + 120 R _item p PID_BOOZE + 4 R _item p PID_BEER + 4 R _item p PID_GAMMA_GULP_BEER + 4 R _item p PID_ROT_GUT + 4 R _param p ST_KARMA + 1 R _script dialog@r_AddExperience 1 2000 R _script dialog@r_AddMoney 1 1500 R _script dialog@r_BulkOrderRewardGuns 0  R _script dialog@r_AddLootSetLevel2 0  #
+21 12090 D _var p name_mem_npc_player = 1 D _var p junk_beerq < 3 @
+13 13000 None 0 @
+14 14000 None 0 #
+15 14010 @
+15 15000 None 0 @
+16 16000 None 0 #
+17 16010 @
+17 17000 None 0 #
+18 17010 @
+18 18000 None 0 #
+19 18010 @
+19 19000 None 0 #
+20 19010 @
+20 20000 None 0 #
+12 20010 R _var p name_mem_npc_player = 1 R _script dialog@r_AddExperience 1 47 @
+21 21000 None 0 #
+22 21010 @
+22 22000 None 0 #
+0 22010 @
+23 23000 None 0 #
+24 23010 @
+24 24000 None 0 #
+0 24010 @
+25 25000 None 0 #
+26 25010 @
+26 26000 None 0 #
+27 26010 @
+27 27000 None 0 @
+28 28000 None 0 #
+0 28010 @
+29 29000 None 0 #
+30 29010 R _var p z_dailyq1 = 30 R _item p PID_CARAVAN_BOX + 1 #
+0 29020 @
+30 30000 None 0 @
+31 31000 None 0 @
+32 32000 None 0 @
+33 33000 None 0 #
+34 33010 R _var p z_dailyq1 = 36 @
+34 34000 None 0 &
+
+[engl]
+{100}{}{Brewery Owner}
+{200}{}{You see a local brewery owner.}
+{210}{}{She appears to be in the process of setting up a business.}
+{1000}{}{Predialogue installations}
+{1010}{}{Answer text}
+{1020}{}{known}
+{2000}{}{Hi! Welcome to the Junktown Brewery! Sorry about the mess, but we aren't quite open yet.}
+{2010}{}{Did you say "Brewery"?! That's amazing! What kind of booze do you guys make here?}
+{2020}{}{Mind if I use the stills?}
+{2030}{}{Alcohol is a sin! You people shouldn't be drinking! It's bad for you in every way possible!}
+{2040}{}{That's too bad, goodbye.}
+{3000}{}{All kinds! We make lager, ale, pilsner, bourbon, scotch, wine, and brandy. Would you like a free sample?}
+{3010}{}{Oh boy! Would I ever!}
+{3020}{}{Nah, I don't really drink. Maybe later.}
+{4000}{}{Here, have a complimentary beer. My husband are I are trying to win the New Reno beer competition. We couldn't make it last year, due to the Great Redding Gold Rush, but this year's a go for sure! [She smiles] Well go on, try the beer.}
+{4010}{}{I'll let you know how it tastes in a sec. [Drink the beer she handed you]}
+{5000}{}{[After spending a few minutes enjoying a cold one, you expel a large, satisfying burp. This is the greatest beer you've ever tasted. It's like... Canadian or something! You can't believe how delicious it is! You *need* more!]}
+{5010}{}{This is the greatest thing I've ever tasted! It's better than sex! Well... I bet sex would be that much better if we were drinking this stuff!}
+{6000}{}{Wow! That good, eh? It's a family recipe. From far north. Say, if you're such a fan... Care to help us out? We've been having enough trouble making a large batch of this stuff, all the while selling it at the Skum Pitt for profit. My husband had to make another still, but it isn't ready yet.}
+{6010}{}{You need some spare parts, or something?}
+{7000}{}{Yeah, a few things. Care to help? I'll pay you.}
+{7010}{}{Sure.}
+{7020}{}{Not right now, but maybe later.}
+{8000}{}{Okay then, that's fine. I'll see you around. Bye!}
+{9000}{}{Great! My husband needs 30x bundles of Wood. I know it sounds boring. But it's for beer, damnit! Think of the beer! Oh God! Won't you please! Think of the beer!}
+{9010}{}{Lady, for beer as good as yours... I would do anything. I know we just met, but after tasting that delicious spring of nectar you call cream ale, I would move mountains.}
+{10000}{}{[She blushes] Do you really think it's that good? My husband thinks it needs a little more time. Hmm.. maybe we might just win this competition after all.}
+{10010}{}{Why even bother with a competition? Just sell your beer across the wasteland. Open up a massive distrillery in Reno and make it rich.}
+{11000}{}{[She bursts out in a colourful laugh and smiles deeply] Oh you! My husband and I always wanted to win this stupid beer competition. If everyone in Reno thinks the same way as you, then maybe.}
+{11010}{}{You'll win, I just know it. But I can talk about beer all day! I'd better get going. I might come back with the 30x bundles of Wood today, but I can't promise anything. Goodbye}
+{12000}{}{Hi again! Welcome back to the Junktown Brewery! Sorry, but we still aren't quite open yet.}
+{12010}{}{Okay, good news! I've succesfully delivered all three crates of Beer!}
+{12020}{}{Okay! Final crate, let's have it.}
+{12030}{}{One down, two more to go. I'm ready for the next crate, boss.}
+{12040}{}{Hey again! Jeb wanted me to help you guys out a bit, what's up?}
+{12050}{}{Could I get an another sample of that delicious cream ale, please?}
+{12060}{}{I have those thirty bundles of Wood you needed.}
+{12070}{}{Here's eighty pieces of Fruit. What's next?}
+{12080}{}{Here's your High Quality Alloy.}
+{12090}{}{So how did you and your husband meet? Does it have a cool story? I mean, you're pretty cool, it must have a good story.}
+{13000}{}{Sure, go over and break them in for us. The more use they get, the better the brew tastes. Help yourself.}
+{14000}{}{Please! Did you know that birds ferment berries in their stomachs? If the birds can get naturally drunk, why can't man get drunk? The bombs fell a long time ago. This is a new age. An age of delicious beer. Not shut up, and get out.}
+{14010}{}{Well! I never!}
+{15000}{}{What're you? A mormon?}
+{16000}{}{Sorry, one sample per alt. Go make another character, then come talk to me. I'll pretend not to recognize you, @pname@.}
+{16010}{}{Did we just break the Third Wall?}
+{17000}{}{Actually, we're breaking the Fourth Wall. Aren't we?}
+{17010}{}{No, I'm pretty sure Strength can only go up to 11 by accident, but it won't let you continue.}
+{18000}{}{Wait, so players can't break walls?}
+{18010}{}{I don't think so, no.}
+{19000}{}{We'd better change the conversation before a GM gets here...}
+{19010}{}{Where are all the cats? I've seen dogs, and super mutants, but I've never seen a cat.}
+{20000}{}{Yeah, strange. Wait... what's a cat?}
+{20010}{}{Nevermind.}
+{21000}{}{[She blushes, then laughs] Hah! No, no, not really. I was out scavenging one day at the Theme Park during my early years, and stumbled into him. We almost killed each other, but long story short; Fell in love.}
+{21010}{}{Theme Park? You mean with roller coasters and shit?}
+{22000}{}{Ugh... Not quite. It's far north east of here, I think. It's been over ten years since I've been over there. But it's a dead zone. Lot's of bandits, and lot's of scavengers there. I only went to collect Electronic Parts for the Followers. But they don't do that anymore. I hear they're fighting a war now, or something. How odd... for pacifists.}
+{22010}{}{Interesting. Thanks.}
+{23000}{}{Thanks, I appreciate it. I made a few beers for you, take them. Now we just need 80x pieces of fruit to finish this last batch. While you were out there, my husband got the rest of the Metal Parts and Alloys. He's so handy.}
+{23010}{}{Eighty? Uhm, okay. How many more things are you going to need from me? No offence, but beer isn't much of a payment.}
+{24000}{}{After the fruit, I'll just need one more thing from you. Don't worry, if you can finish the job I'll have something good waiting for you.}
+{24010}{}{Oh boy! I'll be back!}
+{25000}{}{Thanks so much. You sure are helpful. [She smiles] One last thing. We need one High Quality Alloy to complete the still. It's the only way to get that great Canadian taste.}
+{25010}{}{A what?}
+{26000}{}{Yeah, sorry. It's a rare combination of minerals and metals. You can probably find some in Redding, or near Gecko. I really don't remember. I used to scavenge a lot back in the day, but that was too long ago. It's only one, it shouldn't be much of a hassle to get.}
+{26010}{}{Hmm... Well, alright. This might take a while, you realize that, right?}
+{27000}{}{For sure! Don't worry about it. It's for beer! This is the year for beer!}
+{28000}{}{You @sex@|sir,||madam,| truly are a hero. Thank you. My husband wants you to have his old gun. So here, it's yours. You can have a case of booze too, on the house! Thanks for all the hard work.}
+{28010}{}{You're welcome. Thanks for the gun. I'll be going now. Best of luck in your competition.}
+{29000}{}{Oh, hi, @pname@! We're almost ready to open! We just need a few extra hands to help out with the shipping process! We need to unload a few alcohol crates to the Hub, the NCR, and L.A.}
+{29010}{}{Sure, no problem. Hand me a crate, and I'll start in the Hub. Where's this crate going?}
+{29020}{}{Let me just make some room first. I'll be right back.}
+{30000}{}{Drop it off at the Maltese Falcon, please. We're running a little late...}
+{31000}{}{Great, thanks! Next one is going to L.A, bring it over to the shopkeeper, please.}
+{32000}{}{You're doing finel, @pname@! All you need to do now is drop this one off at Mira's, over in the NCR.}
+{33000}{}{Wow! Already?! Thank you so much, @pname@! We're going to have the greatest brewery in California if you vault dwellers keep it up! I sent a little thank you package to the Postman in the Hub. Why don't you take a little break, and wait for it to show up?}
+{33010}{}{Yeah, I think I will take a little break. I think I've earned it.}
+{34000}{}{Come back again tomorrow, if you want. I might have more crates to deliver.}
+

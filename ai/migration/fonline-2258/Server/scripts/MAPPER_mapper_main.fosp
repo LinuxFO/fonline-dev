@@ -1,0 +1,800 @@
+                                                                                                                                                                                                                                                                  
+
+import void InitializeGame()from"config";                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 
+
+import bool StrToInt(string@s,uint64&inout val)from"strtoint";
+import bool StrToInt(string@s,uint&inout val)from"strtoint";
+import bool StrToInt(string@s,uint16&inout val)from"strtoint";
+import bool StrToInt(string@s,uint8&inout val)from"strtoint";
+import bool StrToInt(string@s,int64&inout val)from"strtoint";
+import bool StrToInt(string@s,int16&inout val)from"strtoint";
+import bool StrToInt(string@s,int8&inout val)from"strtoint";           
+
+shared interface IMapperPlugin
+{
+	void Render(uint layer);
+	void RenderMap();
+	bool MouseDown(int click);
+	bool MouseUp(int click);
+	void MouseMove(int x,int y);
+	bool KeyDown(uint8 key);
+	bool KeyUp(uint8 key);
+	void InputLost();
+	void Loop();
+	bool Message(string&message);
+}; 
+
+import bool Plugins_Register(IMapperPlugin@plugin)from"mapper_plugin";
+import void Plugins_Render(uint layer)from"mapper_plugin";
+import void Plugins_RenderMap()from"mapper_plugin";
+import bool Plugins_MouseDown(int click)from"mapper_plugin";
+import bool Plugins_MouseUp(int click)from"mapper_plugin";
+import void Plugins_MouseMove(int x,int y)from"mapper_plugin";
+import bool Plugins_KeyDown(uint8 key)from"mapper_plugin";
+import bool Plugins_KeyUp(uint8 key)from"mapper_plugin";
+import void Plugins_InputLost()from"mapper_plugin";
+import void Plugins_Loop()from"mapper_plugin";
+import bool Plugins_Message(string&message)from"mapper_plugin";             
+
+import MapperMap@GetActiveMap()from"mapper_utils";
+import void HexOffset(uint8 dir,int&x,int&y)from"mapper_utils";
+import uint GetHexWidth()from"mapper_utils";
+import uint GetZoom()from"mapper_utils";
+import bool GetMonitorHexSigh(int x,int y,uint16&hx,uint16&hy,bool ignoreInterface=false)from"mapper_utils";                     
+
+uint __GetColor(int r,int g,int b,int a=0xFF)
+{
+	r=(((r)>(255))?(255):(((r)<(0))?(0):(r)));
+	g=(((g)>(255))?(255):(((g)<(0))?(0):(g)));
+	b=(((b)>(255))?(255):(((b)<(0))?(0):(b)));
+	a=(((a)>(255))?(255):(((a)<(0))?(0):(a)));
+	return(uint(((a)<<24)|(((r)&0xFF)<<16)|(((g)&0xFF)<<8)|((b)&0xFF)));
+}                                                             
+
+import void RegisterCrtypes()from"mapper_crtypes";
+import void RegisterAutowall()from"mapper_autowall";
+import void RegisterTilemap()from"mapper_tilemap";
+import void RegisterGrid()from"mapper_grid";    
+
+bool new_instance(string commandLine)
+{
+	return false;
+}  
+
+void start()
+{
+	InitializeGame();
+	
+	SetDefaultCritterParam(6,(121));
+	SetDefaultCritterParam(7,(122));
+	SetDefaultCritterParam(8,(143));
+	SetDefaultCritterParam(9,(77));
+	
+	AllowSlot(4,"Helmet");
+	
+	Message("Welcome to FOnline: 2238 Mapper.");
+	Message("Maps not created in this mapper must be converted with the #PortMap command.");
+	InitializeTabs();
+	InitializePlugins();
+}
+
+void InitializePlugins()
+{
+	RegisterAutowall();
+	RegisterCrtypes();
+	RegisterTilemap();
+	RegisterGrid();
+} 
+
+void _SetTab(int tab,string&name,array<uint16>@pids)
+{
+	TabDelete(tab);
+	TabSetName(tab,name);
+	
+}
+
+void InitializeTabs()
+{
+	TabDelete((10));
+	TabDelete((12));
+	TabDelete((11));
+	
+	TabSetName((16),"Info");
+	TabSetName((17),"Maps");
+	TabSetName((15),"Inve");
+	TabSetName((14),"Ignr");
+	TabSetName((0),"");
+	
+	TabSetName((1),"Norm");
+	TabSetName((2),"Vehi");
+	TabSetName((3),"Cont");
+	TabSetName((4),"Door");
+	TabSetName((5),"Spec");
+	
+	TabSetName((6),"Grid");
+	TabSetName((7),"Scen");
+	TabSetName((10),"Wall");
+	TabSetName((11),"Flor");
+	TabSetName((8),"Roof");
+	TabSetName((13),"Tech");
+	
+	TabSetName((9),"Humn");
+	TabSetName((12),"Othr");
+	
+	LoadTabsConfig();
+}  
+
+void LoadTabsConfig()
+{
+	file f;
+	if(f.open("tabs.cfg","r")<0)
+	{
+		Message("Couldn't find tabs.cfg, ignored.");
+		return;
+	}
+	string line;
+	int tab=-1;
+	string name="";
+	array<uint16>pids;
+	while(!f.isEndOfFile())
+	{
+		f.readLine(line);
+		int len=line.length();
+		while(len>0&&(line[len-1]==10||line[len-1]==13))
+		len--;
+		if(len==0)
+		continue;
+		line.resize(len);
+		if(line=="[SubTab]")
+		{
+			
+			tab=-1;
+			name="";
+			pids.resize(0);
+			continue;
+		}
+		array<string@>@splitted=splitEx(line,"=");
+		if(splitted.length()<2)
+		continue;
+		if(splitted[0]=="MainTab")
+		{
+			StrToInt(splitted[1],tab);
+			continue;
+		}
+		if(splitted[0]=="Name")
+		{
+			name=splitted[1];
+			continue;
+		}
+		if(splitted[0]=="Pids")
+		{
+			if(tab<0)
+			continue;
+			array<string@>@splitted2=split(splitted[1]," ");
+			for(uint i=0,j=splitted2.length();i<j;i++)
+			{
+				uint16 pid=0;
+				StrToInt(splitted2[i],pid);
+				if(pid!=0)
+				pids.insertLast(pid);
+			}
+			TabSetItemPids(tab,name,pids);
+		}
+		
+		if(splitted[0]=="Tiles")
+		{
+			string tiles=splitted[1];
+			array<string@>@dirNames=splitEx(tiles," ");
+			array<bool>includeSubdirs;
+			for(uint i=0,j=dirNames.length();i<j;i++)
+			{
+				dirNames[i]="art\\tiles\\"+dirNames[i];
+				includeSubdirs.insertLast(false);
+			}
+			TabSetTileDirs(tab,dirNames,includeSubdirs);
+			continue;
+		}
+		
+		if(splitted[0]=="Crits")
+		{
+			array<string@>textPids=splitEx(splitted[1]," ");
+			array<uint16>crPids;
+			for(uint i=0,j=textPids.length();i<j;i++)
+			{
+				uint16 crPid=0;
+				StrToInt(textPids[i],crPid);
+				crPids.insertLast(crPid);
+			}
+			TabSetCritterPids(tab,name,crPids);
+		}
+		
+	}
+	
+	f.close();
+}  
+
+uint loop()
+{
+	Plugins_Loop();
+	return 250;
+}  
+
+bool console_message(string&message)
+{ 
+	
+	if(message[0]==126||
+	message[0]==94||
+	message[0]==64||
+	message[0]==35||
+	message[0]==42)
+	{
+		return false;
+	}
+	
+	if(Plugins_Message(message))
+	{
+		return true;
+	}
+	
+	return false;
+}              
+
+void render_iface(uint layer)
+{
+	Plugins_Render(layer);
+	if(layer==5)
+	{
+		RenderTileName();
+		RenderZoom();
+	}
+}  
+
+void render_map()
+{
+	Plugins_RenderMap();
+}   
+
+bool mouse_down(int click)
+{
+	if(Plugins_MouseDown(click))
+	return true;
+	return false;
+}
+
+bool mouse_up(int click)
+{
+	if(Plugins_MouseUp(click))
+	return true;
+	return false;
+}
+
+void mouse_move(int x,int y)
+{
+	Plugins_MouseMove(x,y);
+}   
+
+bool key_down(uint8 key)
+{
+	if(Plugins_KeyDown(key))
+	return true;
+	return false;
+}
+
+bool key_up(uint8 key)
+{
+	if(Plugins_KeyUp(key))
+	return true;
+	return false;
+}  
+
+void input_lost()
+{
+	Plugins_InputLost();
+}                                                
+
+string cmc(string str)
+{
+	array<string@>mapNames;
+	GetMapFileNames(null,mapNames);
+	for(uint i=0;i<mapNames.length();i++)
+	Message(mapNames[i]);
+	return"";
+} 
+
+string ClearTiles(string str)
+{
+	MapperMap@map=GetActiveMap();
+	if(map is null)
+	return"Map not loaded.";
+	
+	uint deleted=0;
+	for(uint hx=0;hx<map.Width;hx++)
+	{
+		for(uint hy=0;hy<map.Height;hy++)
+		{
+			for(;map.GetTilesCount(hx,hy,false)>1;deleted++)
+			map.DeleteTile(hx,hy,false,0);
+			for(;map.GetTilesCount(hx,hy,true)>1;deleted++)
+			map.DeleteTile(hx,hy,true,0);
+		}
+	}
+	
+	return"Done. Deleted "+deleted+" tiles.";
+} 
+
+string MapTime(string str)
+{
+	MapperMap@map=GetActiveMap();
+	if(map is null)
+	return"Map not loaded.";
+	int value=0;
+	if(!StrToInt(str,value))
+	return"Wrong value.";
+	
+	map.Time=value;
+	return"Done. Time setted to "+map.Time+".";
+}
+
+string MapNoLogOut(string str)
+{
+	MapperMap@map=GetActiveMap();
+	if(map is null)
+	return"Map not loaded.";
+	int value=0;
+	if(!StrToInt(str,value))
+	return"Wrong value.";
+	
+	map.NoLogOut=value!=0?true:false;
+	return"Done. NoLogOut setted to "+map.NoLogOut+".";
+}
+
+string MapScriptModule(string str)
+{
+	MapperMap@map=GetActiveMap();
+	if(map is null)
+	return"Map not loaded.";
+	
+	map.ScriptModule=str;
+	return"Done. ScriptModule setted to "+map.ScriptModule+".";
+}
+
+string MapScriptFunc(string str)
+{
+	MapperMap@map=GetActiveMap();
+	if(map is null)
+	return"Map not loaded.";
+	
+	map.ScriptFunc=str;
+	return"Done. ScriptFunc setted to "+map.ScriptFunc+".";
+} 
+
+bool AssignParam(MapperObject&cr,int param)
+{  
+	
+	if(cr.Critter_ParamIndex0==param)
+	return true;;
+	if(cr.Critter_ParamIndex1==param)
+	return true;;
+	if(cr.Critter_ParamIndex2==param)
+	return true;;
+	if(cr.Critter_ParamIndex3==param)
+	return true;;
+	if(cr.Critter_ParamIndex4==param)
+	return true;;
+	if(cr.Critter_ParamIndex5==param)
+	return true;;
+	if(cr.Critter_ParamIndex6==param)
+	return true;;
+	if(cr.Critter_ParamIndex7==param)
+	return true;;
+	if(cr.Critter_ParamIndex8==param)
+	return true;;
+	if(cr.Critter_ParamIndex9==param)
+	return true;;
+	if(cr.Critter_ParamIndex10==param)
+	return true;;
+	if(cr.Critter_ParamIndex11==param)
+	return true;;
+	if(cr.Critter_ParamIndex12==param)
+	return true;;
+	if(cr.Critter_ParamIndex13==param)
+	return true;;
+	if(cr.Critter_ParamIndex14==param)
+	return true;;
+	if(cr.Critter_ParamIndex15==param)
+	return true;;
+	if(cr.Critter_ParamIndex16==param)
+	return true;;
+	if(cr.Critter_ParamIndex17==param)
+	return true;;
+	if(cr.Critter_ParamIndex18==param)
+	return true;;
+	if(cr.Critter_ParamIndex19==param)
+	return true;;
+	if(cr.Critter_ParamIndex20==param)
+	return true;;
+	if(cr.Critter_ParamIndex21==param)
+	return true;;
+	if(cr.Critter_ParamIndex22==param)
+	return true;;
+	if(cr.Critter_ParamIndex23==param)
+	return true;;
+	if(cr.Critter_ParamIndex24==param)
+	return true;;
+	if(cr.Critter_ParamIndex25==param)
+	return true;;
+	if(cr.Critter_ParamIndex26==param)
+	return true;;
+	if(cr.Critter_ParamIndex27==param)
+	return true;;
+	if(cr.Critter_ParamIndex28==param)
+	return true;;
+	if(cr.Critter_ParamIndex29==param)
+	return true;;
+	if(cr.Critter_ParamIndex30==param)
+	return true;;
+	if(cr.Critter_ParamIndex31==param)
+	return true;;
+	if(cr.Critter_ParamIndex32==param)
+	return true;;
+	if(cr.Critter_ParamIndex33==param)
+	return true;;
+	if(cr.Critter_ParamIndex34==param)
+	return true;;
+	if(cr.Critter_ParamIndex35==param)
+	return true;;
+	if(cr.Critter_ParamIndex36==param)
+	return true;;
+	if(cr.Critter_ParamIndex37==param)
+	return true;;
+	if(cr.Critter_ParamIndex38==param)
+	return true;;
+	if(cr.Critter_ParamIndex39==param)
+	return true;;
+	
+	if(cr.Critter_ParamIndex0==-1){cr.Critter_ParamIndex0=param;return true;};
+	if(cr.Critter_ParamIndex1==-1){cr.Critter_ParamIndex1=param;return true;};
+	if(cr.Critter_ParamIndex2==-1){cr.Critter_ParamIndex2=param;return true;};
+	if(cr.Critter_ParamIndex3==-1){cr.Critter_ParamIndex3=param;return true;};
+	if(cr.Critter_ParamIndex4==-1){cr.Critter_ParamIndex4=param;return true;};
+	if(cr.Critter_ParamIndex5==-1){cr.Critter_ParamIndex5=param;return true;};
+	if(cr.Critter_ParamIndex6==-1){cr.Critter_ParamIndex6=param;return true;};
+	if(cr.Critter_ParamIndex7==-1){cr.Critter_ParamIndex7=param;return true;};
+	if(cr.Critter_ParamIndex8==-1){cr.Critter_ParamIndex8=param;return true;};
+	if(cr.Critter_ParamIndex9==-1){cr.Critter_ParamIndex9=param;return true;};
+	if(cr.Critter_ParamIndex10==-1){cr.Critter_ParamIndex10=param;return true;};
+	if(cr.Critter_ParamIndex11==-1){cr.Critter_ParamIndex11=param;return true;};
+	if(cr.Critter_ParamIndex12==-1){cr.Critter_ParamIndex12=param;return true;};
+	if(cr.Critter_ParamIndex13==-1){cr.Critter_ParamIndex13=param;return true;};
+	if(cr.Critter_ParamIndex14==-1){cr.Critter_ParamIndex14=param;return true;};
+	if(cr.Critter_ParamIndex15==-1){cr.Critter_ParamIndex15=param;return true;};
+	if(cr.Critter_ParamIndex16==-1){cr.Critter_ParamIndex16=param;return true;};
+	if(cr.Critter_ParamIndex17==-1){cr.Critter_ParamIndex17=param;return true;};
+	if(cr.Critter_ParamIndex18==-1){cr.Critter_ParamIndex18=param;return true;};
+	if(cr.Critter_ParamIndex19==-1){cr.Critter_ParamIndex19=param;return true;};
+	if(cr.Critter_ParamIndex20==-1){cr.Critter_ParamIndex20=param;return true;};
+	if(cr.Critter_ParamIndex21==-1){cr.Critter_ParamIndex21=param;return true;};
+	if(cr.Critter_ParamIndex22==-1){cr.Critter_ParamIndex22=param;return true;};
+	if(cr.Critter_ParamIndex23==-1){cr.Critter_ParamIndex23=param;return true;};
+	if(cr.Critter_ParamIndex24==-1){cr.Critter_ParamIndex24=param;return true;};
+	if(cr.Critter_ParamIndex25==-1){cr.Critter_ParamIndex25=param;return true;};
+	if(cr.Critter_ParamIndex26==-1){cr.Critter_ParamIndex26=param;return true;};
+	if(cr.Critter_ParamIndex27==-1){cr.Critter_ParamIndex27=param;return true;};
+	if(cr.Critter_ParamIndex28==-1){cr.Critter_ParamIndex28=param;return true;};
+	if(cr.Critter_ParamIndex29==-1){cr.Critter_ParamIndex29=param;return true;};
+	if(cr.Critter_ParamIndex30==-1){cr.Critter_ParamIndex30=param;return true;};
+	if(cr.Critter_ParamIndex31==-1){cr.Critter_ParamIndex31=param;return true;};
+	if(cr.Critter_ParamIndex32==-1){cr.Critter_ParamIndex32=param;return true;};
+	if(cr.Critter_ParamIndex33==-1){cr.Critter_ParamIndex33=param;return true;};
+	if(cr.Critter_ParamIndex34==-1){cr.Critter_ParamIndex34=param;return true;};
+	if(cr.Critter_ParamIndex35==-1){cr.Critter_ParamIndex35=param;return true;};
+	if(cr.Critter_ParamIndex36==-1){cr.Critter_ParamIndex36=param;return true;};
+	if(cr.Critter_ParamIndex37==-1){cr.Critter_ParamIndex37=param;return true;};
+	if(cr.Critter_ParamIndex38==-1){cr.Critter_ParamIndex38=param;return true;};
+	if(cr.Critter_ParamIndex39==-1){cr.Critter_ParamIndex39=param;return true;};
+	
+	return false;
+}
+
+string AddParam(string str)
+{
+	int param=-1;
+	if(!StrToInt(str,param))
+	return"could not parse the param number.";
+	
+	array<MapperObject@>objs;
+	for(uint i=0,n=GetSelectedObjects(objs);i<n;i++)
+	{
+		if(objs[i].MapObjType==(0))
+		{
+			if(!AssignParam(objs[i],param))
+			Message("Could not assign the param to critter pid "+objs[i].ProtoId+", coords "+objs[i].MapX+","+objs[i].MapY);
+		}
+	}
+	return"success.";
+}
+
+string ChangeParams(string str)
+{
+	array<string@>splitted=splitEx(str," ");
+	if(splitted.length()<2)
+	return"not enough arguments.";
+	
+	int param=0;
+	int value=0;
+	if(!StrToInt(splitted[0],param))
+	return"could not parse param.";
+	if(param>14||param<0)
+	return"wrong param number (>14 or <0).";
+	if(!StrToInt(splitted[1],value))
+	return"could not parse value.";
+	MapperMap@map=GetActiveMap();
+	if(!(@map!=null))
+	return"map not loaded.";
+	array<MapperObject@>crits;
+	uint n=map.GetObjects(1,1,10000,(0),0,crits);
+	for(uint i=0;i<n;i++)
+	{
+		MapperObject@cr=crits[i];
+		switch(param)
+		{
+			case 0:
+			cr.Critter_ParamValue0=value;
+			break;
+			case 1:
+			cr.Critter_ParamValue1=value;
+			break;
+			case 2:
+			cr.Critter_ParamValue2=value;
+			break;
+			case 3:
+			cr.Critter_ParamValue3=value;
+			break;
+			case 4:
+			cr.Critter_ParamValue4=value;
+			break;
+			case 5:
+			cr.Critter_ParamValue5=value;
+			break;
+			case 6:
+			cr.Critter_ParamValue6=value;
+			break;
+			case 7:
+			cr.Critter_ParamValue7=value;
+			break;
+			case 8:
+			cr.Critter_ParamValue8=value;
+			break;
+			case 9:
+			cr.Critter_ParamValue9=value;
+			break;
+			case 10:
+			cr.Critter_ParamValue10=value;
+			break;
+			case 11:
+			cr.Critter_ParamValue11=value;
+			break;
+			case 12:
+			cr.Critter_ParamValue12=value;
+			break;
+			case 13:
+			cr.Critter_ParamValue13=value;
+			break;
+			case 14:
+			cr.Critter_ParamValue14=value;
+			break;
+			default:
+			break;
+		}
+	}
+	return"set param "+param+" to "+value+" on "+n+" critters.";
+}
+
+string FixWorldEntires(string args)
+{
+	array<string@>maps;
+	uint count=GetMapFileNames(null,maps);
+	Message("Found "+count+" maps");
+	for(uint m=0;m<count;m++)
+	{
+		FixMapEntires(maps[m]+" "+args);
+	}
+	return("");
+}
+string FixMapEntires(string args)
+{
+	array<string@>@cmd=splitEx(args," ");
+	if(cmd.length<2)
+	{
+		return("#FixMapEntires <mapName> <entire1> <entire2> ... <entireN>");
+	}
+	
+	string mapName=cmd[0];
+	cmd.removeAt(0);
+	
+	array<int>entires;
+	for(uint e=0,eX=cmd.length();e<eX;e++)
+	{
+		int tmp=0;
+		if(!StrToInt(cmd[e],tmp))
+		return("Invalid entire number <"+cmd[e]+">");
+		entires.insertLast(tmp);
+	}
+	
+	Message("Loading: "+mapName);
+	MapperMap@map=LoadMap(mapName,(34));
+	
+	if(!(@map!=null))
+	return("Error loading map");
+	
+	ShowMap(map);
+	for(int e=0,eX=entires.length();e<eX;e++)
+	{
+		FixEntires(entires[e]+"");
+	}
+	
+	SaveMap(map,mapName,(34));
+	UnloadMap(map);
+	
+	return("Done.");
+}
+
+string FixEntires(string num)
+{
+	int entire=0;
+	if(!StrToInt(num,entire))
+	return("#FixEntires <number>");
+	
+	MapperMap@map=GetActiveMap();
+	if(!(@map!=null))
+	return"Map not loaded.";
+	array<MapperObject@>entires;
+	
+	int count=0;
+	for(uint e=0,eX=map.GetObjects(1,1,10000,(2),3853,entires);e<eX;e++)
+	{
+		MapperObject@obj=entires[e];
+		if(int(obj.Scenery_ToEntire)==entire&&obj.MapX%2!=0)
+		{
+			Message("found "+entire+" at "+obj.MapX+","+obj.MapY);
+			obj.MoveToHex(obj.MapX-1,obj.MapY);
+			count++;
+		}
+	}
+	return("Changed "+count);
+}
+
+string PortMap(string)
+{
+	MapperMap@map=GetActiveMap();
+	if(!(@map!=null))
+	return"Map not loaded.";
+	array<MapperObject@>crits;
+	for(uint i=0,n=map.GetObjects(1,1,10000,(0),0,crits);i<n;i++)
+	{
+		MapperObject@cr=crits[i];
+		if(cr.Critter_ParamIndex6!=(121))
+		{
+			cr.Critter_ParamIndex36=cr.Critter_ParamIndex6;
+			cr.Critter_ParamValue36=cr.Critter_ParamValue6;
+			cr.Critter_ParamIndex6=(121);
+			cr.Critter_ParamValue6=1;
+		}
+		if(cr.Critter_ParamIndex7!=(122))
+		{
+			cr.Critter_ParamIndex37=cr.Critter_ParamIndex7;
+			cr.Critter_ParamValue37=cr.Critter_ParamValue7;
+			cr.Critter_ParamIndex7=(122);
+			cr.Critter_ParamValue7=0;
+		}
+		if(cr.Critter_ParamIndex8!=(143))
+		{
+			cr.Critter_ParamIndex38=cr.Critter_ParamIndex8;
+			cr.Critter_ParamValue38=cr.Critter_ParamValue8;
+			cr.Critter_ParamIndex8=(143);
+			cr.Critter_ParamValue8=0;
+		}
+		if(cr.Critter_ParamIndex9!=(77))
+		{
+			cr.Critter_ParamIndex39=cr.Critter_ParamIndex9;
+			cr.Critter_ParamValue39=cr.Critter_ParamValue9;
+			cr.Critter_ParamIndex9=(77);
+			cr.Critter_ParamValue9=0;
+		}
+	}
+	return"Porting complete, resave the map.";
+}
+
+void TrimToFileName(string@s)
+{
+	if(!(@s!=null))
+	return;
+	if(s.length()==0)
+	return;
+	int last=s.length()-1;
+	while(last>=0&&s[last]!=46)
+	last--;
+	if(last==-1)
+	last=s.length();
+	int first=last-1;
+	while(first>=0&&s[first]!=0x5c)
+	first--;
+	if(first==-1)
+	first=0;
+	else
+	first++;
+	s=substring(s,first,last-first);
+} 
+
+void RenderTileName()
+{
+	MapperMap@map=GetActiveMap();
+	if(!(@map!=null))
+	return;
+	uint16 hx=0;
+	uint16 hy=0;
+	if(!GetMonitorHex(__MouseX,__MouseY,hx,hy))
+	return;
+	uint x=__ScreenWidth-100;
+	uint y=60;
+	string@s;
+	for(uint i=0;i<5;i++)
+	{
+		@s=map.GetTileName(hx,hy,false,i);
+		if((@s!=null)&&s!="")
+		{
+			TrimToFileName(s);
+			DrawText("Floor "+i+": "+s,x,y,100,10,((uint((0xFF<<24)|(((0)&0xFF)<<16)|(((0xFF)&0xFF)<<8)|((0)&0xFF)))),(5),0);
+			y+=10;
+		}
+	}
+	for(uint i=0;i<5;i++)
+	{
+		@s=map.GetTileName(hx,hy,true,i);
+		if((@s!=null)&&s!="")
+		{
+			TrimToFileName(s);
+			DrawText("Roof "+i+": "+s,x,y,100,10,((uint((0xFF<<24)|(((0)&0xFF)<<16)|(((0xFF)&0xFF)<<8)|((0)&0xFF)))),(5),0);
+			y+=10;
+		}
+	}
+}
+
+void RenderZoom()
+{
+	if((@GetActiveMap()!=null))
+	{
+		uint x=__ScreenWidth-100;
+		uint y=50;
+		DrawText("Zoom: "+GetZoom()+"%",x,y,100,10,((uint((0xFF<<24)|(((0)&0xFF)<<16)|(((0xFF)&0xFF)<<8)|((0)&0xFF)))),(5),0);
+	}
+} 
+
+string proc(string s)
+{
+	TrimToFileName(s);
+	return s;
+}
+
+string goto(string s)
+{
+	array<string@>@args=splitEx(s," ");
+	if(args.length()!=2)
+	return("Usage: goto [hx] [hy]");
+	uint16 hx=0,hy=0;
+	if(StrToInt(args[0],hx)&&StrToInt(args[1],hy))
+	{
+		MoveScreen(hx,hy,100);
+		MapMessage("<!!!>",hx,hy,5000,0,false,0,0);
+	}
+	return("OK");
+}
+
+string getsize(string)
+{
+	MapperMap@map=GetActiveMap();
+	if((@map!=null))
+	return("Width: "+map.Width+" Height: "+map.Height);
+	else
+	return("No idea");
+}

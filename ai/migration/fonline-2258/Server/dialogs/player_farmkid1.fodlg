@@ -1,0 +1,123 @@
+[comment]
+miner 1 san fran chao quest
+
+[data]
+lang=engl russ
+
+[dialog]
+&
+1 1000 None 0 #
+2 1010 D _var p player_farmOwner = 1 D _var p player_farmFamily = 1 #
+3 1020 D _var p player_farmOwner = 0 @
+2 2000 dialog@dlg_FarmStatus 0 #
+2 2010 D _script dialog@d_QuestTimeoutReady 0  D _item p PID_MUTATED_FRUIT > 4 R _script dialog@r_QuestTimeout 1 12 R _script dialog@r_JumpToRandomNode 3 1 10 10 R _item p PID_MUTATED_FRUIT - 5 #
+0 2020 @
+10 3000 None 0 #
+0 3010 @
+20 4000 None 0 #
+0 4010 @
+30 5000 None 0 #
+0 5010 @
+40 6000 None 0 #
+0 6010 @
+50 7000 None 0 #
+0 7010 @
+60 8000 None 0 #
+0 8010 @
+70 9000 None 0 #
+0 9010 R _var p player_farmWater + 1 @
+80 10000 None 0 #
+0 10010 R _var p player_farmFood + 1 @
+90 11000 None 0 #
+0 11010 R _var p player_farmWood + 1 @
+100 12000 None 0 #
+0 12010 @
+3 13000 None 0 &
+
+[engl]
+{100}{}{Farmer's Kid}
+{200}{}{You see one of the local kids.}
+{210}{}{I bet I could put this little shin kicker to work...}
+{1000}{}{Predialogue installations}
+{1010}{}{base}
+{1020}{}{visit}
+{2000}{}{Hi, @pname@! I'm bored! If you give me five apples, I'll go do stuff for you!}
+{2010}{}{Okay, little buddy! Have 5x apples, then go collect some things.}
+{2020}{}{Nah, that's okay. Maybe later. For now, just try to stay out of trouble.}
+{3000}{}{[The kid returns with nothing! You can send it back out in 12 hours]}
+{3010}{}{You didn't find anything? Maybe next time.}
+{4000}{}{[The kid returns with nothing! You can send it back out in 12 hours]}
+{4010}{}{You didn't find anything? Maybe next time.}
+{5000}{}{[The kid returns with nothing! You can send it back out in 12 hours]}
+{5010}{}{You didn't find anything? Maybe next time.}
+{6000}{}{[The kid returns with nothing! You can send it back out in 12 hours]
+}
+{6010}{}{You didn't find anything? Maybe next time.}
+{7000}{}{[The kid returns with nothing! You can send it back out in 12 hours]}
+{7010}{}{You didn't find anything? Maybe next time.}
+{8000}{}{[The kid returns with nothing! You can send it back out in 12 hours]}
+{8010}{}{You didn't find anything? Maybe next time.}
+{9000}{}{[The kid returns with 1x unit worth of Water. You can send it back out in 12 hours]}
+{9010}{}{Great job!}
+{10000}{}{[The kid returns with 1x unit worth of Food. You can send it back out in 12 hours]
+}
+{10010}{}{Great job!}
+{11000}{}{[The kid returns with 1x unit worth of Wood. You can send it back out in 12 hours]}
+{11010}{}{Great job!}
+{12000}{}{[The kid returns with nothing! You can send it back out in 12 hours]}
+{12010}{}{You didn't find anything? Maybe next time.}
+{13000}{}{Stranger Danger! Stranger Danger!}
+{100000001}{}{Better wash the counter again...}
+{100000002}{}{That's 5 caps buddy. Hey did you hear me? Cough em' up.}
+{100000003}{}{Better change the keg...}
+{100000004}{}{RotGut? You drink that shit?}
+{100000005}{}{Domestic? I got B.E.E.R buddy, do you want one or not?}
+{100000006}{}{Fuckin' dust is getting everywhere. Hey close the fuckin' door!}
+{100000007}{}{I swear if the next asshole doesn't tip. Ima' shoot somebody!}
+{100000008}{}{I got bottles, I got shots, and I got a bat behind the counter for the retards. Your not a retard are you?}
+{100000009}{}{Uh-huh, yeah that's nice buddy. You don't say...What? Of course I'm listening...}
+{100000010}{}{That's 5 caps. FIVE CAPS Tribal! F.I.V.E! }
+{100000011}{}{Shut up and order a fuckin' beer already!}
+{100000012}{}{I swear if I have to serve another drunk, I'm getting the shotgun!}
+{100000013}{}{Look the keg went dry, and it's going to be another month until the caravan shows up again.}
+{100000014}{}{Really? You don't say, buy another drink or get out!}
+{100000015}{}{What? I'm on break.}
+{100000016}{}{Be right with ya'}
+{100000017}{}{Have a sit stranger. I'll be with you in a moment.}
+{100000018}{}{When do we close? Uh, when the place get's shot up, that's when!}
+{100000019}{}{We're fresh outta' cold beer, sorry. You'll just have to drink it warm.}
+{100000020}{}{RotGut? No man, go make that shit yourself! I wouldn't drink it!}
+
+[russ]
+{100}{}{Алкоголик}
+{200}{}{Вы видите пьяницу.}
+{210}{}{Вы видите шатающегося из стороны в сторону пьяного человека в лохмотьях. Лицо его распухло, нос синющий как слива. А аромат рядом с ним такой, что свалит брамина насмерть. Он что-то бормочет про себя и иногда громко поет песни.}
+{210}{}{Вы видите алкаша. Он весьма грязен - кажется, он повалялся в луже, но не особо этим расстроен.}
+{1000}{}{I?aaaeaeiaiaua onoaiiaee}
+{1010}{}{base}
+{1020}{}{visit}
+{2000}{}{Dialog text}
+{2010}{}{Where do I start?}
+{2020}{}{[Pet the dog]}
+{3000}{}{[The kid returns with nothing! You can send it back out in 12 hours]}
+{3010}{}{You didn't find anything? Maybe next time.}
+{4000}{}{[The kid returns with nothing! You can send it back out in 12 hours]}
+{4010}{}{You didn't find anything? Maybe next time.}
+{5000}{}{[The kid returns with nothing! You can send it back out in 12 hours]}
+{5010}{}{You didn't find anything? Maybe next time.}
+{6000}{}{[Your dog returns with nothing!]}
+{6010}{}{Bad job! Shame on you!}
+{7000}{}{[The kid returns with nothing! You can send it back out in 12 hours]}
+{7010}{}{You didn't find anything? Maybe next time.}
+{8000}{}{[The kid returns with nothing! You can send it back out in 12 hours]}
+{8010}{}{You didn't find anything? Maybe next time.}
+{9000}{}{[Your dog returns with 1x unit worth of Water]}
+{9010}{}{Great job!}
+{10000}{}{[Your dog returns with 1x unit worth of Food]}
+{10010}{}{Great job!}
+{11000}{}{[Your dog returns with 1x unit worth of Wood]}
+{11010}{}{Great job!}
+{12000}{}{[The kid returns with nothing! You can send it back out in 12 hours]}
+{12010}{}{You didn't find anything? Maybe next time.}
+{13000}{}{Stranger Danger!}
+

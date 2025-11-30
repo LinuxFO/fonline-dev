@@ -1,0 +1,124 @@
+[comment]
+
+
+[data]
+lang=engl
+
+[dialog]
+&
+1 1000 None 0 #
+2 1010 D _var p name_mem_npc_player = 0 #
+23 1020 D _var p name_mem_npc_player = 1 @
+2 2000 None 0 #
+24 2010 D _var p z_dailyq1 = 18 #
+3 2020 D _var p z_dailyq1 = 11 D _param p ST_STRENGTH > 99 #
+6 2030 D _var p ncr_investigation4 = 3 #
+5 2040 @
+3 3000 None 0 #
+4 3010 #
+0 3020 @
+4 4000 None 0 #
+0 4010 R _var p z_dailyq1 = 12 @
+5 5000 None 0 @
+6 6000 None 0 #
+7 6010 @
+7 7000 None 0 #
+8 7010 @
+8 8000 None 0 #
+9 8010 @
+9 9000 None 0 #
+10 9010 @
+10 10000 None 0 #
+11 10010 #
+12 10020 @
+11 11000 None 0 #
+0 11010 R _var p ncr_investigation4 = 5 R _param p ST_KARMA + 1 R _script dialog@r_AddExperience 1 1000 R _item p PID_FLOWER + 1 R _item p PID_SHERIFF_BADGE + 1 @
+12 12000 None 0 #
+13 12010 @
+13 13000 None 0 #
+14 13010 @
+14 14000 None 0 #
+15 14010 @
+15 15000 None 0 #
+16 15010 @
+16 16000 None 0 #
+17 16010 @
+17 17000 None 0 #
+18 17010 @
+18 18000 None 0 #
+19 18010 @
+19 19000 None 0 #
+20 19010 @
+20 20000 None 0 #
+21 20010 @
+21 21000 None 0 #
+22 21010 @
+22 22000 None 0 #
+0 22010 R _param p ST_KARMA - 100000 R _param p REPUTATION_LA - 100000 R _param p REPUTATION_HUB - 100000 R _param p REPUTATION_JUNKTOWN - 100000 R _param p REPUTATION_NECROPOLIS - 100000 R _param p REPUTATION_NEW_RENO - 100000 R _param p REPUTATION_BH_GHOULS - 100000 R _param p REPUTATION_REDDING - 100000 R _param p REPUTATION_GECKO - 100000 R _param p REPUTATION_COURTYARD - 100000 R _param p REPUTATION_MODOC - 100000 R _param p REPUTATION_DEN - 100000 R _param p REPUTATION_KLAMATH - 100000 R _param p REPUTATION_CATHEDRAL - 100000 R _param p REPUTATION_ELRONOLOGISTS - 100000 R _param p REPUTATION_CHILDREN - 100000 R _param p REPUTATION_FREE_TRADERS - 100000 R _param p REPUTATION_BOUNTY_HUNTERS - 100000 R _param p REPUTATION_FOLLOWERS - 100000 R _param p REPUTATION_GUNRUNNERS - 100000 R _param p REPUTATION_SCAVENGERS - 100000 R _param p REPUTATION_REGULATORS - 100000 R _param p REPUTATION_HEIGHTS - 100000 R _param p REPUTATION_WATER_MERCHANTS - 100000 R _param p REPUTATION_FARGO_TRADERS - 100000 R _param p REPUTATION_CRIMSON_CARAVANS - 100000 R _param p REPUTATION_VORTIS_SLAVERS - 100000 R _param p REPUTATION_NCR_RANGERS - 100000 R _param p REPUTATION_SALVATORES - 100000 R _param p REPUTATION_WRIGHTS - 100000 R _param p REPUTATION_BH_MUTANTS - 100000 R _param p REPUTATION_BH_HUMANS - 100000 R _param p REPUTATION_MORNINGSTAR - 100000 R _param p REPUTATION_KOKOWEEF - 100000 R _param p REPUTATION_SLAGS - 100000 R _param p REPUTATION_VAULT_CITY - 100000 R _param p REPUTATION_NCR - 100000 R _param p REPUTATION_BOS - 100 R _param p REPUTATION_ENCLAVE + 1000 R _param p REPUTATION_MORDINOS + 1000 R _param p REPUTATION_RAIDERS + 1000 R _script dialog@r_AddExperience 1 10000 R _param p KILL_BIG_BAD_BOSS + 1 R _param p DAMAGE_EYE = 1 R _var p ncr_investigation4 = 4 R _var p name_mem_npc_player = 1 R _var p LAW - 1 R _var p CRIM + 1 @
+23 23000 None 0 #
+0 23010 @
+24 24000 None 0 #
+25 24010 R _var p z_dailyq1 = 19 R _param p ST_EXPERIENCE + 3500 R _script dialog@r_AddMoney 1 3000 R _script dialog@r_BulkOrderRewardGuns 0  R _param p ST_KARMA + 3 R _param p REPUTATION_HUB + 100 R _param p REPUTATION_LA + 100 R _param p REPUTATION_JUNKTOWN + 100 R _param p REPUTATION_NCR + 100 @
+25 25000 None 0 &
+
+[engl]
+{100}{}{Tandi}
+{110}{}{avatar_tandi.png}
+{200}{}{You see an elderly woman, lean and weathered.}
+{210}{}{You see Tandi, president of the NCR.}
+{210}{}{You see a tough, self-confident woman. It's clear that she is used to the respect of others.}
+{1000}{}{Predialogue installations}
+{1010}{}{2}
+{1020}{}{dead}
+{2000}{}{I hope you're here on official business...}
+{2010}{}{Another settlement has been claimed in your name, Madame President.}
+{2020}{}{I'm looking for work, Madam President.}
+{2030}{}{[Flash your badge] Hello, Madame President, sorry to intrude. But my name is Detective @pname@, and I'm afraid that I'm going to have to ask you a few questions about the night someone tried to assassinate you.}
+{2040}{}{Sorry, I just wanted to see you with my own two eyes.}
+{3000}{}{Is it that time again, @pname@? For Hell and thunder.}
+{3010}{}{I'm afraid so, Madame President.}
+{3020}{}{No, not just yet. But soon.}
+{4000}{}{Thank you, for helping the NCR. For helping the future. Another settlement needs your help. Do what you do best, and help assimilate them. Please, @pname@. Whatever it takes to get them to side with the NCR.}
+{4010}{}{I will, Madame President.}
+{5000}{}{Nice to meet you? I'm glad you appreciate all my hard work. Now, if you'll excuse me...Gunther!}
+{6000}{}{I'm glad to see you youngsters takin' a shinin' to your elders. But I'm fine, really, @pname@. Thanks for checkin' up on an old, old woman.}
+{6010}{}{Can you tell me what happened? Please?}
+{7000}{}{Of course, sweetie. I was workin' late in my office a while back, and a bullet tore through the window behind me. Hit my desk, and got stuck. But I'm faithful to Dharma, God protects the good. Heh, my daddy taught me that.}
+{7010}{}{Stroke of luck if you ask me. You're lucky to be alive, Madame President. It's not often a great leader gets to live as long as you.}
+{8000}{}{Oh, you. [She chuckles] Not everyone thinks I'm a great leader.}
+{8010}{}{I'm starting to think that the people of Broken Hills might have had something to do with it. Something to do with an influx of Easterners.}
+{9000}{}{Detective Gallows is on the case, you should bring that up with her, kiddo. You might be onto something. You didn't go to the academy, did'ja? An old woman sure does love seein' a wastelander taking pride in an old, dying dream.}
+{9010}{}{Thank you, Madame President. But there's one more thing I'd like to ask you...}
+{10000}{}{Anything, youngster. Anything for a hero like yourself.}
+{10010}{}{[Shake her hand]}
+{10020}{}{[Kill her]}
+{11000}{}{[She reaches out, and pulls your hand towards her, and gives you a great big hug] You saved these people. You stopped those vicious, monsters from hurting all those kids. Anyone who helps a child is a hero in my eyes. Thank you, @pname@. The Vault Dweller would be proud.}
+{11010}{}{That's the nicest thing anyone has ever said to me, thank you, Tandi. May your legacy be just as great as his. Stay well, Madame President.}
+{12000}{}{[You quickly jab Tandi in the jaw, and reach for your weapons. But before you are able to, Tandi leaps towards you holding a letter opener, and stabs you in the eye!]}
+{12010}{}{ARRRGH! YOU BITCH! }
+{13000}{}{[You give the President a swift boot to the chest, and reach for the letter opener. With your other hand, you smash your palm down towards the President's wrist, and break it!]}
+{13010}{}{Eat shit and die!}
+{14000}{}{[The President yells out in pain! But before she can scream, you grab her by the throat and start choking her! Being the frail old woman she is, you lift her off her feet and continue strangling!]}
+{14010}{}{[Stab her with the Letter Opener]}
+{15000}{}{Urghh! [Tandi muffles]}
+{15010}{}{[Stab her with the Letter Opener]}
+{16000}{}{UUGHH!!Urghh! [Tandi gurgles]}
+{16010}{}{[Stab her with the Letter Opener]}
+{17000}{}{...}
+{17010}{}{[Stab her with the Letter Opener]}
+{18000}{}{...}
+{18010}{}{[Stab her with the Letter Opener]}
+{19000}{}{...}
+{19010}{}{[Stab her with the Letter Opener]}
+{20000}{}{...}
+{20010}{}{[Stab her with the Letter Opener]}
+{21000}{}{[The body of President Tandi lies on the ground as a bloody mess. Her eyes are glaring back at you as you remember her last words]}
+{21010}{}{Hero. She called me a hero.}
+{22000}{}{[We both know that there are no heroes. Just dead memories, and more blood to fill up all the emptiness. So much for all that light in the darkness crap]}
+{22010}{}{How the fuck do I get out of this one alive?}
+{23000}{}{[Here lies the broken, mangled body of President Tandi. No doubt a reminder of you killing her!]}
+{23010}{}{[Laugh]}
+{24000}{}{Spare me the details. Well done, @pname@. Very well done. I'm sure as shit going to need your help again tomorrow. You can rest for now. Here, a hero's reward.}
+{24010}{}{Thank you, Madame President.}
+{25000}{}{Glory to the NCR.}
+

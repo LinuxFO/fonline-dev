@@ -1,0 +1,149 @@
+[comment]
+
+
+[data]
+lang=engl
+
+[dialog]
+&
+1 1000 None 0 #
+2 1010 @
+2 2000 None 0 #
+26 2010 D _var p q_bos_initiatequest_start = 47 #
+10 2020 D _var p ncr_investigation4 = 10 #
+9 2030 D _var p q_merk = 2 R _var p q_merk = 3 R _script dialog@r_AddExperience 1 500 R _script dialog@r_AddMoney 1 1000 R _script quest_merk@r_DeleteLoc 0  #
+4 2040 D _var p q_merk = 0 #
+13 2050 D _var p q_mean = 3 R _var p q_mean = 4 R _script quest_mean@r_DeleteLoc 0  R _script dialog@r_AddExperience 1 1000 R _param p ST_KARMA + 1 R _param p REPUTATION_NCR + 14 R _item p PID_CLUB + 1 R _script dialog@r_AddMoney 1 800 R _var p z_warrior2 + 1 #
+12 2060 D _var p q_mean = 4 #
+14 2070 D _var p q_adventure = 40 #
+65506 2080 #
+0 2090 @
+3 3000 None 0 @
+4 4000 None 0 #
+5 4010 D _param p ST_LEVEL > 7 #
+0 4020 @
+5 5000 None 0 #
+6 5010 @
+6 6000 None 0 #
+7 6010 @
+7 7000 None 0 #
+8 7010 @
+8 8000 None 0 #
+9 8010 R _var p q_merk = 1 R _script quest_merk@r_SpawnLoc 0  #
+0 8020 @
+9 9000 None 0 @
+10 10000 None 0 #
+11 10010 @
+11 11000 None 0 #
+12 11010 @
+12 12000 None 0 #
+13 12010 R _var p q_mean = 2 R _script quest_mean@r_SpawnLoc 0  #
+0 12020 @
+13 13000 None 0 @
+14 14000 None 0 #
+15 14010 @
+15 15000 None 0 #
+16 15010 @
+16 16000 None 0 #
+17 16010 @
+17 17000 None 0 #
+18 17010 @
+18 18000 None 0 #
+19 18010 @
+19 19000 None 0 #
+20 19010 @
+20 20000 None 0 #
+21 20010 @
+21 21000 None 0 #
+22 21010 @
+22 22000 None 0 #
+23 22010 @
+23 23000 None 0 #
+24 23010 @
+24 24000 None 0 #
+25 24010 @
+25 25000 None 0 #
+0 25010 R _var p q_adventure = 41 R _script dialog@r_AddExperience 1 3000 R _script quest_advent7@r_SpawnLoc 0  @
+26 26000 None 0 #
+27 26010 @
+27 27000 None 0 #
+28 27010 @
+28 28000 None 0 #
+29 28010 @
+29 29000 None 0 #
+30 29010 @
+30 30000 None 0 &
+
+[engl]
+{100}{}{Merk}
+{200}{}{You see a well-dressed, heavy set man who moves with deliberate slowness}
+{210}{}{It's Merk - folks call him The Man around here.}
+{210}{}{This fellow's got an air of arrogant coldness to him, like he cares for you no more than the fly he just squished between his fingers.}
+{1000}{}{Predialogue installations}
+{1010}{}{2}
+{2000}{}{Keep it polite, punk, or this could get ugly.}
+{2010}{}{I'm with the Brotherhood of Steel...}
+{2020}{}{[Stare him down]}
+{2030}{}{It's done. She's dead.}
+{2040}{}{I'm looking to do business with you, uh, sir.}
+{2050}{}{I killed those fuckers. You should have seem em' squirm.}
+{2060}{}{Any more problems you can pay me to solve?}
+{2070}{}{You can't trust anyone now-a-days, can you?}
+{2080}{}{You want to make a deal?}
+{2090}{}{Nothing, gotta go.}
+{3000}{}{Shit, what's that smell? Something just walked into the room.@@Go fetch me another whiskey - quick now.@@Got no time right now.}
+{4000}{}{Business? Do I look like a fucking vendor to you, pal? Get bent.}
+{4010}{}{That's not what I meant. I'm a killer. Need anyone killed?}
+{4020}{}{Sheesh, sorry I asked.}
+{5000}{}{A killer, eh? I hired one of those once. And you know what the bitch did?}
+{5010}{}{Uh... no.}
+{6000}{}{She took my money and ran off! Bitch thought she was too good for working for me, eh?! You want to go shoot some bitch for me?!}
+{6010}{}{How much you paying?}
+{7000}{}{I'll give you a thousand caps to get this done. Put a bullet in her brain, and leave her for the vultures! But it won't be easy. They don't call her the Wipestress for nothing.}
+{7010}{}{"Wipestress?"}
+{8000}{}{She wipes people out! Groups of em! We couldn't think of any other real lady like names other than that. Black Widow is always taken. You want the job or not?}
+{8010}{}{Yeah. I'll take care of this.}
+{8020}{}{Not right now. Maybe later.}
+{9000}{}{Good! Now git!}
+{10000}{}{Hey, I know you! Yeah! Detective @pname@! All high, and mighty, @pname@! Hah! You make me sick, you fucking cops.}
+{10010}{}{Yeah, fuck you too. They fired me. Told me I was a danger to society. Go figure. Lousy fucking NCR.}
+{11000}{}{No shit? Yeah. Fuck the NCR. Tandi's alright though. But these other assholes are worthless. The cops have been too busy drinking all day to notice all these fucking Easterners. Ridgecrest, that place South-East of 'ere, is crawling with those assholes. You want to make some money?}
+{11010}{}{Fuck yeah. What's on your mind?}
+{12000}{}{Gang of Easteners trying to move in on my territory. Kill em'. I'll pay you 500 caps. I've got thousands of people you can fucking murder. All scumbags. You'd be doing California a favour actually. [Type /combatmode tb if you'd like to play this mission in Turn Based mode]}
+{12010}{}{I'll do it. Give me their location.}
+{12020}{}{Maybe later.}
+{13000}{}{Good shit. Come see me in a bit... Detective.}
+{14000}{}{No, you can't. Got yourself into some kind of trouble, bud?}
+{14010}{}{Yeah. With the Enclave. Got any ideas?}
+{15000}{}{The Enclave? Those fuckers from Navarro? [He smiles] Yeah. Run.}
+{15010}{}{[Say nothing, and stare at the man]}
+{16000}{}{[His smile fades] Guess you're serious, eh? Well, you could always fake your own death?}
+{16010}{}{Nah, wouldn't work. They want my PipBoy.}
+{17000}{}{Your Pip Boy, eh? Must be worth millions if the Enclave are after it...}
+{17010}{}{Don't get any ideas about taking it. I'll kill you too.}
+{18000}{}{No fucking way! If the Enclave wants to get their hands on it, then this is some real serious shit. I wouldn't get caught dead wearing a Pip Boy that the Enclave wanted. I don't know what to tell you. What do they want exactly?}
+{18010}{}{They want the location of Vault 24.}
+{19000}{}{Vault 24? Never heard of it. I've got a map to an old, unfinished vault near here. Why don't you give it to them, then ambush the squad that shows up? You could kill them all then and there.}
+{19010}{}{Take on the United States Army by myself? No way. Even if I had a couple friends, it would be suicide. There has to be another way.}
+{20000}{}{Nothing that I can fucking think of. You can either kill em' all, or fool em' into thinkin' that you're dead. }
+{20010}{}{My PipBoy will self destruct if my Overseer thinks that I'm dead. My vitals are hardcoded to his computer. Every time one of my fellow vault dwellers die, their PipBoy explodes. So it's a no for faking my own death.}
+{21000}{}{Well, shit. There's an old, perverted priest over at the Cathedral. He can hack into Pip Boys apparently. But he's a piece of shit. Will fuck you, then fuck your kids. I can't recommend giving him something as valuable as a fucking Pip Boy.}
+{21010}{}{Yeah... I made that mistake earlier. But thank God the PipBoy self destructed. I bet he's dead, or missing an arm by now!}
+{22000}{}{[He smiles] Hahaha! Prick got what he deserved! Listen, dude, I'd love to fucking help you, but I got nothing. The Enclave is just as powerful as the fucking Brotherhood! }
+{22010}{}{Shit. Do you think that the Brotherhood can help me?}
+{23000}{}{No way. They don't help anyone. Even if you were a member, they still wouldn't give a shit. You're on your own, bud. Damn shame.}
+{23010}{}{Wait! What about the--}
+{24000}{}{Do you hear that? [You begin to hear a very loud rumbling] Almost sounds like a helicopter... or a ver--!! Geezus, kid! Run! It's the mother fucking Enclave!}
+{24010}{}{Oh shit!}
+{25000}{}{[If you would like to play this Mission in Turn Based Mode, type /combatmode tb before continuing!]}
+{25010}{}{Those fuckers are going down! I'll kill every last one of them!}
+{26000}{}{Yeah, so? What does the boss want with me?}
+{26010}{}{What do you know about the new Enclave Armor they're wearing?}
+{27000}{}{Uh... [He looks nervous] ... why are you asking *ME*?}
+{27010}{}{Asking you? I'm asking everybody. You're no one, you're not special. You're just a bug about to get squashed the moment I don't down into my hands...}
+{28000}{}{[He starts shaking in fear! And is very, very, very confused!]}
+{28010}{}{... and not see a set of Enclave Armour and a Helmet in them. [Look down into your hands. Pause. Look up at the man]}
+{29000}{}{OH! OH, HOLY SHIT! TALK TO RONDO! JESUS CHRIST, MAN!}
+{29010}{}{That... was surprisingly very easy. Thanks.}
+{30000}{}{You freakin' lunatic! I just shit my pants! Give him ten grand, and don't come back... please.}
+

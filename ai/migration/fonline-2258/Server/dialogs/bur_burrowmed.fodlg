@@ -1,0 +1,102 @@
+[comment]
+Thomas Sutton Trading Post guy.
+
+[data]
+lang=engl
+
+[dialog]
+&
+1 1000 None 0 #
+2 1010 D _var p acquaintance = 0 #
+4 1020 D _var p acquaintance > 0 @
+2 2000 None 0 #
+3 2010 #
+0 2020 @
+3 3000 None 0 #
+9 3010 @
+4 4000 None 0 #
+5 4010 D _script dialog@d_IsToHeal 0  #
+11 4020 #
+7 4030 #
+8 4040 @
+5 5000 dialog@dlg_ShowHealingPrice 0 #
+6 5010 D _script dialog@d_HealingMoney 0  R _script dialog@r_DocHeal 0  #
+4 5020 @
+6 6000 None 0 @
+7 7000 None 0 #
+12 7010 #
+13 7020 #
+14 7030 #
+15 7040 #
+4 7050 @
+8 8000 None 0 @
+9 9000 None 0 #
+10 9010 @
+10 10000 None 0 #
+4 10010 R _var p acquaintance = 1 @
+11 11000 None 0 @
+12 12000 None 0 #
+16 12010 D _var p acquaintance = 1 @
+13 13000 None 0 #
+16 13010 D _var p acquaintance = 1 @
+14 14000 None 0 #
+16 14010 D _var p acquaintance = 1 @
+15 15000 None 0 #
+16 15010 D _var p acquaintance = 1 @
+16 16000 None 0 #
+17 16010 @
+17 17000 None 0 #
+18 17010 @
+18 18000 None 0 #
+19 18010 @
+19 19000 None 0 &
+
+[engl]
+{100}{}{Lok'Narr}
+{200}{}{You see Lok'Narr.}
+{210}{}{Before you is an older, more humanoid looking creature dressed in an overly large doctor's coat. He smiles at you as you enter, excited to finally see another human.}
+{1000}{}{Predialogue installations}
+{1010}{}{Intro}
+{1020}{}{known}
+{2000}{}{Hoo-maan! Welcome! It is quite my surprise! Brrrrrr! To see more hoo-maans! What bring you to Burrows? Me hope you no like molerat! *He makes a sound you assume is a laugh*}
+{2010}{}{I do, actually! But I think you're a little more... evolved than your average rat.}
+{2020}{}{Great, more talking rats. I'll deal with you later, meat bag.}
+{3000}{}{Brrrrr! Yes, say that again you can hoo-maan! We have gene modification from Vault-Tec. Big black monsters from government came long time ago. Spread bad air, but we live. No fear.}
+{3010}{}{What?! That's insane! How do you know all of this?}
+{4000}{}{What can Lok'Narr do for you today, hoo-maan? I can lick small wound, but Auto-Doc must do rest. Remove sickness it will too.}
+{4010}{}{I could use some healing, Doctor.}
+{4020}{}{Got anything to trade, Doc?}
+{4030}{}{Got a few minutes to talk, Lok'Narr? I'd like to know more about your people.}
+{4040}{}{Nothing for now, but I'll let you know if I change my mind.}
+{5000}{}{Hmm, yes. Who does not ever need small lick? Maybe you require big lick? See, we shall. I fix for @lex price@ caps. Is deal, hoo-maan?}
+{5010}{}{Yeah, thanks. Here's the money. I hope this isn't going to hurt...}
+{5020}{}{I'll have to think about it, Lok.}
+{6000}{}{Machine do all hurting. Me just lick. No move, hoo-maan.}
+{7000}{}{Brrrr! Hoo-maan smart! Hoo-maan want to trade infurr-mation?}
+{7010}{}{What can you tell me about this place?}
+{7020}{}{Do you remember when the government came?}
+{7030}{}{What do you know about the other vaults?}
+{7040}{}{Have you ever left here? Have you ever been outside?}
+{7050}{}{Maybe later, Doc.}
+{8000}{}{Lok'Narr speak to hoo-maan later. Go, shake tail feather.}
+{9000}{}{Brrrrrr! Com-pooter in vault room has all infurrr-mation. Not hard to paw boo-ton when bright light go flash. Ask the Elder for pur-mission. Maybe he will allow you.}
+{9010}{}{Thanks, I'll have a peak later. Maybe. So, what are you? The vault doctor or something?}
+{10000}{}{I am Lok'Narr. A doctor, yes. I know of much ant-onomy. I can heal your wounds. But price, I, must charge.  }
+{10010}{}{That's fine, I can always use a new doctor... especially around these parts. }
+{11000}{}{Brrrr! Trade post elsewhere. Elder forbid hoo-maan trading here. Go see Elder.}
+{12000}{}{This the Burrows. Home to my people. Com-pooter say it first called "Vault 44" but we think Burrows sound better. Vault too hoo-maan. We different.}
+{12010}{}{You seem like you want to ask me something, there, chum. What's on your mind, you little furball, you?}
+{13000}{}{Black monsters? No, Long ago they came. Over hundred moons ago. Not even Elder was there. He oldest of all, that why he Elder. Memories of old fur come from Elder stories and com-pooter infurr-mation.}
+{13010}{}{You seem like you want to ask me something, there, chum. What's on your mind, you little furball, you?}
+{14000}{}{Vault-Tek bad. Many vault designed for failure. More hoo-maan and animal die than save. Lok'Narr never could find why make big metal house just to have sleeping souls die.}
+{14010}{}{You seem like you want to ask me something, there, chum. What's on your mind, you little furball, you?}
+{15000}{}{Yes. Lok'Narr travel far... *He shakes his head* see hoo-maan kill hoo-maan and animal. All sun. All dark. Lok'Narr not impressed. Lok'Narr stay here. }
+{15010}{}{You seem like you want to ask me something, there, chum. What's on your mind, you little furball, you?}
+{16000}{}{You from vault, yes? Me can tell.}
+{16010}{}{Sure am! How can you tell? Do I look goofy? Oh, God! I look goofy, don't I?! Don't I??!!!!}
+{17000}{}{*He makes a sound and gester that seems to be a large chuckle* Yes, yes, hoo-maan look "goofy"!! You have no fur! Me surprised how you stay warm when dark. But, tell Lok'Narr. What was vault experiment in you vault?}
+{17010}{}{Vault experiment? What do you mean?}
+{18000}{}{All vault designed to experiment. Vault-Tek bad. Black monsters run government. Vault-Tek is government. You not know? }
+{18010}{}{What?! No! Of course not! This is ridiculous! I'm not a freaking vault experiment! I... I was... uh... I... hmm... I *think* I was born in a vault... wasn't I?}
+{19000}{}{Hoo-maan not know own origin? Hoo-maan speak like experiment. Hoo-maan have Overseer?}
+

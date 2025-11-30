@@ -1,0 +1,83 @@
+[comment]
+
+
+[data]
+lang=engl
+
+[dialog]
+&
+1 1000 None 0 #
+2 1010 @
+2 2000 None 0 #
+65506 2010 #
+8 2020 D _script dialog@d_QuestTimeoutReady 0  #
+3 2030 #
+4 2040 #
+6 2050 D _var p q_ncr_mira_money = 1 #
+0 2060 D _var p hub_postmanq = 17 R _var p hub_postmanq = 98 #
+0 2070 @
+3 3000 None 0 #
+4 3010 #
+2 3020 @
+4 4000 None 0 #
+2 4010 #
+0 4020 @
+5 5000 None 0 #
+2 5010 #
+7 5020 #
+0 5030 @
+6 6000 None 0 #
+0 6010 D _item p PID_BOTTLE_CAPS > 99 R _var p q_ncr_mira_money = 2 R _script dialog@r_RemoveMoney 1 100 #
+0 6020 @
+7 7000 None 0 #
+2 7010 #
+0 7020 @
+8 8000 None 0 #
+9 8010 D _script dialog@d_QuestTimeoutReady 0  D _item p PID_BOTTLE_CAPS > 74 R _script dialog@r_QuestTimeout 1 150 R _item p PID_BOTTLE_CAPS - 75 R _script dialog@r_AddExperience 1 1250 R _param p ST_CURRENT_HP + 30 R _param p ST_POISONING_LEVEL - 30 #
+10 8020 D _script dialog@d_QuestTimeoutReady 0  D _item p PID_BOTTLE_CAPS > 74 R _script dialog@r_QuestTimeout 1 150 R _item p PID_BOTTLE_CAPS - 75 R _script dialog@r_AddExperience 1 1250 R _param p ST_CURRENT_HP + 30 R _param p ST_RADIATION_LEVEL - 30 #
+11 8030 D _script dialog@d_QuestTimeoutReady 0  D _item p PID_BOTTLE_CAPS > 74 R _script dialog@r_QuestTimeout 1 150 R _item p PID_BOTTLE_CAPS - 75 R _script dialog@r_AddExperience 1 1250 R _param p ST_CURRENT_HP + 30 R _param p DAMAGE_EYE = 0 #
+2 8040 @
+9 9000 None 0 @
+10 10000 None 0 @
+11 11000 None 0 &
+
+[engl]
+{100}{}{Dusty}
+{200}{}{You see Dusty, the bartender.}
+{210}{}{He's a dumpy-looking bald man. Looks like he's polishing some whiskey glasses.}
+{210}{}{He's a gruff-looking guy with a crooked nose and pinched up ears like he might have been a boxer years ago.}
+{1000}{}{error}
+{1010}{}{Normal}
+{2000}{}{What can I do for you, @sex@|sir?||ma'am?|}
+{2010}{}{You got anything to trade?@@Let's trade.@@Let's barter.@@Show me what you got to trade.}
+{2020}{}{Got anything to eat?@@I can smell the grill, what's on the menu?@@What's on the menu?@@I'm starving! Watchu' got cookin'?}
+{2030}{}{Who's the big guy over there?}
+{2040}{}{What's there to do in this town?}
+{2050}{}{Mira sent me to return a debt.}
+{2060}{}{[Deliver Letter]}
+{2070}{}{Nothing today. See ya.}
+{3000}{}{That's Hoss, President Tandi's boy. Born trouble when he's drinking, so I'd stay clear of him if I were you.}
+{3010}{}{President Tandi?}
+{3020}{}{Tough guy, eh? Let's talk about something else.}
+{4000}{}{Why? If you're looking for trouble go drink someplace else, like the Rawhide. But if you're looking for work the cops could use a hand if you're into the law. Westin has some work too from what I hear, and congress might have something as well. Also there's a lot of traders here in the NCR, you might be able to find some work with them. }
+{4010}{}{Thanks. Can I ask you something else?}
+{4020}{}{That's it for me, see ya.}
+{5000}{}{She's the daughter of Aradesh, the Elder who founded NCR a long time ago. Tandi's been president for years, does a good job too. [He sighs] But someone tried to kill her recently! }
+{5010}{}{Really? That's interesting, but let's talk about something else.}
+{5020}{}{What can you tell me about the attempted assassination?}
+{5030}{}{Hmm, thanks for the info. See ya.}
+{6000}{}{Oh great, I lent her some money to help her get by. You kno' business ain't always easy around here. Glad she's doing fine. I'll go see her tonight.}
+{6010}{}{[Hand him the money]}
+{6020}{}{Oh, sorry, I don't have the money on me, must have left it in my other pants.}
+{7000}{}{Not much, word got out a few days ago after one of the regulars heard a shot late at night. The next day the cops were all over Tandi's office. From what I've been hearing the shooter barely missed her by an inch. }
+{7010}{}{Looks like she might have some competition. Let's talk about something else.}
+{7020}{}{That's all I wanted to know, thanks.}
+{8000}{}{Best damn Molerat Burgers around. You want one? I also cook up a mean Brahmin Steak, and Gecko Melts. My wife makes the cheese herself. 75 caps each.}
+{8010}{}{Gimme a Molerat Burger! Mmmm! Sounds delicious.}
+{8020}{}{Nothing but the finest Brahmin Steak for me!}
+{8030}{}{I'll take a Gecko Melt! With the cheese! Yum!}
+{8040}{}{Hmm, nevermind. I'm not very hungry.}
+{9000}{}{Molerat Burger, it is!}
+{10000}{}{One geniune-bovine Brahmin Steak coming right up!}
+{11000}{}{Gecko Melts! Come get yer' Gecko Melts!}
+

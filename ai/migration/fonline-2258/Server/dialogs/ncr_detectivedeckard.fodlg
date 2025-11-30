@@ -1,0 +1,430 @@
+[comment]
+
+
+[data]
+lang=engl russ
+
+[dialog]
+&
+1 1000 None 0 #
+2 1010 @
+2 2000 None 0 #
+49 2010 D _var p z_dailyq1 = 23 #
+47 2020 D _var p z_dailyq1 = 19 #
+3 2030 #
+5 2040 D _var p ncr_investigation2 = 7 D _var p ncr_investigation3 = 0 #
+4 2050 #
+43 2060 D _var p q_assult = 1 #
+46 2070 D _var p q_assult = 3 R _script quest_assult@r_DeleteLoc 0  R _var p q_assult = 4 R _script dialog@r_AddExperience 1 1000 R _param p ST_KARMA + 1 R _param p REPUTATION_NCR + 16 R _item p PID_CLUB + 1 R _script dialog@r_AddMoney 1 800 R _var p z_warrior2 + 1 #
+43 2080 D _var p q_assult = 4 #
+21 2090 D _var p ncr_investigation3 = 1 R _var p ncr_investigation3 = 2 #
+38 2100 D _var p ncr_investigation3 = 8 R _script quest_jack@r_DeleteLoc 0  #
+42 2110 D _var p ncr_investigation4 = 9 D _var p q_assult = 0 #
+0 2120 @
+3 3000 None 0 #
+0 3010 @
+4 4000 None 0 @
+5 5000 None 0 #
+6 5010 @
+6 6000 None 0 #
+7 6010 #
+7 6020 #
+7 6030 #
+7 6040 @
+7 7000 None 0 #
+8 7010 @
+8 8000 None 0 #
+9 8010 @
+9 9000 None 0 #
+10 9010 @
+10 10000 None 0 #
+11 10010 @
+11 11000 None 0 #
+12 11010 @
+12 12000 None 0 #
+13 12010 @
+13 13000 None 0 #
+14 13010 @
+14 14000 None 0 #
+15 14010 @
+15 15000 None 0 #
+16 15010 @
+16 16000 None 0 #
+17 16010 @
+17 17000 None 0 #
+18 17010 @
+18 18000 None 0 #
+19 18010 @
+19 19000 None 0 #
+20 19010 @
+20 20000 None 0 #
+0 20010 R _var p ncr_investigation3 = 1 @
+21 21000 None 0 #
+22 21010 #
+23 21020 #
+24 21030 #
+25 21040 #
+26 21050 #
+27 21060 #
+28 21070 #
+29 21080 #
+30 21090 @
+22 22000 None 0 #
+21 22010 D _var p ncr_investigation3 { 5 R _var p ncr_investigation3 + 1 #
+31 22020 D _var p ncr_investigation3 = 6 @
+23 23000 None 0 #
+21 23010 D _var p ncr_investigation3 { 5 R _var p ncr_investigation3 + 1 #
+31 23020 D _var p ncr_investigation3 = 6 @
+24 24000 None 0 #
+21 24010 D _var p ncr_investigation3 { 5 R _var p ncr_investigation3 + 1 #
+31 24020 D _var p ncr_investigation3 = 6 @
+25 25000 None 0 #
+21 25010 D _var p ncr_investigation3 { 5 R _var p ncr_investigation3 + 1 #
+31 25020 D _var p ncr_investigation3 = 6 @
+26 26000 None 0 #
+21 26010 D _var p ncr_investigation3 { 5 R _var p ncr_investigation3 + 1 #
+31 26020 D _var p ncr_investigation3 = 6 @
+27 27000 None 0 #
+21 27010 D _var p ncr_investigation3 { 5 R _var p ncr_investigation3 + 1 #
+31 27020 D _var p ncr_investigation3 = 6 @
+28 28000 None 0 #
+21 28010 D _var p ncr_investigation3 { 5 R _var p ncr_investigation3 + 1 #
+31 28020 D _var p ncr_investigation3 = 6 @
+29 29000 None 0 #
+21 29010 D _var p ncr_investigation3 { 5 R _var p ncr_investigation3 + 1 #
+31 29020 D _var p ncr_investigation3 = 6 @
+30 30000 None 0 #
+21 30010 D _var p ncr_investigation3 { 5 R _var p ncr_investigation3 + 1 #
+31 30020 D _var p ncr_investigation3 = 6 @
+31 31000 None 0 #
+32 31010 @
+32 32000 None 0 #
+33 32010 @
+33 33000 None 0 #
+34 33010 @
+34 34000 None 0 #
+35 34010 @
+35 35000 None 0 #
+36 35010 @
+36 36000 None 0 #
+37 36010 @
+37 37000 None 0 #
+0 37010 R _var p ncr_investigation3 = 7 R _script quest_jack@r_SpawnLoc 0  @
+38 38000 None 0 #
+39 38010 @
+39 39000 None 0 #
+40 39010 @
+40 40000 None 0 #
+41 40010 @
+41 41000 None 0 #
+0 41010 R _var p ncr_investigation3 = 9 R _param p ST_KARMA + 3 R _script dialog@r_AddExperience 1 3000 R _script dialog@r_AddMoney 1 2000 R _item p PID_COMBAT_ARMOR + 1 R _item p PID_SUPER_STIMPAK + 3 R _param p REPUTATION_LA + 75 R _param p REPUTATION_HUB + 75 R _param p REPUTATION_JUNKTOWN + 75 R _param p REPUTATION_REDDING + 75 R _param p REPUTATION_MODOC + 75 R _param p REPUTATION_KLAMATH + 75 R _param p REPUTATION_FREE_TRADERS + 75 R _param p REPUTATION_FOLLOWERS + 75 R _param p REPUTATION_NCR_RANGERS + 75 R _param p REPUTATION_NCR + 75 R _param p REPUTATION_REGULATORS + 75 R _item p PID_METAL_HELMET_MK2 + 1 R _var p z_warrior2 + 1 @
+42 42000 None 0 #
+2 42010 R _var p q_assult = 1 @
+43 43000 None 0 #
+44 43010 @
+44 44000 None 0 #
+45 44010 R _var p q_assult = 2 R _script quest_assult@r_SpawnLoc 0  #
+0 44020 @
+45 45000 None 0 @
+46 46000 None 0 #
+2 46010 @
+47 47000 None 0 #
+48 47010 R _var p z_dailyq1 = 20 @
+48 48000 None 0 @
+49 49000 None 0 #
+50 49010 @
+50 50000 None 0 #
+51 50010 R _var p z_dailyq1 = 24 R _param p ST_EXPERIENCE + 3000 R _script dialog@r_AddMoney 1 2500 R _script dialog@r_BulkOrderRewardGuns 0  R _param p REPUTATION_NCR + 300 R _param p REPUTATION_HUB + 300 R _param p REPUTATION_LA + 300 R _param p REPUTATION_JUNKTOWN + 300 R _script quest_dailycopboss@r_DeleteLoc 0  @
+51 51000 None 0 &
+
+[engl]
+{100}{}{Detective Deckard}
+{200}{}{You see Detective Deckard.}
+{210}{}{He's an intelligent looking detective for the NCR government. Looks like he's near retiring.}
+{1000}{}{Predialogue installations}
+{1010}{}{base}
+{2000}{}{[The man is sitting behind his desk filling out reports, and drinking Rotgut. He tips his fedora as you approach] Citizen.}
+{2010}{}{I think the day is safe again, enough to make Lady Justice blush.}
+{2020}{}{Another day, Detective. Another call to answer.}
+{2030}{}{Who are you?}
+{2040}{}{I'm...}
+{2050}{}{Is that all you detectives do is drink?}
+{2060}{}{Alright, partner. I'm ready for a new case.}
+{2070}{}{Another case closed, partner. }
+{2080}{}{Alright, partner. I'm ready for another case.}
+{2090}{}{Let's do this.}
+{2100}{}{[Throw the killer's mask on Detective Deckard's desk]}
+{2110}{}{Hey Deckard. Looks like I got to keep my badge after all. Did you hear?}
+{2120}{}{Sorry, didn't mean to bother you.}
+{3000}{}{I'm detective Thomas Deckard, what do you want?}
+{3010}{}{Oh, nothing. Just looking around.}
+{4000}{}{If you've seen the things I've seen, you'd drink too. Now get the fuck out of my office.}
+{5000}{}{[Detective Deckard doesn't even look up] I know who you are. You're a scared little kid that's about to get @sex@|himself||herself| killed.}
+{5010}{}{Killed? Then who'll save you people?}
+{6000}{}{[Detective Deckard doesn't even flinch] People don't need saving. They just need the ability to wake up every morning, go to work, and come home to jerk off. The only thing people care about is how much money they're working for, and how safely they can beat it.}
+{6010}{}{[Say nothing]}
+{6020}{}{Why did you become a cop?}
+{6030}{}{What the hell are you talking about?}
+{6040}{}{Are you drunk?}
+{7000}{}{[He says nothing]}
+{7010}{}{[Say nothing]}
+{8000}{}{[He takes another sip of Rotgut] Fuck you, punk. You think you're a hero? Save this! [He throws you a case file. Inside the file is dozens of pictures of naked young girls that have been brutally murdered. Their breasts have been hacked up with a sharp object, and their entrails are smeared across their bodies. Your eyes widen in horror, as you stand there, perfectly still] }
+{8010}{}{*Gasp!*}
+{9000}{}{[You fall back into a chair and do nothing. Detective Deckard puts the photos away and lights up a cigarette. You take his bottle of Rotgut, pour yourself a glass and start drinking]}
+{9010}{}{We're going to need more bourbon.}
+{10000}{}{[Detective Deckard pulls out another bottle of whiskey from his desk, and says] Rollo Tomasi.}
+{10010}{}{That some kind of joke?}
+{11000}{}{[Detective Deckard sighs] No, it's what I call a suspect that gets away with it. Rollo Tomasi... My father was killed by from random robber when I was a teen. They never found him, so I invented that name as a reminder. There's only ever been one "Rollo Tomasi" and I'll die before we let another one slip.}
+{11010}{}{That's too bad about your father, sorry.}
+{12000}{}{[He takes a sip of Rotgut] Don't worry about it, a long time ago. Been a cop long enough to feel like I got the world back. You're from a vault, I hear. You got any family? [Something inside of you breaks]}
+{12010}{}{[Give him the limp, blank, unfocused gaze of a battle-weary soldier]}
+{13000}{}{[Detective Deckard seems to understand] Me too, kid. It goes away, I guess. But you got the scar of the hero now, don't ever forget what it means, @sex@|boy.||girl.| Only the good people suffer from war, the rest just enjoy it too much.}
+{13010}{}{[Stare out a thousand yards away] I didn't think it would be so bad. It's not what I've seen that scares me the most. It's what you have.}
+{14000}{}{[Detective Deckard pats you on the back, and says] You're just going through the phases, it happens to a lot of us. You'd think if you'd be tough enough to become a cop, you could handle the harsh reality of crime, but *this* is normal. A lot of people piss their pants, or cry after they kill someone. Even if their opponent was a scumbag. }
+{14010}{}{Yeah well, tears won't save you in the line of duty. Enough of this crap! Who the fuck's been hacking up these broads?}
+{15000}{}{[He laughs] There's your balls! Alright @sex@|boy||girlie|, let's go solve a real crime. You ever hear about the boogeyman? Some asshole that hides in your closet, or under the bed and snatches you away from the world just after he wakes you from a sweet dream?}
+{15010}{}{I'm the boogeyman. Only thing I'm really starting to fear.}
+{16000}{}{[Detective Deckard sits back and throws off his Fedora] You probably can't even dance. Well, there's a real boogeyman going around the NCR killing people at night. We've managed to stop the word from getting out, but every couple of a nights we wake up to find a dead woman in town. At first we thought we were all over it, thinking we'd solve it within a few hours. But the bodies kept pilling up, even after we had people in jail. }
+{16010}{}{Sounds like a serial killer.}
+{17000}{}{[Detective Deckard looks worried] Sounds like a smart killer. Clearly whoever they are has been framing people, leaving us false clues, and making us lock up the wrong people. It's fucking embarrasing, but we keep playing along, almost like it's some kind of ransom. }
+{17010}{}{Shit. So this is bad, isn't it?}
+{18000}{}{[Detective Deckard looks worried, but lights up a cigarette and starts to brighten up] It's really bad. But you, YOU my friend, you'll figure it out. I bet my ass on it. }
+{18010}{}{Yeah... I guess, man. Whatever.}
+{19000}{}{[He laughs] You want to see the pictures again?}
+{19010}{}{Fuck no. Okay, okay. I'm going to solve this, don't you worry. Even if it kills me emotionally, I'll put an end to this madness!}
+{20000}{}{[Detective Deckard puts the case file away] That a @sex@|boy||girl|! Alright, hero! You come back when you're ready to begin. It'll take a few hours to get this done, but just come back when you're truly ready.}
+{20010}{}{Alright. I'll let you know.}
+{21000}{}{[The sun dies, and you and Detective Deckard hit the streets. A cold wind blows, but the rain will never stop. You're soaked by the time you're finished your patrol] That's the generic run. We walk around, have a gander at the flock and plan the next move. Where to next, partner?}
+{21010}{}{[To the Police Station]}
+{21020}{}{[To the Market]}
+{21030}{}{[To the Industrial Area]}
+{21040}{}{[To the Slums]}
+{21050}{}{[To the Residence]}
+{21060}{}{[To the Political Area]}
+{21070}{}{[To Dusty's]}
+{21080}{}{[To Mira's]}
+{21090}{}{[To the Hospital]}
+{22000}{}{[Through the windows of the police station you can see Detective Gallows working late on a case, but nothing else. It's quiet here]}
+{22010}{}{[Continue your patrol]}
+{22020}{}{[Continue your patrol]}
+{23000}{}{[You and the Detective head to the Market, it's full of life. People just walking around, trading various goods, and having numerous conversations with each other. But there's nothing of interest here]}
+{23010}{}{[Continue your patrol]}
+{23020}{}{[Continue your patrol]}
+{24000}{}{[The industrial part of town is dark, and noisy. In the darkness you can see a few shadows stalking about, but nothing seems too much out of the ordinary]}
+{24010}{}{[Continue your patrol]}
+{24020}{}{[Continue your patrol]}
+{25000}{}{[You and the Detective walk around the poorest part of town, but it really isn't that bad. You've seen far worse poverty before, these people don't know how good they have it here in the NCR]}
+{25010}{}{[Continue your patrol]}
+{25020}{}{[Continue your patrol]}
+{26000}{}{[The residence area is full of wastelanders, and other vault dwellers it seems. You wonder if you'll ever be able to afford to live there...]}
+{26010}{}{[Continue your patrol]}
+{26020}{}{[Continue your patrol]}
+{27000}{}{[Downtown is quiet, not a single soul walks these streets. It isn't even eerie. Just wet, and full of rain. It's starting to burn your eyes] }
+{27010}{}{[Continue your patrol]}
+{27020}{}{[Continue your patrol]}
+{28000}{}{[You and the Detective walk into Dusty's Cantina. Upon entry, Deckard sits at the bar and starts to talk to Dusty. You look around the room but don't see much of interest]}
+{28010}{}{[Continue your patrol]}
+{28020}{}{[Continue your patrol]}
+{29000}{}{[Upon walking into Mira's bar, the crowd falls quiet. Looks like they're pretty afraid of Deckard. The room is absolute silence]}
+{29010}{}{[Continue your patrol]}
+{29020}{}{[Continue your patrol]}
+{30000}{}{[You can hear the sounds of screams coming from the hospital! But as you approach you realize it's only the Doc performing surgery. There's nothing else of interest here]}
+{30010}{}{[Continue your patrol]}
+{30020}{}{[Continue your patrol]}
+{31000}{}{[You hear a bloody scream coming from the distance!]}
+{31010}{}{Deckard! Did you hear that? Let's move!}
+{32000}{}{[Detective Deckard starts running beside you] Let's go, kid!}
+{32010}{}{[Run out into the distance!]}
+{33000}{}{[You follow the sounds of murder for what seems like hours. You and Detective Deckard run through several series of alleyways while chasing the sounds of someone dragging a body. After a few more moments of running you begin to see a faint trail of blood. As you continue pursuing the strange sounds, the trace of blood begins to get thicker] Get your gun ready, kid! [says Detective Deckard]}
+{33010}{}{[Pull out your .44 Magnum]}
+{34000}{}{[You and the Detective turn the corner and find a dead young girl, still dressed but with her throat slit. There is nobody else around, but a small trail of blood leading out into the darkness]}
+{34010}{}{Let's go chase some shadows, Deckard!}
+{35000}{}{[Deckard grabs you before you run off] Hold up! Let me radio this in. I'm not running out there without backup.}
+{35010}{}{Nonsense! I'm your backup! Let's go! [Take off running]}
+{36000}{}{[Deckard looks pissed] Damnit, kid! You're going to get yourself killed!}
+{36010}{}{[Follow the trail of blood]}
+{37000}{}{[If you'd like to do this mission in Turn Based mode, type /combatmode tb before hitting continue! This will be extremely challenging!]}
+{37010}{}{You can't run from me!}
+{38000}{}{[Detective Deckard spits out his whiskey and jumps out of his chair] Holy shit! You did it! Have a cigar partner! [He hands you a cigar and pours you a shot of Rotgut]  }
+{38010}{}{[Watch the rain fall down as you smoke and drink]}
+{39000}{}{[My dad used to tell stories about the outside world. Things I can no longer remember. But I remember one story he used to tell. One saying particularly stuck: It's not given to people to judge what's right or wrong. People have eternally been mistaken and will always be mistaken, and in nothing more than in what they consider right and wrong. Some rise by sin, some by virtue fall. If the end brings me out all right, what is said against me wonвЂ™t amount to anything. If the end brings me out wrong, ten angels swearing I was right would make no difference]}
+{39010}{}{[Smile]}
+{40000}{}{[Detective Deckard smiles too] What's next for you partner?}
+{40010}{}{Guess I'll take a break, then go talk to Detective Gallows. Get to the bottom of this attempted assassination. }
+{41000}{}{[The rain starts to die down. You wonder how long that will last? Detective Deckard shakes your hand, and says] Make me proud, partner. Maybe we'll get ourselves another case to work on real soon. Good luck figuring the next one out.}
+{41010}{}{It was a pleasure working with you, Detective Deckard. I'll see you around.}
+{42000}{}{Of course, @pname@. Gallows wants to buy you a round of drinks some day. She's been talking about you a lot, ever since you talked to her actually. But that's not important. What's important is that you're my new partner now, and we've got a list full of names to bring in. Dead or alive. I'll split the list in half with you. Just let me know when you want to go do your own house call. That's it, Detective. Just sitting around.}
+{42010}{}{Great. Thanks, Deckard. I'll let you know soon}
+{43000}{}{Got some more scumbags from the East stepping up in the NCR. Trying to pollute the area, I reckon. Already gave em' warnings. No sense in bringing em' in just to hang. As long as they're still alive the rail lines just ain't safe. On top of that, we got Powder Gangers moving in as well. No use in identifying which gang you're stopping. Just go to the ruins of Ridgecrest, and read em' their rights when they're dead.}
+{43010}{}{They'll never know what hit them.}
+{44000}{}{Are you ready to leave now? [Type /combatmode tb to play this mission in Turn Based mode]}
+{44010}{}{Yes.}
+{44020}{}{No, I'll be back.}
+{45000}{}{Good luck, partner.}
+{46000}{}{Sounds about right, Detective. Nothing stops you. I bet those fuckers from the East sure regret coming to California now. Good work. I've got more cases if you want them. Same thing. Rail Raiders, and Powder Gangers. Just let me know when you're ready.}
+{46010}{}{Will do, partner.}
+{47000}{}{This city, @pname@... it eats away at the justice we try to provide. Every day another cop goes dirty. Call it drugs, greed, or lust, it doesn't matter. I need you to weed out another.  }
+{47010}{}{I know the drill. I'll start asking questions.}
+{48000}{}{Don't disappoint the NCR... again.}
+{49000}{}{I heard. You do good work, kid. I'm proud of you for doing the right thing, and NCR thanks you.}
+{49010}{}{My people try, sir. Well... some of them.}
+{50000}{}{As long as they keep trying, we'll have tomorrow to look forward to. A world with much less sorrow.}
+{50010}{}{We'll see, sir. For now, I'll be heading over to Junktown and represent the NCR.}
+{51000}{}{Do what you do best, @pname@.}
+{100000001}{}{Better wash the counter again...}
+{100000002}{}{That's 5 caps buddy. Hey did you hear me? Cough em' up.}
+{100000003}{}{Better change the keg...}
+{100000004}{}{RotGut? You drink that shit?}
+{100000005}{}{Domestic? I got B.E.E.R buddy, do you want one or not?}
+{100000006}{}{Fuckin' dust is getting everywhere. Hey close the fuckin' door!}
+{100000007}{}{I swear if the next asshole doesn't tip. Ima' shoot somebody!}
+{100000008}{}{I got bottles, I got shots, and I got a bat behind the counter for the retards. Your not a retard are you?}
+{100000009}{}{Uh-huh, yeah that's nice buddy. You don't say...What? Of course I'm listening...}
+{100000010}{}{That's 5 caps. FIVE CAPS Tribal! F.I.V.E! }
+{100000011}{}{Shut up and order a fuckin' beer already!}
+{100000012}{}{I swear if I have to serve another drunk, I'm getting the shotgun!}
+{100000013}{}{Look the keg went dry, and it's going to be another month until the caravan shows up again.}
+{100000014}{}{Really? You don't say, buy another drink or get out!}
+{100000015}{}{What? I'm on break.}
+{100000016}{}{Be right with ya'}
+{100000017}{}{Have a sit stranger. I'll be with you in a moment.}
+{100000018}{}{When do we close? Uh, when the place get's shot up, that's when!}
+{100000019}{}{We're fresh outta' cold beer, sorry. You'll just have to drink it warm.}
+{100000020}{}{RotGut? No man, go make that shit yourself! I wouldn't drink it!}
+
+[russ]
+{100}{}{Алкоголик}
+{200}{}{Вы видите пьяницу.}
+{210}{}{Вы видите шатающегося из стороны в сторону пьяного человека в лохмотьях. Лицо его распухло, нос синющий как слива. А аромат рядом с ним такой, что свалит брамина насмерть. Он что-то бормочет про себя и иногда громко поет песни.}
+{210}{}{Вы видите алкаша. Он весьма грязен - кажется, он повалялся в луже, но не особо этим расстроен.}
+{1000}{}{I?aaaeaeiaiaua onoaiiaee}
+{1010}{}{base}
+{2000}{}{Dialog text}
+{2010}{}{I think the day is safe, enough to make Lady Justice blush.}
+{2020}{}{Hello, Detective. Is there anything I can do to help improve this city?}
+{2030}{}{Who are you?}
+{2040}{}{I'm...}
+{2050}{}{Is that all you detectives do is drink?}
+{2060}{}{Alright, partner. Give me another case.}
+{2070}{}{Another case closed, partner. }
+{2080}{}{Alright, partner. Give me another case.}
+{2090}{}{Let's do this.}
+{2100}{}{[Throw the killer's mask on Detective Deckard's desk]}
+{2110}{}{Hey Deckard. Looks like I got to keep my badge after all. Did you hear?}
+{2120}{}{Sorry to bother you. I'll just be going.}
+{3000}{}{I'm a detective for the NCR, what do you want?}
+{3010}{}{Oh, nothing. Just looking around.}
+{4000}{}{If you've seen the things I've seen, you'd drink too. Get the fuck out of my office.}
+{5000}{}{[Detective Deckard doesn't even look up] I know who you are. You're a scared little kid that's about to get @sex@|himself||herself| killed.}
+{5010}{}{Killed? Then who'll save you people?}
+{6000}{}{[Detective Deckard doesn't flinch] People don't need saving. They just need the ability to wake up every morning, go to work, and come home to jerk off.The only thing people care about is how much money they're working for, and how safely they can jerk off.}
+{6010}{}{[Say nothing]}
+{6020}{}{Why did you become a cop?}
+{6030}{}{What the hell are you talking about?}
+{6040}{}{Are you drunk?}
+{7000}{}{[He says nothing]}
+{7010}{}{[Say nothing]}
+{8000}{}{[He takes another sip of Rotgut] Fuck you, punk. You think you're a hero? Save this! [He throws you a case file. Inside the file is dozens of pictures of naked young girls that have been brutally murdered. Your eyes widen in horror, and you stand there perfectly still] }
+{8010}{}{*Gasp!*}
+{9000}{}{[You fall back into a chair and do nothing. Detective Deckard puts the photos away and lights up a cigarette. You take his bottle of Rotgut and pour yourself a glass and start drinking]}
+{9010}{}{We're going to need more whiskey.}
+{10000}{}{[Detective Deckard pulls out another bottle of whiskey from his desk, and says] Rollo Tomasi.}
+{10010}{}{That some kind of joke?}
+{11000}{}{[Detective Deckard sighs] No, it's what I call a suspect that gets away with it. Rollo Tomasi... My father was killed by from random robber when I was a teen. They never found him, so I invented that name as a reminder. There's only ever been one "Rollo Tomasi" and I'll die before we let another one slip.}
+{11010}{}{That's too bad about your father. }
+{12000}{}{[He takes a sip of Rotgut] Don't worry about it, a long time ago. Been a cop long enough to feel like I got the world back. You're from a vault, I hear. You got any family?}
+{12010}{}{[Give him the limp, blank, unfocused gaze of a battle-weary soldier]}
+{13000}{}{[Detective Deckard seems to understand] Me too, kid. It goes away, I guess. But you got the scar of the hero now, don't ever forget what it means, @sex@|boy.||girl.| Only the good people suffer from war, the rest just enjoy it too much.}
+{13010}{}{[Stare out a thousand yards away] I didn't think it would be so bad.}
+{14000}{}{[Detective Deckard pats you on the back, and says] You're just going through the phases, it happens to a lot of us. You'd think if you'd be tough enough to become a cop, you could handle the harsh reality of crime, but *this* is normal. A lot of people piss their pants, or cry after they kill someone. Even if their opponent was a scumbag. }
+{14010}{}{Yeah well, tears won't save you in the line of duty. Enough of this crap! Who the fuck's been hacking up their broads?}
+{15000}{}{[He laughs] There's your balls! Alright @sex@|boy||girlie|, let's get solve a real crime. You ever hear about the boogeyman? Some asshole that hides in your closet, or under the bed and snatches you away from the world just after he wakes you from a sweet dream?}
+{15010}{}{I'm the boogeyman. Only thing I'm really starting to fear.}
+{16000}{}{[Detective Deckard sits back and throws of his Fedora] You probably can't even dance. Well, there's a real boogeyman going around the NCR killing people at night. We've managed to stop the word from getting out, but every couple of a nights we wake up to find a dead woman in town. At first we thought we were all over it, thinking we'd solve with in a few hours. But the bodies kept pilling up, even after we had people in jail. }
+{16010}{}{Sounds like a serial killer.}
+{17000}{}{[Detective Deckard looks worried] Sounds like a smart killer. Clearly whoever they are has been framing people, leaving us false clues, and making us lock up the wrong people. It's fucking embarrasing, but we keep playing along, almost like it's some kind of ransom. }
+{17010}{}{Shit. So this is bad, isn't it?}
+{18000}{}{[Detective Deckard looks worried, but lights up a cigarette and starts to brighten up] It's really bad. But you, YOU my friend, you'll figure it out. I bet my ass on it. }
+{18010}{}{Yeah... I guess, man.}
+{19000}{}{[He laughs] You want to see the pictures again?}
+{19010}{}{Fuck no. Okay, okay. I'm going to solve this, don't you worry. Even if it kills me emotionally, I'll put an end to this madness!}
+{20000}{}{[Detective Deckard puts the case file away] That a @sex@|boy||girl|! Alright, hero! You come back when you're ready to begin. It'll take a few hours to get this done, but just come back when you're truly ready.}
+{20010}{}{Alright. I'll let you know.}
+{21000}{}{[The sun dies, and you and Detective Deckard hit the streets. A cold wind blows, but the rain will never stop. You're soaked by the time you're finished your patrol] That's the generic run. We walk around, have a gander at the flock and plan the next move. Where to next, partner?}
+{21010}{}{[To the Police Station]}
+{21020}{}{[To the Market]}
+{21030}{}{[To the Industrial Area]}
+{21040}{}{[To the Slums]}
+{21050}{}{[To the Residence]}
+{21060}{}{[To the Political Area]}
+{21070}{}{[To Dusty's]}
+{21080}{}{[To Mira's]}
+{21090}{}{[To the Hospital]}
+{22000}{}{[Through the windows of the police station you can see Detective Gallows working late on a case, but nothing else. It's quiet here]}
+{22010}{}{[Continue your patrol]}
+{22020}{}{[Continue your patrol]}
+{23000}{}{[You and the Detective head to the Market, it's full of life. People just walking around, trading various goods, and having numerous conversations with each other. But there's nothing of interest here]}
+{23010}{}{[Continue your patrol]}
+{23020}{}{[Continue your patrol]}
+{24000}{}{[The industrial part of town is noisy, and dark. In the darkness you can see a few shadows stalking about, but nothing seem to much out of the ordinary]}
+{24010}{}{[Continue your patrol]}
+{24020}{}{[Continue your patrol]}
+{25000}{}{[You and the Detective walk around the poorest part of town, but it really isn't that bad. You've seen far worse poverty before, these people don't know how good they have it here in the NCR]}
+{25010}{}{[Continue your patrol]}
+{25020}{}{[Continue your patrol]}
+{26000}{}{[The residence area is full of wastelanders, and other vault dwellers it seems. You wonder if you'll ever be able to afford to live there...]}
+{26010}{}{[Continue your patrol]}
+{26020}{}{[Continue your patrol]}
+{27000}{}{[Downtown is quiet, not a single soul walks these streets. It isn't even eerie. Just wet, and full of rain. It's starting to burn your eyes] }
+{27010}{}{[Continue your patrol]}
+{27020}{}{[Continue your patrol]}
+{28000}{}{[You and the Detective walk into Dusty's cantina. Upon entry, Deckard sits at the bar and starts to talk to Dusty. You look around the room but don't see much of interest]}
+{28010}{}{[Continue your patrol]}
+{28020}{}{[Continue your patrol]}
+{29000}{}{[Upon walking into Mira's bar, the crowd falls silent. Looks like they're pretty afraid of Deckard. The room is absolute silence]}
+{29010}{}{[Continue your patrol]}
+{29020}{}{[Continue your patrol]}
+{30000}{}{[You can hear the sounds of screams coming from the hospital! But as you approach you realize it's only the Doc performing surgery. There's nothing else of interest here]}
+{30010}{}{[Continue your patrol]}
+{30020}{}{[Continue your patrol]}
+{31000}{}{[You hear a bloody scream coming from the distance!]}
+{31010}{}{Deckard! Did you hear that? Let's move!}
+{32000}{}{[Detective Deckard starts running beside you] Let's go, kid!}
+{32010}{}{[Run out into the distance!]}
+{33000}{}{[You follow the sounds of murder for what seems like hours. You and Detective Deckard run through several series of alleyways while chasing the sounds of someone dragging a body. After a few more moments of running you begin to see a faint trail of blood. As you continue pursuing the strange sounds the trace of blood begins to get thicker]}
+{33010}{}{[Pull out your .44 Magnum]}
+{34000}{}{[You and the Detective turn the corner and find a dead young girl, still dressed but with her throat slit. There is nobody else around, but a small trail of blood leading out into the darkness]}
+{34010}{}{Let's go chase some shadows, Deckard!}
+{35000}{}{[Deckard grabs you before you run off] Hold up! Let me radio this in. I'm not running out there without backup.}
+{35010}{}{Nonsense! I'm your backup! Let's go! [Take off running]}
+{36000}{}{[Deckard looks pissed] Damnit, kid! You're going to get yourself killed!}
+{36010}{}{[Follow the trail of blood]}
+{37000}{}{[If you'd like to do this mission in Turn Based, type /combatmode tb before hitting continue!]}
+{37010}{}{You can't run from me!}
+{38000}{}{[Detective Deckard spits out his whiskey and jumps out of his chair] Holy shit! You did it! Have a cigar partner! [He hands you a cigar and pours your a shot of Rotgut]  }
+{38010}{}{[Watch the rain pour down as you smoke and drink]}
+{39000}{}{[My dad used to tell me stories about the outside world. Things I can no longer remember. But I remember one story he used to tell me. One saying particularly stuck: It's not given to people to judge what's right or wrong. People have eternally been mistaken and will always be mistaken, and in nothing more than in what they consider right and wrong. Some rise by sin, some by virtue fall. If the end brings me out all right, what is said against me wonвЂ™t amount to anything. If the end brings me out wrong, ten angels swearing I was right would make no difference]}
+{39010}{}{[Smile]}
+{40000}{}{[Detective Deckard smiles too] }
+{40010}{}{Guess I'll take a break, then go talk to Detective Gallows. Get to the bottom of this attempted assassination. }
+{41000}{}{[The rain starts to die down. You wonder how long that will last? Detective Deckard shakes your hand, and says] Make me proud, partner. Maybe we'll get ourselves another case to work on real soon. Good luck figuring the next one out.}
+{41010}{}{It was a pleasure working with you, Detective Deckard. I'll see you around.}
+{42000}{}{Of course, @pname@. Gallows wants to buy you a round of drinks some day. She's been talking about you a lot, ever since you talked to her actually. But that's not important. What's important is that you're my new partner now, and we've got a list full of names to bring it. Dead or alive. I'll split the list in half with you. Just let me know when you want to go do your own house call. That's it, Detective. Just sitting around.}
+{42010}{}{Great. Thanks, Deckard. I'll let you know soon}
+{43000}{}{Got some more scumbags from the East stepping up in the NCR. Trying to pollute the area, I reckon. Already gave em' warnings. No sense in bringing em' in just to hang. As long as they're still alive the rail lines just ain't safe. On top of that, we got Powder Gangers moving in as well. No use in identifying which gang you're stopping. Just go to the ruins of Ridgecrest, and read em' their rights when they're dead.}
+{43010}{}{They'll never know what hit them.}
+{44000}{}{Are you ready to leave now? [Type /combatmode tb to play this mission in Turn Based mode]}
+{44010}{}{Yes.}
+{44020}{}{No, I'll be back.}
+{45000}{}{Good luck, partner.}
+{46000}{}{Sounds about right, Detective. Nothing stops you. I bet those fuckers from the East sure regret coming to California now. Good work. I've got more cases if you want them. Same thing. Rail Raiders, and Powder Gangers. Just let me know when you're ready.}
+{46010}{}{Will do, partner.}
+{47000}{}{This city, @pname@... it eats away at the justice we try to provide. Every day another cop goes dirty. Call it drugs, greed, or lust, it doesn't matter. I need you to weed another out.  }
+{47010}{}{I know the drill. I'll start asking questions.}
+{48000}{}{Don't disappoint the NCR... again.}
+{49000}{}{I heard. You do good work, kid. I'm proud of you for doing the right thing, and NCR thanks you.}
+{49010}{}{My people true, sir. Well... some of them.}
+{50000}{}{As long as they keep trying, we'll have tomorrow to look forward to. A world with much less sorrow.}
+{50010}{}{We'll see, sir. For now, I'll be heading over to Junktown and represent the NCR.}
+{51000}{}{Do what you do best, @pname@.}
+

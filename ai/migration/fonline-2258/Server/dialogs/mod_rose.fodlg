@@ -1,0 +1,148 @@
+[comment]
+
+
+[data]
+lang=engl
+
+[dialog]
+&
+1 1000 None 1 #
+11 1010 D _param p KARMA_SLAVER > 0 #
+12 1020 D _param p ST_CHARISMA > 99 #
+2 1030 D _param p ST_GENDER = 0 #
+3 1040 D _param p ST_GENDER = 1 @
+2 2000 None 0 #
+8 2010 D _param p ST_STRENGTH > 99 #
+65506 2020 #
+6 2030 D _param p ST_STRENGTH > 99 R _var n name_mem_npc_player = 1 #
+9 2040 D _param p ST_STRENGTH > 99 R _var n name_mem_npc_player = 1 #
+0 2050 #
+13 2060 D _param p ST_LEVEL > 23 D _param p SK_OUTDOORSMAN > 99 D _param p ST_CHARISMA > 3 D _var p modoc_easter = 0 #
+15 2070 D _var p modoc_easter = 1 D _item p PID_EASTER_EGG > 0 @
+3 3000 None 0 #
+8 3010 D _param p ST_STRENGTH > 99 #
+65506 3020 #
+6 3030 D _param p ST_STRENGTH > 99 R _var n name_mem_npc_player = 1 #
+9 3040 D _param p ST_STRENGTH > 99 R _var n name_mem_npc_player = 1 #
+0 3050 #
+13 3060 D _param p ST_LEVEL > 23 D _param p SK_OUTDOORSMAN > 99 D _param p ST_CHARISMA > 3 D _var p modoc_easter = 0 #
+15 3070 D _var p modoc_easter = 1 D _item p PID_EASTER_EGG > 0 @
+4 4000 None 0 #
+4 4010 #
+4 4020 #
+4 4030 #
+0 4040 #
+0 4050 #
+0 4060 #
+0 4070 @
+5 5000 None 0 #
+4 5010 #
+4 5020 #
+4 5030 #
+0 5040 #
+0 5050 #
+0 5060 #
+0 5070 @
+6 6000 None 0 #
+7 6010 #
+10 6020 #
+0 6030 @
+7 7000 None 0 #
+0 7010 @
+8 8000 None 0 #
+0 8010 @
+9 9000 None 0 #
+0 9010 @
+10 10000 None 0 #
+0 10010 @
+11 11000 None 0 @
+12 12000 None 0 @
+13 13000 None 0 #
+14 13010 @
+14 14000 None 0 #
+0 14010 R _var p modoc_easter = 1 @
+15 15000 None 0 #
+16 15010 #
+0 15020 @
+16 16000 None 0 #
+17 16010 @
+17 17000 None 0 #
+19 17010 R _var p modoc_easter = 3 R _item p PID_EASTER_EGG - 1 R _script dialog@r_AddExperience 1 2200 R _param p ST_MAX_LIFE + 3 R _param p ST_RADIATION_RESISTANCE + 3 #
+18 17020 R _var p modoc_easter = 3 R _item p PID_EASTER_EGG - 1 R _script dialog@r_AddExperience 1 5000 @
+18 18000 None 0 #
+0 18010 @
+19 19000 None 0 #
+0 19010 &
+
+[engl]
+{100}{}{Rose}
+{200}{}{A pleasantly plump woman.}
+{210}{}{Her gray hair is done up in a loose bun, and she walks with a slight waddle. You can’t help but feel relaxed around her.}
+{1000}{}{Predialogue installations}
+{1010}{}{slaver}
+{1020}{}{Ugly}
+{1030}{}{Male}
+{1040}{}{Female}
+{2000}{}{Welcome to Rose’s Bed and Breakfast. My, aren’t you the strapping young man. What can Rose help you with today?}
+{2010}{}{I'd like to pay a rent for my room...}
+{2020}{}{I’m starved! What do you have to eat around here?}
+{2030}{}{I need a good night's sleep.@@Can I get a room?@@I want to rent a room.}
+{2040}{}{I need a good night's sleep.@@Can I get a room?@@I want to rent a room.}
+{2050}{}{I have to get going.}
+{2060}{}{I'm looking for something... Special...}
+{2070}{}{I found an Easter Egg!}
+{3000}{}{Welcome to Rose’s Bed and Breakfast. Oh my, what a pretty young lady you are. What can Rose do for you today?}
+{3010}{}{I'd like to pay a rent for my room...}
+{3020}{}{I’m starved! What do you have to eat around here?}
+{3030}{}{I need a good night's sleep.@@Can I get a room?@@I want to rent a room.}
+{3040}{}{I need a good night's sleep.@@Can I get a room?@@I want to rent a room.}
+{3050}{}{I have to get going.}
+{3060}{}{I'm looking for something... Special...}
+{3070}{}{I found an Easter Egg!}
+{4000}{}{That’s what I like to hear. A growing young boy needs to eat to keep up his strength, and I can tell you haven’t been eating properly. You just sit right down and look at the menu.}
+{4010}{}{Brahmin fries. [$5]}
+{4020}{}{Wasteland omelet. [$25]}
+{4030}{}{Water. [$1000]}
+{4040}{}{Brahmin dogs. [$5]}
+{4050}{}{Canis burgers. [$7]}
+{4060}{}{Shepherd’s stew. [$3]}
+{4070}{}{No thank you; I’m not hungry right now.}
+{5000}{}{And so you should be. When was the last time you had a good meal, young lady? Why, you’re as thin as a rail. You just look at the menu and tell Rose what you would like to eat.}
+{5010}{}{Brahmin fries. [$5]}
+{5020}{}{Wasteland omelet. [$25]}
+{5030}{}{Water. [$1000]}
+{5040}{}{Brahmin dogs. [$5]}
+{5050}{}{Canis burgers. [$7]}
+{5060}{}{Shepherd’s stew. [$3]}
+{5070}{}{No thank you; I’m not hungry right now.}
+{6000}{}{We still have a room free and this will cost you @lex price@ caps for @lex time@ days. You want it?}
+{6010}{}{Sounds like a fair price to me. I’ll take it.@@Yes, I'll take the room.}
+{6020}{}{Uh, this is a little rich for me. You couldn't let me sleep there on the house, could ya?}
+{6030}{}{No thanks, I've changed my mind.}
+{7000}{}{No problem. This room, follow me.@@No problem. This room, follow me. Don't be shooting any guns in here, okay?}
+{7010}{}{[Follow]}
+{8000}{}{Good, it's better to be sure about your posessions, am I right?}
+{8010}{}{[Leave] Right...}
+{9000}{}{Sorry, but we don't have any rooms free. Maybe you should try later again.}
+{9010}{}{[Leave] Damn!}
+{10000}{}{Sorry hun, no rooms for free.@@Sorry, I got to make a living.}
+{10010}{}{Dang.}
+{11000}{}{I don't take dirty money.@@Suddenly we're fully booked.@@You'll have to look somewhere else.}
+{12000}{}{I'm going to have to ask you to leave.@@We don't serve your, uh... whatever you are around here.@@I... what happened to your face?}
+{13000}{}{Something special? Aren't we all? Every since my chicken, Easter, died, I've been looking for something special myself.  Oh, I miss that little clucker so much! I hatched him myself, you know, I found a little blue egg and build my own little incubator. }
+{13010}{}{A blue egg? I think I know what you're talking about... I think I've found one in a cave before...}
+{14000}{}{That's exactly where I found mine too! I called it an Easter Egg! I tell you what, if you can find another one of those, I'll make you something REALLY special to eat.}
+{14010}{}{Hmm, I am mighty hungry, and could kill for something aside from gecko, or molerat. I'll be back. }
+{15000}{}{Oh my! Could I have it? Please? I'll raise my very own clucker's all over again! I'll cook you something nice in return!}
+{15010}{}{Sure, Rose. Here.}
+{15020}{}{I think I'll keep for a little while longer. See ya. }
+{16000}{}{Thank you, so much! I'll be right back with your "special" meal!}
+{16010}{}{[Wait]}
+{17000}{}{[Rose comes back with what appears to be a disgusting looking, reheated frozen omelet. It's green, and it stinks. You have no idea what to do with it. Do you eat it? Or run the hell away?]}
+{17010}{}{[Eat the strange food]}
+{17020}{}{[Run away]}
+{18000}{}{[You choose to turn tail and run. You can hear Rose laughing in the background, and thanking you for your service. What a day! You'll never know the true benefits of that last meal, but at least you've gained some experience!]}
+{18010}{}{[Quest Complete!]}
+{19000}{}{[Well, you don't want to offend Rose, so you devour the strange tasting meal with a smile. Rose laughs and thanks you for your service. But after a few moments you suddenly feel very sick! It doesn't last long however, shortly after the gut wretching pain you feel a lot better. In fact, you feel better than before! You've gained +3 Max HP and +3% Radiation Resist!]}
+{19010}{}{[Quest Complete!]}
+

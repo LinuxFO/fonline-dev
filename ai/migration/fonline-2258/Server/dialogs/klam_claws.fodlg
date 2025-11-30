@@ -1,0 +1,67 @@
+[comment]
+
+
+[data]
+lang=engl
+
+[dialog]
+&
+1 1000 None 0 #
+2 1010 @
+2 2000 None 0 #
+3 2010 D _var p junktown_monsters = 5 #
+9 2020 D _var p junktown_monsters = 6 D _item p PID_BOTTLE_CAPS > 1999 R _item p PID_BOTTLE_CAPS - 2000 #
+9 2030 D _var p junktown_monsters = 6 D _item p PID_BEER > 23 R _item p PID_BEER - 24 @
+3 3000 None 0 #
+4 3010 @
+4 4000 None 0 #
+5 4010 @
+5 5000 None 0 #
+6 5010 @
+6 6000 None 0 #
+7 6010 @
+7 7000 None 0 #
+8 7010 @
+8 8000 None 0 #
+0 8010 R _var p junktown_monsters = 6 @
+9 9000 None 0 #
+10 9010 @
+10 10000 None 0 #
+11 10010 R _var p junktown_monsters = 7 @
+11 11000 None 0 &
+
+[engl]
+{100}{}{Trapper}
+{200}{}{You see an experienced looking Trapper.}
+{200}{}{You see a backwoodsman.}
+{200}{}{You see a trapper.}
+{200}{}{You see a hunter.}
+{210}{}{You see a rough-hewn person with leather boots.}
+{210}{}{You see a person who must spend a lot of time outdoors.}
+{210}{}{You see someone who spends a lot of time in the wilderness. They're wearing a gecko-pelt shirt.}
+{210}{}{You see a rough-hewn trapper with gecko-hide boots.}
+{210}{}{You see a trapper who makes his home in Trapper Town.}
+{1000}{}{Predialogue installations}
+{1010}{}{Normal}
+{2000}{}{We ain’t got nothing left to steal here.@@Trapper Town’s got bigger rats everyday. Some even stand erect.@@No room for you here.@@No squats left here.@@What are you looking at?@@You should go south.@@Something smells worse than a gecko pelt.@@Rats everywhere!@@Watch out, or you’ll end up just like Phil.@@You’re just like the Duntons.@@I don’t think we want you in this part of town.@@What’s your problem?@@This part of town’s for us professionals only.@@Hmm... You don’t look as though you could find a gecko if it bit you.@@Watch out for the rats here.@@Golden geckos can grow five times as long as a man is tall@@Them golden geckos have a deadly poison in their fangs@@Anyone seen Phil? I think we lost another trapper to the rats last night.@@Have you seen Phil?@@I sure wish I had enough money to get a bath.@@I want to go visit my Jenny.@@Another few pelts and I’ll be able to buy myself a bath.@@Lots of stuff crawling around in those buildings.}
+{2010}{}{You seem like a man who knows his way around the wasteland. Know anything about Deathclaws?}
+{2020}{}{Still willing to teach me how to attract Deathclaws for 2000 caps?}
+{2030}{}{Still willing to teach me how to attract Deathclaws for a case of beer?}
+{3000}{}{I know a thing or two, why do you ask?}
+{3010}{}{Well, something... Most likely a Deathclaw has been terrorizing the good folk of Junktown.}
+{4000}{}{That sounds mighty unsual for that place. Not many Deathclaw head East, most of them stay out West, in the desert. Deathclaw aren't fans of the city life. But they've been known to take over abandoned buildings.}
+{4010}{}{Unfortunately I don't know much about Deathclaws myself. I need to find a way to find this critter, and get rid of it. It's been killing a few of the guards, and laying waste to entire caravans.}
+{5000}{}{One single Deathclaw? I don't believe it. It was probably mutants. The South had an issue with them before, wouldn't be surprised if it happened again.}
+{5010}{}{How can I attract this Deathclaw? I want to lure it out of it's nest, and into my sights.}
+{6000}{}{I could show you, sure. But not for free. Basic trapping job is a thousand caps. So seeing as this is a special occasion, I'll need two thousand caps.}
+{6010}{}{Two grand? Are you nuts?}
+{7000}{}{Fuck off, amature. That's typical asking price. You're in the North now, ain't nothing here for you lazy asses. You want something, you work for it. Now beat it, my beer's getting cold.}
+{7010}{}{You like beer? How about I give you some booze instead?}
+{8000}{}{Okay, sure. Two thousands caps, or two grand worth of beer. Either way I'll be happy. You do realize that two grand worth of beer is a lot, right? Why don't we just make it a 24? Bring me the caps, or a case of beer. Whichever you get first. Honestly, I'd prefer the beer, but money is always nice.}
+{8010}{}{Okay, I'll be right back.}
+{9000}{}{@sex@|Yessir!||Yes ma'am!| Thank you. Let's get down to business, shall we? Have a seat.}
+{9010}{}{Sure. Teach me everything you know.}
+{10000}{}{[The Trapper goes on for hours about the nature of Deathclaws, their lore, and how to properly deal with them. After a while you learn everything you need to know about luring this Deathclaw into it's own demise]}
+{10010}{}{Thanks a lot! Sure do appreciate all the help you've been. Looks like I've got a Deathclaw to hunt. Goodbye, buddy. Wish me luck.}
+{11000}{}{Good luck! Remember to aim for the eyes!}
+

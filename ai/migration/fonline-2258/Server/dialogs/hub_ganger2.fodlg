@@ -1,0 +1,130 @@
+[comment]
+sell 24 leather jackets = new job hub
+
+[data]
+lang=engl russ
+
+[dialog]
+&
+1 1000 None 0 #
+7 1010 D _var p name_mem_npc_player = 0 D _var p hub_honor = 0 #
+3 1020 D _var p name_mem_npc_player = 1 D _var p hub_honor = 1 #
+12 1030 D _var p hub_honor = 2 @
+2 2000 None 0 #
+0 2010 R _var p name_mem_npc_player = 1 R _var p hub_honor = 1 @
+3 3000 None 0 #
+5 3010 D _item p PID_LEATHER_JACKET > 23 R _item p PID_LEATHER_JACKET - 24 R _script dialog@r_BulkOrderRewardHub 0  R _script dialog@r_BulkOrderRewardLow 0  R _var p q_merchant + 1 R _script dialog@r_AddExperience 1 1500 R _script dialog@r_AddMoney 1 1675 R _script dialog@r_AddLootSetLevel1 0  #
+8 3020 D _param p SK_SPEECH > 79 #
+0 3030 @
+4 4000 None 0 #
+2 4010 #
+0 4020 @
+5 5000 None 0 #
+6 5010 @
+6 6000 None 0 #
+0 6010 @
+7 7000 None 0 #
+4 7010 #
+0 7020 @
+8 8000 None 0 #
+9 8010 @
+9 9000 None 0 #
+10 9010 @
+10 10000 None 0 #
+11 10010 D _item p PID_BOTTLE_CAPS > 999 R _item p PID_BOTTLE_CAPS - 1000 R _script dialog@r_AddExperience 1 1000 R _var p hub_honor = 2 R _param p ST_KARMA + 1 R _param p REPUTATION_FREE_TRADERS + 100 R _param p REPUTATION_SCAVENGERS + 100 R _param p REPUTATION_REGULATORS + 100 R _param p REPUTATION_SLAGS + 100 R _var p CRIM - 1 #
+0 10020 @
+11 11000 None 0 #
+0 11010 @
+12 12000 None 0 &
+
+[engl]
+{100}{}{Punky Seamstress}
+{200}{}{You see a punky looking seamstress.}
+{210}{}{Her jacket is covered with tacky pins, beads, and buttons. But despite all that, she seems nice. }
+{1000}{}{Predialogue installations}
+{1010}{}{not known}
+{1020}{}{known}
+{1030}{}{secret}
+{2000}{}{The Vipers come by every two weeks for forty eight leather jackets. I can meet half the demand no problem, but it's the other twenty four I'm really having trouble with. So I'll tell you what, you bring me 24x Leather Jackets, and I'll give you 2600 caps. Deal?}
+{2010}{}{No problem. I'll be back, eventually.}
+{3000}{}{Got something for me? Remember, if you've got the Leather Jackets to spare, I've got clients buying. Those Vipers will be here soon, and I'm still short another 24x Leather Jackets. }
+{3010}{}{I've got a whole batch of 24x Leather Jackets.}
+{3020}{}{You know the Vipers are a vicious gang of murders, rapists, and thieves, right?}
+{3030}{}{Still working on it, I'll be back.}
+{4000}{}{Why? You looking for a job? I signed a contract to provide leather jackets to this gang called the Vipers, or something. But I'm finding it almost impossible to complete alone. If you want to help me make leather jackets, I'll give you a small cut. }
+{4010}{}{Alright, sure. How many did you need?}
+{4020}{}{Nah, not today. }
+{5000}{}{Wow! You're even faster than I am, great job! Here, this should cover your time. }
+{5010}{}{Thanks! Will you need any more?}
+{6000}{}{Yeah, of course! I can use all the help I can get! Those desert suckers come by every two weeks, so if you're still interested in working for me again drop by in a couple of days. I'll sell these jackets off, sign a new contract, then get started on the next batch. }
+{6010}{}{Alright, we might meet again. See ya.}
+{7000}{}{Hi there, sorry I'd love to talk, but I'm knee deep in sewing right now. Could you come by later?}
+{7010}{}{You looking for any help?}
+{7020}{}{Uh, sure. See ya.}
+{8000}{}{Uh, no, I didn't know that. How would you even know anyways?}
+{8010}{}{They're all over the wasteland! Just preying on the weak, and defenseless!}
+{9000}{}{Oh my God! I didn't know that! I've got to stop this immediately! But what will I do for money after? It's almost impossible to find a contract anywhere for bulk goods! }
+{9010}{}{You could make shoes?}
+{10000}{}{Shoes? Fuck that! I'm a seamstress, goddamnit! Look, I know it sucks and all, and these "Vipers" are thugs and horrible people. But they're paying my damn bills! Unless you can fork over 1000 caps, I don't have much of a choice. }
+{10010}{}{I've got 1000 caps, here take it. Now stop making armor for those assholes, and get a real job!}
+{10020}{}{Oh, oh well. I tried. See ya!}
+{11000}{}{Uh, wow, okay. I guess the deal's off then, I'll go write them a letter, or something. Uh, thanks, I guess. }
+{11010}{}{No, thank you! Goodbye.}
+{12000}{}{It's you! Guess what?! I make shoes now! Can you believe it? Haha!}
+{100000001}{}{Better wash the counter again...}
+{100000002}{}{That's 5 caps buddy. Hey did you hear me? Cough em' up.}
+{100000003}{}{Better change the keg...}
+{100000004}{}{RotGut? You drink that shit?}
+{100000005}{}{Domestic? I got B.E.E.R buddy, do you want one or not?}
+{100000006}{}{Fuckin' dust is getting everywhere. Hey close the fuckin' door!}
+{100000007}{}{I swear if the next asshole doesn't tip. Ima' shoot somebody!}
+{100000008}{}{I got bottles, I got shots, and I got a bat behind the counter for the retards. Your not a retard are you?}
+{100000009}{}{Uh-huh, yeah that's nice buddy. You don't say...What? Of course I'm listening...}
+{100000010}{}{That's 5 caps. FIVE CAPS Tribal! F.I.V.E! }
+{100000011}{}{Shut up and order a fuckin' beer already!}
+{100000012}{}{I swear if I have to serve another drunk, I'm getting the shotgun!}
+{100000013}{}{Look the keg went dry, and it's going to be another month until the caravan shows up again.}
+{100000014}{}{Really? You don't say, buy another drink or get out!}
+{100000015}{}{What? I'm on break.}
+{100000016}{}{Be right with ya'}
+{100000017}{}{Have a sit stranger. I'll be with you in a moment.}
+{100000018}{}{When do we close? Uh, when the place get's shot up, that's when!}
+{100000019}{}{We're fresh outta' cold beer, sorry. You'll just have to drink it warm.}
+{100000020}{}{RotGut? No man, go make that shit yourself! I wouldn't drink it!}
+
+[russ]
+{100}{}{Алкоголик}
+{200}{}{Вы видите пьяницу.}
+{210}{}{Вы видите шатающегося из стороны в сторону пьяного человека в лохмотьях. Лицо его распухло, нос синющий как слива. А аромат рядом с ним такой, что свалит брамина насмерть. Он что-то бормочет про себя и иногда громко поет песни.}
+{210}{}{Вы видите алкаша. Он весьма грязен - кажется, он повалялся в луже, но не особо этим расстроен.}
+{1000}{}{I?aaaeaeiaiaua onoaiiaee}
+{1010}{}{Answer text}
+{1020}{}{known}
+{1030}{}{secret}
+{2000}{}{The Vipers come by every two weeks for forty eight leather jackets. I can meet half the demand no problem, but it's the other twenty four I'm really having trouble with. So I'll tell you what, you bring me 24x Leather Jackets, and I'll give you 1000 caps. Deal?}
+{2010}{}{Sure, I'll be back. Eventually.}
+{3000}{}{Got something for me? Remember, if you've got the Leather Jackets to spare, I've got clients buying. Those Vipers will be here soon, and I'm still short another 24x Leather Jackets. }
+{3010}{}{I've got a whole batch of 24x Leather Jackets.}
+{3020}{}{You know the Vipers are a vicious gang of murders, rapists, and thieves, right?}
+{3030}{}{Still working on it, I'll be back.}
+{4000}{}{Thank you! Thank you! }
+{4010}{}{Head to the camp}
+{4020}{}{Answer 4}
+{5000}{}{Wow! You're even faster than I am, great job! Here, this should cover your time. }
+{5010}{}{Thanks! Will you need any more?}
+{6000}{}{Yeah, of course! I can use all the help I can get! Those desert suckers come by every two weeks, so if you're still interested in working for me again drop by in a couple of days. I'll sell these jackets off, sign a new contract, then get started on the next batch. }
+{6010}{}{Alright, we might meet again. See ya.}
+{7000}{}{Hi there, sorry I'd love to talk, but I'm knee deep in sewing right now. Could you come by later?}
+{7010}{}{You need any help?}
+{7020}{}{Uh, sure. See ya.}
+{8000}{}{Uh, no, I didn't know that. How would you even know anyways?}
+{8010}{}{They're all over the wasteland! Just preying on the weak, and defenseless!}
+{9000}{}{Oh my God! I didn't know that! I've got to stop this immediately! But what will I do for money after? It's almost impossible to find a contract anywhere for bulk goods! }
+{9010}{}{You could make shoes?}
+{10000}{}{Shoes? Fuck that! I'm a seamstress, goddamnit! Look, I know it sucks and all, and these "Vipers" are thugs and horrible people. But they're paying my damn bills! Unless you can fork over 1000 caps, I don't have much of a choice. }
+{10010}{}{I've got 1000 caps, here take it. Now stop making armor for those assholes, and get a real job!}
+{10020}{}{Oh, oh well. I tried. See ya!}
+{11000}{}{Uh, wow, okay. I guess the deal's off then, I'll go write them a letter, or something. Uh, thanks, I guess. }
+{11010}{}{No, thank you! Goodbye.}
+{12000}{}{It's you! Guess what?! I make shoes now! Can you believe it? Haha!}
+

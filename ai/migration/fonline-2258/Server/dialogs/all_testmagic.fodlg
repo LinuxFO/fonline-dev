@@ -1,0 +1,36 @@
+[comment]
+
+
+[data]
+lang=engl
+
+[dialog]
+&
+1 1000 None 0 #
+2 1010 @
+2 2000 None 0 #
+3 2010 R _script dialog@r_AddLootSetLevel1 0  R _script dialog@r_PlaySoundDice 1 1 #
+3 2020 R _script dialog@r_AddLootSetLevel2 0  R _script dialog@r_PlaySoundDice 1 1 #
+3 2030 R _script dialog@r_AddLootSetLevel3 0  R _script dialog@r_PlaySoundDice 1 1 #
+3 2040 R _script dialog@r_AddLootSetLevel4 0  R _script dialog@r_PlaySoundDice 1 1 @
+3 3000 None 0 &
+
+[engl]
+{100}{}{Test Magic }
+{200}{}{You see a wizard.}
+{210}{}{This wizard casts spells.}
+{1000}{}{Predialogue installations}
+{1010}{}{Answer text}
+{2000}{}{Hi, select your action. Behind me, from left to right, is a series of enemies, who are equipped with randomly spawned and statted Tier 1 - 2 - 3 - 4 items. Kill them, and take their stuff.
+
+You can use me to spawn New Loot Sets. 
+
+Level 1 to 4. 
+
+The Player Answers below describe the different loot levels.}
+{2010}{}{Give me a Loot Set Reward Level 1. [Used as a Generic Quest Reward]}
+{2020}{}{Give me a Loot Set Reward Level 2. [Used for Difficult Quests]}
+{2030}{}{Give me a Loot Set Reward Level 3. [Used for VERY HARD Stuff - Is Also Puppet Reward]}
+{2040}{}{Give me a Loot Set Reward Level 4. [Rarely Used ONLY FOR END GAME EPIC REWARDS]}
+{3000}{}{OMG IT'S SO AMAZING! THANK YOU COROSIVE! }
+

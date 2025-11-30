@@ -1,0 +1,42 @@
+[comment]
+
+
+[data]
+lang=engl
+
+[dialog]
+&
+1 1000 None 0 #
+3 1010 D _var p hub_papaq = 1 #
+2 1020 D _var p hub_papaq = 2 #
+2 1030 D _var p hub_papaq = 3 #
+2 1040 D _var p hub_papaq = 0 @
+2 2000 None 0 @
+3 3000 None 0 #
+4 3010 @
+4 4000 None 0 #
+0 4010 R _var p hub_papaq = 2 R _item p PID_BEER + 1 R _script dialog@r_AddExperience 1 100 R _param p ST_KARMA + 1 #
+0 4020 R _var p hub_papaq = 2 R _script dialog@r_AddExperience 1 100 R _item p PID_GAMMA_GULP_BEER + 1 #
+0 4030 R _var p hub_papaq = 2 R _script dialog@r_AddExperience 1 100 R _item p PID_ROT_GUT + 1 #
+0 4040 R _var p hub_papaq = 2 R _script dialog@r_AddExperience 1 100 R _item p PID_BOOZE + 1 #
+0 4050 R _var p hub_papaq = 2 R _script dialog@r_AddExperience 1 100 R _item p PID_CIGARETTES + 1 &
+
+[engl]
+{100}{}{Drunk}
+{200}{}{You see a drunk.}
+{210}{}{This guy's had way too much to drink.}
+{1000}{}{Predialogue installations}
+{1010}{}{Answer text}
+{1020}{}{Answer text2}
+{1030}{}{Answer text3}
+{1040}{}{Answer text0}
+{2000}{}{Yup@@Mmmhyep@@Hmmhuh@@Can I help you, @sex@|mister?||ma'am?|@@Have a sit, we're drinkin' beer!@@You ever tried a Rotgut? Sit down, I'll buy you one.@@That Hope sure is something!@@Love this song!@@}
+{3000}{}{Yup@@Mmmhyep@@Hmmhuh@@Can I help you, @sex@|mister?||ma'am?|@@Have a sit, we're drinkin' beer!@@You ever tried a Rotgut? Sit down, I'll buy you one.@@That Hope sure is something!@@Love this song!@@}
+{3010}{}{Your daughter is looking for you! She's out by Old Town by herself, near the tanner. I think you should get back to her, now!}
+{4000}{}{Oh shit! My little girl! Here, take my beer, I barely touched it! Thanks a lot, chum!}
+{4010}{}{Get your act together, bucko.}
+{4020}{}{I only drink Gamma!}
+{4030}{}{I only drink Rotgut!}
+{4040}{}{I only drink Booze!}
+{4050}{}{I don't drink!}
+

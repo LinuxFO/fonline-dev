@@ -1,0 +1,94 @@
+[comment]
+
+
+[data]
+lang=engl
+
+[dialog]
+&
+1 1000 None 0 #
+2 1010 D _var p bur_maingate = 0 D _var p bur_main = 0 #
+17 1020 D _var p bur_maingate = 0 D _var p bur_main > 0 #
+17 1030 D _var p bur_maingate = 1 D _var p bur_main > 0 @
+2 2000 None 0 #
+3 2010 D _var p bur_main = 0 @
+3 3000 None 0 #
+4 3010 @
+4 4000 None 0 #
+5 4010 @
+5 5000 None 0 #
+6 5010 @
+6 6000 None 0 #
+7 6010 @
+7 7000 None 0 #
+8 7010 @
+8 8000 None 0 #
+9 8010 @
+9 9000 None 0 #
+13 9010 #
+14 9020 #
+11 9030 #
+10 9040 @
+10 10000 None 0 @
+11 11000 None 0 @
+13 12000 Attack 0 @
+14 13000 None 0 #
+16 13010 #
+15 13020 #
+13 13030 R _param p ST_KARMA - 3 R _script dialog@r_PlaySoundGun 1 2 R _param n ST_CURRENT_HP - 33 R _param n DAMAGE_EYE = 1 @
+15 14000 Attack 0 @
+16 15000 None 0 #
+17 15010 R _var p bur_main = 1 @
+17 16000 None 0 #
+0 16010 D _var p bur_maingate = 0 R _var p bur_maingate = 1 R _script dialog@r_TeleportToMap 2 410 999 #
+0 16020 D _var p bur_maingate = 1 R _var p bur_maingate = 0 R _script dialog@r_TeleportToMap 2 410 666 #
+18 16030 @
+18 17000 None 0 &
+
+[engl]
+{100}{}{Burrow Vanguard}
+{200}{}{You see Ra'tu'lar'uk, the Burrow Vanguard.}
+{210}{}{He stands tall, like a champion of his people. He's guarding the only entrance to the Burrow's Vault. You'll have to pass this stone wall in order to get inside.}
+{1000}{}{Predialogue installations}
+{1010}{}{Answer text}
+{1020}{}{Answer text}
+{1030}{}{Answer text}
+{2000}{}{Hu-man. What brings you here? How did you find us?}
+{2010}{}{How did I find YOU?! How did you learn to TALK?!}
+{3000}{}{We have spoken for many years. Time, as you say, flies.}
+{3010}{}{Huh? What the hell are you talking about?}
+{4000}{}{We have many books written by our ancestors. Many books like Tar W'ah'stal'an. Written by Great Elder Magistrate Li'oot T'sar'ook. In these relics, we've learnt speech.}
+{4010}{}{Fascinating! Tell me more about this book!}
+{5000}{}{Allow me to read a chapter from memory. [He pauses for a moment before squeeking]
+
+April is the crullest month, breeding
+Lilacs out of the dead land, mixing
+Mem--}
+{5010}{}{Nevermind! Nevermind! That's... that doesn't sound like something your people could write!}
+{6000}{}{Nonsense, Hu-man!  Great Elder Magistrate Li'oot T'sar'ook was a great writer! He taught my--!}
+{6010}{}{[Your PipBoy interrupts the conversation and blurps out, "The Waste Land, by T.S Eliot, 1922. New York: Horace Liveright."}
+{7000}{}{[The strange, mutated, half-man, half-raccon like creature looks at your arm in amazement!] Your! Your arm...speaks?! What...! What did it say about Great Elder Magistrate Li'oot T'sar'ook's book?! }
+{7010}{}{Umm... yeah... that guy's book... wasn't that guy's book. You know what I'm saying?}
+{8000}{}{[The man-like creature looks at you in confusion, wags his tail and says] No, no, I do not know what you are saying. }
+{8010}{}{How can I put this lightly? Your... whole... history... and knowledge... of... your people... is... wrong...}
+{9000}{}{[The small, furry creature looks shocked and very much in awe!] Are... are you saying that... my... whole existence has been a lie?! [He swiftly thrusts his spear towards your neck! Ready to strike at any given moment!]}
+{9010}{}{Yes! That's exactly what I'm saying! I can show you the truth, my furry little friend! The *truth*!}
+{9020}{}{Ha-ha! Good joke, eh? I'm just teasing you! You big ol' bag of cuddle-bum!}
+{9030}{}{Uhm... would it really matter?}
+{9040}{}{Sorry, little dude! But I'm not quite ready for epiphanies just yet. I'm outta here!}
+{10000}{}{Be-gone! Hu-man! You are not welcome here!}
+{11000}{}{Of course it would matter! Be-gone, Hu-man! Be-gone!}
+{12000}{}{ARRRGHHHH! Death to the Hu-man! Guardians! Devour!!!!}
+{13000}{}{[He lowers his spear and calms himself] Good, good. The Hu-man pleases Ra'tu'lar'uk. Pet my furry little head.}
+{13010}{}{[Pat him on the head]}
+{13020}{}{[Refuse]}
+{13030}{}{[Shoot him in the eye]}
+{14000}{}{HOW DARE YOU!!!! GUARDIANS!!! DEVOUR!!!!}
+{15000}{}{[He begins to purr uncontrollably] Ha-ha-ha-ha! Hu-man, good! Hu-man is welcome here! Come, come. We have much to trade with Hu-man!}
+{15010}{}{You really mean it?! I can come in and check the place out?!}
+{16000}{}{Hu-man, friend! Would you like me to move? Welcome to The Burrows!}
+{16010}{}{[Enter The Burrows]}
+{16020}{}{[Leave The Burrows]}
+{16030}{}{[Stay outside]}
+{17000}{}{Maybe we will meet again. Goodbye, Hu-man.}
+

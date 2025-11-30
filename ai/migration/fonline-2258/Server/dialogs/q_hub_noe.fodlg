@@ -1,0 +1,123 @@
+[comment]
+
+
+[data]
+lang=engl
+
+[dialog]
+&
+1 1000 None 0 #
+2 1010 D _var p q_hub_noe = 0 #
+3 1020 D _var p q_hub_noe = 1 #
+13 1030 D _var p q_hub_noe = 2 #
+4 1040 D _var p q_hub_noe = 3 #
+14 1050 D _var p q_hub_noe = 4 #
+5 1060 D _var p q_hub_noe = 5 #
+15 1070 D _var p q_hub_noe = 6 #
+6 1080 D _var p q_hub_noe = 7 #
+16 1090 D _var p q_hub_noe = 8 #
+7 1100 D _var p q_hub_noe = 9 #
+17 1110 D _var p q_hub_noe = 10 #
+8 1120 @
+2 2000 None 0 #
+3 2010 R _var p q_hub_noe = 1 #
+0 2020 @
+3 3000 None 0 #
+0 3010 R _var p q_hub_noe = 2 #
+0 3020 @
+4 4000 None 0 #
+0 4010 R _var p q_hub_noe = 4 #
+0 4020 @
+5 5000 None 0 #
+0 5010 R _var p q_hub_noe = 6 #
+0 5020 @
+6 6000 None 0 #
+0 6010 R _var p q_hub_noe = 8 #
+0 6020 @
+7 7000 None 0 #
+0 7010 R _var p q_hub_noe = 10 #
+0 7020 @
+8 8000 None 0 @
+13 9000 None 0 #
+20 9010 D _item p PID_FIREWOOD } 10 R _var p q_hub_noe = 3 R _script dialog@r_AddExperience 1 250 R _script dialog@r_AddMoney 1 150 R _item p PID_FIREWOOD - 10 #
+0 9020 @
+14 10000 None 0 #
+20 10010 D _item p PID_FIBER } 10 R _var p q_hub_noe = 5 R _script dialog@r_AddExperience 1 250 R _script dialog@r_AddMoney 1 150 R _item p PID_FIBER - 10 #
+0 10020 @
+15 11000 None 0 #
+20 11010 D _item p PID_METAL_ORE } 10 R _var p q_hub_noe = 7 R _script dialog@r_AddExperience 1 250 R _script dialog@r_AddMoney 1 150 R _item p PID_METAL_ORE - 10 #
+0 11020 @
+16 12000 None 0 #
+20 12010 D _item p PID_MINERAL } 10 R _var p q_hub_noe = 9 R _script dialog@r_AddExperience 1 250 R _script dialog@r_AddMoney 1 150 R _item p PID_MINERAL - 10 #
+0 12020 @
+17 13000 None 0 #
+20 13010 D _item p PID_PUMP_PARTS } 10 R _var p q_hub_noe = 11 R _script dialog@r_AddExperience 1 250 R _script dialog@r_AddMoney 1 150 R _item p PID_PUMP_PARTS - 10 #
+0 13020 @
+20 14000 None 0 #
+4 14010 D _var p q_hub_noe = 3 #
+5 14020 D _var p q_hub_noe = 5 #
+6 14030 D _var p q_hub_noe = 7 #
+7 14040 D _var p q_hub_noe = 9 #
+0 14050 &
+
+[engl]
+{100}{}{Noe Jr.}
+{200}{}{You see a Noe Jr.}
+{210}{}{This is no ordinary child.}
+{1000}{}{Predialogue installations}
+{1010}{}{Didn't take quest.}
+{1020}{}{Took quest 0/5.}
+{1030}{}{Took quest 1/5.}
+{1040}{}{Done quest 1/5.}
+{1050}{}{Took quest 2/5.}
+{1060}{}{Done quest 2/5.}
+{1070}{}{Took quest 3/5.}
+{1080}{}{Done quest 3/5.}
+{1090}{}{Took quest 4/5.}
+{1100}{}{Done quest 4/5.}
+{1110}{}{Took quest 4/5.}
+{1120}{}{Done}
+{2000}{}{Hey dude, don't be a stranger and give me a helping hand, will ya? Ya know, we had a party last night and let me tell ya, I've seen some shit after that last jet dose. I had a vision. Hey, wait, don't go yet! Let me tell ya, man, now I know what I've got to do with my life. I'll build a nice motherlovin' boat, cause the almighty Rat God is angry and he will purge this Earth by flooding it with tears and Centaur vomit. I need your help and I'll pay you some caps. Interested?}
+{2010}{}{Hmm, you sound crazy, but I think I'll help you.}
+{2020}{}{Fuck off!}
+{3000}{}{This is going to be my first boat and I need to make it nice, so I'll need some wood. I hope that you already have a hatchet. [Noe Jr. puts on a mysterious grin] Bring me some wood. Ten chunks should be enough.}
+{3010}{}{Ok, consider it done.}
+{3020}{}{Screw you man.}
+{4000}{}{Hey man, I think that wood won't be enough to build a nice boat. Get me some fibers. Remember that ya'll have to use your knife, ya won't do shit with your bare hands.}
+{4010}{}{Sure, I'll use my knife to cut them.}
+{4020}{}{Nah, it's not for me.}
+{5000}{}{Ya know pal, sorry to bother you again, but I`ll need more materials. Get some iron ore from the Junk Town quarry. Ten chunks should be enough.}
+{5010}{}{No problem, sir.}
+{5020}{}{No can do. I'm out of here.}
+{6000}{}{I forgot to tell you the last time you were around, I need some minerals from the quarry. Ten chunks should be enough. Sorry dude, my memory ain't as good as it used to be. [Noe Jr. inhales some Jet] Please hurry, the Rat God says that time is running out.}
+{6010}{}{Oh boy, I sure do hope that we can make it! I guess I'll be on may way.}
+{6020}{}{Fuck that, I'm through with your bullshit.}
+{7000}{}{Okay listen, one last thing, the Rat God needs you to bring me some junk. You will find it near Adytum. I'm going to build a boat! Row, row, row your boat, gently down the stream... [Noe Jr. inhales some Jet]}
+{7010}{}{All right. I hope your motherfucking boat is going to be worth it.}
+{7020}{}{What? You want me to risk my life for some useless junk? Screw you!}
+{8000}{}{Row, row, row your boat,
+Gently down the stream.
+Merrily, merrily, merrily, merrily,
+Life is but a dream.}
+{9000}{}{Do you have 10 wood for me?}
+{9010}{}{Yes, got it all here.}
+{9020}{}{Nope, still working on that.}
+{10000}{}{Do you have 10 fibers for me?}
+{10010}{}{Yes, got it all here.}
+{10020}{}{Nope, still working on that.}
+{11000}{}{Do you have 10 iron ore for me?}
+{11010}{}{Yes, got it all here.}
+{11020}{}{Nope, still working on that.}
+{12000}{}{Do you have 10 minerals for me?}
+{12010}{}{Yes, got it all here.}
+{12020}{}{Nope, still working on that.}
+{13000}{}{Do you have 10 junk for me?}
+{13010}{}{Yes, got it all here.}
+{13020}{}{Nope, still working on that.}
+{14000}{}{Thanks for all the stuff, here's your reward.}
+{14010}{}{Do you have some other job for me?}
+{14020}{}{Do you have some other job for me?}
+{14030}{}{Do you have some other job for me?}
+{14040}{}{Do you have some other job for me?}
+{14050}{}{Good luck with your boat boy!}
+

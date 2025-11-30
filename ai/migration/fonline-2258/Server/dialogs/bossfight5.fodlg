@@ -1,0 +1,46 @@
+[comment]
+
+
+[data]
+lang=engl
+
+[dialog]
+&
+1 1000 None 0 #
+2 1010 @
+2 2000 None 0 #
+3 2010 D _var p q_boss5 = 0 #
+7 2020 D _var p q_boss5 = 2 R _param p ST_KARMA + 1 R _var p q_boss5 = 0 R _script dialog@r_AddExperience 1 2500 R _param p REPUTATION_FOLLOWERS + 60 R _script dialog@r_AddMoney 1 1250 R _script quest_boss5@r_DeleteLoc 0  R _script dialog@r_BulkOrderRewardLow 0  R _script dialog@r_BulkOrderRewardJunk 0  R _script dialog@r_BulkOrderRewardInde 0  R _var p z_warrior2 + 1 R _item p PID_MR_NIXON_DOLL + 2 #
+0 2030 @
+3 3000 None 0 #
+4 3010 @
+4 4000 None 0 #
+5 4010 @
+5 5000 None 0 #
+8 5010 D _param p ST_LEVEL } 12 R _var p q_boss5 = 1 R _script quest_boss5@r_SpawnLoc 0  #
+6 5020 @
+6 6000 None 0 @
+7 7000 None 0 @
+8 8000 None 0 &
+
+[engl]
+{100}{}{Telltale}
+{200}{}{You see a local story teller.}
+{210}{}{So much wit, and skill, this raconteur. But how can we believe anything anymore?}
+{1000}{}{Predialogue installations}
+{1010}{}{Answer text}
+{2000}{}{Come closer, and hear the tale of The Fallen.}
+{2010}{}{Tell me your story, old man. I am not afraid.}
+{2020}{}{Silence your words! Your story is no longer truth. The one you call  The Fallen is dead!}
+{2030}{}{Maybe some other time, I don't think I'm ready for this.}
+{3000}{}{Focus, young ones! And listen! For this tale is of great importance! Bow your heads in awe, and hear the story of The Fallen. Once, long ago, was a prodigal initiate of the Followers. But Hell be damned, something claimed its soul, and carried of that was good within it away... like a plague.}
+{3010}{}{Go on...}
+{4000}{}{Hell, and thunder be damned, that nothing could be done to save this soul! And now, we are hunted in the night by its horrible shadow. Night, after night, we suffer loses in the dark, all by this foul thing we call The Fallen. We pray that its soul can be saved, but alas, we, as peaceful creatures can't lift up arms... but we could suggest that maybe... the plague does not take you, and...}
+{4010}{}{*Gulp* Go on...}
+{5000}{}{[He hands you a piece of paper with the last known location of The Fallen. It's recommended that you're at least Level 15, and come prepared for a fight. Type /combatmode rt or tb for Real-Time, or Turn-Based combat before continuing]}
+{5010}{}{[Challenge the Legendary Villain?]}
+{5020}{}{[Throw the paper away, and leave, refusing to fight]}
+{6000}{}{I too, am afraid, young adventurer.}
+{7000}{}{It is done! The Fallen is dead! Thank the name of @pname@! May their story be told across the ocean!}
+{8000}{}{Prepare yourself, this is no ordinary stranger...}
+

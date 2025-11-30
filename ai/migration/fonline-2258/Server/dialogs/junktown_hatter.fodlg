@@ -1,0 +1,74 @@
+[comment]
+
+
+[data]
+lang=engl
+
+[dialog]
+&
+1 1000 None 0 #
+2 1010 D _var p junk_hatter = 0 R _var p junk_hatter = 1 #
+2 1020 D _var p junk_hatter = 1 @
+2 2000 None 0 #
+3 2010 #
+8 2020 #
+7 2030 #
+6 2040 #
+4 2050 #
+9 2060 #
+11 2070 D _var p q_packages = 14 D _item p PID_CARAVAN_BOX > 0 R _var p q_packages = 98 R _item p PID_CARAVAN_BOX - 1 #
+0 2080 @
+3 3000 None 0 @
+4 4000 None 0 #
+5 4010 @
+5 5000 None 0 @
+6 6000 None 0 #
+2 6010 @
+7 7000 None 0 #
+2 7010 @
+8 8000 None 0 #
+2 8010 @
+9 9000 None 0 #
+10 9010 D _item p PID_LEATHER_JACKET_HELMET > 7 R _item p PID_LEATHER_JACKET_HELMET - 8 R _script dialog@r_AddExperience 1 500 R _script dialog@r_AddMoney 1 300 R _script dialog@r_BulkOrderRewardLow 0  #
+10 9020 D _item p PID_LEATHER_ARMOR_HELMET > 7 R _item p PID_LEATHER_ARMOR_HELMET - 8 R _script dialog@r_AddExperience 1 500 R _script dialog@r_AddMoney 1 400 R _script dialog@r_BulkOrderRewardJunk 0  R _var p q_merchant + 1 #
+10 9030 D _item p PID_METAL_HELMET > 7 R _item p PID_METAL_HELMET - 8 R _script dialog@r_AddExperience 1 600 R _script dialog@r_AddMoney 1 500 R _script dialog@r_BulkOrderRewardJunk 0  R _var p q_merchant + 1 #
+10 9040 D _item p PID_COMBAT_HELMET > 7 R _item p PID_COMBAT_HELMET - 8 R _script dialog@r_AddExperience 1 750 R _script dialog@r_AddMoney 1 600 R _script dialog@r_BulkOrderRewardJunk 0  R _var p q_merchant + 1 #
+0 9050 @
+10 10000 None 0 @
+11 11000 None 0 &
+
+[engl]
+{100}{}{Hatter}
+{200}{}{You see a strange looking man wearing a funny looking hat.}
+{210}{}{He's singing, or dancing --you don't know. But he's surrounded by helmets.}
+{1000}{}{Predialogue installations}
+{1010}{}{Answer text}
+{1020}{}{2}
+{2000}{}{Hats my name, hats my game. You looking to sell a hat, helm, cap, or visor? I'll buy anything! I don't mind! Just don't ask me what I'm buying them for.}
+{2010}{}{What are you buying hats for?}
+{2020}{}{I might be interested. What's in it for me?}
+{2030}{}{Hats? Helms? What the hell is this? A store, or what?}
+{2040}{}{Does Junktown know you've set up shop here?}
+{2050}{}{Can I ask you some questions?}
+{2060}{}{I've got some Helmets for sale.}
+{2070}{}{[Deliver Package]}
+{2080}{}{I'll just be going now.}
+{3000}{}{I told you not to ask me!}
+{4000}{}{Does it have anything to do a hats?}
+{4010}{}{No. Can I--}
+{5000}{}{I'm sorry but I am not interested. Go rent a hooker. I'm talking about hats here!}
+{6000}{}{Of course, I pay my taxes. Hell, I provide the town with all their helmets.}
+{6010}{}{I see.}
+{7000}{}{It's a hat shop! But I'm buying from you! Care to sell me something?}
+{7010}{}{I might be interested.}
+{8000}{}{I'm buying Leather Caps, Leather Helmets, Metal Masks, and Combat Helmets. Eight of any. Price will vary but I'm fair.}
+{8010}{}{We'll see about that.}
+{9000}{}{Great! I love hats. They go on your head, you know! Safety first. Every hat is good for something. But I'm only buying Leather Caps, Helmets, Metal Masks, or Combat Helmets.}
+{9010}{}{I'll sell you 8x Leather Caps.}
+{9020}{}{I'll sell you 8x Leather Helmets.}
+{9030}{}{I'll sell you 8x Metal Masks.}
+{9040}{}{I'll sell you 8x Combat Helmets.}
+{9050}{}{Nothing right now. Hat you later.}
+{10000}{}{Hat, hat, hats. All are good, none are bad!}
+{11000}{}{Yeehaw, little noodle doodle! This is great! Thanks!}
+

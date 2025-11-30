@@ -1,0 +1,136 @@
+[comment]
+
+
+[data]
+lang=engl
+
+[dialog]
+&
+1 1000 None 0 #
+2 1010 @
+2 2000 None 0 #
+4 2010 #
+0 2020 @
+4 3000 None 0 #
+9 3010 #
+10 3020 #
+11 3030 #
+12 3040 #
+13 3050 #
+14 3060 #
+18 3070 #
+500 3080 D _script perks@d_PerkCheck 1 351 #
+503 3090 D _script perks@d_PerkCheck 1 319 #
+0 3100 @
+9 4000 None 0 #
+15 4010 D _item p PID_BOTTLE_CAPS > 1599 R _item p PID_BIG_BOOK_OF_SCIENCE + 1 R _script dialog@r_RemoveMoney 1 1600 #
+16 4020 D _item p PID_BOTTLE_CAPS < 1600 #
+4 4030 @
+10 5000 None 0 #
+15 5010 D _item p PID_BOTTLE_CAPS > 1599 R _item p PID_DEANS_ELECTRONICS + 1 R _script dialog@r_RemoveMoney 1 1600 #
+16 5020 D _item p PID_BOTTLE_CAPS < 1600 #
+4 5030 @
+11 6000 None 0 #
+15 6010 D _item p PID_BOTTLE_CAPS > 1799 R _item p PID_FIRST_AID_BOOK + 1 R _script dialog@r_RemoveMoney 1 1800 #
+16 6020 D _item p PID_BOTTLE_CAPS < 1800 #
+4 6030 @
+12 7000 None 0 #
+15 7010 D _item p PID_BOTTLE_CAPS > 1799 R _item p PID_GUNS_AND_BULLETS + 1 R _script dialog@r_RemoveMoney 1 1800 #
+16 7020 D _item p PID_BOTTLE_CAPS < 1800 #
+4 7030 @
+13 8000 None 0 #
+15 8010 D _item p PID_BOTTLE_CAPS > 1599 R _item p PID_SCOUT_HANDBOOK + 1 R _script dialog@r_RemoveMoney 1 1600 #
+16 8020 D _item p PID_BOTTLE_CAPS < 1600 #
+4 8030 @
+14 9000 None 0 #
+15 9010 D _item p PID_BOTTLE_CAPS > 1799 R _item p PID_CHEMISTRY_MANUAL + 1 R _item p PID_BOTTLE_CAPS - 1800 #
+16 9020 D _item p PID_BOTTLE_CAPS < 1799 #
+4 9030 @
+18 10000 None 0 #
+15 10010 D _item p PID_BOTTLE_CAPS > 1999 R _item p PID_BARTER_BOOK + 1 R _script dialog@r_RemoveMoney 1 2000 #
+16 10020 D _item p PID_BOTTLE_CAPS < 2000 #
+4 10030 @
+15 11000 None 0 #
+4 11010 #
+16 11020 #
+0 11030 @
+16 12000 None 0 #
+0 12010 @
+500 13000 None 0 #
+501 13010 R _param p PE_SWIFT_LEARNER = 1 #
+0 13020 @
+501 14000 None 0 #
+0 14010 @
+503 15000 None 0 #
+504 15010 R _param p PE_EDUCATED = 1 #
+0 15020 @
+504 16000 None 0 #
+0 16010 &
+
+[engl]
+{100}{}{Market Bookseller}
+{200}{}{You see the local book merchant.}
+{210}{}{A wise old woman stands here, proudly drowning in her wealth of pre-war knowledge!}
+{240}{}{You see a dead police officer.}
+{260}{}{You see a slain Ghoul.}
+{1000}{}{Predialogue installations}
+{1010}{}{basic}
+{2000}{}{Greetings to you, weary adventurer, and praise the sun! Another glorious day for the Emperor. Could I interest you in any pre-war reading material? We have many fine books of Indo-Western interest.}
+{2010}{}{Yes, ma'am, that's why I'm here. Could I take a look, please?}
+{2020}{}{Nothing for now, but thanks anyway.}
+{3000}{}{@sex@|Well, young man, let me show you my selection... What are you searching for?||Well, young lady, let me show you my selection... What are you searching for?|}
+{3010}{}{Do you have any books about Science?}
+{3020}{}{Do you have any books about Electronics?}
+{3030}{}{Do you have any First Aid Manuals?}
+{3040}{}{Do you have any copies of Guns and Bullets?}
+{3050}{}{Do you have any editions of the Scout's Handbook?}
+{3060}{}{Do you have any Chemistry Journals?}
+{3070}{}{Do you have any books about Bartering?}
+{3080}{}{I need something special... A book that explains the methods of faster learning... [Swift Learner]}
+{3090}{}{I need something special... Something very educational... [Educated]}
+{3100}{}{Hmm, I guess I don't need anything right now, but I might be back. Goodbye.}
+{4000}{}{Yes, I think I have what you are searching for. What about this exemplar of the big book of science? It costs 1600 caps.}
+{4010}{}{I'll take it. [You give her 1600 caps]}
+{4020}{}{Interesting, but I don't have the caps yet.}
+{4030}{}{Got anything else?}
+{5000}{}{Yes, I think I have what you are searching for. What about this exemplar of Deans Electronics? It costs 1600 caps.}
+{5010}{}{I'll take it. [You give her 1600 caps]}
+{5020}{}{Interesting, but I don't have the caps yet.}
+{5030}{}{Got anything else?}
+{6000}{}{Yes, I think I have what you are searching for. What about this first aid book here? It costs 1800 caps.}
+{6010}{}{I'll take it. [You give her 1800 caps]}
+{6020}{}{Interesting, but I don't have the caps yet.}
+{6030}{}{Got anything else?}
+{7000}{}{Yes, I think I have what you are searching for. Here, Guns and Bullets, the book isn't in that good state anymore. It costs 1800 caps.}
+{7010}{}{I'll take it. [You give her 1800 caps]}
+{7020}{}{Interesting, but I don't have the caps yet.}
+{7030}{}{Got anything else?}
+{8000}{}{Yes, I think I have what you are searching for. What about this scouting handbook? It costs 1600 caps.}
+{8010}{}{I'll take it. [You give her 1600 caps]}
+{8020}{}{Interesting, but I don't have the caps yet.}
+{8030}{}{Got anything else?}
+{9000}{}{Yes, I think I have what you are searching for. What about this series of chemistry journals? It costs 1800 caps.}
+{9010}{}{I'll take it. [You give her 1800 caps]}
+{9020}{}{Interesting, but I don't have the caps yet.}
+{9030}{}{Got anything else?}
+{10000}{}{Yes, I think I have what you are searching for. What about these fascinating Tales of Junktown Jerky Trader here? It costs 2000 caps.}
+{10010}{}{I'll take it. [You give her 2000 caps]}
+{10020}{}{Interesting, but I don't have the caps yet.}
+{10030}{}{Got anything else?}
+{11000}{}{It is a deal, round-eye, here you go. Do you need something more?}
+{11010}{}{Yes, please! Let me take a look at...}
+{11020}{}{I'm afraid you've taken all of my money, madame.}
+{11030}{}{Not yet, thanks. Goodbye}
+{12000}{}{Then I cannot help you any further. I am sorry, round-eye. Goodbye.}
+{12010}{}{Goodbye.}
+{13000}{}{Whaddya know, I've got one right here -- you may find it quite useful. However, I never managed to get any more of these, so it's not for sale. If you want, you can take a seat at the table over there and read it, just bring it back to me undamaged once you're finished with the reading. Okay?}
+{13010}{}{Certainly, ma'am. [Read the book] [Swift Learner]}
+{13020}{}{Maybe some other time. Thanks anyway! [Leave]}
+{14000}{}{[You return the book] Thank you for bringing it back in one piece. I'm sure someone else will want to read it as well.}
+{14010}{}{Thank you for providing me with such unique knowledge! Farewell!}
+{15000}{}{Whaddya know, I've got one right here -- you may find it quite useful. However, I never managed to get any more of these, so it's not for sale. If you want, you can take a seat at the table over there and read it, just bring it back to me undamaged once you're finished with the reading. Okay?}
+{15010}{}{Certainly, ma'am. [Read the book] [Educated]}
+{15020}{}{Maybe some other time. Thanks anyway! [Leave]}
+{16000}{}{[You return the book] Thank you for bringing it back in one piece. I'm sure someone else will want to read it as well.}
+{16010}{}{Thank you for providing me with such unique knowledge! Farewell!}
+

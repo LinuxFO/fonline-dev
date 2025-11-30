@@ -1,0 +1,336 @@
+[comment]
+
+
+[data]
+lang=engl
+
+[dialog]
+&
+1 1000 None 0 #
+2 1010 D _var p hub_bombq = 0 #
+51 1020 D _var p hub_bombq = 10 #
+2 1030 D _var p hub_bombq > 4 D _var p hub_bombq < 9 #
+3 1040 D _var p hub_bombq = 1 R _var p hub_bombq = 1 #
+3 1050 D _var p hub_bombq = 2 R _var p hub_bombq = 1 #
+3 1060 D _var p hub_bombq = 3 R _var p hub_bombq = 1 #
+3 1070 D _var p hub_bombq = 4 R _var p hub_bombq = 1 @
+2 2000 None 0 @
+3 3000 None 0 #
+4 3010 #
+0 3020 @
+4 4000 None 0 #
+5 4010 D _param p ST_LEVEL > 5 #
+0 4020 @
+5 5000 None 0 #
+9 5010 R _var p hub_bombq = 2 #
+10 5020 R _var p hub_bombq = 3 #
+11 5030 R _var p hub_bombq = 4 @
+8 6000 None 0 #
+12 6010 @
+9 7000 None 0 #
+8 7010 @
+10 8000 None 0 #
+8 8010 @
+11 9000 None 0 #
+8 9010 @
+12 10000 None 0 #
+13 10010 @
+13 11000 None 0 #
+18 11010 #
+14 11020 #
+15 11030 #
+16 11040 @
+14 12000 None 0 #
+17 12010 @
+15 13000 None 0 #
+17 13010 @
+16 14000 None 0 #
+17 14010 @
+17 15000 None 0 #
+18 15010 #
+50 15020 #
+15 15030 #
+16 15040 @
+19 16000 None 0 #
+18 16010 #
+50 16020 #
+50 16030 #
+50 16040 @
+50 17000 None 0 #
+0 17010 R _var p hub_bombq = 10 R _script dialog@r_ToDead 1 117 @
+51 18000 None 0 @
+18 19000 None 0 #
+20 19010 #
+50 19020 #
+21 19030 #
+19 19040 #
+50 19050 #
+22 19060 @
+20 20000 None 0 #
+24 20010 #
+23 20020 #
+25 20030 #
+26 20040 #
+50 20050 #
+18 20060 @
+21 21000 None 0 #
+27 21010 #
+28 21020 #
+29 21030 #
+50 21040 #
+30 21050 #
+50 21060 D _var p hub_bombq = 2 #
+18 21070 @
+22 22000 None 0 #
+31 22010 #
+50 22020 #
+32 22030 #
+18 22040 @
+23 23000 None 0 #
+50 23010 #
+50 23020 #
+50 23030 #
+50 23040 #
+50 23050 #
+50 23060 #
+20 23070 @
+24 24000 None 0 #
+33 24010 D _var p hub_bombq = 4 #
+50 24020 #
+20 24030 @
+25 25000 None 0 #
+20 25010 @
+26 26000 None 0 #
+20 26010 @
+27 27000 None 0 #
+21 27010 @
+28 28000 None 0 #
+21 28010 @
+29 29000 None 0 #
+21 29010 @
+30 30000 None 0 #
+27 30010 #
+28 30020 #
+29 30030 #
+50 30040 #
+21 30050 #
+34 30060 D _var p hub_bombq = 2 #
+18 30070 @
+31 31000 None 0 #
+50 31010 #
+22 31020 @
+32 32000 None 0 #
+35 32010 D _var p hub_bombq = 3 #
+22 32020 @
+33 33000 None 0 #
+36 33010 @
+34 34000 None 0 #
+36 34010 @
+35 35000 None 0 #
+36 35010 @
+36 36000 None 0 #
+37 36010 #
+38 36020 #
+39 36030 @
+37 37000 None 0 #
+39 37010 @
+38 38000 None 0 #
+39 38010 @
+39 39000 None 0 #
+40 39010 #
+40 39020 @
+40 40000 None 0 #
+41 40010 #
+41 40020 #
+41 40030 @
+41 41000 None 0 #
+41 41010 R _script dialog@r_JumpToRandomNode 3 6 6 10 #
+41 41020 R _script dialog@r_JumpToRandomNode 3 6 6 10 #
+41 41030 R _script dialog@r_JumpToRandomNode 3 6 6 10 #
+41 41040 R _script dialog@r_JumpToRandomNode 3 6 6 10 #
+41 41050 R _script dialog@r_JumpToRandomNode 3 6 6 10 #
+110 41060 D _param p ST_LUCK > 6 @
+60 42000 None 0 #
+42 42010 @
+70 43000 None 0 #
+42 43010 @
+80 44000 None 0 #
+42 44010 @
+90 45000 None 0 #
+0 45010 R _var p hub_bombq = 10 R _script dialog@r_ToDead 1 117 @
+100 46000 None 0 #
+42 46010 @
+110 47000 None 0 #
+42 47010 @
+42 48000 None 0 #
+43 48010 @
+43 49000 None 0 #
+0 49010 D _param p ST_PERCEPTION > 4 R _var p hub_bombq = 5 R _item p PID_44_MAGNUM_REVOLVER + 1 R _item p PID_44_MAGNUM_JHP + 1 #
+0 49020 R _var p hub_bombq = 5 &
+
+[engl]
+{100}{}{Thug}
+{200}{}{You see a thug.}
+{210}{}{This guy looks pretty ruthless.}
+{1000}{}{Predialogue installations}
+{1010}{}{non}
+{1020}{}{bomb fail}
+{1030}{}{done}
+{1040}{}{start}
+{1050}{}{start2}
+{1060}{}{start3}
+{1070}{}{start4}
+{2000}{}{Get out of my face.@@You lookin' for trouble?@@Keep right on walking.@@Not interested.@@Go away.}
+{3000}{}{You lookin' for trouble? Beat it. This ain't a vault to crawl out from. }
+{3010}{}{Dead Flowers [Begin Quest!]}
+{3020}{}{[Walk away]}
+{4000}{}{[You are about to embark on a journey of a lifetime! Prepare for a lot of reading, and the possibility of death & epic failure! Turn back now if you aren't willing to die!] [MUST BE LEVEL 6+]}
+{4010}{}{I am ready!}
+{4020}{}{Run away!}
+{5000}{}{[The thug laughs at you and opens the door behind him. He signals to you to go down the stairs, so you do so. You come face to face with a door and quickly open it. You step into a smoke filled, dimly lit room and find a red box, yellow box, and blue box waiting for you. Three neatly wrapped, placed, and centered boxes sit beside each other on a table. You are told to open one, but only one. A gun is placed to your head. Better make a decision!]}
+{5010}{}{[Open the Red Box]}
+{5020}{}{[Open the Blue Box]}
+{5030}{}{[Open the Yellow Box]}
+{6000}{}{[A thug walks in and places a briefcase on the table. He looks at you with laugher and says "Good luck!". You have no idea what's going on, or what is in the briefcase. Better open it. A door slamming shut is heard behind you, looks like you're trapped here, alone]}
+{6010}{}{[Open the briefcase]}
+{7000}{}{[You open the box and find a small red chip]}
+{7010}{}{[Continue]}
+{8000}{}{[You open the box and find a small blue receiver]}
+{8010}{}{[Continue]}
+{9000}{}{[You open the box and find a small yellow auxillery cable]}
+{9010}{}{[Continue]}
+{10000}{}{[As soon as you open the briefcase a loud beep is heard, and a timer starts to count down. Looks like those thugs left you a bomb! Better figure this one out, and fast! What the hell do you do now?]}
+{10010}{}{Holy crap! A bomb! Never trust a damn stranger!}
+{11000}{}{[You are staring at a bomb! The timer says: 180 seconds left. There is a closed panel attached to the bottom of the case. Nothing is covering the bomb]}
+{11010}{}{[Open the panel]}
+{11020}{}{[Kick the bomb]}
+{11030}{}{[Pick up the bomb]}
+{11040}{}{[Look for something to cover the bomb with]}
+{12000}{}{[You kick the bomb as hard as you can, but nothing happens. Looks like you've just wasting time]}
+{12010}{}{[Go back]}
+{13000}{}{[You try to pick up the bomb, but you really have no where to put it. Looks like you're just wasting time]}
+{13010}{}{[Go back]}
+{14000}{}{[You attempt to look for something to cover the bomb with, but there's not much around. Looks like you're just wasting time]}
+{14010}{}{[Go back]}
+{15000}{}{[You are staring at a bomb! The timer says: 160 seconds left. There is a closed panel attached to the bottom of the case. Nothing is covering the bomb]}
+{15010}{}{[Open the panel]}
+{15020}{}{[Kick the bomb]}
+{15030}{}{[Pick up the bomb]}
+{15040}{}{[Look for something to cover the bomb with]}
+{16000}{}{[You are staring at a bomb! The timer says: 60 seconds left. There is a closed panel attached to the bottom of the case. Nothing is covering the bomb]}
+{16010}{}{[Open the panel]}
+{16020}{}{[Kick the bomb]}
+{16030}{}{[Pick up the bomb]}
+{16040}{}{[Look for something to cover the bomb with]}
+{17000}{}{[MISSION FAILED] KA-BOOM! [You've been killed! Game over!]}
+{17010}{}{[Go into the light]}
+{18000}{}{Looks like you blew it! Haha! Get the fuck out of here, punk!}
+{19000}{}{[You easily open the panel and reveal a strange series of wires, electronics, and doohickeys. It seems that the system has been designed in layers, and that you'll have to work from section to section, in order to disarm the explosive device]}
+{19010}{}{[Inspect the wiring system]}
+{19020}{}{[Pull out the wires]}
+{19030}{}{[Inspect the electronics]}
+{19040}{}{[Put the panel back on]}
+{19050}{}{[Kick the bomb]}
+{19060}{}{[Inspect the antena]}
+{20000}{}{[There are several coloured wires criss-crossing each other in no particular order. You notice some empty port holes for spare cables. It looks like the timer is connected to a red wire, but there's casing around it]}
+{20010}{}{[Examine the port holes]}
+{20020}{}{[Remove the extra casing]}
+{20030}{}{[Try to figure out the order of the wires]}
+{20040}{}{[Examine the Timer]}
+{20050}{}{[Rip out the Red wire]}
+{20060}{}{[Try something else]}
+{21000}{}{[On the right side of the bomb are several flashing pieces of random chips, and blinking LED lights. A green component is flickering a red light on and off. Under what appears to be the bomb's main motherboard is a small slot that looks capable of receiving what appears to be a holodisk. A small switch that reads, "Lock" is flipped downwards] }
+{21010}{}{[Examine the electronic chips]}
+{21020}{}{[Examine the LED light system]}
+{21030}{}{[Examine the green component]}
+{21040}{}{[Stick your finger inside of the slot]}
+{21050}{}{[Flip the switch upwards]}
+{21060}{}{[Insert the red chip into the slot]}
+{21070}{}{[Try something else]}
+{22000}{}{[The top of the bomb is home to several makeshift antenas, you don't know if they're sending or receiving. Perhaps the device is connected to a wireless emitter? It looks like the antenas are embedded underneath a metallic casing]}
+{22010}{}{[Examine the antenas]}
+{22020}{}{[Pull out an antena]}
+{22030}{}{[Remove metallic casing]}
+{22040}{}{[Try something else]}
+{23000}{}{[You remove the casing to the timer, and find a series of wires. There is a blue one, red one, and yellow one. All three of these wires are connected to the center of the electronic timer's device]}
+{23010}{}{[Rip out the Red wire]}
+{23020}{}{[Rip out the Blue wire]}
+{23030}{}{[Rip out the Yellow wire]}
+{23040}{}{[Rip out the Timer]}
+{23050}{}{[Cut the connection to the Timer]}
+{23060}{}{[Smash the Timer]}
+{23070}{}{[Put the casing back]}
+{24000}{}{[The port holes look like they might be able to receive another cable. It appears that you could be able to connect something to this, and interfear with the timer]}
+{24010}{}{[Attach your auxillery cable to one of the free slots]}
+{24020}{}{[Disconnect a random cable and attach it to an empty port hole]}
+{24030}{}{[Try something else]}
+{25000}{}{[After a few moments of wasted time, you realize that there is no particular order to the wires. They simply allow the other attached devices to work. You conclude that you shouldn't pull any of them out!]}
+{25010}{}{[Try something else]}
+{26000}{}{[It's a timer, and it's counting down! It's connected to the main components of the bomb, and probably shouldn't be tampered with...]}
+{26010}{}{[Try something else]}
+{27000}{}{[These are assorted pieces of hardware. Little green and blue chips are scattered across the insides of the device. You can't make much sense of it. It simply appears to be a hastily made bomb, built from household electronics]}
+{27010}{}{[Try something else]}
+{28000}{}{[Ohhh, snazzy! But you're wasting time!]}
+{28010}{}{[Try something else]}
+{29000}{}{[After a few moments of clueless deduction, you realize that it's just a light to indicate whether or not the locking system is on or off]}
+{29010}{}{[Try something else]}
+{30000}{}{[On the right side of the bomb are several flashing pieces of random chips, and blinking LED lights. A green component stopped flickering it's red light on and off. Under what appears to be the bomb's main motherboard is a small slot that looks capable of receiving what appears to be a holodisk. A small switch that reads, "Lock" is flipped upwards] }
+{30010}{}{[Examine the electronic chips]}
+{30020}{}{[Examine the LED light system]}
+{30030}{}{[Examine the green component]}
+{30040}{}{[Stick your finger inside of the slot]}
+{30050}{}{[Flip the switch downwards]}
+{30060}{}{[Insert the red chip into the slot]}
+{30070}{}{[Try something else]}
+{31000}{}{[These antenas look like old rabbit ears. They're thin, long, and intertwined. There are numerous copper wires connecting each antena to a power source]}
+{31010}{}{[Rip out the copper wiring]}
+{31020}{}{[Try something else]}
+{32000}{}{[You remove the metallic casing and find the internal mechanism that powers what appears to be the central control mainframe. It looks like a piece is missing from the device. A small square insert is visible near the center of the device]}
+{32010}{}{[Insert your blue receiver into the slot]}
+{32020}{}{[Try something else]}
+{33000}{}{[As soon as you attach the auxillery cable to the bomb, the timer stops, and a pleasant "Have a nice day" is heard fading away in the background]}
+{33010}{}{[Success! You've disabled the bomb!]}
+{34000}{}{[As soon as you insert the red chip into the bomb, the timer stops, and a pleasant "Have a nice day" is heard fading away in the background]}
+{34010}{}{[Success! You've disabled the bomb!]}
+{35000}{}{[As soon as you insert the blue receiver into the bomb, the timer stops, and a pleasant "Have a nice day" is heard fading away in the background]}
+{35010}{}{[Success! You've disabled the bomb!]}
+{36000}{}{[Suddenly, three very angry looking thugs storm into the room, surprised to see that you aren't dead yet. Looks like they might not want to talk]}
+{36010}{}{[Pick up the bomb and hold it above your head, shouting "Stay back! I've got a bomb!"]}
+{36020}{}{[Throw the bomb at the thugs and take cover!]}
+{36030}{}{[Greet the men]}
+{37000}{}{[The men laugh at your pathetic attempt to intimidate them. You decide to put the bomb down and have a chat]}
+{37010}{}{[Continue]}
+{38000}{}{[The men jump back, petrified of being exploded. However the bomb simply rolls around the floor and does absolutely nothing else. You decide to put away your fears and have a chat]}
+{38010}{}{[Continue]}
+{39000}{}{[The head thug begins to speak to you] So, you disarmed the bomb, pretty good. I guess that makes the ol' retard and I even. Sure it was a game of wits, and he didn't really participate, but he managed to convince you to show up instead. Now that takes some skill: convincing a stranger to walk into his own death instead of your own.}
+{39010}{}{Uh... Yeah, I guess. He didn't mention anything about a bomb though...}
+{39020}{}{I'm going to murder him when I get back!}
+{40000}{}{[As you try to leave the thugs block your exit] Not so fast, you're not done yet! This is a game of wits, remember? All you've managed to do was disarm a shit ass bomb using parts I gave you. Any one of those boxes had the answer! Now it's time to test your actual luck! Boys! [The men grab you, and sit you down]}
+{40010}{}{Get your hands off me! }
+{40020}{}{Jesus Christ! What the hell am I doing here?!}
+{40030}{}{Oh golly! Help! I'm being accosted!}
+{41000}{}{Russian roulette time, mother fucker! [A .44 Magnum is thrown onto the table, and a single round is loaded into it. One of the thugs spins the barrel, then presses it against your head!] Are you ready?! It's do or die now! Hahahaha! You think you're so clever?! Think your way out of this!}
+{41010}{}{*Gulp* [Begin!]}
+{41020}{}{I'll kill you! I'll kill you!! [Begin!]}
+{41030}{}{No! Please! Nooooo! [Begin!]}
+{41040}{}{Bring it on you son of a bitch! [Begin!]}
+{41050}{}{No! Not again! [Begin!]}
+{41060}{}{Pfft! I'm the luckiest guy in the world! I can't lose! [Begin!]}
+{42000}{}{*Click*}
+{42010}{}{Oh thank God!}
+{43000}{}{*Click*}
+{43010}{}{Oh thank God!}
+{44000}{}{*Click*}
+{44010}{}{Oh thank God!}
+{45000}{}{[MISSION FAILED] [You hear the silent whisper of a bullet penetrating your brain, and fall deep into the darkness. Whatever life was left inside of your body is now gone, and oozing out all over the floor of this cold, dark basement. You are dead. Game over!]}
+{45010}{}{[Go into the light]}
+{46000}{}{*Click*}
+{46010}{}{Oh thank God!}
+{47000}{}{*Click*}
+{47010}{}{Oh thank God!}
+{48000}{}{[You watch Death escape you, as his dark wings release their grip upon your soul]}
+{48010}{}{[Open your eyes and look up]}
+{49000}{}{[The thugs are staring back at you, astonished] Hmfp! Whatever! You win! Okay?! Get the hell out of here! Go tell that fucking hillbilly that it's over. He can come back to the damn bar in peace! Can't believe I got outsmarted by a fucking redneck! }
+{49010}{}{I'm out of here! [Pocket the gun]}
+{49020}{}{I'm out of here!}
+

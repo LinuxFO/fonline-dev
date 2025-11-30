@@ -1,0 +1,300 @@
+#ifndef __SMARTCURSOR__
+#define __SMARTCURSOR__
+
+// SmartCursor class for FOnline games
+// Wipe/Rotators
+
+// based on script for FOnline: 2238, by JovankaB
+// https://github.com/rotators/fo2238/blob/master/Server/scripts/client_smart_cursor.fos
+
+class SmartCursor
+{
+    uint drawLayer;
+
+    // configurable via DrawInfo()
+    bool drawInfo;
+    bool drawInfoTool;
+    int drawInfoOffsetX;
+    int drawInfoOffsetY;
+    uint drawInfoColor;
+    int drawInfoFont;
+    int drawInfoFlags;
+
+    // configurable via DrawTool()
+    bool drawTool;
+    int drawToolOffsetX;
+    int drawToolOffsetY;
+    uint drawToolSize;
+
+    // internal data
+    private array<array<array<uint>>> data;
+    private array<string> text;
+    private uint clickId;
+    private uint clickPid;
+    private uint clickTarget;
+
+    SmartCursor()
+    {
+        this.drawLayer = 3;
+        this.DrawInfo( true );
+        this.DrawTool( true );
+
+        this.clickId = this.clickPid = this.clickTarget= 0;
+    }
+
+/*********
+ * SETUP *
+ *********/
+
+    void DrawInfo( bool enable, bool toolName = true, int offsetX = 2, int offsetY = -12, uint color = 0, int font = FONT_FALLOUT, int flags = FT_BORDERED )
+    {
+        this.drawInfo = enable;
+        this.drawInfoTool = toolName;
+        this.drawInfoOffsetX = offsetX;
+        this.drawInfoOffsetY = offsetY;
+        this.drawInfoColor = color;
+        this.drawInfoFont = font;
+        this.drawInfoFlags = flags;
+    }
+
+    void DrawTool( bool enable, int offsetX = 3, int offsetY = 5, uint size = 45 )
+    {
+        this.drawTool = enable;
+        this.drawToolOffsetX = offsetX;
+        this.drawToolOffsetY = offsetY;
+        this.drawToolSize = size;
+    }
+
+/***************
+ * COLLECTIONS *
+ ***************/
+
+    // single item, single tool
+    bool Add( uint item, uint tool, array<uint>& slots, string@ text, uint msg, uint idx ) final
+    {
+        array<array<uint>> newData;
+        array<uint> items = { item };
+        newData.insertLast( items );
+        array<uint> tools = { tool };
+        newData.insertLast( tools );
+        newData.insertLast( slots );
+
+        if( valid(text) )
+            return( this.AddInternal( newData, text ));
+        else
+            return( this.AddInternal( newData, GetMsgStr( msg, idx )));
+    }
+
+    // single item, multiple tools
+    bool Add( uint item, array<uint>& tools, array<uint>& slots, string@ text, uint msg, uint idx ) final
+    {
+        array<array<uint>> newData;
+        array<uint> items = { item };
+        newData.insertLast( items );
+        newData.insertLast( tools );
+        newData.insertLast( slots );
+
+        if( valid(text) )
+            return( this.AddInternal( newData, text ));
+        else
+            return( this.AddInternal( newData, GetMsgStr( msg, idx )));
+    }
+
+    // multiple items, single tool
+    bool Add( array<uint>& items, uint tool, array<uint>& slots, string@ text, uint msg, uint idx ) final
+    {
+        array<array<uint>> newData;
+        newData.insertLast( items );
+        array<uint> tools = { tool };
+        newData.insertLast( tools );
+        newData.insertLast( slots );
+
+        if( valid(text) )
+            return( this.AddInternal( newData, text ));
+        else
+            return( this.AddInternal( newData, GetMsgStr( msg, idx )));
+    }
+
+    // multiple items, multiple tools
+    bool Add( array<uint>& items, array<uint>& tools, array<uint>& slots, string@ text, uint msg, uint idx ) final
+    {
+        array<array<uint>> newData;
+        newData.insertLast( items );
+        newData.insertLast( tools );
+        newData.insertLast( slots );
+
+        if( valid(text) )
+            return( this.AddInternal( newData, text ));
+        else
+            return( this.AddInternal( newData, GetMsgStr( msg, idx )));
+    }
+
+    // sanity checks and additional data,
+    // all Add() functions must point here
+    private bool AddInternal( array<array<uint>>& newData, string newMessage ) final
+    {
+        uint nLen = newData.length();
+        if( nLen == 3 )
+        {
+            for( uint n=0; n<nLen; n++ )
+            {
+                uint dLen = newData[n].length();
+                if( dLen == 0 )
+                    return( false );
+            }
+
+            if( newMessage == "error" )
+                newMessage = "";
+
+            this.data.insertLast( newData );
+            this.text.insertLast( newMessage );
+
+            return( true );
+        }
+
+        return( false );
+    }
+
+    // helper,
+    // finds item with given pid in specified slots
+    private ItemCl@ FindTool( CritterCl& chosen, uint pid, array<uint>& slots )
+    {
+        uint slotsLength = slots.length();
+
+        if( slotsLength == 0 )
+            return( null );
+
+        for( uint s=0; s<slotsLength; s++ )
+        {
+            array<ItemCl@> items;
+            uint count = chosen.GetItems( slots[s], items );
+
+            // we need a loop here for SLOT_INV...
+            for( uint i=0; i<count; i++ )
+            {
+                if( items[i].Proto.ProtoId == pid )
+                    return( items[i] );
+            }
+        }
+
+        return( null );
+    }
+
+/********
+ * WORK *
+ ********/
+
+//
+// Draw()
+// called from render_iface(uint)
+//
+
+    void Draw( uint layer ) // just a fast shortcut for scripts which doesn't collect chosen inside render_iface()
+    {
+        CritterCl@ chosen = GetChosen();
+        if( valid(chosen) )
+            this.Draw( layer, chosen );
+    }
+
+    void Draw( uint layer, CritterCl& chosen )
+    {
+        // collect informations only once per rendering cycle
+        if( layer != this.drawLayer )
+            return;
+
+        // clear previous setting
+        this.clickId = this.clickPid = this.clickTarget = 0;
+        if( this.drawTool )
+            __HideCursor = false;
+
+        if( GetCurrentMapPid() > 0 && GetCurrentCursor() == CURSOR_DEFAULT )
+        {
+            // if there's no item under cursor, no magick can be done
+            ItemCl@ item = GetMonitorItem( __MouseX, __MouseY, false );
+            if( valid(item) && FLAG(item.Flags, ITEM_CAN_USE) )
+            {
+                // player found usuable item, check if it's anything interesting
+                uint ipid = item.Proto.ProtoId;
+                for( uint d=0, dLen=this.data.length(); d<dLen; d++ )
+                {
+                    array<uint> items = this.data[d][0];
+                    for( uint i=0, iLen = items.length(); i<iLen; i++ )
+                    {
+                        if( items[i] == ipid )
+                        {
+                            // copy item setting
+                            array<uint> tools = this.data[d][1];
+                            array<uint> slots = this.data[d][2];
+
+                            // current item is using smart cursor,
+                            // check if chosen have proper tool
+                            for( uint t=0, tLen = tools.length(); t<tLen; t++ )
+                            {
+                                ItemCl@ tool = this.FindTool( chosen, tools[t], slots );
+                                if( valid(tool) )
+                                {
+                                    // everything is ready,
+                                    // let the player know that we're using fancy features :)
+
+                                    // text
+                                    if( this.drawInfo )
+                                    {
+                                        string txt = this.text[d];
+
+                                        if( txt.length() > 0 )
+                                        {
+                                            if( this.drawInfoTool )
+                                                txt += " ("+GetMsgStr( TEXTMSG_ITEM, tool.Proto.ProtoId*100+tool.Info )+")";
+
+                                            DrawText( txt, __MouseX + this.drawInfoOffsetX, __MouseY + this.drawInfoOffsetY, 0, 0, this.drawInfoColor, this.drawInfoFont, this.drawInfoFlags );
+                                        }
+                                    }
+
+                                    // graphic
+                                    if( this.drawTool )
+                                    {
+                                        uint spriteId = LoadSprite( tool.PicMap > 0 ? tool.PicMap : tool.Proto.PicMap, tool.Dir );
+                                        if( spriteId > 0 )
+                                        {
+                                            __HideCursor = true;
+                                            DrawSprite( spriteId, -1, __MouseX + this.drawToolOffsetX, __MouseY + this.drawToolOffsetY, this.drawToolSize, this.drawToolSize, true, false, 0 );
+                                        }
+                                    }
+
+                                    // no need to recheck everything again when player bravely press the mouse button,
+                                    // just save required data and get the hell out of here
+                                    this.clickId = tool.Id;
+                                    this.clickPid = tool.Proto.ProtoId;
+                                    this.clickTarget = item.Id;
+
+                                    return;
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+//
+// Click()
+// called from mouse_down(int)
+//
+
+    bool Click( int click )
+    {
+        if( GetCurrentCursor() == CURSOR_DEFAULT && click == MOUSE_CLICK_LEFT &&
+            this.clickId > 0 && this.clickPid > 0 && this.clickTarget > 0 )
+        {
+            array<uint> click = { CHOSEN_USE_ITEM, this.clickId, this.clickPid, TARGET_ITEM, this.clickTarget, ITEM_MODE_USE, 0 };
+            SetChosenActions( click );
+
+            return( true );
+        }
+
+        return( false );
+    }
+};
+
+#endif // __SMARTCURSOR__ //

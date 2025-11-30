@@ -1,0 +1,37 @@
+[comment]
+
+
+[data]
+lang=engl
+
+[dialog]
+&
+1 1000 None 0 #
+2 1010 @
+2 2000 None 0 #
+70 2010 #
+0 2020 D _var p hub_postmanq = 36 R _var p hub_postmanq = 99 @
+70 3000 None 0 #
+71 3010 D _item p PID_BOTTLE_CAPS > 9999 #
+0 3020 @
+71 4000 dialog@dlg_TryEnchantItem 0 #
+0 4010 &
+
+[engl]
+{100}{}{Sulik}
+{200}{}{You see Sulik.}
+{210}{}{You see Sulik, a tribal warrior from the Primitive Tribe.}
+{210}{}{You see an unclean fellow with a nasty facial-twitch.}
+{1000}{}{Predialog settings}
+{1010}{}{Normal}
+{2000}{}{What can we and I do you for?}
+{2010}{}{I heard you know a way to improve melee and throwing weapons, make them a little better than regular stuff.
+}
+{2020}{}{Nothing this time.}
+{3000}{}{Improving weapons you say… I might give it a try, but I must warn you, many things might go wrong in the process and it's hard to predict final result. Hell, it might even destroy your item if you are unlucky! If you want I can try my best but it will cost you, let's say... 10.000, yes, that's a fair price I think.}
+{3010}{}{Here is 10.000 and take this weapon. [You give him item in your hand]}
+{3020}{}{That's all I need to know now, thanks.
+}
+{4000}{}{@lex enchantResult@}
+{4010}{}{Thanks.}
+

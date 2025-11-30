@@ -1,0 +1,462 @@
+#include "_colors.fos"
+#include "_macros.fos"
+#include "_maps.fos"
+#include "_vars.fos"
+#include "entire.fos"
+#include "mapdata_h.fos"
+#include "messages_h.fos"
+#include "npc_common_h.fos"
+#include "npc_planes_h.fos"
+#include "utils_h.fos"
+#include "quest_killmobs_h.fos"
+#include "logging_h.fos"
+
+import void SetWear(Item&item,int wearProcent)from"repair";
+import void SetMinWear(Item&item,int wearProcent)from"repair";
+import void AddSpecialBonusRaidersFarm(Item@ it) from "item_bonus";
+
+#define QUEST_TIME (720) //in minutes - 12h
+
+// npc roles (defines distance mob will attack from))
+#define ROLE_DEFAULT      (0)
+#define ROLE_AGRESSIVE    (1)
+
+// idle time in milseconds (normal is slower for performance issues)
+#define IDLE_NORMAL       (5000)
+#define IDLE_ALERTED      (1000)
+
+#define Q_AVAILABLE      (0)
+#define Q_TAKEN          (1)
+#define Q_FINISHED       (2)
+
+// { motel, tents, cave, camp, vault }
+array<uint> raidersLocations = { LOCATION_Q_FarmRaiders1, LOCATION_Q_FarmRaiders2, LOCATION_Q_FarmRaiders3, LOCATION_Q_FarmRaiders4, LOCATION_Q_FarmRaiders5 };
+array<array<uint>> raidersLocationsDiff =
+{
+    { 0, 1, 3 },    //easy
+    { 0, 2, 3, 4 }, //medium
+    { 0, 2, 3, 4 }  //hard
+};
+
+array<uint> raidersPid = { 853, 854, 855, 856 };
+array<array<array<uint>>> raidersItems = {
+    {   // easy
+        {   //armors
+            PID_LEATHER_JACKET, PID_LEATHER_JACKET_HELMET, PID_CURED_LEATHER_ARMOR, PID_COMBAT_LEATHER_JACKET_HELMET,
+            PID_LEATHER_ARMOR, PID_LEATHER_ARMOR_HELMET, PID_LEATHER_ARMOR_MK_II, PID_LEATHER_ARMOR_HELMET_MK2, PID_METAL_ARMOR, PID_METAL_HELMET
+        },
+        {   //guns
+            PID_ZIP_GUN, PID_9MM_MAUSER, PID_10MM_PISTOL, PID_DESERT_EAGLE, PID_44_MAGNUM_REVOLVER, PID_LASER_PISTOL,
+            PID_HUNTING_RIFLE, PID_SCOPED_HUNTING_RIFLE, PID_RED_RYDER_BB_GUN, PID_SHOTGUN, PID_10MM_SMG,
+            PID_MOLOTOV_COCKTAIL, PID_THROWING_KNIFE, PID_COMBAT_KNIFE, PID_SWITCHBLADE, PID_SHARP_SPEAR, PID_SLEDGEHAMMER, PID_SPIKED_KNUCKLES
+        },
+        {   //other
+            PID_NUKA_COLA, PID_BEER, PID_GAMMA_GULP_BEER, PID_ROENTGEN_RUM, PID_ROT_GUT, PID_MUTATED_FRUIT, PID_CIGARETTES
+        }
+    },
+    {   //medium
+        {   //armors
+            PID_LEATHER_ARMOR, PID_LEATHER_ARMOR_HELMET, PID_LEATHER_ARMOR_MK_II, PID_LEATHER_ARMOR_HELMET_MK2, PID_THERMAL_LEATHER_ARMOR, PID_METAL_HELMET,
+            PID_METAL_ARMOR, PID_METAL_HELMET, PID_METAL_ARMOR_MK_II, PID_METAL_HELMET_MK2, PID_TESLA_ARMOR, PID_TESLA_HELMET, PID_COMBAT_ARMOR, PID_COMBAT_HELMET
+        },
+        {   //guns
+            PID_14MM_PISTOL, PID_223_PISTOL, PID_GRENADE_PISTOL, PID_TOMMY_GUN, PID_GREASE_GUN, PID_MAGNETO_LASER_PISTOL, PID_PLASMA_PISTOL, 
+            PID_ASSAULT_RIFLE, PID_FN_FAL, PID_HK_P90C, PID_COMBAT_SHOTGUN, PID_HK_CAWS, PID_FLAMER, PID_MINIGUN, PID_M60,
+            PID_FRAG_GRENADE, PID_CATTLE_PROD, PID_POWER_FIST, PID_WAKIZASHI_BLADE, PID_RIPPER
+        },
+        {   //other
+            PID_MENTATS, PID_RADAWAY, PID_RAD_X
+        }
+    },
+    {   //hard
+        {   //armors
+            PID_METAL_ARMOR_MK_II, PID_METAL_HELMET_MK2, PID_TESLA_ARMOR, PID_TESLA_HELMET, PID_COMBAT_ARMOR, PID_COMBAT_HELMET,
+            PID_COMBAT_ARMOR_MK_II, PID_COMBAT_HELMET_MK_II, PID_DESERT_COMBAT_ARMOR, PID_DESERT_COMBAT_HELMET
+        },
+        {   //guns
+            PID_SNIPER_RIFLE, PID_ASSAULT_RIFLE_EXT_MAG, PID_GRENADE_LAUNCHER, PID_HK_CAWS, PID_HK_G11, PID_FN_FAL,
+            PID_IMPROVED_FLAMETHROWER, PID_ROCKET_LAUNCHER, PID_MINIGUN, PID_LIGHT_SUPPORT_WEAPON, 
+            PID_LASER_RIFLE, PID_PLASMA_RIFLE, 
+            PID_PLASMA_GRENADE, PID_SUPER_SLEDGE, PID_SUPER_CATTLE_PROD, PID_MEGA_POWER_FIST
+        },
+        {   //other
+            PID_JET, PID_BUFFOUT, PID_PSYCHO, PID_HYPO
+        }
+    }
+};
+
+void r_DeleteRaidersCamp(Critter& player, Critter@ npc)
+{
+    GameVar@ var = GetLocalVar(LVAR_q_farm_location_raiders, player.Id);
+    DeleteLocation(var.GetValue());
+    DynamicLocationDelLog(player, npc, var, "quest_farm_location");
+}
+
+void r_SpawnRaidersCamp(Critter& player, Critter@ npc)
+{
+    r_SpawnRaidersCamp(player, npc, Random(0, 5), Random(0, 2));
+}
+
+void r_SpawnRaidersCamp(Critter& player, Critter@ npc, int diff)
+{
+    uint8 m = 0;
+    m = random_from_array(raidersLocationsDiff[diff]);
+    r_SpawnRaidersCamp(player, npc, m, diff);
+}
+
+void r_SpawnRaidersCamp(Critter& player, Critter@ npc, int m, int diff)
+{
+    Critter@[] crits = { player };
+    uint locId = CreateLocation(raidersLocations[m], Random(1600, 1850), Random(1100, 1250), crits);
+
+    if(locId == 0)
+        return;
+
+//player.Say(SAY_NETMSG, "Created location id: "+locId);
+
+    GameVar@  locIdVar = GetLocalVar(LVAR_q_farm_location_raiders, player.Id);
+    locIdVar = locId;
+
+    Location@ location = GetLocation(locId);
+    location.Color = COLOR_WM_QUEST;
+    location.Update();
+
+    SetRootMapData(location, MAP_DATA_OWNER, player.Id);
+    if(player.Mode[MODE_DEFAULT_COMBAT] == COMBAT_MODE_TURN_BASED)
+        SetTurnBasedAvailability(GetLocation(locId));
+
+    GameVar@ qFarmRaiders = GetLocalVar(LVAR_q_farm_location_raiders_status, player.Id);
+        qFarmRaiders = Q_TAKEN;
+
+    array<Map@> maps;
+    uint        mapcount = location.GetMaps(maps);
+//player.Say(SAY_NETMSG, "map count: "+mapcount);
+    for(uint c = 0; c < mapcount; c++)
+    {
+//player.Say(SAY_NETMSG, "map "+c+" id "+maps[c].Id);
+        bool spawned = false;
+        array<Entire> entires;
+        ParseEntires(maps[c], entires, 1);
+//player.Say(SAY_NETMSG, "NPC entires: "+entires.length());
+        uint maxNpc = (entires.length()*4) / 5;
+        uint minNpc = entires.length() / 2;
+        uint cntNpc = Random(minNpc, maxNpc);
+//player.Say(SAY_NETMSG, "NPC spawned: "+cntNpc);
+        while(!spawned)
+        {     
+            for(uint i = 0; i < cntNpc; i++)
+            {
+                uint          entId = Random(0, entires.length()-1);
+                Entire@       ent = entires[entId];
+                entires.removeAt(entId);
+
+                uint16 npcPid = raidersPid[Random(0, raidersPid.length()-1)];
+                int[] params =
+                {
+                    ST_REPLICATION_TIME, REPLICATION_NEVER,
+                    ST_NPC_ROLE, Random(0, 1)
+                };
+     
+                Critter@ npc = maps[c].AddNpc(npcPid , ent.HexX, ent.HexY, Random(0, 5), params, null, "_MobRaider");
+                if(valid(npc))
+                {
+                    spawned = true;
+                    
+                    //armor
+                    uint armorPos = Random(0, raidersItems[diff][0].length()-1);
+                    if(armorPos%2 != 0)
+                        --armorPos;
+                    uint armorPid = raidersItems[diff][0][armorPos];
+                    Item@ armor = npc.AddItem(armorPid, 1);
+                    npc.SetFavoriteItem(SLOT_ARMOR, armorPid);
+                    if(valid(armor))
+                    {
+                        uint wear = Random(5, 40);
+                        SetMinWear(armor, wear);
+                        SetWear(armor, wear);
+                        int crover = ( (npc.Stat[ST_GENDER] == GENDER_MALE) ? armor.Proto.Armor_CrTypeMale : armor.Proto.Armor_CrTypeFemale );
+                        npc.StatBase[ST_BASE_CRTYPE] = crover;
+                        npc.MoveItem(armor.Id, 1, SLOT_ARMOR);
+                        if(Random(0, 1) == 0)
+                            AddSpecialBonusRaidersFarm(armor);
+                    }
+
+                    uint helmetPid = raidersItems[diff][0][armorPos+1];
+                    if(helmetPid > 0)
+                    {
+                        Item@ helmet = npc.AddItem(helmetPid, 1);
+                        if(valid(helmet))
+                        {
+                            uint wear = Random(5, 40);
+                            SetMinWear(helmet, wear);
+                            SetWear(helmet, wear);
+                            npc.MoveItem(helmet.Id, 1, SLOT_HEAD);
+                            if(Random(0, 1) == 0)
+                                AddSpecialBonusRaidersFarm(helmet);
+                        }
+                    }
+
+                    //gun + ammo
+                    uint gunPid = random_from_array(raidersItems[diff][1]);
+                    uint gunCnt = 1;
+
+                    if(gunPid == PID_MOLOTOV_COCKTAIL || gunPid == PID_PLASMA_GRENADE || gunPid == PID_FRAG_GRENADE || gunPid == PID_SHARP_SPEAR || gunPid == PID_THROWING_KNIFE)
+                        gunCnt = Random(3, 10);
+
+                    Item@ gun = npc.AddItem(gunPid, gunCnt);
+
+                    npc.SetFavoriteItem(SLOT_HAND1, gunPid);
+                    if(valid(gun))
+                    {
+                        if(gun.IsDeteriorable())
+                        {
+                            uint wear = Random(5, 55);
+                            SetMinWear(gun, wear);
+                            SetWear(gun, wear);
+                        }
+
+                        npc.MoveItem(gun.Id, gun.GetCount(), SLOT_HAND1);
+                        if(gun.Proto.Weapon_DefaultAmmoPid > 0)
+                        {
+                            if(gun.Proto.Weapon_DefaultAmmoPid == PID_ROCKET_AP || gun.Proto.Weapon_DefaultAmmoPid == PID_EXPLOSIVE_ROCKET)
+                                npc.AddItem(gun.Proto.Weapon_DefaultAmmoPid, Random(10, 15));    
+                            else if(gun.Proto.Weapon_DefaultAmmoPid == PID_40MM_GRENADE)
+                                npc.AddItem(gun.Proto.Weapon_DefaultAmmoPid, Random(15, 25));    
+                            else
+                            {
+                                uint rounds = MAX(gun.Proto.Weapon_Round_0, gun.Proto.Weapon_Round_1);
+                                npc.AddItem(gun.Proto.Weapon_DefaultAmmoPid, rounds * Random(25, 35));
+                            }
+                        }
+
+                        if(Random(0, 1) == 0)
+                            AddSpecialBonusRaidersFarm(gun);
+                    }
+
+                    //misc
+                    switch(diff)
+                    {
+                        case 2:
+                            npc.AddItem(random_from_array(raidersItems[2][2]), 1);
+                            if(Random(0, 100) < 5)
+                            {
+                                switch(Random(1,3))
+                                {
+                                    case 1: npc.AddItem(PID_POLYMER, 1); break;
+                                    case 2: npc.AddItem(PID_FIBRE2, 1); break;
+                                    case 3: npc.AddItem(PID_ELECTRONIC_PARTS2, 1); break;
+                                }
+                            }
+                        case 1:
+                            npc.AddItem(PID_SUPER_STIMPAK, Random(1, 3));
+                            npc.AddItem(random_from_array(raidersItems[1][2]), 1);
+                        case 0:
+                            npc.AddItem(PID_STIMPAK, Random(1, 3));
+                            npc.AddItem(random_from_array(raidersItems[0][2]), 1);
+                            npc.AddItem(random_from_array(raidersItems[0][2]), 1);
+                            npc.AddItem(random_from_array(raidersItems[0][2]), 1);
+                    }
+
+                    //npc stat adjustment
+                    switch(diff)
+                    {
+                        case 0:
+                            npc.ParamBase[ST_MAX_LIFE] = Random(110, 170);
+                            npc.ParamBase[ST_CURRENT_HP] = npc.ParamBase[ST_MAX_LIFE];
+                            npc.StatBase[ST_ACTION_POINTS] = Random(2,3);
+                            npc.StatBase[ST_KILL_EXPERIENCE] = 350;
+                            break;
+                        case 1:
+                            npc.ParamBase[ST_MAX_LIFE] = Random(150, 210);
+                            npc.ParamBase[ST_CURRENT_HP] = npc.ParamBase[ST_MAX_LIFE];
+                            npc.StatBase[ST_ACTION_POINTS] = Random(3,4);
+                            npc.StatBase[ST_KILL_EXPERIENCE] = 500;
+                            break;
+                        case 2:
+
+                            break;
+                    }
+                }
+            }
+        }
+    }
+
+    SetQuestGarbager(QUEST_TIME, player.Id, locId, LVAR_q_farm_location_raiders_status, Q_AVAILABLE);
+    DynamicLocationAddLog(player, npc, locIdVar, "quest_farm_location");
+}
+
+void _MobRaider(Critter& mob, bool firstTime)
+{
+    _CritSetExtMode(mob, MODE_EXT_MOB);
+    _CritSetMode(mob, MODE_NO_DROP);
+    mob.SetEvent(CRITTER_EVENT_IDLE, "_MobIdle");
+    mob.SetEvent(CRITTER_EVENT_DEAD, "_MobDead");
+    mob.SetEvent(CRITTER_EVENT_ATTACKED, "_MobAttacked");
+    mob.SetEvent(CRITTER_EVENT_ATTACK, "_MobAttacking");
+    mob.SetEvent(CRITTER_EVENT_MESSAGE, "_MobOnMessage");
+    mob.SetEvent(CRITTER_EVENT_SMTH_DEAD, "_MobSmthDead");
+}
+
+void _MobIdle(Critter& mob)
+{
+    // the great optimizer
+    if(!mob.IsLife())
+    {
+        mob.Wait(IDLE_NORMAL);
+        return;
+    }
+
+    array<Critter@> crits;
+    uint            num = mob.GetCritters(false, FIND_ONLY_PLAYERS | FIND_LIFE, crits);
+    //mob.Say(SAY_NORM_ON_HEAD, ""+num);
+    uint dist = GetDistance(mob);
+    for(uint i = 0; i < num; i++)
+    {
+        uint curDist = GetCrittersDistantion(mob, crits[i]);
+        if(curDist > dist)
+        {
+            //mob.Say(SAY_NORM_ON_HEAD, "Too far! " + curDist + " " + dist);
+            continue;
+        }
+        else
+        {
+            // attack
+            if(crits[i].Mode[MODE_HIDE] != 0 || curDist < 5)
+            {
+                //mob.Say(SAY_NORM, "Attack now!");
+                AttackCritter(mob, crits[i]);
+            }
+            else
+            {
+                //mob.Say(SAY_NORM, "Attack soon!");
+                mob.AddEnemyInStack(crits[i].Id);
+            }
+            return;
+        }
+    }
+
+    if(crits.length() > 0)
+    {
+        mob.Wait(IDLE_ALERTED);
+    }
+    else
+    {
+        if(Random(0, 5) == 0)
+            mob.MoveRandom();
+        mob.Wait(IDLE_NORMAL);
+    }
+}
+
+uint GetDistance(Critter& cr)
+{
+    uint base = __LookNormal + 3 * cr.Stat[ST_PERCEPTION];
+
+    if(cr.Stat[ST_NPC_ROLE] == ROLE_AGRESSIVE)
+        return base / 2;
+    else
+        return base / 3;
+}
+
+bool _MobAttacked(Critter& cr, Critter& attacker)
+{
+    cr.SendMessage(MSG_IM_ATTACKED, attacker.Id, MESSAGE_TO_WHO_SEES_ME);
+    return false;
+}
+
+bool _MobAttacking(Critter& cr, Critter& attacker)
+{
+    cr.SendMessage(MSG_GUARD_ATTACKING, attacker.Id, MESSAGE_TO_WHO_SEES_ME);
+    return false;
+}
+
+void _MobOnMessage(Critter& cr, Critter& fromCr, int message, int value)
+{
+    if(message == MSG_IM_ATTACKED || message == MSG_GUARD_ATTACKING)
+    {
+        uint dist = GetDistance(cr);
+        if(GetCrittersDistantion(cr, fromCr) <= dist/2)
+            AttackCritter(cr, GetCritter(value));
+    }
+        
+}
+
+void _MobDead(Critter& cr, Critter@ killer)
+{
+    array<Item@> items;
+    uint nItems = cr.GetItems(-1, items);
+    for(uint i = 0; i < nItems; i++)
+        if(Random(0, 100) < 80)
+            DeleteItem(items[i]);
+
+    Map@ farmMap = cr.GetMap();
+    if(!valid(farmMap))
+        return;
+
+    Location@ farmLoc = farmMap.GetLocation();
+    if(!valid(farmLoc))
+        return;
+
+    array<Map@> maps;
+    uint nMaps = farmLoc.GetMaps(maps);
+
+    uint remainingEnemies = 0;
+    for(uint i=0; i < nMaps; ++i)
+    {
+        for(int j=0, k=raidersPid.length(); j < k; ++j)
+            remainingEnemies += maps[i].GetCritters(raidersPid[j], FIND_ONLY_NPC | FIND_LIFE_AND_KO, null);
+    }
+
+    if(remainingEnemies == 0)
+    {
+        uint ownerId = GetRootMapData(farmLoc, MAP_DATA_OWNER);
+        if(ownerId == 0)
+            return;
+
+        GameVar@ qFarmRaiders = GetLocalVar(LVAR_q_farm_location_raiders_status, ownerId);
+        qFarmRaiders = Q_FINISHED;
+        Critter@ player = GetCritter(ownerId);
+        if(valid(player))
+            player.Say(SAY_NETMSG, "|0xFFFFFF I killed all raiders. I should get back and make a report.");
+    }
+}
+
+void _MobSmthDead(Critter& cr, Critter& killed, Critter@ killer)
+{
+    cr.EraseEnemyFromStack(killed.Id);
+}
+
+void map_init(Map& map, bool firstTime)
+{
+    map.SetEvent(MAP_EVENT_IN_CRITTER, "_CritterInMap");
+}
+
+void _CritterInMap(Map& map, Critter& cr)
+{
+    if(cr.IsPlayer())
+    {
+        if(cr.Stat[ST_LEVEL] < 12)
+        {
+            CreateTimeEvent(AFTER(REAL_SECOND(1)), "e_CritterKick", cr.Id, false);
+            return;
+        }
+
+        Location@ loc = map.GetLocation();
+        if(valid(loc) && !cr.IsKnownLoc(true,loc.Id)) 
+        {
+            cr.SetKnownLoc(true, loc.Id);
+            cr.Say(SAY_NETMSG, "You note coordinates of this location in your PipBoy.");
+        }
+    }
+}
+
+uint e_CritterKick(array<int>@ data)
+{
+    Critter@ cr = GetCritter(data[0]);
+    if(valid(cr) && cr.IsPlayer())
+    {
+        cr.Say(SAY_NETMSG, "You were too weak to help there.");
+        cr.TransitToGlobal(false);
+    }
+
+    return(0);
+}

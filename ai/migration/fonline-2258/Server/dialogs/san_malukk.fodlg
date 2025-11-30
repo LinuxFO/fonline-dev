@@ -1,0 +1,62 @@
+[comment]
+
+
+[data]
+lang=engl
+
+[dialog]
+&
+1 1000 None 0 #
+2 1010 D _var p name_mem_npc_player = 0 #
+8 1020 D _var p name_mem_npc_player = 1 #
+7 1030 D _var p q_tin = 4 D _var p name_mem_npc_player = 1 @
+2 2000 None 0 #
+3 2010 D _param p ST_LEVEL > 11 #
+0 2020 @
+3 3000 None 0 #
+4 3010 #
+0 3020 @
+4 4000 None 0 #
+5 4010 @
+5 5000 None 0 #
+6 5010 #
+0 5020 @
+6 6000 None 0 #
+9 6010 D _param p ST_LEVEL > 11 #
+0 6020 @
+7 7000 None 0 @
+8 8000 None 0 #
+7 8010 D _var p q_tin = 3 R _var p q_tin = 4 R _script quest_tin@r_DeleteLoc 0  R _param p ST_KARMA + 1 R _param p REPUTATION_COMMUNISTS + 62 R _script dialog@r_AddExperience 1 5000 R _script dialog@r_AddMoney 1 5000 R _item p PID_SUPER_CATTLE_PROD + 1 R _item p PID_PLASMA_GRENADE + 2 R _item p PID_MICRO_FUSION_CELL + 50 R _script dialog@r_BulkOrderRewardJunk 0  R _var p z_warrior2 + 1 #
+7 8020 @
+9 9000 None 0 #
+0 9010 R _var p name_mem_npc_player = 1 R _var p q_tin = 2 R _script quest_tin@r_SpawnLoc 0  &
+
+[engl]
+{100}{}{Ma'Lukk Lo'Thar}
+{200}{}{You see Ma'Lukk Lo'Thar}
+{210}{}{You see a out of place tribal}
+{1000}{}{Predialogue installations}
+{1010}{}{unknown}
+{1020}{}{known}
+{1030}{}{finish}
+{2000}{}{The man... The man of steel he come... He take everything...}
+{2010}{}{Man of steel? Superman? That's the only man of steel I know.}
+{2020}{}{Sorry, I don't have time for this.}
+{3000}{}{Yes... Yes he was, a super man. This man he come, I had everything. Now look at me... Naked and afraid!}
+{3010}{}{Did he go around flying and stuff? With a cape?}
+{3020}{}{I'm sure you'll survive.}
+{4000}{}{Fly!? No, this man, he had a powerful suit of metal, and a creature, a creature with tentacles that burn, like fire.}
+{4010}{}{I think we might be talking about a different Superman. But go on.}
+{5000}{}{He laughed, oh... How he laughed as he slaughtered my companions. The horror as that thing ripped my friends apart.}
+{5010}{}{That's horrible! Somebody should do something!}
+{5020}{}{Sounds like a typical weekend in the wastes to me, see ya.}
+{6000}{}{Traveller, please, help me! Avenge my fallen companions. Put an end to this man of steel, and that abomination that travels with him.}
+{6010}{}{That sounds a little tough, but sure why not. [He shows you on a map the location of this "Man Of Steel"]}
+{6020}{}{Sorry, but I'm really not ready for this.}
+{7000}{}{Thank you traveller. May the spirits lead your path.}
+{8000}{}{I see you have returned. Has that monster been killed?}
+{8010}{}{It's done. That creature he was with, sure was something else.}
+{8020}{}{Not yet, I'm still working on it.}
+{9000}{}{Luck be good. [If you'd like to do this mission in Turn Based mode type /combatmode tb before continuing] [Champion Battle!]}
+{9010}{}{Better find some Kryptonite.}
+

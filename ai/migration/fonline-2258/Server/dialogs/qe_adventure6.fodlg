@@ -1,0 +1,70 @@
+[comment]
+
+
+[data]
+lang=engl
+
+[dialog]
+&
+1 1000 None 0 #
+2 1010 D _var p name_mem_npc_player = 0 #
+12 1020 D _var p name_mem_npc_player = 1 @
+2 2000 None 0 #
+4 2010 D _var p q_adventure = 7 @
+4 3000 None 0 #
+5 3010 @
+5 4000 None 0 #
+6 4010 @
+6 5000 None 0 #
+7 5010 @
+7 6000 None 0 #
+8 6010 @
+8 7000 None 0 #
+9 7010 @
+9 8000 None 0 #
+10 8010 @
+10 9000 None 0 #
+11 9010 R _var p q_adventure = 8 R _script dialog@r_AddExperience 1 1200 R _var p name_mem_npc_player = 1 @
+11 10000 None 0 @
+12 11000 None 0 #
+13 11010 D _var p q_adventure = 10 @
+13 12000 None 0 #
+14 12010 @
+14 13000 None 0 #
+15 13010 @
+15 14000 None 0 #
+0 14010 R _var p q_adventure = 11 R _script quest_advent2@r_DeleteLoc 0  R _script dialog@r_AddExperience 1 2500 R _script dialog@r_AddMoney 1 2500 &
+
+[engl]
+{100}{}{Councilwoman McClaire}
+{200}{}{You see Councilwoman McClaire.}
+{210}{}{She looks like a figure of power. Very stern, and well respected.}
+{1000}{}{Predialogue installations}
+{1010}{}{1}
+{1020}{}{2}
+{2000}{}{Hi, I'm Melissa McClaire. Councilwoman for Vault City. If you're looking for the banker, my assistant is right over there.}
+{2010}{}{I have a letter for you...}
+{3000}{}{A letter? What? From who?}
+{3010}{}{[Hand her the Letter]}
+{4000}{}{What is the meaning of this?! [She opens the letter and starts to read it. Her expression progressively gets worse, and worse] }
+{4010}{}{[Say nothing]}
+{5000}{}{Is this some kind of joke? Where the hell is Vault 24? How come I've never heard of it! I thought there were only four vaults in California?! Our computers can't be wrong!}
+{5010}{}{It's not a joke, ma'am. I was born and raised inside Vault 24. My Overseer sent me over here to deliver this message.}
+{6000}{}{Oh? Did he send you here to hack into our mainframe and install that backdoor as well?!}
+{6010}{}{I have no idea what you're talking about, ma'am. I'm simply here to deliver a letter.}
+{7000}{}{Don't think that I am stupid, @pname@! Kohl saw you insert your PipBoy into the public computer! You planted that goddamn virus, and started this whole blackmail!}
+{7010}{}{Ma'am, I assure you that I didn't mean any harm. I was simply following orders. I don't even know what that letter says, or what my vault is planning. }
+{8000}{}{Bullshit. You're a spy! Here to sabotage our efforts!}
+{8010}{}{Ma'am, in January of 2254 I was released from my vault. Thrown to the wolves and left in the dark. I have no idea what's going on, and I just want to make a life for myself. I didn't ask to be dragged into any of this! I just want to go home! Wherever that is now.}
+{9000}{}{[McClaire does not seem convinced] If your Overseer wants me to do what's inside this letter I expect something out of it in return! First of all! You're going to delete that Trojan! Second of all you're going to take care of a little problem I've been having with a couple of my citizens. Go talk to Bishop in New Reno. Tell him I sent you, and that you are to take Eldor's place.}
+{9010}{}{What? What the hell do you expect me to do over there? I'm not your personal assassin!}
+{10000}{}{The deal isn't over until I say it's over! Go talk to Bishop! Right now!}
+{11000}{}{You again? I don't think we have any more to discuss. My assistant is right over there. Speak with him, please.}
+{11010}{}{I did what you asked. I won't do something like that again for you! Ever! }
+{12000}{}{[She laughs] Good! Good! Ahahah! Very good. }
+{12010}{}{Who were those people?}
+{13000}{}{People that stood in the way of progress, that's all. Don't become one of them, @pname@. We're watching you.}
+{13010}{}{Uh... okay. So what now? Is the deal off, or what? I don't even know what's going on anymore!}
+{14000}{}{[She smiles] Give this letter to the same man that gave you the first letter. We're done here. Take this money, and let's never speak again. I highly suggest depositing it with the FLC. Your money will be safe there, and you can access it from any city's bank. Goodbye, @pname@. Tell your Overseer that he's an asshole!}
+{14010}{}{Oh, I will. Trust me. Goodbye, McClaire.}
+

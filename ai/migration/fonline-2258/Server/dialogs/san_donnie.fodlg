@@ -1,0 +1,54 @@
+[comment]
+
+
+[data]
+lang=engl
+
+[dialog]
+&
+1 1000 None 0 #
+2 1010 D _var p san_donnie = 0 #
+6 1020 D _var p san_donnie = 1 #
+7 1030 D _var p san_donnie = 2 @
+2 2000 None 0 #
+3 2010 #
+0 2020 @
+3 3000 None 0 #
+4 3010 #
+0 3020 @
+4 4000 None 0 #
+5 4010 #
+0 4020 @
+5 5000 None 0 #
+0 5010 R _var p san_donnie = 1 #
+0 5020 @
+6 6000 None 0 #
+7 6010 D _item p PID_CAR_FUEL_CELL_CONTROLLER > 0 R _item p PID_CAR_FUEL_CELL_CONTROLLER - 1 R _var p san_donnie = 2 R _script dialog@r_AddExperience 1 1000 R _script dialog@r_AddMoney 1 1000 R _param p ST_KARMA + 1 R _script dialog@r_BulkOrderRewardJunk 0  R _script dialog@r_BulkOrderRewardLow 0  #
+0 6020 @
+7 7000 None 0 &
+
+[engl]
+{100}{}{Donnie Yen}
+{200}{}{Donnie Yen}
+{210}{}{You see a man with a sad look in his eyes. He's staring into the water.}
+{1000}{}{Predialogue installations}
+{1010}{}{Intro}
+{1020}{}{known}
+{1030}{}{finished}
+{2000}{}{[As you approach, the man turns towards you. His eyes are filled with a deep sadness. A sadness that cannot be explained with words] Why?! Why did this have to happen to me?!}
+{2010}{}{What happened?}
+{2020}{}{Life stinks buddy, get used to it.}
+{3000}{}{[He holds up a set of keys, and points towards the car in the water] My car! My damn car is in the water! I'm screwed, I tell ya! Screwed!}
+{3010}{}{Wow... How the hell did that happen?}
+{3020}{}{You're right, you are screwed. Best of luck to you, I got other things to worry about.}
+{4000}{}{Some asshole with a forklift, I tell ya! A forklift!}
+{4010}{}{Well... What can I do about it?}
+{4020}{}{I'd really like to help you, I would, but it looks like a lost cause to me.}
+{5000}{}{I'll go find that little shit with the forklift, and get my car out of the water. From you, I need a fuel cell controller, I tell ya! A fuel cell controller!}
+{5010}{}{Those aren't easy to come by, but I'll see what I can do.}
+{5020}{}{No way! Get it yourself!}
+{6000}{}{Welcome back, I tell ya! Welcome back! Have you found a Fuel Cell Controller yet?}
+{6010}{}{Sure did! Took a bit, but I managed to get one. Here you go. [Hand over a fuel cell controller]}
+{6020}{}{Not yet, I'm still looking.}
+{7000}{}{Thanks again for all your help, I tell ya! Thanks again!}
+

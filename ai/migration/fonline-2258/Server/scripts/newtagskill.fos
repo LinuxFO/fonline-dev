@@ -1,0 +1,188 @@
+///JohnPL
+
+#include "_macros.fos"
+
+
+void unsafe_AddNewTagSkill(Critter& player, int newTagSkill, int , int , string@ , int[]@ )
+{	
+	AddNewTagSkill(player.Id, newTagSkill);
+}
+
+
+void AddNewTagSkill(int playerID, int newTagSkill)
+{
+	Critter@ player = GetCritter(playerID);
+	if(@player == null)
+	{
+		return;
+	} 
+	else if(_CritIsTagSkill(player, newTagSkill))
+	{
+		// ten gracz juz ma tego tag skilla
+		Log("(player id"+playerID+") ten gracz juz ma tego tag skilla");
+		return;
+	}
+	else if(player.ParamBase[ST_UNSPENT_TAG] == 0) 
+	{
+		// ten gracz ma juz 4 tag skille
+		Log("(player id"+playerID+") ten gracz juz ma 4 skilla");
+		return;
+	}
+	else 
+	{
+		int baseSkill = getBaseSkillValue(player, newTagSkill);
+		
+		if(baseSkill == 0) 
+		{
+			//blad!
+			Log("(player id"+playerID+") blad, zly skill?");
+			return;
+		}
+		
+		int spendesSkillPints = getSpendedSkillPoints(baseSkill, player.ParamBase[newTagSkill]);
+
+		baseSkill += 20; // tag bonus
+
+		player.ParamBase[newTagSkill] = getNewSkillValue(baseSkill, spendesSkillPints);
+
+		player.ParamBase[TAG_SKILL4] = newTagSkill;
+		player.ParamBase[ST_UNSPENT_TAG] = 0;
+	}
+}
+
+
+// ------------------------------- PRIVATE -----------------------------------------
+
+
+/// Zwraca ile trzeba wydac skill pointow by osiagnac dany poziom skilla(bez taga)
+/// startValue - bazowa wartosc skilla po rejestracji
+/// actualSkill - aktualna wartosc skilla
+int getSpendedSkillPoints(int startValue, int actualSkill)
+{
+	int spendedSkillPoints = 0;
+
+	while(startValue <= --actualSkill) 
+	{
+		if(actualSkill > __SkillModAdd5) spendedSkillPoints += 5;
+		else if(actualSkill > __SkillModAdd4) spendedSkillPoints += 4;
+		else if(actualSkill > __SkillModAdd3) spendedSkillPoints += 3;
+		else if(actualSkill > __SkillModAdd2) spendedSkillPoints += 2;
+		else if(actualSkill <= __SkillModAdd2) spendedSkillPoints += 1;
+	}
+
+	return spendedSkillPoints;
+}
+
+/// Zwraca nowa wartosc tag skilla po wydaniu okreslonej liczby skill pointow
+int getNewSkillValue(int actualSkill, int skillPointsToSpend)
+{
+	if(skillPointsToSpend == 0) return actualSkill;
+
+	int newSkillValue = actualSkill;
+
+	while(skillPointsToSpend >= 0)
+	{
+		int needPoints = 1;
+		
+		if(newSkillValue > __SkillModAdd5) needPoints = 5;
+		else if(newSkillValue > __SkillModAdd4) needPoints = 4;
+		else if(newSkillValue > __SkillModAdd3) needPoints = 3;
+		else if(newSkillValue > __SkillModAdd2) needPoints = 2;
+
+		newSkillValue += 2;
+
+		skillPointsToSpend -= needPoints;
+
+		if(newSkillValue >= MAX_SKILL_VAL) return MAX_SKILL_VAL;
+	}
+
+	return newSkillValue;
+}
+
+///Zwraca bazowa poczatkowa wartosc skilla
+int getBaseSkillValue(Critter &player, int skill) 
+{
+	int baseSkill = 0;
+
+	switch(skill)
+	{
+		case SK_SMALL_GUNS: {
+			baseSkill = 5 + 4 * player.StatBase[ST_AGILITY];
+			break;
+		}
+		case SK_BIG_GUNS: {
+			baseSkill = 0 + 2 * player.StatBase[ST_AGILITY];
+			break;
+		}
+		case SK_ENERGY_WEAPONS: {
+			baseSkill = 0 + 2 * player.StatBase[ST_AGILITY];
+			break;
+		}
+		case SK_UNARMED: {
+			baseSkill = 30 + 2 * (player.StatBase[ST_AGILITY] + player.StatBase[ST_STRENGTH]);
+			break;
+		}
+		case SK_SCAVENGING: {
+			//baseSkill = 20 + 2 * (player.StatBase[ST_AGILITY] + player.StatBase[ST_STRENGTH]);
+			baseSkill = 0;
+			break;
+		}
+		case SK_THROWING: {
+			baseSkill = 0 + 4 * player.StatBase[ST_AGILITY];
+			break;
+		}
+		case SK_FIRST_AID: {
+			baseSkill = 0 + 2 * (player.StatBase[ST_PERCEPTION] + player.StatBase[ST_INTELLECT]);
+			break;
+		}
+		case SK_DOCTOR: {
+			baseSkill = 5 + player.StatBase[ST_PERCEPTION] + player.StatBase[ST_INTELLECT];
+			break;
+		}
+		case SK_SNEAK: {
+			baseSkill = 5 + 3 * player.StatBase[ST_AGILITY];
+			break;
+		}
+		case SK_LOCKPICK: {
+			baseSkill = 10 + player.StatBase[ST_PERCEPTION] + player.StatBase[ST_AGILITY];
+			break;
+		}
+		case SK_STEAL: {
+			baseSkill = 0 + 3 * player.StatBase[ST_AGILITY];
+			break;
+		}
+		case SK_TRAPS: {
+			baseSkill = 10 + player.StatBase[ST_PERCEPTION] + player.StatBase[ST_AGILITY];
+			break;
+		}
+		case SK_SCIENCE: {
+			baseSkill = 0 + 4 * player.StatBase[ST_INTELLECT];
+			break;
+		}
+		case SK_REPAIR: {
+			baseSkill = 0 + 3 * player.StatBase[ST_INTELLECT];
+			break;
+		}
+		case SK_SPEECH: {
+			baseSkill = 0 + 5 * player.StatBase[ST_CHARISMA];
+			break;
+		}
+		case SK_BARTER: {
+			baseSkill = 0 + 4 * player.StatBase[ST_CHARISMA];
+			break;
+		}
+		case SK_GAMBLING: {
+			baseSkill = 0 + 5 * player.StatBase[ST_LUCK];
+			break;
+		}
+		case SK_OUTDOORSMAN: {
+			baseSkill = 0 + 2 * (player.StatBase[ST_ENDURANCE] + player.StatBase[ST_INTELLECT]);
+			break;
+		}
+		default:
+		// bledny id skilla
+		return 0;
+	}
+
+	return baseSkill;
+}

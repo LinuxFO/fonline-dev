@@ -1,0 +1,142 @@
+[comment]
+
+
+[data]
+lang=engl
+
+[dialog]
+&
+1 1000 None 0 #
+9 1010 D _var p name_mem_player_npc = 1 #
+2 1020 D _var p name_mem_player_npc = 0 @
+2 2000 None 0 #
+3 2010 #
+3 2020 #
+0 2030 @
+3 3000 None 0 #
+4 3010 #
+0 3020 @
+4 4000 None 0 #
+5 4010 #
+5 4020 #
+0 4030 @
+5 5000 None 0 #
+6 5010 #
+6 5020 #
+0 5030 @
+6 6000 None 0 #
+7 6010 #
+7 6020 #
+0 6030 @
+7 7000 None 0 #
+10 7010 @
+10 8000 None 0 #
+11 8010 #
+0 8020 @
+11 9000 None 0 #
+8 9010 #
+0 9020 R _var p name_mem_player_npc = 1 @
+8 10000 None 0 #
+0 10010 R _var p name_mem_player_npc = 1 @
+9 11000 None 0 #
+12 11010 #
+13 11020 D _item p PID_METAL_ORE > 9 R _item p PID_METAL_ORE - 10 R _var p BURNHAM + 25 R _script dialog@r_AddMoney 1 115 R _script dialog@r_AddExperience 1 128 #
+14 11030 D _item p PID_MINERAL > 9 R _item p PID_MINERAL - 10 R _var p BURNHAM + 30 R _script dialog@r_AddMoney 1 92 R _script dialog@r_AddExperience 1 128 #
+16 11040 D _var p junktown_monsters = 3 #
+21 11050 #
+0 11060 @
+12 12000 None 0 #
+0 12010 @
+13 13000 None 0 #
+9 13010 @
+14 14000 None 0 #
+9 14010 @
+15 15000 None 0 @
+16 16000 None 0 #
+17 16010 @
+17 17000 None 0 #
+18 17010 @
+18 18000 None 0 #
+19 18010 @
+19 19000 None 0 #
+20 19010 R _var p junktown_monsters = 4 @
+20 20000 None 0 @
+21 21000 dialog@dlg_Burnham 0 #
+22 21010 D _var p BURNHAM } 1000 D _script dialog@d_QuestTimeoutReady 0  R _script dialog@r_QuestTimeout 1 18 R _var p BURNHAM - 300 R _script dialog@r_AddMoney 1 300 R _script dialog@r_BulkOrderRewardLow 0  #
+23 21020 D _var p BURNHAM { 1000 #
+9 21030 @
+22 22000 None 0 @
+23 23000 None 0 &
+
+[engl]
+{100}{}{Trent Burham}
+{200}{}{You see an angry looking businessman.}
+{210}{}{He looks covered in sweat and dust, which doesn't make him look very professional. }
+{220}{}{He looks: Knocked Out.}
+{230}{}{He's Knocked Out.}
+{240}{}{He looks: Almost Dead.}
+{250}{}{He's Almost Dead.}
+{260}{}{He looks: Dead}
+{270}{}{He's Dead.}
+{1000}{}{Predialogue installations}
+{1010}{}{Known}
+{1020}{}{notknown}
+{2000}{}{Ah, good sir! Could you spare a moment of your time? Please, have a seat.}
+{2010}{}{Uh, yeah sure.}
+{2020}{}{What the hell do you want?}
+{2030}{}{No, I've got to go, sorry.}
+{3000}{}{The name's Trent Burham stranger, it is a pleasure to meet you, and...Wait a minute! [Trent stares deep into your eyes] You're not a business man! What the hell do you want?! Do I look like I'm interested in talking to you?!}
+{3010}{}{You just look like you might need some help, that's all. My name's @pname@, and I'm a problem solver.}
+{3020}{}{No, I'll just leave then.}
+{4000}{}{If that's the case, then let me ask you a question. Have you ever had a dream, @pname@?}
+{4010}{}{Of course! I dreamt of a huge bird, that swooped down from the sky, and took a tribe of...}
+{4020}{}{Can't say that I have.}
+{4030}{}{Yeah, yeah. Fuck you and your dreams, I'm out of here.}
+{5000}{}{I had a dream! [He completely interrupts you and begins his spiel...]}
+{5010}{}{Great, here it comes [You prepare yourself for the most boring part of your day]}
+{5020}{}{[Listen]}
+{5030}{}{I really don't have time for this. Goodbye.}
+{6000}{}{I dreamt of a new age! An age of Kings & Queens, of Rockefellers & Kennedys! Of good ol' American pride and intuition! I dreamed of a new world. A world where men, women, and children could all rejoice, and live in peace, prosperity, and great wealth! But what do I call this place, you ask? Burham Springs of course! }
+{6010}{}{Please continue...}
+{6020}{}{Spit it out, you silly fuck.}
+{6030}{}{We aren't seriously doing this, are we? I'm gone.}
+{7000}{}{And!... Well that's it actually. I'm trying to get Tandi's support in helping me create a new city. A better city. A safer city. The only problem is that old bitch thinks it's a waste of time! She says there's nothing left to profit from! She has no faith in my dream! But, if you can get enough support from the locals around NCR, I might just have a chance at getting appointed into their government. If not then I'm still stuck here with these incompetent nitwits mining away in this shit hole.}
+{7010}{}{So let me get this straight. You want me to help you get elected?}
+{8000}{}{If you're such a "Problem Solver" then this shouldn't be a problem for you; grab a sledgehammer, and help me raise enough resources to bribe Congress! People only care about money, and it's the only language people really understand.}
+{8010}{}{Hmm, that doesn't sound too bad. What's in it for me?}
+{8020}{}{This sounds a little suspicious to me, sorry. }
+{9000}{}{What's in it for you? A good word around NCR? A good ol' handshake and a pat on the back? No? How about a couple of caps then?}
+{9010}{}{Alright, I'll help you out. What exactly do you want me to do?}
+{9020}{}{Let me think about it, I'll get back to you. Goodbye. }
+{10000}{}{Well you see, the problem is really Tandi, but that old bitch won't listen to reason. I'm pretty sure there's another mine around here, but no one believes anything any more for free.  If you can gather 10 piles of ore or minerals, It will really help my cause. I'll give you 92 caps per bundle of minerals, and 115 caps per bundle of ore, but that's it. The rest of the profits are going to the future of Burham Springs. }
+{10010}{}{I'll go find a sledgehammer and get started... Eventually.}
+{11000}{}{What is it, @pname@? Spit it out already!}
+{11010}{}{What did you want me to do again?}
+{11020}{}{I've got some Ore here.}
+{11030}{}{I've got some Minerals for you.}
+{11040}{}{So apparently you started all these monster rumours. What's going on?}
+{11050}{}{How much money have you raised so far?}
+{11060}{}{[Just leave]}
+{12000}{}{Did you forget already?! Help me bribe Congress by mining me 10 bundles of ore, or minerals. Now git' to it! I need the resources!}
+{12010}{}{Oh, right.}
+{13000}{}{Impressive @pname@, here's your 115 caps. Keep it up.}
+{13010}{}{Thanks.}
+{14000}{}{Very good @pname@, here's your 92 caps. Now git' back to work!}
+{14010}{}{Thanks.}
+{15000}{}{Get lost.}
+{16000}{}{[He begins to whimper] Mon... monsters... They're real, @pname@! I've... I've seen... something... out there. It... it... killed one of the guards. Tore him to pieces and chewed him up. I... I've never... never seen... anything... so... horrifying before.}
+{16010}{}{What the hell? So it isn't some guy in disguise?}
+{17000}{}{God no! I'm not stupid! It was a living, breathing creature. Stood on two legs, and had claws bigger than my entire head. [Your PipBoy beeps, and displays a picture of a Deathclaw. You aren't quite sure what that is, but at least now you know that it isn't some kind of real monster. It's just a hideously mutated wild animal]}
+{17010}{}{What the hell is a Deathclaw?}
+{18000}{}{What my nightmares are made of!}
+{18010}{}{Where did you see it? How can I track this thing?}
+{19000}{}{I don't know! Go talk to a professional trapper!}
+{19010}{}{Where--}
+{20000}{}{Will you get out of here! I'm goddamn busy!}
+{21000}{}{@lex pointsHAM@$ What's it to you?}
+{21010}{}{Why don't you share the wealth?}
+{21020}{}{Why don't you share the wealth?}
+{21030}{}{No reason.}
+{22000}{}{Fine. I guess I owe you people.}
+{23000}{}{What! Why should I do that? Maybe if I made at least a thousand in profits...}
+

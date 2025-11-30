@@ -1,0 +1,109 @@
+[comment]
+lighter job 
+
+[data]
+lang=engl russ
+
+[dialog]
+&
+1 1000 None 0 #
+2 1010 D _var p player_farmOwner = 1 D _var n player_farmHuntr = 1 #
+5 1020 D _var p player_farmOwner = 1 D _var n player_farmHuntr = 0 #
+6 1030 D _var p player_farmOwner = 0 @
+6 2000 None 0 @
+5 3000 None 0 #
+2 3010 D _var p player_farmIncome > 4999 R _var p player_farmIncome - 5000 R _var n player_farmHuntr = 1 #
+0 3020 @
+2 4000 None 0 #
+7 4010 D _script dialog@d_CommonTimeoutReady 0  D _var p player_farmWater > 2 D _var p player_farmWood > 2 #
+3 4020 #
+4 4030 #
+0 4040 @
+3 5000 None 0 #
+2 5010 @
+4 6000 None 0 #
+2 6010 @
+7 7000 None 0 #
+8 7010 D _var p player_farmWood > 2 D _var p player_farmWater > 2 D _script dialog@d_CommonTimeoutReady 0  R _item p PID_BRAHMIN_HIDE + 12 R _item p PID_MEAT + 50 R _script dialog@r_CommonTimeout 1 18 R _var p player_farmWater - 3 R _var p player_farmWood - 3 #
+8 7020 D _var p player_farmWood > 2 D _var p player_farmWater > 2 D _script dialog@d_CommonTimeoutReady 0  R _script dialog@r_CommonTimeout 1 18 R _item p PID_GECKO_PELT + 6 R _item p PID_GOLDEN_GECKO_PELT + 4 R _var p player_farmWater - 3 R _var p player_farmWood - 3 #
+8 7030 D _var p player_farmWood > 2 D _var p player_farmWater > 2 D _script dialog@d_CommonTimeoutReady 0  R _script dialog@r_CommonTimeout 1 18 R _item p PID_MEAT + 84 R _var p player_farmWater - 3 R _var p player_farmWood - 3 #
+2 7040 @
+8 8000 None 0 &
+
+[engl]
+{100}{}{Local Trapper}
+{200}{}{You see the local trapper.}
+{210}{}{Hunter, gatherer. This guy is actually pretty tough. Glad he's on my farm.}
+{1000}{}{Predialogue installations}
+{1010}{}{base}
+{1020}{}{unlck}
+{1030}{}{visiter}
+{2000}{}{Welcome to the Farm. Please don't shoot anybody.@@Uh... hello?@@New ranch hand?@@Just leave your resources somewhere visible, the boss will pick them up eventually.@@Sorry, there's no beds available, you'll have to sleep on the floor.@@Another mouth to feed, eh? Well you'd better pull your weight around here, that's for sure.@@Does the boss know you're here?@@Yes, hi, that's very nice. Who are you again?@@I hope those aren't weapons on you...@@Stay away from the kids! You animal!@@What are you even doing here?@@Who invited you?@@Don't expect to get a map to this place.@@You all covered in blood...@@You seen the dark side of life, haven't you?@@I bet you know what it's like to hear a man scream to death.@@You ever seen their eyes just pop out? Like a mustard...@@Geckos ain't shit.@@I used to use a spear but a billy bat works just as well. Less holes in the skin.@@Try not to use bullets, it ruins the hide.@@It's a nice place, calm. We're going to keep it that way.}
+{3000}{}{[Renovate this part of your Farm, and unlock the Trapper! Unlock for 5000$, deducts the money from your Farm Treasury]}
+{3010}{}{Let's renovate!}
+{3020}{}{[Leave]}
+{4000}{}{What's the word, boss. We gone make some blood pudding out of some critters, 'er what?}
+{4010}{}{It's time to go hunting!}
+{4020}{}{What do you need to hunt?}
+{4030}{}{What can you hunt?}
+{4040}{}{Not now. But I'll be back when it's time.}
+{5000}{}{I just need some Water, and Wood. Once a day I can head out and collect a bunch o' hides 'er skins for ya. So bring me 3x Wood, and Water, and I'll head out huntin'.}
+{5010}{}{Alright.}
+{6000}{}{I can kill you a dozen Brahmin, Geckos, or some Molerats. It's up to you, boss. I'll bring back the pieces. Hides, meat, pelts. What ever the boss needs.}
+{6010}{}{Sounds good.}
+{7000}{}{Who you wanna kill? Err-- What do you want to kill?}
+{7010}{}{Hunt some Brahmin, and bring back the parts.}
+{7020}{}{Hunt some Geckos, and bring back the parts.}
+{7030}{}{Hunt some Molerats, and bring back the parts.}
+{7040}{}{Nevermind. Let's just let these critters live just a little bit longer.}
+{8000}{}{Already done there, boss. Knew in advance what ya wanted. I'll head out again tomorrow. Talk to ya later, boss.}
+{100000001}{}{Better wash the counter again...}
+{100000002}{}{That's 5 caps buddy. Hey did you hear me? Cough em' up.}
+{100000003}{}{Better change the keg...}
+{100000004}{}{RotGut? You drink that shit?}
+{100000005}{}{Domestic? I got B.E.E.R buddy, do you want one or not?}
+{100000006}{}{Fuckin' dust is getting everywhere. Hey close the fuckin' door!}
+{100000007}{}{I swear if the next asshole doesn't tip. Ima' shoot somebody!}
+{100000008}{}{I got bottles, I got shots, and I got a bat behind the counter for the retards. Your not a retard are you?}
+{100000009}{}{Uh-huh, yeah that's nice buddy. You don't say...What? Of course I'm listening...}
+{100000010}{}{That's 5 caps. FIVE CAPS Tribal! F.I.V.E! }
+{100000011}{}{Shut up and order a fuckin' beer already!}
+{100000012}{}{I swear if I have to serve another drunk, I'm getting the shotgun!}
+{100000013}{}{Look the keg went dry, and it's going to be another month until the caravan shows up again.}
+{100000014}{}{Really? You don't say, buy another drink or get out!}
+{100000015}{}{What? I'm on break.}
+{100000016}{}{Be right with ya'}
+{100000017}{}{Have a sit stranger. I'll be with you in a moment.}
+{100000018}{}{When do we close? Uh, when the place get's shot up, that's when!}
+{100000019}{}{We're fresh outta' cold beer, sorry. You'll just have to drink it warm.}
+{100000020}{}{RotGut? No man, go make that shit yourself! I wouldn't drink it!}
+
+[russ]
+{100}{}{Алкоголик}
+{200}{}{Вы видите пьяницу.}
+{210}{}{Вы видите шатающегося из стороны в сторону пьяного человека в лохмотьях. Лицо его распухло, нос синющий как слива. А аромат рядом с ним такой, что свалит брамина насмерть. Он что-то бормочет про себя и иногда громко поет песни.}
+{210}{}{Вы видите алкаша. Он весьма грязен - кажется, он повалялся в луже, но не особо этим расстроен.}
+{1000}{}{I?aaaeaeiaiaua onoaiiaee}
+{1010}{}{base}
+{1020}{}{unlck}
+{1030}{}{visiter}
+{2000}{}{Welcome to the Farm. Please don't shoot anybody.@@Uh... hello?@@New ranch hand?@@Just leave your resources somewhere visible, the boss will pick them up eventually.@@Sorry, there's no beds available, you'll have to sleep on the floor.@@Another mouth to feed, eh? Well you'd better pull your weight around here, that's for sure.@@Does the boss know you're here?@@Yes, hi, that's very nice. Who are you again?@@I hope those aren't weapons on you...@@Stay away from the kids! You animal!@@What are you even doing here?@@Who invited you?@@Don't expect to get a map to this place.}
+{3000}{}{[Renovate this part of your Farm, and unlock the Family! -100 Daily Income, but allows you to Breed Cattle, and Trade Resouces! Unlock for 5000$, deducts the money from your Farm Treasury]}
+{3010}{}{Let's renovate!}
+{3020}{}{[Leave]}
+{4000}{}{Dialog text}
+{4010}{}{It's time to go hunting!}
+{4020}{}{What do you need to hunt?}
+{4030}{}{What can you hunt?}
+{4040}{}{Not now. But I'll be back when it's time.}
+{5000}{}{I just need some Food, and Water. Once a day I can head out and collect a bunch o' hides 'er skins for ya. }
+{5010}{}{Alright.}
+{6000}{}{I can kill you a dozen Brahmin, Geckos, or some Molerats. It's up to you, boss. I'll bring back the pieces. Hides, meat, pelts. What ever the boss needs.}
+{6010}{}{Sounds good.}
+{7000}{}{Who you wanna kill? Err-- What do you want to kill?}
+{7010}{}{Hunt some Brahmin, and bring back the parts.}
+{7020}{}{Hunt some Geckos, and bring back the parts.}
+{7030}{}{Hunt some Molerats, and bring back the parts.}
+{7040}{}{Nevermind.}
+{8000}{}{Already done there, boss. Knew in advance what ya wanted. I'll head out again tomorrow. Talk to ya later, boss.}
+

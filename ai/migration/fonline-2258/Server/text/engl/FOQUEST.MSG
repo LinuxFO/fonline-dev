@@ -1,0 +1,2264 @@
+# Created on 17.10.2007 Cvet  
+
+#
+#
+#
+
+{4}{}{%d. }
+{5}{}{Current progress: }
+
+#
+# Number
+# Name
+#
+
+#
+# Number formula:
+#	VariableId * 1000 + Value (1-100) - The text that appears at a given value of the variable (current objective).
+#	VariableId * 1000 + 101 - Name of quest tab.
+#	VariableId * 1000 + 102 - Permanent quest description.
+
+#=======================================
+# 6001
+# Raiders induction quest
+#=======================================
+{6001001}{}{Metzger pointed me to his business contact, Stokes. Stokes is said to spend his time in The Hole.}
+{6001002}{}{Stokes told me to visit the Khans' southern outpost and talk to Raynes, the local leader.}
+{6001003}{}{Deal with the renegade raider.}
+{6001101}{}{Den: Join the raiders}
+{6001102}{}{Join the raiders}
+
+#=======================================
+# 6111
+# NCR, pick up a few smokes for buster
+#=======================================
+{6111001}{}{Buster wants me to buy him some cigarettes from the Rawhide.}
+{6111002}{}{I have to return the cigarettes to Buster.}
+#{6111003}{}{Quest Completed.}
+{6111003}{}{I've given the cigarettes to Buster.
+
+:: Quest Completed ::}
+{6111101}{}{NCR: Buy cigarettes for Buster}
+{6111102}{}{Buy cigarettes for Buster}
+
+#=======================================
+# 6112
+# NCR, return Mira's debt
+#=======================================
+
+{6112001}{}{Mira asked me to return the debt she owes to Dusty.}
+{6112002}{}{I've returned the debt. I should go back and speak to Mira.}
+#{6112003}{}{Quest Completed.}
+{6112003}{}{I've helped Mira return the debt.
+
+:: Quest Completed ::}
+{6112101}{}{NCR: Return Mira's debt}
+{6112102}{}{Return Mira's debt}
+
+#=======================================
+# 6122
+# Redding, Resupply Redding with Jet
+#=======================================
+
+{6122001}{}{There's hardly enough Jet for everyone in Redding. Dan McGrew wants me to talk to some doctor or pharmacist or something in New Reno about it.}
+{6122002}{}{Renesco wants a proof there will be enough costumers in Redding for his Jet shipments, before sending another one that way.}
+{6122003}{}{Doc. Johnson's list of Jet costumers in Redding could persuade Renesco there's a stable demand for Jet in Redding. I should bring it to him right away.}
+{6122004}{}{Renesco is going to send more Jet to Redding. I have to let Dan McGrew know about this as soon as possible.}
+{6122005}{}{The problem with Redding's Jet shipments has been solved.
+
+::Quest Completed::}
+{6122101}{}{Redding: Increase Redding's Jet supply}
+{6122102}{}{Find out how to raise the current supply of Jet in Redding}
+
+#=======================================
+# 6200
+# Den, repair Becky's gaming table
+#=======================================
+
+{6200001}{}{Becky asked me to repair one of her gaming tables.}
+{6200002}{}{I've repaired Becky's gaming table.}
+{6200003}{}{I've failed to repair Becky's table.}
+{6200004}{}{Becky's table will stay broken. I couldn't fix it.
+
+::Quest Failed::}
+{6200005}{}{I've managed to repair Becky's table.
+
+:: Quest Completed ::}
+{6200101}{}{Den: Repair one of Becky's gaming tables}
+{6200102}{}{Repair one of Becky's gaming tables}
+
+#=======================================
+# 7004
+# Junktown, abandoned bunker
+#=======================================
+{7004001}{}{A scout in Junktown told me stories about an old trapper who might know some nice places to hang around.}
+{7004005}{}{Got a hint that the trapper might have gone to Necropolis. I should check this out.}
+{7004016}{}{The name of that trapper is Wally. Wonder where he is now...}
+{7004021}{}{Finally. The ghouls say that I can find Wally at the Watershed. He has to live there somewhere.}
+# Questlog deactivated for now, because it's all messed up.
+#{7004101}{}{Junktown: The old trapper}
+#{7004102}{}{The old trapper.}
+
+#=======================================
+# 7005
+# Redding, Rats in Mines
+#=======================================
+{7005001}{}{In order to help Marge Le Barge in Redding with some rats in mines, I have to prove myself by taking care of a job for Caminetto, a guy hanging around in Redding's Malamute Saloon.}
+{7005002}{}{Accepted to bring five Radscorpion Tales to Caminetto in Redding.}
+{7005003}{}{After taking care of Caminetto's job, I got his recommendation and should talk to Marge about exterminating those rats from Redding mines.}
+{7005004}{}{There was no rats in mines, ever. The whole ruckus was about getting some stuff done for Caminetto.
+
+:: Quest Completed ::}
+{7005005}{}{Never managed to get to those rats down in Redding mines. What the hell, there must be some other job for me to do now.
+
+:: Quest Failed ::}
+{7005101}{}{Redding: Rats in Mines}
+{7005102}{}{Help Marge deal with rats in Redding Mines}
+
+#=======================================
+# 7008
+# Hub, sad wife quest
+#=======================================
+{7008001}{}{There was a sad woman in the Hub, Oldtown. She told me she was worried about her Husband who was traveling to the Boneyard. I will keep my eyes open for him.}
+{7008002}{}{Joseph really was in the Boneyard. But sadly he was hanging from a lamp post. I should go back to the woman and tell her.}
+{7008003}{}{I told that woman about her husband. It's a sad day today.
+
+:: Quest Completed ::}
+{7008004}{}{I made fun of the dead man's wife and told her horrible stories. I am such a bad person.
+
+:: Quest Completed ::}
+{7008101}{}{Hub: Find Joseph, the scavenger}
+{7008102}{}{Find Joseph, the scavenger}
+
+#=======================================
+#7009
+#Hub, Wasteland Band
+#=======================================
+{7009001}{}{A peculiar man named Mick has asked me to find his friend Ronnie in Junktown and ask him to form a band. He is known to hang around the Skum Pitt, so I should start there.}
+{7009002}{}{Ronnie agreed to join Mick's band. I need to report back to the Hub now.}
+{7009003}{}{Mick threw me a few caps and told me I need to locate a man named Charlie, who lives somewhere in San Francisco.}
+{7009004}{}{Charlie made my job easy. Back to the Hub to see if Mick needs anything else}
+{7009005}{}{Mick swears this is the last one. All I have to do is convince Keith in Gecko to join, and my job is done.}
+{7009006}{}{Keith was a pain in the ass, but I've done it. Time to tell Mick the good news.}
+
+:: Quest Completed ::}
+{7009007}{}{I've assembled the band, Mick is happy, and I've been paid.
+
+:: Quest Completed ::}
+{7009101}{}{Hub: Wasteland Band}
+{7009102}{}{Assemble the Band}
+
+#=======================================
+# 7011
+# NCR, Spawn Quest
+#=======================================
+{7011001}{}{Man, what a night. I barely survived the horrific sand storm yesterday by taking cover in an old mining pit. When I was crawling back to the surface I met a lone man called Feelslong who lives in this area. He asked me to deliver a message to someone named Harris. Harris should be in the Rawhide Saloon... like always.}
+{7011002}{}{I've delivered the message, my job is done. Who knows, maybe I will meet Feelslong again some day...
+
+:: Quest Completed ::}
+{7011101}{}{NCR: The Message}
+{7011102}{}{The Message}
+
+#=======================================
+# 7013
+# NCR, Horatius Rail Line Gang
+#=======================================
+{7013001}{}{Feargus in the foreroom told me, Gunther might have a special job for me...}
+{7013002}{}{I've got the job to take care of a rail line gang that is located to the north east of the NCR. Could be a hot job, maybe I should get some backup for myself.}
+{7013003}{}{The gang leader, called Horatius, is dead.}
+{7013004}{}{The rail line gang will leave this place. It was a non-violent resolution.}
+{7013005}{}{I killed all of the gang members. Now they will not be a problem again.}
+{7013010}{}{I've reported back to Gunther.}
+{7013011}{}{Feargus gave me my reward and with this, the job is done.
+
+:: Quest Completed ::}
+{7013012}{}{Someone else took care of the rail line gang. Seems like I was too late.
+
+:: Quest Failed ::}
+{7013101}{}{NCR: The Rail Line Gang}
+{7013102}{}{The Rail Line Gang}
+
+#=======================================
+# 7017
+# Boneyard Train Station, CoC Administrator
+#=======================================
+{7017001}{}{A member from the Children of the Cathedral told me that someone from the Boneyard train station administration might have some work for me.}
+{7017002}{}{One of the Boneyard Train Station administrators wants me to bring him a new Deans Electronics book.}
+{7017003}{}{I delivered the book and job is done. That's how it runs.
+
+:: Quest Completed ::}
+{7017101}{}{Boneyard: Get a Deans Electronics book}
+{7017102}{}{Get a Deans Electronics book}
+
+#=======================================
+# 7018
+# Vault City, Medical Investigation
+#=======================================
+{7018001}{}{Doctor Andrew in Vault City gave me an interesting job. He told me about the New Californian Republic rail line and where I can find the next closest train station. From there I should start asking everyone if they are ill or know someone who is ill. After that, I have to report back to doctor Andrew. I guess talking to four people in each station should be enough...}
+{7018002}{}{It seems like the people at the San Francisco station are seriously ill. Feels like a pandemic is spreading around. I should report back to doctor Andrew.}
+{7018003}{}{The people at the Boneyard train station are not in the best condition, but beside this, all seems normal. I should report back to doctor Andrew.}
+{7018004}{}{At the NCR train station, everyone seems to be in good condition. I should report back to doctor Andrew.}
+{7018005}{}{After talking to the people at the Vault City train station, it seems clear that everything is okay. I should report back to doctor Andrew.}
+{7018006}{}{It took me some time, but I've reported back the status of every available train station. With this, my job is done.
+
+:: Quest Completed ::}
+{7018101}{}{Vault City: Medical Investigation}
+{7018102}{}{Medical Investigation}
+
+#=======================================
+# 7019
+# Boneyard, A Man's Job
+#=======================================
+{7019001}{}{Hammilton, quite a busy man in the Library of the Followers of the Apocalypse, gave me a job, where one "has to be a tough motherfucker", as he said. I have to find a middle-aged man in leather armor with a black bull painted on it. Hammilton said it's one of his... workers. He wants me to find and kill him. I should ask around at the train stations. Maybe someone saw him there.}
+{7019002}{}{Someone told me that I should check out a shady man in leather jacket at the NCR train station. He should know more about my target...}
+{7019003}{}{I've talked to the leather jacket man at the NCR train station. He told me where to find my target. The man is hiding somewhere between the mountains, west of the NCR.}
+{7019004}{}{The man in the leather armor with the black bull on it is dead. My job here is done. Guess I should report back to Hammilton for my reward.}
+{7019007}{}{I decided not to kill Greg. I doubt Hammilton will be very happy about it... Maybe I should try to lie about this.}
+{7019009}{}{I've killed Gregs daughter. I am a goddamn motherfucker.}
+
+{7019010}{}{Frisco done}
+{7019011}{}{LA done}
+{7019012}{}{NCR done}
+{7019013}{}{VC done}
+{7019014}{}{I reported back to Hammilton and got my reward. It's good to be done with a Man's job.
+
+:: Quest Completed ::}
+{7019015}{}{I've told Hammilton that I didn't kill the man. He wasn't very happy to hear this and I'll guess I can count on future activity from his side.
+
+:: Quest Completed ::}
+{7019016}{}{I needed too much time. The target could be through the mountains already and is now impossible to find.
+
+:: Quest Failed ::}
+{7019101}{}{Boneyard: A Man's Job}
+{7019102}{}{A Man's Job}
+
+#=======================================
+# 7021
+# Frisco ant lair quest
+#=======================================
+{7021001}{}{Doctor Wong gave me the task to smoke out the ant lair in the north east of San Francisco.}
+{7021002}{}{I've killed all ants. I should go back to Doctor Wong for my reward.}
+{7021003}{}{The ant lair is dead and I got my reward from Doctor Wong. He also said that I can check back later, if I want to kill some more ants...}
+{7021101}{}{San Francisco: It came from the desert}
+{7021102}{}{It came from the desert}
+
+#=======================================
+# 7031
+# Gecko, Spawn Quest
+#=======================================
+{7031001}{}{Man, what a night. I barely survived the horrific sand storm yesterday by taking cover in an old rotten building. When I was crawling back to the surface I met a ghoul caravan which was on its way back to a town called Gecko. One of the ghouls, Leeroy, asked me to deliver a message to a woman in Vault City. He told me to talk to a woman with pretty obvious hair in the local bar.}
+{7031002}{}{I've delivered the message, my job is done. Who knows, maybe I will meet Leeroy again some day...
+
+:: Quest Completed ::}
+{7031005}{}{Man, what a night. I barely survived the horrific sand storm yesterday by taking cover in an old rotten building. When I was crawling back to the surface I met a ghoul caravan which was on its way back to a town called Gecko. I've pissed off one of the ghouls. His name was Leeroy. Maybe I should say sorry...}
+{7031101}{}{Gecko: The Vault City Contact}
+{7031102}{}{The Vault City Contact}
+
+#=======================================
+# 7032
+# Hub, Spawn Quest
+#=======================================
+{7032001}{}{I met a big caravan that was on its way to the Hub, a big trade center in this area. The caravan leader asked me to be a messenger for them. I should go to the Far Go Traders and tell them that the caravan will need some more time.}
+{7032002}{}{I've delivered the message, my job is done. Who knows, maybe I will meet the caravan folks again some day...
+
+:: Quest Completed ::}
+{7032101}{}{Hub: Far Go Scout}
+{7032102}{}{Far Go Scout}
+
+#=======================================
+# 7036
+# Klamath, Stranded Rust quest
+#=======================================
+{7036001}{}{I've met a stinky trapper in Klamath who told me something about a kind of stranded ship. I should bring him a metallic brief case from there. He will show me the position when I look strong enough and have some backup with me.}
+{7036002}{}{The stinky trapper in Klamath want's me to bring him a metal case from an old stranded ship. He gave me the position on my PiPBoy map. I should check it out and see what I can find.}
+{7036003}{}{Meloy got his metal case and with this, my job is done.
+
+:: Quest Completed ::}
+{7036004}{}{Seems like I was too slow and someone else faster than me. The metallic brief case is gone and I can't bring it back to Meloy.
+
+:: Quest Failed ::}
+{7036101}{}{Klamath: Stranded Rust}
+{7036102}{}{Stranded Rust}
+
+#=======================================
+# 7042
+# Boneyard, repair the waterpump
+#=======================================
+{7042001}{}{I've asked Montag, if I should take a look at his water pump. Maybe I can fix it.}
+{7042002}{}{It was not easy, but I could fix the machine.}
+{7042003}{}{Looks like I am not able to repair the water pump.}
+{7042004}{}{I've reported to Montag, that I couldn't fix the water pump.
+
+:: Quest Failed ::}
+{7042005}{}{I've reported to Montag, that I've fixed the water pump.
+
+:: Quest Completed ::}
+{7042101}{}{Boneyard: Montag's Water Pump}
+{7042102}{}{Montag's Water Pump}
+
+#=======================================
+# 7043
+# Boneyard, Dogs of LA
+#=======================================
+{7043001}{}{Hendriks, one of the regulators, gave me the job to kill one of the local dog groups. He gave me the position on my PipBoy.}
+{7043002}{}{I've wiped out the group of dogs. I should go back to Hendriks for my reward.}
+{7043003}{}{The pack of dogs is dead and I reported back to Hendriks. I can check back later, because he is sure that there will be more work.}
+{7043101}{}{Boneyard: Dogs of LA}
+{7043102}{}{Dogs of LA}
+
+#=======================================
+# 7047
+# Boneyard, Howitzer Shells
+#=======================================
+{7047001}{}{Sergeant from the scavenger camp asked me to get him some more shells for his howitzer. Jargo, the gunsmith in Adytum, is in charge of the ammunition production. I should try to convince him.}
+{7047002}{}{Jargo agreed to produce some extra howitzer shells. My job is done.
+
+:: Quest Completed ::}
+{7047003}{}{Jargo doesn't want to produce extra howitzer shells, as they are too expensive. Anyway, my job is done...
+
+:: Quest Failed ::}
+{7047004}{}{I've met Sergeant again. He was pretty happy about the additional howitzer ammunition and gave me an unused train ticket.
+
+:: Quest Completed ::}
+{7047101}{}{Boneyard: Howitzer Shells}
+{7047102}{}{Howitzer Shells}
+
+#=======================================
+# 7070
+# Hub, Iguana Pete missing son
+#=======================================
+{7070001}{}{Iguana Pete is upset because he misses his son. I should visit his son in the New California Republic.}
+{7070002}{}{Iguana 'Miky' told me he got his Iguana stand from a mutant at the Rawhide Saloon}
+{7070003}{}{The drunk mutant was very unhelpful, he informed me that Pete's son can be found south of an area beginning with 'New' that is unsafe for mutants.}
+{7070005}{}{I have visited Golgotha and discovered a fresh corpse that looks a bit like Pete. I should let Pete know.}
+{7070006}{}{I found Pete's son and delivered the message. He gave me the reward himself.
+
+:: Quest Completed ::}
+{7070007}{}{I have told Pete about his dead son and received my reward. He was very upset.}
+
+{7070101}{}{The Hub: Iguana Pete's Missing Son}
+{7070102}{}{Find Iguana Pete's Missing Son}
+
+#=======================================
+# 7074
+# NCR,Den, or SF
+#=======================================
+{7074001}{}{My first assignment as a Recruit in the Brotherhood of Steel is to collect ten radscorpion tails and return with them.}
+{7074011}{}{I've turned in all of the scorpion tails.}
+{7074012}{}{Now I have to scout out Navarro and investigate a 'suspicious red device.'}
+{7074013}{}{I've identified the Nuka-Cola machine. The Brotherhood of Steel mystery has been solved.}
+{7074014}{}{I've completed my second assignment. I now need to speak to the quartermaster.}
+{7074015}{}{I've been promoted to Initiate, and I can now either deal with Eldridge's gun shipment in New Reno or investigate this Ghost Farm place.}
+{7074016}{}{Ghost Farm is as it sounds. Dead. I need to report back with this information.}
+{7074017}{}{An entire civilization exists under Ghost Farm. I need to report back with this information.}
+{7074018}{}{Eldridge has promised to reimburse the Brotherhood for not delivering. I should report this information.}
+{7074019}{}{I've helped Eldridge get his caravan rolling again. The Brotherhood will be pleased to hear this.}
+{7074020}{}{I've completed my third mission and have been rewarded. I should return for my next mission.}
+{7074021}{}{I now either need to help the hummer between Reno and Gordon's or the injured patrol near Mariposa.}
+{7074022}{}{I spoke to Gordon and brought the parts back to the hummer.}
+{7074023}{}{I was able to get the hummer on its way to Gordon without any additional delay.}
+{7074024}{}{Apprentice Snyder was in pretty bad shape, but managed to get him on his feet with some meds.}
+{7074025}{}{I was able to create a makeshift splint for Snyder, and his leg will heal properly now.}
+{7074026}{}{I've completed my fourth mission and have again been rewarded. I should return for my next mission.}
+{7074027}{}{I've been ordered to investigate a BoS bunker on lockdown near Necropolis, collect survivors, and most importantly, retrieve data from the base's main terminal.}
+{7074028}{}{I was able to extract the data, but the bunker is compromised and there were no survivors. I should report to Lost Hills with this information.}
+{7074029}{}{I've now been ordered to retrieve three reports from three seperate bunkers across California: The NCR, San Francisco, and The Den. I need to speak with each member inside and return to Lost Hills with the reports.}
+{7074030}{}{I've been assigned the task of exploring the Glow on behalf of the Brotherhood of Steel. I need to explore the 8 tiles around the Glow and come back with my report.}
+{7074031}{}{I must now travel to the Gun Runners and make a deal with them on behalf of the Brotherhood of Steel. Any means necessary. I must not fail my brothers and sisters.}
+{7074032}{}{I must now explore the 8 sectors around several towns, and then report back to the Gun Runners. These are the towns that require exploring: The Hub, Junktown, L.A, NCR, San Francisco, Redding, and Broken Hills. }
+{7074033}{}{I've completed my demands with the Gun Runners. I must now report back to the Lost Hills quartermaster on the First Floor.}
+{7074034}{}{After a break I should report back to the quartermaster and continue my duties.}
+{7074035}{}{I now need to eliminate the Super Mutant General of a mutant's camp far to the East. I'm sure that if I simply assassinate him the rest of the camp will fall over time. Mutant's are not capable of militaristic thought without some sort of advanced form of leadership. The only question is... how am I going to kill him without alerting the entire camp?}
+{7074036}{}{Talk to the Quartermaster in Lost Hills when you're ready for another mission.}
+{7074037}{}{I must now head to the Water Merchants and allocate a supply of water for the Alpha Bunker. This should be easy.}
+{7074038}{}{Report back to the Quartermaster.}
+{7074039}{}{A large group of mutants have intercepted our water supplies and are currently holding them in some underground vault. I have the location and just need to head over there and assassinate their leader then head back to the Quartermaster.}
+{7074040}{}{Report to the Quartermaster.}
+{7074041}{}{Delta Squad is gone, and I've got to find them. Their last whereabouts were the Cathedral, in L.A. I should investigate.}
+{7074043}{}{I need to find, and bring back 7x Hypos to the Quartermaster.}
+{7074044}{}{Report to the Quartermaster.}
+{7074045}{}{It fell from the sky, and now I need to investigate it.}
+{7074046}{}{Report to the Quartermaster.}
+{7074047}{}{Bring back a set of Enclave Combat Armor and a Helmet to the Quartermaster.}
+{7074049}{}{Find the missing scientist! Last known whereabouts were in San Francisco. The Chinese must know something!}
+{7074050}{}{I should ask around the NCR. That's my only lead as to where our missing scientist is.}
+{7074051}{}{After I scout this place out, I need to report back to the Quartermaster!}
+{7074052}{}{I am now a Junior Knight within the Brotherhood of Steel! I should go speak with Elder Maxson over at the Alpha Bunker. He's on the second floor.}
+{7074053}{}{Elder Maxson has ordered me to receive my next briefing from Commander Carter, over on the second floor of the Alpha Bunker.}
+{7074054}{}{I've been ordered to assemble a squad, and prepare to ambush a team of Enclave soldiers doing a supply run. Once I'm ready for action I should speak with Commander Carter.}
+{7074055}{}{Commander Carter has marked the location of an Enclave patrol on my map. I am to go there, kill all the soldiers, and bring back the supply crate directly to Commander Carter inside the ALpha Bunker. I've only got an hour to complete the mission before the Enclave patrol gets away!}
+{7074056}{}{Enclave supply patrol successfully eliminated! I should report back to base immediately!}
+
+{7074101}{}{Brotherhood of Steel: Welcome to the Brotherhood}
+{7074102}{}{Rise among the ranks of the Brotherhood of Steel.}
+
+#=======================================
+# 7077
+# Modoc, Kill the Rancher
+#=======================================
+{7077001}{}{A strange looking man in Modoc has hired me to kill a rancher at his ranch nearby. The ranch is guarded so I should disguise myself as a delivery boy to gain access. He mentioned there would be a bonus if I destroy the ranch.}
+{7077002}{}{I have killed the Rancher, I could report back to the man in Modoc or find a way to destroy the ranch.}
+{7077003}{}{I have destroyed the ranch and killed the rancher by causing his ranch to collapse into an underground cavern. I should report to the man in Modoc.}
+{7077004}{}{I have disabled the safety measures that kept the mine personnel alive. I can now investigate the mine without being harassed.}
+{7077005}{}{I have reported to the man in Modoc and received my reward.
+
+:: Quest Completed ::}
+{7077101}{}{Modoc: Kill the Rancher}
+{7077102}{}{Kill the Rancher}
+
+#=======================================
+# 7082
+# Redding, Wilson the conman
+#=======================================
+{7082001}{}{A card cheat named Wilson offered me a large sum of caps if I exchange some chips for him at the local casino.}
+{7082002}{}{I gave Wilson's chips to the cashier. She was sceptical as to their origins. I think I should get out of here.
+
+:: Quest Completed ::}
+
+{7082101}{}{Redding: Cash Wilson's chips}
+{7082102}{}{Cash Wilson's chips}
+
+#=======================================
+#7091
+# Raiders, MAIN QUEST
+#=======================================
+{7091001}{}{My first assignment as a Raider prospect is to get a beer. I should go find a beer.}
+{7091002}{}{I got a beer for the raider. I should ask if he wants anything else.}
+{7091003}{}{I have been given a quest to clean the toilets at the raider camp with a water bag. I should use a water bag on the toilets.}
+{7091004}{}{I cleaned the toilet, I should report my success to the raider.}
+{7091005}{}{My orders are to find some jimmy hats and report back to the raider.}
+{7091006}{}{I delivered the jimmy hats to the raider. It sounds like I may have another important mission waiting for me.}
+{7091007}{}{I have been told to investigate a cave filled with radscorpions and bring back whatever I find in the footlocker near the back.}
+{7091008}{}{There was only junk in the footlocker, I should tell the raider.}
+{7091009}{}{It was all a stupid joke. I have been told to report to the leader of the Raiders.}
+{7091010}{}{Ren, the leader, has asked me to get rid of some farmers for him. I should make this quick.}
+{7091011}{}{I killed the farmers. Ren will want to hear about this.}
+{7091012}{}{Ren was happy, he told me to check in at the supply depot in the raider base.}
+{7091013}{}{I need to find ten combat knives for the supply shed.}
+{7091014}{}{I need to find nine combat knives for the supply shed.}
+{7091015}{}{I need to find eight combat knives for the supply shed.}
+{7091016}{}{I need to find seven combat knives for the supply shed.}
+{7091017}{}{I need to find six combat knives for the supply shed.}
+{7091018}{}{I need to find five combat knives for the supply shed.}
+{7091019}{}{I need to find four combat knives for the supply shed.}
+{7091020}{}{I need to find three combat knives for the supply shed.}
+{7091021}{}{I need to find two combat knives for the supply shed.}
+{7091022}{}{I need to find the last combat knife for the supply shed.}
+{7091023}{}{I found all of the combat knives, I should ask if Lumpy wants anything else.}
+{7091024}{}{Lumpy asked me to assault a rancher for her, she didn't say if I should kill him or not.}
+{7091025}{}{I punched the rancher a few times, I should let Lumpy know he won't be bothering her for awhile.}
+{7091026}{}{Lumpy told me to talk to Jim, the treasurer.}
+{7091027}{}{Jim asked me to deliver a message to his girl in NCR.}
+{7091028}{}{I delivered Jim's message. I should get back to him.}
+{7091029}{}{I delivered Jim's message. I should get back to him.}
+{7091030}{}{I should report to Ren.}
+{7091031}{}{A man in at the Malumute in Redding is waiting for this shipment of Jet, I should hurry there.}
+{7091032}{}{The Jet has been delivered. I should get back for my reward.}
+{7091033}{}{I need to purchase a caravan schedule from a caravan guard in NCR.}
+{7091034}{}{I got the schedule. Now to hand it over to the Raiders.}
+{7091035}{}{I couldn't get the schedule. Dammnit.}
+{7091036}{}{Ren told me to speak to Lumpy again.}
+{7091037}{}{I have to deliver 10 Mausers to a man in the vault city bar.}
+{7091038}{}{I delivered the Mausers alright, time to get my reward.}
+{7091039}{}{Ren wanted to speak to me.}
+
+{7091101}{}{Raiders: MAIN QUEST}
+{7091102}{}{MAIN QUEST}
+
+#=======================================
+# 7097
+# Train Ambush, Rail Raiders
+#=======================================
+{7097001}{}{Beginning text}
+{7097002}{}{Our group managed it to kill all the Rail Raiders!
+
+:: Quest Completed ::}
+{7097003}{}{Thanks to our fearful appearance, our group managed it to scare the Rail Raiders away.
+
+:: Quest Completed ::}
+{7097004}{}{It has cost our group a lot, but money doesn't weight as much as a human life. We paid the Rail Raiders money and they went away, letting us all alive.
+
+:: Quest Completed ::}
+{7097005}{}{The skillful use of our groups diplomatic abilities saved a lot human lifes today. We managed it to talk over the Rail Raiders to leave this place.
+
+:: Quest Completed ::}
+{7097006}{}{You've been running away! text
+
+:: Quest Failed ::}
+{7097101}{}{Traim Ambush: Rail Raiders}
+{7097102}{}{Rail Raiders}
+
+#=======================================
+# 7102
+# Boneyard, Warehouse Rape Party :>
+#=======================================
+{7102001}{}{I've got the job to deliver a message to some folks in the industrial park, Boneyard westside.}
+{7102002}{}{The message was a trap. A few punks showed up and wanted to rape me, but I fled from the scene.
+
+:: Quest Completed ::}
+{7102003}{}{The message was a trap. A few punks showed up and wanted to rape me, but I was able to kill them all.
+
+:: Quest Completed ::}
+{7102004}{}{The message was a trap. A few punks showed up and raped me. There was nothing I could do against it...
+
+:: Quest Completed ::}
+{7102005}{}{I didn't delivered the message to the industrial park.
+
+:: Quest Failed ::}
+{7102006}{}{The message was a trap. A few punks showed up, but ran away after a brief conversation. I am not exactly sure why, though...
+
+:: Quest Completed ::}
+{7102101}{}{Boneyard: Industrial Park Message}
+{7102102}{}{Deliver the message to the Industrial Park}
+
+#=======================================
+# 7106
+# Cathedral, Cellar Dwellar
+#=======================================
+{7106001}{}{Patrick, one of the hobos in the Cathedral, told me about a rat plague in the basement cellar of the Cathedral. It seems like the rats grow stronger and stronger over time. If nothing will be done in time, the rats will fully take over the underground.}
+{7106002}{}{On the second basement floor was a glowing ghoul who most likely is the source for the mutated rats. I've killed him.}
+{7106003}{}{I've killed all the mutated venus mantrap plants that I could find. This should stop them to poison the ground water.}
+{7106004}{}{The cathedral cellar is cleaned up and the source of the mutated rats is exterminated.
+
+:: Quest Completed ::}
+{7106005}{}{The basement cellar has been taken over by an army of mutated rats.
+
+:: Quest Failed ::}
+{7106101}{}{Cathedral: Explore the Cathedral Cellar}
+{7106102}{}{Explore the Cathedral Cellar}
+
+#=======================================
+# 7112
+# Boneyard, Gun Runners Caravan
+#=======================================
+{7112001}{}{Marshall from the Gun Runners got a job for me. It's about a package that has been stolen by a group of Super Mutant remnants. He suggested to get a team of at least three people. It's dangerous but should be worth it.}
+{7112002}{}{The deal is clear: Marshall from the Gun Runners told me to bring him back the Gun Runners metal box with weapon manufacturing plans inside. The metal case is rigged with explosives, so we shouldn't touch them or it goes BOOM! He also told me that nobody else should get the package... Not the Brotherhood and not the Khans, not anyone else. 
+
+The mutants are using some heavy weaponry- our group should prepare for that.}
+{7112003}{}{The Gun Runners got their weapon manufacturing plans back. Marshall told me to visit Ralph for our payment.}
+{7112004}{}{The weapon manufacturing plans have been given to the Brotherhood of Steel. They made angry faces and played assholes, but at least they paid for it.
+
+:: Quest Completed ::}
+{7112005}{}{The weapon manufacturing plans have been given to the Khans. They seemed to be very happy about it.
+
+:: Quest Completed ::}
+{7112006}{}{The Super Mutant Remnants have abandoned their hideout. If we couldn't have picked up the Gun Runners package before, it is now gone forever.}
+{7112007}{}{The package is lost, quest failed.
+
+:: Quest Failed ::}
+{7112008}{}{I've got the payment from the Gun Runners, the job is done.
+
+:: Quest Completed ::}
+{7112101}{}{Boneyard: Gun Runners Caravan Package}
+{7112102}{}{Gun Runners Caravan Package}
+
+#=======================================
+# 7116
+# Frisco Replication, Squatter Subway
+#=======================================
+{7116001}{}{The San Francisco Subway Station has been taken over by radscorpions. As long as the place is occupied, the squatters can't get back to their homes. Chen told me about a lot dead people, who got poisoned or killed by the scorpions while trying to exterminate them.}
+{7116002}{}{Taking things into my own hands: I told Chen that I will check out the subway and get rid of the radscorpions.}
+{7116003}{}{The radscorpion family in the subway tunnels is dead. I should head back to Chen for my reward.}
+{7116004}{}{The subway tunnels are clear to go again and Chen gave me my reward.
+
+:: Quest Completed ::}
+{7116005}{}{The radscorpion family was growing bigger over time and occupied all subway tunnels. Without a heavily armed force, it will not be possible anymore to get rid of them.
+
+:: Quest Failed ::}
+
+{7116101}{}{San Francisco: Radscorpion Subway}
+{7116102}{}{Radscorpion Subway}
+
+#=======================================
+# 7120
+# Hub, Water Merchant Contracts
+#=======================================
+{7120001}{}{The independent merchants in the Hub have to pay high taxes on given out water galons to the Water Merchants. I could try and setup new terms for their contracts.}
+{7120002}{}{I haven't been able to negotiate a new discussion about the contracts between the independent merchants and the Water Merchants.
+
+:: Quest Completed ::}
+{7120003}{}{I could negotiate a new discussion about the contracts between the independent merchants and the Water Merchants for the next conference of the Hub's Central Council.
+
+:: Quest Completed ::}
+
+{7120101}{}{Hub: Water Merchant Contracts}
+{7120102}{}{Water Merchant Contracts}
+
+#=======================================
+# 7122
+# Junktown, Optimize the power house
+#=======================================
+{7122001}{}{Junktown is struggeling with being close to an energy crisis. Thomas, the person in charge, asked me to help him with repairing and optimizing the power house generators. 
+
+In order to do this, I have to find new electronic parts with that I can repair the generators. After the machines are repaired, I can try to optimize them.}
+{7122002}{}{You have fully repaired all power house generators. They can be further optimized now.}
+{7122003}{}{You have been able to optimize Junktown's power house generators. Turning around the power switches will bring the machines back to full capacity.}
+{7122004}{}{You turn the switches and the machines are starting up again.}
+{7122005}{}{Junktown's power house is now running with optimal capacity again. 
+
+:: Quest Completed ::}
+
+{7122101}{}{Junktown: Optimizing the Power House}
+{7122102}{}{Optimizing the Power House}
+
+#=======================================
+# 7124
+# Junktown, Repairing the Mr. Handy Robot
+#=======================================
+{7124001}{}{Thomas' Mr. Handy robot isn't working. He told me that there might be a problem with the motivator unit and that Mitch in the Hub most likely has a working replacement part.}
+{7124002}{}{I've been able to get a robot motivator unit from Mitch in the Hub. With this part, I should be able to fix the Mr. Handy robot without big problems.}
+{7124003}{}{I have been able to fix the Mr. Handy unit for Thomas. 
+
+:: Quest Completed ::}
+
+{7124101}{}{Junktown: The inoperative Mr. Handy Robot}
+{7124102}{}{The inoperative Mr. Handy Robot}
+
+#=======================================
+# 7128
+# Hub, Gun Runner Delivery
+#=======================================
+{7128001}{}{Jacob in the Hub, Oldtown, needs more weapons and ammunition in his next supply delivery from the Gun Runners. He has sent me to talk with Marshal about it, the head honcho of the Gun Runners in the Angel's Boneyard.}
+{7128002}{}{Marshal isn't happy about the deal with Jacob and doesn't want to send more weaponry and ammunition. I should talk with Jacob about it.}
+{7128003}{}{Jacob agrees on paying more money for the next gun deliveries, but wants to have the next one to be delivered earlier.}
+{7128004}{}{?not used?}
+{7128005}{}{I've been able to negotiate a new deal with the Gun Runners for Jacob.}
+{7128006}{}{A new deal between the Gun Runners and Jacob has been negotiated and both parties agreed on it.
+
+:: Quest Completed ::}
+
+{7128101}{}{Hub: The Gun Runner Delivery}
+{7128102}{}{The Gun Runner Delivery}
+
+#=======================================
+# 7132
+# NCR, Westin Ranch Quest 1, Brahmin herdsman
+#=======================================
+{7132001}{}{Got a new job as brahmin herdsman for the Roger Westin. I've been told to talk to Felix, the foreman. He will guide me to the willow, where I am supposed to take care of the brahmin herd.}
+{7132002}{}{Felix guided me to the brahmin willow.}
+{7132003}{}{Nothing of interest happened for quite some time, until a gang of children showed up. They wanted to startle the brahmin herd, but I chased them away.}
+{7132004}{}{A gang of children showed up. They wanted to startle the brahmin herd, but I killed them.}
+{7132005}{}{I've reported back to Roger Westin at the Westin Ranch. He paid me and that's it.
+
+:: Quest Completed ::}
+
+{7132006}{}{I've reported back to Roger Westin at the Westin Ranch. He didn't paid me, because I've killed children.
+
+:: Quest Completed ::}
+
+{7132007}{}{I've killed the brahmin of Roger Westin. I doubt he will be happy, if he finds out what I did.}
+{7132008}{}{Westin had found out about the dead brahmin and fired me. I've told the guard at entrance a pack of lies to cover my guilt. It doesn't seem like they ate it, I should probably lay low for a while.
+
+:: Quest Failed ::}
+
+{7132101}{}{NCR: A Brahmin Herdsman' Job}
+{7132102}{}{A Brahmin Herdsman' Job}
+
+#=======================================
+# 7135
+# NCR, Westin Ranch Quest 2, Holodisk Delivery
+#=======================================
+{7135001}{}{My second job from Roger Westin is to deliver a special Holodisk to a man named Thomas Moore in Vault City.}
+{7135002}{}{I have given the Holodisk to Thomas Moore. Now I'll have to report back to Roger Westin.}
+{7135003}{}{I've reported back to Roger Westin at the Westin Ranch and he paid me for the delivery.
+
+:: Quest Completed ::}
+
+{7135101}{}{NCR: Holodisk for Thomas Moore}
+{7135102}{}{Holodisk for Thomas Moore}
+
+
+#=======================================
+# 7139
+# Junktown, Bring Scorpion Eggs
+#=======================================
+{7139001}{}{Close to Junktown is a cave with highly venomous Black Claw Radscorpions. Doc Larrikin wants me to go there and collect at least five Radscorpion eggs for him, as he isn't able to do it by himself.}
+{7139002}{}{Eggs given :: Not Used ::.}
+{7139003}{}{Doc Larrikin seemed to be quite happy when I gave him the requested Radscorpion eggs. 
+
+:: Quest Completed ::}
+{7139004}{}{I couldn't deliver Radscorpion eggs to Doc Larrikin in time.
+
+:: Quest Failed ::}
+
+{7139101}{}{Junktown: Collect the Radscorpion Eggs}
+{7139102}{}{Collect the Radscorpion Eggs}
+
+#=======================================
+# 7147
+# Boneyard, Gun Runners Courier
+#=======================================
+{7147001}{}{Marshal from the Gun Runners gave me a special shipment for Jargo, the local gunsmith in New Adytum.}
+{7147002}{}{Marshal from the Gun Runners gave me a special shipment for Jacob, the arms dealer in Oldtown.}
+{7147003}{}{Marshal from the Gun Runners gave me a special shipment for Mai Da Chiang in the Red 888 Guns shop.}
+{7147004}{}{Marshal from the Gun Runners gave me a special shipment for Eldridge at the New Reno Arms gun store in New Reno West Side.}
+{7147005}{}{Marshal from the Gun Runners gave me a special shipment for Buster, the local arms dealer at the NCR Bazaar.}
+{7147006}{}{Marshal from the Gun Runners gave me a special shipment for Jeremiah Darkwater in Junktown. I've been told, that his shop is at the center of the town and I can't miss it.}
+{7147007}{}{The package has been delivered and I am now on my way back to Marshal.}
+{7147008}{}{The package has been delivered and I've got my reward from the Gun Runners.
+
+:: Quest Completed ::}
+{7147009}{}{The package never arrived at it's target. The Gun Runners had been pretty angry. I should stay away from them for the next time.
+
+:: Quest Failed ::}
+
+{7147101}{}{Boneyard: Deliver the Gun Runners package}
+{7147102}{}{Deliver the Gun Runners package}
+
+#=======================================
+# 7300
+# New Reno, Corsican Brothers, Dissapear
+#=======================================
+{7300001}{}{Marti, the head of the Corsican Brothers in New Reno wants me to get rid of a dead body. I should talk to Snake about it.}
+{7300002}{}{Snake passed the dead body on to me and mentioned a creepy place known as Golgotha, just a bit south of New Reno. I should drop it off there and get rid of it somehow.}
+{7300003}{}{The dead body has been properly burried. Unfortunately, there was nothing more I could do for that poor, tormented soul. Time to inform Marty about it.}
+{7300004}{}{Good riddance! Burning down the dead body on Golgotha was the best way to make it disappear. I should talk to Marty at once.}
+{7300005}{}{The dead body has been taken care of.
+
+:: Quest Completed ::}
+{7300006}{}{The dead body has been taken care of. Somewhat sloppy work, but it's finally gone.
+
+:: Quest Completed ::}
+{7300007}{}{Following Snake's instructions for dealing with the dead body was simply too much for you.
+
+:: Quest Failed ::}
+{7300101}{}{New Reno, Corsican Brothers: Make it disappear}
+{7300102}{}{Make it disappear}
+
+#=======================================
+# 7301
+# New Reno, Corsican Brothers, Tattoo
+#=======================================
+{7301001}{}{Marty thinks I could lend a hand to them Corsican Brothers and invites me to join the bunch. I should immidiately visit a tattoo shop and ask for the official Corsican Brothers tattoo there.}
+{7301002}{}{The Corsican Brothers tattoo looks rather fancy. I should show it to Marty as soon as possible.}
+{7301003}{}{You have joined the Corsican Brothers.
+
+:: Quest Completed ::}
+{7301101}{}{New Reno, Corsican Brothers: Join the Corsican Brothers}
+{7301102}{}{Join the Corsican Brothers}
+
+#=======================================
+# 7311
+# Brahmin Run quest
+#=======================================
+{7311001}{}{I was asked to lead brahmin herd to a ranch. I shouldn't stop in any towns on my way or the herdsman will go without me.}
+{7311002}{}{I wasn't able to protect the brahmin.
+
+:: Quest Failed ::}
+{7311003}{}{Herdsman was killed, the barhmin won't follow me anymore.
+
+:: Quest Failed ::}
+{7311004}{}{Herdsman took brahmin and continued journey without me.
+
+:: Quest Failed ::}
+{7311005}{}{I left the brahmin to their doom.
+
+:: Quest Failed ::}
+{7311006}{}{I was badly injoured when I tried to defend the brahmin. I don't know what happened to them.
+
+:: Quest Failed ::}
+{7311007}{}{I managed to lead the brahmin herd to the ranch. I should return for my reward.}
+{7311008}{}{I got some caps as a reward. Maybe I should drop by later for some more work.
+
+:: Quest Completed ::}
+{7311009}{}{It took me too long to take brahmin where I was supposed to. Herdsman took brahmin and continued journey without me.}
+{7311101}{}{Brahmin Run}
+{7311102}{}{Lead herd of brahmin to a ranch.}
+
+#=======================================
+# 7322
+# First Tent quest
+#=======================================
+{7322001}{}{During my journeys throughout the wasteland my PipBoy has been acting strangely, ever since I noticed a small tent in this area. Maybe I should check it out.}
+{7322002}{}{I met a family of farmers living in the tent. They escaped from a farmhouse infested with giant mutated rats. I promised to help them out.}
+{7322003}{}{I killed all the mutated rats in the farm. I should return to the family and tell them that they can come back home safely.}
+{7322004}{}{The family living in the tent was very happy to hear that they can finally come back home. Before leaving they gave me their tent.
+
+
+:: Quest Completed ::}
+{7322005}{}{I didn't help the farmers and now their tent is gone. Maybe they moved somewhere else or the wasteland claimed their lives...
+
+
+:: Quest Failed ::}
+{7322101}{}{A Tent in the Wasteland}
+{7322102}{}{Investigate a certain tent in the wasteland.}
+
+#=======================================
+# 11907
+# The Lonely Patron
+#=======================================
+{11907001}{}{I met a lonely, and disturbing woman at the Maltese Falcon. After giving her a pistol, she's now willing to buy units of 50x .44 JHP from me.
+
+
+:: New Job Available::}
+
+{11907101}{}{Job Offer: The Lonely Patron}
+{11907102}{}{Help the poor girl in the Maltese Falcon with her marksmanship.}
+
+#=======================================
+# 11908
+# The Great American Heist
+#=======================================
+{11908001}{}{After almost getting robbed, I decided that joining the gang was a better idea. They asked me to pay 200 caps as an initiation fee.}
+{11908002}{}{Soon after officially joining the gang, Johnny, the leader, asked me to recruit 4 punks around town. I'll need to bring them a leather jacket in order to properly induct them into the gang.}
+{11908008}{}{Johnny mentioned that he's got more work for me, if I'm interested.}
+{11908009}{}{Unfortunately for me, I was badly beaten and robbed. They broke my right arm. Guess I'll never know how cool it is to be in a gang.
+
+
+:: Campaign Failed ::}
+{11908010}{}{I managed to find four dope fiends to join Johnny's gang. I could even make a living selling them drugs if I wanted. Unfortunately, the Hub Police are threatening to shut us down if we don't come up with 1200 caps. Johnny expects me to figure it out.}
+{11908011}{}{I need to bring 1200 caps to the Hub's Sheriff. Just walk in, ask him a question, then give him the money. Easy. I'll go see Johnny after.}
+{11908012}{}{I need to go see Johnny.}
+{11908013}{}{I paid the bribe, but I'm not happy about it. I'll go see Johnny when I'm willing to do some more work.}
+{11908014}{}{Johnny is planning on robbing one of the local warehouses in the Hub. If I'm still willing to be involved, I'll need to bring him: 1x .44 Magnum, 1x Sawed-off Shotgun, 1x Shotgun, 1x 10mm Pistol, 1x Hunting Rifle, 1x 10mm SMG, 1x Crowbar, and 50x rounds of .44 JHP, 10mm JHP, .223 FMJ, and 50x Shotgun Shells.}
+{11908015}{}{The gang and I are ready to start the Heist at any moment. I need to come back when I'm ready. It's going to be tough, and we've only got one chance at doing it right.}
+{11908016}{}{After leading the Heist via radio, I've received my cut and should never talk to these guys again. Hopefully nobody will ever find out that I helped rob the Stockman's Association.
+
+
+:: Campaign Completed ::}
+
+{11908101}{}{The Great American Heist}
+{11908102}{}{I walked into a shady part of the Hub and stumbled upon a gang...}
+
+#=======================================
+# 11922
+# Honour?
+#=======================================
+{11922001}{}{A young, tacky looking girl in the Boneyard is looking for help fulfilling her contract with the Vipers. Despite who she's working for, I could make a decent living helping her.
+
+
+:: New Job Available ::}
+{11922002}{}{Oblivious to the fact of who she was working for, I decided to tell the young punk the truth about her client. To help ease her conscious, and strike a blow to the local gangs I paid her to cancel the deal. I've lost the job, but at least I did the right thing.
+
+
+:: Case Closed ::}
+
+{11922101}{}{Job Offer: Punky Brewster}
+{11922102}{}{Become a tailor, and make leather jackets in the Boneyard.}
+
+#=======================================
+# 11923
+# Sad Dog Man
+#=======================================
+{11923001}{}{I met a sad man in the Hub, turns out his dog is dying of old age, and needs to be put down. He's willing to trade me a decent helmet for a shotgun. I don't like the idea of helping him kill his dog, but I really don't see any other way.}
+{11923002}{}{How could a man kill something that he loves? I convinced him to just let the dog die of old age, and to give me the ammo in case he changes his mind.
+
+
+:: Quest Completed ::}
+{11923003}{}{I brought the man a shotgun so that he could shoot his dog. I guess my job here is done.
+
+
+:: Quest Completed ::}
+
+{11923101}{}{Ol' Yeller}
+{11923102}{}{...Because nothing lasts forever...}
+
+#=======================================
+# 11924
+# Survival?
+#=======================================
+{11924001}{}{No doubt this woman is looking to become a raider. I didn't buy her story about adventure at all. Oh well, if I'm still interested in helping her out I should bring her 1x Leather Jacket, 1x Leather Cap, 1x 9mm Mauser, 50x rounds of 9mm ball, and a Stimpak.}
+{11924002}{}{I gave that naive woman what she wanted; a chance at some adventure. I wonder if I'll ever run into her again? Who knows, she might be the next raider to eat my bullet.
+
+
+:: Quest Completed ::}
+
+{11924101}{}{Who will you become?}
+{11924102}{}{The things these eyes have seen. Help an innocent woman become a raider.}
+
+#=======================================
+# 11928
+# Oui monsieu
+#=======================================
+{11928001}{}{A rude frenchman in the Hub hired me to gather a large amount of ingredients for his next soup. If I'm still interested I should bring him: 10x Meat Jerky, 5x Iguana-on-a-stick, 12x Broc Flowers, 6x Xander Roots, 3x Fruit, 1x Roentgen Rum, and 2x Filled Water Bags}
+{11928002}{}{I brought the Chef his food, and he sent me off. Maybe now the bastard will make a better soup.
+
+
+:: Quest Completed ::}
+
+{11928101}{}{You call this soup?}
+{11928102}{}{Deliver a large food order, for a foul-mouthed Chef in the Hub.}
+
+#=======================================
+# 11929
+# Kaboom!
+#=======================================
+{11929001}{}{I just took a job I have no idea what it's about... Apparently I'm supposed to walk into the Maltese Falcon, find a thug and tell him "Dead Flowers". After that I'll be presented with three boxes, a blue one, a yellow one, and a red one. I'll have to figure it out from there.}
+{11929005}{}{Thankfully, I solved the bomb puzzle and got to keep my life! Better go tell the hick the job's done. I wonder how I should approach the situation?}
+{11929006}{}{I was unable to solve the game of wits, and suffered the consequences. I don't think I'll ever be the same again.
+
+
+:: Quest Failed ::}
+{11929007}{}{Upon talking to the hick again I tore him a new one! That prick was going to pay for sending me out to die. Although I got the gun, I didn't get the full reward, oh well.
+
+
+:: Quest Completed ::}
+{11929008}{}{Upon talking to the hick again I decided to forgive him. I guess it wasn't his intention to send me out to die. Whatever the case, I got my full reward and went back to my own business.
+
+
+:: Quest Completed ::}
+{11929010}{}{I was unable to solve the game of wits, and suffered the consequences. I don't think I'll ever be the same.
+
+
+:: Quest Failed ::}
+
+{11929101}{}{An Explosive Situation}
+{11929102}{}{A game of wits, or a fool's errand?}
+
+#=======================================
+# 11932
+# Hope's so black and white
+#=======================================
+{11932001}{}{I walked in on an argument between two people. A mysterious stranger, and Hope, the lounge singer at the Maltese Falcon. After the man ran off, Hope and I had a conversation. It turns out that she's being accused of the murder of her husband. I don't know if I believe her, but If I want to find out the truth I'll have to investigate the case myself. Starting with the police station.}
+{11932002}{}{All this rain is giving me a headache. I spoke with the Sheriff about Hope and her husband, but I guess it's up to me to make a decision. Better go talk to the detectives. I forgot to write down any clues the Sheriff gave me, oh well.}
+{11932003}{}{I spoke with the only detective that would give me the time of day, a man named Cwan. After discussing the case for a bit I'm starting to suspect that maybe Detective Spade killed Hope's husband.}
+{11932004}{}{I can't believe what I just witnessed. Is this true police work? This job will destroy a man, before he's even become one. I need to go the Bunker Bar, underneath the Maltese Falcon and find the real killer, and fast!}
+{11932005}{}{What the hell am I becoming? Some kind of monster! Time to go back to the police station and save Hope's life before she gets the noose.}
+{11932006}{}{"There are better Vault Dwellers than I" God, I hope I'm right. I managed to solve the murder of Detective Hoyt and get the dame off the hook. I need to tell Hope the good news. That poor girl.}
+{11932007}{}{The rain finally stopped. I really don't like this new world as much as I thought I would. It's cruel, and punishing. I fought long and hard for what was right, but I don't feel like it made much of a difference. None the less, people in the Hub think I'm a hero... Whatever that is.
+
+
+:: Case Closed ::}
+
+{11932101}{}{A Light in the Darkness}
+{11932102}{}{Investigate the mysterious circumstances of a young lounge singer's husband.}
+
+#=======================================
+# 11933
+# Postman Job
+#=======================================
+{11933001}{}{The NCPE is always looking for new men, and women to help deliver the mail. If I wanted to I could easily become a postman.
+
+
+:: New Job Available ::}
+
+{11933101}{}{Job Offer: New Californian Postal Exchange}
+{11933102}{}{There's an old saying, about the mail, I don't remember what. But it means something to someone.}
+
+#=======================================
+# 11934
+# RR anyone?
+#=======================================
+{11934001}{}{There is a mercenary desperado in the bar under the Maltese Falcon. Looks like he's running a local Russian Roulette game. I could play if I wanted to risk it.
+
+
+:: New Event Available::}
+
+{11934101}{}{Gambling: The American Roulette Party}
+{11934102}{}{...One bullet is for pussies...}
+
+#=======================================
+# 11935
+# Yeehaw, cowboy time
+#=======================================
+{11935001}{}{Claire, the local tanner in the Hub, is always looking for Brahmin hides. I could rustle some cattle in my spare time and make quite the living. She's also buying plenty of rope.
+
+
+:: New Job Available ::}
+
+{11935101}{}{Job Offer: Bovine Excision}
+{11935102}{}{Fancy 'yerself 'ta be a Cowboy?}
+
+#=======================================
+# 11936
+# Light J anyone?
+#=======================================
+{11936001}{}{A certain Hub police officer seems to be addicted to collecting lighters. She's willing to buy any, and all of the lighters I find. Well, if she's paying...
+
+
+:: New Job Available ::}
+
+{11936101}{}{Job Offer: National Lighter Hoarding Championship}
+{11936102}{}{Ohh! Shiny! These must be worth something...}
+
+#=======================================
+# 11937
+# Ohh, scrap p
+#=======================================
+{11937001}{}{I met a well-educated man in the Boneyard, but he's obviously working for a gang. He's hiring any tradesmen looking to provide him with: 8x Brass Knuckles, 8x Spiked Knuckles, 8x Knives, 8x Combat Knives, or 24x Molotov cocktails. If I don't care where the money's coming from, I could make quite the living working for him.
+
+
+:: New Job Available ::}
+
+{11937101}{}{Job Offer: The Anonymous Organization}
+{11937102}{}{When the money's good, do you question where it comes from?}
+
+#=======================================
+# 11938
+# foundry?
+#=======================================
+{11938001}{}{There is a man working himself to death in the Hub. His name is Ferrarius and he runs the local foundry, where they salvage scrap into steel. He's always looking for more labour, and scrap. He gave me a list that read: "Now Hiring! Foundry Workers, and Scrap Dealers! The Hub's Foundry is looking to buy mass quantities of: Alloys, Electronic Parts, Steel Clubs, and Metal Parts. All in units of 8. Talk to Ferrarius today!" 
+
+
+:: New Job Available ::}
+
+{11938101}{}{Job Offer: The Hub's Foundry}
+{11938102}{}{So that's where the armour comes from...}
+
+#=======================================
+# 11939
+# papa?
+#=======================================
+{11939001}{}{I found a little girl by herself in a sketchy looking part of town. She's lost and looking for her drunk father, who's probably at the Maltese Falcon. I should go tell him that his little girl is looking for him.}
+{11939002}{}{I should go check up on the kid.}
+{11939003}{}{I told the drunk to get back to his kid, and he walked off into the distance. Having gone back to check up on the little girl it seems like everything is going to be okay. Now I feel like a real hero.
+
+
+:: Quest Completed ::}
+
+{11939101}{}{No Child Left Behind}
+{11939102}{}{I'm not a monster, something has to be done...}
+
+#=======================================
+# 11940
+# great scotts!
+#=======================================
+{11940001}{}{After bringing Ban Chao, a member of the Chinese government, a handful of electronic parts, he has now asked me to travel to Broken Hills, and establish a trade route between San Francisco, and Broken Hills. I should speak with Zaius, and tell him about the deal.}
+{11940002}{}{I met a strange looking mutant in Broken Hills. After a brief conversation, and small task, I was able to convince to agree to Ban Chao's terms. I should go back to San Fran and tell him the good news.}
+{11940003}{}{If I am still interested in more work, I can help establish another trade route to Necropolis. I'll need to find a ghoul named Ringhold, and tell him the news.}
+{11940004}{}{I met an ancient look ghoul in Necropolis, who seems to mistake me for another Vault Dweller, strange. None the less, after bringing a sample of Uranium, the ghoul happily agreed to Ban Chao's terms. I should go back to speak with him.}
+{11940005}{}{I've successfully established trades between San Francisco, Broken Hills, and Necropolis. I can now buy Uranium across the wasteland. Ban Chaos was thankful, and I'm sure the people of San Fran are thankful as well.
+
+
+:: New Features Available ::}
+{11940006}{}{After handing out several contracts for Zaius, and explaining Ban Chao's terms, I've now helped establish a Uranium trade route between the two cities. San Francisco is now willing to sell me Uranium. If I'm interested in more work, I should speak with Ban Chao again.}
+
+{11940101}{}{Great Scotts! The Quest for Uranium}
+{11940102}{}{What's that strange machine you're working on?}
+
+#=======================================
+# 11990
+# vipers junkt
+#=======================================
+{11990001}{}{Lex, Junktown's Scout Captain, offered me work as a bounty hunter, killing off gangs of Vipers. I accepted the bounty and have a location marked on my map.}
+{11990002}{}{I slaughtered the gang of Vipers, and should head back to Junktown to collect my reward from Captain Lex.}
+{11990003}{}{Junktown has a gang problem. If I'm interested, there's always bounty work available from Captain Lex. 
+
+
+:: New Job Available ::}
+
+{11990101}{}{Job Offer: Snakebite}
+{11990102}{}{Looks like Viper's on the table...}
+
+#=======================================
+# 11992
+# rats junkt
+#=======================================
+{11992001}{}{Lex, Junktown's Scout Captain, offered me a job in pest control. I accepted the contract to exterminate their Molerat problem, and have a location marked on my map.}
+{11992002}{}{I slaughtered the gang of Molerats, and should head back to Junktown to collect my reward from Captain Lex.}
+{11992003}{}{Junktown has a rodent problem. If I'm interested, there's always some whack-a-mole work available from Captain Lex. 
+
+
+:: New Job Available ::}
+
+{11992101}{}{Job Offer: Do I smell a Rat?}
+{11992102}{}{Someone call for an exterminator?}
+
+#=======================================
+# 11994
+# rats noob hub
+#=======================================
+{11994001}{}{Deputy Kelly, of the Hub, hired me to exterminate a large group of rats somewhere outside of the city. I need to go to that new location on my map, and kill all the rodents.}
+{11994002}{}{I slaughtered the army of Rats, and should head back to the Hub to collect my reward from Deputy Kelly.}
+{11994003}{}{The Hub has a slight Rat problem. If I'm interested, there's always some extermination work available from Deputy Kelly. 
+
+
+:: New Job Available ::}
+
+{11994101}{}{Job Offer: Pest Control}
+{11994102}{}{Rats? Rats?! I hate Rats!}
+
+#=======================================
+# 11996
+# hitman cop
+#=======================================
+{11996001}{}{The Hub's Sheriff has hired me to execute a dangerous fugitive living on the outskirts of town. There is a location on my map with his possible location. I need to go there, and kill him before he escapes justice again.}
+{11996002}{}{Crime doesn't pay, bucko. Better go back to the Hub and collect my reward from the Sheriff.}
+{11996003}{}{Looks like there's more criminals living here than I thought. The Hub's Sheriff is always looking for help executing scum.
+
+
+:: New Job Available ::}
+
+{11996101}{}{Job Offer: Wasteland Vigilant}
+{11996102}{}{If only it wasn't out of my jurisdiction...}
+
+#=======================================
+# 11998
+# killing kids wtf lol
+#=======================================
+{11998001}{}{It appears that the wasteland is suffering from overpopulation. There are simply too many children around. I took a strange job... I need to go to a specific location on my map, and murder a large group of Orphans. What the hell am I becoming?}
+{11998002}{}{War... War, never changes... Oh well... Better collect my reward from the priest.}
+{11998003}{}{And so the light gave way to the darkness. Sad, all but me feel: Too black, my dark heart. Maybe it is the Lord's work: Killing children for the Hub.
+
+
+:: New Job Available ::}
+
+{11998101}{}{Job Offer: Population Control}
+{11998102}{}{People are breeding like rabbits...}
+
+#=======================================
+# 16000
+# water job deliver
+#=======================================
+{16000001}{}{I took a job delivering crates of water across the wasteland, but I can only carry one at a time. After I drop off a crate I need to head back to the Water Merchants to pick up another. I need to bring a crate to Lao Chou in San Francisco, Marcus in Broken Hills, and Frankie in the Den. If I lose a crate I guess I fail.}
+{16000003}{}{After delivering the three crates to their specific destinations, Mere was pleased. He offered me the chance at doing the job again, I should speak with him again if I'm interested.
+
+
+:: New Job Available ::}
+{16000004}{}{I took a job delivering crates of water across the wasteland, but I decided to carry all three at a time. I need to bring a crate to Lao Chou in San Francisco, Marcus in Broken Hills, and Frankie in the Den. If I lose a crate I guess I fail. Once I've delivered the crates I should head back to the Water Merchants to collect my money.}
+
+{16000101}{}{Job Offer: Water for the World}
+{16000102}{}{Thirst not! For I am the Oasis!}
+
+#=======================================
+# 16006
+# war followers
+#=======================================
+{16006001}{}{For whatever reasons, I'm alive, I don't care why. All I know is that there's a sick cult out there named the Children of the Cathedral. The Followers of the Apocalypse convinced me to join them, and now I must help them extinguish this so-called "Holy Flame". 
+
+
+:: You are a follower of the Followers of the Apocalypse's Religion ::}
+{16006002}{}{Looks like the only way to stop this madness is through war. I took the task of eliminating a patrol of Cathedral Soldiers before they preach more nonsense. Their location is on my map.
+
+
+:: You are a follower of the Followers of the Apocalypse's Religion ::}
+{16006003}{}{Crazy fanatics... Such a waste of life. Oh well, better head back to the Library and tell Nicole the news.
+
+
+:: You are a follower of the Followers of the Apocalypse's Religion ::}
+{16006004}{}{The struggle to stop the spreading of lies will never be over. I can continue killing patrols, or selling weapons to the Followers at any time.
+
+
+:: You are a follower of the Followers of the Apocalypse's Religion ::}
+
+{16006101}{}{Religion: Secular Humanism}
+{16006102}{}{There's nothing the gods can do for man, that man can't do for himself.}
+
+#=======================================
+# 16008
+# war children
+#=======================================
+{16008001}{}{The Lord gave me life, and in return I give it blood. I've been welcomed to the Children of the Cathedral, and must now help them rid them of their enemies: The Followers of the Apocalypse.
+
+
+:: You are a follower of the Children of the Cathedral's Religion ::}
+{16008002}{}{With the courage of angels on my shoulders, I must now head out into the wasteland and destroy a patrol of the Follower's Soldiers.
+
+
+:: You are a follower of the Children of the Cathedral's Religion ::}
+{16008003}{}{There's only one God: Mine. I should head back to the Cathedral and tell The Voice that another patrol has been defeated.
+
+
+:: You are a follower of the Children of the Cathedral's Religion ::}
+{16008004}{}{The struggle to bring light into the dark wastes will never be over. I can continue killing patrols, or selling weapons to the Children at any time.
+
+
+:: You are a follower of the Children of the Cathedral's Religion ::}
+
+{16008101}{}{Religion: Dominus Quaeso Requiem}
+{16008102}{}{I was baptised in the fire, but you'll burn in it.}
+
+
+#=======================================
+# 16010
+# war christ
+#=======================================
+{16010001}{}{I've been baptised, and given life anew. I've been welcomed to the Church of Christianity, and must now help them rid them of their enemies: The Hubologists.
+
+
+:: You are a follower of the Christian Religion ::}
+{16010002}{}{With God watching over me, I must now head out into the wasteland and destroy a patrol of the Hubologist's Soldiers.
+
+
+:: You are a follower of the Christian Religion ::}
+{16010003}{}{Only through sacrifice can we ever achieve peace. I should head back to New Reno and tell The Archbishop that another patrol has been defeated.
+
+
+:: You are a follower of the Christian Religion ::}
+{16010004}{}{The struggle to bring peace into the cruel wastes will never be over. I can continue killing patrols, or selling weapons to the Christian Missionaries at any time.
+
+
+:: You are a follower of the Christian Religion ::}
+
+{16010101}{}{Religion: The Holy Crusade}
+{16010102}{}{Jesus died for my sins. That gives me a free one!}
+
+#=======================================
+# 16012
+# war dharma
+#=======================================
+{16012001}{}{I've left behind my old life and adopted serfdom. I've been welcomed to the Church of Dharma, and must now help them rid them of their enemies: Renewal, and the Rat God.
+
+
+:: You are a follower of the Dharmanian Religion ::}
+{16012002}{}{With the Earth as my Mother, I must now head out into the wasteland and destroy a patrol of the Renewal's Soldiers.
+
+
+:: You are a follower of the Dharmanian Religion ::}
+{16012003}{}{Only through living off the land can you truly achieve anything. I should head back to Shady Sands and tell The Elder that another patrol has been defeated.
+
+
+:: You are a follower of the Dharmanian Religion ::}
+{16012004}{}{The struggle to bring prosperity into the desolate wastes will never be over. I can continue killing patrols, or selling weapons to the Dharmanian Serfs at any time.
+
+
+:: You are a follower of the Dharmanian Religion ::}
+
+{16012101}{}{Religion: Hare Krishna}
+{16012102}{}{Eh, if I die I'll just come back...}
+
+#=======================================
+# 16014
+# war hubo
+#=======================================
+{16014001}{}{I've cleansed myself of cruelty, and have started life on a fresh track. I've been welcomed to the Church of Hubology, and must now help them rid them of their enemies: The Christians.
+
+
+:: You are a follower of Hubology, and part of its Religion ::}
+{16014002}{}{AHS-9 be praised! I must now head out into the wasteland and destroy a patrol of Christian Soldiers.
+
+
+:: You are a follower of Hubology, and part of its Religion ::}
+{16014003}{}{Only through obeying the call of AHS-9 was I able to complete the task. I should head back to San Francisco and tell ASH-7 that another patrol has been defeated.
+
+
+:: You are a follower of Hubology, and part of its Religion ::}
+{16014004}{}{The struggle to bring cleansing to the filthy wastes will never be over. I can continue killing patrols, or selling weapons to the Hubologists at any time.
+
+
+:: You are a follower of Hubology, and part of its Religion ::}
+
+{16014101}{}{Religion: OBEY AHS-9}
+{16014102}{}{MUST. OBEY. AHS. NINE.}
+
+#=======================================
+# 16016
+# war morm
+#=======================================
+{16016001}{}{Jesus is good. I've been welcomed to the Church of Latter Day Saints, and must now help them rid them of their enemies: The Reavers.
+
+
+:: You are a follower of the Mormon Religion ::}
+{16016002}{}{Jesus wants me to head out into the wasteland and destroy a patrol of Reavers. Why not? I like Jesus. Jesus is my co-pilot.
+
+
+:: You are a follower of the Mormon Religion ::}
+{16016003}{}{Only Mormons go to heaven. I should head back to the Den and tell Mcgoodle that another patrol has been defeated.
+
+
+:: You are a follower of the Mormon Religion ::}
+{16016004}{}{The struggle to bring Jesus Christ into the wastes will never be over. I can continue killing patrols, or selling weapons to the Mormons at any time.
+
+
+:: You are a follower of the Mormon Religion ::}
+
+{16016101}{}{Religion: You're a Mormon}
+{16016102}{}{I'm a Mormon!}
+
+#=======================================
+# 16018
+# war renewal
+#=======================================
+{16018001}{}{I found solace in the Rat God. I've been welcomed to the Church of Renewal, and must now help them rid them of their enemies: The Dharmanians.
+
+
+:: You are a follower of Renewal, and part of its Church ::}
+{16018002}{}{With the Rat God as my keeper, I must now head out into the wasteland and destroy a patrol of the Dharmanian Soldiers.
+
+
+:: You are a follower of Renewal, and part of its Church ::}
+{16018003}{}{The Rat God favours me greatly. I should head back to Gecko and tell Ka'Tar that another patrol has been defeated.
+
+
+:: You are a follower of Renewal, and part of its Church ::}
+{16018004}{}{The struggle to bring equality into the chaotic wastes will never be over. I can continue killing patrols, or selling weapons to Renewal at any time.
+
+
+:: You are a follower of Renewal, and part of its Church ::}
+
+{16018101}{}{Religion: The Brain is My Overlord}
+{16018102}{}{The same thing we do every day...}
+
+#=======================================
+# 16020
+# war rev
+#=======================================
+{16020001}{}{I've embraced technology. It's the future. I've been welcomed to the Reaver culture, and must now help them rid them of their enemies: The Mormons.
+
+
+:: You are a follower of the Reaver Religion ::}
+{16020002}{}{The machine favours me, I must now head out into the wasteland and destroy a patrol of the Mormon Soldiers.
+
+
+:: You are a follower of the Reaver Religion ::}
+{16020003}{}{Only through through flesh and metal can we achieve anything. I should head back to Vault City and tell Mother Board that another patrol has been defeated.
+
+
+:: You are a follower of the Reaver Religion ::}
+{16020004}{}{The struggle to upgrade the far behind wastes will never be over. I can continue killing patrols, or selling weapons to the Reavers at any time.
+
+
+:: You are a follower of the Reaver Religion ::}
+
+{16020101}{}{Religion: Ghost in the Machine}
+{16020102}{}{Pity the minds who do not consume Plasma for breakfast!}
+
+#=======================================
+# 16043
+# farm reminder
+#=======================================
+{16043001}{}{I own my very own Farm! But it will need a lot of work if I want it to make me any money. Its location is on my map.
+
+
+:: New Features Available ::}
+
+{16043101}{}{Land Owner: We bought a Farm}
+{16043102}{}{The land is the only thing in the world worth working for, worth fighting for, worth dying for, because it's the only thing that lasts!}
+
+#=======================================
+# 16047
+# rain never stops
+#=======================================
+{16047001}{}{Guess it doesn't matter how I feel. There's an old saying about justice, I don't remember what it is, but it means something to me. After I saved Hope's life I realized that there's more to life than just trying to make it. I need to go back to the Hub and pick up that damn Fedora I threw away.}
+{16047002}{}{Holding this hat makes me feel like a kid again... Feels like it's been forever since I threw it away. Have I changed that much since Hope? When I'm ready to begin a career in law enforcement again I should head over to the NCR.}
+{16047003}{}{Some sick animal in the NCR is manipulating women into becoming sex slaves. I need to go find out who it is, and put a bullet through his brain. Wonder where I should begin my search?}
+{16047004}{}{My hand hurts. But someone's face is about to hurt even more. I found out who's behind the horrific sex trade operation and have their location. I should go back to Detective Stark and show him the information.}
+{16047005}{}{Time to put an end to the worse crime imaginable. I'll kill every last one of them with my bare hands if I have to. I *need* to go to that location on my map, and finish this in the name of Lady Justice.}
+{16047006}{}{They're all dead, and I killed them. I smiled as I did it, but I'm not an animal. These people were animals. I'm a fucking hero. Time to go back to the NCR and tell Detective Stark the good news.}
+{16047007}{}{Let the rain fall down like tears. I'll be the bastion of hope to carry the burdens of the rivers it pours down. The only thing I need to keep going is more people to save.
+
+
+:: Case Closed ::}
+
+{16047101}{}{Too much Blood and Broken Bones}
+{16047102}{}{War. War, never changes. That's the only thing people know. Life is black and white, and between that there's killing, and lot's of blood and tears.}
+
+#=======================================
+# 16049
+# come away melinda
+#=======================================
+{16049001}{}{I don't know how long I can keep this up. But there's a little girl out there who needs me. Little Melinda, she's only twelve years old. Somebody took her, I don't know why, and I don't know where they're keeping her. But I'll find her, or die trying. If I want to make a difference in this world, I should never forget why I'm doing this. I'll probably find a lead in the Hub.}
+{16049002}{}{I found one of the suspects, and shot him several times. He's still alive, but he deserved the physical devastation I inflicted. I should bring him back to the NCR, and talk to Detective Pint.}
+{16049003}{}{I found one of the suspects, and brutally killed him. Part of me thinks I did the right thing, but the other part of me keeps flashing the memory back and forth, and I don't like it. I should go back to the NCR, and talk to Detective Pint.}
+{16049004}{}{I found one of the suspects, and will bring him back into custody. Although I should have probably killed him, I didn't believe that it was the right thing. He can go back to the NCR and received a well deserved hanging. I should go back to the NCR, and talk to Detective Pint.}
+{16049005}{}{I gave my report to Detective Pint, now I'm on my way to save little Melinda before it's too late! How many people are there right now?! Raping her?! I need to arm myself with the most painful of tools and prepare myself for a bloody battle of absolute justice.}
+{16049006}{}{They're all dead! And the little girl is still alive! Come here sweetie, don't you worry any more! Every thing's going to be all right! Let's get you back to the NCR!}
+{16049007}{}{Ugh. I need a drink. This job is killing me.
+
+
+:: Case Closed ::}
+
+{16049101}{}{Shell Shock my Hypervigilance}
+{16049102}{}{How much can a human being endure?}
+
+#=======================================
+# 16051
+# we'll need more whiskey
+#=======================================
+{16051001}{}{I can't get the image of those girl's out of my head. There were so many of them, so many little angels plucked away. This is getting crazy! I need to find a way to turn off. But first thing is first: I need to catch this serial killer. I'll talk to Detective Deckard when I'm ready to go hunting.}
+{16051002}{}{Let's go save the world.}
+{16051003}{}{I'm soaked!}
+{16051004}{}{*Sneeze*}
+{16051005}{}{*Cough!* *Cough!*}
+{16051006}{}{Hey! What the hell was that?!}
+{16051007}{}{I followed the killer to his hideout, and marked the location on my map. When I'm ready to deliver some justice, I should go over there and finish this!}
+{16051008}{}{With my last strike the killer falls down dead. Try to evade justice now, while you're burning in Hell you bastard! I should go tell Detective Deckard the good news.}
+{16051009}{}{Some things never change, while others keep changing every day. Justice it seems, will never change. There's no end to its great sacrifice, and rest will never come to a true police officer. Oh well. Some things just never change. I feel pretty good about myself right now.
+
+
+:: Case Closed ::}
+
+{16051101}{}{The Thousand Yard Stare}
+{16051102}{}{I'm starting to feel nothing at all, and everything at the same time.}
+
+#=======================================
+# 16053
+# ncr bulk order
+#=======================================
+{16053001}{}{A greasy looking trader at the Shady Sands Bazaar is offering me a fortune selling him six of many numerous high quality gear. Metal Armor MK2, Advanced Flamethrowers, M60's, Miniguns, Laser Rifles, Super Stimpaks, Rocket Launchers, Sniper Rifles, and Combat Armor. If I'm interested in his deal I can go talk to him in NCR. 
+
+
+:: New Job Available ::}
+
+{16053101}{}{Job Offer: Arm the Army}
+{16053102}{}{Making the Gunrunners look bad one day at a time.}
+
+#=======================================
+# 16054
+# addicted to stims?
+#=======================================
+{16054001}{}{One of the traders in NCR needs a hundred Stimpaks. He'll offer me a .223 pistol in return. If I'm interested I should start collecting some stims.}
+{16054002}{}{I gave one of the traders in NCR a hundred Stimpaks, and got a shiny new .223 pistol in return. I wonder what he needed those stims for? Oh well, I'll never know.
+
+
+:: Quest Completed ::}
+
+{16054101}{}{Ah! That's the stuff!}
+{16054102}{}{Thank God they made millions of these things before the bombs dropped.}
+
+#=======================================
+# 16055
+# muscle
+#=======================================
+{16055001}{}{The Friendly Lending Company in the Hub is hiring muscle to press some deadbeats over their debts. If I don't mind soiling my reputation, I could find steady employment working with them. 
+
+
+:: New Job Available ::}
+{16055002}{}{The FLC hired me to go beat up some deadbeat somewhere in the wasteland. Better get to it, before they run away.}
+{16055003}{}{Whoops! I guess I over did it. Maybe I shouldn't have killed that deadbeat... Oh well. Better head back to the Hub and collect my reward.
+
+
+:: New Job Available ::}
+
+{16055101}{}{The "Friendly" Lending Company}
+{16055102}{}{Listen here, see! You're going to pay, see!}
+
+#=======================================
+# 16057
+# ncr bulk order toto
+#=======================================
+{16057001}{}{A young woman in the NCR, Dorothy, I believe. Is looking for massive amounts of Geiger Counters, and Motions sensors. Eight of any to be exact. NCR needs the parts inside of them to help maintain their generators it seems. If I'm interested, and have any to spare I could sell them to her.
+
+
+:: New Job Available ::}
+
+{16057101}{}{Job Offer: Motum Sensorem}
+{16057102}{}{Oh, I'll find you, my precious!}
+
+#=======================================
+# 16058
+# ncr bulk order condoms
+#=======================================
+{16058001}{}{It seems that there is a priest in the NCR, looking for mass amounts of condoms to bring back to New Reno. Apparently, he's trying to stop the spread of sexually transmitted diseases in the wasteland. Good luck. I guess I could help out, if I wanted.
+
+
+:: New Job Available ::}
+
+{16058101}{}{Job Offer: Phallic Sanctuary}
+{16058102}{}{STD? Not for me. Better double wrap it.}
+
+#=======================================
+# 16059
+# ncr bulk order 5mm
+#=======================================
+{16059001}{}{Looks like the NCR Army hassles Buster for 5mm JHP, and a lot of it. He's willing to buy 5000x rounds of 5mm JHP from me, if I can deliver.
+
+
+:: New Job Available ::}
+
+{16059101}{}{Job Offer: ...send more ammunition...}
+{16059102}{}{Help keep the ammo train running.}
+
+#=======================================
+# 16065
+# champ spawn
+#=======================================
+{16065001}{}{Kill the King. Take off his head, and watch the crown roll. I won't have someone soiling my name.}
+{16065002}{}{The King is dead! Long live the King. Maybe something pretty will grow from the blood, but I doubt it.}
+{16065003}{}{It's just a matter of time before some asshole picks up that metaphorical crown, and starts calling himself "King". When they do, I'll be waiting.
+
+
+:: New Champion Battle Available ::}
+
+{16065101}{}{Champion Battle: To Kill a Vault Dweller}
+{16065102}{}{There is a Renegade Vault Dweller out there, stirring up Hell!}
+
+#=======================================
+# 16067
+# ncr letters
+#=======================================
+{16067001}{}{A young woman in NCR named Nora is in love with another woman in in the NCR. She gave me a love letter to deliver to her. Now, I just need to figure out who it is.}
+{16067002}{}{I delivered the letter to Dorothy, the young, butchy looking engineer for the NCR. Hopefully she doesn't think it's from me and throws it away...}
+{16067003}{}{It's nice to see people in love, even though the world fell apart. Maybe there is some hope left for some of us. Either way, Nora is happy that I helped her confess her love.
+
+
+:: Quest Completed ::}
+
+{16067101}{}{Love, or Something like it}
+{16067102}{}{Sometimes you've got to get a little love into your life.}
+
+#=======================================
+# 16068
+# killin wipe
+#=======================================
+{16068001}{}{Some badass broad named "The Wipestress" is parading around thinking she's the next wasteland princess. Better go find her, and show her just how harsh the wasteland really is.}
+{16068002}{}{You know... Maybe if I'd just talk to women I'd have better luck. Oh well. Better head back to the NCR and collect the bounty.}
+{16068003}{}{Sometimes it sure does feels like the Wild West out there. I wonder if any horses survived the war? With The Wipestress dead, I wonder what I should do next?
+
+
+:: Villain Defeated ::}
+
+{16068101}{}{To Squash a Spider}
+{16068102}{}{Here we are at last, says the Black Widow.}
+
+#=======================================
+# 16071
+# scouting hub
+#=======================================
+{16071001}{}{The Far Go Traders hired me to scout out a few cities out in the wasteland. I need to go talk to a few people and get their caravan report. I should start with Junktown, and talk to Scout Captain Lex.}
+{16071002}{}{Captain Lex gave me his report. It looks like their caravans are getting hit hard by Vipers, and Molerats. I could help them out if I wanted, but right now I need to head to the Boneyard, and see what Officer Dyer has to say.}
+{16071003}{}{Officer Dyer told me about hideous creatures that have been plaguing the city ruins. It's not much of an issue for me right now, but might become one later. I should continue to the Library, and see what Nicole has to say.}
+{16071004}{}{Nicole of the Followers didn't have much to say. She's torn between a war between her organization and the Children of the Cathedral. Maybe once I'm more experienced I could help out, but until then I guess I should go back the Hub, and collect my reward.}
+{16071005}{}{I've completed the contract for the Far Go Traders. If I'm interested in more work I could talk to one of the drivers, and possibly join their next caravan run.
+
+
+:: Quest Completed ::}
+
+{16071101}{}{Hello City}
+{16071102}{}{Maybe half the fault is mine that the sun didn't shine on Barrington Street.}
+
+#=======================================
+# 16072
+# hub lockpick
+#=======================================
+{16072001}{}{There's a man in Hub's Old Town, underneath the city. He's looking for a set of regular lockpicks so that he can break into that strange room down there. If I'm interested I could bring him a set. He said he'd reward me.}
+{16072002}{}{I brought the stranger some lockpicks so that he may hopefully, one day, break open the door to that strange room. Maybe if I came back later it might be open? Who knows.
+
+
+:: Quest Completed ::}
+
+{16072101}{}{To Open Pandora's Box}
+{16072102}{}{Some thieves are just never prepared...}
+
+#=======================================
+# 16073
+# junk quest for beer
+#=======================================
+{16073001}{}{I found a brewery in Junktown. However, their stills aren't completely ready. The owners are willing to pay me a decent wage if I help them gather the rest of the needed components. First thing they need is 30x piles of Wood.}
+{16073002}{}{The Junktown Brewery asked me to bring back 80x pieces of Fruit to finish their last batch of booze. After that I'll have one more thing to gather before I'll get my reward.}
+{16073003}{}{Looks like I've got to head to the northern side of California, and find a damn High Quality Alloy. This better be worth the trouble. I'm sure the Junktown Brewery will pay well for this.}
+{16073004}{}{Well, after breaking my back for the Junktown Brewery they're almost ready to open up shop. Thanks to me, of course. Hope the wasteland appreciates a good beer.
+
+
+:: Quest Completed ::}
+
+{16073101}{}{Junktown Brewery}
+{16073102}{}{This beer tastes like magic!}
+
+#=======================================
+# 16074
+# warning: ninjas
+#=======================================
+{16074001}{}{Take the life of Sun Kill Moon.}
+{16074002}{}{Without the Sun, there can be no Moon. But Kill the Earth, and we will bask in its ruins.}
+{16074003}{}{There once was a proud, noble, and strong warrior. But I killed them. Was the experience worth it? If heroes keep killing heroes... What will there be left?
+
+
+:: Villain Defeated ::}
+
+{16074101}{}{Sun Kill Moon}
+{16074102}{}{The waters of the Rising Sun are no more, and so the cycle begins anew. The Sun Kills the Moon, and in time, the Moon Kills the Sun.}
+
+#=======================================
+# 16076
+# junktown drinking contest
+#=======================================
+{16076001}{}{There's a very drunk Super Mutant in Junktown. He says it's his birthday, but I think it's just an excuse to get some free alcohol. Either way, he challenged me to a drinking contest. I need to bring him 10x bottles of Rotgut to enter his little contest. He promised me a prize if I could beat him... I think.
+
+
+:: New Event Available ::}
+
+{16076101}{}{The Mutant's Drinking Challenge}
+{16076102}{}{Can I out drink a Super Mutant? Hmm...}
+
+#=======================================
+# 16077
+# walking dead
+#=======================================
+{16077001}{}{According to a local Bounty Hunter in Junktown, there's a hoard of mindless ghouls approaching the city. Lee, the Bounty Hunter, is willing to pay me to deal with it, but there's an army of them, and they're most likely armed! That amount of attention will also attract an audience... I'll only have 1 hour to complete the job.}
+{16077002}{}{There's a location on my map full of hostile ghouls I'm being paid to kill. I should be careful, and probably bring some friends. There's over three dozen of them, I hear. Only an hour left to complete it. Should be careful, the location is public.}
+{16077003}{}{This is a horrible sight. So many lives, just... blown away. Oh well, better head back to Junktown and claim my reward!
+
+
+:: New Job Available ::}
+
+{16077101}{}{Walking Amongst Us}
+{16077102}{}{The Living Dead are shambling their way towards our cities! Someone has to stop them!}
+
+#=======================================
+# 16081
+# junktown monsters
+#=======================================
+{16081001}{}{Something's haunting the good people of Junktown at night, and nobody knows who, or what it is. Jebediah, the town's mayor is beyond scared. He's willing to pay me to put an end to the chaos. The only problem is that I have no idea where to begin.}
+{16081002}{}{Apparently there's a scared townsmen in Junktown that might know more about this strange creature I've been hearing about. I just have no idea who it is.}
+{16081003}{}{One of the local Scouts told me that "some guy in a suit" started this whole monster talk in Junktown. I should find out who the guard was talking about.}
+{16081004}{}{After speaking with Trent Burham, the man who originally started the rumours. It seems that (thanks to my PipBoy) this monster is in fact just a Deathclaw. Trent suggested that I speak with a Trapper in order to understand more, and hopefully catch it. Maybe Jeb knows something?}
+{16081005}{}{Junktown's mayor wants me to head to Klamath, and ask one of the local Trappers how to attract a Deathclaw. Sounds crazy, and far, but Jeb paid me 500 caps to get the job done. I wonder how much he'll pay me when I bring him the Deathclaw's head?}
+{16081006}{}{I found an experienced Trapper in Klamath willing to show me how to attract a Deathclaw. But he's expecting payment for the knowledge. He wants 2000 caps, or 24x Beers. Whichever I feel like collecting.}
+{16081007}{}{That Trapper sure did teach me a lot of things I'll probably never remember. Oh well. Deathclaws are attracted to fresh meat, half the time they don't know whether or not to eat a person, or a Brahmin since they're so delicious. I'll need 50x pieces of Brahmin Meat in order to catch this thing, and put an end to the madness once and for all. Once I've gathered enough meat to lure the creature away from it's nest, and into my trap, I should speak with Jeb, in Junktown.}
+{16081008}{}{There's a location on my map with the trap set for the Deathclaw. When I'm ready I should head there and kill the great beast, before it claims a dozen more lives.}
+{16081009}{}{Jesus! What the hell was that thing?! Whatever, it's dead now. I should go back to Junktown and tell Jeb the good news.}
+{16081010}{}{And so ends another chapter in the dangerous life of a vault dweller. I might not be the hero I should be. But I guess as long as people feel safe, my job is done. The Night Terror has been put to rest, thanks to me. I'm sure the people of Junktown will appreciate it.
+
+
+:: Quest Completed ::}
+
+{16081101}{}{Whispers in the Darkness}
+{16081102}{}{If you press your ear to one of Junktown's gates at night, you can hear something whispering. Creepy.}
+
+#=======================================
+# 16085
+# doc quest jt
+#=======================================
+{16085001}{}{The honest, hard working families of Junktown need affordable medical care. I've taken it upon myself to do this. My medical skills will not go to waste. Once I've acquired a Doctor's Bag, and a First Aid kit I should start helping out.}
+{16085002}{}{After examining Frier's daughter and concluding that she was in perfect health, I was then informed that Frier's son is the one that actually needs medical attention. I should go see what I can do.}
+{16085003}{}{I hope that helps little Trinkered. Now to check up on the other two children.}
+{16085004}{}{Well, looks like my job is done. But I can come back every couple of days and check-up on the kids if I want. I'm sure Frier would appreciate that, and I could always use the experience. All I'll need is a Doctor's Bag, and First Aid Kit.
+
+
+:: New Job Available ::}
+
+{16085101}{}{Hippocratic Oath}
+{16085102}{}{I, too, held that the void exists, and that it enters the heaven from the unlimited breath – it, so to speak, breathes in void. For the void distinguishes their nature.}
+
+#=======================================
+# 16086
+# jk blackmail - evil quest
+#=======================================
+{16086001}{}{Looks like I've got an opportunity to blackmail an unfaithful wife, and manipulate some jackass at the same time. I got this sketch of a sex act, and should show it to the wife. But where the hell's the wife?}
+{16086002}{}{I chose to go along with the blackmailing. Dumb bitch. I got five grand out of it, and there's no way I'm giving any of it to Lucra. Vault Dweller ain't me.
+
+
+:: Quest Completed ::}
+{16086003}{}{I chose to tell the truth, and get to the bottom of things. I don't feel very good about all this, I shouldn't have gotten involved. But whatever, it's over.
+
+
+:: Quest Completed ::}
+{16086004}{}{I chose to manipulate the situation and get my own thing done. Ten grand it got me. I don't care what it cost. Fuck these people, and everyone in this godforsaken world.
+
+
+:: Quest Completed ::}
+
+{16086101}{}{Peek-a-boo}
+{16086102}{}{Cheaters. Liars. Back-stabbers. We're all the same. Blackmail someone in Junktown, and ruin their lives.}
+
+#=======================================
+# 16087
+# evil stuff kill kids + parents
+#=======================================
+{16087001}{}{Some people just can't get their own hands dirty. Time to do some real work, and start killing some losers. This guy in Junktown better be paying good, or I'll just kill him too. Better go to that location on my map, and slaughter that family.}
+{16087002}{}{Haha! Bunch of losers. Die. Time to go back to Junktown and collect my fucking money.}
+{16087003}{}{Good stuff. Made a quick buck killing some Junktown retards. This dough better keep flowing, I can't get enough.
+
+
+:: Quest Completed ::}
+
+{16087101}{}{Despicable Me}
+{16087102}{}{As I succumb to the darkness, I bask in the cold, cold horrors of self. Fear, for I am no Oasis.}
+
+#=======================================
+# 16089
+# junkt hatter bulk
+#=======================================
+{16089001}{}{In Junktown, there's a man buying large quantities of helmets. I don't know what he wants with them, but he's offering to pay me in caps. He needs 8x Leather Caps, 8x Leather Helmets, 8x Metal Masks, or 8x Combat Helmets.
+
+
+:: New Job Available ::}
+
+{16089101}{}{Job Offer: The Mad Hatter}
+{16089102}{}{Mercury may rise like the sun, but in its core, much corrosion.}
+
+#=======================================
+# 16090
+# junkt mine job
+#=======================================
+{16090001}{}{The Junktown mine is hiring scavengers to fulfil some contract work. They're looking to hire people to gather basic resources for them in large amounts. If I want to make some money I could help out. }
+{16090002}{}{I've accepted a contract with the Junktown Mine working as a scavenger. My first task is to bring them 50x Wood.}
+{16090003}{}{I've now been asked to bring back 15x pieces of Junk to the Junktown Mine's supervisor.}
+{16090004}{}{Now I need to gather 30x pieces of Broc Flower and Xander Root for the Junktown Mine.}
+{16090005}{}{Once again, I need to bring some more resources to the Junktown Mine. This time it's 6x pieces of Electronic Parts.}
+{16090006}{}{Now for 60x Fibers. I'm half way done the contract.}
+{16090007}{}{Almost done, just need to bring back 20x Flint now.}
+{16090008}{}{Last thing to gather is 80x pieces of Fruit and I'm done.}
+{16090009}{}{I've fulfilled my contract with the Junktown Mine. Whenever I'm interested I can go back and accept another contract to gather various large amounts of resources from the wasteland.
+
+
+:: New Job Available ::}
+
+{16090101}{}{Job Offer: Wasteland Scavenger}
+{16090102}{}{The Junktown Mine is always hiring Scavengers to do grunt work.}
+
+#=======================================
+# 16109
+# tandi's ass, so old
+#=======================================
+{16109001}{}{And just like that I've managed to screw up my relationship with the NCR police. Detective Gallows thinks that I'm a laughing excuse for a cop, and won't help me get to the bottom of this case any more. If I want to prove myself as a police officer I need to start doing some real investigating. Starting with some of these damn politicians. Putting on a suit and calling yourself a politician is no different than calling yourself a vault overseer. }
+{16109002}{}{I spoke with Wendell Peterson, of the NCR. He's a potential for being the next President of the NCR. He told me about a recent influx of people from the East. Because of this the crime rate has increased in certain areas. He also told me that Broken Hills was the last city to be annexed by the NCR. I should speak with the other candidate now, Joanna Tibbett.}
+{16109003}{}{Could it be that Joanna Tibbett just tried to hire me to assassinate President Tandi for a million caps? Or was she just being emotional? Either way she wasn't very useful, I suppose I should try to speak with President Tandi herself.}
+{16109004}{}{The queen is dead. Long live the queen. I killed the President of the NCR. I killed Tandi, the great, and honourable, President Tandi. Fuck her. This world doesn't need any of that hero bullshit. It just needs more chaos. Long live the Legacy of the Vault Dweller! Ahahahah! Time to burn this world to the fucking ground!}
+{16109005}{}{President Tandi called me a hero... Me! A hero! I've never been more proud of myself in my entire life. There's a light out here greater than me, and it's the goddamn NCR. I should talk to Detective Gallows now that I've calmed down.}
+{16109006}{}{I still need to find out who tried to kill President Tandi. Marcus, in Broken Hills, might know something. I should go ask him. But Broken Hills is a dangerous place, I will have to be careful. I won't be protected by the police, since there aren't any.}
+{16109007}{}{Sheriff Marcus, of Broken Hills, has already tracked down the would-be assassins. It seems that upon hearing of the recent assassination attempt Marcus took it upon himself to try to help. It turns out that it is a bunch of Easterners trying to stop President Tandi dead in her tracks. Marcus gave me their location.}
+{16109008}{}{Looks like I can head back to the NCR and call it a day. I sure miss the rain.}
+{16109009}{}{Another case closed. Looks like the NCR is going to be fine. Bright future ahead of this place, and I'm proud to say that I helped be a part of it. Joanna Tibbett won't get far in politics, and Wendell Peterson is going to become the next President of the NCR once Tandi dies. I'm sure he'll make a fine President. Who knows, he might even be able to conquer all of California, and lead these people into the future.
+
+
+:: Case Closed ::}
+{16109010}{}{At the end of the day, I've been fired for my incompetence. Something to do with me being a "danger" to society. What the fuck?! Fuck the NCR. I did so much, just to be exiled into the wastes! Is this really what I deserve!! Fuck the Vault Dweller's goddamn legacy if it ended like this!
+
+
+:: Detective Campaign Failed ::}
+
+{16109101}{}{The Legacy of the Vault Dweller}
+{16109102}{}{Great heroes need great sorrows and burdens, or else half their greatness goes unnoticed. It's time to find out who tried to assassinate President Tandi.}
+
+#=======================================
+# 16112
+# assault
+#=======================================
+{16112001}{}{Now that I'm an official Police Officer of the NCR, Detective Deckard has been assigned as my new partner. He has a very large list of Fugitives from the East that need to be brought to justice. Whenever I'm ready I can start doing bounties for the NCR. I just need to get one from Detective Deckard, and report in with him when I'm done.}
+{16112002}{}{Looks like the low lives have taken refuge in the nearby ruins of Ridgecrest, it's South-East of the NCR. Seems like a pretty popular place for trouble. I'd better go over there and "arrest" some bad guys.}
+{16112003}{}{Rapists, thieves, murders. Liars, or Americans. It doesn't matter who they were. They broke the law, and had to pay. Maybe they'll know better in the next life. Time to head back to the office, and file out another boring report.}
+{16112004}{}{Now that I'm an official Police Officer of the NCR, Detective Deckard has been assigned as my new partner. He has a very large list of Fugitives from the East that need to be brought to justice. Whenever I'm ready I can start doing bounties for the NCR. I just need to get one from Detective Deckard, and report in with him when I'm done.
+
+
+:: New Job Available ::}
+
+{16112101}{}{Job Offer: Blue Force}
+{16112102}{}{I never break the law, I AM THE LAW! I'm a hero. Not the hero we deserved but the hero we needed. Nothing less than a knight. Shining.}
+
+#=======================================
+# 16114
+# opposite of assault
+#=======================================
+{16114001}{}{I'm an Ex-Cop, and I'm Pissed Off. Merk offered me some bounty work out of the back room of one of the bars in NCR. There's a medium sized gang causing him problems, and he needs me to put an to it. Permanently. Whenever I'm willing to get my hands a little dirty, I can dish out my own form of justice. }
+{16114002}{}{I took one of Merk's bounties, and now I'm off to fulfil the contract. I need to go to that location on my map, and kill everybody there. Sounds like a good time if you ask me. }
+{16114003}{}{I love the smell of dead bodies... smells like... victory. Merk better be paying me good for this, or else he's next on my shit list.}
+{16114004}{}{I'm an Ex-Cop, and I'm Pissed Off. Merk offered me some bounty work out of the back room of one of the bars in NCR. There's a medium sized gang causing him problems, and he needs me to put an to it. Permanently. Whenever I'm willing to get my hands a little dirty, I can dish out my own form of justice.
+
+
+:: New Job Available ::}
+
+{16114101}{}{Job Offer: Wasteland Vigilante}
+{16114102}{}{Fire me, eh?! I'll clean up the streets myself! Who needs a badge? Just call me the Wasteland Vigilante!}
+
+#=======================================
+# 16116
+# killing fellow vault dwellers
+#=======================================
+{16116001}{}{One of my fellow vault dwellers, no doubt one of the numerous newly released ones, has been robbing wastelanders somewhere between Reno and Shady Sands. One of the Junktown residents is willing to pay me to go over there and stop him from robbing more innocent people.}
+{16116002}{}{One of my fellow vault dwellers, no doubt one of the numerous newly released ones, has been robbing wastelanders somewhere between Reno and Shady Sands. One of the Junktown residents is willing to pay me to go over there and stop him from robbing more innocent people. I have his last known location on my map, and can probably find the vault dweller around there.}
+{16116003}{}{I should burn this body, or at least his vault suit. Oh well, let his body stay here and rot. Serve as a reminder of what happens when you don't act like a true vault dweller. I should head back to Junktown, and collect my reward.}
+{16116004}{}{I wonder how many more of these wannabe vault dwellers are out there? How many more of my own people will I have to kill? Eventually... this will be considered a genocide.
+
+
+:: Quest Completed ::}
+
+{16116101}{}{Damn Vault Dwellers}
+{16116102}{}{...crawled out of the vault, and right into the grave.}
+
+#=======================================
+# 16118
+# float on
+#=======================================
+{16118001}{}{The Boneyard is having problems with the local Centaurs and Floaters. The Regulators are willing to pay me a couple thousand caps to go out there, and kill an army of 30-40 of them. I should speak with Noringo if I'm interested.}
+{16118002}{}{Time to destroy an entire army of hideously mutated creatures for the people of L.A. Damn, this is going to be tough. The swarm is right outside the city.}
+{16118003}{}{This should keep the beasts at bay! But only for a few hours. I can see another group forming in the distance. Better head back to the Boneyard, and talk to the Regulators.}
+{16118004}{}{The Boneyard is having problems with the local Centaurs and Floaters. The Regulators are willing to pay me a couple thousand caps to go out there, and kill an army of 30-40 of them. I should speak with Noringo if I'm interested.
+
+
+:: New Job Available ::}
+
+{16118101}{}{Job Offer: The City of Angels}
+{16118102}{}{My city, I can not deny her. My city screams. She is my mother. She is my lover, and I am her Spirit.}
+
+#=======================================
+# 16127
+# big boss
+#=======================================
+{16127001}{}{The San Francisco Communists are hiring experienced wastelanders to help them collect some local bounties. They are paying rather well. If I think I'm tough enough to handle it I could make quite the living killing Desperados.}
+{16127002}{}{There's a group of Desperados north of San Francisco, in the ruins. They've been attacking the local caravans and need to be stopped. I've been hired to bring an end to this madness, and should go to that location my map whenever I'm ready for a serious fight.}
+{16127003}{}{Rest in Pieces. Time to head back to San Fran and collect my reward from San Marino.}
+{16127004}{}{The San Francisco Communists are hiring experienced wastelanders to help them collect some local bounties. They are paying rather well. If I think I'm tough enough to handle it I could make quite the living killing Desperados.
+
+
+:: New Job Available ::}
+
+{16127101}{}{Job Offer: Wasteland Desperado}
+{16127102}{}{Nothing says hello better than a bullet!}
+
+
+#=======================================
+# 16129
+# vault story
+#=======================================
+{16129001}{}{Cira! Noooooooo! YOU FUCKING BASTARD! I'll find you! And I'll kill you! No matter what it takes! Do you hear me?! You're dead! DEAD!! I need to get to Vault 12, and find a working computer! Plug in my PipBoy, and run a certain application. My Overseer wants whatever is on that computer, and Cira had to die for it! This isn't over! Someone is going to pay!}
+{16129002}{}{I can hear footsteps! Someone's following me! It must be the same person that killed Cira! I need to go chase after them! This is a perfect opportunity to get some answers! I've marked the stranger's location on my map, and need to go there right now! I'd better get ready for a fight!}
+{16129003}{}{Rest in peace, my sweet Cira. This is too weird! Why is someone from my vault trying to kill me? Did the Overseer hire this guy? Or what? This isn't over! I need to find some answers! But how? Maybe I should check out the nearest Vault. That would be Vault 15 according to my PipBoy. I wonder what I'll find there?}
+{16129004}{}{I need to get the hell out of here! My PipBoy tells me that the next closest vault is Vault 8. I should continue my journey there, and get access to one of their computers. Maybe I can access their database without having to enter their Vault? Cira... I... miss you.}
+{16129005}{}{Cira? You were pregnant? Why didn't you tell me? What the hell have I gotten myself into? I need to go to Gecko and see what Skeeter has to say about this "part" for Vault 24. I can't help but feel like something sinister is going on! I need to be careful!}
+{16129006}{}{I guess now I'm off to Redding to deliver this part. I wonder what it does? And just why the hell the Overseer needs it? Who knows. What's more important is where I'm supposed to deliver it? I didn't receive much direction... better just follow my instincts on this one.}
+{16129007}{}{Jesus! What is going on? Why is the Overseer making me jump through all these hoops? I have this letter I'm supposed to deliver to Councilwoman McClaire of Vault City, but should I deliver it? That stranger in the vault suit did say something about a reward? I don't know. Haven't I done enough damage to Vault City? Guess I'll find out.}
+{16129008}{}{I think I'm way over my head right now! It looks like my Overseer had me hack into Vault City and plant a virus just so he could blackmail them for whatever reason, I don't know! After delivering his letter to McClaire, I'm now expected to head over to New Reno and talk to a man named Bishop, and take someone's place! I need to be careful around New Reno, it's not safe over there.}
+{16129009}{}{Bishop and McClaire are making me do something I don't really want to do. I have to go to this location on my map, and slaughter everyone there. I'm going to give the Overseer a piece of my mind if I ever see him again! But right now, I just need to get this over with. I should get ready for a fight. Duty calls.}
+{16129010}{}{I hope these guys weren't members of my vault! What the hell have I done?! What the hell am I becoming?! I need to wash this all away! Better get out of here and tell McClaire I'm done with this madness!}
+{16129011}{}{McClaire paid me a decent wage for doing what I just did... But still... It doesn't feel right. She gave me another letter to deliver. This time I'm supposed to go back to Redding and find the same man as before. }
+{16129012}{}{Time to get the hell out of the North, and back into the South. This place is too hostile for me. I feel much more at home near the Hub, what a shame. I guess I should head to this "Library" next, and find that Katrina woman, see what she wants. I still can't believe Cira is dead... all for nothing. Did I kill the madman responsible? Or is he still out there?}
+{16129013}{}{Get to Level 12 to Continue the Story. Return to Katrina in the L.A Library when you're ready, and tough enough to continue. Good luck! Vault Dweller!}
+{16129014}{}{What the hell is this? A book? There's nothing in this thing. Just blank page after blank page. I'd better go deliver it to the Post Office in the Hub.}
+{16129015}{}{I should check my mail while I'm at the Post Office in the Hub...}
+{16129016}{}{Looks like there's someone waiting for me outside of the Hub... Better go see what they want. I should get ready for a fight, just in case.}
+{16129017}{}{I just killed my cousin Felix! Holy crap! That bastard never did like me! But why the hell did he have to try to kill me! That monster! I found a letter on his body, it read, "Agent Felix. Target will be at the Hub. Eliminate and remove PipBoy. Bring it to San Francisco. Western Office. Payment will be waiting. Good luck." It's always about money, isn't it? My own blood would murder me for a handful of bottle caps. Looks like I'm going to San Francisco. Someone's going to answer for this.}
+{16129018}{}{Someone in black armour hired my cousin Felix to kill me. He's probably the same guy that killed Cira! It doesn't feel like I brought her killer to justice yet! No, no! This isn't over! This will NEVER be over! Cira! Oh God! Why did I ever leave her behind?! What's wrong with me! She was my best friend, and I just abandoned her! And for what?! This?! The "Outside"?! If anyone deserves all this hell, it's me! And I'm going to make this whole world pay! I wonder if I have any mail?}
+{16129019}{}{I need to hack into the San Francisco's Government Mainframe using my Pipboy, and install that backdoor virus I used earlier in Vault City. I guess I'll need to find a working computer, and a quiet room to do this in. Better follow my instincts on this one. What could possibly go wrong? I just need to play it quiet, and keep my head down. Just blend in... yeah right!}
+{16129020}{}{Looks like I'll need a 24-digit pin to access the San Francisco Mainframe. Where the hell can I find admin access? Maybe someone here is willing to let me get my hands a little dirty?}
+{16129021}{}{Looks like the only way into that Mainframe is through a big bag of bottle caps... I'll need to bribe Ken Lee, in San Francisco, with 5000 caps in order to get that 24-digit pin. Where the hell am I going to find that amount of money?}
+{16129022}{}{Now that I've got a 24-digit pin for the San Francisco Mainframe, I can finally get my hands into that big, electric jar of peanut butter! Let's see what's inside, shall we?}
+{16129023}{}{I can't help but feel like there's something off with that Overseer of mine. Since when have we ever broke out in song? Singing the American National Anthem at that? I felt like it was almost... instinct. I need to head over to Navarro, and see what I can find out. That's the only area around that has people in "black armour". I'd better be careful. These guys are real professional. I bet they're the ones with the guns big enough to do that much damage to a person... Cira... you... you were so precious.}
+{16129024}{}{Better get ready for a serious fight! This guy looks tough! But I need to take him out in order to figure out who these people really are! I've marked a good spot to ambush the soldier on my map. I'd better hurry and get there before he does!}
+{16129025}{}{That was a lot harder than I thought it would be! Jesus! Let's have a look at this body. Let's see now...Well, he's a white American. Got an American flag on his uniform. Says "Property of the U.S Government" on it, and something about an "Enclave". This must be the same organization that tried to kill me! Probably the same people that opened the doors to my beloved vault! It meant so much to me getting outside, but I never thought that I'd lose everything that I've ever loved in the process! I need to get a hold of my Overseer somehow. I should head back to San Francisco and see if that terminal is still working. }
+{16129026}{}{Upon pulling out my PipBoy I noticed that there was a small email left in it. It read, "Come to NCR. Find Videocom. Overseer.". Guess I'm going to the NCR now, they must have a public Vault-Tek Videocom I can use. I just need to find somewhere public with a lot of machines, and electronics. There must be a private room over there I could use to talk to my Overseer.}
+{16129027}{}{Damn! I guess Vault-Tek didn't plan on bottle caps being the new currency across the wastes! I guess I should head over to a Bank and see if they have any coins, or something.}
+{16129028}{}{Looks like I'll have to pay one of these Bankers 12,480 bottle caps if I want to get in contact with my Overseer! Damnit! Where am I going to find that kind of money? I should explore the cities and see if anybody has any Jobs for me. Once I have enough bottle caps to buy some All-American Pre-War coins I should head back to the NCR, and buy the coins from that Banker. It will be a lot safer for me.}
+{16129029}{}{Damn! The Chinese Government is right outside of the NCR waiting for me! They can't be happy that I hacked into their networks! If I don't take care of this now, I'll be hunted by the Communists for the rest of my life! I'd better get out there and slaughter them before they murder me! Better get ready for the biggest fight of my life!}
+{16129030}{}{I can't believe that I survived that! Hopefully that'll be the last I see of the damn Chinese Communists! This should teach them not to mess with me! I'd better head back to the Hub, and check my mail at the Post Office.}
+{16129031}{}{My Overseer just gave me my own Safe House... but something feels off about it. I wonder what's waiting for me over there? I have a bad, bad feeling that I'm about to walk into a trap! I'd better get ready for a huge fight! If I want to find some more answers I guess I'll have to check out this "Safe" House.}
+{16129032}{}{Looks like I'm meeting Captain Jason Stone outside of my new house for a one-on-one showdown. Better head over there and teach this guy some manners. Someone is walking away from this fight, and it sure as hell isn't going to be him! I'll never give up! I'll never surrender! Captain Jason Stone must die!}
+{16129033}{}{War, war never changes, Captain. You're dead. But why on Earth did I have to kill you?! There must be an answer here somewhere! Better check the body. Hmmm... Yes! Yes! I have Captain Stone's PipBoy now! I can use this to decipher the mystery! But who in California knows how to hack into a PipBoy? I'm sure I could walk right up to Navarro and ask them, but that would be suicide! I should ask Dorothy in the NCR. She's smart, she would know... I hope.   }
+{16129034}{}{Dorothy wasn't very helpful. Not one bit. The only thing she mentioned was some sort of Cathedral. I'm guessing she meant the one in L.A. I suppose I should head over there, and ask around inside. Maybe I'll be able to find someone there that can hack into Captain Stone's PipBoy.}
+{16129035}{}{What the hell is going on?! Who is this asshole?! Did I just give up Captain Stone's PipBoy for nothing?! That... man... at the Cathedral told me to go over to the Hub... and check my mail! I'd better be careful!}
+{16129036}{}{Looks like that PipBoy I brought over to the Cathedral exploded! Better stay away from there for a while! Who knows what kind of damage that may have caused. Right now, I've got two letters that tell me the same thing: Head to the Videocom in NCR, and make a call. I'd better get my ass over there, and figure this out! Who knows who's waiting for me on the other end...}
+{16129037}{}{Either someone has tampered with this machine, or my Vault is actually listed under "United States Government". I guess it would make sense. I'd better head over to a Bank and buy another 1248 coins to accept the freakin' charges. Man, this is getting way too expensive! Once I have the All-American Pre-War coins. I'll have to return to the Videocom, and accept those hefty fees.}
+{16129038}{}{What?! You mean I need to get another 1248 All-American Pre-War coins?! You've got to be kidding me! Fine! I'll need to head back to that Vault-Tek Videocom once I'm ready, and have the stupid coins.}
+{16129039}{}{Great, my Overseer hates my guts for killing his son. And the United States Government wants to take away my PipBoy. What the hell am I going to do now?! I'm in way over my head here, and should try to find some outside assistance! Maybe the NCR government can help me? Maybe I should go speak with an official?}
+{16129040}{}{Crap! I can't trust anyone, can I?! Who knows who the Enclave has managed to convert! I need to get the hell out of here, and fast! I guess getting help from the NCR is out of the question. Maybe I should seek shadier sources? I should check out the bars, and see if anyone is tough enough, and mean enough to tango with the goddamn United States Government!}
+{16129041}{}{Holy Christ! The Enclave sent a Vertibird after me, along with a small squadron of Enclave Agents! I just saw them land! They're heading this way! I can't avoid this fight, so I'll have to ambush them before they ambush me! Better get ready for a serious fight! The Enclave is going down!}
+{16129042}{}{That's the last of them, I hope. No doubt they'll send more. But this should teach them not to fuck with me! I should get out of here, and get back to the Hub to check my mail. Hopefully, the Overseer has calmed down, and has possibly sent me a letter. I wish I could have told him how sorry I was for killing his son. I know how it feels to lose the people you love.}
+{16129043}{}{Damn, the Overseer hasn't sent me a letter yet. Maybe something happened to him? Or maybe he thinks that I'm the mole! I really screwed up! But how can I make things right again? I hate to say it, but I'd better go buy some more coins, and try to make a collect call to my vault! I should try to establish a connection first, before I go off and spend more caps.}
+{16129044}{}{Thank God I made things right with Vault 24 again! But now, I've been assigned the impossible task of convincing the NCR to fight alongside Vault 24 in a possible upcoming war! How the hell am I going to convince them to do that? Guess I'd better try somewhere...}
+{16129045}{}{Looks like the NCR is on my side. I just need to convince the Brotherhood of Steel to join me as well. I should head over to the Lost Hills Bunker, and talk to one of the guards. Let him know that I'm on official business, and need to speak with someone in charge.}
+{16129046}{}{I can't believe what just happened! The Brotherhood of Steel wants me to leave California within four years? And help them bring clean water to this entire country? It's... It's such a great idea! Finally, I've found my destiny! The reason why I am alive! I need to save this world! I... I need to bring clean water across the wasteland! It would show EVERYONE just how much we can change things! It's brilliant! But nobody can know that I'm working for the Brotherhood! Right now, I just need to save Vault 24, kick the Enclave out of California, and then get the hell out of Dodge! I should go tell the NCR that the Brotherhood is now on our side. }
+{16129047}{}{Better head over to the Vault-Tek Videocom, and place a call to Vault 24. I need to tell the Overseer everything! It's time to go to war with the United States Government!}
+{16129048}{}{I need to prepare for war. Get to Level 24 to continue the Story! Once you're tough enough, head over to Gunther in NCR! But oh, no! This story is TO BE CONTINUED! In the next DLC! Stay tuned for more adventures in the land of California!
+
+
+:: Main Campaign Completed ::}
+
+{16129101}{}{Vault 24: Blood Soaked Heroes}
+{16129102}{}{Once more unto the breach. Once more...}
+
+#=======================================
+# 16139
+# dungeon pers
+#=======================================
+{16139001}{}{Looks like there's an Abandoned Hotel far to the East of Vault 15. The ruins of a once prosperous city named "Ridgecrest" have now become home to random gang bangers, and a variety of criminals alike. Now that I have its location, I can harass them as much as I want.
+
+
+:: New Dungeon Available ::}
+
+{16139101}{}{The Ridgecrest Hotel}
+{16139102}{}{No Vacancy, sorry.}
+
+#=======================================
+# 16141
+# dungeon pers2
+#=======================================
+{16141001}{}{There is an Oasis out in the middle of the desert that is home to several small, furry critters. It would make for a good hunting ground, I reckon. Bet I could find some old caravans out there too. 
+
+
+:: New Dungeon Available ::}
+
+{16141101}{}{The Desert Oasis}
+{16141102}{}{Take back the nature.}
+
+#=======================================
+# 16143
+# dungeon pers3
+#=======================================
+{16143001}{}{I've been told that there's an old, abandoned Gas Station just outside of Junktown. It's a safe house for criminals, and ne'er-do-wells. I should either avoid it at all costs, or slaughter everyone inside. I bet I could find a decent amount of loot over there though.
+
+
+:: New Dungeon Available ::}
+
+{16143101}{}{The Abandoned Gas Station}
+{16143102}{}{Pep Gas ain't so friendly no more.}
+
+#=======================================
+# 16144
+# geckoman
+#=======================================
+{16144001}{}{There's a travelling merchant in the Hub who's buying large amounts of Gecko skins. Silver, Golden, Fire, it doesn't matter. He'll buy them. If I'm interested in making a quick buck being a Trapper, I should go pay him a visit.
+
+
+:: New Job Available ::}
+
+{16144101}{}{Job Offer: Gecko Skinning}
+{16144102}{}{Fresh air! Warm blood! What more do you need?}
+
+#=======================================
+# 16145
+# dungeon pers4
+#=======================================
+{16145001}{}{I heard that there's an old highway rest stop North East of Reno. The area is home to some famous, and experienced gang apparently. Better avoid the area, unless I'm in the mood to slaughter an entire mafia. I bet they've got some pretty good gear though...
+
+
+:: New Dungeon Available ::}
+
+{16145101}{}{The Old Police Station}
+{16145102}{}{No Law means Chaos}
+
+#=======================================
+# 16148
+# mystery
+#=======================================
+{16148001}{}{For reasons you refuse to remember, you've been scarred beyond belief. Part of you regrets leaving the vault, but the other half thinks that it was the best decision of your life. You can't quite decide, and that's what scares you the most. Perhaps you should seek professional help?}
+{16148002}{}{All my efforts of trying to make this world a better place made me sick. I've got post traumatic stress disorder now, and it will probably never go away. I must never forget why I sacrificed so much of myself, for such little in return. The world needs a hero, and I took it upon myself to fulfil that cry. And right now, I can hear them crying over in the Hub.}
+{16148003}{}{Everything I've done so far has been such a waste of time. Why even bother feeling remorse for killing? Nobody cares but me. It's this world that does it to you. Where did humanity go wrong? Was it alcohol? Or when people stopped caring about if there was a God or not? Guess it doesn't matter any more. I'm a police officer, and it's my job to kill the bad guys. Better head out into the desert and kick down some doors. }
+{16148004}{}{You fought the law, and the law won. Good for you, buckos. This would have made a fine house for a newly wed couple, but too bad I've got to burn it down. I'll let the fire wash all this sin away. Someone will stumble upon here, and rebuild. If they fuck up along the way, I'll be back to judge them. Better head over to the Hub, and tell Sheriff Hayden the good news.}
+{16148005}{}{These choices I've been making with my life are starting to feel really good. I used to think that I was becoming something horrible, but now I can see that I'm becoming something more than just terror. It's time to investigate further into the Hub's criminal underworld. Where to begin? I have no idea... What's this?! A radio call from Sheriff Hayden?! There's a young woman about to be raped somewhere near the Hub! I need to head to that new location on my map and help her!}
+{16148006}{}{Better head into that house!}
+{16148007}{}{Case closed. However this ended, it doesn't matter. Justice was served. I should head back to the Sheriff and tell him what happened here.}
+{16148008}{}{Detective Rockatansky has gone missing. Something to do with him running around, looking for his missing wife and kid. Sheriff Hayden only had one clue to give me: The Night Rider. He also suggested that I head over to the Bunker Bar, under the Maltese Falcon, and question the locals. Looks like there might be a fellow detective in dire need of some backup out there. Better hurry, and get to the bottom of things.}
+{16148009}{}{Hmm... looks like I broke Vasquez the last time we met. I should have a look around the bar, and see if anyone sticks out.}
+{16148010}{}{Ugh... where am I? How did I survive that? Who's this guy over there? He looks worse than I do... and he's got a badge! That must be Detective Rockatansky. Better drag myself over there and speak with him.}
+{16148011}{}{Looks like I'm shooting my way out of this one! Get ready for a serious fight!}
+{16148012}{}{Once I've killed this asshole that will be the end of the vicious V8 Gang, and the Night Rider saloon. I should burn this place to the ground, but I'm sure the Hub Police can use it for their own personal storage. Time to head back to the Bunker Bar, and "arrest" that asshole that broke my arm! But first, let's talk to Detective Rockatansky...}
+{16148013}{}{I guess a man just can't go back to his old life after losing so much. Some people, it seems... just can't carry on after great misery. I'm surprised that I've lasted so long... but... I wonder... how long until the rain... kills us all? That scum bag in the fucking Bunker Bar is going to pay for what he did! No mercy! Justice from the gun!}
+{16148014}{}{You have the right to die. Case Closed. The difference between you, and I, is much more than just this badge, and the road. What we do in war is meaningless compared to what we've done in life. I am the guardian of forever. The keeper of the old age. A walking saint amongst men... or... have I become something worse?
+
+
+:: Case Closed ::}
+
+{16148101}{}{Mark of the Wanderer}
+{16148102}{}{You have a gruesome looking scar that will probably never go away...}
+
+#=======================================
+# 16152
+# hub church
+#=======================================
+{16152001}{}{It seems that the church in the Hub has a horrid stench to it. The smell is coming from the graveyard outside. Apparently, the priest over there doesn't know how to properly bury the dead, and has asked me to help him figure it out. He told me that there is a man up north that might know something about proper burial. The only clue I have to go on is "The last breath". I really don't know how that helps, but if I'm interested in doing some good around here I should chase down this mystery.}
+{16152002}{}{I spoke with a man from Redding, the only real funeral service provider left in this godforsaken place. After explaining to him that there is a priest over in the Hub that is trying to mean well, he offered to go pay him a visit in order to teach the priest everything he should know about the proper burying of the dead. I should head back over to the Hub and tell the Padre the good news.}
+{16152003}{}{What drives men to reason? What drives men to kill? How can we mend the broken pieces of yesterday? Traditions? Rules? Peace? Nothing ever changes, nothing really matters, does it? I don't even know who I am any more. Just a lone wanderer, stuck in between an old world, and a new one. To carry on? Forever? Or simply lie down to die? That is my dilemma: To question why. To carry on, armed to the teeth. For good, or great evil. This world will feel my wrath. God please forgive me.
+
+
+:: Quest Completed ::}
+
+{16152101}{}{Old Traditions}
+{16152102}{}{This new world is just as bad as the old one. Where I expected good, evil came; When I waited for light, darkness came.}
+
+#=======================================
+# 16153
+# hub ghoul doc
+#=======================================
+{16153001}{}{Doctor Burhnefletch, over in the Hub is having problems getting new patients at his clinic. It seems that the people around here aren't too keen on getting medical attention from a ghoul. He's asked me to try to convince the four injured citizens around the Hub to go over to his clinic and received free medical attention. He promised to reward me with some free equipment myself, in return. If I'm interested I should check out the town, and try to find these people.}
+{16153002}{}{Part of me thinks that I just helped save a whole bunch of lives, and made these people a little less ignorant. But the other part thinks that I just exposed the sick, and otherwise healthy people of the Hub to a dangerous, radiated biohazard... oh well. Doctor Burhnefletch was pleased, and very thankful that I helped him continue his dream of one day having his old medical office back. 
+
+
+:: Quest Completed ::}
+
+{16153101}{}{The Anguished Man}
+{16153102}{}{Judge me not for the colour of my skin... or whether I have skin at all...}
+
+#=======================================
+# 16159
+# hub noire5
+#=======================================
+{16159001}{}{Looks like we've got a new serial killer in the Californian wasteland again... this time he's not just killing women, but taking people's skin alongside their lives. I've been sent to investigate the home of the latest victim, but I've been told to expect one hell of a sore sight for my tired eyes. Oh well, this job... you've got to learn to disconnect, before it destroys you. So far, I don't think I've got anything left to give, I simply feel nothing at all.}
+{16159002}{}{I'll never be the same. But I don't really care. I've never really been the same since I left the vault. That little girl would have never survived after such trauma. Oh well. I can follow that trail of blood left by the killer. I'm sure I'll find something at the next house. Better head out into the wasteland, and leave this place to burn. Poor kid... I'm... sorry...?}
+{16159003}{}{What was that supposed to mean? Did I just imagine it? Ugh... who knows. This house is clean, time to get back to the Hub. That poor girl... damnit, man! How could I have been so ignorant to her? My inaction is no different than pulling the trigger myself...}
+{16159004}{}{Carver's Pass. Far north-east. A large group of skin jobs have been sighted over there. According to the reports there's a good chance that their leader is over there. It's their only permanent looking camp discovered by the patrols. I don't know what's waiting for me over there, but I can assume that everyone there is hostile, and free game. I just need to keep that mysterious stranger they call a leader alive so I can interrogate him later. Everything I have done up to now has been meaningless compared to this. These fanatics are a plague far worse than anything I have ever seen! If I can't stop them, then the wasteland is doomed to be skinned alive by psychotic ghouls.}
+{16159005}{}{That fool! Let it be known that his greatest mistake was keeping me alive! I've awoken from a really bad dream, and found myself living inside of the fucking nightmare. These monsters will stop at nothing to ruin my home! Nothing! I want some answers, right now! I need to drag myself over to their leader and have a little chat.}
+{16159006}{}{Talk about a close call! I almost got skinned alive while wearing a hideous mask! Who are these people around me? Is that... Detective Cwan, Spade, and Sheriff Hayden? I'd better speak with them... I just don't know if I can do it without that mask. There's something off about it, but something wonderful at the same time! I'm keeping this for later...}
+{16159007}{}{I guess the only thing left to do is to head back to the Hub's Police Station, and interrogate that ghoul...}
+{16159008}{}{Is this the end? Does it really all end here? Does it ever? I don't know... but part of me dies here, that's for sure.}
+{16159009}{}{This war changed me. It MADE me. I am reborn into the light a new. A baptismal of fire! This world just isn't ready for old world justice. I learnt a lot but now it's time to take this knowledge and achieve my own dreams! Enough fighting for others, I fight for myself! For whatever the hell I consider justice! Whatever it is! It's mine!
+
+
+:: Detective Campaign Completed ::}
+
+{16159101}{}{What Lies Within the Flesh}
+{16159102}{}{Pulled the tap to my burning rage, and I can't put it out!}
+
+#=======================================
+# 16165
+# dungeon toxic
+#=======================================
+{16165001}{}{A few ways out from the Hub and Necropolis lies an old hunting camp. Now abandoned, it used to be home to several generations of trappers, and bandits a like. A young adventurer could certainly find some fun around there. But I wouldn't linger too long, it's been abandoned for a reason.
+
+
+:: New Dungeon Available ::}
+
+{16165101}{}{The Lonely Hunting Camp}
+{16165102}{}{Just a hiss, and then a whisper.}
+
+#=======================================
+# 16167
+# dungeon bandit
+#=======================================
+{16167001}{}{Outside, mostly North of the Junktown city gates, lies a supposed Viper camp. Mostly used by younger members of the gang, and low ranking lieutenants, it could make a good location for ambushing unsuspecting bandits, and cap heavy scumbags... These guys don't look too tough.
+
+
+:: New Dungeon Available ::}
+
+{16167101}{}{Viper Recruitment Camp}
+{16167102}{}{Can't you hear me knocking?}
+
+#=======================================
+# 16214
+# intro quest tourist
+#=======================================
+{16214001}{}{Explore the vast city called the Hub, and introduce yourself to Joe Kelly.}
+{16214002}{}{I can't help but feel like Joe Kelly is keeping something from me...}
+{16214003}{}{All this is too new to me, where the hell am I even going? What the hell am I even going to do with myself? Everything I've ever known is gone! Deep down I guess I feel just like that little girl out there in Old Town... alone... I should go find her and see if I there's anything I can do to help... or... I don't know! I keep hearing people talk about some Vault Dweller, some are even comparing him to me, calling me some kind of hero. I'm no hero, just someone new, a stranger in this town.}
+{16214004}{}{Hmm, this place is pretty impressive, guess I'll be here for awhile. Better introduce myself to the local traders, who knows, they could be useful to befriend. I guess I should go find this Beth woman, over in the market.}
+{16214005}{}{Looks like Beth is a good woman to trade with, she seems fair. Better go introduce myself to Mitch, up the road.}
+{16214006}{}{I need to go get checked for radiation damage, or retina, or whatever! Oh God! I hope they don't give me a suppository! Oh God! Not again! Not. Again!!! There's a clinic to the west of the Market I should go check out, they should be able to take care of me, I hope.}
+{16214007}{}{I must be dreaming! I need to go somewhere familiar! A church! Just like the old days! Just like in the vault. I'm coming, father! I'm coming!}
+{16214008}{}{Well, I guess that concludes my tour of the Hub. Better figure out what to do with myself for the rest of my life. I can't help but think about what that priest said to me concerning that weird tent out in the wasteland... is there someone waiting for me there? Oh well, better take a deep breath and carry on, there's a big world out there just waiting for me.
+
+
+:: Quest Completed ::}
+
+{16214101}{}{Into the Great Wide Open}
+{16214102}{}{A vault dweller without a clue.}
+
+#=======================================
+# 16237
+# mercantilism
+#=======================================
+{16237001}{}{I'm an honourary member of the Bartertown Barter's Guild! That means that every 12 Bulk Order jobs that I complete (if they pass the criteria) will reward me with one free random blueprint from the Barter's Guild. I just need to go over there and claim whatever work I finish. Sounds like it was well worth the ten grand. Any jobs I completed prior to joining the Guild still count today, thankfully. Looks like I'm now officially a professional vendor!
+
+
+:: New Job Available ::}
+
+{16237101}{}{Mercantilism}
+{16237102}{}{The way of the vendor.}
+
+#=======================================
+# 16278
+# NR Boxing
+#=======================================
+{16278001}{}{New Reno is quite the city of opportunity! They're looking for boxers! If I'm up for it I can sign up for a fight at any time.
+
+
+:: New Event Available ::}
+
+{16278101}{}{Suckerpunch: Boxing in Reno}
+{16278102}{}{Put up yer dukes and fight like a feather!}
+
+#=======================================
+# 16294
+# Evil Campaign
+#=======================================
+{16294001}{}{Well, that's settled! I've gone bonkers! There's two ways this can go now; one: I forget this ever happened, or two: I get the hell out of here before sugar tits calls the cops! There's still cops out here, right? Better skedaddle! I need to go find a spaceship! I should start in the Hub! That seems swell!}
+{16294002}{}{Something strange just happened! I received a pile of bones to deliver to one of the prisoners in the Hub! I'd... better hurry up and find out which one! There's no telling what might happen if I don't get these bones to that fucker fast enough!}
+{16294003}{}{Feeling compelled, I decided to keep the bones. I should return to the man that knew about the spaceship!}
+{16294004}{}{I decided not to keep the bones... They creep me right the fuck out! I should return to the man that knew about the spaceship!}
+{16294005}{}{After having lost the bones I decided to act on my own accord, and simply did what felt natural to me at the time. I should return to the man that knew about the spaceship!}
+{16294006}{}{Hmm... I received some Gold Nuggets... and a few pieces of Fool's Gold! I wonder what the purpose of this was? I feel like maybe I was given two fake nuggets for a reason! Better keep one safe in case I lose one. I don't think I'll get many second chances! This Fool's Gold must be used for something special! I'd better guard it with my life! Should visit a banker next, maybe get it appraised? Maybe it isn't just Fool's Gold! But something rather supernatural instead!}
+{16294007}{}{Tally ho, Muttley! To the city of gold! To the safest town in the city! To Redding! Redding! The city of heroes! And villains, of course! We swim! We fly! We arrive soon! I fucking hope so! Holy crap! Why do my feet hurt so much? Have I really been using them for transportation?! What's wrong with me!! They're meant for dancing!}
+{16294008}{}{Oh, wow! A glimmering jewel! I wonder what the fuck this is for?! It's too bad that I killed that Jeweler! His knowledge of precious gems would have been useful, damn! I should visit some sort of place... with the word "Golden" in it. Maybe that'll unveil some answers?}
+{16294009}{}{That was useful! I feel SOOOO much better now! Yippie! Guess I should go speak with a banker... doesn't matter which city really. I wonder if the Hub has a new banker yet? Muahahhahahahh!! Off to see the banker! The wonderful banker of-- nevermind. Let's just go find a damn banker already!}
+{16294010}{}{Guess I'm off looking for the next clue! Oh, boy! It's like a treasure hunt but with actual blood stained treasure! Where the hell am I going to find someone that shouts about Holy Fire though? Hmm... better start SOMEWHERE!
+
+
+:: More Coming Soon! ::}
+
+{16294101}{}{Wacky Wasteland and Their Flying Machines!}
+{16294102}{}{Come Muttley! It's time to take over the world!}
+
+#=======================================
+# 16328
+# burrows
+#=======================================
+{16328001}{}{Beneath the ruins of West-Tek's L.A research facility, at least what's left of it... There's a grotesque group of ... mutated raccoons living there! They can speak, they can walk, and they have fingers, that "fing"! Amazing! I need to find out more... I think! Why the hell not?! It's for science, damnit!
+
+
+:: Discovery ::}
+
+{16328101}{}{The Skin I Live In}
+{16328102}{}{Of strictest secrecy; by guarding which I shall escape the misery of these chains. They yearn for what they fear for.}
+
+#=======================================
+# 16336
+# mutant chain for ringhold
+#=======================================
+{16336001}{}{Ringhold, the strange dementia ridden ghoul from Necropolis handed me a holotape. On it was his entire life's story, and with it, some fantastical possibilities. Apparently, he's responsible for the creation of the F.E.V, and the wasteland's mutants. What throws me off the most, however, is the fact that he keeps calling me a "Vault Hick", as if somehow he knew me. There's something off about all this, and I'm starting to feel like maybe... just maybe, I should-- could finish his research. Who knows how this might end up. I need to find someone capable, a just as brilliant mind as Ringhold... but where? Perhaps I should ask Ban Chao, over in San Francisco.}
+{16336002}{}{After taking the holotape to Ban Chao, in San Francisco, he and I have decided to work together, and continue Ringhold's F.E.V research. However, to further continue the research I'll require a specific Chemistry Journal from Chief Librarian Kohl, over in Vault City. Bao Chao claims that it won't be easy to acquire, but should definitely be worth the visit.}
+{16336003}{}{After listening to my story Doctor Kohl laughed at my attempts to get his scientific journals. I guess I should just go back to Ban Chao and tell him the bad news. }
+{16336004}{}{I need to head to Necropolis and get a sample of Ringhold's blood. I'll need an empty Hypodermic Needle in order to do it. Just what exactly is Ban Chao plannign to do with his blood?}
+{16336005}{}{Now that I have a sample of Ringhold's stolen blood we can continue our little experiment! Better take this back to Ban Chao in San Fran.}
+{16336006}{}{Looks like I've got to inject six random drunks, or Holy People with a batch of Ban Chao's new mutagen serum. It's disgusting, and probably murder, but it's for science! Science is never evil, is it?}
+{16336007}{}{Only five more people left to inject!}
+{16336008}{}{Only four more people left to inject!}
+{16336009}{}{Only three more people left to inject!}
+{16336010}{}{Only two more people left to inject!}
+{16336011}{}{Only one more person left to inject!}
+{16336012}{}{Better get back to Ban Chao and explain the results! Wow! What a mess!}
+{16336013}{}{I've got one final injection of mutagen serum to test out! I just need to find a Homesteader!}
+{16336014}{}{That went... well, that went! Let's get back to Ban Chao!}
+{16336015}{}{What have I done?! I've just helped the Chinese Communists create a brand new version of the F.E.V! They now have the ability to turn people into Super Mutants! I suppose I'm done with them, for now... but... I could also become a Super Mutant if I paid for the operation. I'll have to speak to Ban Chao later if I'm ever interested.
+
+:: Quest Completed ::}
+
+{16336101}{}{The secrets of the F.E.V}
+{16336102}{}{Where is my mind? How long has it been? Did the war change that much?}
+
+#=======================================
+# 16383
+# wasteland discovery job
+#=======================================
+{16383001}{}{Another day, another journey begins. My city, she calls to me. I am needed. In good, or bad. I walk this scorched Earth, and leave my footprints behind like they're relics. I should begin my journey in the Hub, and speak with Joe Kelly. Let's go find out how the city's doing.}
+{16383002}{}{It's time to start digging away at the rotten scum that lurks around this city. I'll start by exterminating the toughest batch of rats this city has to offer.}
+{16383003}{}{One more group slaughtered, time for the next task. I should talk to one of the guards outside of the FLC.}
+{16383004}{}{It's time to help balance the sense of consequence! Someone has to beat some sense into these lunatics!}
+{16383005}{}{This will help set an example for this city. I should go talk to the Sheriff next.}
+{16383006}{}{Whether or not I'm a good person... it's better to help the police... rather than fight against them. Time to take out a hardened criminal.}
+{16383007}{}{Justice... or whatever this was... is served. Time to hit Old Town, and find that stupid telltale.}
+{16383008}{}{Better get out there and murder one of my fellow Vault Dwellers... again...}
+{16383009}{}{Rest in pieces, dear brother... whatever you were. I should return to Joe Kelly.}
+{16383010}{}{The day grows thin, and my bones are becoming weak. I should rest at my tent for a while. Warm these crackling bones right by the fire.}
+{16383011}{}{The New California Republic, where the statue lies. A cold, harsh reminder of the good deeds of the past. Who are we now? What will we become without structure? Without rule. Slaves will always find a master.}
+{16383012}{}{Each, and every day the NCR takes new territory thanks to us. Thanks to Vault 24, and our combined efforts. We want our world back. Our age. We want to remember, we want to never forget the way our memories made us feel.}
+{16383013}{}{Now that I've decided to negotiate the surrender of this settlement, I should round up everybody's guns, and let them know who's in charge.}
+{16383014}{}{I've decided to collect tribute on behalf of the NCR, I should go around and collect it, then bring it back.}
+{16383015}{}{I'm going to slaughter the settlement and leave it for the NCR to clean up! After I'm done here, I'll need to ambush the rest of the settlers outside of the farm. The location is on my map.}
+{16383016}{}{Every settlement needs life, it needs water. It needs love. These people can offer a lot to the NCR, and in thus, can help make my life better. I need to go pick up a Water Barrel from the Hub, and bring it back to the settlement.}
+{16383017}{}{I should speak with the Torchbearer.}
+{16383018}{}{A master always finds his slaves. Time to return to Tandi.}
+{16383019}{}{Unification is always better than war. Laws, justice, karma. These things matter. I wonder how well the city's police force is doing? I should head over to the police station.}
+{16383020}{}{It's a thin line between good and evil. Everybody succumbs to it once in a while. But does it deserve punishment? Yes, yes it does. A dirty cop is a walking controversy, I don't care who you are. It's time to end the life of another parasite, shitting all over the balance that allows me to be strong, or weak. I'll need to sniff this guy out by investigating the bald-headed cops around the Southern towns, like the Hub, Junktown, L.A, and the NCR.}
+{16383021}{}{The things my eyes have seen. The things my people do to try to make a difference. Life is killing me, it's killing my heart. Just like the black heart of this corrupt, paedophile cop I'm about to kill!}
+{16383022}{}{May the children rest in piece, and God have no mercy on your broken soul. You fucking bastard. I need a drink! Better head to the Maltese Falcon, and find Hope.}
+{16383023}{}{I should return to Detective Deckard, tell him the good news about justice. No rush though, I should relax. Eat something while I'm here, and listen to the music.}
+{16383024}{}{I need to rest my wary bones down by the fire, and pay a visit to my one, and only true friend.}
+{16383025}{}{Junktown now calls to me. A place where ruin is now civilization. The wreckage of yesterday now paves the way into tomorrow. It is haunted in the night, by a ghost of a once great species, The Night Terror. If I haven't solved that riddle before, I should do so now before continuing.}
+{16383026}{}{Once again I must hunt. Hunt a creature of pure nightmare fuel. I need to gather 50x pieces of Meat, and find a Junktown Scout out in the wasteland in order to help me set the trap.}
+{16383027}{}{I need to kill the Ancient Deathclaw, and ensure the safety of the people of Junktown. Their brewery makes too good of beer to let their legacy go to waste.}
+{16383028}{}{Grimlok is dead, and I should return to Jeb in Junktown.}
+{16383029}{}{Nothing raises the spirits more than the nectar of the Gods. Nothing sparks birth, emotion, thought, and civilization more than alcohol. I should head over to the Junktown Brewery and help them spread the good word of Baccus. After I've completed whatever tasks they need to help open, I should return to them and double check if they've got everything ready to set up.}
+{16383030}{}{I need to deliver a crate full of Beer to the bartender at the Maltese Falcon. Better not lose it!}
+{16383031}{}{I should head back to the Junktown Brewery to pick up another crate.}
+{16383032}{}{This next crate is going over to the shopkeeper in L.A.}
+{16383033}{}{I need to go pick up the final crate from the Junktown Brewery.}
+{16383034}{}{This late crate is going over to Mira's in the NCR.}
+{16383035}{}{I'm done delivering crates of Beer for Junktown's Brewery. Better head back and let them know that the job is done.}
+{16383036}{}{Looks like the day is almost done, I should rest back at my fire for a bit.}
+{16383037}{}{The day is complete, and I am no longer in need of rest. I crave entertainment, vice, and the enjoyment of this short lived life. I should feed my own desires, before letting anyone else in this world control me. I *need* to go to Reno, and party.}
+{16383038}{}{I've earned my first party point! Nice! Time to keep on rockin' my socks off in Reno, baby! Yeah!}
+{16383039}{}{I've earned my second party point! Yeah! Time to earn another! Let's party like it's 2238!}
+{16383040}{}{I've earned my third party point! Woo! Time to drink another beer! I'm in Reno, baby! Get loose!}
+{16383041}{}{I'm on my fourth beer, I mean party point! Ah, who cares! I'm in Reno, baby! Let's get loaded!}
+{16383042}{}{I should fight everyone in here... just for fun. But first? I need another beer.}
+{16383043}{}{I've earned another party point! This is my sixth one! After everything I've done, and seen, I think I'm almost ready for another beer!}
+{16383044}{}{I've earned my seventh party point! Is this even beer?! Who knows! I'm drunk!}
+{16383045}{}{Why the hell does that bartender keep mentioning a comedian? I should order another beer and find out!}
+{16383046}{}{I've earned my ninth party point! What I do now with my body I can no longer be accounted for. I should finally go see that damn comedian, and call it a night. Just... one more beer.}
+{16383047}{}{I've earned my tenth party point! Nice! I'm so drunk right now! I should probably call it a night, but I don't remember if I've seen that damn comedian yet! I... should have another beer!}
+{16383048}{}{I'm drunk! Time to go home! But first... another beer!}
+{16383049}{}{The day will soon end for me, and after all I've seen, and done. I think the day and I are even. For everything. I'm not perfect, and I never will be. But at least... my heart... is where it needs to be. I should drag myself back to the fire, before I pass out.}
+{16383050}{}{It's time to check my mail in the Hub, and call it a day.}
+{16383051}{}{Freedom, choice, luxury. Things that are not often mixed in with the so called "apocalypse", but I have that here, despite the madness. I want to continue its dream, for tomorrow is...
+
+
+
+:: The Dawn of a New Day ::}
+
+{16383101}{}{Day of the Wanderer}
+{16383102}{}{If I'm such a legend, why am I so lonely?}
+
+
+#=======================================
+# 61009
+# survival
+#=======================================
+{61009001}{}{Do I dare attempt the impossible?}
+{61009002}{}{I dare!}
+{61009003}{}{I have won!}
+{61009004}{}{I can repeat whenever.
+
+
+:: New Job Available ::}
+
+{61009101}{}{FOnline Tower Defense Critters}
+{61009102}{}{Survive! Or... well, Die!}
+
+#=======================================
+# 61011
+# survival clowns
+#=======================================
+{61011001}{}{Do I dare attempt the impossible?}
+{61011002}{}{I dare!}
+{61011003}{}{I have won!}
+{61011004}{}{I can repeat whenever.
+
+
+:: New Job Available ::}
+
+{61011101}{}{FOnline Tower Defense Clowns}
+{61011102}{}{Survive! Or... well, Die!}
+
+#=======================================
+# 61013
+# burrows doc
+#=======================================
+{61013001}{}{Doctor Lok'Narr over in the Burrows opened my eyes to a new reality... a new Vault-Tec reality. Although alarming, I can't help but wonder just how much truth these furry little creatures know about my vault, and the entire Vault-Tec company in general. I should speak to their Elder, and see if I can gain access to the Burrow's computer network."}
+{61013002}{}{I dare!}
+{61013003}{}{I have won!}
+{61013004}{}{This is the end... or is it just the beginning...
+
+
+:: Quest Completed ::}
+
+{61013101}{}{The funny thing about vaults...}
+{61013102}{}{Is Vault-Tec truly evil? Am I really just another experiment? I guess if I really want to know the truth... I'll have to find it.}
+
+#=======================================
+# 61014
+# survival geckos
+#=======================================
+{61014001}{}{Do I dare attempt the impossible?}
+{61014002}{}{I dare!}
+{61014003}{}{I have won!}
+{61014004}{}{I can repeat whenever.
+
+
+:: New Job Available ::}
+
+{61014101}{}{FOnline Tower Defense Geckos}
+{61014102}{}{Survive! Or... well, Die!}
+
+#=======================================
+# 61016
+# survival rats
+#=======================================
+{61016001}{}{Do I dare attempt the impossible?}
+{61016002}{}{I dare!}
+{61016003}{}{I have won!}
+{61016004}{}{I can repeat whenever.
+
+
+:: New Job Available ::}
+
+{61016101}{}{FOnline Tower Defense Rats}
+{61016102}{}{Survive! Or... well, Die!}
+
+#=======================================
+# 61018
+# survival zombies
+#=======================================
+{61018001}{}{Do I dare attempt the impossible?}
+{61018002}{}{I dare!}
+{61018003}{}{I have won!}
+{61018004}{}{I can repeat whenever.
+
+
+:: New Job Available ::}
+
+{61018101}{}{FOnline Tower Defense Zombies}
+{61018102}{}{Survive! Or... well, Die!}
+
+#=======================================
+# 61020
+# survival float
+#=======================================
+{61020001}{}{Do I dare attempt the impossible?}
+{61020002}{}{I dare!}
+{61020003}{}{I have won!}
+{61020004}{}{I can repeat whenever.
+
+
+:: New Job Available ::}
+
+{61020101}{}{FOnline Tower Defense Floaters and Centaurs}
+{61020102}{}{Survive! Or... well, Die!}

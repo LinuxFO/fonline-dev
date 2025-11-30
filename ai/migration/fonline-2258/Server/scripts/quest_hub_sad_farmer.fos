@@ -1,0 +1,115 @@
+#include "_colors.fos"
+#include "_macros.fos"
+#include "_npc_pids.fos"
+#include "mapdata_h.fos"
+#include "utils_h.fos"
+#include "quest_killmobs_h.fos"
+#include "logging_h.fos"
+
+import void critter_init(Critter& mob, bool firstTime) from "mob";
+
+#define Q_NOT_STARTED    (0)
+#define Q_STARTED        (1)
+#define Q_FINISHED       (2)
+#define Q_OVER           (3)
+
+array<uint> enemiesPid = { 11, 12, 16, 80, 81, 83, 86, 111, 113, 116, 117, 118, 240, 241, 383 };
+
+void r_SpawnFarmhouse(Critter& player, Critter@ npc)
+{
+    uint worldX = Random(1575, 1675);
+    uint worldY = Random(1875, 1975);
+
+    array<Critter@> critters = { player };
+    uint            locId = CreateLocation(LOCATION_Q_SadFarmer, worldX, worldY, critters);
+    SetRootMapData(GetLocation(locId), MAP_DATA_OWNER, player.Id);
+    if(player.Mode[MODE_DEFAULT_COMBAT] == COMBAT_MODE_TURN_BASED)
+    {
+        SetTurnBasedAvailability(GetLocation(locId));
+    }
+
+    GameVar@ qLocationId = GetLocalVar(LVAR_q_hub_sad_farmer_locationId, player.Id);
+    qLocationId = locId;
+
+    Location@ location = GetLocation(locId);
+    location.Color = COLOR_WM_QUEST;
+    location.Update();
+
+    SetQuestGarbager(0, player.Id, locId, LVAR_q_hub_sad_farmer, Q_OVER);
+    player.Say(SAY_NETMSG, "I agreed to help an old farmer. I should go now and get rid of creatures that took control over his farm.");
+    DynamicLocationAddLog(player, npc, qLocationId, "quest_hub_sad_farmer");
+}
+
+
+void r_RemoveFarmhouse(Critter& player, Critter@ npc)
+{
+    GameVar@ qLocationId = GetLocalVar(LVAR_q_hub_sad_farmer_locationId, player.Id);
+    uint locId = qLocationId.GetValue();
+
+    if(locId > 0 && locId != 2)
+    {
+        DeleteLocation(locId);
+        DynamicLocationDelLog(player, npc, qLocationId, "quest_hub_sad_farmer");
+    }
+    player.Say(SAY_NETMSG, "QUEST COMPLETED");
+    player.Say(SAY_NETMSG, "Old man shared his secret with me. Now I know a bit more about close combat.");
+}
+
+
+void _Enemy(Critter& cr, bool firstTime)
+{
+    critter_init(cr, firstTime);
+    cr.SetEvent(CRITTER_EVENT_DEAD, "_EnemyDead");
+    cr.StatBase[ST_REPLICATION_TIME] = REPLICATION_NEVER;
+    cr.StatBase[ST_TEAM_ID] = 5024;
+
+
+    cr.SetEvent(CRITTER_EVENT_IDLE, "_EnemyIdle");
+    cr.SetEvent(CRITTER_EVENT_SHOW_CRITTER, "_EnemyShowCritter");
+}
+
+void _EnemyDead(Critter& cr, Critter@ killer)
+{
+    Map@ farmhouse = cr.GetMap();
+    if(!valid(farmhouse))
+        return;
+
+    Location@ loc = farmhouse.GetLocation();
+    if(!valid(loc))
+        return;
+
+    array<Map@> maps;
+    uint n = loc.GetMaps(maps);
+
+    array<Critter@> enemies;
+    uint remainingEnemies = 0;
+    for(uint i=0; i < n; ++i)
+    {
+        for(int j=0, k=enemiesPid.length(); j < k; ++j) {
+            remainingEnemies += maps[i].GetCritters(enemiesPid[j], FIND_ONLY_NPC | FIND_LIFE_AND_KO, enemies);
+        }
+    }
+
+    if(remainingEnemies == 0)
+    {
+        uint ownerId = GetRootMapData(loc, MAP_DATA_OWNER);
+        if(ownerId == 0)
+            return;
+
+        GameVar@ qSadFarmer = GetLocalVar(LVAR_q_hub_sad_farmer, ownerId);
+        qSadFarmer = Q_FINISHED;
+        Critter@ player = GetCritter(ownerId);
+        player.Say(SAY_NETMSG, "I killed all creatures on farm. I should get back and bring good news to old man.");
+    }
+}
+
+void _EnemyIdle(Critter& mob)
+{
+    MobIdle(mob);
+}
+
+void _EnemyShowCritter(Critter& mob, Critter& showCrit)
+{
+    MobShowCritter(mob, showCrit);
+}
+

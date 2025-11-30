@@ -1,0 +1,1244 @@
+//
+// FOnline: 2238
+// Rotators
+//
+// map_sad.fos
+//
+/*Update by Rinzler
+
+-Sierra Army Depot is a dungeon of two halves.
+-Floors 1 and 4 may be visited at any time and there is standard magic locker (e_spawn) on floor 4. (Alien body).
+-Wall doors have been fixed and robots will now agro and exit their wall compartments on their own when they sense players.
+-Floors two and three are sealed off. 
+-Elevators are locked and retinal scanners must be used to open them with the correct eye. Players must use the stairs to get down to floor 4. 
+-Dixon`s eye will spawn as a semi-rare loot in normal dungeons - if a player find one then they may attempt the inner dungeon in Sierra.
+-Dixon`s eye is used on floor 4 to access the elevator to floor 3 and will trigger the FillContainers function to populate the containers on floor 3. 
+-Clifton`s eye will spawn in the ice chest in the bio-storage room. 
+-Clifton`s eye is then used to get to floor 3, this will trigger the FillContainers2 function and populate the containers on floor 2.
+-In the Armory area there are 8 Sentry Bots at their docking stations and a Mr Gutsy patrolling the loading area. 
+-The door to the main armory is locked and can only be opened by the terminal at the back of the loading area.
+-When players cross the laser trip wire a message will be sent to alert all robots (some may not agro at this time due to line of sight issues, depending on player position)
+-If a players takes the initiative and attacks a bot first, a message will be sent to all bots and wake them up. 
+-The terminal requires a low science check to open the armoy door.
+-There are some invisible triggers in front of the armory door which will agro any remaining bots. 
+-In the armory players will get a lot of statted weapons, armors and some ammo. Plus the main reward locker has 5% chance to spawn something rare. 
+
+*There is deliberately no global timer for this dungeon, simply because PvP apes should not have everything handed to them - they should be out looking for PvP if they want it, not playing minecraft while
+ waiting for ping, as is common with some servers. While there is still a risk of PvP, this gives players who are not part of the large gangs a shot at getting something good without the whole 
+ server zerging them every time. 
+*/
+
+#include "_macros.fos"
+#include "_maps.fos"
+#include "elevators_h.fos"
+#include "guard_h.fos"
+#include "messages_h.fos"
+#include "mob.fos"
+#include "npc_planes_h.fos"
+#include "utils_h.fos"
+
+import void MoveRandom(Critter& npc, uint maxDist)from "npc_common";
+import void MoveRandom(Critter& npc, uint maxDist, uint stepDist, bool Run) from "npc_common";
+import bool AttackCritter(Critter& attacker, Critter& target) from "npc_common";
+import void NpcSetLevel(Critter& npc, int level) from "parameters";
+import bool LockerOpen(Item& item) from "lockers";
+import bool LockerClose(Item& item) from "lockers";
+import void SwitchState(Item& locker) from "lockers";
+import void AddSpecialBonus(Item@ it) from "item_bonus";
+
+
+#define STR_SENTRY_BOT_ATTACK    (1)
+
+//
+// Sierra Army Depot - a place to have fun *It is now! - Rinzler
+// Level2 - "military" crafting
+// Level3 - drugs experiments(crafting)
+//
+
+
+
+//
+// Initialize map
+//
+
+// elevator 1-2-3
+CElevator Elevator(ELEVATOR_MILITARY_123);
+// elevator 3-4
+CElevator ElevatorPower(ELEVATOR_MILITARY_34);
+
+bool ElevatorsAdded = false;
+
+void map_init(Map& map, bool firstTime)
+{
+    // add only one for all floors
+    if(!ElevatorsAdded)
+    {
+        // add elevators
+        AddElevator(Elevator);
+        AddElevator(ElevatorPower);
+        ElevatorsAdded = true;
+    }
+
+    uint16 x = 0, y = 0;
+    // parse elevators floors (only for vault levels)
+    switch(map.GetProtoId())
+    {
+    case MAP_SierraArmyDepot_Level1:
+        if(map.GetEntireCoords(1, 0, x, y))
+            Elevator.AddFloor(map.Id, 1);
+        break;
+    case MAP_SierraArmyDepot_Level2:
+        if(map.GetEntireCoords(1, 0, x, y))
+            Elevator.AddFloor(map.Id, 1);
+        break;
+    case MAP_SierraArmyDepot_Level3:
+        if(map.GetEntireCoords(1, 0, x, y))
+            Elevator.AddFloor(map.Id, 1);
+        if(map.GetEntireCoords(2, 0, x, y))
+            ElevatorPower.AddFloor(map.Id, 2);
+        break;
+    case MAP_SierraArmyDepot_Level4:
+        if(map.GetEntireCoords(2, 0, x, y))
+            ElevatorPower.AddFloor(map.Id, 2);
+        break;
+    default:
+    }
+
+    // i just can't make up witty comments anymore
+
+}
+
+//
+// Elevator triggers
+//
+
+void t_Elevator(Critter& critter, Scenery& trigger, bool entered, uint8 dir)
+{
+    HandleElevator(Elevator, critter, entered);
+}
+
+void t_ElevatorPower(Critter& critter, Scenery& trigger, bool entered, uint8 dir)
+{
+    HandleElevator(ElevatorPower, critter, entered);
+}
+
+//Scripts for Elevator Doors
+
+
+
+//Sierra Army Depot Elevators//
+
+void elevator_door(Item& item, bool firstTime)
+{
+	item.SetEvent(ITEM_EVENT_SKILL, "_UseDoor");
+	
+}
+
+bool _UseDoor(Item& item, Critter& player, int skill)
+{
+	// Opening / Closing
+	player.Animate(ANIM1_UNARMED, ANIM2_USE, item, true, true);
+	
+    if((skill == -1) || (skill == SK_LOCKPICK))
+    {	
+		Map@ map = GetMap(item.MapId);
+		Item@ ElevatorDoor = null;
+		Item@ ElevatorDoor2 = null;
+		
+		switch(map.GetProtoId())
+		{
+		    case MAP_SierraArmyDepot_Level1 :
+				@ElevatorDoor = map.GetItem(76, 73, 2421);
+				break;
+			case MAP_SierraArmyDepot_Level2 :
+				@ElevatorDoor = map.GetItem(86, 77, 2421);
+				break;
+			case MAP_SierraArmyDepot_Level3 :
+				@ElevatorDoor = map.GetItem(98, 79, 2421);
+				@ElevatorDoor2 = map.GetItem(90, 79, 2421);
+				break;
+			case MAP_SierraArmyDepot_Level4 :
+				@ElevatorDoor = map.GetItem(84, 75, 2421);
+				break;
+			default: return false;
+		}
+		
+		if((FLAG(ElevatorDoor.LockerCondition, LOCKER_ISOPEN)) || (FLAG(ElevatorDoor2.LockerCondition, LOCKER_ISOPEN)))
+		{
+			player.Say(SAY_NETMSG, "It appears the door cannot be closed manually");
+		}
+        else
+            {
+				player.Say(SAY_NETMSG, "The door doesn't seem to want to open. You feel like that retinal scanner next to it might be connected to this problem.");		
+			}
+		
+        return true;
+    }
+	return false;
+}
+
+//Scanner 1//
+
+//Cosmetic function for scanners floors one and two elevators - plays message to tell players that the scanners are broken and indicate that they cannot be used. 
+
+bool s_Scanner1(Critter& player, Scenery& scanner, int skill, Item@ item)
+{
+	if(!player.IsPlayer())
+        return false;
+
+	if(valid(item) && item.GetProtoId() == PID_DIXON_EYE)
+	{
+		Map@ map = player.GetMap();
+		if(!valid(map)) return false;
+		
+		Item@ ElevatorDoor = null;
+		
+		switch(map.GetProtoId())
+		{
+			case MAP_SierraArmyDepot_Level1 :
+				@ElevatorDoor = map.GetItem(76, 73, 2421);
+				break;
+			case MAP_SierraArmyDepot_Level2 :
+				@ElevatorDoor = map.GetItem(86, 77, 2421);
+				break;
+			default: return false;
+		}
+		
+		if(!FLAG(ElevatorDoor.LockerCondition, LOCKER_ISOPEN))
+		{
+			player.Say(SAY_NETMSG, "Scanner malfunction - reporting to maintenance.");
+		}
+		
+		return true;
+	}
+	else if(valid(item) && (item.GetProtoId()!= PID_DIXON_EYE))
+	{
+		if(item.GetProtoId() == PID_CLIFTON_EYE)
+			player.Say(SAY_NETMSG, "Scanner malfunction - reporting to maintenance.");
+		else
+			player.Say(SAY_NETMSG, "Scanner malfunction - reporting to maintenance.");
+		
+		return true;
+	}
+	else if(!valid(item))
+	{
+		if(skill == SKILL_PICK_ON_GROUND)
+			player.Say(SAY_NETMSG, "Scanner malfunction - reporting to maintenance.");
+		if(skill == SK_LOCKPICK)
+			player.Say(SAY_NETMSG, "It's a retinal scanner, only the right eyes work on it.");
+		if(skill == SK_REPAIR)
+			player.Say(SAY_NETMSG, "You don't know how to fix this.");
+		if(skill == SK_SCIENCE)
+			player.Say(SAY_NETMSG, "You can't hack this.");
+			
+		return true;
+	}
+	
+	return false;
+}
+
+//Scanner 2//
+
+//Opens Elevator from floor 3 to go down to floor  4 
+
+bool s_Scanner2(Critter& player, Scenery& scanner, int skill, Item@ item)
+{
+	if(!player.IsPlayer())
+        return false;
+
+	if(valid(item) && item.GetProtoId() == PID_DIXON_EYE)
+	{
+		Map@ map = player.GetMap();
+		if(!valid(map)) return false;
+		
+		Item@ ElevatorDoor = null;
+		Item@ ElevatorDoor2 = null;
+		
+		switch(map.GetProtoId())
+		{
+			case MAP_SierraArmyDepot_Level3 :
+				@ElevatorDoor = map.GetItem(90, 79, 2421);
+				break;
+			default: return false;
+		}
+		
+		if(!FLAG(ElevatorDoor.LockerCondition, LOCKER_ISOPEN))
+		{
+			SwitchState(ElevatorDoor);
+			if(item.GetCount() > 1)
+            item.SetCount(item.GetCount() - 1);
+            else
+            DeleteItem(item);
+		}
+		
+		
+		return true;
+	}
+	else if(valid(item) && (item.GetProtoId()!= PID_DIXON_EYE))
+	{
+		if(item.GetProtoId() == PID_CLIFTON_EYE)
+			player.Say(SAY_NETMSG, "Unauthorised person - access denied.");
+		else
+			player.Say(SAY_NETMSG, "It's a retinal scanner, only the right eye will work on it.");
+		
+		return true;
+	}
+	else if(!valid(item))
+	{
+		if(skill == SKILL_PICK_ON_GROUND)
+			player.Say(SAY_NETMSG, "Unauthorised person - access denied.");
+		if(skill == SK_LOCKPICK)
+			player.Say(SAY_NETMSG, "It's a retinal scanner, only the right eyes work on it.");
+		if(skill == SK_REPAIR)
+			player.Say(SAY_NETMSG, "It isn't broken.");
+		if(skill == SK_SCIENCE)
+			player.Say(SAY_NETMSG, "You can't hack this.");
+			
+		return true;
+	}
+	
+	return false;
+}
+
+//Scanner 3//
+
+//Opens Elevator on floor 4 to Floor 3 
+
+bool s_Scanner3(Critter& player, Scenery& scanner, int skill, Item@ item)
+{
+	if(!player.IsPlayer())
+        return false;
+
+	if(valid(item) && item.GetProtoId() == PID_DIXON_EYE)
+	{
+		Map@ map = player.GetMap();
+		if(!valid(map)) return false;
+		
+		Item@ ElevatorDoor = null;
+		
+		switch(map.GetProtoId())
+		{
+			case MAP_SierraArmyDepot_Level2 :
+				@ElevatorDoor = map.GetItem(86, 77, 2421);
+				break;
+			case MAP_SierraArmyDepot_Level4 :
+				@ElevatorDoor = map.GetItem(84, 75, 2421);
+				break;
+			default: return false;
+		}
+        array<uint> ElevatorDoordata = { ElevatorDoor.Id, map.Id };
+		if(!FLAG(ElevatorDoor.LockerCondition, LOCKER_ISOPEN))
+		{
+		    CreateTimeEvent(AFTER(REAL_MINUTE(30)), "CloseDoor", ElevatorDoordata, true);
+			SwitchState(ElevatorDoor);
+            if(item.GetCount() > 1)
+            item.SetCount(item.GetCount() - 1);
+            else
+            DeleteItem(item);
+			FillContainers(map); //Add loot to map
+			
+			
+		}
+		
+		return true;
+	}
+	else if(valid(item) && (item.GetProtoId()!= PID_DIXON_EYE))
+	{
+		if(item.GetProtoId() == PID_CLIFTON_EYE)
+			player.Say(SAY_NETMSG, "Unauthorised person - access denied.");
+		else
+			player.Say(SAY_NETMSG, "It's a retinal scanner, only the right eye will work on it.");
+		
+		return true;
+	}
+	else if(!valid(item))
+	{
+		if(skill == SKILL_PICK_ON_GROUND)
+			player.Say(SAY_NETMSG, "Unauthorised person - access denied.");
+		if(skill == SK_LOCKPICK)
+			player.Say(SAY_NETMSG, "It's a retinal scanner, only the right eyes work on it.");
+		if(skill == SK_REPAIR)
+			player.Say(SAY_NETMSG, "It isn't broken.");
+		if(skill == SK_SCIENCE)
+			player.Say(SAY_NETMSG, "You can't hack this.");
+			
+		return true;
+	}
+	
+	return false;
+}
+
+//Scanner 4//
+
+//Opens Elevator from floor 3 to go up to floors 1-2 
+
+bool s_Scanner4(Critter& player, Scenery& scanner, int skill, Item@ item)
+{
+	if(!player.IsPlayer())
+        return false;
+
+	if(valid(item) && item.GetProtoId() == PID_CLIFTON_EYE)
+	{
+		Map@ map = player.GetMap();
+		if(!valid(map)) return false;
+		
+		Item@ ElevatorDoor2 = null;
+		
+		switch(map.GetProtoId())
+		{
+			case MAP_SierraArmyDepot_Level3 :
+				@ElevatorDoor2 = map.GetItem(98, 79, 2421);
+				break;
+			default: return false;
+		}
+		 array<uint> ElevatorDoor2data = { ElevatorDoor2.Id, map.Id };
+		if(!FLAG(ElevatorDoor2.LockerCondition, LOCKER_ISOPEN))
+		{   
+		    CreateTimeEvent(AFTER(REAL_MINUTE(30)), "CloseDoor2", ElevatorDoor2data, true);
+			SwitchState(ElevatorDoor2);
+			if(item.GetCount() > 1)
+            item.SetCount(item.GetCount() - 1);
+            else
+            DeleteItem(item);
+			FillContainers2(map); //Add loot to map
+		}
+		
+		return true;
+	}
+	else if(valid(item) && (item.GetProtoId()!= PID_CLIFTON_EYE))
+	{
+		if(item.GetProtoId() == PID_DIXON_EYE)
+			player.Say(SAY_NETMSG, "Unauthorised person - access denied.");
+		else
+			player.Say(SAY_NETMSG, "It's a retinal scanner, only the right eye will work on it.");
+		
+		return true;
+	}
+	else if(!valid(item))
+	{
+		if(skill == SKILL_PICK_ON_GROUND)
+			player.Say(SAY_NETMSG, "Unauthorised person - access denied.");
+		if(skill == SK_LOCKPICK)
+			player.Say(SAY_NETMSG, "It's a retinal scanner, only the right eyes work on it.");
+		if(skill == SK_REPAIR)
+			player.Say(SAY_NETMSG, "It isn't broken.");
+		if(skill == SK_SCIENCE)
+			player.Say(SAY_NETMSG, "You can't hack this.");
+			
+		return true;
+	}
+	
+	return false;
+}
+
+uint CloseDoor(array<uint>@ values)
+{
+	Item@ ElevatorDoor = GetItem(values[0]);
+	Map@ sad = GetMap(values[1]);	
+	
+    if(!valid(ElevatorDoor))
+        return 0;
+	
+	// collecting blocking critters
+	array<Critter@> critters;
+	
+	sad.GetCrittersHex(112, 128, 0, FIND_LIFE_AND_KO, critters);
+	
+	// and now kill them all
+	for(uint i = 0, j = critters.length(); i < j; i++)
+	{
+		if(valid(critters[i]))
+		{
+			critters[i].Say(SAY_NETMSG, "You were crushed by the door.");
+			critters[i].ToDead(ANIM2_DEAD_EXPLODE, null);
+		}
+	}	
+		
+	if(FLAG(ElevatorDoor.LockerCondition, LOCKER_ISOPEN))
+	{
+		LockerClose(ElevatorDoor);
+		
+	}
+	
+	
+	return 0;
+}
+
+uint CloseDoor2(array<uint>@ values)
+{
+	Item@ ElevatorDoor2 = GetItem(values[0]);
+	Map@ sad = GetMap(values[1]);	
+	
+    if(!valid(ElevatorDoor2))
+        return 0;
+	
+	// collecting blocking critters
+	array<Critter@> critters;
+	
+	sad.GetCrittersHex(112, 128, 0, FIND_LIFE_AND_KO, critters);
+	
+	// and now kill them all
+	for(uint i = 0, j = critters.length(); i < j; i++)
+	{
+		if(valid(critters[i]))
+		{
+			critters[i].Say(SAY_NETMSG, "You were crushed by the door.");
+			critters[i].ToDead(ANIM2_DEAD_EXPLODE, null);
+		}
+	}	
+		
+	if(FLAG(ElevatorDoor2.LockerCondition, LOCKER_ISOPEN))
+	{
+		LockerClose(ElevatorDoor2);
+		
+	}
+	
+	
+	return 0;
+}
+
+//Armory Door Pin
+void on_door(Item& item, bool firstTime)
+{
+	
+	item.SetEvent(ITEM_EVENT_SKILL, "_UseArmoryDoors");
+	
+}
+
+//Reward Door logic
+bool _UseArmoryDoors(Item& item, Critter& player, int skill)
+{
+	// Opening / Closing
+	player.Animate(ANIM1_UNARMED, ANIM2_USE, item, true, true);
+	
+    if((skill == -1) || (skill == SK_LOCKPICK))
+    {	
+		Map@ map = GetMap(item.MapId);
+		Item@ ArmoryDoor=map.GetItem(76, 99, 2018);
+		array<uint> ArmoryDoordata = { ArmoryDoor.Id, map.Id };
+		
+		if(FLAG(ArmoryDoor.LockerCondition, LOCKER_ISOPEN))
+		{
+			player.Say(SAY_NETMSG, "The door is stuck.");
+		}
+        else
+            {
+		       player.Say(SAY_NETMSG, "The door is locked, it would appear to be an electronic lock");
+			}
+		
+        return true;
+    }
+	return false;
+}
+
+//Reward Door Terminal
+bool s_ArmoryDoors(Critter& player, Scenery& terminal, int skill, Item@ item)
+{
+    if (!player.IsPlayer() || skill != SK_SCIENCE)
+    {   
+        player.Say(SAY_NETMSG, "It might need a more scientific approach.");
+        return true;
+    }
+
+    Map@ map = player.GetMap();
+    if (!valid(map)) return false;
+
+    Item@ ArmoryDoor = null;
+
+    switch (map.GetProtoId())
+    {
+        case MAP_SierraArmyDepot_Level2 :
+            @ArmoryDoor = map.GetItem(76, 99, 2018); 
+            break;
+        default:
+            return false;
+    }
+
+    array<uint> ArmoryDoordata = { ArmoryDoor.Id, map.Id };
+    uint value = player.Skill[SK_SCIENCE] - Random(5, 15);
+
+    if (value >= 60)
+    {
+        if (!FLAG(ArmoryDoor.LockerCondition, LOCKER_ISOPEN))
+        {
+            CreateTimeEvent(AFTER(REAL_MINUTE(30)), "CloseDoor3", ArmoryDoordata, true);
+            SwitchState(ArmoryDoor);
+			player.Say(SAY_NETMSG, "The door opens.");
+            return true;
+        }
+        player.Say(SAY_NETMSG, "The door is already open.");
+        return true;  
+    }
+
+    player.Say(SAY_NETMSG, "You've failed to hack the security system.");
+    return true;
+}
+
+//Close Reward Door at the end of Time Event
+uint CloseDoor3(array<uint>@ values)
+{
+	Item@ ArmoryDoor = GetItem(values[0]);
+	Map@ Sierra = GetMap(values[1]);	
+	
+    if(!valid(ArmoryDoor))
+        return 0;
+	
+	// collecting blocking critters
+	array<Critter@> critters;
+	
+	Sierra.GetCrittersHex(114, 58, 0, FIND_LIFE_AND_KO, critters);
+	
+	// and now kill them all
+	for(uint i = 0, j = critters.length(); i < j; i++)
+	{
+		if(valid(critters[i]))
+		{
+			critters[i].Say(SAY_NETMSG, "You were crushed by the door.");
+			critters[i].ToDead(ANIM2_DEAD_EXPLODE, null);
+		}
+	}	
+		
+	if(FLAG(ArmoryDoor.LockerCondition, LOCKER_ISOPEN))
+	{
+		LockerClose(ArmoryDoor);
+		
+	}
+	
+	
+	return 0;
+}
+
+void t_TripWireAttack(Critter& cr, Scenery& trigger, bool entered, uint8 dir)
+{
+    if(!cr.IsPlayer() || !entered)
+        return;
+
+    cr.SendMessage(MSG_SENTRY_BOT_ATTACK , 0, MESSAGE_TO_VISIBLE_ME);
+}
+
+// npc roles (defines distance mob will attack from))
+#define ROLE_DEFAULT      (0)
+#define ROLE_AGRESSIVE    (1)
+#define ROLE_PASSIVE      (2)
+
+// useful variables
+#define ALERTED           # (cr)           (cr.StatBase[ST_VAR1]) // idle time is shorter if in that mode // note that it uses StatBase for read and write
+
+// idle time in milseconds (normal is slower for performance issues)
+#define IDLE_NORMAL       (5000)
+#define IDLE_ALERTED      (1000)
+#define IDLE_ALERTED_2    (200)
+
+
+
+
+//Level 2 Armory Bots
+void _ArmoryBot(Critter& mob, bool firstTime)
+{
+    //_DontMove(mob, firstTime);
+    mob.StatBase[ST_REPLICATION_TIME] = 900;
+	mob.StatBase[ST_KILL_EXPERIENCE] = 1000;
+    //mob.ModeBase[MODE_NO_HOME] = 1;
+	mob.ModeBase[MODE_UNLIMITED_AMMO] = 1;
+    mob.ModeBase[MODE_NO_LOOT] = 1;
+    mob.ModeBase[MODE_NO_DROP] = 1;
+	mob.ModeBase[MODE_NO_STEAL] = 1;
+    mob.SetEvent(CRITTER_EVENT_ATTACKED, "_Attacked");
+    mob.SetEvent(CRITTER_EVENT_MESSAGE, "_OnMessage");
+    _CritSetExtMode(mob, MODE_EXT_MOB);
+
+    if(firstTime)
+    {
+        NpcSetLevel(mob, 20);
+        GuardPerks(mob);
+    }	
+}
+
+void _MrGutsy(Critter& mob, bool firstTime)
+{
+    _DontMove(mob, firstTime);
+	mob.StatBase[ST_PERCEPTION] = 10;
+    mob.StatBase[ST_REPLICATION_TIME] = 900;
+	mob.StatBase[ST_KILL_EXPERIENCE] = 1000;
+    //mob.ModeBase[MODE_NO_HOME] = 1;
+	mob.ModeBase[MODE_UNLIMITED_AMMO] = 1;
+    mob.ModeBase[MODE_NO_LOOT] = 1;
+    mob.ModeBase[MODE_NO_DROP] = 1;
+	mob.ModeBase[MODE_NO_STEAL] = 1;
+	mob.SetEvent(CRITTER_EVENT_IDLE, "_GutsyPatrol");
+    mob.SetEvent(CRITTER_EVENT_ATTACKED, "_Attacked");
+    mob.SetEvent(CRITTER_EVENT_MESSAGE, "_OnMessage");
+    _CritSetExtMode(mob, MODE_EXT_MOB);
+
+    if(firstTime)
+    {
+        NpcSetLevel(mob, 20);
+        GuardPerks(mob);
+    }	
+}
+
+//Normal Sierra Bots
+
+void _Bot(Critter& mob, bool firstTime)
+{
+    _DontMove(mob, firstTime);
+	mob.StatBase[ST_PERCEPTION] = 10;
+    mob.StatBase[ST_REPLICATION_TIME] = 900;
+    //mob.ModeBase[MODE_NO_HOME] = 1;
+	mob.ModeBase[MODE_UNLIMITED_AMMO] = 1;
+    mob.ModeBase[MODE_NO_LOOT] = 1;
+    mob.ModeBase[MODE_NO_DROP] = 1;
+	mob.ModeBase[MODE_NO_STEAL] = 1;
+	//mob.SetEvent(CRITTER_EVENT_SHOW_CRITTER, "_MobShowCritter");
+    //mob.SetEvent(CRITTER_EVENT_HIDE_CRITTER, "_MobHideCritter");
+    _CritSetExtMode(mob, MODE_EXT_MOB);
+
+    if(firstTime)
+    {
+        NpcSetLevel(mob, 10);
+      
+    }	
+}
+
+void _Turret(Critter& mob, bool firstTime)
+{
+    critter_init_aggr(mob, firstTime);
+    mob.StatBase[ST_REPLICATION_TIME] = 900;
+    //mob.ModeBase[MODE_NO_HOME] = 1;
+	mob.ModeBase[MODE_UNLIMITED_AMMO] = 1;
+    mob.ModeBase[MODE_NO_LOOT] = 1;
+    mob.ModeBase[MODE_NO_DROP] = 1;
+	mob.ModeBase[MODE_NO_STEAL] = 1;
+    _CritSetExtMode(mob, MODE_EXT_MOB);
+
+    if(firstTime)
+    {
+        NpcSetLevel(mob, 10);
+        GuardPerks(mob);
+    }	
+}
+
+
+
+//Mob Functions
+
+
+
+bool _Attacked(Critter& mob, Critter& attacker)
+{
+    mob.SendMessage(MSG_SENTRY_BOT_ATTACK, attacker.Id, MESSAGE_TO_ALL_ON_MAP);
+    return false;
+}
+
+
+
+void _OnMessage(Critter& mob, Critter& fromCr, int message, int value)
+{
+    if(message == MSG_IM_ATTACKED)
+        AttackCritter(mob, fromCr);
+
+    if(message == MSG_SENTRY_BOT_ATTACK)
+    {
+        AttackCritter(mob, fromCr);
+        mob.SayMsg(SAY_SHOUT_ON_HEAD, TEXTMSG_DLG, DLGSTR(5062, STR_SENTRY_BOT_ATTACK));
+    }
+}
+
+
+void _GutsyPatrol(Critter& npc)
+{
+    if(npc.GetTalkedPlayers(null) > 0)
+        return;
+
+    if(Random(0, 0) == 0)
+        MoveRandom(npc, 10);
+    // till next move
+    npc.Wait(Random(500, 1000));
+}
+
+
+
+//Level 3 loot - triggered when elevator on floor 4 is opened with Dixon`s eye
+void FillContainers(Map& map)
+{
+    if (!valid(map))
+        return;
+
+    Location@ loc = map.GetLocation();
+    array<Map@> maps;
+    loc.GetMaps(maps);
+    for (uint i = 0, j = maps.length(); i < j; i++)
+    {
+        if (valid(maps[i]))
+        {
+            if (maps[i].GetProtoId() == MAP_SierraArmyDepot_Level3)
+            {
+                array<Item@> lockers;
+                maps[i].GetItemsByType(ITEM_TYPE_CONTAINER, lockers);
+                for (uint k = 0, l = lockers.length; k < l; k++)
+                {
+                    if (!valid(lockers[k]))
+                        return;
+
+                    ClearContainer(lockers[k]);
+                    //lockers[k].LockerComplexity = Random(70, 100);
+                    //lockers[k].LockerId = Random(100000000, 999999999);
+                    if (FLAG(lockers[k].LockerCondition, LOCKER_ISOPEN))
+                        LockerClose(lockers[k]);
+                    
+                  
+                    if (lockers[k].GetProtoId() == PID_WALL_LOCKER_CLEAN_RIGHT || 
+                        lockers[k].GetProtoId() == PID_LOCKER_CLEAN_RIGHT)
+                    {
+                        uint8 num = Random(1, 8);
+                        if (num == 1)
+                        {
+                            lockers[k].AddItem(PID_CHEMICALS, Random(5, 30), 0);
+                            lockers[k].AddItem(PID_PSYCHO, Random(3, 10), 0);
+                            lockers[k].AddItem(PID_SUPER_STIMPAK, Random(10, 25), 0);
+                        }
+                        if (num == 2)
+                        {
+                            lockers[k].AddItem(PID_SUPER_STIMPAK, Random(10, 25), 0);
+                            lockers[k].AddItem(PID_BIO_GEL, Random(10, 25), 0);
+                            lockers[k].AddItem(PID_BUFFOUT, Random(5, 15), 0);
+                        }
+                        if (num == 3)
+                        {
+                            lockers[k].AddItem(PID_BIO_GEL, Random(10, 25), 0);
+                            lockers[k].AddItem(PID_MENTATS, Random(3, 10), 0);
+                            lockers[k].AddItem(PID_NUKA_COLA, Random(3, 10), 0);
+                        }
+                        if (num == 4)
+                        {
+                            lockers[k].AddItem(PID_HYPODERMIC_NEEDLE, Random(5, 15), 0);
+                            lockers[k].AddItem(PID_CHEMICALS, Random(5, 30), 0);
+                            lockers[k].AddItem(PID_SUPER_STIMPAK, Random(10, 25), 0);
+                        }
+                        if (num == 5)
+                        {
+                            lockers[k].AddItem(PID_CHEMICALS, Random(5, 30), 0);
+                            lockers[k].AddItem(PID_BUFFOUT, Random(3, 10), 0);
+                            lockers[k].AddItem(PID_SUPER_STIMPAK, Random(10, 25), 0);
+                        }
+                        if (num == 6)
+                        {
+                            lockers[k].AddItem(PID_SUPER_STIMPAK, Random(10, 25), 0);
+                            lockers[k].AddItem(PID_BIO_GEL, Random(10, 25), 0);
+                            lockers[k].AddItem(PID_PSYCHO, Random(5, 10), 0);
+                        }
+                        if (num == 7)
+                        {
+                            lockers[k].AddItem(PID_BIO_GEL, Random(10, 25), 0);
+                            lockers[k].AddItem(PID_PSYCHO, Random(3, 8), 0);
+                            lockers[k].AddItem(PID_NUKA_COLA, Random(3, 7), 0);
+                        }
+                        if (num == 8)
+                        {
+                            lockers[k].AddItem(PID_HYPODERMIC_NEEDLE, Random(5, 15), 0);
+                            lockers[k].AddItem(PID_BIO_GEL, Random(5, 30), 0);
+                            lockers[k].AddItem(PID_NUKA_COLA, Random(5, 15), 0);
+                        }
+                    }
+                    if (lockers[k].GetProtoId() == PID_DESK_9 || lockers[k].GetProtoId() == PID_DESK_8)
+                    {
+                        uint8 num = Random(1, 8);
+                        if (num == 1)
+                        {
+                            lockers[k].AddItem(PID_BIG_BOOK_OF_SCIENCE, Random(1, 2), 0);
+                            lockers[k].AddItem(PID_GUNS_AND_BULLETS, Random(1, 2), 0);
+                            lockers[k].AddItem(PID_CATS_PAW_ISSUE_5, Random(1, 2), 0);
+                        }
+                        if (num == 2)
+                        {
+                            lockers[k].AddItem(PID_CHEMISTRY_MANUAL, Random(1, 2), 0);
+                            lockers[k].AddItem(PID_BARTER_BOOK, Random(1, 2), 0);
+                            lockers[k].AddItem(PID_FIRST_AID_BOOK, Random(1, 2), 0);
+                        }
+                        if (num == 3)
+                        {
+                            lockers[k].AddItem(PID_SCOUT_HANDBOOK, Random(1, 2), 0);
+                            lockers[k].AddItem(PID_TECHNICAL_MANUAL, Random(1, 2), 0);
+                            lockers[k].AddItem(PID_DEANS_ELECTRONICS, Random(1, 2), 0);
+                        }
+                        if (num == 4)
+                        {
+                            lockers[k].AddItem(PID_ACCOUNT_BOOK, Random(1, 2), 0);
+                            lockers[k].AddItem(PID_BECKY_BOOK, Random(1, 2), 0);
+                            lockers[k].AddItem(PID_GUNS_AND_BULLETS, Random(1, 2), 0);
+                        }
+                        if (num == 5)
+                        {
+                            lockers[k].AddItem(PID_CATS_PAW, Random(1, 2), 0);
+                            lockers[k].AddItem(PID_SCOUT_HANDBOOK, Random(1, 2), 0);
+                            lockers[k].AddItem(PID_BIG_BOOK_OF_SCIENCE, Random(1, 2), 0);
+                        }
+                        if (num == 6)
+                        {
+                            lockers[k].AddItem(PID_BARTER_BOOK, Random(1, 2), 0);
+                            lockers[k].AddItem(PID_TECHNICAL_MANUAL, Random(1, 2), 0);
+                            lockers[k].AddItem(PID_FIRST_AID_BOOK, Random(1, 2), 0);
+                        }
+                        if (num == 7)
+                        {
+                            lockers[k].AddItem(PID_CHEMISTRY_MANUAL, Random(1, 2), 0);
+                            lockers[k].AddItem(PID_DEANS_ELECTRONICS, Random(1, 2), 0);
+                            lockers[k].AddItem(PID_GUNS_AND_BULLETS, Random(1, 2), 0);
+                        }
+                        if (num == 8)
+                        {
+                            lockers[k].AddItem(PID_FIRST_AID_BOOK, Random(1, 2), 0);
+                            lockers[k].AddItem(PID_BIG_BOOK_OF_SCIENCE, Random(1, 2), 0);
+                            lockers[k].AddItem(PID_CATS_PAW_ISSUE_5, Random(1, 2), 0);
+                        }
+                    }
+
+                    
+                    if (lockers[k].GetProtoId() == PID_ICE_CHEST_LEFT)
+                    {
+                        
+
+                        uint8 dollarNum = Random(0, 0);
+                        switch (dollarNum)
+                        {
+                            case 0:
+                                lockers[k].AddItem(PID_CLIFTON_EYE, 1, 0); break;
+                        }
+
+                       
+                    } 
+                } 
+            } 
+        } 
+    } 
+    return;
+}
+
+
+//Level 3 loot - triggered when elevator on floor 3 is opened with Clifton`s eye
+void FillContainers2(Map& map)
+{
+    if (!valid(map))
+        return;
+
+    Location@ loc = map.GetLocation();
+    array<Map@> maps;
+    loc.GetMaps(maps);
+    for (uint i = 0, j = maps.length(); i < j; i++)
+    {
+        if (valid(maps[i]))
+        {
+            if (maps[i].GetProtoId() == MAP_SierraArmyDepot_Level2)
+            {
+                array<Item@> lockers;
+                maps[i].GetItemsByType(ITEM_TYPE_CONTAINER, lockers);
+                for (uint k = 0, l = lockers.length; k < l; k++)
+                {
+                    if (!valid(lockers[k]))
+                        return;
+
+                    ClearContainer(lockers[k]);
+                    //lockers[k].LockerComplexity = Random(70, 100);
+                    //lockers[k].LockerId = Random(100000000, 999999999);
+                    if (FLAG(lockers[k].LockerCondition, LOCKER_ISOPEN))
+                        LockerClose(lockers[k]);
+                    
+                   
+                    if (lockers[k].GetProtoId() == PID_LG_LT_AMMO_CRATE)
+                    {
+                        uint8 num = Random(0, 19);
+                        switch (num)
+                        {
+                            case 0:
+                            {
+                                Item@ it = lockers[k].AddItem(PID_DESERT_COMBAT_ARMOR, 1, 0);
+                                Item@ it2 = lockers[k].AddItem(PID_DESERT_COMBAT_HELMET, 1, 0);
+                                AddSpecialBonus(it);
+                                AddSpecialBonus(it2);
+                                break;
+                            }
+                            case 1:
+                            {
+                                Item@ it = lockers[k].AddItem(PID_NCR_ARMOR, 1, 0);
+                                Item@ it2 = lockers[k].AddItem(PID_NCR_HELMET, 1, 0);
+                                AddSpecialBonus(it);
+                                AddSpecialBonus(it2);
+                                break;
+                            }
+                            case 2: case 3: case 4: case 5: case 6: case 7:
+                            {
+                                Item@ it = lockers[k].AddItem(PID_COMBAT_ARMOR, 1, 0);
+                                Item@ it2 = lockers[k].AddItem(PID_COMBAT_HELMET, 1, 0);
+                                AddSpecialBonus(it);
+                                AddSpecialBonus(it2);
+                                break;
+                            }
+                            case 8: case 9: case 10: case 11: case 12: case 13:
+                            {
+                                Item@ it = lockers[k].AddItem(PID_COMBAT_ARMOR_MK_II, 1, 0);
+                                Item@ it2 = lockers[k].AddItem(PID_COMBAT_HELMET_MK_II, 1, 0);
+                                AddSpecialBonus(it);
+                                AddSpecialBonus(it2);
+                                break;
+                            }
+                            case 14: case 15: case 16: case 17: case 18: case 19:
+                            {
+                                Item@ it = lockers[k].AddItem(PID_TESLA_ARMOR, 1, 0);
+                                Item@ it2 = lockers[k].AddItem(PID_TESLA_HELMET, 1, 0);
+                                AddSpecialBonus(it);
+                                AddSpecialBonus(it2);
+                                break;
+                            }
+                        }
+                    }
+
+                    // LOCKER_7 block
+                    if (lockers[k].GetProtoId() == PID_LG_RT_AMMO_CRATE)
+                    {
+                        uint8 num = Random(0, 36);
+                        Item@ it = null;
+                        switch (num)
+                        {
+                            case 0: case 1: case 2:
+                                { Item@ it = lockers[k].AddItem(PID_INDEPENDENT, 1, 0); AddSpecialBonus(it); break; }
+                            case 3: case 4:
+                                { Item@ it = lockers[k].AddItem(PID_GRENADE_LAUNCHER, 1, 0); AddSpecialBonus(it); break; }
+                            case 5: case 6:
+                                { Item@ it = lockers[k].AddItem(PID_223_PISTOL, 1, 0); AddSpecialBonus(it); break; }
+                            case 7: case 8:
+                                { Item@ it = lockers[k].AddItem(PID_HK_P90C, 1, 0); AddSpecialBonus(it); break; }
+                            case 9: case 10:
+                                { Item@ it = lockers[k].AddItem(PID_PLASMA_RIFLE, 1, 0); AddSpecialBonus(it); break; }
+                            case 11: case 12:
+                                { Item@ it = lockers[k].AddItem(PID_AVENGER_MINIGUN, 1, 0); AddSpecialBonus(it); break; }
+                            case 13: case 14:
+                                { Item@ it = lockers[k].AddItem(PID_LIGHT_SUPPORT_WEAPON, 1, 0); AddSpecialBonus(it); break; }
+                            case 15: case 16:
+                                { Item@ it = lockers[k].AddItem(PID_SUPER_CATTLE_PROD, 1, 0); AddSpecialBonus(it); break; }
+                            case 17: case 18:
+                                { Item@ it = lockers[k].AddItem(PID_MEGA_POWER_FIST, 1, 0); AddSpecialBonus(it); break; }
+                            case 19: case 20:
+                                { Item@ it = lockers[k].AddItem(PID_SUPER_SLEDGE, 1, 0); AddSpecialBonus(it); break; }
+                            case 21: case 22:
+                                { Item@ it = lockers[k].AddItem(PID_PANCOR_JACKHAMMER, 1, 0); AddSpecialBonus(it); break; }
+                            case 23: case 24:
+                                { Item@ it = lockers[k].AddItem(PID_IMPROVED_FLAMETHROWER, 1, 0); AddSpecialBonus(it); break; }
+                            case 25: case 26:
+                                { Item@ it = lockers[k].AddItem(PID_SNIPER_RIFLE, 1, 0); AddSpecialBonus(it); break; }
+                            case 27: case 28:
+                                { Item@ it = lockers[k].AddItem(PID_ROCKET_LAUNCHER, 1, 0); AddSpecialBonus(it); break; }
+                            case 29: case 30:
+                                { Item@ it = lockers[k].AddItem(PID_LASER_RIFLE_EXT_CAP, 1, 0); AddSpecialBonus(it); break; }
+                            case 31: case 32:
+                                { Item@ it = lockers[k].AddItem(PID_MEGA_POWER_FIST, 1, 0); AddSpecialBonus(it); break; }
+                            case 33: case 34:
+                                { Item@ it = lockers[k].AddItem(PID_GATLING_LASER, 1, 0); AddSpecialBonus(it); break; }
+                            case 35: case 36:
+                                { Item@ it = lockers[k].AddItem(PID_LASER_SMG, 1, 0); AddSpecialBonus(it); break; }
+                        }
+                    }
+
+                   
+                    if (lockers[k].GetProtoId() == PID_SM_LT_AMMO_CRATE || lockers[k].GetProtoId() == PID_SM_RT_AMMO_CRATE )
+                    {
+                       
+                        uint8 num2 = Random(1, 9);
+                        switch (num2)
+                        {
+                          case 1:
+                           lockers[k].AddItem(PID_5MM_AP, Random(700, 1500), 0);
+                           break;
+                           case 2:
+                           lockers[k].AddItem(PID_223_FMJ, Random(300, 600), 0);
+                           break;
+                           case 3:
+                           lockers[k].AddItem(PID_10MM_AP, Random(600, 1000), 0);
+                           break;
+                           case 4:
+                           lockers[k].AddItem(PID_MICRO_FUSION_CELL, Random(400, 800), 0);
+                           break;
+                           case 5:
+                           lockers[k].AddItem(PID_SMALL_ENERGY_CELL, Random(300, 600), 0);
+                           break;
+                           case 6:
+                           lockers[k].AddItem(PID_SHOTGUN_SHELLS_SLUG, Random(200, 400), 0);
+                           break;
+                           case 7:
+                           lockers[k].AddItem(PID_40MM_GRENADE, Random(5, 20), 0);
+                           break;
+                           case 8:
+                           lockers[k].AddItem(PID_ROCKET_AP, Random(3, 10), 0);
+                           break;
+                           case 9:
+                           lockers[k].AddItem(PID_EXPLOSIVE_ROCKET, Random(3, 10), 0);
+                           break;
+                           case 10:
+                           lockers[k].AddItem(PID_FRAG_GRENADE, Random(10, 20), 0);
+                           break;
+                           case 11:
+                           lockers[k].AddItem(PID_PLASMA_GRENADE, Random(10, 20), 0);
+                           break;
+                           case 12:
+                           lockers[k].AddItem(PID_PULSE_GRENADE, Random(10, 20), 0);
+                           break;
+                        }
+
+                    }
+                    
+                    if (lockers[k].GetProtoId() == PID_LOCKER_CLEAN_LEFT)
+                    {
+                        // Roll twice for weapons
+                        for (int iWeapon = 0; iWeapon < 2; iWeapon++)
+                        {
+                            uint8 num = Random(0, 36);
+                            Item@ it = null;
+                            switch (num)
+                            {
+                                case 0: case 1: case 2:
+                                    { Item@ it = lockers[k].AddItem(PID_INDEPENDENT, 1, 0); AddSpecialBonus(it); break; }
+                                case 3: case 4:
+                                    { Item@ it = lockers[k].AddItem(PID_GRENADE_LAUNCHER, 1, 0); AddSpecialBonus(it); break; }
+                                case 5: case 6:
+                                    { Item@ it = lockers[k].AddItem(PID_223_PISTOL, 1, 0); AddSpecialBonus(it); break; }
+                                case 7: case 8:
+                                    { Item@ it = lockers[k].AddItem(PID_HK_P90C, 1, 0); AddSpecialBonus(it); break; }
+                                case 9: case 10:
+                                    { Item@ it = lockers[k].AddItem(PID_PLASMA_RIFLE, 1, 0); AddSpecialBonus(it); break; }
+                                case 11: case 12:
+                                    { Item@ it = lockers[k].AddItem(PID_AVENGER_MINIGUN, 1, 0); AddSpecialBonus(it); break; }
+                                case 13: case 14:
+                                    { Item@ it = lockers[k].AddItem(PID_LIGHT_SUPPORT_WEAPON, 1, 0); AddSpecialBonus(it); break; }
+                                case 15: case 16:
+                                    { Item@ it = lockers[k].AddItem(PID_SUPER_CATTLE_PROD, 1, 0); AddSpecialBonus(it); break; }
+                                case 17: case 18:
+                                    { Item@ it = lockers[k].AddItem(PID_MEGA_POWER_FIST, 1, 0); AddSpecialBonus(it); break; }
+                                case 19: case 20:
+                                    { Item@ it = lockers[k].AddItem(PID_SUPER_SLEDGE, 1, 0); AddSpecialBonus(it); break; }
+                                case 21: case 22:
+                                    { Item@ it = lockers[k].AddItem(PID_PANCOR_JACKHAMMER, 1, 0); AddSpecialBonus(it); break; }
+                                case 23: case 24:
+                                    { Item@ it = lockers[k].AddItem(PID_IMPROVED_FLAMETHROWER, 1, 0); AddSpecialBonus(it); break; }
+                                case 25: case 26:
+                                    { Item@ it = lockers[k].AddItem(PID_SNIPER_RIFLE, 1, 0); AddSpecialBonus(it); break; }
+                                case 27: case 28:
+                                    { Item@ it = lockers[k].AddItem(PID_ROCKET_LAUNCHER, 1, 0); AddSpecialBonus(it); break; }
+                                case 29: case 30:
+                                    { Item@ it = lockers[k].AddItem(PID_LASER_RIFLE_EXT_CAP, 1, 0); AddSpecialBonus(it); break; }
+                                case 31: case 32:
+                                    { Item@ it = lockers[k].AddItem(PID_LASER_SUPPORT_WEAPON, 1, 0); AddSpecialBonus(it); break; }
+                                case 33: case 34:
+                                    { Item@ it = lockers[k].AddItem(PID_GATLING_LASER, 1, 0); AddSpecialBonus(it); break; }
+                                case 35: case 36:
+                                    { Item@ it = lockers[k].AddItem(PID_LASER_SMG, 1, 0); AddSpecialBonus(it); break; }
+                            }
+                        }
+
+                        // Roll twice for armor
+                        for (int iArmor = 0; iArmor < 2; iArmor++)
+                        {
+                            uint8 num = Random(0, 19);
+                            Item@ it = null;
+                            Item@ it2 = null;
+                            switch (num)
+                            {
+                                case 0:
+                                    { Item@ it = lockers[k].AddItem(PID_DESERT_COMBAT_ARMOR, 1, 0);
+                                      Item@ it2 = lockers[k].AddItem(PID_DESERT_COMBAT_HELMET, 1, 0);
+                                      AddSpecialBonus(it);
+                                      AddSpecialBonus(it2); break; }
+                                case 1:
+                                    { Item@ it = lockers[k].AddItem(PID_NCR_ARMOR, 1, 0);
+                                      Item@ it2 = lockers[k].AddItem(PID_NCR_HELMET, 1, 0);
+                                      AddSpecialBonus(it);
+                                      AddSpecialBonus(it2); break; }
+                                case 2: case 3: case 4: case 5: case 6: case 7:
+                                    {
+                                      lockers[k].AddItem(PID_ENCLAVE_COMBAT_ARMOR, 1, 0);
+                                      lockers[k].AddItem(PID_ENCLAVE_COMBAT_HELMET, 1, 0);
+									  AddSpecialBonus(it);
+                                      AddSpecialBonus(it2);
+                                      break;
+                                    }
+                                case 8: case 9: case 10: case 11: case 12: case 13: case 14:
+                                    { Item@ it = lockers[k].AddItem(PID_COMBAT_ARMOR_MK_II, 1, 0);
+                                      Item@ it2 = lockers[k].AddItem(PID_COMBAT_HELMET_MK_II, 1, 0);
+                                      AddSpecialBonus(it);
+                                      AddSpecialBonus(it2); break; }
+                                case 15: case 16: case 17:
+                                    { Item@ it = lockers[k].AddItem(PID_KEEPBRIGE_ROBE, 1, 0); AddSpecialBonus(it); 
+									break; }
+                                case 18: case 19:
+                                    {
+                                      lockers[k].AddItem(PID_BROTHERHOOD_COMBAT_ARMOR, 1, 0);
+                                      lockers[k].AddItem(PID_BROTHERHOOD_HELMET, 1, 0);
+									  AddSpecialBonus(it);
+                                      AddSpecialBonus(it2);
+                                      break;
+                                    }
+                            }
+                        }
+                        
+                    if(Random(0, 99)<5)
+	                {
+                        uint8 num = Random(0, 40);
+                        switch (num)
+                        {
+                            case 0: case 1: case 2:
+                                lockers[k].AddItem(PID_IMPLANT_LUCK, 1, 0); break;
+                            case 3: case 4: case 5:
+                                lockers[k].AddItem(PID_IMPLANT_STRENGTH, 1, 0); break;
+                            case 6: case 7: case 8:
+                                lockers[k].AddItem(PID_PK12_GAUSS_PISTOL, 1, 0); break;
+                            case 9: case 10: case 11:
+                                lockers[k].AddItem(PID_IMPLANT_PERCEPTION, 1, 0); break;
+                            case 12: case 13: case 14:
+                                lockers[k].AddItem(PID_IMPLANT_ENDURANCE, 1, 0); break;
+                            case 15: case 16: case 17:
+                                lockers[k].AddItem(PID_HK_G11E, 1, 0); break;
+                            case 18: case 19: case 20:
+                                lockers[k].AddItem(PID_TURBO_PLASMA_RIFLE, 1, 0); break;
+                            case 21: case 22: case 23:
+                                lockers[k].AddItem(PID_BLACK_COC_BADGE, 1, 0); break;
+                            case 24: case 25: case 26:
+                                lockers[k].AddItem(PID_ACCESS_CARD, 1, 0); break;
+                            case 27: case 28: case 29:
+                                lockers[k].AddItem(PID_POWERED_ARMOR, 1, 0);
+                                lockers[k].AddItem(PID_POWER_HELMET, 1, 0); break;
+                            case 30: case 31: case 32:
+                                lockers[k].AddItem(PID_IMPLANT_CHARISMA, 1, 0); break;
+                            case 33: case 34: case 35:
+                                lockers[k].AddItem(PID_IMPLANT_INTELLIGENCE, 1, 0); break;
+                            case 36: case 37: case 38:
+                                lockers[k].AddItem(PID_IMPLANT_AGILITY, 1, 0); break;
+                            case 39:
+                                lockers[k].AddItem(PID_BOZAR, 1, 0); break;
+                            case 40:
+                                lockers[k].AddItem(PID_HARDENED_POWER_ARMOR, 1, 0);
+                                lockers[k].AddItem(PID_HARDENED_POWER_HELMET, 1, 0); break;
+                        }
+					}
+
+                        uint8 dollarNum = Random(0, 0);
+                        switch (dollarNum)
+                        {
+                            case 0:
+                                lockers[k].AddItem(PID_DOLLAR2, Random(200, 400), 0); break;
+                        }
+
+                        uint8 ammoNum = Random(0, 2);
+                        switch (ammoNum)
+                        {
+                            case 0:
+                                lockers[k].AddItem(PID_SHOTGUN_DRAGON_BREATH_SHELLS, Random(5, 15), 0); break;
+                            case 1:
+                                lockers[k].AddItem(PID_2MM_EC_AMMO, Random(5, 10), 0); break;
+                            case 2:
+                                lockers[k].AddItem(PID_4_7MM_CASELESS, Random(100, 300), 0); break;
+                        }
+                    } 
+                } 
+            } 
+        } 
+    } 
+    return;
+}

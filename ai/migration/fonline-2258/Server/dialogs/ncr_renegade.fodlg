@@ -1,0 +1,41 @@
+[comment]
+
+
+[data]
+lang=engl
+
+[dialog]
+&
+1 1000 None 0 #
+2 1010 D _param p ST_LEVEL < 23 #
+3 1020 D _param p ST_LEVEL > 23 @
+2 2000 None 0 @
+3 3000 None 0 #
+5 3010 D _var p q_champ1 = 2 R _var p q_champ1 = 3 R _script quest_champ1@r_DeleteLoc 0  R _script dialog@r_AddExperience 1 5000 R _script dialog@r_AddMoney 1 1000 R _script dialog@r_BulkOrderRewardJunk 0  R _script dialog@r_BulkOrderRewardHub 0  R _script dialog@r_BulkOrderRewardLow 0  R _script dialog@r_QuestTimeout 1 18 R _var p z_warrior2 + 1 #
+4 3020 D _var p q_champ1 = 0 D _script dialog@d_QuestTimeoutReady 0  R _var p q_champ1 = 1 R _script quest_champ1@r_SpawnLoc 0  #
+4 3030 D _var p q_champ1 = 3 D _script dialog@d_QuestTimeoutReady 0  R _var p q_champ1 = 1 R _script quest_champ1@r_SpawnLoc 0  #
+0 3040 @
+4 4000 None 0 @
+5 5000 None 0 #
+0 5010 &
+
+[engl]
+{100}{}{Weary Traveller}
+{200}{}{You see someone who doesn't look like he's from around here.}
+{210}{}{He looks beat up, and exhausted from his travels.}
+{1000}{}{Predialogue installations}
+{1010}{}{Answer text}
+{1020}{}{Answer text2}
+{2000}{}{@@*Huff* *Huff* Let... let me just... catch... my breath...@@You don't look tough enough to handle a paper bag! I need a real badass!@@Come back later, when you're stronger...@@You aren't experienced enough to deal with my problem, sorry.@@There's a crazed vault dweller out there causin' all sorts of trouble!}
+{3000}{}{[Champion Spawn -> The Renegade Vault Dweller]
+}
+{3010}{}{[Collect Reward]}
+{3020}{}{[Accept Challenge]}
+{3030}{}{[Accept Challenge]}
+{3040}{}{[Decline Challenge]}
+{4000}{}{Good luck.
+}
+{5000}{}{[Champion Spawns can be done every 18 hours. Come back tomorrow if you want to try again]
+}
+{5010}{}{[Leave]}
+

@@ -1,0 +1,100 @@
+[comment]
+lighter job 
+
+[data]
+lang=engl russ
+
+[dialog]
+&
+1 1000 None 0 #
+2 1010 D _var p player_farmOwner = 1 #
+6 1020 D _var p player_farmOwner = 0 @
+2 2000 dialog@dlg_FarmStatus 0 #
+2 2010 D _item p PID_FIREWOOD > 119 D _item p PID_PUMP_PARTS > 47 D _item p PID_METAL_PARTS > 35 R _item p PID_FIREWOOD - 120 R _item p PID_PUMP_PARTS - 48 R _item p PID_METAL_PARTS - 36 R _var p player_farmPump + 1 #
+2 2020 D _item p PID_WATERBAG > 11 R _item p PID_WATERBAG - 12 R _var p player_farmWater + 1 #
+2 2030 D _item p PID_BOTTLE_FULL > 11 R _item p PID_BOTTLE_FULL - 12 R _var p player_farmWater + 1 #
+2 2040 D _item p PID_WATER_BARREL > 0 R _script dialog@r_RemoveCrate 0  R _var p player_farmWater + 8 #
+2 2050 D _item p PID_ROT_GUT > 19 R _var p player_farmWater + 1 R _item p PID_ROT_GUT - 20 #
+5 2060 D _var p player_farmPump > 0 R _var p player_farmPump - 1 R _var p player_farmWater + 20 R _var p player_farmCrate + 1 R _var p player_farmIncome + 1000 #
+4 2070 #
+3 2080 #
+0 2090 @
+3 3000 None 0 #
+2 3010 @
+4 4000 None 0 #
+2 4010 @
+5 5000 None 0 #
+2 5010 @
+6 6000 None 0 &
+
+[engl]
+{100}{}{Well Girl}
+{200}{}{You see the well girl.}
+{210}{}{She's been assigned to look after the Farm's water supply.}
+{1000}{}{Predialogue installations}
+{1010}{}{base}
+{1020}{}{visit}
+{2000}{}{Hi, boss! Here's my report. We've got @lex farmWater@ units worth of water before the well runs out. You could give me a dozen filled water bags to count towards a unit, buy crates of water from the Hub, or build a Water Pump. Either way our Farm can't survive without water. Maybe Rotgut could help. but I don't know...}
+{2010}{}{[Build Water Pump]}
+{2020}{}{[Hand over the Water Bags]}
+{2030}{}{[Hand over Water Bottles]}
+{2040}{}{[Hand over a Water Crate]}
+{2050}{}{[Hand over 20x bottles of Rotgut]}
+{2060}{}{[Use a Water Pump]}
+{2070}{}{What do we need to build a Water Pump?}
+{2080}{}{Where can I buy Water?}
+{2090}{}{Thanks. Goodbye.}
+{3000}{}{The Water Merchants in the Hub can provide us with water. You should go see what they have to offer us. I think we could either buy Crates of Water directly, and bring them back here, or we could sign a steady contract with them, and take it out of our profits.}
+{3010}{}{Thanks.}
+{4000}{}{We'll need 36x Metal Parts, 48x Junk and 120x Wood. That should be enough to construct a decent enough Water Pump. We can use it to pump out 20x units of Water, and a Water Crate.}
+{4010}{}{Thanks.}
+{5000}{}{The Water Pump got us 20x units of Water, and a Water Crate before it finally broke down. It managed to save us 1000$ worth of water, so we've added it to the treasury.}
+{5010}{}{Thanks.}
+{6000}{}{Welcome to the Farm. Please don't shoot anybody.@@Uh... hello?@@New ranch hand?@@Just leave your resources somewhere visible, the boss will pick them up eventually.@@Sorry, there's no beds available, you'll have to sleep on the floor.@@Another mouth to feed, eh? Well you'd better pull your weight around here, that's for sure.@@Does the boss know you're here?@@Yes, hi, that's very nice. Who are you again?@@I hope those aren't weapons on you...@@Stay away from the kids! You animal!@@What are you even doing here?@@Who invited you?@@Don't expect to get a map to this place.}
+{100000001}{}{Better wash the counter again...}
+{100000002}{}{That's 5 caps buddy. Hey did you hear me? Cough em' up.}
+{100000003}{}{Better change the keg...}
+{100000004}{}{RotGut? You drink that shit?}
+{100000005}{}{Domestic? I got B.E.E.R buddy, do you want one or not?}
+{100000006}{}{Fuckin' dust is getting everywhere. Hey close the fuckin' door!}
+{100000007}{}{I swear if the next asshole doesn't tip. Ima' shoot somebody!}
+{100000008}{}{I got bottles, I got shots, and I got a bat behind the counter for the retards. Your not a retard are you?}
+{100000009}{}{Uh-huh, yeah that's nice buddy. You don't say...What? Of course I'm listening...}
+{100000010}{}{That's 5 caps. FIVE CAPS Tribal! F.I.V.E! }
+{100000011}{}{Shut up and order a fuckin' beer already!}
+{100000012}{}{I swear if I have to serve another drunk, I'm getting the shotgun!}
+{100000013}{}{Look the keg went dry, and it's going to be another month until the caravan shows up again.}
+{100000014}{}{Really? You don't say, buy another drink or get out!}
+{100000015}{}{What? I'm on break.}
+{100000016}{}{Be right with ya'}
+{100000017}{}{Have a sit stranger. I'll be with you in a moment.}
+{100000018}{}{When do we close? Uh, when the place get's shot up, that's when!}
+{100000019}{}{We're fresh outta' cold beer, sorry. You'll just have to drink it warm.}
+{100000020}{}{RotGut? No man, go make that shit yourself! I wouldn't drink it!}
+
+[russ]
+{100}{}{Алкоголик}
+{200}{}{Вы видите пьяницу.}
+{210}{}{Вы видите шатающегося из стороны в сторону пьяного человека в лохмотьях. Лицо его распухло, нос синющий как слива. А аромат рядом с ним такой, что свалит брамина насмерть. Он что-то бормочет про себя и иногда громко поет песни.}
+{210}{}{Вы видите алкаша. Он весьма грязен - кажется, он повалялся в луже, но не особо этим расстроен.}
+{1000}{}{I?aaaeaeiaiaua onoaiiaee}
+{1010}{}{base}
+{1020}{}{visit}
+{2000}{}{Dialog text}
+{2010}{}{[Build Water Pump]}
+{2020}{}{[Provide Water Bags]}
+{2030}{}{[Hand over Water Bottles]}
+{2040}{}{[Hand over a Water Crate]}
+{2050}{}{[Hand over 50x bottles of Rotgut]}
+{2060}{}{[Use a Water Pump]}
+{2070}{}{What do we need to build a Water Pump?}
+{2080}{}{Where can I buy Water?}
+{2090}{}{Thanks. Goodbye.}
+{3000}{}{The Water Merchants in the Hub will sell you crates of water for caps. You'll have to carry them back here after yourself though. }
+{3010}{}{Thanks.}
+{4000}{}{We'll need 50x Metal Parts, 75x Junk, 120x Wood, and 45x Alloys. That should be enough to construct a decent enough Water Pump. }
+{4010}{}{Thanks.}
+{5000}{}{The water pump got us 20+ units of Water before it finally broke down.}
+{5010}{}{Thanks.}
+{6000}{}{Welcome to the Farm. Please don't shoot anybody.@@Uh... hello?@@New ranch hand?@@Just leave your resources somewhere visible, the boss will pick them up eventually.@@Sorry, there's no beds available, you'll have to sleep on the floor.@@Another mouth to feed, eh? Well you'd better pull your weight around here, that's for sure.@@Does the boss know you're here?@@Yes, hi, that's very nice. Who are you again?@@I hope those aren't weapons on you...@@Stay away from the kids! You animal!@@What are you even doing here?@@Who invited you?@@Don't expect to get a map to this place.}
+

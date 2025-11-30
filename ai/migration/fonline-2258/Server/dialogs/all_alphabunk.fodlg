@@ -1,0 +1,40 @@
+[comment]
+
+
+[data]
+lang=engl
+
+[dialog]
+&
+1 1000 None 0 #
+2 1010 @
+2 2000 None 0 #
+3 2010 D _var p q_bos_initiatequest_start = 52 @
+3 3000 None 0 #
+4 3010 @
+4 4000 None 0 #
+5 4010 @
+5 5000 None 0 #
+6 5010 @
+6 6000 None 0 #
+7 6010 R _var p q_bos_initiatequest_start = 53 @
+7 7000 None 0 &
+
+[engl]
+{100}{}{Elder Maxson}
+{200}{}{You see Elder Jeremy Maxson.}
+{210}{}{He is the highest ranking Elder in the Brotherhood of Steel, and the direct descendant of Roger Maxson and John Maxson. The Maxson family have helped lead the Brotherhood since the Great War.}
+{1000}{}{Predialogue installations}
+{1010}{}{Answer text}
+{2000}{}{Welcome, Paladin I'm sorry, we're a little busy at the moment. Please...@@You shouldn't be here. We will speak later, if needed.@@Please, Paladin. Go away. This isn't the time.}
+{2010}{}{I'm sorry to interrupt, Elder Maxson. But I was told to report to you for duty. My name is Paladin @pname@. A recent transfer from Lost Hills.}
+{3000}{}{[He quickly concludes his speech, and excuses himself to the side] Oh, that's right! I remember that name from yesterday's report. [He reaches out to shake your hand] Paladin @pname@, I am Elder Jeremy Maxson. Leader of the Californian branch of the Brotherhood of Steel.}
+{3010}{}{[Shake his hand] The Californian branch? You mean there's more of us out there? Outside of the wasteland?}
+{4000}{}{[He looks surprised that you didn't know] Why, yes. Of course. Thanks to the recent events that have been unfolding across the area, we've been able to scout out the other states across the desert. Most of civilization has been able to... regain some of its roots. There are dozens of settlements out there now. Dozens.}
+{4010}{}{Thats... amazing! I... used to think that California would be my only option for a home. I guess I was wrong.}
+{5000}{}{And maybe one day you'll be able to see them, Paladin. The Brotherhood has big plans for our new, proven members. How are you finding the Alpha Bunker? I hope you can consider it your new home for at least a few more months.}
+{5010}{}{Sir, yes, sir! It's home, sir!}
+{6000}{}{I'm happy to hear that, Paladin. Well, welcome home. You'll be stationed here for a while, but don't you worry. We'll utilize you to your maximum potential. Are you ready for your briefing, Paladin @pname@?}
+{6010}{}{Of course, sir!}
+{7000}{}{Excellent! Go speak with Commander Carter, over in the other room. He's gathering our elite troops for a very dangerous mission. Godspeed, Paladin.}
+

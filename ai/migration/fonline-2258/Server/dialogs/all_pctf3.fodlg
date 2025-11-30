@@ -1,0 +1,52 @@
+[comment]
+
+
+[data]
+lang=engl
+
+[dialog]
+&
+1 1000 None 0 #
+2 1010 @
+2 2000 None 0 &
+
+[engl]
+{100}{}{Audience Member}
+{200}{}{You see an audience member.}
+{210}{}{Just another spectator for another exciting episode of Vault Runner! Let's hope they don't get in the way...}
+{1000}{}{Predialogue installations}
+{1010}{}{Answer text}
+{2000}{}{Yeah! Yeah!!}
+{100000001}{}{Woooooooo!!}
+{100000002}{}{You go, Vault Runner!!}
+{100000003}{}{Hey, Vault Runners! Look at me!!}
+{100000004}{}{Kill him! Kill them all!!}
+{100000005}{}{Yeah! Yeah!! I made good money to be here!!}
+{100000006}{}{Kill em' like you mean it, Vault Runner!!}
+{100000007}{}{Two grand says they all die!!! Woo!!!}
+{100000008}{}{Did you see the Vault Runners today?! Man, they look pathetic!}
+{100000009}{}{Oh, shit! Did someone just park a car?!}
+{100000010}{}{Fuck, fuck! Get down! They're shooting this way again!}
+{100000011}{}{This is where I met, and lost my ex! Hahahaha! Vault Runner! Wooo!}
+{100000012}{}{Next episode I'm going to hang out at the other location! This is lame!}
+{100000013}{}{Wow... way to put effort into it!}
+{100000014}{}{Oh, shit! We just lost another runner!}
+{100000015}{}{Heh, maybe next year I'll tryout!}
+{100000016}{}{*cheers!*}
+{100000017}{}{*waves!*}
+{100000018}{}{*smiles*}
+{100000019}{}{*laughs*}
+{100000020}{}{*cringes!*}
+{100000021}{}{Ooof! That's gotta hurt!}
+{100000022}{}{They said there'd be blood! Where's all the blood?!}
+{100000023}{}{Holy ass crackers! Was that an eyeball flying?!}
+{100000024}{}{Oh, God! There's too much gore today! I can't handle it!}
+{100000025}{}{No, no! Use the other-- Oh, God! Nooooooooo! I just lost money! Damnit!}
+{100000026}{}{Ten caps says you get shot in the groin! Wooooo!!}
+{100000027}{}{I spent my child's education money on this ticket! Don't you dare disappoint, Vault Runner!}
+{100000028}{}{Come on, come on! My boss doesn't know I skipped work for this!!}
+{100000029}{}{This is my favourite show! Err-- aside from watching the ol' s.o in the tub, of course!}
+{100000030}{}{Yeehaw! This sure does relieve stress, I tell ya!}
+{100000031}{}{Wish I had a better view! C'mon! Spill some blood already!}
+{100000032}{}{Yeah, yeah! Lose a goddamn foot! Woooo!}
+

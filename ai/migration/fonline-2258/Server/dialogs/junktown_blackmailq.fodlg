@@ -1,0 +1,94 @@
+[comment]
+
+
+[data]
+lang=engl
+
+[dialog]
+&
+1 1000 None 0 #
+2 1010 D _var p junk_blackmail = 0 D _param p ST_KARMA } 25 #
+3 1020 D _var p junk_blackmail = 0 D _param p ST_KARMA { 25 #
+13 1030 D _var p junk_blackmail = 1 #
+14 1040 D _var p junk_blackmail = 3 #
+14 1050 D _var p junk_blackmail = 2 #
+14 1060 D _var p junk_blackmail = 4 @
+2 2000 None 0 @
+3 3000 None 0 #
+2 3010 #
+2 3020 #
+2 3030 #
+4 3040 D _param p ST_LEVEL } 6 #
+2 3050 @
+4 4000 None 0 #
+5 4010 @
+5 5000 None 0 #
+6 5010 #
+6 5020 @
+6 6000 None 0 #
+7 6010 @
+7 7000 None 0 #
+8 7010 #
+8 7020 @
+8 8000 None 0 #
+10 8010 D _param p ST_INTELLECT } 5 #
+9 8020 D _param p ST_INTELLECT { 5 #
+10 8030 D _param p KARMA_CHILDKILLER = 0 #
+10 8040 @
+9 9000 None 0 #
+10 9010 @
+10 10000 None 0 #
+11 10010 #
+0 10020 @
+11 11000 None 0 #
+12 11010 R _var p junk_blackmail = 1 @
+12 12000 None 0 @
+13 13000 None 0 @
+14 14000 None 0 #
+0 14010 &
+
+[engl]
+{100}{}{Lucra}
+{200}{}{You see a snarly looking man.}
+{210}{}{Maybe I'm too judgemental. But he looks like a real bastard.}
+{1000}{}{Predialogue installations}
+{1010}{}{Answer text}
+{1020}{}{neutral}
+{1030}{}{start}
+{1040}{}{3}
+{1050}{}{4}
+{1060}{}{5}
+{2000}{}{You don't live here! You can't just walk into people's houses!@@Get out!@@You stupid hippies!@@Out!@@Why don't you go hug a fucking tree?@@Richardson should have shot you all!@@Fucking wish that president was still alive! He'd of taught you!@@Sick of all you damn, "heroes"!@@It got way too bright in here all of a sudden.}
+{3000}{}{Fuck you want? Ain't got nothing but trouble for you.}
+{3010}{}{Bite me, jackass.}
+{3020}{}{What do YOU want?}
+{3030}{}{I want some money.}
+{3040}{}{Just thinking about robbing you, that's all.}
+{3050}{}{Nothing.}
+{4000}{}{Rob me? Hah! I got nothin', why don't you go rob that cheatin' bitch down the road?}
+{4010}{}{What are you talking about?}
+{5000}{}{Dwight's girl! She fucks everyone.}
+{5010}{}{What makes you so sure of that?}
+{5020}{}{So? I don't give a crap.}
+{6000}{}{Fuck off, I've seen it. I got proof. You want to make some money?}
+{6010}{}{Yeah. maybe. Fuck you too.}
+{7000}{}{She loves the meat sausage man, loves it. What a whore! Dirty bitch, whore! Let's go rob her. Okay man, we grab the proof. Show it to her, and ask for ten grand. Yeah, yeah. [He spits]}
+{7010}{}{What you got against this girl anyway?}
+{7020}{}{Show me this proof.}
+{8000}{}{This! [He shows you a well drawn sketch of a man, and a woman having intercourse. You think it's the stupidest thing you have ever seen. But these people probably don't know what a holotape is]}
+{8010}{}{What the hell?}
+{8020}{}{Wow! That's hot!}
+{8030}{}{Ugh...}
+{8040}{}{...}
+{9000}{}{[Apparently you aren't as intelligent as I thought you were. (Your PipBoy thinks you're an idiot)]}
+{9010}{}{*Gasp!*}
+{10000}{}{Hot, yeah?! I wank off to it all the time. Sorry it's a little sticky. You want to go bring it to the broad? And make some money!}
+{10010}{}{Yeah man! But I'm keeping the cash.}
+{10020}{}{No way! I'm outta here!}
+{11000}{}{No way, I'll tattle! We're in this together! If you tell the police, I'll say it was both of us. And the Sheriff will get us both.}
+{11010}{}{Fine, whatever. Just give me the damn picture.}
+{12000}{}{You better not run off with it!}
+{13000}{}{Took me three days to draw the genitals. Hot, eh? Boiiiinnnnngggg!}
+{14000}{}{[It looks like Lucra has being arrested for trying to blackmail Madame Malaire. Oh well. Screw him]}
+{14010}{}{[Walk away]}
+

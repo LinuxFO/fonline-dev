@@ -1,0 +1,30 @@
+[comment]
+
+
+[data]
+lang=engl
+
+[dialog]
+&
+1 1000 None 0 #
+2 1010 D _var p name_mem_npc_player = 0 #
+4 1020 D _var p name_mem_npc_player = 1 @
+2 2000 None 0 #
+3 2010 D _item p PID_GAMMA_GULP_BEER > 0 R _script dialog@r_AddExperience 1 500 R _var p name_mem_npc_player = 1 R _param p REPUTATION_NCR + 7 R _item p PID_GAMMA_GULP_BEER - 1 #
+0 2020 @
+3 3000 None 0 @
+4 4000 None 0 &
+
+[engl]
+{100}{}{Floki}
+{200}{}{You see a drunk.}
+{210}{}{Looks like they're looking for something.}
+{1000}{}{Predialogue installations}
+{1010}{}{Answer text}
+{1020}{}{2}
+{2000}{}{[You see a drunkard. He's rolling in his own vomit, and speaking to himself. As you approach him to hear what he is saying. He turns his head to you]  Heyyy, heyyy. *Burp* Just, just... just one more Gamma... One more, please..! It's all I ask! }
+{2010}{}{Sure, buddy. Here. Enjoy it!}
+{2020}{}{Don't have any booze... You reek!}
+{3000}{}{Thankssss... *hic*.  [He drinks te whole bottle in one go]}
+{4000}{}{Tha.. *burp*. Thank... *hic*. Thanks... *vomits*}
+

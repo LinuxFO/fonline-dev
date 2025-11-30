@@ -1,0 +1,112 @@
+[comment]
+lighter job 
+
+[data]
+lang=engl russ
+
+[dialog]
+&
+1 1000 None 0 #
+2 1010 D _var p player_farmOwner = 1 D _var n player_farmMerchant = 1 #
+5 1020 D _var p player_farmOwner = 1 D _var n player_farmMerchant = 0 #
+7 1030 D _var p player_farmOwner = 0 @
+2 2000 dialog@dlg_FarmStatus 0 #
+4 2010 D _var p player_farmWater > 0 R _var p player_farmWater - 1 R _var p player_farmIncome + 250 #
+4 2020 D _var p player_farmFood > 0 R _var p player_farmFood - 1 R _var p player_farmIncome + 125 #
+4 2030 D _var p player_farmWood > 0 R _var p player_farmWood - 1 R _var p player_farmIncome + 75 #
+4 2040 D _var p player_farmCrate > 0 R _var p player_farmCrate - 1 R _var p player_farmIncome + 2500 #
+3 2050 #
+6 2060 #
+0 2070 @
+3 3000 dialog@dlg_FarmStatus 0 #
+2 3010 @
+4 4000 None 0 @
+5 5000 None 0 #
+2 5010 D _var p player_farmIncome > 4999 R _var p player_farmIncome - 5000 R _var n player_farmMerchant = 1 R _var p player_farmProfits + 100 #
+0 5020 @
+6 6000 None 0 #
+2 6010 @
+7 7000 None 0 &
+
+[engl]
+{100}{}{Travelling Merchant}
+{200}{}{You see a travelling merchant.}
+{210}{}{She has the potential to become my personal businesswoman.}
+{1000}{}{Predialogue installations}
+{1010}{}{base}
+{1020}{}{unlck}
+{1030}{}{visit}
+{2000}{}{Looks like we're now business partners. Great opportunity for both of us, thanks. I'll help you manage your income, and sell whatever resources you don't need. Just let me know. Food, Wood, Water, it's all worth money per unit. Sorry, I can't get a higher price. But Water Crates can be sold for 2500$. I can make you a profit on those. You just need to build a water pump.
+
+Wood: 75$
+Food: 125$
+Water: 250$}
+{2010}{}{[Sell 1x unit of Water]}
+{2020}{}{[Sell 1x unit of Food]}
+{2030}{}{[Sell 1x unit of Wood]}
+{2040}{}{[Sell 1x Water Crate]}
+{2050}{}{What do we have to sell?}
+{2060}{}{Can we buy any resources?}
+{2070}{}{Thanks. Goodbye.}
+{3000}{}{Let's see here...
+
+Food: @lex farmFood@x units.
+Water: @lex farmWater@x units.
+Wood: @lex farmWood@x units.
+Water Crate: @lex farmCrate@x units.}
+{3010}{}{Thanks}
+{4000}{}{Done. I'll find a buyer shortly.}
+{5000}{}{[Renovate this part of your Farm, and unlock the Travelling Merchant! Grants +100$ Daily Income, and allows you to sell your resources! Unlock for 5000$, deducts the money from your Farm Treasury]}
+{5010}{}{Let's renovate!}
+{5020}{}{[Leave]}
+{6000}{}{Unfortunately not. We can only trade resources, or sell them to desperate people like us. Nobody really wants to part with their livelihood. Don't ask me to trade, that's not my department. Hire a family, or someone that knows the area for that.}
+{6010}{}{Thanks.}
+{7000}{}{Weren't you the one that shot me that one time?@@Hey! Didn't you try to rob me yesterday?!@@It's you! I remember you! Stay the hell away from me! Or I'll kill your whole family!@@Stay back! You damn raider!@@I knew you were the one! Fucker! You shot me!@@Beat it! Last time we spoke you killed all my men and left me with a bullet in my head!}
+{100000001}{}{Better wash the counter again...}
+{100000002}{}{That's 5 caps buddy. Hey did you hear me? Cough em' up.}
+{100000003}{}{Better change the keg...}
+{100000004}{}{RotGut? You drink that shit?}
+{100000005}{}{Domestic? I got B.E.E.R buddy, do you want one or not?}
+{100000006}{}{Fuckin' dust is getting everywhere. Hey close the fuckin' door!}
+{100000007}{}{I swear if the next asshole doesn't tip. Ima' shoot somebody!}
+{100000008}{}{I got bottles, I got shots, and I got a bat behind the counter for the retards. Your not a retard are you?}
+{100000009}{}{Uh-huh, yeah that's nice buddy. You don't say...What? Of course I'm listening...}
+{100000010}{}{That's 5 caps. FIVE CAPS Tribal! F.I.V.E! }
+{100000011}{}{Shut up and order a fuckin' beer already!}
+{100000012}{}{I swear if I have to serve another drunk, I'm getting the shotgun!}
+{100000013}{}{Look the keg went dry, and it's going to be another month until the caravan shows up again.}
+{100000014}{}{Really? You don't say, buy another drink or get out!}
+{100000015}{}{What? I'm on break.}
+{100000016}{}{Be right with ya'}
+{100000017}{}{Have a sit stranger. I'll be with you in a moment.}
+{100000018}{}{When do we close? Uh, when the place get's shot up, that's when!}
+{100000019}{}{We're fresh outta' cold beer, sorry. You'll just have to drink it warm.}
+{100000020}{}{RotGut? No man, go make that shit yourself! I wouldn't drink it!}
+
+[russ]
+{100}{}{Алкоголик}
+{200}{}{Вы видите пьяницу.}
+{210}{}{Вы видите шатающегося из стороны в сторону пьяного человека в лохмотьях. Лицо его распухло, нос синющий как слива. А аромат рядом с ним такой, что свалит брамина насмерть. Он что-то бормочет про себя и иногда громко поет песни.}
+{210}{}{Вы видите алкаша. Он весьма грязен - кажется, он повалялся в луже, но не особо этим расстроен.}
+{1000}{}{I?aaaeaeiaiaua onoaiiaee}
+{1010}{}{base}
+{1020}{}{unlck}
+{1030}{}{visit}
+{2000}{}{Dialog text}
+{2010}{}{[Sell 1x unit of Water]}
+{2020}{}{[Sell 1x unit of Food]}
+{2030}{}{[Sell 1x unit of Wood]}
+{2040}{}{[Sell 1x Water Crate]}
+{2050}{}{What do we have to sell?}
+{2060}{}{Can we buy any resources?}
+{2070}{}{Thanks. Goodbye.}
+{3000}{}{Just some Food and Water. Can I take a break?}
+{3010}{}{We'll see.}
+{4000}{}{Mighty kind of you.}
+{5000}{}{[Renovate this part of your Farm, and unlock the Lumberjack! Allows you to produce much more Wood! Unlock for 5000$, deducts the money from your Farm Treasury]}
+{5010}{}{Let's renovate!}
+{5020}{}{[Leave]}
+{6000}{}{Unfortunately not. We can only trade resources, or sell them to desperate people like us. Nobody really wants to part with their livelihood. Don't ask me to trade, that's not my department. Hire a family, or someone that knows the area for that.}
+{6010}{}{Thanks.}
+{7000}{}{Weren't you the one that shot me that one time?@@Hey! Didn't you try to rob me yesterday?!@@It's you! I remember you! Stay the hell away from me! Or I'll kill your whole family!@@Stay back! You damn raider!@@I knew you were the one! Fucker! You shot me!@@Beat it! Last time we spoke you killed all my men and left me with a bullet in my head!}
+

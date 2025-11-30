@@ -1,0 +1,52 @@
+[comment]
+
+
+[data]
+lang=engl
+
+[dialog]
+&
+1 1000 None 0 #
+2 1010 @
+2 2000 None 0 &
+
+[engl]
+{100}{}{Vault Runner}
+{200}{}{You see a Vault Runner!}
+{210}{}{A contestant on Vault Runner! Beware! It's a Free-For-All!}
+{1000}{}{Predialogue installations}
+{1010}{}{Answer text}
+{2000}{}{Die!!! Die!!!}
+{100000001}{}{Heh, I promised my lover I wouldn't die...}
+{100000002}{}{Oh, look! They're attacking again!}
+{100000003}{}{You see today's contestants? Heh... this is going to be easy.}
+{100000004}{}{Me? It's my twenty second Vault Runner appearance.}
+{100000005}{}{I'm unstoppable!}
+{100000006}{}{Better reload! They'll be attacking soon!}
+{100000007}{}{Heh, I let my ex bring the kids... They're "watching" the footlocker.}
+{100000008}{}{I'm not a monster, am I? I mean, I just like killing. That doesn't make me bad, does it?}
+{100000009}{}{You ever won one of these things? I have.}
+{100000010}{}{Hell! This is *MY* show! I'm the last champ!}
+{100000011}{}{You see his brains go everywhere? Damn! That was hilarious!}
+{100000012}{}{I'm just here to get away from the s.o. God, such a bitch!}
+{100000013}{}{Another day... another bottle cap.}
+{100000014}{}{If I have to bring my own damn ammo, I will! I'm sick of these crappy rifles!}
+{100000015}{}{Does your gun even work, bud?}
+{100000016}{}{Heh, look at this guy! Well! Come on then!}
+{100000017}{}{Run, little man! Run!}
+{100000018}{}{Heh, this is gunna be great!}
+{100000019}{}{That guy! You see him? I wonder what his brains look like?}
+{100000020}{}{You'll never know, how far I'd go to take the time to murder you! *smiles*}
+{100000021}{}{Oh, hang on! Gotta reload.}
+{100000022}{}{Heh, you seein' this guy? What a joke!}
+{100000023}{}{Hey! We gunna fight, or'r'y'tryna' fuck me?!}
+{100000024}{}{This reminds me of my wedding party!}
+{100000025}{}{Whoa! Watch where you're aiming! You almost hit that poor little kid! Hah!}
+{100000026}{}{Not enough blood around here, in my opinion! Let's spill some!}
+{100000027}{}{Oh, boy! Killing you is going to make my day!}
+{100000028}{}{Heh! I'm going to shoot off your legs! Then I'm going to fuck you!}
+{100000029}{}{Hey, you! I'm going to do so much bad shit to your face! Then I'm going to cut it off, and fucking wear it!}
+{100000030}{}{I hope you like ass fucking! Cause I'm about to fuck the shit out of your asshole!}
+{100000031}{}{After I'm done with you, pretty... I'm going to rape the shit out of you!}
+{100000032}{}{Heh, should just call it "I win". Fuck you, lowlives! I'm the fucking champ!}
+

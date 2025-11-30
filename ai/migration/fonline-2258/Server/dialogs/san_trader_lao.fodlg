@@ -1,0 +1,51 @@
+[comment]
+
+
+[data]
+lang=engl
+
+[dialog]
+&
+1 1000 None 0 #
+2 1010 @
+2 2000 None 0 #
+3 2010 #
+65506 2020 #
+10 2030 #
+5 2040 D _var p hub_waterjobsan = 0 D _var p hub_waterjobq > 0 D _item p PID_WATER_BARREL > 0 R _var p hub_waterjobsan = 1 R _script dialog@r_RemoveCrate 0  R _script dialog@r_AddExperience 1 1200 #
+0 2050 @
+3 3000 None 0 #
+65506 3010 #
+0 3020 @
+4 4000 None 0 #
+0 4010 D _var p hub_waterjobsan = 0 D _var p hub_waterjobq > 0 R _var p hub_waterjobsan = 1 R _script dialog@r_RemoveCrate 0  @
+5 5000 None 0 @
+10 6000 None 0 #
+0 6010 D _item p PID_BOTTLE_CAPS > 1999 R _script dialog@r_RemoveMoney 1 2000 R _item p PID_POLYMER + 1 #
+0 6020 D _item p PID_BOTTLE_CAPS > 19999 R _script dialog@r_RemoveMoney 1 20000 R _item p PID_POLYMER + 10 #
+0 6030 &
+
+[engl]
+{100}{}{Lao Chou}
+{200}{}{You see a man who looks like a shopkeeper.}
+{210}{}{You see Lao Chou, the shopkeeper.}
+{210}{}{You see a man in functional, comfortable clothing.}
+{1000}{}{error}
+{1010}{}{default}
+{2000}{}{Welcome to my shop, Western Star. What can I do for you?}
+{2010}{}{Who are you?}
+{2020}{}{I'm looking for some equipment.}
+{2030}{}{I need Polymers, got any?}
+{2040}{}{[Deliver Crate]}
+{2050}{}{Bye.}
+{3000}{}{I'm Lao Chou. I run this establishment, Western Star, a general store.}
+{3010}{}{I see. I'd like some equipment.}
+{3020}{}{Okay, bye.}
+{4000}{}{I am asking you to leave. Politely.@@Get out, freak.@@I'm just a store owner. I want no trouble, foreigner.}
+{4010}{}{[Deliver Crate]}
+{5000}{}{Ah, I thank you. Fresh water is vital. Tell the Water Merchants that they have my thanks.}
+{6000}{}{I can sell you some Polymers, 2.000 caps each, interested?}
+{6010}{}{I will take one.}
+{6020}{}{Give me ten.}
+{6030}{}{Maybe next time.}
+

@@ -1,0 +1,42 @@
+[comment]
+
+
+[data]
+lang=engl
+
+[dialog]
+&
+1 1000 None 0 #
+3 1010 D _script dialog@d_IsNotMemberOf 1 FACTION_BOS #
+2 1020 @
+2 2000 None 0 #
+5 2010 D _script dialog@d_IsToHeal 0  #
+4 2020 @
+3 3000 None 0 @
+4 4000 None 0 @
+5 5000 None 0 #
+6 5010 @
+6 6000 None 0 #
+7 6010 R _script dialog@r_DocHeal 0  @
+7 7000 None 0 #
+0 7010 &
+
+[engl]
+{100}{}{Doctor Murdock}
+{200}{}{You see Doctor Murdock, veteran surgeon for the Brotherhood of Steel.}
+{210}{}{You see a prime example of a very stern, and serious professional. Doctor Murdock has seen more insides than you've splattered. You can trust his skill.}
+{1000}{}{Predialogue installations}
+{1010}{}{Answer text}
+{1020}{}{memb}
+{2000}{}{Soldier. Welcome to my clinic. Are you well? Or do you require medical assistance? It's on the house. You've earned it.}
+{2010}{}{Yes, please. I'll take a full physical if it's free.}
+{2020}{}{No, thanks. Not today. I feel healthy enough not to complain.}
+{3000}{}{I'm sorry, but my services are only for Brotherhood of Steel members. Does your escort know that you're running around without them?}
+{4000}{}{Careful out there. People die. Just remember that I can't work miracles. Death is death.}
+{5000}{}{Good. Come over here, and let's have a look at you. Do you have any allergies?}
+{5010}{}{I'm only allergic to bullets, doc.}
+{6000}{}{Yes, that is expected. Bullets are quite effective at stopping men and women dead in their tracks. I'll just take a blood sample and run it through the machine. Easy now, just relax, and lie down.}
+{6010}{}{[Begin your medical examination]}
+{7000}{}{You'll live. Now get back out there and make us proud, soldier. Come back anytime you need medical attention. It's free for Brotherhood of Steel members.}
+{7010}{}{Thanks, doc! I owe you one!}
+

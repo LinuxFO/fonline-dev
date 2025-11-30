@@ -1,0 +1,21 @@
+[comment]
+
+
+[data]
+lang=engl
+
+[dialog]
+&
+1 1000 None 0 #
+2 1010 @
+2 2000 None 0 &
+
+[engl]
+{100}{}{A Ghoul in Man's Clothing}
+{200}{}{You see a ghoul in man's clothing.}
+{210}{}{It's wearing assorted sewn pieces of human skin over its own. Men, women, children, this ghoul wasn't picky. But his stitching was horrible...
+}
+{1000}{}{Predialogue installations}
+{1010}{}{Answer text}
+{2000}{}{I...want...your...skin...give... it... to...me!@@Your...skin... looks... so... precious!@@Let... me... feel... your... light!@@Whimper... in... fear...@@We... are... many...@@You... spoil... it...}
+

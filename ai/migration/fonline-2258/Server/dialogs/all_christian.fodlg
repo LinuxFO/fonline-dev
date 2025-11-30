@@ -1,0 +1,20 @@
+[comment]
+
+
+[data]
+lang=engl
+
+[dialog]
+&
+1 1000 None 0 #
+2 1010 @
+2 2000 None 0 &
+
+[engl]
+{100}{}{Christian Soldier}
+{200}{}{You see a soldier of Christianity.}
+{210}{}{They're Christian...}
+{1000}{}{Predialogue installations}
+{1010}{}{-}
+{2000}{}{For the Lord!!@@Have heart!@@Oh, that's against my religion, sorry!@@I'm Christian!@@}
+

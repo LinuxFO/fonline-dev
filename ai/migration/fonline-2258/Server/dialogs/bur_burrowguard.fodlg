@@ -1,0 +1,20 @@
+[comment]
+
+
+[data]
+lang=engl
+
+[dialog]
+&
+1 1000 None 0 #
+2 1010 @
+2 2000 None 0 &
+
+[engl]
+{100}{}{Burrow Guardian}
+{200}{}{You see a Burrow Guardian.}
+{210}{}{A strange, warrior looking raccoon.It looks very proud, and has what appears to be tribal carvings all over its body.}
+{1000}{}{Predialogue installations}
+{1010}{}{Answer text}
+{2000}{}{Hu-man.@@What bring you here?@@Where fur?@@You smell.@@No trouble. Calm.@@You look sleep.@@Eat. You are small.@@Are cold? Grow hair.@@Soft. Squishy.@@You like fur?@@I old. Fight many battle. See mark?@@You are welcome. For now.@@This is home. Our home.@@I like it here. But, no warm.@@The water here... tastes... bad.@@You look like silly. Why you no have fur?@@I hope you don't eat us.}
+

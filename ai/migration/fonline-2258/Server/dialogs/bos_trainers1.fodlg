@@ -1,0 +1,73 @@
+[comment]
+
+
+[data]
+lang=engl
+
+[dialog]
+&
+1 1000 None 0 #
+4 1010 D _var p bos_train1 = 1 #
+3 1020 D _var p bos_train1 = 0 #
+2 1030 D _script dialog@d_IsNotMemberOf 1 FACTION_BOS @
+2 2000 None 0 @
+3 3000 None 0 #
+5 3010 #
+0 3020 @
+4 4000 None 0 @
+5 5000 None 0 #
+6 5010 #
+0 5020 @
+6 6000 None 0 #
+7 6010 D _var p greet_train1 = 0 D _param p SK_DOCTOR < 222 R _var p bos_train1 = 1 R _param p SK_DOCTOR + 5 #
+7 6020 D _var p greet_train1 = 0 D _param p SK_FIRST_AID < 222 R _var p bos_train1 = 1 R _param p SK_FIRST_AID + 5 #
+7 6030 D _var p greet_train1 = 0 D _param p SK_OUTDOORSMAN < 222 R _var p bos_train1 = 1 R _param p SK_OUTDOORSMAN + 5 #
+7 6040 D _var p greet_train1 = 0 D _param p SK_LOCKPICK < 222 R _var p bos_train1 = 1 R _param p SK_LOCKPICK + 5 #
+7 6050 D _var p greet_train1 = 0 D _param p SK_SCIENCE < 222 R _var p bos_train1 = 1 R _param p SK_SCIENCE + 5 #
+7 6060 D _var p greet_train1 = 0 D _param p SK_REPAIR < 222 R _var p bos_train1 = 1 R _param p SK_REPAIR + 5 #
+7 6070 D _var p greet_train1 = 0 D _param p SK_BARTER < 222 R _var p bos_train1 = 1 R _param p SK_BARTER + 5 #
+7 6080 D _var p greet_train1 = 0 D _param p SK_SPEECH < 222 R _var p bos_train1 = 1 R _param p SK_SPEECH + 5 #
+7 6090 D _var p greet_train1 = 0 D _param p SK_TRAPS < 222 R _var p bos_train1 = 1 R _param p SK_TRAPS + 5 #
+0 6100 @
+7 7000 None 0 &
+
+[engl]
+{100}{}{Captain Kaltorazakori}
+{200}{}{You see Captain Kaltorazakori, master scribe.}
+{210}{}{Their name is so long it hardly fits on their name tag! But she looks highly intelligent! I'm sure she could teach me something interesting.}
+{1000}{}{Predialogue installations}
+{1010}{}{Answer text}
+{1020}{}{Answer text}
+{1030}{}{Answer text}
+{2000}{}{This isn't a recruitment hall. Where is your escort?}
+{3000}{}{Oh, hello! I don't believe we've met! I'm Captain Kaltorazakori, expert technician, and master instructor.}
+{3010}{}{Master instructor? What do you teach? Or should I say, "instruct"?}
+{3020}{}{Sorry, wrong room! Goodbye.}
+{4000}{}{I'm afraid there's nothing more I am allowed to teach you. Each brother, or sister is only allowed one lesson from me, sorry. Have you talked to the other Captains yet?}
+{5000}{}{I am qualified to train Brotherhood members in ANY faculty that isn't related to combat. In fact, I am allowed to offer each faction member ONE lesson of their choice. }
+{5010}{}{Sounds great! Can I get a lesson please?}
+{5020}{}{Interesting, I'll have to come back once I'm sure as to what skill I should improve. Talk to you later!}
+{6000}{}{What non-combat skill would you like to improve? Your options are:
+
+Doctor
+First-Aid
+Outdoorsman
+Lockpicking
+Science
+Repair
+Barter
+Speech
+Traps
+}
+{6010}{}{Doctor.}
+{6020}{}{First-Aid.}
+{6030}{}{Outdoorsman.}
+{6040}{}{Lockpicking.}
+{6050}{}{Science.}
+{6060}{}{Repair.}
+{6070}{}{Barter.}
+{6080}{}{Speech.}
+{6090}{}{Traps.}
+{6100}{}{I'll have to come back when I'm sure. Goodbye.}
+{7000}{}{Very well! May these lessons serve you in your most desperate of times.}
+

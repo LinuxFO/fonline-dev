@@ -1,0 +1,256 @@
+                                                                                                                                                                                                                                                                                                                
+
+uint __GetColor(int r,int g,int b,int a=0xFF)
+{
+	r=(((r)>(255))?(255):(((r)<(0))?(0):(r)));
+	g=(((g)>(255))?(255):(((g)<(0))?(0):(g)));
+	b=(((b)>(255))?(255):(((b)<(0))?(0):(b)));
+	a=(((a)>(255))?(255):(((a)<(0))?(0):(a)));
+	return(uint(((a)<<24)|(((r)&0xFF)<<16)|(((g)&0xFF)<<8)|((b)&0xFF)));
+}                                                                                    
+
+shared interface IMapperPlugin
+{
+	void Render(uint layer);
+	void RenderMap();
+	bool MouseDown(int click);
+	bool MouseUp(int click);
+	void MouseMove(int x,int y);
+	bool KeyDown(uint8 key);
+	bool KeyUp(uint8 key);
+	void InputLost();
+	void Loop();
+	bool Message(string&message);
+}; 
+
+import bool Plugins_Register(IMapperPlugin@plugin)from"mapper_plugin";
+import void Plugins_Render(uint layer)from"mapper_plugin";
+import void Plugins_RenderMap()from"mapper_plugin";
+import bool Plugins_MouseDown(int click)from"mapper_plugin";
+import bool Plugins_MouseUp(int click)from"mapper_plugin";
+import void Plugins_MouseMove(int x,int y)from"mapper_plugin";
+import bool Plugins_KeyDown(uint8 key)from"mapper_plugin";
+import bool Plugins_KeyUp(uint8 key)from"mapper_plugin";
+import void Plugins_InputLost()from"mapper_plugin";
+import void Plugins_Loop()from"mapper_plugin";
+import bool Plugins_Message(string&message)from"mapper_plugin";             
+
+import MapperMap@GetActiveMap()from"mapper_utils";
+import void HexOffset(uint8 dir,int&x,int&y)from"mapper_utils";
+import uint GetHexWidth()from"mapper_utils";
+import uint GetZoom()from"mapper_utils";
+import bool GetMonitorHexSigh(int x,int y,uint16&hx,uint16&hy,bool ignoreInterface=false)from"mapper_utils";             
+
+import bool StrToInt(string@s,uint64&inout val)from"strtoint";
+import bool StrToInt(string@s,uint&inout val)from"strtoint";
+import bool StrToInt(string@s,uint16&inout val)from"strtoint";
+import bool StrToInt(string@s,uint8&inout val)from"strtoint";
+import bool StrToInt(string@s,int64&inout val)from"strtoint";
+import bool StrToInt(string@s,int16&inout val)from"strtoint";
+import bool StrToInt(string@s,int8&inout val)from"strtoint";  
+
+class CGrid:IMapperPlugin
+{
+	string GetName(){return"Grid";} 
+	
+	private bool edgeGrid=true;
+	private uint edgeGridMinZoom=5;
+	private uint edgeGridMaxZoom=1500;
+	private uint edgeGridColor=(uint((0xFF<<24)|(((200)&0xFF)<<16)|(((200)&0xFF)<<8)|((200)&0xFF)));
+	
+	private bool tileGrid=true;
+	private uint tileGridDiv=10;
+	private uint tileGridMinZoom=5;
+	private uint tileGridMaxZoom=1500;
+	private uint tileGridColor=(uint(((160)<<24)|(((130)&0xFF)<<16)|(((130)&0xFF)<<8)|((130)&0xFF)));
+	private uint tileGridColor2=(uint(((240)<<24)|(((160)&0xFF)<<16)|(((160)&0xFF)<<8)|((160)&0xFF)));
+	
+	private bool hexGrid=false;
+	private uint hexGridSize=8;
+	private uint hexGridMinZoom=5;
+	private uint hexGridMaxZoom=1500;
+	private uint hexGridColor=(uint(((120)<<24)|(((190)&0xFF)<<16)|(((190)&0xFF)<<8)|((100)&0xFF)));
+	
+	private bool enabled=true;
+	private uint color=(uint((0xFF<<24)|(((160)&0xFF)<<16)|(((160)&0xFF)<<8)|((160)&0xFF)));
+	
+	void Render(uint layer)
+	{
+		if(layer==1)
+		{
+			MapperMap@map=GetActiveMap();
+			if(!(@map!=null))
+			{
+				return;
+			}
+			uint zoom=GetZoom(); 
+			
+			if(hexGrid)
+			{
+				int gridW=GetHexWidth();
+				int gridH=gridW/2;
+				int gridW2=gridH;
+				int gridH2=gridW/4;
+				int gridH4=gridW/8;
+				
+				for(uint i=0,j=map.Width-1;i<j;i+=2)
+				{
+					int c=tileGridColor;
+					if(i%tileGridDiv==0)
+					{
+						c=tileGridColor2;
+					}
+					int x1=0,y1=0,x2=0,y2=0;
+					GetHexPos(i,0,x1,y1);
+					GetHexPos(i,map.Height-1,x2,y2);
+					
+					array<int>gridData=
+					{
+						x1,y1,c,
+						x2,y2,c
+					};
+					DrawPrimitive((2),gridData);
+				}
+				for(uint i=1,j=map.Height-1;i<j;i+=2)
+				{
+					int c=tileGridColor;
+					if((i+1)%tileGridDiv==0)
+					{
+						c=tileGridColor2;
+					}
+					int x1=0,y1=0,x2=0,y2=0;
+					GetHexPos(0,i,x1,y1);
+					GetHexPos(map.Width-1,i,x2,y2);
+					
+					if(map.Width%2==0)
+					{
+						int ox=0,oy=0;
+						HexOffset(3,ox,oy);
+						x2+=ox;
+						y2+=oy;
+					}
+					
+					array<int>gridData=
+					{
+						x1,y1,c,
+						x2,y2,c
+					};
+					DrawPrimitive((2),gridData);
+				}
+			}   
+			
+			int x1=0,y1=0,
+			x2=0,y2=0,
+			x3=0,y3=0,
+			x4=0,y4=0;
+			
+			uint16 lastHexX=map.Width-1;
+			uint16 lastHexY=map.Height-1;
+			
+			GetHexPos(0,0,x1,y1);
+			GetHexPos(0,lastHexY,x2,y2);
+			GetHexPos(lastHexX,lastHexY,x3,y3);
+			GetHexPos(lastHexX,0,x4,y4);
+			
+			if(map.Width%2==0)
+			{
+				int ox=0,oy=0;
+				HexOffset(3,ox,oy);
+				x3+=ox;
+				y3+=oy;
+				x4+=ox;
+				y4+=oy;
+			}
+			
+			array<int>gridData=
+			{
+				x1,y1,edgeGridColor,
+				x2,y2,edgeGridColor,
+				x3,y3,edgeGridColor,
+				x4,y4,edgeGridColor,
+				x1,y1,edgeGridColor
+			};
+			
+			DrawPrimitive((2),gridData);
+		}
+	}
+	
+	bool Message(string&message)
+	{
+		if(message=="grid")
+		{
+			message="Grid plugin commands: on, off, color <r> <g> <b>.";
+			return true;
+		}
+		
+		array<string@>msg=splitEx(message," ");
+		if(msg[0]=="grid")
+		{
+			if(msg[1]=="on")
+			{
+				message="Grid enabled.";
+				hexGrid=true;
+				edgeGrid=true;
+				tileGrid=true;
+			}
+			else if(msg[1]=="off")
+			{
+				message="Grid disabled.";
+				hexGrid=false;
+				edgeGrid=false;
+				tileGrid=false;
+			}
+			else if(msg[1]=="color")
+			{
+				uint r=0,g=0,b=0;
+				if(StrToInt(msg[2],r)&&StrToInt(msg[3],g)&&StrToInt(msg[4],b))
+				{
+					color=(uint((0xFF<<24)|(((r)&0xFF)<<16)|(((g)&0xFF)<<8)|((b)&0xFF)));
+					message="Grid color changed.";
+				}
+			}
+			else
+			{
+				message="Unknown grid plugin command.";
+			}
+			return true;
+		}
+		
+		return false;
+	}
+	
+	void RenderMap(){}
+	bool MouseDown(int){return false;}
+	bool MouseUp(int){return false;}
+	void MouseMove(int,int){}
+	bool KeyDown(uint8 key)
+	{
+		if(key==0x22)
+		{
+			if(hexGrid)
+			{
+				
+				hexGrid=false;
+			}
+			else
+			{
+				hexGrid=true;
+			}
+		}
+		return false;
+	}
+	bool KeyUp(uint8){return false;}
+	void InputLost(){}
+	void Loop(){}
+	
+};
+
+void RegisterGrid()
+{
+	IMapperPlugin@grid=CGrid();
+	if(Plugins_Register(grid))
+	{
+		Message("Grid plugin (WIP) registered. Press G to switch grid mode.");
+	}
+}
+

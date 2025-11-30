@@ -1,0 +1,41 @@
+[comment]
+
+
+[data]
+lang=engl
+
+[dialog]
+&
+1 1000 None 0 #
+2 1010 @
+2 2000 None 0 #
+5 2010 D _var p q_adventure = 8 #
+3 2020 #
+0 2030 @
+3 3000 None 0 #
+0 3010 @
+4 4000 None 0 @
+5 5000 None 0 #
+6 5010 @
+6 6000 None 0 #
+0 6010 R _var p q_adventure = 9 R _script quest_advent2@r_SpawnLoc 0  &
+
+[engl]
+{100}{}{Bishop}
+{200}{}{You see Mr.Bishop.}
+{210}{}{You see a powerful-looking middle-aged man.}
+{210}{}{You see Mr. Bishop. He looks grim.}
+{1000}{}{Predialogue installations}
+{1010}{}{-}
+{2000}{}{What th --? Who are you and what the HELL do you want?}
+{2010}{}{McClaire sent me. I'm here to take Eldor's place. I'm @pname@.}
+{2020}{}{I thought you might have some more work for me.}
+{2030}{}{Sorry -- wrong room.}
+{3000}{}{Work? You've got to be fucking kidding me. Get out of my sight, you moron.}
+{3010}{}{Fine, I'm leaving.}
+{4000}{}{Retard, what the fuck are you doing here?@@Guards, we got an eejit loose up here.@@Someone get rid of this fucking primate.}
+{5000}{}{Why didn't you just fucking say so, dick head? Lynette wants some assholes dead, but they're packing some serious heat. You could probably handle it. But I don't give a shit. Here's a map with the location. Go there, kill everyone, then go fuck off back to McClaire. Got it?}
+{5010}{}{Yeah, yeah.}
+{6000}{}{Good. Get the fuck out of here! [If you would like to play this mission in Turn Based mode type /combatmode tb before continuing]}
+{6010}{}{[Leave]}
+

@@ -1,0 +1,96 @@
+[comment]
+
+
+[data]
+lang=engl
+
+[dialog]
+&
+1 1000 None 0 #
+2 1010 D _var p name_mem_npc_player = 0 #
+15 1020 D _var p name_mem_npc_player = 1 @
+2 2000 None 0 #
+4 2010 #
+4 2020 #
+4 2030 #
+0 2040 @
+4 3000 None 0 #
+5 3010 @
+5 4000 None 0 #
+6 4010 @
+6 5000 None 0 #
+7 5010 @
+7 6000 None 0 #
+8 6010 #
+9 6020 D _param p ST_KARMA < 0 @
+8 7000 None 0 #
+10 7010 @
+9 8000 None 0 #
+10 8010 @
+10 9000 None 0 #
+11 9010 @
+11 10000 None 0 #
+12 10010 @
+12 11000 None 0 #
+13 11010 @
+13 12000 None 0 #
+14 12010 @
+14 13000 None 0 #
+18 13010 D _param p ST_LEVEL > 11 D _var p q_ninja = 0 R _var p name_mem_npc_player = 1 R _var p q_ninja = 1 R _script quest_ninja@r_SpawnLoc 0  #
+0 13020 R _var p name_mem_npc_player = 1 @
+15 14000 None 0 #
+17 14010 D _var p q_ninja = 0 D _param p ST_LEVEL > 11 R _var p q_ninja = 1 R _script quest_ninja@r_SpawnLoc 0  #
+16 14020 D _var p q_ninja = 2 R _var p q_ninja = 3 R _item p PID_WAKIZASHI_BLADE + 2 R _script quest_ninja@r_DeleteLoc 0  R _script dialog@r_AddMoney 1 2500 R _param p ST_KARMA + 1 R _param p REPUTATION_JUNKTOWN + 50 R _param p REPUTATION_HUB + 50 R _param p REPUTATION_LA + 50 R _param p REPUTATION_NEW_RENO + 50 R _param p REPUTATION_REDDING + 50 R _param p REPUTATION_GECKO + 50 R _param p REPUTATION_MODOC + 50 R _param p REPUTATION_DEN + 50 R _param p REPUTATION_KLAMATH + 50 R _param p REPUTATION_NCR + 50 R _param p REPUTATION_VAULT_CITY + 50 R _param p REPUTATION_RAIDERS + 50 R _param p REPUTATION_FREE_TRADERS + 50 R _var p CRIM - 1 R _var p LAW + 1 R _script dialog@r_AddExperience 1 2750 R _var p z_warrior2 + 1 R _script dialog@r_AddLootSetLevel2 0  #
+19 14030 D _var p junktown_monsters = 2 #
+0 14040 D _var p q_ninja { 2 @
+16 15000 None 0 @
+17 16000 None 0 @
+18 17000 None 0 @
+19 18000 None 0 &
+
+[engl]
+{100}{}{Uria}
+{200}{}{You see a disappointed looking drunk.}
+{210}{}{She looks like someone who has to make a choice they really don't want to make.}
+{1000}{}{Predialogue installations}
+{1010}{}{Answer text}
+{1020}{}{2}
+{2000}{}{Have you ever seen the rain, fall as if it were so many tears. Brothers, sisters, the tears of all children. }
+{2010}{}{What are you going on about?}
+{2020}{}{The rain? It's symbolic, isn't it? Reminds me of things I can never remember.}
+{2030}{}{Are you drunk?}
+{2040}{}{I'll leave you to your thoughts.}
+{3000}{}{It's the sound of a million souls wheeping at once, trying to wash all the bad away. But it barely makes a dent, doesn't it? Just washes away the memories of the people the world forgot about. They just... fade away... And new memories take their place.}
+{3010}{}{...}
+{4000}{}{Do you have a family?}
+{4010}{}{I'd rather not say. Why do you ask?}
+{5000}{}{[She looked at me as if I could take back my own words, but she knew how hopeless that was] }
+{5010}{}{What's wrong with you?}
+{6000}{}{[She sighs] My sister and I, we were travellers, much like yourself. We made our living scavenging, and patrolling the wastes for civilization... whatever's left of it. But she... she was raped. }
+{6010}{}{That's horrible.}
+{6020}{}{Yeah, so?}
+{7000}{}{I know... [She cries] She never got over it. She's never been the same. Her name used to be Delia, but now she goes by Sun Kill Moon. She's a wild animal, just killing everyone that gets in her way. I've... I've tried to talk to her, but she almost killed me!}
+{7010}{}{So... what do you want to do? Can we help her?}
+{8000}{}{You fucking monster! [She cries] She never got over it. She's never been the same. Her name used to be Delia, but now she goes by Sun Kill Moon. She's a wild animal, just killing everyone that gets in her way. I've... I've tried to talk to her, but she almost killed me!}
+{8010}{}{[Say nothing]}
+{9000}{}{She's too far gone. When the walls of society crumble, the inner darkness will come out. You unleash it too much, and you will lose your humanity. Once that is gone...}
+{9010}{}{You become the monster...}
+{10000}{}{I look into your eyes... and, I see... You are one bad day away.}
+{10010}{}{[Stare out into the void, and watch as it watches you in return]}
+{11000}{}{The waters of the Rising Sun are no more, and so the cycle begins anew. The Sun Kills the Moon, and in time, the Moon Kills the Sun.}
+{11010}{}{What does that mean?}
+{12000}{}{Maybe, the only person that can kill her, is you? Delia was a good woman, she saved lives. She *was* a hero. But this world isn't very kind to heroes, so she snapped. If she has to be put down for what she's done... It should be by a @sex@|man||woman| that understands what she's going through.}
+{12010}{}{I think I know what you're trying to say.}
+{13000}{}{So will you do it? She's probably near Reno... hunting... people... [If you'd like to do this mission in Turn Based mode, type /combatmode tb before continuing!] [MUST BE LEVEL 12+]}
+{13010}{}{Yes, I will. Give me the location.}
+{13020}{}{No, I won't do it. She can change. There's always hope. I don't care how far gone they are.}
+{14000}{}{It rains so much. Will it ever stop? No... It can't. It shouldn't. For how else would we ever know right from wrong?@@How many more souls must suffer? Until we finally get things right?@@The rain never forgets. Be like the rain.}
+{14010}{}{Show me where you sister is. I've changed my mind.}
+{14020}{}{She's gone.}
+{14030}{}{Heard anything about a monster lately?}
+{14040}{}{I have to go.}
+{15000}{}{So still you lie... Mother of the Day. The Moon has Killed the Sun. But the Sun shall have it's Revenge.}
+{16000}{}{So will you do it? She's probably near Reno... hunting... people...}
+{17000}{}{Give her rest. She needs it.}
+{18000}{}{Just what people say. I think the scouts could answer your question better than I.}
+

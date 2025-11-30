@@ -1,0 +1,24 @@
+[comment]
+
+
+[data]
+lang=engl
+
+[dialog]
+&
+1 1000 None 0 #
+2 1010 @
+2 2000 None 0 #
+65506 2010 #
+0 2020 &
+
+[engl]
+{100}{}{Johnny Takahashi}
+{200}{}{You see an experienced gunrunner with a keen eye for fine weaponry. }
+{210}{}{This guy walks around like he's famous or something. Looking over his inventory however makes you think otherwise. The part of you that loves weapons is starting to adore this fine Japanese vendor.}
+{1000}{}{Predialogue installations}
+{1010}{}{Answer text}
+{2000}{}{You're my kind of customer. Welcome to the Westwood Gunrunners shop. We've been here for years! Where the hell have you been? So, you wanna shop, or what?}
+{2010}{}{Let's see what you got. [Barter]}
+{2020}{}{Maybe next time.}
+

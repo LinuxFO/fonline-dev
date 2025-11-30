@@ -1,0 +1,140 @@
+[comment]
+
+
+[data]
+lang=engl
+
+[dialog]
+&
+1 1000 None 0 #
+2 1010 D _var p q_cotc = 0 D _var p z_relig = 0 #
+7 1020 D _var p q_cotc > 0 D _var p z_relig = 1 #
+14 1030 D _var p q_fota > 0 D _var p z_relig = 1 #
+14 1040 D _var p q_rev > 0 D _var p z_relig = 1 #
+14 1050 D _var p q_dhar > 0 D _var p z_relig = 1 #
+14 1060 D _var p q_cris > 0 D _var p z_relig = 1 #
+14 1070 D _var p q_hubo > 0 D _var p z_relig = 1 #
+14 1080 D _var p q_morm > 0 D _var p z_relig = 1 #
+14 1090 D _var p q_renu > 0 D _var p z_relig = 1 @
+2 2000 None 0 #
+3 2010 #
+4 2020 #
+0 2030 @
+3 3000 dialog@dlg_WarFC 0 #
+0 3010 #
+0 3020 #
+0 3030 #
+0 3040 #
+0 3050 @
+4 4000 None 0 #
+6 4010 R _var p q_cotc = 1 R _var p z_relig = 1 R _var p q_fota = 0 R _var p q_cris = 0 R _var p q_dhar = 0 R _var p q_hubo = 0 R _var p q_morm = 0 R _var p q_renu = 0 R _var p q_rev = 0 #
+5 4020 @
+5 5000 None 0 @
+6 6000 None 0 #
+0 6010 @
+7 7000 None 0 #
+8 7010 #
+3 7020 #
+13 7030 D _var p q_cotc = 3 R _script dialog@r_AddExperience 1 1500 R _script dialog@r_AddMoney 1 750 R _script quest_cotc@r_DeleteLoc 0  R _var p q_cotc = 4 R _var p COTC + 7 #
+5 7040 R _var p q_cotc = 0 R _var p z_relig = 0 R _var p q_faithpoints - 500 #
+0 7050 @
+8 8000 None 0 #
+9 8010 #
+10 8020 #
+11 8030 D _var p q_cotc = 1 #
+11 8040 D _var p q_cotc = 4 #
+7 8050 @
+9 9000 None 0 #
+7 9010 @
+10 10000 None 0 #
+10 10010 D _item p PID_LASER_PISTOL > 0 R _item p PID_LASER_PISTOL - 1 R _script dialog@r_AddExperience 1 50 R _script dialog@r_AddMoney 1 50 #
+10 10020 D _item p PID_SMALL_ENERGY_CELL > 49 R _item p PID_SMALL_ENERGY_CELL - 50 R _script dialog@r_AddExperience 1 50 R _script dialog@r_AddMoney 1 50 #
+7 10030 @
+11 11000 None 0 #
+0 11010 R _var p q_cotc = 2 R _script quest_cotc@r_SpawnLoc 0  #
+0 11020 @
+12 12000 None 0 @
+13 13000 None 0 #
+0 13010 D _var p FOTC > 0 R _script dialog@r_AddExperience 1 100 R _script dialog@r_AddMoney 1 100 R _var p FOTC - 1 #
+0 13020 D _var p FOTC = 0 #
+0 13030 D _var p CRIS > 0 R _var p CRIS - 1 R _script dialog@r_AddExperience 1 100 R _script dialog@r_AddMoney 1 100 #
+0 13040 D _var p HUBO > 0 R _var p HUBO - 1 R _script dialog@r_AddExperience 1 100 R _script dialog@r_AddMoney 1 100 #
+0 13050 D _var p DHAR > 0 R _var p DHAR - 1 R _script dialog@r_AddExperience 1 100 R _script dialog@r_AddMoney 1 100 #
+0 13060 D _var p RENU > 0 R _var p RENU - 1 R _script dialog@r_AddExperience 1 100 R _script dialog@r_AddMoney 1 100 #
+0 13070 D _var p REV > 0 R _var p REV - 1 R _script dialog@r_AddExperience 1 100 R _script dialog@r_AddMoney 1 100 #
+0 13080 D _var p MORM > 0 R _var p MORM - 1 R _script dialog@r_AddExperience 1 100 R _script dialog@r_AddMoney 1 100 #
+0 13090 D _var p CRIS = 0 D _var p DHAR = 0 D _var p HUBO = 0 D _var p MORM = 0 D _var p RENU = 0 D _var p REV = 0 D _var p FOTC = 0 @
+14 14000 None 0 #
+65507 14010 #
+0 14020 &
+
+[engl]
+{100}{}{The Voice}
+{200}{}{You see The Voice.}
+{210}{}{You see The Voice of the Children of the Cathedral. He's also leading his army to war against the Followers of the Apocalypse. }
+{1000}{}{Predialogue installations}
+{1010}{}{normal}
+{1020}{}{joined}
+{1030}{}{fota}
+{1040}{}{rev}
+{1050}{}{dhar}
+{1060}{}{cris}
+{1070}{}{hubo}
+{1080}{}{morm}
+{1090}{}{renu}
+{2000}{}{The last of the holy flame shall rise here! And burn its way into the darkness!@@Can you feel the holy glow from the holy flame?! It holy burns!@@Hear The Voice! Understand The Voice! For I am the word of the Holy Flame! I am the Master's Voice!@@Praise! Praise! Praise! Holy! Flame! Praise it! Praise tomorrow! And may it burn in all its glory!@@Join us! Or burn in the holy light!@@Holy! Fire! Light! Holy master! Holy burning! Holy...!!!@@FIRE!!!!!!!! BURNING!!! HOLY!!!!! IT'S SO HOLY!!!! LOOK AT THE HOLY!!!!@@Master! Master! Master! Holy light! Holy fire! Will make you rich! Give you everything you want! Women! Men! HOLY FLAME!!!! JOIN NOW!!!!@@Holy flame! Holy flame! HOLY flame! HOLY FLAME! HOLY FLAME! Holy Flame! Holy flame! Holy flame!}
+{2010}{}{How's the war going?}
+{2020}{}{You seem troubled, what's wrong?}
+{2030}{}{Goodbye.}
+{3000}{}{The Followers of the Apocalypse have @lex pointsFOTA@ territories. The Christian Missionaries have @lex pointsCRIS@ territories. The Dharmanian Serfs have @lex pointsDHAR@ territories. The Hubologists have @lex pointsHUBO@ territories. The Mormons have @lex pointsMORM@ territories. Renewal has @lex pointsRENU@ territories. The Reavers have @lex pointsREV@ territories. While the Children of the Cathedral have @lex pointsCOTC@ territories. The numbers keep changing, but maybe you can help make a difference.}
+{3010}{}{Of course.}
+{3020}{}{We'll see.}
+{3030}{}{Probably not.}
+{3040}{}{No. War never changes.}
+{3050}{}{You damn right!}
+{4000}{}{We're at war! The Followers of the Apocalypse think that they can get away with preaching their bullshit, about our "suicidal holy flame shit". But we know better than to let people like that dominate the wasteland! Religion didn't destroy the world! A lack of faith did! And we won't let it happen again! Are you with us? Or against us?! }
+{4010}{}{I'm with you! [Align with the Cathedral]}
+{4020}{}{I don't want any part of this.}
+{5000}{}{Coward! Go back to your vault!}
+{6000}{}{That's the spirit! You've made the right choice! Listen! We need soldiers to fight on the front lines! Whenever you're ready to join a  battle let me know, I'll give you the coordinates! Every time we beat one of their patrols we take some territory. If we can maintain the most territory than we can surely win this war!}
+{6010}{}{Roger. }
+{7000}{}{Soldier! Are you reporting for duty?}
+{7010}{}{Orders?}
+{7020}{}{How's the war going?}
+{7030}{}{Patrol defeated, sir!}
+{7040}{}{You guys are morons! I quit!}
+{7050}{}{No, not right now. See ya.}
+{8000}{}{Your orders are to:
+
+a) Gather supplies 
+b) Fight on the front lines}
+{8010}{}{What kind of supplies do you need?}
+{8020}{}{[Deliver Supplies]}
+{8030}{}{Send me the battle coordinates.}
+{8040}{}{Send me some more battle coordinates.}
+{8050}{}{Nevermind.}
+{9000}{}{We need large supplies of Laser Pistols, and Small Energy Cells. Don't worry about everything else. Every pistol or 50x cells you provide us will help the other soldiers take territory. }
+{9010}{}{Roger.}
+{10000}{}{Laser pistols, or Energy Cells?}
+{10010}{}{1x Laser Pistol.}
+{10020}{}{50x Small Energy Cells.}
+{10030}{}{Nevermind.}
+{11000}{}{Here are the coordinates. Good luck out there. Every battle you win will count towards territory taken. [If you want to play this mission in Turn Based Mode make sure you set your default Combat Mode to it before accepting the job. To do this push enter and type "/combatmode tb"]
+}
+{11010}{}{Roger.}
+{11020}{}{On second thought, I changed my mind.}
+{12000}{}{Great work! That's one more territory for us! }
+{13000}{}{Great work! That's one more territory for us, and one less for them!}
+{13010}{}{Thanks! [Territory Bonus]}
+{13020}{}{Thanks, but they don't have any territory left. No bonus for me.}
+{13030}{}{Steal a territory from: The Christians.}
+{13040}{}{Steal a territory from: The Hubologists.}
+{13050}{}{Steal a territory from: The Dharma.}
+{13060}{}{Steal a territory from: Renewal.}
+{13070}{}{Steal a territory from: The Reavers.}
+{13080}{}{Steal a territory from: The Mormons.}
+{13090}{}{Looks like we're the winning faction. Nobody has any territory left but us.}
+{14000}{}{Saboteur! Guards! Arrest this @sex@|man!||woman!|}
+{14010}{}{Your faith is an abomination! [Attack!]}
+{14020}{}{We'll win this war! You'll see!}
+

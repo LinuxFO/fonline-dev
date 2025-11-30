@@ -1,0 +1,84 @@
+[comment]
+
+
+[data]
+lang=engl
+
+[dialog]
+&
+1 1000 None 0 #
+2 1010 @
+2 2000 None 0 &
+
+[engl]
+{100}{}{Bar Visitor}
+{200}{}{You see a bar visitor.}
+{210}{}{They look a little drunk.}
+{240}{}{You see a dead bar visitor.}
+{1000}{}{Predialogue installations}
+{1010}{}{-}
+{2000}{}{Someone new? Welcome to the best part of town!@@Cheers!@@Junktown is a friendly place, don't get any ideas.@@Less talking, more drinking!@@Buy us all a round, why don't you?@@Beer! Beer, beer, beer!@@Oh dear! I spilt my beer!@@Don't mind her, she's just sad. Buy her a drink, why don't you?@@Cheer up! Go talk to her!@@Even when it's not raining, good ol' Uria is always talking about it!@@Careful, there's Vipers out there!@@My brother-in-law almost lost a leg to one of those damn Molerats.@@You should try the beer! It's made in town.@@This beer sure is something... What is it? A cream ale?@@Got to love this local Junktown brew.@@Can't wait until the brewery is officially open!@@I really don't like that Trent guy, but I've made a quick buck working for him...@@You ever heard of The Night Terror before? Something's out there...@@Lost another caravan last night to whatever live out there. Scary.@@*Hic!* I saw this grey looking creature last night... Glowing eyes, big claws... They're real...@@Something is hunting us, don't go out at night!@@I don't care what anyone says, that monster is real! Bad enough people are going missing in the NCR, now this?@@There's an old woman in town... She's horrifying! I bet she brought the monster here!@@What are we going to do?! I keep drinking, but there's something still out there... watching us.}
+{100000001}{}{Did you hear that?!}
+{100000002}{}{Gets a lot scarier here at night...}
+{100000003}{}{Damn, it's hot. Wish it would rain.}
+{100000004}{}{I hear someone tried to kill Tandi...}
+{100000005}{}{...reminds me of that lounge singer in the Hub...}
+{100000006}{}{I don't know... I'd like to own a farm, but it's too expensive...}
+{100000007}{}{Been seeing a lot of ghouls lately, haven't you?}
+{100000008}{}{Here comes trouble...}
+{100000009}{}{Waitress! Another round!}
+{100000010}{}{You call this bourbon?}
+{100000011}{}{What's with all these vault dwellers lately?}
+{100000012}{}{Getting sick of these Vipers... One of these days...}
+{100000013}{}{*Hic*}
+{100000014}{}{Almost out of beer...}
+{100000015}{}{Sure miss that fella...}
+{100000016}{}{Seen better times...}
+{100000017}{}{Another round?}
+{100000018}{}{Hey look, a new face.}
+{100000019}{}{What's with that wrist computer?}
+{100000020}{}{*Psst!* Check out the freak.}
+{100000021}{}{*Cough*}
+{100000022}{}{*Lights up a cigarette*}
+{100000023}{}{*Takes a swig from their drink*}
+{100000024}{}{*Achoo!*}
+{100000025}{}{Oh no! I spilt my drink!}
+{100000026}{}{Hey, don't I know you from somewhere?}
+{100000027}{}{Hey. stranger! Come sit down.}
+{100000028}{}{... this war ...}
+{100000029}{}{...the new age... }
+{100000030}{}{... honestly... I'm scared...}
+{100000031}{}{... no... they're gone...}
+{100000032}{}{... he didn't make it...}
+{100000033}{}{Cheers. To old memories...}
+{100000034}{}{I heard he lost someone recently... We all have...}
+{100000035}{}{The world needs a hero...}
+{100000036}{}{... I don't know... what's left? This...?}
+{100000037}{}{... sometimes it doesn't even feel like I'm alive anymore...}
+{100000038}{}{... I don't care... let it all burn...}
+{100000039}{}{... how long... unti l...}
+{100000040}{}{... no... I gave up hope...}
+{100000041}{}{...I'm trying to cheer up, okay?}
+{100000042}{}{... you tell me... you're the tough one...}
+{100000043}{}{*sigh*}
+{100000044}{}{... why do I even bother ...}
+{100000045}{}{... I'm tired of looking at empty casings... and blood stains...}
+{100000046}{}{... is there anything better than this? There must be...}
+{100000047}{}{... all hope ... is lost...}
+{100000048}{}{...Jeb is trying to figure it out...}
+{100000049}{}{...that girl... she's a cheater. Always has been...}
+{100000050}{}{... no way I could out drink that super mutant. Have you even tried?}
+{100000051}{}{... that old woman... who is she?}
+{100000052}{}{... brewery is opening soon. Have you tried a sample?}
+{100000053}{}{... new guy set up shop to the East... buys helmets or something...}
+{100000054}{}{...Frier needs a family doctor... we all do...}
+{100000055}{}{Dejerick is scum! Everyone knows.}
+{100000056}{}{Careful around those vault dwellers. Fairweather was robbed by one.}
+{100000057}{}{... her sister went crazy... poor Uria...}
+{100000058}{}{... you could work at the mine. They're looking for scavengers.}
+{100000059}{}{... gecko skin is worth a fortune, I keep hearing...}
+{100000060}{}{...NCR is hiring detectives.}
+{100000061}{}{... you see that weird terminal in the Hub?... no one knows much...}
+{100000062}{}{... lots of work available if you walk around...}
+{100000063}{}{... not as safe as it used to be around here...}
+

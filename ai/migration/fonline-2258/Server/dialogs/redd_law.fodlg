@@ -1,0 +1,101 @@
+[comment]
+
+
+[data]
+lang=engl
+
+[dialog]
+&
+1 1000 None 0 #
+7 1010 D _var p name_mem_npc_player = 0 #
+2 1020 D _var p name_mem_npc_player = 1 D _var p HPLAW { 0 R _var p HPLAW = 100 R _var p GUNSL - 12 #
+2 1030 D _var p name_mem_npc_player = 1 D _var p HPLAW > 0 @
+2 2000 dialog@dlg_Cops 0 #
+6 2010 D _script dialog@d_QuestTimeoutReady 0  R _script dialog@r_QuestTimeout 1 16 R _var p LAW + 1 R _var p CRIM + 2 R _var p GUNSL + 1 R _var p HPLAW + 5 R _var p GUNSC + 2 #
+12 2020 D _script dialog@d_QuestTimeoutReady 0  D _var p CRIM > 0 D _var p LAW > 0 D _item p PID_BUFFOUT > 4 D _item p PID_JET > 4 D _item p PID_SUPER_STIMPAK > 4 D _item p PID_RADAWAY > 4 D _item p PID_ANTIDOTE > 4 D _item p PID_BEER > 49 R _script dialog@r_QuestTimeout 1 16 R _var p CRIM - 1 R _item p PID_BUFFOUT - 5 R _item p PID_JET - 5 R _item p PID_SUPER_STIMPAK - 5 R _item p PID_RADAWAY - 5 R _item p PID_ANTIDOTE - 5 R _script dialog@r_AddExperience 1 5000 R _script dialog@r_AddMoney 1 3500 R _var p law_points + 1 R _param p REPUTATION_REDDING + 50 R _item p PID_BEER - 50 R _var p HPLAW + 5 R _var p HPCRIM - 5 R _item p PID_BEER - 50 #
+3 2030 D _var p crime_boss1 = 0 D _var p LAW > 0 D _var p CRIM > 0 #
+5 2040 D _var p crime_boss1 = 2 R _script quest_crime1@r_DeleteLoc 0  R _var p crime_boss1 = 0 R _var p CRIM - 1 R _param p REPUTATION_REDDING + 28 R _var p law_points + 1 R _var p GUNSL + 1 R _var p HPLAW + 5 R _var p HPCRIM - 5 R _var p GUNSC - 1 R _script dialog@r_AddExperience 1 1500 R _script dialog@r_AddMoney 1 1375 R _var p z_warrior2 + 1 #
+11 2050 D _var p law_points } 3 #
+15 2060 D _var p crime_boss1 = 2 D _var p GUNSL > 11 D _script dialog@d_QuestTimeoutReady 0  R _script dialog@r_QuestTimeout 1 16 R _var p GUNSL - 12 R _script dialog@r_BulkOrderRewardGuns 0  #
+13 2070 #
+14 2080 #
+0 2090 @
+3 3000 None 0 #
+4 3010 R _var p crime_boss1 = 1 R _script quest_crime1@r_SpawnLoc 0  #
+2 3020 @
+4 4000 None 0 @
+5 5000 None 0 @
+6 6000 None 0 #
+11 6010 D _var p law_points } 3 #
+2 6020 D _var p law_points { 3 @
+7 7000 None 0 #
+9 7010 D _param p ST_LEVEL > 23 #
+8 7020 D _param p ST_LEVEL < 23 #
+0 7030 @
+8 8000 None 0 #
+0 8010 @
+9 9000 None 0 #
+10 9010 @
+10 10000 None 0 #
+2 10010 R _var p name_mem_npc_player = 1 @
+11 11000 None 0 #
+2 11010 R _var p law_points - 3 R _item p PID_GOLD_NUGGET + 6 R _item p PID_KOKOWEEF_MINE_SCRIP + 367 R _item p PID_MORNING_STAR_MINE + 166 R _var p HPLAW + 5 @
+12 12000 None 0 @
+13 13000 None 0 #
+2 13010 @
+14 14000 None 0 #
+2 14010 @
+15 15000 None 0 &
+
+[engl]
+{100}{}{Captain Haarstan}
+{200}{}{You see Captain Haarstan.}
+{210}{}{You see police officer Daniel Haarstan, Redding's Area Commander and tactical genius in the area.}
+{1000}{}{Predialogue installations}
+{1010}{}{not known}
+{1020}{}{known low hp}
+{1030}{}{known full hp}
+{2000}{}{Rooster: @lex Cop@ Police Officers on duty.
+Known Suspects currently on the streets: @lex Crime@.
+Guns on the streets:  @lex GunL@ in our hands. @lex GunC@ in theirs.
+Our Health: @lex HPL@%
+Their Health: @lex HPC@%
+}
+{2010}{}{Use your influence to hire a new Police Officer.}
+{2020}{}{Use your influence to assassinate a known enemy.}
+{2030}{}{Hunt for a dangerous felon.}
+{2040}{}{Captain, another suspect has been killed.}
+{2050}{}{Have we been making any progress? Can I claim a bonus?}
+{2060}{}{I'll take one of your extra rifles if you don't mind.}
+{2070}{}{What do we need to assassinate someone?}
+{2080}{}{Can you spare any of those guns?}
+{2090}{}{Nothing right now.}
+{3000}{}{Our officers have found a suspect outside of town. Killing them will help make the streets safe again. Accept bounty? [/combatmode rt or tb now]}
+{3010}{}{Yes.}
+{3020}{}{No.}
+{4000}{}{Good hunting.}
+{5000}{}{Great work. Another one gone.}
+{6000}{}{Every 16 hours you can help influence a new resident to join our cause. Come back later to do it again. Unfortunately, for every new police officer we recruit two more suspects end up walking the streets.}
+{6010}{}{Have we been making progress?}
+{6020}{}{Ten Four.}
+{7000}{}{Howdy there, padner. Welcome to the Redding Police Station. I'm Captain Daniel Haarstan, I don't believe we've met.}
+{7010}{}{No, we haven't, Captain.}
+{7020}{}{No, we haven't, Captain.}
+{7030}{}{I've got to go.}
+{8000}{}{That's because you don't have quite enough experience under your belt. Why don't you come back later once you've earned some scars? [REQUIRED LEVEL 24+]}
+{8010}{}{Maybe some day, but who knows. Goodbye, Captain.}
+{9000}{}{I reckon someone as experienced as you can do some mighty good things for Redding. Care to try to help me out? I've got bounties like there's no tomorrow, and not enough men to claim them. I'll pay well, I tell ya.}
+{9010}{}{We'll see. Tell me more, Captain.}
+{10000}{}{You can use your influence to help hire some new Police Officers every day, and send them out to hunt for known suspects around town. If they find one they'll give you their coordinates, and you can help us even the odds. They could even assassinate someone for you. Come closer, I'll show you the rooster...}
+{10010}{}{Alright...}
+{11000}{}{Yes we have! The Mayor and the Sheriff wanted to thank you personally by giving you this bonus package. Every 3 succesful downed suspects will grant you a special reward.}
+{11010}{}{Thanks!}
+{12000}{}{I'll send out the agent. It'll be quick. Good thinking, but we can't do this too often.}
+{13000}{}{Once every 16 hours we could assassinate an enemy if you have someone willing to do it, and 50x Beers, 5x Buffout, 5x Jet, 5x Radaway, 5x Super Stimpaks, and 5x Antidote.
+
+It'll count as a kill, and net you a bonus.}
+{13010}{}{Good to know.}
+{14000}{}{After a battle, if the total amount of guns available is over twelve, someone can claim a free weapon at the cost of twelve weapons once every 16 hours.}
+{14010}{}{Interesting.}
+{15000}{}{She's all yours.}
+

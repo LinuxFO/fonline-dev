@@ -1,0 +1,72 @@
+[comment]
+
+
+[data]
+lang=engl
+
+[dialog]
+&
+1 1000 None 0 #
+2 1010 D _var p bos_train2 = 0 #
+10 1020 D _var p bos_train2 = 1 #
+11 1030 D _script dialog@d_IsNotMemberOf 1 FACTION_BOS @
+2 2000 None 0 #
+3 2010 #
+0 2020 @
+3 3000 None 0 #
+4 3010 @
+4 4000 None 0 #
+6 4010 D _param p SK_SMALL_GUNS < 222 D _var p bos_train2 = 0 #
+6 4020 D _param p SK_BIG_GUNS < 222 D _var p bos_train2 = 0 #
+6 4030 D _param p SK_ENERGY_WEAPONS < 222 D _var p bos_train2 = 0 #
+6 4040 D _param p SK_THROWING < 222 D _var p bos_train2 = 0 #
+5 4050 @
+5 5000 None 0 @
+6 6000 None 0 #
+7 6010 @
+7 7000 None 0 #
+8 7010 D _param p SK_SMALL_GUNS < 222 R _var p bos_train2 = 1 R _param p SK_SMALL_GUNS + 5 #
+8 7020 D _param p SK_BIG_GUNS < 222 R _var p bos_train2 = 1 R _param p SK_BIG_GUNS + 5 #
+8 7030 D _param p SK_ENERGY_WEAPONS < 222 R _var p bos_train2 = 1 R _param p SK_ENERGY_WEAPONS + 5 #
+8 7040 D _param p SK_THROWING < 222 R _var p bos_train2 = 1 R _param p SK_THROWING + 5 #
+0 7050 @
+8 8000 None 0 #
+9 8010 @
+9 9000 None 0 @
+10 10000 None 0 @
+11 11000 None 0 &
+
+[engl]
+{100}{}{Captain Vaarstad}
+{200}{}{You see Captain Vaarstad, projectile specialist.}
+{210}{}{You aren't quite sure, but you think he's missing a few fingers from a previous "accident". His Power Armour makes up for the lack of finger dexterity, but you can tell that his right hand drags inside the glove.}
+{1000}{}{Predialogue installations}
+{1010}{}{Answer text}
+{1020}{}{Answer text}
+{1030}{}{non}
+{2000}{}{Can you even shoot? Just look at you! Pathetic! I'm supposed to accept you as a "hero"? Don't make me vomit out of shame and rage!}
+{2010}{}{Well, sir, considering the fact that I'm still alive and accomplished all of my missions, I would say that, "Yes! I can shoot!".}
+{2020}{}{Who said anything about being a hero? I'm gone!}
+{3000}{}{Not in my eyes you can't! Do you want a *REAL* projectile lesson?! }
+{3010}{}{Please!}
+{4000}{}{Which weapon class would you like to improve? }
+{4010}{}{Small Guns.}
+{4020}{}{Big Guns.}
+{4030}{}{Energy Weapons.}
+{4040}{}{Throwing.}
+{4050}{}{I'm not sure yet, I'll be right back!}
+{5000}{}{You sound scared! Wimp.}
+{6000}{}{Very well. It has been decided! Now, come with me, and enter the projectile firing room! I hope you brought a sweater! It gets COLD!!!}
+{6010}{}{Whatever you say, Captain!}
+{7000}{}{[The Captain takes you to a small, but very open room, where you learn how to harness the power of projectile based weaponry with much more ease! YOU'VE GAIN +15 to your Chosen Skill!]}
+{7010}{}{Wow! I didn't know hollow points could do *THAT*!}
+{7020}{}{Hmm! So, you're saying if I brace my thighs, absorb the recoil, and aim downwards from the target I'll improve my hit rate? Interesting!}
+{7030}{}{What are you saying then? That a MFC works just like a poodle? They're short, small, and make a lot of shit? }
+{7040}{}{Uh... okay. So how does throwing a grenade like a girl make me do more damage?}
+{7050}{}{Err... I don't think there's an absolute thing you can teach me, bud. See ya!}
+{8000}{}{DID YOU NOT LISTEN TO A FREAKIN' WORD I JUST SAID?!! Let's try it again, shall we?! Damnit! You goddamn amature!}
+{8010}{}{[Gain +15 Weapon Knowledge!]}
+{9000}{}{Do you at least know that boots go on feet?! Get out of here! You make me sick.}
+{10000}{}{You again?! Haven't you been told off enough times by me? Beat it. Your lesson is complete. Time to go earn some real experience!}
+{11000}{}{YOU AREN'T EVEN IN THE BROTHERHOOD?! WHY HASN'T ANYONE SHOT YOU YET??!!!!}
+

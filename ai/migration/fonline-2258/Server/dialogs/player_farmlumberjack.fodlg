@@ -1,0 +1,91 @@
+[comment]
+lighter job 
+
+[data]
+lang=engl russ
+
+[dialog]
+&
+1 1000 None 0 #
+2 1010 D _var p player_farmOwner = 1 D _var n player_farmLumberjack = 1 #
+5 1020 D _var n player_farmLumberjack = 0 D _var p player_farmOwner = 1 @
+2 2000 dialog@dlg_FarmStatus 0 #
+4 2010 D _var p player_farmWater > 0 D _var p player_farmFood > 0 D _script dialog@d_CommonTimeoutReady 0  R _var p player_farmFood - 1 R _var p player_farmWater - 1 R _var p player_farmWood + 4 R _script dialog@r_CommonTimeout 1 3 #
+7 2020 D _script dialog@d_CommonTimeoutReady 0  R _script dialog@r_CommonTimeout 1 18 R _var p player_farmWood + 1 #
+6 2030 D _var p player_farmHP { 50 D _var p player_farmWood > 4 R _var p player_farmHP = 100 R _var p player_farmWood - 5 #
+3 2040 #
+0 2050 @
+3 3000 None 0 #
+2 3010 @
+4 4000 None 0 @
+5 5000 None 0 #
+2 5010 D _var p player_farmIncome > 4999 R _var p player_farmIncome - 5000 R _var n player_farmLumberjack = 1 R _var p player_farmProfits + 100 #
+0 5020 @
+6 6000 None 0 @
+7 7000 None 0 &
+
+[engl]
+{100}{}{Lumberjack}
+{200}{}{You see a lumberjack.}
+{210}{}{He's been assigned to look after the Farm's firewood.}
+{1000}{}{Predialogue installations}
+{1010}{}{base}
+{1020}{}{unlck}
+{2000}{}{Howdy! Breakin' a sweat, I tell ya. Don't worry about it, I'll keep the wood coming. If you let me take a break, I'll consume 1x unit of Food, and Water, and provide you with 4x units of Wood.}
+{2010}{}{[Tell him to take a break, then go chop trees]}
+{2020}{}{[Tell him to weed out the pond]}
+{2030}{}{Spend 5x Wood, and repair the Farm.}
+{2040}{}{Need anything?}
+{2050}{}{Thanks. Goodbye.}
+{3000}{}{Just some Food and Water. Can I take a break? I normally take one every 3 hours.}
+{3010}{}{We'll see.}
+{4000}{}{Mighty kind of you.}
+{5000}{}{[Renovate this part of your Farm, and unlock the Lumberjack! Grants +100$ Daily Income, allows you to repair your Farm, and allows you to produce much more Wood! Unlock for 5000$, deducts the money from your Farm Treasury]}
+{5010}{}{Let's renovate!}
+{5020}{}{[Leave]}
+{6000}{}{Will do. I'll have it all fixed quicker than you can skin a Gecko.}
+{7000}{}{What? Again. Damn that job is messy! But it'll get you a unit worth of free Wood. Guess that's what you're paying me for... I'll be able to do it again tomorrow.}
+{100000001}{}{Better wash the counter again...}
+{100000002}{}{That's 5 caps buddy. Hey did you hear me? Cough em' up.}
+{100000003}{}{Better change the keg...}
+{100000004}{}{RotGut? You drink that shit?}
+{100000005}{}{Domestic? I got B.E.E.R buddy, do you want one or not?}
+{100000006}{}{Fuckin' dust is getting everywhere. Hey close the fuckin' door!}
+{100000007}{}{I swear if the next asshole doesn't tip. Ima' shoot somebody!}
+{100000008}{}{I got bottles, I got shots, and I got a bat behind the counter for the retards. Your not a retard are you?}
+{100000009}{}{Uh-huh, yeah that's nice buddy. You don't say...What? Of course I'm listening...}
+{100000010}{}{That's 5 caps. FIVE CAPS Tribal! F.I.V.E! }
+{100000011}{}{Shut up and order a fuckin' beer already!}
+{100000012}{}{I swear if I have to serve another drunk, I'm getting the shotgun!}
+{100000013}{}{Look the keg went dry, and it's going to be another month until the caravan shows up again.}
+{100000014}{}{Really? You don't say, buy another drink or get out!}
+{100000015}{}{What? I'm on break.}
+{100000016}{}{Be right with ya'}
+{100000017}{}{Have a sit stranger. I'll be with you in a moment.}
+{100000018}{}{When do we close? Uh, when the place get's shot up, that's when!}
+{100000019}{}{We're fresh outta' cold beer, sorry. You'll just have to drink it warm.}
+{100000020}{}{RotGut? No man, go make that shit yourself! I wouldn't drink it!}
+
+[russ]
+{100}{}{Алкоголик}
+{200}{}{Вы видите пьяницу.}
+{210}{}{Вы видите шатающегося из стороны в сторону пьяного человека в лохмотьях. Лицо его распухло, нос синющий как слива. А аромат рядом с ним такой, что свалит брамина насмерть. Он что-то бормочет про себя и иногда громко поет песни.}
+{210}{}{Вы видите алкаша. Он весьма грязен - кажется, он повалялся в луже, но не особо этим расстроен.}
+{1000}{}{I?aaaeaeiaiaua onoaiiaee}
+{1010}{}{base}
+{1020}{}{unlck}
+{2000}{}{Dialog text}
+{2010}{}{Go chop some trees.}
+{2020}{}{[Tell him to weed out the pond]}
+{2030}{}{Spend 10x Wood, and repair the Farm.}
+{2040}{}{Need anything?}
+{2050}{}{Thanks. Goodbye.}
+{3000}{}{Just some Food and Water. Can I take a break?}
+{3010}{}{We'll see.}
+{4000}{}{Mighty kind of you.}
+{5000}{}{[Renovate this part of your Farm, and unlock the Lumberjack! Allows you to produce much more Wood! Unlock for 5000$, deducts the money from your Farm Treasury]}
+{5010}{}{Let's renovate!}
+{5020}{}{[Leave]}
+{6000}{}{Will do. I'll have it all fixed quicker than you can skin a Gecko.}
+{7000}{}{What? Again. Damn that job is messy! But it'll get you a unit worth of free Wood. Guess that's what you're paying me for...}
+

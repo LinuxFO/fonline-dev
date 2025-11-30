@@ -1,0 +1,1080 @@
+#include "utils.fos"
+#include "_macros.fos"
+#include "_colors.fos"
+
+import bool LockerClose(Item& item) from "lockers";
+import void AddSpecialBonus(Item@ it) from "item_bonus";
+
+
+//Rinzler: For Ares, this has a copy of normal loot table but with `ClearContainer` disabled so that loot will stack. 
+                                             //Spawn is 50-60 minutes because as it is stacking there is greatly increased chance players will catch the rares. 
+void locker_Silo(Item& item, bool firstTime){
+	item.SetEvent(ITEM_EVENT_SKILL, "_UseRewardContainer");
+	CreateTimeEvent(AFTER(REAL_MINUTE(Random(30,40))), "e_SpawnAres", item.Id, false);
+}
+
+void locker_AresGlow(Item& item, bool firstTime){// Glow and Ares only. //Rinzler: Glow only now, given standard normal table.
+	item.SetEvent(ITEM_EVENT_SKILL, "_UseRewardContainer");
+	CreateTimeEvent(AFTER(REAL_MINUTE(Random(20,30))), "e_Spawn", item.Id, false);
+}
+
+void locker_NewRenoArms(Item& item, bool firstTime)
+{
+	item.SetEvent(ITEM_EVENT_SKILL, "_UseRewardContainer");
+	CreateTimeEvent(AFTER(REAL_MINUTE(Random(20,30))), "e_Spawn", item.Id, false);
+}
+
+void locker_Warehouse(Item& item, bool firstTime)
+{
+	item.SetEvent(ITEM_EVENT_SKILL, "_UseRewardContainer");	
+	CreateTimeEvent(AFTER(REAL_MINUTE(Random(20,30))), "e_Spawn", item.Id, false);
+}
+
+void locker_NewRenoSewers(Item& item, bool firstTime)
+{
+	item.SetEvent(ITEM_EVENT_SKILL, "_UseRewardContainer");		
+	CreateTimeEvent(AFTER(REAL_MINUTE(Random(20,30))), "e_SpawnLow", item.Id, false);
+}
+
+void locker_T3(Item& item, bool firstTime)
+{
+	item.SetEvent(ITEM_EVENT_SKILL, "_UseRewardContainer");
+	CreateTimeEvent(AFTER(REAL_MINUTE(Random(20,30))), "e_SpawnLow", item.Id, false);
+}
+
+void locker_T2(Item& item, bool firstTime){//T2: some zombie quest map, Sierra and Themepark, SF Sewers,etc most generic WM dungeons and low level stuff - Will be redesigned soon for proper T1.5/T2 
+	item.SetEvent(ITEM_EVENT_SKILL, "_UseRewardContainer");
+	CreateTimeEvent(AFTER(REAL_MINUTE(Random(20,30))), "e_SpawnT2", item.Id, false);
+}
+
+void locker_Resources1(Item& item, bool firstTime){// Resource locker. Used in Hermit, Sierra and Themepark //Rinzler - As a general rule, spawner pvp is not the `go to` script for stackables.
+	item.SetEvent(ITEM_EVENT_SKILL, "_UseRewardContainer");
+	CreateTimeEvent(AFTER(REAL_MINUTE(Random(20, 30))), "e_SpawnOneMine", item.Id, false);
+}
+
+
+void locker_Verti(Item& item, bool firstTime){// This is an event map //Rinzler:  Same as normal table with slightly higher chance for rares. Spawn time increased so that it will not spawn more than once for event.
+                                                                     // Should really be re-created in another place with more appropriate logic, spawner pvp is not the right place for event loot. 
+	item.SetEvent(ITEM_EVENT_SKILL, "_UseRewardContainer");
+	CreateTimeEvent(AFTER(REAL_MINUTE(Random(1, 2))), "e_SpawnV", item.Id, false);
+}
+
+void locker_Special(Item& item, bool firstTime){// This is a special event map //Rinzler:  Same as normal table with slightly higher chance for rares. Spawn time increased so that it will not spawn more than once for event.
+                                                                     // Should really be re-created in another place with more appropriate logic, spawner pvp is not the right place for event loot. 
+	item.SetEvent(ITEM_EVENT_SKILL, "_UseRewardContainer");
+	CreateTimeEvent(AFTER(REAL_MINUTE(Random(1, 2))), "e_SpawnSpecial", item.Id, false);
+}
+
+
+// Executed when opening reward chest
+bool _UseRewardContainer(Item& item, Critter& crit, int skill)
+{
+	// Opening / Closing
+    if((skill == -1) || (skill == SK_STEAL))
+    {
+		if(!isSlagsKilled(crit))
+        {
+			uint16 hexX = 0;
+			uint16 hexY = 0;
+			Map@   map = item.GetMapPosition(hexX, hexY);
+			map.SetText(hexX, hexY, COLOR_WHITE,  "The locker looks guarded.");		
+            return true;
+        }
+		
+        // open it if closed
+        if(_LockerIsClose(item))
+        {
+			//item.LockerId = 0;
+			//item.LockerId = Random(98989, 989898);
+			//item.LockerComplexity = Random(50,50);			
+            return false;
+        }
+    }
+    return false;
+}
+
+
+
+bool isSlagsKilled(Critter& player)
+{
+    // Roles to check: 1, 200, 201, 202, 203
+    array<uint> roles = {1, 200,  201, 202, 203};
+    Map@ map = player.GetMap();
+
+    for (uint r = 0; r < roles.length(); r++)
+    {
+        uint numLifeSlags = map.GetNpcCount(roles[r], FIND_ONLY_NPC | FIND_LIFE);
+
+        if (numLifeSlags > 0)
+        {
+            for (uint i = 0; i < numLifeSlags; i++)
+            {
+                Critter@ mob = map.GetNpc(roles[r], FIND_ONLY_NPC | FIND_LIFE, i);
+                switch (Random(1, 5))
+                {
+				case 1: {mob.Say(SAY_SHOUT_ON_HEAD, "DON'T YOU DARE TOUCH MY TREASURE!"); break;}
+				case 2: {mob.Say(SAY_SHOUT_ON_HEAD, "THAT'S MY MYSTERIOUS BOX!!"); break;}
+				case 3: {mob.Say(SAY_SHOUT_ON_HEAD, "HEY! THAT'S MINE! GET AWAY FROM THE LOOT!"); break;}	
+				case 4: {mob.Say(SAY_SHOUT_ON_HEAD, "DO THAT AGAIN AND I'LL FUCKING KILL YOU!!!"); break;}
+				case 5: {mob.Say(SAY_SHOUT_ON_HEAD, "YOU'LL HAVE TO KILL US ALL IF YOU WANT WHAT'S INSIDE OF THAT CONTAINER!!!"); break;}
+                }
+            }
+            return false; // Return immediately if any mobs with the role are alive
+        }
+    }
+
+    return true; // No live NPCs in any of the roles
+}
+
+
+uint e_SpawnAres(array<uint>@ values)
+{
+    Item@ item = GetItem(values[0]);
+    if (!valid(item))
+        return 0;
+
+    if (Random(0, 99) < 50)
+    {
+        switch (Random(1, 8))
+        {
+            case 1:
+                SpawnBuffItem(item, PID_TESLA_ARMOR);
+                SpawnBuffItem(item, PID_TESLA_HELMET);
+                break;
+            case 2:
+                SpawnBuffItem(item, PID_COMBAT_ARMOR);
+                SpawnBuffItem(item, PID_COMBAT_HELMET);
+                break;
+            case 3:
+                SpawnBuffItem(item, PID_COMBAT_HELMET_MK_II);
+                SpawnBuffItem(item, PID_COMBAT_ARMOR);
+                break;
+            case 4:
+                item.AddItem(PID_DESERT_COMBAT_ARMOR, 1, 0);
+                item.AddItem(PID_DESERT_COMBAT_HELMET, 1, 0);
+                break;
+            case 5:
+                SpawnBuffItem(item, PID_COMBAT_ARMOR_MK_II);
+                SpawnBuffItem(item, PID_COMBAT_HELMET_MK_II);
+                break;
+            case 6:
+                item.AddItem(PID_BROTHERHOOD_COMBAT_ARMOR, 1, 0);
+                item.AddItem(PID_BROTHERHOOD_HELMET, 1, 0);
+                break;
+            case 7:
+                item.AddItem(PID_NCR_ARMOR, 1, 0);
+                item.AddItem(PID_NCR_HELMET, 1, 0);
+                break;
+            case 8:
+                item.AddItem(PID_ENCLAVE_COMBAT_ARMOR, 1, 0);
+                item.AddItem(PID_ENCLAVE_COMBAT_HELMET, 1, 0);
+                break;
+        }
+    }
+    else
+    {
+        switch (Random(1, 18))
+        {
+            case 1: SpawnBuffItem(item, PID_ROCKET_LAUNCHER); break;
+            case 2: SpawnBuffItem(item, PID_PLASMA_RIFLE); break;
+            case 3: SpawnBuffItem(item, PID_GATLING_LASER); break;
+            case 4: SpawnBuffItem(item, PID_SUPER_SLEDGE); break;
+            case 5: SpawnBuffItem(item, PID_SNIPER_RIFLE); break;
+            case 6: SpawnBuffItem(item, PID_223_PISTOL); break;
+            case 7: SpawnBuffItem(item, PID_HK_P90C); break;
+            case 8: SpawnBuffItem(item, PID_LASER_SUPPORT_WEAPON); break;
+            case 9: SpawnBuffItem(item, PID_LIGHT_SUPPORT_WEAPON); break;
+            case 10: SpawnBuffItem(item, PID_ASSAULT_RIFLE_EXT_MAG); break;
+            case 11: SpawnBuffItem(item, PID_AVENGER_MINIGUN); break;
+            case 12: SpawnBuffItem(item, PID_IMPROVED_FLAMETHROWER); break;
+            case 13: SpawnBuffItem(item, PID_LASER_RIFLE_EXT_CAP); break;
+            case 14: SpawnBuffItem(item, PID_LASER_SMG); break;
+            case 15: SpawnBuffItem(item, PID_GRENADE_LAUNCHER); break;
+            case 16: SpawnBuffItem(item, PID_SUPER_CATTLE_PROD); break;
+            case 17: SpawnBuffItem(item, PID_MEGA_POWER_FIST); break;
+            case 18: SpawnBuffItem(item, PID_HK_CAWS); break;
+        }
+    }
+	if(Random(0, 99)<40)
+	{
+		switch (Random(1, 14))
+		{
+			case 1: item.AddItem(PID_5MM_AP, Random(300, 800), 0); break;
+			case 2: item.AddItem(PID_10MM_AP, Random(300, 600), 0); break;
+			case 3: item.AddItem(PID_223_FMJ, Random(100, 200), 0); break;
+			case 4: item.AddItem(PID_SHOTGUN_SHELLS_EMP, Random(50, 150), 0); break;
+			case 5: item.AddItem(PID_SHOTGUN_SHELLS_SLUG, Random(100, 200), 0); break;
+			case 6: item.AddItem(PID_40MM_GRENADE, Random(3, 10), 0); break;
+			case 7:	item.AddItem(PID_FLAMETHROWER_FUEL_MK_II, Random(20, 40), 0); break;	
+			case 8:	item.AddItem(PID_ROCKET_AP, Random(3, 6), 0); break;
+			case 9:	item.AddItem(PID_SMALL_ENERGY_CELL, Random(150, 300), 0); break;
+			case 10: item.AddItem(PID_MICRO_FUSION_CELL, Random(200, 400), 0); break;
+		}
+	}
+	if(Random(0, 99)<30)
+	{
+		switch (Random(1, 4))
+		{
+			case 1: item.AddItem(PID_FRAG_GRENADE, Random(5, 15), 0); break;
+			case 2: item.AddItem(PID_FIRE_GRENADE, Random(5, 10), 0); break;
+			case 3: item.AddItem(PID_PLASMA_GRENADE, Random(5, 10), 0); break;
+		    case 4: item.AddItem(PID_PULSE_GRENADE, Random(5, 10), 0); break;
+		}
+	}
+	if(Random(0, 99)<10)
+	{
+		switch (Random(1, 4))
+		{
+			case 1:	item.AddItem(PID_MR_NIXON_DOLL, 1, 1); break;
+			case 2:	item.AddItem(PID_PASSWORD_PAPER, 1, 1); break;
+			case 3: item.AddItem(PID_GOLD_RESERVE_MAP, 1, 0); break;
+			case 4: item.AddItem(PID_DIXON_EYE, 1, 0); break;
+		}
+	}
+	if(Random(0, 99)<10)
+	{
+		switch (Random(1, 4))
+		{
+			case 1: item.AddItem(PID_2MM_EC_AMMO, Random(10, 20), 0); break;
+			case 2: item.AddItem(PID_4_7MM_CASELESS, Random(100, 400), 0); break;
+			case 3: item.AddItem(PID_SHOTGUN_DRAGON_BREATH_SHELLS, Random(5, 15), 0); break;
+			case 4:	item.AddItem(PID_HYPO, Random(1, 3), 0); break;	
+			
+		}
+	}
+	if(Random(0, 99)<35)
+	{
+		switch (Random(1, 7))
+		{
+			case 1: item.AddItem(PID_GOLD_NUGGET , Random(1, 1), 0); break;
+			case 2: item.AddItem(PID_FIELD_MEDIC_KIT, 1, 0); break;
+			case 3: item.AddItem(PID_STEALTH_BOY, 1, 0); break;
+			case 4:	item.AddItem(PID_MOTION_SENSOR, 1, 0); break;
+			case 5:	item.AddItem(PID_PLASTIC_EXPLOSIVES, 1, 0); break;
+			case 6:	item.AddItem(PID_EXP_LOCKPICK_SET, 1, 0); break;
+			case 7:	item.AddItem(PID_PARAMEDICS_BAG, 1, 0); break;
+		}
+	}		
+
+    if (Random(0, 99) < 1)
+    {
+        switch (Random(1, 23))
+        {
+            case 1:
+                item.AddItem(PID_HARDENED_POWER_ARMOR, 1, 0);
+                item.AddItem(PID_HARDENED_POWER_HELMET, 1, 0);
+                break;
+            case 2:
+                item.AddItem(PID_POWERED_ARMOR, 1, 0);
+                item.AddItem(PID_POWER_HELMET, 1, 0);
+                break;
+            case 3: item.AddItem(PID_PANCOR_JACKHAMMER, 1, 0); break;
+            case 4: SpawnBuffItem(item, PID_ALIEN_LASER_PISTOL); break;
+            case 5: SpawnBuffItem(item, PID_KEEPBRIGE_ROBE); break;
+            case 6: item.AddItem(PID_TURBO_PLASMA_RIFLE, 1, 0); break;
+            case 7: item.AddItem(PID_INDEPENDENT, 1, 0); break;
+            case 8: item.AddItem(PID_BOZAR, 1, 0); break;
+            case 9: SpawnBuffItem(item, PID_SOLAR_SCORCHER); break;
+            case 10: item.AddItem(PID_HK_G11E, 1, 0); break;
+            case 11: item.AddItem(PID_PK12_GAUSS_PISTOL, 1, 0); break;
+            case 12: item.AddItem(PID_VINDICATOR_MINIGUN, 1, 0); break;
+            case 13: item.AddItem(PID_YK42B_PULSE_RIFLE, 1, 0); break;
+            case 14: item.AddItem(PID_M72_GAUSS_RIFLE, 1, 0); break;           
+            case 15: item.AddItem(PID_ACCESS_CARD, 1, 0); break;
+            case 16: item.AddItem(PID_BLACK_COC_BADGE, 1, 0); break;
+            case 17: item.AddItem(PID_IMPLANT_STRENGTH, 1, 0); break;
+            case 18: item.AddItem(PID_IMPLANT_PERCEPTION, 1, 0); break;
+            case 19: item.AddItem(PID_IMPLANT_ENDURANCE, 1, 0); break;
+            case 20: item.AddItem(PID_IMPLANT_CHARISMA, 1, 0); break;
+            case 21: item.AddItem(PID_IMPLANT_INTELLIGENCE, 1, 0); break;
+            case 22: item.AddItem(PID_IMPLANT_AGILITY, 1, 0); break;
+            case 23: item.AddItem(PID_IMPLANT_LUCK, 1, 0); break;
+        }
+    }
+
+    if (FLAG(item.LockerCondition, LOCKER_ISOPEN))
+        LockerClose(item);
+
+     return REAL_MINUTE(Random(30,40));
+
+}
+
+
+
+uint e_Spawn(array<uint>@ values)
+{
+    Item@ item = GetItem(values[0]);
+    if (!valid(item))
+        return 0;
+    ClearContainer(item);
+
+    if (Random(0, 99) < 50)
+    {
+        switch (Random(1, 8))
+        {
+            case 1:
+                SpawnBuffItem(item, PID_TESLA_ARMOR);
+                SpawnBuffItem(item, PID_TESLA_HELMET);
+                break;
+            case 2:
+                SpawnBuffItem(item, PID_COMBAT_ARMOR);
+                SpawnBuffItem(item, PID_COMBAT_HELMET);
+                break;
+            case 3:
+                SpawnBuffItem(item, PID_COMBAT_HELMET_MK_II);
+                SpawnBuffItem(item, PID_COMBAT_ARMOR);
+                break;
+            case 4:
+                item.AddItem(PID_DESERT_COMBAT_ARMOR, 1, 0);
+                item.AddItem(PID_DESERT_COMBAT_HELMET, 1, 0);
+                break;
+            case 5:
+                SpawnBuffItem(item, PID_COMBAT_ARMOR_MK_II);
+                SpawnBuffItem(item, PID_COMBAT_HELMET_MK_II);
+                break;
+            case 6:
+                item.AddItem(PID_BROTHERHOOD_COMBAT_ARMOR, 1, 0);
+                item.AddItem(PID_BROTHERHOOD_HELMET, 1, 0);
+                break;
+            case 7:
+                item.AddItem(PID_NCR_ARMOR, 1, 0);
+                item.AddItem(PID_NCR_HELMET, 1, 0);
+                break;
+            case 8:
+                item.AddItem(PID_ENCLAVE_COMBAT_ARMOR, 1, 0);
+                item.AddItem(PID_ENCLAVE_COMBAT_HELMET, 1, 0);
+                break;
+        }
+    }
+    else
+    {
+        switch (Random(1, 18))
+        {
+            case 1: SpawnBuffItem(item, PID_ROCKET_LAUNCHER); break;
+            case 2: SpawnBuffItem(item, PID_PLASMA_RIFLE); break;
+            case 3: SpawnBuffItem(item, PID_GATLING_LASER); break;
+            case 4: SpawnBuffItem(item, PID_SUPER_SLEDGE); break;
+            case 5: SpawnBuffItem(item, PID_SNIPER_RIFLE); break;
+            case 6: SpawnBuffItem(item, PID_223_PISTOL); break;
+            case 7: SpawnBuffItem(item, PID_HK_P90C); break;
+            case 8: SpawnBuffItem(item, PID_LASER_SUPPORT_WEAPON); break;
+            case 9: SpawnBuffItem(item, PID_LIGHT_SUPPORT_WEAPON); break;
+            case 10: SpawnBuffItem(item, PID_ASSAULT_RIFLE_EXT_MAG); break;
+            case 11: SpawnBuffItem(item, PID_AVENGER_MINIGUN); break;
+            case 12: SpawnBuffItem(item, PID_IMPROVED_FLAMETHROWER); break;
+            case 13: SpawnBuffItem(item, PID_LASER_RIFLE_EXT_CAP); break;
+            case 14: SpawnBuffItem(item, PID_LASER_SMG); break;
+            case 15: SpawnBuffItem(item, PID_GRENADE_LAUNCHER); break;
+            case 16: SpawnBuffItem(item, PID_SUPER_CATTLE_PROD); break;
+            case 17: SpawnBuffItem(item, PID_MEGA_POWER_FIST); break;
+            case 18: SpawnBuffItem(item, PID_HK_CAWS); break;
+        }
+    }
+	if(Random(0, 99)<40)
+	{
+		switch (Random(1, 14))
+		{
+			case 1: item.AddItem(PID_5MM_AP, Random(300, 800), 0); break;
+			case 2: item.AddItem(PID_10MM_AP, Random(300, 600), 0); break;
+			case 3: item.AddItem(PID_223_FMJ, Random(100, 200), 0); break;
+			case 4: item.AddItem(PID_SHOTGUN_SHELLS_EMP, Random(50, 150), 0); break;
+			case 5: item.AddItem(PID_SHOTGUN_SHELLS_SLUG, Random(100, 200), 0); break;
+			case 6: item.AddItem(PID_40MM_GRENADE, Random(3, 10), 0); break;
+			case 7:	item.AddItem(PID_FLAMETHROWER_FUEL_MK_II, Random(20, 40), 0); break;	
+			case 8:	item.AddItem(PID_ROCKET_AP, Random(3, 6), 0); break;
+			case 9:	item.AddItem(PID_SMALL_ENERGY_CELL, Random(150, 300), 0); break;
+			case 10: item.AddItem(PID_MICRO_FUSION_CELL, Random(200, 400), 0); break;
+		}
+	}
+	if(Random(0, 99)<30)
+	{
+		switch (Random(1, 4))
+		{
+			case 1: item.AddItem(PID_FRAG_GRENADE, Random(5, 15), 0); break;
+			case 2: item.AddItem(PID_FIRE_GRENADE, Random(5, 10), 0); break;
+			case 3: item.AddItem(PID_PLASMA_GRENADE, Random(5, 10), 0); break;
+		    case 4: item.AddItem(PID_PULSE_GRENADE, Random(5, 10), 0); break;
+		}
+	}
+	if(Random(0, 99)<10)
+	{
+		switch (Random(1, 4))
+		{
+			case 1:	item.AddItem(PID_MR_NIXON_DOLL, 1, 1); break;
+			case 2:	item.AddItem(PID_PASSWORD_PAPER, 1, 1); break;
+			case 3: item.AddItem(PID_GOLD_RESERVE_MAP, 1, 0); break;
+			case 4: item.AddItem(PID_DIXON_EYE, 1, 0); break;
+		}
+	}
+	if(Random(0, 99)<10)
+	{
+		switch (Random(1, 4))
+		{
+			case 1: item.AddItem(PID_2MM_EC_AMMO, Random(10, 20), 0); break;
+			case 2: item.AddItem(PID_4_7MM_CASELESS, Random(100, 400), 0); break;
+			case 3: item.AddItem(PID_SHOTGUN_DRAGON_BREATH_SHELLS, Random(5, 15), 0); break;
+			case 4:	item.AddItem(PID_HYPO, Random(1, 3), 0); break;	
+			
+		}
+	}
+	if(Random(0, 99)<35)
+	{
+		switch (Random(1, 7))
+		{
+			case 1: item.AddItem(PID_GOLD_NUGGET , Random(1, 1), 0); break;
+			case 2: item.AddItem(PID_FIELD_MEDIC_KIT, 1, 0); break;
+			case 3: item.AddItem(PID_STEALTH_BOY, 1, 0); break;
+			case 4:	item.AddItem(PID_MOTION_SENSOR, 1, 0); break;
+			case 5:	item.AddItem(PID_PLASTIC_EXPLOSIVES, 1, 0); break;
+			case 6:	item.AddItem(PID_EXP_LOCKPICK_SET, 1, 0); break;
+			case 7:	item.AddItem(PID_PARAMEDICS_BAG, 1, 0); break;
+		}
+	}		
+
+    if (Random(0, 99) < 1)
+    {
+        switch (Random(1, 23))
+        {
+            case 1:
+                item.AddItem(PID_HARDENED_POWER_ARMOR, 1, 0);
+                item.AddItem(PID_HARDENED_POWER_HELMET, 1, 0);
+                break;
+            case 2:
+                item.AddItem(PID_POWERED_ARMOR, 1, 0);
+                item.AddItem(PID_POWER_HELMET, 1, 0);
+                break;
+            case 3: item.AddItem(PID_PANCOR_JACKHAMMER, 1, 0); break;
+            case 4: SpawnBuffItem(item, PID_ALIEN_LASER_PISTOL); break;
+            case 5: SpawnBuffItem(item, PID_KEEPBRIGE_ROBE); break;
+            case 6: item.AddItem(PID_TURBO_PLASMA_RIFLE, 1, 0); break;
+            case 7: item.AddItem(PID_INDEPENDENT, 1, 0); break;
+            case 8: item.AddItem(PID_BOZAR, 1, 0); break;
+            case 9: SpawnBuffItem(item, PID_SOLAR_SCORCHER); break;
+            case 10: item.AddItem(PID_HK_G11E, 1, 0); break;
+            case 11: item.AddItem(PID_PK12_GAUSS_PISTOL, 1, 0); break;
+            case 12: item.AddItem(PID_VINDICATOR_MINIGUN, 1, 0); break;
+            case 13: item.AddItem(PID_YK42B_PULSE_RIFLE, 1, 0); break;
+            case 14: item.AddItem(PID_M72_GAUSS_RIFLE, 1, 0); break;           
+            case 15: item.AddItem(PID_ACCESS_CARD, 1, 0); break;
+            case 16: item.AddItem(PID_BLACK_COC_BADGE, 1, 0); break;
+            case 17: item.AddItem(PID_IMPLANT_STRENGTH, 1, 0); break;
+            case 18: item.AddItem(PID_IMPLANT_PERCEPTION, 1, 0); break;
+            case 19: item.AddItem(PID_IMPLANT_ENDURANCE, 1, 0); break;
+            case 20: item.AddItem(PID_IMPLANT_CHARISMA, 1, 0); break;
+            case 21: item.AddItem(PID_IMPLANT_INTELLIGENCE, 1, 0); break;
+            case 22: item.AddItem(PID_IMPLANT_AGILITY, 1, 0); break;
+            case 23: item.AddItem(PID_IMPLANT_LUCK, 1, 0); break;
+        }
+    }
+
+    if (FLAG(item.LockerCondition, LOCKER_ISOPEN))
+        LockerClose(item);
+
+    return REAL_MINUTE(Random(20,30));
+}
+
+
+
+uint e_SpawnLow(array<uint>@ values)
+{
+	Item@ item = GetItem(values[0]);
+    if(!valid(item))
+        return 0;
+	ClearContainer(item);
+
+	if(Random(0,99)<50)
+		{
+		switch (Random(1,12))
+			{
+			case 1: 	{SpawnBuffItem(item, PID_TESLA_ARMOR); break;}
+			case 2: 	{SpawnBuffItem(item, PID_COMBAT_ARMOR); break;}
+			case 3: 	{SpawnBuffItem(item, PID_COMBAT_HELMET); break;}			
+			case 4: 	{SpawnBuffItem(item, PID_COMBAT_ARMOR_MK_II); break;}
+			case 5: 	{SpawnBuffItem(item, PID_COMBAT_HELMET_MK_II); break;}
+			case 6: 	{SpawnBuffItem(item, PID_METAL_HELMET_MK2); break;}
+			case 7: 	{SpawnBuffItem(item, PID_METAL_ARMOR_MK_II); break;}
+			case 8: 	{SpawnBuffItem(item, PID_TESLA_HELMET); break;}			
+			case 9: 	{item.AddItem(PID_DESERT_COMBAT_ARMOR, 1, 0); break;}
+			case 10: 	{item.AddItem(PID_DESERT_COMBAT_HELMET, 1, 0); break;}
+			case 11: 	{item.AddItem(PID_NCR_ARMOR, 1, 0); break;}			
+			case 12: 	{item.AddItem(PID_NCR_HELMET, 1, 0); break;}				
+			
+			}
+		}
+	else
+		{
+		switch (Random(1,18))
+			{
+			case 1: 	{SpawnBuffItem(item, PID_ROCKET_LAUNCHER); break;}
+			case 2: 	{SpawnBuffItem(item, PID_PLASMA_RIFLE); break;}
+			case 3: 	{SpawnBuffItem(item, PID_GATLING_LASER); break;}
+			case 4: 	{SpawnBuffItem(item, PID_SUPER_SLEDGE); break;}
+			case 5: 	{SpawnBuffItem(item, PID_SNIPER_RIFLE); break;}
+			case 6: 	{SpawnBuffItem(item, PID_223_PISTOL); break;}
+			case 7: 	{SpawnBuffItem(item, PID_HK_P90C); break;}	
+			case 8: 	{SpawnBuffItem(item, PID_LASER_SUPPORT_WEAPON); break;}
+			case 9: 	{SpawnBuffItem(item, PID_LIGHT_SUPPORT_WEAPON); break;}
+			case 10: 	{SpawnBuffItem(item, PID_ASSAULT_RIFLE_EXT_MAG); break;}		
+			case 11: 	{SpawnBuffItem(item, PID_AVENGER_MINIGUN); break;}
+			case 12: 	{SpawnBuffItem(item, PID_IMPROVED_FLAMETHROWER); break;}
+			case 13: 	{SpawnBuffItem(item, PID_LASER_RIFLE_EXT_CAP); break;}
+			case 14: 	{SpawnBuffItem(item, PID_LASER_SMG); break;}
+			case 15: 	{SpawnBuffItem(item, PID_GRENADE_LAUNCHER); break;}
+			case 16: 	{SpawnBuffItem(item, PID_SUPER_CATTLE_PROD); break;}
+			case 17: 	{SpawnBuffItem(item, PID_MEGA_POWER_FIST); break;}
+			case 18:    {SpawnBuffItem(item, PID_HK_CAWS); break;}
+			}
+		}
+		
+	if(Random(0, 99)<10)
+	{
+		switch (Random(1, 3))
+		{
+			case 1:	item.AddItem(PID_MR_NIXON_DOLL, 1, 1); break;
+			case 2:	item.AddItem(PID_PASSWORD_PAPER, 1, 1); break;
+			case 3:	item.AddItem(PID_GOLD_NUGGET, 5, 20); break;
+		}
+	}
+	if(Random(0, 99)<10)
+	{
+		switch (Random(1, 4))
+		{
+			case 1: item.AddItem(PID_2MM_EC_AMMO, Random(10, 20), 0); break;
+			case 2: item.AddItem(PID_4_7MM_CASELESS, Random(100, 400), 0); break;
+			case 3: item.AddItem(PID_SHOTGUN_DRAGON_BREATH_SHELLS, Random(5, 15), 0); break;
+			case 4:	item.AddItem(PID_HYPO, Random(1, 3), 0); break;	
+			
+		}
+	}
+	if(Random(0, 99)<35)
+	{
+		switch (Random(1, 7))
+		{
+			case 1: {item.AddItem(PID_GOLD_NUGGET, Random(5, 20), 0); break;}
+			case 2: {item.AddItem(PID_FIELD_MEDIC_KIT, 1, 0); break;}
+			case 3: {item.AddItem(PID_STEALTH_BOY, 1, 0); break;}
+			case 4:	{item.AddItem(PID_MOTION_SENSOR, 1, 0); break;}	
+			case 5:	{item.AddItem(PID_PLASTIC_EXPLOSIVES, 1, 0); break;}
+			case 6:	{item.AddItem(PID_EXP_LOCKPICK_SET, 1, 0); break;}
+			case 7:	{item.AddItem(PID_PARAMEDICS_BAG, 1, 0); break;}
+		}
+	}		
+
+	if(FLAG(item.LockerCondition, LOCKER_ISOPEN)) LockerClose(item);
+
+    //item.LockerId = Random(98989, 989898);
+    //item.LockerComplexity = Random(50,50);
+    	
+    return REAL_MINUTE(Random(20,30));	
+}
+
+uint e_SpawnT2(array<uint>@ values)
+{
+	Item@ item = GetItem(values[0]);
+    if(!valid(item))
+        return 0;
+	ClearContainer(item);
+
+	if(Random(0,99)<50)
+		{
+		switch (Random(1,12))
+			{
+			case 1: 	{SpawnBuffItem(item, PID_TESLA_ARMOR); break;}
+			case 2: 	{SpawnBuffItem(item, PID_COMBAT_ARMOR); break;}
+			case 3: 	{SpawnBuffItem(item, PID_COMBAT_HELMET); break;}			
+			case 4: 	{SpawnBuffItem(item, PID_COMBAT_ARMOR_MK_II); break;}
+			case 5: 	{SpawnBuffItem(item, PID_COMBAT_HELMET_MK_II); break;}
+			case 6: 	{SpawnBuffItem(item, PID_METAL_HELMET_MK2); break;}
+			case 7: 	{SpawnBuffItem(item, PID_METAL_ARMOR_MK_II); break;}
+			case 8: 	{SpawnBuffItem(item, PID_TESLA_HELMET); break;}			
+			case 9: 	{item.AddItem(PID_DESERT_COMBAT_ARMOR, 1, 0); break;}
+			case 10: 	{item.AddItem(PID_DESERT_COMBAT_HELMET, 1, 0); break;}
+			case 11: 	{item.AddItem(PID_NCR_ARMOR, 1, 0); break;}			
+			case 12: 	{item.AddItem(PID_NCR_HELMET, 1, 0); break;}				
+			
+			}
+		}
+	else
+		{
+		switch (Random(1,18))
+			{
+			case 1: 	{SpawnBuffItem(item, PID_ROCKET_LAUNCHER); break;}
+			case 2: 	{SpawnBuffItem(item, PID_PLASMA_RIFLE); break;}
+			case 3: 	{SpawnBuffItem(item, PID_GATLING_LASER); break;}
+			case 4: 	{SpawnBuffItem(item, PID_SUPER_SLEDGE); break;}
+			case 5: 	{SpawnBuffItem(item, PID_SNIPER_RIFLE); break;}
+			case 6: 	{SpawnBuffItem(item, PID_223_PISTOL); break;}
+			case 7: 	{SpawnBuffItem(item, PID_HK_P90C); break;}	
+			case 8: 	{SpawnBuffItem(item, PID_LASER_SUPPORT_WEAPON); break;}
+			case 9: 	{SpawnBuffItem(item, PID_LIGHT_SUPPORT_WEAPON); break;}
+			case 10: 	{SpawnBuffItem(item, PID_ASSAULT_RIFLE_EXT_MAG); break;}		
+			case 11: 	{SpawnBuffItem(item, PID_AVENGER_MINIGUN); break;}
+			case 12: 	{SpawnBuffItem(item, PID_IMPROVED_FLAMETHROWER); break;}
+			case 13: 	{SpawnBuffItem(item, PID_LASER_RIFLE_EXT_CAP); break;}
+			case 14: 	{SpawnBuffItem(item, PID_LASER_SMG); break;}
+			case 15: 	{SpawnBuffItem(item, PID_GRENADE_LAUNCHER); break;}
+			case 16: 	{SpawnBuffItem(item, PID_SUPER_CATTLE_PROD); break;}
+			case 17: 	{SpawnBuffItem(item, PID_MEGA_POWER_FIST); break;}
+			case 18:    {SpawnBuffItem(item, PID_HK_CAWS); break;}
+			}
+		}
+		
+	if(Random(0, 99)<10)
+	{
+		switch (Random(1, 3))
+		{
+			case 1:	item.AddItem(PID_MR_NIXON_DOLL, 1, 1); break;
+			case 2:	item.AddItem(PID_PASSWORD_PAPER, 1, 1); break;
+			case 3:	item.AddItem(PID_GOLD_NUGGET, 5, 20); break;
+		}
+	}
+	if(Random(0, 99)<10)
+	{
+		switch (Random(1, 4))
+		{
+			case 1: item.AddItem(PID_2MM_EC_AMMO, Random(10, 20), 0); break;
+			case 2: item.AddItem(PID_4_7MM_CASELESS, Random(100, 400), 0); break;
+			case 3: item.AddItem(PID_SHOTGUN_DRAGON_BREATH_SHELLS, Random(5, 15), 0); break;
+			case 4:	item.AddItem(PID_HYPO, Random(1, 3), 0); break;	
+			
+		}
+	}
+	if(Random(0, 99)<35)
+	{
+		switch (Random(1, 7))
+		{
+			case 1: {item.AddItem(PID_GOLD_NUGGET, Random(5, 20), 0); break;}
+			case 2: {item.AddItem(PID_FIELD_MEDIC_KIT, 1, 0); break;}
+			case 3: {item.AddItem(PID_STEALTH_BOY, 1, 0); break;}
+			case 4:	{item.AddItem(PID_MOTION_SENSOR, 1, 0); break;}	
+			case 5:	{item.AddItem(PID_PLASTIC_EXPLOSIVES, 1, 0); break;}
+			case 6:	{item.AddItem(PID_EXP_LOCKPICK_SET, 1, 0); break;}
+			case 7:	{item.AddItem(PID_PARAMEDICS_BAG, 1, 0); break;}
+		}
+	}		
+
+	if(FLAG(item.LockerCondition, LOCKER_ISOPEN)) LockerClose(item);
+
+    //item.LockerId = Random(98989, 989898);
+    //item.LockerComplexity = Random(50,50);
+    	
+    return REAL_MINUTE(Random(20,30));	
+}
+
+void SpawnBuffItem(Item& container, uint16 pid)
+{
+	Item@ it = container.AddItem(pid, 1, 0);
+	AddSpecialBonus(it);
+}
+
+//What the af?
+uint e_SpawnOneMine(array<uint>@ values){ // Themepark + Sierra Resource Crate
+	Item@ item = GetItem(values[0]);
+	if(!valid(item))
+		return 0;
+	//ClearContainer(item);
+
+	if(Random(0, 99)<50)
+	{
+		switch (Random(1, 10))
+		{
+			case 1: {item.AddItem(PID_BOTTLE_CAPS, 0, 100); break;}
+			case 2: {item.AddItem(PID_PUMP_PARTS, 0, 3); break;}
+			case 3: {item.AddItem(PID_BROC_FLOWER, 0, 3); break;}
+			case 4: {item.AddItem(PID_XANDER_ROOT, 0, 3); break;}
+			case 5: {item.AddItem(PID_GECKO_PELT, 0, 3); break;}
+			case 6: {item.AddItem(PID_GOLDEN_GECKO_PELT, 0, 3); break;}
+			case 7: {item.AddItem(PID_FLINT, 0, 3); break;}
+			case 8: {item.AddItem(PID_MORNING_STAR_MINE, 0, 100); break;}
+			case 9: {item.AddItem(PID_FOOLS_GOLD, 0, 3); break;}
+			case 10: {item.AddItem(PID_URANIUM_ORE, 0, 3); break;}
+		}
+	}
+	else
+	{
+		switch (Random(1, 11))
+		{
+			case 1: {item.AddItem(PID_GOLD_TOOTH, 0, 3); break;}
+			case 2: {item.AddItem(PID_KOKOWEEF_MINE_SCRIP, 0, 100); break;}
+			case 3: {item.AddItem(PID_GUNPOWDER, 0, 3); break;}
+			case 4: {item.AddItem(PID_METAL_ORE, 0, 3); break;}
+			case 5: {item.AddItem(PID_MINERAL, 0, 3); break;}
+			case 6: {item.AddItem(PID_MEAT, 0, 3); break;}
+			case 7: {item.AddItem(PID_GOLD_NUGGET, 0, 3); break;}
+			case 8: {item.AddItem(PID_WATERBAG, 0, 3); break;}
+			case 9: {item.AddItem(PID_ALLOYS, 0, 3); break;}
+			case 10: {item.AddItem(PID_METAL_PARTS, 0, 3); break;}
+			case 11: {item.AddItem(PID_ELECTRONIC_PARTS, 0, 3); break;}
+		}
+	}
+		
+	if(Random(0, 99)<10)
+	{
+		switch (Random(1, 14))
+		{
+			case 1: {item.AddItem(PID_ALLOYS2, 0, 3); break;}
+			case 2: {item.AddItem(PID_CHEMICALS, 0, 3); break;}
+			case 3: {item.AddItem(PID_FIREGECKO_PELT, 0, 3); break;}
+			case 4: {item.AddItem(PID_GUNPOWDER2, 0, 3); break;}
+			case 5: {item.AddItem(PID_FIBRE2, 0, 3); break;}
+			case 6: {item.AddItem(PID_ORE2, 0, 3); break;}
+			case 7: {item.AddItem(PID_MINERALS2, 0, 3); break;}
+			case 8: {item.AddItem(PID_TOBACCO, 0, 3); break;}
+			case 9: {item.AddItem(PID_METAL_PARTS2, 0, 3); break;}
+			case 10: {item.AddItem(PID_CHEMICALS2, 0, 3); break;}
+			case 11: {item.AddItem(PID_BARLEY, 0, 3); break;}
+			case 12: {item.AddItem(PID_POLYMER, 0, 3); break;}
+			case 13: {item.AddItem(PID_BOTTLE_CAPS, 0, 100); break;}
+			case 14: {item.AddItem(PID_DOLLAR, 0, 100); break;}
+		}
+	}	
+
+	if(FLAG(item.LockerCondition, LOCKER_ISOPEN)) LockerClose(item);
+
+	//item.LockerId = Random(98989, 989898);
+	//item.LockerComplexity = Random(50, 50);
+	
+	return REAL_MINUTE(Random(29, 30));	
+}
+
+uint e_SpawnV(array<uint>@ values)
+{
+    Item@ item = GetItem(values[0]);
+    if (!valid(item))
+        return 0;
+    ClearContainer(item);
+
+    if (Random(0, 99) < 50)
+    {
+        switch (Random(1, 8))
+        {
+            case 1:
+                SpawnBuffItem(item, PID_TESLA_ARMOR);
+                SpawnBuffItem(item, PID_TESLA_HELMET);
+                break;
+            case 2:
+                SpawnBuffItem(item, PID_COMBAT_ARMOR);
+                SpawnBuffItem(item, PID_COMBAT_HELMET);
+                break;
+            case 3:
+                SpawnBuffItem(item, PID_COMBAT_HELMET_MK_II);
+                SpawnBuffItem(item, PID_COMBAT_ARMOR);
+                break;
+            case 4:
+                item.AddItem(PID_DESERT_COMBAT_ARMOR, 1, 0);
+                item.AddItem(PID_DESERT_COMBAT_HELMET, 1, 0);
+                break;
+            case 5:
+                SpawnBuffItem(item, PID_COMBAT_ARMOR_MK_II);
+                SpawnBuffItem(item, PID_COMBAT_HELMET_MK_II);
+                break;
+            case 6:
+                item.AddItem(PID_BROTHERHOOD_COMBAT_ARMOR, 1, 0);
+                item.AddItem(PID_BROTHERHOOD_HELMET, 1, 0);
+                break;
+            case 7:
+                item.AddItem(PID_NCR_ARMOR, 1, 0);
+                item.AddItem(PID_NCR_HELMET, 1, 0);
+                break;
+            case 8:
+                item.AddItem(PID_ENCLAVE_COMBAT_ARMOR, 1, 0);
+                item.AddItem(PID_ENCLAVE_COMBAT_HELMET, 1, 0);
+                break;
+        }
+    }
+    else
+    {
+        switch (Random(1, 18))
+        {
+            case 1: SpawnBuffItem(item, PID_ROCKET_LAUNCHER); break;
+            case 2: SpawnBuffItem(item, PID_PLASMA_RIFLE); break;
+            case 3: SpawnBuffItem(item, PID_GATLING_LASER); break;
+            case 4: SpawnBuffItem(item, PID_SUPER_SLEDGE); break;
+            case 5: SpawnBuffItem(item, PID_SNIPER_RIFLE); break;
+            case 6: SpawnBuffItem(item, PID_223_PISTOL); break;
+            case 7: SpawnBuffItem(item, PID_HK_P90C); break;
+            case 8: SpawnBuffItem(item, PID_LASER_SUPPORT_WEAPON); break;
+            case 9: SpawnBuffItem(item, PID_LIGHT_SUPPORT_WEAPON); break;
+            case 10: SpawnBuffItem(item, PID_ASSAULT_RIFLE_EXT_MAG); break;
+            case 11: SpawnBuffItem(item, PID_AVENGER_MINIGUN); break;
+            case 12: SpawnBuffItem(item, PID_IMPROVED_FLAMETHROWER); break;
+            case 13: SpawnBuffItem(item, PID_LASER_RIFLE_EXT_CAP); break;
+            case 14: SpawnBuffItem(item, PID_LASER_SMG); break;
+            case 15: SpawnBuffItem(item, PID_GRENADE_LAUNCHER); break;
+            case 16: SpawnBuffItem(item, PID_SUPER_CATTLE_PROD); break;
+            case 17: SpawnBuffItem(item, PID_MEGA_POWER_FIST); break;
+            case 18: SpawnBuffItem(item, PID_HK_CAWS); break;
+        }
+    }
+	if(Random(0, 99)<40)
+	{
+		switch (Random(1, 14))
+		{
+			case 1: item.AddItem(PID_5MM_AP, Random(300, 800), 0); break;
+			case 2: item.AddItem(PID_10MM_AP, Random(300, 600), 0); break;
+			case 3: item.AddItem(PID_223_FMJ, Random(100, 200), 0); break;
+			case 4: item.AddItem(PID_SHOTGUN_SHELLS_EMP, Random(50, 150), 0); break;
+			case 5: item.AddItem(PID_SHOTGUN_SHELLS_SLUG, Random(100, 200), 0); break;
+			case 6: item.AddItem(PID_40MM_GRENADE, Random(3, 10), 0); break;
+			case 7:	item.AddItem(PID_FLAMETHROWER_FUEL_MK_II, Random(20, 40), 0); break;	
+			case 8:	item.AddItem(PID_ROCKET_AP, Random(3, 6), 0); break;
+			case 9:	item.AddItem(PID_SMALL_ENERGY_CELL, Random(150, 300), 0); break;
+			case 10: item.AddItem(PID_MICRO_FUSION_CELL, Random(200, 400), 0); break;
+		}
+	}
+	if(Random(0, 99)<30)
+	{
+		switch (Random(1, 4))
+		{
+			case 1: item.AddItem(PID_FRAG_GRENADE, Random(5, 15), 0); break;
+			case 2: item.AddItem(PID_FIRE_GRENADE, Random(5, 10), 0); break;
+			case 3: item.AddItem(PID_PLASMA_GRENADE, Random(5, 10), 0); break;
+		    case 4: item.AddItem(PID_PULSE_GRENADE, Random(5, 10), 0); break;
+		}
+	}
+	if(Random(0, 99)<10)
+	{
+		switch (Random(1, 3))
+		{
+			case 1:	item.AddItem(PID_MR_NIXON_DOLL, 1, 1); break;
+			case 2:	item.AddItem(PID_PASSWORD_PAPER, 1, 1); break;
+			case 3: item.AddItem(PID_GOLD_RESERVE_MAP, 1, 0); break;
+		}
+	}
+	if(Random(0, 99)<10)
+	{
+		switch (Random(1, 4))
+		{
+			case 1: item.AddItem(PID_2MM_EC_AMMO, Random(10, 20), 0); break;
+			case 2: item.AddItem(PID_4_7MM_CASELESS, Random(100, 400), 0); break;
+			case 3: item.AddItem(PID_SHOTGUN_DRAGON_BREATH_SHELLS, Random(5, 15), 0); break;
+			case 4:	item.AddItem(PID_HYPO, Random(1, 3), 0); break;	
+			
+		}
+	}
+	if(Random(0, 99)<35)
+	{
+		switch (Random(1, 7))
+		{
+			case 1: item.AddItem(PID_GOLD_NUGGET , Random(1, 1), 0); break;
+			case 2: item.AddItem(PID_FIELD_MEDIC_KIT, 1, 0); break;
+			case 3: item.AddItem(PID_STEALTH_BOY, 1, 0); break;
+			case 4:	item.AddItem(PID_MOTION_SENSOR, 1, 0); break;
+			case 5:	item.AddItem(PID_PLASTIC_EXPLOSIVES, 1, 0); break;
+			case 6:	item.AddItem(PID_EXP_LOCKPICK_SET, 1, 0); break;
+			case 7:	item.AddItem(PID_PARAMEDICS_BAG, 1, 0); break;
+		}
+	}		
+
+    if (Random(0, 99) < 1)
+    {
+        switch (Random(1, 23))
+        {
+            case 1:
+                item.AddItem(PID_HARDENED_POWER_ARMOR, 1, 0);
+                item.AddItem(PID_HARDENED_POWER_HELMET, 1, 0);
+                break;
+            case 2:
+                item.AddItem(PID_POWERED_ARMOR, 1, 0);
+                item.AddItem(PID_POWER_HELMET, 1, 0);
+                break;
+            case 3: item.AddItem(PID_PANCOR_JACKHAMMER, 1, 0); break;
+            case 4: SpawnBuffItem(item, PID_ALIEN_LASER_PISTOL); break;
+            case 5: SpawnBuffItem(item, PID_KEEPBRIGE_ROBE); break;
+            case 6: item.AddItem(PID_TURBO_PLASMA_RIFLE, 1, 0); break;
+            case 7: item.AddItem(PID_INDEPENDENT, 1, 0); break;
+            case 8: item.AddItem(PID_BOZAR, 1, 0); break;
+            case 9: SpawnBuffItem(item, PID_SOLAR_SCORCHER); break;
+            case 10: item.AddItem(PID_HK_G11E, 1, 0); break;
+            case 11: item.AddItem(PID_PK12_GAUSS_PISTOL, 1, 0); break;
+            case 12: item.AddItem(PID_VINDICATOR_MINIGUN, 1, 0); break;
+            case 13: item.AddItem(PID_YK42B_PULSE_RIFLE, 1, 0); break;
+            case 14: item.AddItem(PID_M72_GAUSS_RIFLE, 1, 0); break;           
+            case 15: item.AddItem(PID_ACCESS_CARD, 1, 0); break;
+            case 16: item.AddItem(PID_BLACK_COC_BADGE, 1, 0); break;
+            case 17: item.AddItem(PID_IMPLANT_STRENGTH, 1, 0); break;
+            case 18: item.AddItem(PID_IMPLANT_PERCEPTION, 1, 0); break;
+            case 19: item.AddItem(PID_IMPLANT_ENDURANCE, 1, 0); break;
+            case 20: item.AddItem(PID_IMPLANT_CHARISMA, 1, 0); break;
+            case 21: item.AddItem(PID_IMPLANT_INTELLIGENCE, 1, 0); break;
+            case 22: item.AddItem(PID_IMPLANT_AGILITY, 1, 0); break;
+            case 23: item.AddItem(PID_IMPLANT_LUCK, 1, 0); break;
+        }
+    }
+
+    if (FLAG(item.LockerCondition, LOCKER_ISOPEN))
+        LockerClose(item);
+
+    return REAL_MINUTE(Random(20,30));
+}
+
+uint e_SpawnSpecial(array<uint>@ values) //SpawnV - Verti Loot Tables but with +5% of getting the good stuff
+{
+    Item@ item = GetItem(values[0]);
+    if (!valid(item))
+        return 0;
+    ClearContainer(item);
+
+    if (Random(0, 99) < 50)
+    {
+        switch (Random(1, 8))
+        {
+            case 1:
+                SpawnBuffItem(item, PID_TESLA_ARMOR);
+                SpawnBuffItem(item, PID_TESLA_HELMET);
+                break;
+            case 2:
+                SpawnBuffItem(item, PID_COMBAT_ARMOR);
+                SpawnBuffItem(item, PID_COMBAT_HELMET);
+                break;
+            case 3:
+                SpawnBuffItem(item, PID_COMBAT_HELMET_MK_II);
+                SpawnBuffItem(item, PID_COMBAT_ARMOR);
+                break;
+            case 4:
+                item.AddItem(PID_DESERT_COMBAT_ARMOR, 1, 0);
+                item.AddItem(PID_DESERT_COMBAT_HELMET, 1, 0);
+                break;
+            case 5:
+                SpawnBuffItem(item, PID_COMBAT_ARMOR_MK_II);
+                SpawnBuffItem(item, PID_COMBAT_HELMET_MK_II);
+                break;
+            case 6:
+                item.AddItem(PID_BROTHERHOOD_COMBAT_ARMOR, 1, 0);
+                item.AddItem(PID_BROTHERHOOD_HELMET, 1, 0);
+                break;
+            case 7:
+                item.AddItem(PID_NCR_ARMOR, 1, 0);
+                item.AddItem(PID_NCR_HELMET, 1, 0);
+                break;
+            case 8:
+                item.AddItem(PID_ENCLAVE_COMBAT_ARMOR, 1, 0);
+                item.AddItem(PID_ENCLAVE_COMBAT_HELMET, 1, 0);
+                break;
+        }
+    }
+    else
+    {
+        switch (Random(1, 18))
+        {
+            case 1: SpawnBuffItem(item, PID_ROCKET_LAUNCHER); break;
+            case 2: SpawnBuffItem(item, PID_PLASMA_RIFLE); break;
+            case 3: SpawnBuffItem(item, PID_GATLING_LASER); break;
+            case 4: SpawnBuffItem(item, PID_SUPER_SLEDGE); break;
+            case 5: SpawnBuffItem(item, PID_SNIPER_RIFLE); break;
+            case 6: SpawnBuffItem(item, PID_223_PISTOL); break;
+            case 7: SpawnBuffItem(item, PID_HK_P90C); break;
+            case 8: SpawnBuffItem(item, PID_LASER_SUPPORT_WEAPON); break;
+            case 9: SpawnBuffItem(item, PID_LIGHT_SUPPORT_WEAPON); break;
+            case 10: SpawnBuffItem(item, PID_ASSAULT_RIFLE_EXT_MAG); break;
+            case 11: SpawnBuffItem(item, PID_AVENGER_MINIGUN); break;
+            case 12: SpawnBuffItem(item, PID_IMPROVED_FLAMETHROWER); break;
+            case 13: SpawnBuffItem(item, PID_LASER_RIFLE_EXT_CAP); break;
+            case 14: SpawnBuffItem(item, PID_LASER_SMG); break;
+            case 15: SpawnBuffItem(item, PID_GRENADE_LAUNCHER); break;
+            case 16: SpawnBuffItem(item, PID_SUPER_CATTLE_PROD); break;
+            case 17: SpawnBuffItem(item, PID_MEGA_POWER_FIST); break;
+            case 18: SpawnBuffItem(item, PID_HK_CAWS); break;
+        }
+    }
+	if(Random(0, 99)<40)
+	{
+		switch (Random(1, 14))
+		{
+			case 1: item.AddItem(PID_5MM_AP, Random(300, 800), 0); break;
+			case 2: item.AddItem(PID_10MM_AP, Random(300, 600), 0); break;
+			case 3: item.AddItem(PID_223_FMJ, Random(100, 200), 0); break;
+			case 4: item.AddItem(PID_SHOTGUN_SHELLS_EMP, Random(50, 150), 0); break;
+			case 5: item.AddItem(PID_SHOTGUN_SHELLS_SLUG, Random(100, 200), 0); break;
+			case 6: item.AddItem(PID_40MM_GRENADE, Random(3, 10), 0); break;
+			case 7:	item.AddItem(PID_FLAMETHROWER_FUEL_MK_II, Random(20, 40), 0); break;	
+			case 8:	item.AddItem(PID_ROCKET_AP, Random(3, 6), 0); break;
+			case 9:	item.AddItem(PID_SMALL_ENERGY_CELL, Random(150, 300), 0); break;
+			case 10: item.AddItem(PID_MICRO_FUSION_CELL, Random(200, 400), 0); break;
+		}
+	}
+	if(Random(0, 99)<30)
+	{
+		switch (Random(1, 4))
+		{
+			case 1: item.AddItem(PID_FRAG_GRENADE, Random(5, 15), 0); break;
+			case 2: item.AddItem(PID_FIRE_GRENADE, Random(5, 10), 0); break;
+			case 3: item.AddItem(PID_PLASMA_GRENADE, Random(5, 10), 0); break;
+		    case 4: item.AddItem(PID_PULSE_GRENADE, Random(5, 10), 0); break;
+		}
+	}
+	if(Random(0, 99)<10)
+	{
+		switch (Random(1, 3))
+		{
+			case 1:	item.AddItem(PID_MR_NIXON_DOLL, 1, 1); break;
+			case 2:	item.AddItem(PID_PASSWORD_PAPER, 1, 1); break;
+			case 3: item.AddItem(PID_GOLD_RESERVE_MAP, 1, 0); break;
+		}
+	}
+	if(Random(0, 99)<10)
+	{
+		switch (Random(1, 4))
+		{
+			case 1: item.AddItem(PID_2MM_EC_AMMO, Random(10, 20), 0); break;
+			case 2: item.AddItem(PID_4_7MM_CASELESS, Random(100, 400), 0); break;
+			case 3: item.AddItem(PID_SHOTGUN_DRAGON_BREATH_SHELLS, Random(5, 15), 0); break;
+			case 4:	item.AddItem(PID_HYPO, Random(1, 3), 0); break;	
+			
+		}
+	}
+	if(Random(0, 99)<35)
+	{
+		switch (Random(1, 7))
+		{
+			case 1: item.AddItem(PID_GOLD_NUGGET , Random(1, 1), 0); break;
+			case 2: item.AddItem(PID_FIELD_MEDIC_KIT, 1, 0); break;
+			case 3: item.AddItem(PID_STEALTH_BOY, 1, 0); break;
+			case 4:	item.AddItem(PID_MOTION_SENSOR, 1, 0); break;
+			case 5:	item.AddItem(PID_PLASTIC_EXPLOSIVES, 1, 0); break;
+			case 6:	item.AddItem(PID_EXP_LOCKPICK_SET, 1, 0); break;
+			case 7:	item.AddItem(PID_PARAMEDICS_BAG, 1, 0); break;
+		}
+	}		
+
+    if (Random(0, 99) < 5)
+    {
+        switch (Random(1, 23))
+        {
+            case 1:
+                item.AddItem(PID_HARDENED_POWER_ARMOR, 1, 0);
+                item.AddItem(PID_HARDENED_POWER_HELMET, 1, 0);
+                break;
+            case 2:
+                item.AddItem(PID_POWERED_ARMOR, 1, 0);
+                item.AddItem(PID_POWER_HELMET, 1, 0);
+                break;
+            case 3: item.AddItem(PID_PANCOR_JACKHAMMER, 1, 0); break;
+            case 4: SpawnBuffItem(item, PID_ALIEN_LASER_PISTOL); break;
+            case 5: SpawnBuffItem(item, PID_KEEPBRIGE_ROBE); break;
+            case 6: item.AddItem(PID_TURBO_PLASMA_RIFLE, 1, 0); break;
+            case 7: item.AddItem(PID_INDEPENDENT, 1, 0); break;
+            case 8: item.AddItem(PID_BOZAR, 1, 0); break;
+            case 9: SpawnBuffItem(item, PID_SOLAR_SCORCHER); break;
+            case 10: item.AddItem(PID_HK_G11E, 1, 0); break;
+            case 11: item.AddItem(PID_PK12_GAUSS_PISTOL, 1, 0); break;
+            case 12: item.AddItem(PID_VINDICATOR_MINIGUN, 1, 0); break;
+            case 13: item.AddItem(PID_YK42B_PULSE_RIFLE, 1, 0); break;
+            case 14: item.AddItem(PID_M72_GAUSS_RIFLE, 1, 0); break;           
+            case 15: item.AddItem(PID_ACCESS_CARD, 1, 0); break;
+            case 16: item.AddItem(PID_BLACK_COC_BADGE, 1, 0); break;
+            case 17: item.AddItem(PID_IMPLANT_STRENGTH, 1, 0); break;
+            case 18: item.AddItem(PID_IMPLANT_PERCEPTION, 1, 0); break;
+            case 19: item.AddItem(PID_IMPLANT_ENDURANCE, 1, 0); break;
+            case 20: item.AddItem(PID_IMPLANT_CHARISMA, 1, 0); break;
+            case 21: item.AddItem(PID_IMPLANT_INTELLIGENCE, 1, 0); break;
+            case 22: item.AddItem(PID_IMPLANT_AGILITY, 1, 0); break;
+            case 23: item.AddItem(PID_IMPLANT_LUCK, 1, 0); break;
+        }
+    }
+
+    if (FLAG(item.LockerCondition, LOCKER_ISOPEN))
+        LockerClose(item);
+
+    return REAL_MINUTE(Random(20,30));
+}

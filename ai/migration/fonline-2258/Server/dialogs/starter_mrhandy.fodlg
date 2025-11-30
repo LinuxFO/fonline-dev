@@ -1,0 +1,64 @@
+[comment]
+
+
+[data]
+lang=engl
+
+[dialog]
+&
+1 1000 None 0 #
+2 1010 @
+2 2000 None 0 #
+9 2010 @
+3 3000 None 0 #
+4 3010 #
+5 3020 #
+6 3030 #
+7 3040 #
+8 3050 @
+4 4000 None 0 #
+0 4010 @
+5 5000 None 0 #
+0 5010 @
+6 6000 None 0 #
+0 6010 @
+7 7000 Attack 0 #
+0 7010 @
+8 8000 None 0 #
+0 8010 @
+9 9000 None 0 #
+3 9010 &
+
+[engl]
+{100}{}{Panic in the Vault!}
+{200}{}{You see a gravely malfunctioning Vault 24 floor warden and hall monitor.}
+{210}{}{Normally, these are quiet beyond belief save for a faint emission of static, but for some reason today they're going wild! Lights are flashing, sirens are blaring, and numerous lines of alien-looking code fill their chest screens!}
+{1000}{}{Predialogue installations}
+{1010}{}{Answer text}
+{2000}{}{Good morning, Officer @pname@! Rather unexpectedly so! We do seem to be having quite the hiccup with our vault door! Rather sorry for that, dear friend, but could you be a saint and mossy on along back to your quarters?}
+{2010}{}{[Continue]}
+{3000}{}{Oh, no need to worry, @pname@! The Overseer has everything under control...}
+{3010}{}{The Overseer? The Overseer?! The Overseer can go to Hell! I'm free! We're all free! Finally!}
+{3020}{}{My God! We need to arm ourselves! I need to get to the armoury!}
+{3030}{}{Haha, great joke! This is a dream, right? Our vault door isn't supposed to open until... uh... when were the vault doors supposed to open again?}
+{3040}{}{Yeah, right! Eat shit, robot! I'm tired of this goddamn vault oppression!}
+{3050}{}{Uh... yes, of course! Terribly sorry, my good lad! I'll return to my quarters immediately! *Salute*}
+{4000}{}{Wha-- Where are you going?! Do not leave the safety of the Vault! Lord knows what's out there! Please return to your quarters immediately!}
+{4010}{}{[Exit]}
+{5000}{}{The armoury on Level 4 has been sealed for your safety, @pname@! It appears there is quite the confuckle going on upstairs. Please, return to your quarters immediately while the situation dissolves. The Overseer demands it!}
+{5010}{}{[Exit]}
+{6000}{}{Officer @pname@! You know better than to ask those questions! Return to your quarters immediately and report for your daily log!! This is your final warning!}
+{6010}{}{[Exit]}
+{7000}{}{I believe it's time for your rehabilitation! Officer @pname@!}
+{7010}{}{[Exit]}
+{8000}{}{That's the spirit, Officer! Tally-ho, and carry on!}
+{8010}{}{[Exit]}
+{9000}{}{At least, until this slight mishap has been... err -- resolved, please?}
+{9010}{}{The vault doors?! But how?! What the hell is going on, robot!}
+{100000001}{}{*WARNING!!! ATTENTION ALL VAULT DWELLERS!*}
+{100000002}{}{*THE VAULT DOOR HAS OPENED!*}
+{100000003}{}{*WARNING!!! THE VAULT DOORS HAVE OPENED!*}
+{100000004}{}{*EMERGENCY SIGNAL 3NCLAV3 ACTIVATED! SEEK SHELTER IMMEDIATELY!!!*}
+{100000005}{}{*WARNING!!! THIS IS NOT A TEST!!*}
+{100000006}{}{*ALL VAULT DWELLERS PLEASE PREPARE EMERGENGY PROTOCALS!!!*}
+

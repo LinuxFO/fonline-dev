@@ -1,0 +1,27 @@
+[comment]
+
+
+[data]
+lang=engl
+
+[dialog]
+&
+1 1000 None 0 #
+2 1010 @
+2 2000 None 0 #
+3 2010 D _var p q_ridgecrest = 0 @
+3 3000 None 0 #
+2 3010 R _var p q_ridgecrest = 1 R _script player_dungeon@r_SpawnLoc 0  &
+
+[engl]
+{100}{}{Follower}
+{200}{}{You see someone from the Followers of the Apocalypse.}
+{240}{}{You see a dead follower of the apocalypse.}
+{260}{}{You see a slain follower of the apocalypse.}
+{1000}{}{Predialogue installations}
+{1010}{}{Answer text}
+{2000}{}{Knowledge is life.@@Glorious Day to you.@@Hello, traveller. Maybe you should visit us in the library someday.}
+{2010}{}{I'm looking for some scum. Know where they like to hang out?}
+{3000}{}{The Ridgecrest Hotel. It's far to the East of Vault 15. I'll mark it on your map. But look out. The people there will kill you on sight if you aren't one of them. It's best to avoid that place at all costs. But I hear that their leader likes to hoard gear...[To make this location spawn in Turn Based Mode make sure to type /combatmode tb before continuing]}
+{3010}{}{Thanks!}
+

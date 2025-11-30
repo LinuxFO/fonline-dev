@@ -1,0 +1,32 @@
+[comment]
+
+
+[data]
+lang=engl
+
+[dialog]
+&
+1 1000 None 0 #
+2 1010 @
+2 2000 None 0 #
+3 2010 D _param p SK_DOCTOR > 59 D _var p name_mem_npc_player = 0 R _var p name_mem_npc_player = 1 #
+4 2020 D _var p q_church2 = 1 D _var p inj4 = 0 @
+3 3000 None 0 @
+4 4000 None 0 #
+5 4010 R _var p inj4 = 1 R _script dialog@r_AddExperience 1 1000 R _param p ST_KARMA + 1 R _param p REPUTATION_HUB + 7 @
+5 5000 None 0 &
+
+[engl]
+{100}{}{Hubber}
+{200}{}{You see a broken body.}
+{210}{}{It appears to be a man, lying in a pool of his own blood. Both his arms, and legs are broken, and a strange yellow liquid is oozing out of his left eye.}
+{1000}{}{Predialogue installations}
+{1010}{}{Answer text}
+{2000}{}{Ugh...@@Mother?@@Father?@@Master?@@Blaster...@@Sanc...tuary...@@Release... me...}
+{2010}{}{Holy christ! Are you okay?! Let me have a look at you...}
+{2020}{}{Doctor Burhnefletch can help you get back to normal. Don't be so naive. Let him save your life!}
+{3000}{}{NO!... let... me... die...}
+{4000}{}{... rather... die... no... ghoul... touches... me...}
+{4010}{}{Alrighty then, enjoy your little blood bath. You'll be dead sooner than you know it. I hear it feels like christmas... all those bright lights, cold shivers, and shit.}
+{5000}{}{... ugh... drag... me... over... there... please...}
+

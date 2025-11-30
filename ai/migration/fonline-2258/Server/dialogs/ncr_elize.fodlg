@@ -1,0 +1,79 @@
+[comment]
+
+
+[data]
+lang=engl
+
+[dialog]
+&
+1 1000 None 0 #
+2 1010 D _param p KARMA_SLAVER > 0 #
+2 1020 @
+2 2000 None 0 #
+3 2010 D _var p q_farm_location_raiders_status = 0 #
+4 2020 #
+4 2030 D _var p q_farm_location_raiders_status = 0 #
+10 2040 D _var p q_farm_location_raiders_status = 2 R _script dialog@r_AddMoney 1 500 R _var p q_farm_location_raiders_status = 0 R _script quest_farm_location@r_DeleteRaidersCamp 0  R _script dialog@r_AddExperience 1 3000 R _var p z_warrior2 + 1 #
+0 2050 @
+3 3000 None 0 #
+4 3010 #
+4 3020 D _param p ST_LEVEL < 12 #
+6 3030 D _param p ST_LEVEL } 12 #
+0 3040 @
+4 4000 None 0 #
+0 4010 @
+5 5000 None 1 @
+6 6000 None 0 #
+7 6010 #
+0 6020 @
+7 7000 None 0 #
+8 7010 #
+0 7020 @
+8 8000 None 0 #
+9 8010 D _param p ST_LEVEL } 12 R _var p q_farm_location_raiders_status = 1 R _script quest_farm_location@r_SpawnRaidersCamp 1 0 #
+9 8020 D _param p ST_LEVEL } 15 R _var p q_farm_location_raiders_status = 1 R _script quest_farm_location@r_SpawnRaidersCamp 1 1 #
+9 8030 D _param p ST_LEVEL } 18 R _var p q_farm_location_raiders_status = 1 R _script quest_farm_location@r_SpawnRaidersCamp 1 2 #
+0 8040 @
+9 9000 None 0 #
+0 9010 @
+10 10000 None 0 #
+0 10010 &
+
+[engl]
+{100}{}{Elise}
+{200}{}{You see a pretty young woman dressed in combat clothes.}
+{210}{}{It's Elise.}
+{210}{}{She's got a no-nonsense air about her, like she's used to giving orders and having folks obey them.}
+{1000}{}{Predialogue installations}
+{1010}{}{slaver no-homo}
+{1020}{}{Answer text}
+{2000}{}{What do you want?}
+{2010}{}{Who are you?}
+{2020}{}{Can you fix my car?}
+{2030}{}{Uh - I thought this place was deserted.}
+{2040}{}{All raiders have been killed.}
+{2050}{}{Uh, nothing. Bye.}
+{3000}{}{I'm Elise. That's Gond. We're members of a 'group' that's trying to do right for folks.}
+{3010}{}{You don't look like a charity or a church.}
+{3020}{}{Sounds interesting. Maybe I could help you with doing 'right'?}
+{3030}{}{Sounds interesting. Maybe I could help you with doing 'right'?}
+{3040}{}{Good for you. Bye.}
+{4000}{}{It's none of your business. Just get yourself out of here. Saloon's back on main street.}
+{4010}{}{Fine.}
+{5000}{}{Get out of here slaver scum!@@Get out of here, NOW!}
+{6000}{}{Actualy we have a little problem with some Raiders, but it I'm not sure you can handle it...}
+{6010}{}{Tell me more about those Raiders.}
+{6020}{}{You said Raiders? Then it's not for me. I want to keep my hands clean, bye.}
+{7000}{}{Our patrols reported that their activities are growing in this region and we don't have enough people to fight them back. }
+{7010}{}{I see, how can I help?}
+{7020}{}{Holy shit! I'm out of here!}
+{8000}{}{Your task will be to neutralize the Raiders' camp.}
+{8010}{}{I'm not very strong but I think I can handle some small camp with weaker enemies.}
+{8020}{}{I think I can take out some stronger enemies. I can get somebody to help me if needed.}
+{8030}{}{I'm a skilled soldier and I got some strong friends that can help me. Let me deal with the strongest camp you know of.}
+{8040}{}{Maybe later, sorry...}
+{9000}{}{Great! Raiders don't stay long in one place, you will have about 12 hours before they abandon this hideout. Report to me when you clear their camp. Good luck! [She marks location on your map]}
+{9010}{}{Consider it done.}
+{10000}{}{Great news! I know you didn't help us for reward but here is a 500$, go wild in a bar or something. You know where to find us if you want to have some fun again.}
+{10010}{}{Ok...}
+

@@ -1,0 +1,21 @@
+/**<
+ *  Deck of cards for Blackjack.
+ */
+ 
+#include "blackjack_card.fos"
+ 
+class CDeck
+{
+    array<CCard@> cards;
+ 
+    CDeck()
+    {
+        for (int cardType = CARD_TYPE_ACE; cardType <= CARD_TYPE_KING; cardType++)
+        {
+            for (int cardSuit = CARD_SUIT_SPADES; cardSuit <= CARD_SUIT_CLUBS; cardSuit++)
+            {
+                cards.insertLast(CCard(cardType, cardSuit));
+            }
+        }
+    }
+};

@@ -1,0 +1,60 @@
+[comment]
+
+
+[data]
+lang=engl
+
+[dialog]
+&
+1 1000 None 0 #
+2 1010 @
+2 2000 None 0 #
+3 2010 D _var p q_adventure = 6 #
+8 2020 D _var p q_adventure = 11 @
+3 3000 None 0 #
+4 3010 @
+4 4000 None 0 #
+5 4010 @
+5 5000 None 0 #
+6 5010 @
+6 6000 None 0 #
+7 6010 @
+7 7000 None 0 #
+0 7010 R _script dialog@r_AddExperience 1 1200 R _var p q_adventure = 7 @
+8 8000 None 0 #
+9 8010 @
+9 9000 None 0 #
+10 9010 @
+10 10000 None 0 #
+11 10010 @
+11 11000 None 0 #
+0 11010 R _var p q_adventure = 12 R _script dialog@r_AddExperience 1 1200 &
+
+[engl]
+{100}{}{Mysterious Stranger}
+{200}{}{You see a man in a vault suit.}
+{210}{}{There is no number on the back of his vault suit.}
+{1000}{}{Predialogue installations}
+{1010}{}{Answer text}
+{2000}{}{I'm not interested. Get lost.@@Beat it. I don't care.@@I'm waiting for someone, and It's probably not you.@@Redding isn't safe. Run. Get out of here.@@Someone's coming for you. Watch out.@@Behind you!}
+{2010}{}{Do you know who I am?}
+{2020}{}{Here. This is from McClaire. I did what you asked, and I did what she asked. I'm done. I've got a life to worry about now. I'm not just some jerk-off vault @sex@|boy anymore.||girl anymore.|}
+{3000}{}{You? Yeah, probably. @pname@, right?}
+{3010}{}{That's me.}
+{4000}{}{Give me the part. I'll take it from here. [He impatiently awaits the chip]}
+{4010}{}{What's this thing for anyways?}
+{5000}{}{I'm afraid I can't tell you that. I'm sure the Overseer will tell you everything you need to know in due time.}
+{5010}{}{[Hand him the part] Okay... so what now?}
+{6000}{}{Now, you take this letter to Councilwoman McClaire over in Vault City. Tell her that the deal is off. We don't need her anymore. The letter will explain everything she needs to know.}
+{6010}{}{What the hell?! I'm not your errand boy! Tell that Overseer that he doesn't own me anymore! I'm free!}
+{7000}{}{The letter also tells Councilwoman McClaire to reward you. I suggest you go bring it to her. Unless you'd like to skip out on your payment for all your hard work?}
+{7010}{}{I'll think about it!}
+{8000}{}{Hmm... interesting. Is the virus still in their database?}
+{8010}{}{As far as I know, yes.}
+{9000}{}{Good, good. They must have forgotten all about it. Very impressive. You've done a fine job, @pname@. The Overseer will be pleased.}
+{9010}{}{Thanks, I guess. I had to kill a few people... that didn't feel very right at all.}
+{10000}{}{I heard. Still, you're alive. Good for you.}
+{10010}{}{So what now? Am I finished? Or...}
+{11000}{}{There's a certain Miss Katrina looking for you. She's at the Library in L.A. Why don't you go see what she wants? Run along now... little vault @sex@|boy.||girl.|}
+{11010}{}{Great...}
+

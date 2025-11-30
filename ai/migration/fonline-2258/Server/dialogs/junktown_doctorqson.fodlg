@@ -1,0 +1,156 @@
+[comment]
+
+
+[data]
+lang=engl
+
+[dialog]
+&
+1 1000 None 0 #
+2 1010 D _var p name_mem_player_npc = 0 #
+3 1020 D _var p name_mem_player_npc = 1 @
+2 2000 None 0 #
+4 2010 D _var p junk_doctoring = 2 D _item p PID_DOCTORS_BAG > 0 D _item p PID_FIRST_AID_KIT > 0 #
+0 2020 @
+3 3000 None 0 @
+4 4000 None 0 #
+5 4010 @
+5 5000 None 0 #
+6 5010 @
+6 6000 None 0 #
+7 6010 @
+7 7000 None 0 #
+8 7010 #
+8 7020 #
+8 7030 #
+9 7040 @
+8 8000 None 0 #
+9 8010 R _param p ST_POISONING_LEVEL + 5 R _param p ST_RADIATION_LEVEL + 5 @
+9 9000 None 0 #
+10 9010 @
+10 10000 None 0 #
+11 10010 #
+11 10020 #
+11 10030 #
+11 10040 #
+11 10050 @
+11 11000 None 0 #
+14 11010 #
+13 11020 #
+12 11030 @
+12 12000 None 0 #
+16 12010 R _item p PID_DOCTORS_BAG - 1 R _item p PID_FIRST_AID_KIT - 1 R _param p ST_POISONING_LEVEL + 50 R _param p ST_RADIATION_LEVEL + 50 #
+17 12020 #
+15 12030 R _item p PID_DOCTORS_BAG - 1 R _item p PID_FIRST_AID_KIT - 1 @
+13 13000 None 0 #
+11 13010 @
+14 14000 None 0 #
+11 14010 @
+15 15000 None 0 #
+18 15010 @
+16 16000 None 0 #
+18 16010 @
+17 17000 None 0 #
+19 17010 @
+18 18000 None 0 @
+19 19000 None 0 #
+20 19010 @
+20 20000 None 0 #
+21 20010 @
+21 21000 None 0 #
+22 21010 @
+22 22000 None 0 #
+23 22010 @
+23 23000 None 0 #
+24 23010 @
+24 24000 None 0 #
+25 24010 @
+25 25000 None 0 #
+26 25010 @
+26 26000 None 0 #
+27 26010 #
+27 26020 #
+28 26030 @
+27 27000 None 0 #
+0 27010 @
+28 28000 None 0 #
+29 28010 @
+29 29000 None 0 #
+0 29010 R _var p junk_doctoring = 3 R _script dialog@r_AddExperience 1 1000 R _param p ST_KARMA + 1 R _param p REPUTATION_JUNKTOWN + 30 R _var p name_mem_npc_player = 1 R _script dialog@r_AddLootSetLevel1 0  &
+
+[engl]
+{100}{}{Trinkered}
+{200}{}{You see a little boy.}
+{210}{}{He's wearing an odd looking necklace.}
+{1000}{}{Predialogue installations}
+{1010}{}{Answer text}
+{1020}{}{2}
+{2000}{}{*Cough!* *Cough!*}
+{2010}{}{Well howdy there, kiddo! I'm Doctor @pname@! How are you feeling today?}
+{2020}{}{Eugh! Germs!}
+{3000}{}{Boy! Do I feel better! Thanks, Doctor @pname@!}
+{4000}{}{Are you the boogeyman?}
+{4010}{}{You know, kiddo! If I had time I sure could say a lot of corky things to you. But let's have a look at that cough first, okay?}
+{5000}{}{Okay. *Cough!* *Cough!* My throat hurts, and boogers are funny coloured.}
+{5010}{}{Sore throat, and funny boogers, eh?}
+{6000}{}{Yeah! You want to see?}
+{6010}{}{Sure, that could help. Why not.}
+{7000}{}{Where do you want me to put my boogers?}
+{7010}{}{In my hand!}
+{7020}{}{In your hand!}
+{7030}{}{On my head!}
+{7040}{}{Goddamnit! I'm a professional! I'm not touching your freaking boogers. You're sick kid. It's probably Laryngitis, Tonsillitis, or some simple viral pharyngitis!}
+{8000}{}{[The child does some disgusting things with his mucus. You feel sick]}
+{8010}{}{Ugh...}
+{9000}{}{Haha! We're talking about boogers! *Cough!* *Cough!*}
+{9010}{}{We sure are kiddo. Now, let's get you answering some questions...}
+{10000}{}{[The child gives you a typical, dumbfounded look]}
+{10010}{}{What's your name?}
+{10020}{}{Where does it hurt?}
+{10030}{}{Do you poop a lot?}
+{10040}{}{Does your daddy touch you?}
+{10050}{}{Been playing near anything irradiated?}
+{11000}{}{[You ask the child a series of important questions, but get back a dumbfounded look each time]}
+{11010}{}{[Examine the child for any sprains, bruises, broken bones, fractures, etc]}
+{11020}{}{[Ask the child to cough while you examine it's chest]}
+{11030}{}{[Ask Frier if you could get a urine sample]}
+{12000}{}{[After a few minutes, Frier hands you a small cup full of the child's urine. It looks dark, and unusual]}
+{12010}{}{[Drink the urine]}
+{12020}{}{[Smell the urine]}
+{12030}{}{[Toss the urine away]}
+{13000}{}{[The child coughs as you examine it's chest with a stethoscope. Small patches of blood are seen on the child's shirt]}
+{13010}{}{Oh God! When did this start happening?! }
+{14000}{}{[You poke around, gently twisting the limbs of the child to see if they are in any pain. You notice a few bruises here and there, but that's expected. Children are not as careful as adults, and tend to bruise easily due to their own stupidity]}
+{14010}{}{Well, your body's fine. The outside at least. Do you feel like you have a cold? Or does it feel like something worse?}
+{15000}{}{[You toss the cup full of piss over your shoulder, and it splashes all over your semi-sterile medical gear. Looks like you've ruined it all. You'll have to start over, and bring a new Doctor's Bag, and First Aid Kit with you]}
+{15010}{}{Not again!}
+{16000}{}{[You take a big sip of the child's urine and have yourself a nice little refreshing beverage... Wait a minute... "This is urine!" you think! And quickly spit it out, and all over your semi-sterile medical equipment. Looks like you've ruined it all. You'll have to start over, and bring a new Doctor's Bag, and First Aid Kit with you. But right after you get yourself a doctor first!]}
+{16010}{}{I went to medical school for ten years just to end up in some shit hole called Junktown drinking piss.}
+{17000}{}{[You smell the urine and notice a horrible stench coming from it!]}
+{17010}{}{Frier, there's something awfully wrong with your son.}
+{18000}{}{You sure you wely a doctor?}
+{19000}{}{[From your professional opinion it appears that the child is going to either require some antibiotics, or is suffering from a respiratory disease. You really aren't sure. In the vault, antibiotics were as common as water, but out here...]}
+{19010}{}{Frier! Come over here please.}
+{20000}{}{[Frier runs over] @pname@! Any progress?}
+{20010}{}{Has your child been losing any hair lately? Vomiting?}
+{21000}{}{No, why? Just the blood in the cough. What is it?}
+{21010}{}{Honestly, Frier, without the proper medical equipment... Your son might have a respiratory disease... I don't know what to do. He needs medicine.}
+{22000}{}{I know! Don't you think I've already thought of that?! I tried everything!}
+{22010}{}{Well, like what? }
+{23000}{}{Poison Antidote, Rad-Away, Rad-X...}
+{23010}{}{What else?}
+{24000}{}{Wel... he... he did get into my Mentats...}
+{24010}{}{Mentats?! Your kid got high on drugs?!}
+{25000}{}{[Frier looks ashamed]}
+{25010}{}{Jesus Christ, man! Your son is suffering from Bronchopulmonary Dysplasia from the shitty air quality, and all this damn radiation. And you let him get a hold of drugs?! You're lucky he's still alive.}
+{26000}{}{Well what do you suggest I do about it then, smart ass?!}
+{26010}{}{Put your child down.}
+{26020}{}{Pay the money to see an Auto-Doc.}
+{26030}{}{Crush up Xander Root, Broc Flower, and some Barley. Mix it all up with a little bit of the liquid inside of a Stimpak, strain it, dry it. And give it to your child until he starts to feel better. That should act as a primitive antibiotic.}
+{27000}{}{I'm not doing that! Try again!}
+{27010}{}{[Restart the Quest]}
+{28000}{}{Will that make things better with the kid?}
+{28010}{}{Yes. It will help. In time, he should get better. But, Frier, your son... he's sick. He might not get better. Just don't stop giving him the mixture. Make him eat it if you have to.}
+{29000}{}{Thanks, Doctor @pname@! Only two more kids to check up on.}
+{29010}{}{No problem, Frier.}
+

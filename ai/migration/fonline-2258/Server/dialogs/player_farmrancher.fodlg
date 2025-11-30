@@ -1,0 +1,133 @@
+[comment]
+lighter job 
+
+[data]
+lang=engl russ
+
+[dialog]
+&
+1 1000 None 0 #
+6 1010 D _var n player_farmRancher = 0 D _var p player_farmOwner = 1 #
+2 1020 D _var n player_farmRancher = 1 D _var p player_farmOwner = 1 #
+7 1030 D _var p player_farmOwner = 0 @
+2 2000 dialog@dlg_FarmStatus 0 #
+8 2010 D _var p player_farmCows > 0 R _var p player_farmCows - 1 R _var p player_farmIncome + 450 #
+8 2020 D _var p player_farmIncome > 1999 R _var p player_farmIncome - 2000 R _var p player_farmCows + 1 #
+8 2030 D _var p player_farmCows > 0 R _var p player_farmCows - 1 R _item p PID_BRAHMIN_SKIN + 1 R _item p PID_BRAHMIN_HIDE + 1 R _var p player_farmFood + 2 #
+11 2040 R _script brahmin_trader@r_CheckSell 1 0 #
+3 2050 #
+4 2060 #
+5 2070 #
+0 2080 @
+3 3000 dialog@dlg_FarmStatus 0 #
+2 3010 @
+4 4000 None 0 #
+2 4010 @
+5 5000 None 0 #
+2 5010 @
+6 6000 None 0 #
+2 6010 D _var p player_farmIncome > 4999 R _var p player_farmIncome - 5000 R _var n player_farmRancher = 1 #
+0 6020 @
+7 7000 None 0 @
+11 8000 None 0 #
+12 8010 D _script brahmin_trader@d_PlayerHasBrahmin 1 0 #
+2 8020 @
+12 9000 None 0 #
+16 9010 R _script brahmin_trader@r_SellBrahminFarm 1 0 R _var p player_farmCows + 1 #
+2 9020 @
+16 10000 brahmin_trader@dlg_ShowBrahminSellPrice 0 @
+8 11000 None 0 &
+
+[engl]
+{100}{}{Rancher}
+{200}{}{You see a rancher.}
+{210}{}{He's been assigned to look after the Farm's cattle.}
+{1000}{}{Predialogue installations}
+{1010}{}{unlck}
+{1020}{}{base}
+{1030}{}{visit}
+{2000}{}{Hey there, padner, you got a fine lookin' Farm, I reckon. I can buy some Brahmin for 2000$, or sell one of ours for 275$.}
+{2010}{}{[Sell a Brahmin]}
+{2020}{}{[Buy a Brahmin]}
+{2030}{}{[Slaughter a Brahmin]}
+{2040}{}{How are the pen's looking?}
+{2050}{}{How many Brahmin do we have?}
+{2060}{}{How does Cattle work?}
+{2070}{}{What do we need to breed Brahmin?}
+{2080}{}{Thanks. Goodbye.}
+{3000}{}{We've got @lex farmCows@ Brahmin. }
+{3010}{}{Thanks.}
+{4000}{}{We can sell our Brahmin for Treasury, or use them as Food. You could also breed them, but our inbred cows aren't worth much.}
+{4010}{}{Thanks.}
+{5000}{}{You'll need to hire a Family to take care of things first. I only manage the pens, ain't got time for the rest. }
+{5010}{}{Thanks.}
+{6000}{}{[Renovate this part of your Farm, and unlock the Rancher! Allows you to start using Brahmin! Unlock for 5000$, deducts the money from your Farm Treasury]}
+{6010}{}{Let's renovate!}
+{6020}{}{[Leave]}
+{7000}{}{Welcome to the Farm. Please don't shoot anybody.@@Uh... hello?@@New ranch hand?@@Just leave your resources somewhere visible, the boss will pick them up eventually.@@Sorry, there's no beds available, you'll have to sleep on the floor.@@Another mouth to feed, eh? Well you'd better pull your weight around here, that's for sure.@@Does the boss know you're here?@@Yes, hi, that's very nice. Who are you again?@@I hope those aren't weapons on you...@@Stay away from the kids! You animal!@@What are you even doing here?@@Who invited you?@@Don't expect to get a map to this place.@@Don't try anything funny around the cows!@@I know your type! Don't fuck around my cows!@@You'd best keep your genitals away from my cows, sicko!@@Yeah, whatever, don't fuck the cows.}
+{8000}{}{A little messy, but we've always got room for more tamed brahmin. If you come across any out there, I'll take em'.}
+{8010}{}{I've got a brahmin for you. Is this one acceptable?}
+{8020}{}{Good to know, thanks.}
+{9000}{}{Fine lookin' genuine bovine you gots there. She'll surely make a good addition to the Farm.}
+{9010}{}{[Escort the brahmin into the pen]}
+{9020}{}{Hmm, I think I'll keep this one.}
+{10000}{}{Sold! You know this cow is worth @lex price@ caps? I can't give you the money, but I just wanted to let you know.}
+{11000}{}{All done, boss.}
+{100000001}{}{Better wash the counter again...}
+{100000002}{}{That's 5 caps buddy. Hey did you hear me? Cough em' up.}
+{100000003}{}{Better change the keg...}
+{100000004}{}{RotGut? You drink that shit?}
+{100000005}{}{Domestic? I got B.E.E.R buddy, do you want one or not?}
+{100000006}{}{Fuckin' dust is getting everywhere. Hey close the fuckin' door!}
+{100000007}{}{I swear if the next asshole doesn't tip. Ima' shoot somebody!}
+{100000008}{}{I got bottles, I got shots, and I got a bat behind the counter for the retards. Your not a retard are you?}
+{100000009}{}{Uh-huh, yeah that's nice buddy. You don't say...What? Of course I'm listening...}
+{100000010}{}{That's 5 caps. FIVE CAPS Tribal! F.I.V.E! }
+{100000011}{}{Shut up and order a fuckin' beer already!}
+{100000012}{}{I swear if I have to serve another drunk, I'm getting the shotgun!}
+{100000013}{}{Look the keg went dry, and it's going to be another month until the caravan shows up again.}
+{100000014}{}{Really? You don't say, buy another drink or get out!}
+{100000015}{}{What? I'm on break.}
+{100000016}{}{Be right with ya'}
+{100000017}{}{Have a sit stranger. I'll be with you in a moment.}
+{100000018}{}{When do we close? Uh, when the place get's shot up, that's when!}
+{100000019}{}{We're fresh outta' cold beer, sorry. You'll just have to drink it warm.}
+{100000020}{}{RotGut? No man, go make that shit yourself! I wouldn't drink it!}
+
+[russ]
+{100}{}{Алкоголик}
+{200}{}{Вы видите пьяницу.}
+{210}{}{Вы видите шатающегося из стороны в сторону пьяного человека в лохмотьях. Лицо его распухло, нос синющий как слива. А аромат рядом с ним такой, что свалит брамина насмерть. Он что-то бормочет про себя и иногда громко поет песни.}
+{210}{}{Вы видите алкаша. Он весьма грязен - кажется, он повалялся в луже, но не особо этим расстроен.}
+{1000}{}{I?aaaeaeiaiaua onoaiiaee}
+{1010}{}{unlck}
+{1020}{}{base}
+{1030}{}{visit}
+{2000}{}{Dialog text}
+{2010}{}{[Provide Water Bags]}
+{2020}{}{[Buy a Brahmin]}
+{2030}{}{[Slaughter a Brahmin]}
+{2040}{}{I've got a brahmin you can add to the pens. Here, take it.}
+{2050}{}{Where can I buy Water?}
+{2060}{}{What do we need to build a Water Pump?}
+{2070}{}{What do we need to breed Brahmin?}
+{2080}{}{Thanks. Goodbye.}
+{3000}{}{The Water Merchants in the Hub will sell you crates of water for caps. You'll have to carry them back here after yourself though. }
+{3010}{}{Thanks.}
+{4000}{}{We'll need 50x Metal Parts, 75x Junk, 120x Wood, and 45x Alloys. That should be enough to construct a decent enough Water Pump. }
+{4010}{}{Thanks.}
+{5000}{}{We need X to breed some Brahmin.}
+{5010}{}{Thanks.}
+{6000}{}{[Renovate this part of your Farm, and unlock the Rancher! Allows you to start using Brahmin! Unlock for 5000$, deducts the money from your Farm Treasury]}
+{6010}{}{Let's renovate!}
+{6020}{}{[Leave]}
+{7000}{}{Welcome to the Farm. Please don't shoot anybody.@@Uh... hello?@@New ranch hand?@@Just leave your resources somewhere visible, the boss will pick them up eventually.@@Sorry, there's no beds available, you'll have to sleep on the floor.@@Another mouth to feed, eh? Well you'd better pull your weight around here, that's for sure.@@Does the boss know you're here?@@Yes, hi, that's very nice. Who are you again?@@I hope those aren't weapons on you...@@Stay away from the kids! You animal!@@What are you even doing here?@@Who invited you?@@Don't expect to get a map to this place.@@Don't try anything funny around the cows!@@I know your type! Don't fuck around my cows!@@You'd best keep your genitals away from my cows, sicko!@@Yeah, whatever, don't fuck the cows.}
+{8000}{}{Fine lookin' genuine bovine you gots there. She'll surely make a good addition to the Farm. }
+{8010}{}{Yup! Or dinner. Here, take it.}
+{8020}{}{On second thought, I think I'll keep it.}
+{9000}{}{Sold! You know this cow is worth @lex price@ caps? Here, you can have a few in return.}
+{9010}{}{[Escort the brahmin into the pen]}
+{9020}{}{Hmm, I think I'll keep this one.}
+{10000}{}{Enjoy your new home!}
+{11000}{}{All done, boss.}
+

@@ -1,0 +1,56 @@
+[comment]
+
+
+[data]
+lang=engl
+
+[dialog]
+&
+1 1000 None 0 #
+2 1010 @
+2 2000 None 0 #
+3 2010 @
+3 3000 None 0 #
+4 3010 @
+4 4000 None 0 #
+5 4010 @
+5 5000 None 0 #
+6 5010 @
+6 6000 None 0 #
+7 6010 @
+7 7000 None 0 #
+8 7010 @
+8 8000 None 0 #
+9 8010 @
+9 9000 None 0 #
+10 9010 @
+10 10000 None 0 #
+11 10010 @
+11 11000 None 0 &
+
+[engl]
+{100}{}{La Grange Survivor}
+{200}{}{You see a city local.}
+{210}{}{They look scared of another Ripper attack. But it looks like they've been living here for a long time now. Apparently, it's a local. Who could live here, you wonder.}
+{1000}{}{Predialogue installations}
+{1010}{}{Answer text}
+{2000}{}{Are they gone? Are they *all* gone?!}
+{2010}{}{I'm not sure. What happened here?}
+{3000}{}{I... I don't know! Out of nowhere, we started hearing shots! The guards just started to fall down... blood... was... everywhere! *They cry*.}
+{3010}{}{Hang in there, it'll be okay. I guess.}
+{4000}{}{[They sob. The look on their face nearly defeats you]}
+{4010}{}{Where am I? What is this place?}
+{5000}{}{You-- you're in La Grange. It was some sort of mine before the bombs. It was really quiet, so... I guess people settled here.}
+{5010}{}{A mine? Is there any gold here?}
+{6000}{}{Uh... yeah, some. All underground. We've been mining here for years... sell the ore in Redding.}
+{6010}{}{I'm guessing that's what drove the interest of these...}
+{7000}{}{Rippers.}
+{7010}{}{Excuse me?}
+{8000}{}{They call themselves "Rippers". That's what they kept saying to each other while they were... killing us.}
+{8010}{}{Like from the posters?}
+{9000}{}{Yeah, I guess. I've never heard of any gang actually using that name. Look, thanks for saving me. But I need to check on my family.}
+{9010}{}{Hate to break it to you, but there's not a lot of people alive out there...}
+{10000}{}{Most of the people ran off when they could. The others... not so lucky.}
+{10010}{}{I gotta go. Good luck with your family.}
+{11000}{}{I can hear someone coming, be careful.@@They're still out there, I know it!@@All of our keys went missing. The generals have them.@@Everything is locked here, you'll need to find the keys.@@If you can fight your way to the mine, there's a ton of supplies down there.@@You really won't get far without the keys. You should find them.@@Two of the keys are in the courtyard.@@We keep some supplies in the back.@@The Northern office is locked. You need three keys to access it.@@Watch out, there's a pillbox in the warehouse!}
+

@@ -1,0 +1,72 @@
+#include "_maps.fos"
+#include "_macros.fos"
+#include "utils_h.fos"
+#include "elevators_h.fos"
+
+// Vault elevator 1-2-3 on LOCATION_q_farm_raiders5
+CPidElevator Elevator(ELEVATOR_VAULT_123);
+
+bool ElevatorsAdded = false;
+
+void map_init(Map& map, bool firstTime)
+{
+    // to add only one for all floors
+    if(!ElevatorsAdded)
+    {
+        // add elevators
+        AddElevator(Elevator);
+        ElevatorsAdded = true;
+    }
+    // parse elevators floors (only for vault levels)
+    if(map.GetProtoId() == MAP_q_farm_raiders5_1 ||
+       map.GetProtoId() == MAP_q_farm_raiders5_2 ||
+       map.GetProtoId() == MAP_q_farm_raiders5_3)
+    {
+        uint16 x = 0, y = 0;
+        // num1 only
+        if(map.GetEntireCoords(10, 0, x, y))
+            Elevator.AddFloor(map.Id, 10);
+    }
+
+    if(map.GetProtoId() == MAP_q_farm_raiders5_1)
+        map.SetEvent(MAP_EVENT_IN_CRITTER, "_CritterInMap");
+}
+
+void _CritterInMap(Map& map, Critter& cr)
+{
+    if(cr.IsPlayer())
+    {
+        if(cr.Stat[ST_LEVEL] < 12)
+        {
+            CreateTimeEvent(AFTER(REAL_SECOND(1)), "e_CritterKick", cr.Id, false);
+            return;
+        }
+
+        Location@ loc = map.GetLocation();
+        if(valid(loc) && !cr.IsKnownLoc(true,loc.Id)) 
+        {
+            cr.SetKnownLoc(true, loc.Id);
+            cr.Say(SAY_NETMSG, "You note coordinates of this location in your PipBoy.");
+        }
+    }
+}
+
+uint e_CritterKick(array<int>@ data)
+{
+    Critter@ cr = GetCritter(data[0]);
+    if(valid(cr) && cr.IsPlayer())
+    {
+        cr.Say(SAY_NETMSG, "You were too weak to help there.");
+        cr.TransitToGlobal(false);
+    }
+
+    return(0);
+}
+
+//
+// Elevator triggers
+//
+void t_Elevator(Critter& critter, Scenery& trigger, bool entered, uint8 dir)
+{
+    HandleElevator(Elevator, critter, entered);
+}

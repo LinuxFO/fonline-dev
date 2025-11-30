@@ -1,0 +1,198 @@
+[comment]
+
+
+[data]
+lang=engl
+
+[dialog]
+&
+1 1000 None 0 #
+2 1010 D _var p q_rev = 0 D _var p z_relig = 0 #
+7 1020 D _var p q_rev > 0 D _var p z_relig = 1 #
+14 1030 D _var p q_dhar > 0 D _var p z_relig = 1 #
+14 1040 D _var p q_hubo > 0 D _var p z_relig = 1 #
+14 1050 D _var p q_morm > 0 D _var p z_relig = 1 #
+14 1060 D _var p q_cris > 0 D _var p z_relig = 1 #
+14 1070 D _var p q_renu > 0 D _var p z_relig = 1 #
+14 1080 D _var p q_fota > 0 D _var p z_relig = 1 #
+14 1090 D _var p q_cotc > 0 D _var p z_relig = 1 @
+2 2000 None 0 #
+3 2010 #
+4 2020 #
+0 2030 @
+3 3000 dialog@dlg_WarFC 0 #
+0 3010 #
+0 3020 #
+0 3030 #
+0 3040 #
+0 3050 @
+4 4000 None 0 #
+6 4010 R _var p q_rev = 1 R _var p z_relig = 1 R _var p q_fota = 0 R _var p q_cotc = 0 R _var p q_cris = 0 R _var p q_dhar = 0 R _var p q_hubo = 0 R _var p q_morm = 0 R _var p q_renu = 0 #
+5 4020 @
+5 5000 None 0 @
+6 6000 None 0 #
+0 6010 @
+7 7000 dialog@dlg_WarFC 0 #
+8 7010 #
+3 7020 #
+13 7030 D _var p q_rev = 3 R _script dialog@r_AddExperience 1 1500 R _script dialog@r_AddMoney 1 750 R _var p q_rev = 4 R _var p REV + 7 R _script quest_rev@r_DeleteLoc 0  R _var p q_faithpoints + 250 #
+5 7040 R _var p q_rev = 0 R _var p q_faithpoints - 500 R _var p z_relig = 0 #
+15 7050 #
+0 7060 @
+8 8000 None 0 #
+9 8010 #
+10 8020 #
+11 8030 D _var p q_rev = 1 #
+11 8040 D _var p q_rev = 4 #
+7 8050 @
+9 9000 None 0 #
+7 9010 @
+10 10000 None 0 #
+10 10010 D _item p PID_LASER_PISTOL > 0 R _item p PID_LASER_PISTOL - 1 R _script dialog@r_AddExperience 1 50 R _script dialog@r_AddMoney 1 50 R _var p q_faithpoints + 10 #
+10 10020 D _item p PID_SMALL_ENERGY_CELL > 49 R _item p PID_SMALL_ENERGY_CELL - 50 R _script dialog@r_AddExperience 1 50 R _script dialog@r_AddMoney 1 50 R _var p q_faithpoints + 10 #
+7 10030 @
+11 11000 None 0 #
+0 11010 R _var p q_rev = 2 R _script quest_rev@r_SpawnLoc 0  #
+0 11020 @
+12 12000 None 0 @
+13 13000 None 0 #
+0 13010 D _var p MORM > 0 R _script dialog@r_AddExperience 1 100 R _script dialog@r_AddMoney 1 100 R _var p MORM - 1 R _var p q_faithpoints + 50 #
+0 13020 D _var p MORM = 0 #
+0 13030 D _var p FOTC > 0 R _var p FOTC - 1 R _script dialog@r_AddExperience 1 100 R _script dialog@r_AddMoney 1 100 #
+0 13040 D _var p CRIS > 0 R _var p CRIS - 1 R _script dialog@r_AddExperience 1 100 R _script dialog@r_AddMoney 1 100 #
+0 13050 D _var p HUBO > 0 R _var p HUBO - 1 R _script dialog@r_AddExperience 1 100 R _script dialog@r_AddMoney 1 100 #
+0 13060 D _var p DHAR > 0 R _var p DHAR - 1 R _script dialog@r_AddExperience 1 100 R _script dialog@r_AddMoney 1 100 #
+0 13070 D _var p RENU > 0 R _var p RENU - 1 R _script dialog@r_AddExperience 1 100 R _script dialog@r_AddMoney 1 100 #
+0 13080 D _var p COTC > 0 R _var p COTC - 1 R _script dialog@r_AddExperience 1 100 R _script dialog@r_AddMoney 1 100 #
+0 13090 D _var p FOTC = 0 D _var p COTC = 0 D _var p CRIS = 0 D _var p DHAR = 0 D _var p HUBO = 0 D _var p MORM = 0 D _var p RENU = 0 @
+14 14000 None 0 #
+65507 14010 #
+0 14020 @
+15 15000 dialog@dlg_WarFC 0 #
+15 15010 D _var p q_faithpoints > 419 R _var p q_faithpoints - 420 R _item p PID_MAGNETO_LASER_PISTOL + 1 #
+15 15020 D _var p q_faithpoints > 759 R _var p q_faithpoints - 760 R _item p PID_FRAG_GRENADE + 12 #
+15 15030 D _var p q_faithpoints > 799 R _var p q_faithpoints - 800 R _item p PID_CURED_LEATHER_ARMOR + 1 #
+15 15040 D _var p q_faithpoints > 819 R _var p q_faithpoints - 820 R _item p PID_SCOPED_HUNTING_RIFLE + 1 #
+15 15050 D _var p q_faithpoints > 909 R _var p q_faithpoints - 910 R _item p PID_LEATHER_ARMOR_MK_II + 1 #
+15 15060 D _var p q_faithpoints > 1209 R _var p q_faithpoints - 1210 R _item p PID_10MM_SMG + 1 #
+15 15070 D _var p q_faithpoints > 1534 R _var p q_faithpoints - 1535 R _item p PID_14MM_PISTOL + 1 #
+15 15080 D _var p q_faithpoints > 1846 R _var p q_faithpoints - 1847 R _item p PID_GRENADE_LAUNCHER + 1 #
+15 15090 D _var p q_faithpoints > 2039 R _var p q_faithpoints - 2040 R _item p PID_METAL_ARMOR + 1 #
+15 15100 D _var p q_faithpoints > 2039 R _var p q_faithpoints - 2040 R _item p PID_METAL_HELMET_MK2 + 1 #
+15 15110 D _var p q_faithpoints > 2524 R _var p q_faithpoints - 2525 R _item p PID_ASSAULT_RIFLE + 1 #
+15 15120 D _var p q_faithpoints > 3069 R _var p q_faithpoints - 3070 R _item p PID_IMPROVED_FLAMETHROWER + 1 #
+15 15130 D _var p q_faithpoints > 5989 R _var p q_faithpoints - 5990 R _item p PID_M60 + 1 #
+15 15140 D _var p q_faithpoints > 9745 R _var p q_faithpoints - 9746 R _item p PID_COMBAT_HELMET + 1 #
+15 15150 D _var p q_faithpoints > 10499 R _var p q_faithpoints - 10500 R _item p PID_10MM_AP + 100 R _item p PID_10MM_JHP + 100 R _item p PID_14MM_AP + 100 R _item p PID_223_FMJ + 100 R _item p PID_44_FMJ_MAGNUM + 100 R _item p PID_44_MAGNUM_JHP + 100 R _item p PID_5MM_AP + 100 R _item p PID_45_CALIBER_AMMO + 100 R _item p PID_5MM_JHP + 100 R _item p PID_7_62MM_AMMO + 100 R _item p PID_9MM_AMMO + 100 R _item p PID_9MM_BALL + 100 R _item p PID_MICRO_FUSION_CELL + 100 R _item p PID_SMALL_ENERGY_CELL + 100 R _item p PID_SHOTGUN_SHELLS + 100 R _item p PID_ROCKET_AP + 8 R _item p PID_FLAMETHROWER_FUEL_MK_II + 100 #
+15 15160 D _var p q_faithpoints > 12749 R _var p q_faithpoints - 12750 R _item p PID_BRAHMINSHIT + 100 R _item p PID_BARLEY + 75 R _item p PID_WATERBAG + 24 R _item p PID_MEAT + 100 #
+15 15170 D _var p q_faithpoints > 12999 R _var p q_faithpoints - 13000 R _script dialog@r_AddExperience 1 12000 #
+7 15180 &
+
+[engl]
+{100}{}{Mother Board}
+{200}{}{You see Mother Board, Leader of the Reavers.}
+{210}{}{She's the leader of the Reaver religion. She's also leading her army to war against the Mormons.}
+{1000}{}{Predialogue installations}
+{1010}{}{normal}
+{1020}{}{joined}
+{1030}{}{dhar}
+{1040}{}{hubo}
+{1050}{}{morm}
+{1060}{}{cris}
+{1070}{}{renu}
+{1080}{}{fota}
+{1090}{}{cotc}
+{2000}{}{Technology above all!@@Are you compatible software?@@Does this compute?@@We are running diagnostics. Go away.@@You don't look wired enough. Have you accepted the new patch into your mind?@@You lack upgrades.@@You are the old world. We are the new.@@I do not like your programming.@@Your windows are blurry, did you get the new upgrade? Fool. You should have waited.@@Praise the lord of biotechnology! Praise the master of the electric wave!@@We are slaves to our circuits, not to men.@@Do not delay the future. Your minds will all soon be wired into the machine.@@You cannot run from Core.@@Praise the CPU! Praise the Core! Praise the great creator!@@I am Mother Board! Of the Reavers! But Core is King! Core is the true processor!@@There shall never be another more compatible to the Core.@@Even in death! The Core lives on!@@Praise the Core. Praise the nation that has created itself out of the electrical darkness! The electric void!}
+{2010}{}{How's the war going?}
+{2020}{}{You seem troubled, what's wrong?}
+{2030}{}{Goodbye.}
+{3000}{}{The Followers of the Apocalypse have @lex pointsFOTA@ territories. The Christian Missionaries have @lex pointsCRIS@ territories. The Dharmanian Serfs have @lex pointsDHAR@ territories. The Hubologists have @lex pointsHUBO@ territories. The Mormons have @lex pointsMORM@ territories. Renewal has @lex pointsRENU@ territories. The Reavers have @lex pointsREV@ territories. While the Children of the Cathedral have @lex pointsCOTC@ territories. The numbers keep changing, but maybe you can help make a difference.}
+{3010}{}{Of course.}
+{3020}{}{We'll see.}
+{3030}{}{Probably not.}
+{3040}{}{No. War never changes.}
+{3050}{}{You damn right!}
+{4000}{}{We're at war! The Mormons think that they can get away with preaching against the wonders of technology! But we know better than to let people like that dominate the wasteland! Machines didn't destroy the world! A lack of it did! And we won't let it happen again! Are you with us? Or against us?! }
+{4010}{}{I'm with you! [Align with the Reavers]}
+{4020}{}{I don't want any part of this.}
+{5000}{}{Coward! Go back to your vault!}
+{6000}{}{That's the spirit! You've made the right choice! Listen! We need soldiers to fight on the front lines! Whenever you're ready to join a  battle let me know, I'll give you the coordinates! Every time we beat one of their patrols we take some territory. If we can maintain the most territory than we can surely win this war!}
+{6010}{}{Roger. }
+{7000}{}{Soldier! Are you reporting for duty? So far you have @lex faithpoints@ Faith.}
+{7010}{}{Orders?}
+{7020}{}{How's the war going?}
+{7030}{}{Patrol defeated, sir!}
+{7040}{}{You guys are morons! I quit!}
+{7050}{}{What have I earned from my faith?}
+{7060}{}{No, not right now. See ya.}
+{8000}{}{Your orders are to:
+
+a) Gather supplies 
+b) Fight on the front lines}
+{8010}{}{What kind of supplies do you need?}
+{8020}{}{[Deliver Supplies]}
+{8030}{}{Send me the battle coordinates.}
+{8040}{}{Send me some more battle coordinates.}
+{8050}{}{Nevermind.}
+{9000}{}{We need large supplies of Laser Pistols, and Small Energy Cells. Don't worry about everything else. Every pistol or 50x cells you provide us will help the other soldiers take territory. }
+{9010}{}{Roger.}
+{10000}{}{Laser pistols, or Energy Cells?}
+{10010}{}{1x Laser Pistol.}
+{10020}{}{50x Small Energy Cells.}
+{10030}{}{Nevermind.}
+{11000}{}{Here are the coordinates. Good luck out there. Every battle you win will count towards territory taken. [If you want to play this mission in Turn Based Mode make sure you set your default Combat Mode to it before accepting the job. To do this push enter and type "/combatmode tb"]
+}
+{11010}{}{Roger.}
+{11020}{}{On second thought, I changed my mind.}
+{12000}{}{Great work! That's one more territory for us! }
+{13000}{}{Great work! That's one more territory for us, and one less for them!}
+{13010}{}{Thanks! [Faith Bonus]}
+{13020}{}{Thanks, but they don't have any territory left. No bonus for me.}
+{13030}{}{Steal a territory from: The Followers.}
+{13040}{}{Steal a territory from: The Christians.}
+{13050}{}{Steal a territory from: The Hubologists.}
+{13060}{}{Steal a territory from: The Dharma.}
+{13070}{}{Steal a territory from: Renewal.}
+{13080}{}{Steal a territory from: The Children of the Cathedral.}
+{13090}{}{Looks like we're the winning faction. Nobody has any territory left but us.}
+{14000}{}{Saboteur! Guards! Arrest this @sex@|man!||woman!|}
+{14010}{}{I'm about to fry your circuits! [Attack!]}
+{14020}{}{We'll win this war! You'll see!}
+{15000}{}{With your @lex faithpoints@ Faith you could one day earn:
+
+Magneto Laser Pistol 420 FP
+12x Frag Grenades 760 FP
+Combat Leather Jacket 800 FP
+Scoped Hunting Rifle 820 FP
+Leather Armor MK2 910 FP
+10mm SMG 1210 FP
+14mm Pistol 1535 FP
+Grenade Rifle 1847 FP
+Metal Armor 2040 FP
+Metal Mask MK2 2040 FP
+Assault Rifle 2525 FP
+Incinerator 3070 FP
+M60 5990 FP
+Combat Helmet 9746 FP
+Ammunition Bundle 10500 FP
+Resource Bundle 12750 FP
+Field Promotion 13000 FP}
+{15010}{}{Claim 1x Magneto Laser Pistol.}
+{15020}{}{Claim 12x Frag Grenades.}
+{15030}{}{Claim 1x Combat Leather Jacket.}
+{15040}{}{Claim 1x Scoped Hunting Rifle.}
+{15050}{}{Claim 1x Leather Armor MK2.}
+{15060}{}{Claim 1x 10mm SMG.}
+{15070}{}{Claim 1x 14mm Pistol.}
+{15080}{}{Claim 1x Grenade Rifle.}
+{15090}{}{Claim 1x Metal Armor.}
+{15100}{}{Claim 1x Metal Mask MK2.}
+{15110}{}{Claim 1x Assault Rifle.}
+{15120}{}{Claim 1x Incinerator.}
+{15130}{}{Claim 1x M60.}
+{15140}{}{Claim 1x Combat Helmet.}
+{15150}{}{Claim 1x Ammunition Bundle.}
+{15160}{}{Claim 1x Resource Bundle.}
+{15170}{}{Claim 1x Field Promotion.}
+{15180}{}{I see, thanks.}
+

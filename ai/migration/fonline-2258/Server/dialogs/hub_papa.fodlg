@@ -1,0 +1,126 @@
+[comment]
+little girl wants her dad 
+
+ugh, so bleak
+
+[data]
+lang=engl russ
+
+[dialog]
+&
+1 1000 None 0 #
+10 1010 D _var p hub_papaq = 1 #
+4 1020 D _var p hub_papaq = 0 #
+10 1030 D _var p hub_papaq = 2 #
+12 1040 D _var p hub_papaq = 3 @
+4 2000 None 0 #
+3 2010 #
+6 2020 #
+8 2030 #
+9 2040 #
+0 2050 @
+3 3000 None 0 #
+5 3010 R _var p hub_papaq = 1 @
+5 4000 None 0 @
+6 5000 None 0 #
+7 5010 #
+9 5020 #
+7 5030 #
+65507 5040 @
+7 6000 None 0 @
+8 7000 None 0 #
+3 7010 @
+9 8000 None 0 @
+10 9000 None 0 #
+11 9010 D _var p hub_papaq = 2 R _var p hub_papaq = 3 R _script dialog@r_AddExperience 1 700 R _param p ST_KARMA + 1 R _param p REPUTATION_HUB + 10 R _var p q_tourist = 4 #
+0 9020 @
+11 10000 None 0 @
+12 11000 None 0 &
+
+[engl]
+{100}{}{Sad Little Girl}
+{200}{}{You see a sad little girl.}
+{210}{}{This isn't the kind of place to leave a kid alone. I bet her parents are horrible.}
+{1000}{}{Predialogue installations}
+{1010}{}{ known}
+{1020}{}{not known}
+{1030}{}{talkedtodad}
+{1040}{}{final}
+{2000}{}{[The little girl looks lost and afraid] Have you seen my papa?}
+{2010}{}{What does your papa look like, hun?}
+{2020}{}{I'm your daddy now!}
+{2030}{}{No, but I could help you find him.}
+{2040}{}{Are you out here alone, little girl?}
+{2050}{}{Nope. Don't care. See ya.}
+{3000}{}{[She bows her hand and starts kicking a rock around] I don't know... He's tall... Has a mustache... Likes to listen to girls sing at the big bird place...}
+{3010}{}{I'll find him, don't you worry. I'll be back sooner than you can say "Ice cream!"}
+{4000}{}{What's ice scream?}
+{5000}{}{[The little girl seems content with the idea] You my @sex@|papa||momma| now? Yay! [The child smiles heavily] Can we go home? I'm wely hunwey.}
+{5010}{}{Uh... I didn't see that one coming. Sorry kid, I know child abandonment is horrible and all, but I've got to go.}
+{5020}{}{Okay sure, kid. Come with me.}
+{5030}{}{I'm going to leave you here to rot! You dirty little miscreant!}
+{5040}{}{Ugh... Better just put you down! [Attack!]}
+{6000}{}{Wait! No! Pwease don't weave me again! *sobs*}
+{7000}{}{[She nods] Okay...}
+{7010}{}{What does your papa look like, hun?}
+{8000}{}{AHH!! Stranger! Stranger! Help me! Powice! Powice!}
+{9000}{}{[She smiles] Did you find my papa? }
+{9010}{}{Sure did, kiddo. He's over at the bar and should be back any minute now. Don't you worry.}
+{9020}{}{Nope, didn't bother. See ya!}
+{10000}{}{Oh, he always says that. Bye! I told Beth about you! She wants you to say hi! She has a big store in the market! Says gunnnnss! Bye vault dweller!}
+{11000}{}{My papa sure is drunk! But at weast he came back! Yay!}
+{100000001}{}{Better wash the counter again...}
+{100000002}{}{That's 5 caps buddy. Hey did you hear me? Cough em' up.}
+{100000003}{}{Better change the keg...}
+{100000004}{}{RotGut? You drink that shit?}
+{100000005}{}{Domestic? I got B.E.E.R buddy, do you want one or not?}
+{100000006}{}{Fuckin' dust is getting everywhere. Hey close the fuckin' door!}
+{100000007}{}{I swear if the next asshole doesn't tip. Ima' shoot somebody!}
+{100000008}{}{I got bottles, I got shots, and I got a bat behind the counter for the retards. Your not a retard are you?}
+{100000009}{}{Uh-huh, yeah that's nice buddy. You don't say...What? Of course I'm listening...}
+{100000010}{}{That's 5 caps. FIVE CAPS Tribal! F.I.V.E! }
+{100000011}{}{Shut up and order a fuckin' beer already!}
+{100000012}{}{I swear if I have to serve another drunk, I'm getting the shotgun!}
+{100000013}{}{Look the keg went dry, and it's going to be another month until the caravan shows up again.}
+{100000014}{}{Really? You don't say, buy another drink or get out!}
+{100000015}{}{What? I'm on break.}
+{100000016}{}{Be right with ya'}
+{100000017}{}{Have a sit stranger. I'll be with you in a moment.}
+{100000018}{}{When do we close? Uh, when the place get's shot up, that's when!}
+{100000019}{}{We're fresh outta' cold beer, sorry. You'll just have to drink it warm.}
+{100000020}{}{RotGut? No man, go make that shit yourself! I wouldn't drink it!}
+
+[russ]
+{100}{}{Алкоголик}
+{200}{}{Вы видите пьяницу.}
+{210}{}{Вы видите шатающегося из стороны в сторону пьяного человека в лохмотьях. Лицо его распухло, нос синющий как слива. А аромат рядом с ним такой, что свалит брамина насмерть. Он что-то бормочет про себя и иногда громко поет песни.}
+{210}{}{Вы видите алкаша. Он весьма грязен - кажется, он повалялся в луже, но не особо этим расстроен.}
+{1000}{}{I?aaaeaeiaiaua onoaiiaee}
+{1010}{}{Answer text}
+{1020}{}{Answer text}
+{1030}{}{final}
+{1040}{}{final}
+{2000}{}{Thank you! Thank you! }
+{2010}{}{Head to the camp}
+{2020}{}{Exit into the wasteland}
+{2030}{}{Answer 3}
+{2040}{}{Answer 4}
+{2050}{}{[Just leave]}
+{3000}{}{[She bows her hand and starts kicking a rock around] I don't know... He's tall... Has a mustache... Likes to listen to girls sing at the big bird place...}
+{3010}{}{I'll find him, don't you worry. I'll be back sooner than you can say "Ice cream!"}
+{4000}{}{What's ice scream?}
+{5000}{}{[The little girl seems content with the idea] You my @sex@|papa||momma| now? Yay! [The child smiles heavily] Can we go home? I'm wely hunwey.}
+{5010}{}{Uh... I didn't see that one coming. Sorry kid, I know child abandonment is horrible and all, but I've got to go.}
+{5020}{}{Okay sure, kid. Come with me.}
+{5030}{}{I'm going to leave you here to rot! You dirty little miscreant!}
+{5040}{}{Ugh... Better just put you down! [Attack!]}
+{6000}{}{Wait! No! Pwease don't weave me again! *sobs*}
+{7000}{}{[She nods}
+{7010}{}{What does your papa look like, hun?}
+{8000}{}{Stranger! Stranger! Help me!}
+{9000}{}{[She smiles] Did you find my papa? }
+{9010}{}{Sure did, kiddo. He's over at the bar and should be back any minute now. Don't you worry.}
+{9020}{}{Nope, didn't bother. See ya!}
+{10000}{}{Oh, he always says that. Bye!}
+{11000}{}{My papa sure is drunk! But at weast he came back! Yay!}
+

@@ -1,0 +1,78 @@
+[comment]
+
+
+[data]
+lang=engl
+
+[dialog]
+&
+1 1000 None 0 #
+5 1010 D _param p ST_CHARISMA > 99 #
+2 1020 D _var n name_mem_npc_player = 0 R _var p name_mem_npc_player = 1 #
+2 1030 D _var n name_mem_npc_player = 1 @
+2 2000 None 0 #
+4 2010 #
+6 2020 D _param p ST_PERCEPTION > 5 D _var p q_ncr_shaenin = 0 R _var p q_ncr_shaenin = 1 R _script dialog@r_AddExperience 1 300 #
+9 2030 D _var p ncr_stims = 1 D _item p PID_STIMPAK > 99 R _var p ncr_stims = 2 R _item p PID_STIMPAK - 100 R _script dialog@r_AddExperience 1 10000 R _var p q_merchant + 1 R _item p PID_223_PISTOL + 1 #
+11 2040 D _var p q_bos_initiatequest_start = 50 R _var p q_bos_initiatequest_start = 51 R _script quest_bos3@r_SpawnLoc 0  R _script dialog@r_TeleportToMap 2 256 0 #
+0 2050 @
+3 3000 None 0 #
+0 3010 @
+4 4000 None 0 #
+65506 4010 D _param p ST_INTELLECT > 3 #
+65506 4020 D _param p ST_INTELLECT < 4 #
+0 4030 D _param p ST_INTELLECT > 3 #
+0 4040 D _param p ST_INTELLECT < 4 @
+5 5000 None 0 @
+6 6000 None 0 #
+7 6010 #
+4 6020 #
+0 6030 @
+7 7000 None 0 #
+4 7010 #
+8 7020 D _var p ncr_stims = 0 R _var p ncr_stims = 1 #
+0 7030 @
+8 8000 None 0 #
+2 8010 @
+9 9000 None 0 #
+10 9010 @
+10 10000 None 0 @
+11 11000 None 0 &
+
+[engl]
+{100}{}{Seymour}
+{200}{}{You see Seymour, the traveling merchant.}
+{240}{}{He is dead, baby! He is dead!}
+{1000}{}{Predialogue installations}
+{1010}{}{ugly}
+{1020}{}{Unknown}
+{1030}{}{Familiar}
+{2000}{}{Hello, how can I help you?@@How may I help you today?}
+{2010}{}{Show me what you have for sale.@@Let's trade.@@Got anything good?@@Let's barter.}
+{2020}{}{I've heard stories about a travelling merchant, called Sha Enin. He had his trading post here before, do you know him?}
+{2030}{}{I've got those Stimpaks you wanted. Here.}
+{2040}{}{I'm looking for a scientist. Smart guy, went missing. Brotherhood is pissed off. They're ready to kill.}
+{2050}{}{Nothing today, thanks.}
+{3000}{}{No! Get your hands away from there, you stupid ape! These are my shinies! Not. For. You! Go 'way!}
+{3010}{}{Oh... Me sad now.}
+{4000}{}{Great. Here's what I have.@@Great, always looking for new things.}
+{4010}{}{Alright, let's have a look.}
+{4020}{}{Me want to see.}
+{4030}{}{Oh, nevermind. See ya.}
+{4040}{}{Me going. Bye.}
+{5000}{}{I'm sorry, but you're scaring away my customers.@@Holy crap! Beat it, freak!@@I don't trade with ghouls, beat it!@@}
+{6000}{}{Never heard that name before coming to NCR, cause you aren't the first one that's been asking. Maybe he just kept going, travelling around, you know? That's what we do, after all: We're travelling merchants! Or maybe someone killed him? Why don't you go look into it if you're so interested?}
+{6010}{}{Me? Probably not. I don't have time for that... Or do I?}
+{6020}{}{Just show me what you have for sale.}
+{6030}{}{Goodbye.}
+{7000}{}{What? I don't know. Stop asking me silly questions about your personal life.}
+{7010}{}{Just show me what you have for sale.}
+{7020}{}{Hey! You got any work? Need anything done?}
+{7030}{}{Fine. Goodbye.}
+{8000}{}{As a matter of fact... I need a hundred Stimpaks. Don't ask what for! But I'll give you one of my brand new .223  pistols in return. Deal?}
+{8010}{}{We'll see. Let's talk about business...}
+{9000}{}{Hmm, thanks! These sure do taste good. I mean! Get lost... err, wait. No... How can I help you?}
+{9010}{}{Are you eating those things?}
+{10000}{}{Of course not, that's silly! Now go away! I'm busy!}
+{11000}{}{Yeah I know who you're looking for. Follow me.}
+

@@ -1,0 +1,94 @@
+[comment]
+
+
+[data]
+lang=engl
+
+[dialog]
+&
+1 1000 None 0 #
+2 1010 D _var p q_merchant2 = 0 #
+8 1020 D _var p q_merchant2 = 1 @
+2 2000 dialog@dlg_Guild 0 #
+3 2010 #
+4 2020 #
+5 2030 #
+6 2040 #
+12 2050 #
+0 2060 @
+3 3000 None 0 #
+2 3010 @
+4 4000 None 0 #
+2 4010 @
+5 5000 None 0 #
+2 5010 @
+6 6000 None 0 #
+7 6010 D _item p PID_BOTTLE_CAPS > 9999 D _var p q_merchant2 = 0 R _item p PID_BOTTLE_CAPS - 10000 R _var p q_merchant2 = 1 R _var p GuildMembers + 1 R _script dialog@r_AddExperience 1 3500 R _param p REPUTATION_FREE_TRADERS + 50 R _var p WTTP + 5000 R _var p WTT + 5000 #
+2 6020 @
+7 7000 None 0 #
+0 7010 @
+8 8000 None 0 #
+10 8010 D _var p q_merchant > 11 R _script dialog@r_BulkOrderRewardPrints 0  R _script dialog@r_AddExperience 1 3500 R _param p REPUTATION_FREE_TRADERS + 100 R _var p GuildPrints + 1 R _var p q_merchant - 12 R _var p WTT + 50000 #
+9 8020 #
+11 8030 #
+13 8040 #
+0 8050 @
+9 9000 None 0 #
+8 9010 @
+10 10000 None 0 @
+11 11000 None 0 #
+8 11010 @
+12 12000 dialog@dlg_Guild 0 #
+2 12010 @
+13 13000 dialog@dlg_Guild 0 #
+8 13010 &
+
+[engl]
+{100}{}{The Barter's Guild}
+{200}{}{You see the leader of the Barter's Guild.}
+{210}{}{It's quite the master trader if you've ever seen one before. Perhaps they're hiring?}
+{1000}{}{Predialogue installations}
+{1010}{}{not member}
+{1020}{}{member}
+{2000}{}{Hello, fellow craftsmen and weary traveller! And welcome to the Barter's Guild. How can I help you today?}
+{2010}{}{Barter's Guild? What's that?}
+{2020}{}{What is this place? Where am I?}
+{2030}{}{Got anything to trade?}
+{2040}{}{Can I join the Barter's Guild?}
+{2050}{}{How many members do you have?}
+{2060}{}{Sorry, I've got to go.}
+{3000}{}{Why, we're a group of tradesmen, and women, who craft numerous commodities and sell them abroad, of course! Known throughout the wasteland as quality practitioners, our work goes unmatched! Most of the items you've no doubt purchased on your journey were most likely hand crafted by one of our very own members.}
+{3010}{}{Okay, sure. Thanks.}
+{4000}{}{You're in Bartertown, home of where many traders come to safely negotiate a fairer price with their fellow compatriots. Feel at home here, no one will harm you here.}
+{4010}{}{Yeah, right.}
+{5000}{}{Me? Unfortunately not. I am the mere master trader, president of this fair organization. I only do the hiring and supervising. But feel free to visit one of the many shop's belonging to one of our members. You never know who's part of the Barter's Guild.}
+{5010}{}{Okay, thanks.}
+{6000}{}{For a nominal fee of 10,000 caps, you too could become one of the many within the Barter's Guild. Benefits include free blueprints for every twelve bulk order jobs you complete across the wasteland. Some restrictions do apply however. So! What do you say? Care to join the guild? Only 10,000 caps.}
+{6010}{}{Sure! Sign me up. Here's the money.}
+{6020}{}{Maybe some other time.}
+{7000}{}{You're now an official member of the Barter's Guild! Come back later once you have some receipts to claim, and we'll get you your free blueprints.}
+{7010}{}{Awesome! Will do. Goodbye.}
+{8000}{}{Hello again, @pname@. How goes the trade? Have you been making lots of progress in perfecting the slow art of perfection? I hope so!}
+{8010}{}{I have some receipts to claim. Here you go. Could I have a blueprint, please?}
+{8020}{}{What can you offer me again? As a member?}
+{8030}{}{Where can I find some more challenging bulk order jobs?}
+{8040}{}{Could I see the record books, please?}
+{8050}{}{Slowly, but surely. Goodbye.}
+{9000}{}{Benefits include free blueprints for every twelve bulk order jobs you complete across the wasteland. Some restrictions do apply however. Small bulk order jobs won't count towards your total score.}
+{9010}{}{Sounds good, thanks.}
+{10000}{}{Yes, of course! You've earned it. I hope it's the one you wanted. Please come back later when you have more receipts to claim.}
+{11000}{}{San Francisco has quite a few jobs available if you can convince the citizens to trust you. Talk to Ban Chao, he can help you out.@@The Police Station in the Hub, and the Casino in Junktown are hiring as well. If I were interested I would go visit Junktown first.@@There's a man obsessed with hats... he's part of the guild. Working for him could benefit all of us.@@There's a certain seamstress in L.A. Go see her, I hear she's looking for some help.@@There are a few hidden around the NCR. [He smiles]@@If the bulk order job seems a little rough don't worry! The rewards will pay for themselves. Come check in with me often, you'd be surprised how many rewards you will be able to claim.}
+{11010}{}{Okay, thanks.}
+{12000}{}{I'm glad you asked! Some day you too could be on this list. 
+
+The Barter's Guild current rooster is: @lex pointsMEM@ Journeymen-Master Crafters. 
+
+We've even rewarded our members exactly: @lex pointsPRI@ times. }
+{12010}{}{We'll see, thanks.}
+{13000}{}{Of course, fellow crafter extraordinaire! 
+
+The Bartertown Barter's Guild has exactly: @lex pointsMEM@ Journeyman-Master Crafters. 
+
+We've given out exactly: @lex pointsPRI@ blueprints as a reward for all the hard work our members have done.}
+{13010}{}{Thanks, good to know.}
+

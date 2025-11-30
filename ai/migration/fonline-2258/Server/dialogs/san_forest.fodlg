@@ -1,0 +1,715 @@
+[comment]
+
+
+[data]
+lang=engl
+
+[dialog]
+&
+1 1000 None 0 #
+2 1010 D _var p san_forestquest = 0 #
+90 1020 D _var p san_forestquest = 2 #
+2 1030 D _var p san_forestquest = 1 @
+2 2000 None 0 #
+3 2010 D _param p ST_LEVEL > 20 #
+0 2020 R _var p san_forestquest = 0 @
+3 3000 None 0 #
+4 3010 R _var p san_forestquest = 1 R _var p san_forestquestkey = 0 R _var p san_forestquestsword = 0 R _var p san_forestquestaxe = 0 R _var p san_forestquesthatch = 0 #
+0 3020 R _var p san_forestquest = 0 @
+4 4000 None 0 #
+5 4010 #
+6 4020 #
+5 4030 #
+5 4040 @
+5 5000 None 0 #
+4 5010 #
+4 5020 #
+4 5030 #
+4 5040 @
+6 6000 None 0 #
+4 6010 #
+5 6020 #
+5 6030 #
+7 6040 @
+7 7000 None 0 #
+5 7010 #
+5 7020 #
+6 7030 #
+8 7040 @
+8 8000 None 0 #
+16 8010 #
+11 8020 #
+7 8030 #
+5 8040 @
+9 9000 None 0 #
+22 9010 #
+5 9020 #
+10 9030 #
+23 9040 @
+10 10000 None 0 #
+5 10010 #
+5 10020 #
+16 10030 #
+9 10040 @
+11 11000 None 0 #
+8 11010 #
+12 11020 #
+5 11030 #
+5 11040 @
+12 12000 None 0 #
+11 12010 #
+5 12020 #
+14 12030 #
+5 12040 @
+13 13000 None 0 #
+17 13010 #
+5 13020 #
+5 13030 #
+15 13040 D _var p san_forestquestsword = 0 #
+20 13050 D _var p san_forestquestsword = 1 @
+14 14000 None 0 #
+29 14010 D _var p san_forestquestkey = 1 #
+5 14020 #
+5 14030 #
+15 14040 D _var p san_forestquestsword = 0 #
+20 14050 D _var p san_forestquestsword = 1 #
+12 14060 @
+15 15000 None 0 #
+18 15010 D _var p san_forestquestsword = 0 R _var p san_forestquestsword = 1 #
+5 15020 #
+5 15030 #
+13 15040 #
+14 15050 @
+18 16000 None 0 #
+5 16010 #
+5 16020 #
+13 16030 #
+14 16040 @
+20 17000 None 0 #
+5 17010 #
+5 17020 #
+13 17030 #
+14 17040 @
+16 18000 None 0 #
+19 18010 D _var p san_forestquestsword = 0 #
+21 18020 D _var p san_forestquestsword = 1 #
+8 18030 @
+17 19000 None 0 #
+5 19010 #
+13 19020 #
+5 19030 #
+5 19040 @
+21 20000 None 0 #
+5 20010 #
+8 20020 #
+5 20030 #
+10 20040 @
+19 21000 None 0 #
+4 21010 R _var p san_forestquest = 1 R _var p san_forestquestsword = 0 R _var p san_forestquestaxe = 0 R _var p san_forestquestkey = 0 R _var p san_forestquesthatch = 0 #
+4 21020 R _var p san_forestquest = 1 R _var p san_forestquestsword = 0 R _var p san_forestquestaxe = 0 R _var p san_forestquestkey = 0 R _var p san_forestquesthatch = 0 #
+4 21030 R _var p san_forestquest = 1 R _var p san_forestquestsword = 0 R _var p san_forestquestaxe = 0 R _var p san_forestquestkey = 0 R _var p san_forestquesthatch = 0 @
+22 22000 None 0 #
+26 22010 #
+9 22020 #
+5 22030 #
+5 22040 @
+23 23000 None 0 #
+5 23010 #
+24 23020 #
+9 23030 #
+5 23040 @
+24 24000 None 0 #
+23 24010 #
+25 24020 D _var p san_forestquestkey = 0 #
+28 24030 D _var p san_forestquestkey = 1 #
+5 24040 #
+5 24050 @
+25 25000 None 0 #
+27 25010 D _var p san_forestquestkey = 0 R _var p san_forestquestkey = 1 #
+24 25020 #
+5 25030 #
+5 25040 #
+5 25050 @
+26 26000 None 0 #
+22 26010 @
+27 27000 None 0 #
+24 27010 #
+5 27020 #
+5 27030 #
+5 27040 @
+28 28000 None 0 #
+24 28010 #
+5 28020 #
+5 28030 #
+5 28040 @
+29 29000 None 0 #
+29 29010 #
+31 29020 #
+34 29030 D _var p san_forestquesthatch = 0 #
+37 29040 D _var p san_forestquesthatch = 1 #
+35 29050 #
+39 29060 @
+30 30000 None 0 #
+4 30010 R _var p san_forestquestkey = 0 R _var p san_forestquestsword = 0 R _var p san_forestquestaxe = 0 R _var p san_forestquest = 1 R _var p san_forestquesthatch = 0 #
+4 30020 R _var p san_forestquestkey = 0 R _var p san_forestquestsword = 0 R _var p san_forestquestaxe = 0 R _var p san_forestquest = 1 R _var p san_forestquesthatch = 0 #
+4 30030 R _var p san_forestquestkey = 0 R _var p san_forestquestsword = 0 R _var p san_forestquestaxe = 0 R _var p san_forestquest = 1 R _var p san_forestquesthatch = 0 @
+31 31000 None 0 #
+32 31010 D _var p san_forestquestsword = 1 #
+33 31020 D _var p san_forestquestaxe = 1 #
+29 31030 @
+32 32000 None 0 #
+33 32010 R _var p san_forestquestsword = 0 R _var p san_forestquestaxe = 1 #
+31 32020 @
+33 33000 None 0 #
+32 33010 R _var p san_forestquestsword = 1 R _var p san_forestquestaxe = 0 #
+31 33020 @
+34 34000 None 0 #
+36 34010 D _var p san_forestquestaxe = 1 R _var p san_forestquesthatch = 1 #
+29 34020 @
+35 35000 None 0 #
+4 35010 R _var p san_forestquest = 1 R _var p san_forestquestkey = 0 R _var p san_forestquestsword = 0 R _var p san_forestquestaxe = 0 R _var p san_forestquesthatch = 0 #
+4 35020 R _var p san_forestquest = 1 R _var p san_forestquestkey = 0 R _var p san_forestquestsword = 0 R _var p san_forestquestaxe = 0 R _var p san_forestquesthatch = 0 #
+4 35030 R _var p san_forestquest = 1 R _var p san_forestquestkey = 0 R _var p san_forestquestsword = 0 R _var p san_forestquestaxe = 0 R _var p san_forestquesthatch = 0 @
+36 36000 None 0 #
+38 36010 #
+37 36020 @
+37 37000 None 0 #
+38 37010 #
+29 37020 @
+39 38000 None 0 #
+29 38010 @
+38 39000 None 0 #
+40 39010 #
+41 39020 #
+42 39030 #
+43 39040 @
+40 40000 None 0 #
+38 40010 @
+41 41000 None 0 #
+38 41010 #
+51 41020 @
+42 42000 None 0 #
+45 42010 #
+38 42020 @
+43 43000 None 0 #
+38 43010 #
+44 43020 @
+44 44000 None 0 #
+4 44010 R _var p san_forestquest = 1 R _var p san_forestquestkey = 0 R _var p san_forestquestsword = 0 R _var p san_forestquestaxe = 0 R _var p san_forestquesthatch = 0 #
+4 44020 R _var p san_forestquest = 1 R _var p san_forestquestkey = 0 R _var p san_forestquestsword = 0 R _var p san_forestquestaxe = 0 R _var p san_forestquesthatch = 0 #
+4 44030 R _var p san_forestquest = 1 R _var p san_forestquestkey = 0 R _var p san_forestquestsword = 0 R _var p san_forestquestaxe = 0 R _var p san_forestquesthatch = 0 @
+45 45000 None 0 #
+46 45010 #
+49 45020 #
+42 45030 @
+46 46000 None 0 #
+47 46010 #
+45 46020 #
+48 46030 @
+47 47000 None 0 #
+4 47010 R _var p san_forestquest = 1 R _var p san_forestquestkey = 0 R _var p san_forestquestsword = 0 R _var p san_forestquestaxe = 0 R _var p san_forestquesthatch = 0 #
+4 47020 R _var p san_forestquest = 1 R _var p san_forestquestkey = 0 R _var p san_forestquestsword = 0 R _var p san_forestquestaxe = 0 R _var p san_forestquesthatch = 0 #
+4 47030 R _var p san_forestquest = 1 R _var p san_forestquestkey = 0 R _var p san_forestquestsword = 0 R _var p san_forestquestaxe = 0 R _var p san_forestquesthatch = 0 @
+48 48000 None 0 #
+46 48010 @
+49 49000 None 0 #
+50 49010 #
+45 49020 @
+50 50000 None 0 #
+49 50010 @
+51 51000 None 0 #
+41 51010 #
+53 51020 #
+52 51030 @
+52 52000 None 0 #
+51 52010 #
+54 52020 @
+53 53000 None 0 #
+62 53010 #
+51 53020 @
+54 54000 None 0 #
+52 54010 #
+55 54020 @
+55 55000 None 0 #
+54 55010 #
+56 55020 #
+61 55030 @
+56 56000 None 0 #
+57 56010 D _var p san_forestquestaxe = 1 #
+58 56020 D _var p san_forestquestsword = 1 #
+55 56030 @
+57 57000 None 0 #
+4 57010 R _var p san_forestquest = 1 R _var p san_forestquestkey = 0 R _var p san_forestquestsword = 0 R _var p san_forestquestaxe = 0 R _var p san_forestquesthatch = 0 #
+4 57020 R _var p san_forestquest = 1 R _var p san_forestquestkey = 0 R _var p san_forestquestsword = 0 R _var p san_forestquestaxe = 0 R _var p san_forestquesthatch = 0 #
+4 57030 R _var p san_forestquest = 1 R _var p san_forestquestkey = 0 R _var p san_forestquestsword = 0 R _var p san_forestquestaxe = 0 R _var p san_forestquesthatch = 0 @
+58 58000 None 0 #
+55 58010 #
+60 58020 @
+59 59000 None 0 #
+55 59010 #
+60 59020 @
+60 60000 None 0 #
+64 60010 #
+59 60020 @
+61 61000 None 0 #
+4 61010 #
+4 61020 #
+4 61030 @
+62 62000 None 0 #
+53 62010 #
+63 62020 #
+63 62030 @
+63 63000 None 0 #
+4 63010 R _var p san_forestquest = 1 R _var p san_forestquestkey = 0 R _var p san_forestquestsword = 0 R _var p san_forestquestaxe = 0 R _var p san_forestquesthatch = 0 #
+4 63020 R _var p san_forestquest = 1 R _var p san_forestquestkey = 0 R _var p san_forestquestsword = 0 R _var p san_forestquestaxe = 0 R _var p san_forestquesthatch = 0 #
+4 63030 R _var p san_forestquest = 1 R _var p san_forestquestkey = 0 R _var p san_forestquestsword = 0 R _var p san_forestquestaxe = 0 R _var p san_forestquesthatch = 0 @
+64 64000 None 0 #
+65 64010 @
+65 65000 None 0 #
+66 65010 #
+66 65020 @
+66 66000 None 0 #
+67 66010 @
+67 67000 None 0 #
+68 67010 @
+68 68000 None 0 #
+69 68010 @
+69 69000 None 0 #
+70 69010 @
+70 70000 None 0 #
+71 70010 @
+71 71000 None 0 #
+73 71010 #
+72 71020 @
+72 72000 None 0 #
+4 72010 R _var p san_forestquest = 1 R _var p san_forestquestkey = 0 R _var p san_forestquestsword = 0 R _var p san_forestquestaxe = 0 R _var p san_forestquesthatch = 0 #
+4 72020 R _var p san_forestquest = 1 R _var p san_forestquestkey = 0 R _var p san_forestquestsword = 0 R _var p san_forestquestaxe = 0 R _var p san_forestquesthatch = 0 #
+4 72030 R _var p san_forestquest = 1 R _var p san_forestquestkey = 0 R _var p san_forestquestsword = 0 R _var p san_forestquestaxe = 0 R _var p san_forestquesthatch = 0 @
+73 73000 None 0 #
+75 73010 #
+74 73020 #
+72 73030 @
+74 74000 None 0 #
+4 74010 R _var p san_forestquest = 1 R _var p san_forestquestkey = 0 R _var p san_forestquestsword = 0 R _var p san_forestquestaxe = 0 R _var p san_forestquesthatch = 0 #
+4 74020 R _var p san_forestquest = 1 R _var p san_forestquestkey = 0 R _var p san_forestquestsword = 0 R _var p san_forestquestaxe = 0 R _var p san_forestquesthatch = 0 #
+4 74030 R _var p san_forestquest = 1 R _var p san_forestquestkey = 0 R _var p san_forestquestsword = 0 R _var p san_forestquestaxe = 0 R _var p san_forestquesthatch = 0 @
+75 75000 None 0 #
+76 75010 #
+73 75020 @
+76 76000 None 0 #
+77 76010 #
+78 76020 #
+77 76030 #
+77 76040 @
+77 77000 None 0 #
+4 77010 R _var p san_forestquest = 1 R _var p san_forestquestkey = 0 R _var p san_forestquestsword = 0 R _var p san_forestquestaxe = 0 R _var p san_forestquesthatch = 0 #
+4 77020 R _var p san_forestquest = 1 R _var p san_forestquestkey = 0 R _var p san_forestquestsword = 0 R _var p san_forestquestaxe = 0 R _var p san_forestquesthatch = 0 #
+4 77030 R _var p san_forestquest = 1 R _var p san_forestquestkey = 0 R _var p san_forestquestsword = 0 R _var p san_forestquestaxe = 0 R _var p san_forestquesthatch = 0 @
+78 78000 None 0 #
+79 78010 #
+77 78020 #
+80 78030 #
+77 78040 @
+79 79000 None 0 #
+77 79010 #
+78 79020 #
+77 79030 #
+77 79040 @
+80 80000 None 0 #
+81 80010 #
+77 80020 #
+77 80030 #
+78 80040 @
+81 81000 None 0 #
+82 81010 #
+77 81020 #
+77 81030 #
+77 81040 @
+82 82000 None 0 #
+77 82010 #
+77 82020 #
+77 82030 #
+83 82040 @
+83 83000 None 0 #
+84 83010 @
+84 84000 None 0 #
+85 84010 @
+85 85000 None 0 #
+86 85010 @
+86 86000 None 0 #
+87 86010 @
+87 87000 None 0 #
+88 87010 @
+88 88000 None 0 #
+89 88010 @
+89 89000 None 0 #
+0 89010 R _var p san_forestquest = 2 R _script dialog@r_AddExperience 1 20000 R _script dialog@r_BulkOrderRewardHub 0  R _script dialog@r_BulkOrderRewardJunk 0  R _script dialog@r_BulkOrderRewardLow 0  R _script dialog@r_BulkOrderRewardFoundry 0  R _script dialog@r_DogsQuestReward 0  @
+90 90000 None 0 #
+0 90010 &
+
+[engl]
+{100}{}{Forest}
+{200}{}{Forest Adventures}
+{210}{}{A text based adventure game, can you escape the forest?}
+{1000}{}{Predialogue installations}
+{1010}{}{Intro}
+{1020}{}{comp}
+{1030}{}{dumbfuk}
+{2000}{}{Welcome to DarkWeek's Forest Adventure: A text based adventure game, can you escape the forest? Once you enter,  you cannot leave! Will you accept the challenge? [MUST BE LEVEL 21+]}
+{2010}{}{Yes}
+{2020}{}{No}
+{3000}{}{:: Warning :: Once started you will not be able to exit untill completion. :: Warning ::}
+{3010}{}{[Press Start Button] Here we go!}
+{3020}{}{[Walk away.]}
+{4000}{}{You are in a forest.}
+{4010}{}{Type: "Go North"}
+{4020}{}{Type: "Go South"}
+{4030}{}{Type: "Go East"}
+{4040}{}{Type: "Go West"}
+{5000}{}{You are still in a forest.}
+{5010}{}{Type: "Go North"}
+{5020}{}{Type: "Go South"}
+{5030}{}{Type: "Go East"}
+{5040}{}{Type: "Go West"}
+{6000}{}{You are in a different part of the forest.}
+{6010}{}{Type: "Go North"}
+{6020}{}{Type: "Go South"}
+{6030}{}{Type: "Go East"}
+{6040}{}{Type: "Go West"}
+{7000}{}{Yet again, you are in a forest.}
+{7010}{}{Type: "Go North"}
+{7020}{}{Type: "Go South"}
+{7030}{}{Type: "Go East"}
+{7040}{}{Type: "Go West"}
+{8000}{}{Yet again, you are still in a forest.}
+{8010}{}{Type: "Go North"}
+{8020}{}{Type: "Go South"}
+{8030}{}{Type: "Go East"}
+{8040}{}{Type: "Go West"}
+{9000}{}{Yet again, you are still in a different part of the forest.}
+{9010}{}{Type: "Go North" }
+{9020}{}{Type: "Go South" }
+{9030}{}{Type: "Go East" }
+{9040}{}{Type: "Go West" }
+{10000}{}{You are still in a different part of the forest.}
+{10010}{}{Type: "Go North" }
+{10020}{}{Type: "Go South" }
+{10030}{}{Type: "Go East" }
+{10040}{}{Type: "Go West" }
+{11000}{}{You are in a new part of the forest.}
+{11010}{}{Type: "Go North"}
+{11020}{}{Type: "Go South"}
+{11030}{}{Type: "Go East"}
+{11040}{}{Type: "Go West"}
+{12000}{}{You are still in a new part of the forest.}
+{12010}{}{Type: "Go North"}
+{12020}{}{Type: "Go South"}
+{12030}{}{Type: "Go East"}
+{12040}{}{Type: "Go West"}
+{13000}{}{Yet again, you are in a new part of the forest.}
+{13010}{}{Type: "Go North"}
+{13020}{}{Type: "Go South"}
+{13030}{}{Type: "Go East"}
+{13040}{}{Type: "Go West"}
+{13050}{}{Type: "Go West"}
+{14000}{}{You are in a forest, you see a cabin.}
+{14010}{}{Type: "Use Key on Cabin Door"}
+{14020}{}{Type: "Go North"}
+{14030}{}{Type: "Go South"}
+{14040}{}{Type: "Go East"}
+{14050}{}{Type: "Go East" }
+{14060}{}{Type: "Go West"}
+{15000}{}{You are in a forest, you see a sword.}
+{15010}{}{Type: "Pick Up Sword"}
+{15020}{}{Type: "Go North"}
+{15030}{}{Type: "Go South"}
+{15040}{}{Type: "Go East"}
+{15050}{}{Type: "Go West"}
+{16000}{}{You are in a forest, you now have a sword!}
+{16010}{}{Type: "Go North"}
+{16020}{}{Type: "Go South"}
+{16030}{}{Type: "Go East"}
+{16040}{}{Type: "Go West"}
+{17000}{}{You are in a forest, you can still see where the sword was.}
+{17010}{}{Type: "Go North"}
+{17020}{}{Type: "Go South"}
+{17030}{}{Type: "Go East"}
+{17040}{}{Type: "Go West"}
+{18000}{}{You are in a forest, you see a Troll.}
+{18010}{}{Type: "Attack Troll"}
+{18020}{}{Type: "Attack Troll with Sword"}
+{18030}{}{Type: "Run Away"}
+{19000}{}{You are in a forest, you see... A Red Flower.}
+{19010}{}{Type: "Go North" }
+{19020}{}{Type: "Go South" }
+{19030}{}{Type: "Go East" }
+{19040}{}{Type: "Go West" }
+{20000}{}{The Troll charges towards you and attacks. Being the nimble ribbon you are, you skillfully evade the attack, and lop off the creatures head. }
+{20010}{}{Type: "Go North" }
+{20020}{}{Type: "Go South" }
+{20030}{}{Type: "Go East" }
+{20040}{}{Type: "Go West" }
+{21000}{}{You have died! But all is not lost, hero! With the magic of text based adventure games you will be revived!}
+{21010}{}{Gee great...}
+{21020}{}{Oh God! Not again...}
+{21030}{}{YAY!!!!}
+{22000}{}{You are in a forest, you see a Waterfall.}
+{22010}{}{Type: "Go North"}
+{22020}{}{Type: "Go South"}
+{22030}{}{Type: "Go East"}
+{22040}{}{Type: "Go West"}
+{23000}{}{You come to a clearing, you think you might have finally found the way out... Alas no! You enter the clearing only to be surrounded by forest.}
+{23010}{}{Type: "Go North"}
+{23020}{}{Type: "Go South"}
+{23030}{}{Type: "Go East"}
+{23040}{}{Type: "Go West"}
+{24000}{}{You are in a forest, you seem to be making progress.}
+{24010}{}{Type: "Go North"}
+{24020}{}{Type: "Go South"}
+{24030}{}{Type: "Go South"}
+{24040}{}{Type: "Go East"}
+{24050}{}{Type: "Go West"}
+{25000}{}{You are in a forest, you see a key. Cool!}
+{25010}{}{Type: "Pick up Key"}
+{25020}{}{Type: "Go North"}
+{25030}{}{Type: "Go South"}
+{25040}{}{Type: "Go East"}
+{25050}{}{Type: "Go West"}
+{26000}{}{You are in a forest, you come across something so exceptionally interesting that you decide to leave it alone and go the other way.}
+{26010}{}{Type: "Go South"}
+{27000}{}{You are in a forest, you now have a key.}
+{27010}{}{Type: "Go North"}
+{27020}{}{Type: "Go South"}
+{27030}{}{Type: "Go East"}
+{27040}{}{Type: "Go West"}
+{28000}{}{You are in a forest, you can still see where the key was.}
+{28010}{}{Type: "Go North"}
+{28020}{}{Type: "Go South"}
+{28030}{}{Type: "Go East"}
+{28040}{}{Type: "Go West"}
+{29000}{}{You are in a cabin. Inside you see three rooms, a kitchen, and a bathroom.}
+{29010}{}{Type: "Search First Room"}
+{29020}{}{Type: "Search Second Room"}
+{29030}{}{Type: "Search Third Room"}
+{29040}{}{Type: "Search Third Room"}
+{29050}{}{Type: "Search Kitchen"}
+{29060}{}{Type: "Search Bathroom"}
+{30000}{}{You open the door and are suddenly mauled by a bear that had been trapped inside, you are dead! But Alas Hero... All is not lost, through the magic of text based adventure games you will be revived to begin your quest a new!}
+{30010}{}{Gee great...}
+{30020}{}{Oh God! Not again!}
+{30030}{}{YAY!!!}
+{31000}{}{You enter the second room, it is completely empty. However, you notice that there is a closet.}
+{31010}{}{Type: "Search Closet"}
+{31020}{}{Type: "Search Closet"}
+{31030}{}{Type: "Leave Room"}
+{32000}{}{Inside the closet you find a Axe. You can only carry one item.}
+{32010}{}{Type: "Take Axe"}
+{32020}{}{Type: "Go back to Room"}
+{33000}{}{Inside the closet you find a Sword. You can only carry one item.}
+{33010}{}{Type: "Take Sword"}
+{33020}{}{Type: "Go back to Room"}
+{34000}{}{You enter the third room and see what appears to be a wooden hatch built into the floor. It is boarded up and locked.}
+{34010}{}{Type: "Use Axe on Hatch"}
+{34020}{}{Type: "Leave Room"}
+{35000}{}{As you enter the kitchen the floor beneath your feet gives out, you fall to your death! All is not lost Hero, alas with the power of text based adventure games, you shall be revived to begin your quest a new! }
+{35010}{}{Gee great...}
+{35020}{}{Oh God! Not again!}
+{35030}{}{YAY!!!}
+{36000}{}{You break open the wooden hatch using the axe! Inside you see a staircase leading towards an unlit area.}
+{36010}{}{Type: "Enter Hatch"}
+{36020}{}{Type: "Go back to Room"}
+{37000}{}{You enter the third room and see an open wooden hatch leading towards an unknown area.}
+{37010}{}{Type: "Enter Hatch"}
+{37020}{}{Type: "Leave Room"}
+{38000}{}{Immediately upon entering the bathroom, the smell of death surrounds you. Inside the bathtub you see what you can only imagine are rotting and decaying human remains. This will surely replace the white whale in your nightmares... }
+{38010}{}{Type: "Leave Bathroom"}
+{39000}{}{You are a in a dungeon. It is dark, damp and smells bad. And to top it all off you're stuck down here.}
+{39010}{}{Type: "Go North"}
+{39020}{}{Type: "Go South"}
+{39030}{}{Type: "Go East"}
+{39040}{}{Type: "Go West"}
+{40000}{}{You are in a dungeon, you have reached a dead end.}
+{40010}{}{Type: "Go South"}
+{41000}{}{You are in a dungeon, the smell is getting worst.}
+{41010}{}{Type: "Go North"}
+{41020}{}{Type: "Go South"}
+{42000}{}{You are in a dungeon, you see light in the distance.}
+{42010}{}{Type: "Go East"}
+{42020}{}{Type: "Go West"}
+{43000}{}{You are in a dungeon, the dampness is fading.}
+{43010}{}{Type: "Go East"}
+{43020}{}{Type: "Go West"}
+{44000}{}{As you continue to make your way West you hear a click beneath your foot... You have triggered a pressure switch. You are instantly engulfed in flames! You have died, but do not fret, Hero, all is not lost. Through the power of text based adventure games you shall be revived to begin your quest a new!}
+{44010}{}{Gee great...}
+{44020}{}{Oh god not again!}
+{44030}{}{YAY!!!}
+{45000}{}{You are in a dungeon, you see what appears to be a dimly lit room  to the East. To the North lies darkness.}
+{45010}{}{Type: "Go North"}
+{45020}{}{Type: "Go East"}
+{45030}{}{Type: "Go West"}
+{46000}{}{You are in a dungeon, darkness lies to both the North and the East.}
+{46010}{}{Type: "Go North"}
+{46020}{}{Type: "Go South"}
+{46030}{}{Type: "Go East"}
+{47000}{}{While walking in the dark you fall into a pit and are impaled on the spikes below. You are dead. Do not give up faith Hero! Through the power of text based adeventure games you will be revived to begin your quest a new!}
+{47010}{}{Gee great...}
+{47020}{}{Oh god not again...}
+{47030}{}{YAY!!!}
+{48000}{}{You are in a dungeon, you have reached yet another dead end.}
+{48010}{}{Type: "Go West"}
+{49000}{}{You are in what appears to be a prison wing of the dungeon, it appears to continue South.}
+{49010}{}{Type: "Go South"}
+{49020}{}{Type: "Go West"}
+{50000}{}{You are in what appears to be a the southern prison wing of the dungeon. You find nothing.}
+{50010}{}{Type: "Go North"}
+{51000}{}{You are in a dungeon, it is warm and dry, you hear noise coming from both the East and West.}
+{51010}{}{Type: "Go North"}
+{51020}{}{Type: "Go East"}
+{51030}{}{Type: "Go West"}
+{52000}{}{You are in a dungeon, it is getting increasingly warmer.}
+{52010}{}{Type: "Go East"}
+{52020}{}{Type: "Go West"}
+{53000}{}{You are in a dungeon, it is getting increasingly dryer.}
+{53010}{}{Type: "Go South"}
+{53020}{}{Type: "Go West"}
+{54000}{}{You are in a dungeon, the heat is almost unbearable.}
+{54010}{}{Type: "Go East"}
+{54020}{}{Type: "Go South"}
+{55000}{}{You are in a dungeon, you are drenched with sweat, you cannot tell if the heat is radiating from the South or the West.}
+{55010}{}{Type: "Go North"}
+{55020}{}{Type: "Go South"}
+{55030}{}{Type: "Go West"}
+{56000}{}{Before you stands a Minotaur, it's too late to hide, he has already spotted you.}
+{56010}{}{Type: "Attack with Axe"}
+{56020}{}{Type: "Attack with Sword"}
+{56030}{}{Type: "Run Away"}
+{57000}{}{The minotaur, with great grace and skill dodges your clumsy attempt at an attack. In return he slams his club onto the top of your head, your skull instantly explodes sending pieces of bone and brain matter everywhere... You are dead. Hero, the gods they smile upon you today! Through the power of text based adventure games, you and you alone shall be revived to begin your quest a new!}
+{57010}{}{Gee great.}
+{57020}{}{Oh god not again...}
+{57030}{}{YAY!!!}
+{58000}{}{The minotaur, attempts to evade your attack, however, with amazing skill and grace you thrust your blade into the monsters chest. You stare the minotaur in the eyes and say "hasta la vista baby" as the creature dies. }
+{58010}{}{Type: "Go North"}
+{58020}{}{Type: "Go South"}
+{59000}{}{You are in the Minotaur's lair, it's warm. A corpse lies on the dungeon floor.}
+{59010}{}{Type: "Go North"}
+{59020}{}{Type: "Go South"}
+{60000}{}{You have reached the exit to the dungeon. The sunlight is so bright you cannot tell if this is truly the way to freedom, or yet another chapter in this sick sadistic game!}
+{60010}{}{Type: "Exit Dungeon"}
+{60020}{}{Type: "Go North"}
+{61000}{}{You continue walking down the hallway, sweat dripping down your face, blurring your vision, you hear a click beneath your feet, you have triggered a pressure switch. Thousands of small metal balls shoot out from all directions, your body is bombarded for what seems like an eternity before you finally give in to the pain and go towards to light. Hero! Through the power of text based adventure games you shall be revived to begin your quest a new!}
+{61010}{}{Gee great.}
+{61020}{}{Oh god not again...}
+{61030}{}{YAY!!!}
+{62000}{}{You are in a strange section of the dungeon. You see an altar, lit candles and burning incense. There is no sign of anyone having been here for quite some time, which is strange since the candles and incense look new.}
+{62010}{}{Type: "Go North"}
+{62020}{}{Type: "Go South"}
+{62030}{}{Type: "Go East"}
+{63000}{}{You are struck in the back on the head with a blunt object and black out. When you come to, you are strapped to the alter surrounded by many unknown people wearing robes, they are chanting in an unknown dialect. A stange man wearing an unsual head piece approaches, he looks you in the eyes and smiles before removing your heart with his bare hands. You have died. But do not be heartbroken Hero! Through the power of text based adventure games you shall be revived to begin your quest a new!}
+{63010}{}{Gee great...}
+{63020}{}{Oh god not again.}
+{63030}{}{YAY!!!}
+{64000}{}{You find yourself in yet another forest.}
+{64010}{}{Type: "Go South"}
+{65000}{}{You keep walking down the path of this new forest.}
+{65010}{}{Type: "Go East"}
+{65020}{}{Type: "Go West"}
+{66000}{}{You continue walking through the forest. As you progress deeper, and deeper, you can feel the trees around you moving, shifting as if they were alive. You quickly turn around, Oh no! The way you came is no longer there, damn. You can only go forward and hope for the best.}
+{66010}{}{Type: "Go Forward"}
+{67000}{}{This forest, will it ever end? Maybe, just maybe if you keep going forward! The trees seem to be watching you.}
+{67010}{}{Type: "Go Forward"}
+{68000}{}{You begin to lose faith... This forest is starting to get the best of you! It has been hours, without any signs of progress! Are you almost at the end? Or will one wrong move send you right back... Into the forest.}
+{68010}{}{Type: "Go Forward"}
+{69000}{}{You are in a forest}
+{69010}{}{Type: "Go Forward"}
+{70000}{}{You are in a forest that appears to have no end in sight, you decide to rest for a moment, the forest seems to be shifting again, in the distance you can see what appears to be... a beach?}
+{70010}{}{Type: "Go to the Beach"}
+{71000}{}{You are standing on a sandy beach, you have finally made it out of the forest! You can feel the warm breeze and hear the sounds of small waves crashing on the shore. You see a dock not to far off in the distance.}
+{71010}{}{Type: "Go to the dock"}
+{71020}{}{Type: "Go for a Swim"}
+{72000}{}{You decide to go for a swim, you don't make it very far before a strong undertow pulls you under. You are unable to fight the current and are pulled to the ocean floor where you drown. Through the power of text based adventure games, Lakitu has come down and fished your body out of the ocean to begin your quest a new!}
+{72010}{}{Gee great...}
+{72020}{}{Oh god not again.}
+{72030}{}{YAY!!!}
+{73000}{}{You are standing on a wooden dock, there is a small boat attached at the end.}
+{73010}{}{Type: "Get in the boat"}
+{73020}{}{Type: "Untie Boat from Dock"}
+{73030}{}{Type: "Jump off dock and go for a swim"}
+{74000}{}{You decided to untie the boat from the dock, the moment it is released the strong current pulls the boat out to sea taking you with it. You are unable to fight the current and are pulled to the ocean floor where you drown. But fear not hero! Through the power of text based adventure games Neptune, god of the sea has granted you another chance to begin your quest anew!}
+{74010}{}{Gee great...}
+{74020}{}{Oh god not again.}
+{74030}{}{YAY!!!}
+{75000}{}{You are now in the boat, there is a strong current, you have a feeling the moment the boat is untied you are in for one hell of a ride.}
+{75010}{}{Type: "Untie Boat from dock"}
+{75020}{}{Type: "Get out of the Boat"}
+{76000}{}{The moment the boat is untied from the dock the strong current pulls the boat out to sea. You look around the boat and find a paddle. Looking around you can see an Island to the North, but the rough waters make it unreachable from that direction, you'll have to find another way. Calm waters lie to the south.}
+{76010}{}{Type: "Go North"}
+{76020}{}{Type: "Go South"}
+{76030}{}{Type: "Go East"}
+{76040}{}{Type: "Go West"}
+{77000}{}{You paddle into rough waters, the waves violently crash into the boat sending you overboard.  You are unable to fight the current and are pulled to the ocean floor where you drown. But fear not hero! Through the power of text based adventure games Neptune, god of the sea has granted you another chance to begin your quest anew!
+}
+{77010}{}{Gee great...}
+{77020}{}{Oh god not again.}
+{77030}{}{YAY!!!}
+{78000}{}{You have a reached a calmer part of the ocean, calm waters are all around you, waves lie to the South and to the West. 
+}
+{78010}{}{Type: "Go North"}
+{78020}{}{Type: "Go South"}
+{78030}{}{Type: "Go East"}
+{78040}{}{Type: "Go West"}
+{79000}{}{ You can see an Island to the North, but the rough waters make it unreachable from that direction, you'll have to find another way. Calm waters lie to the south.
+
+}
+{79010}{}{Type: "Go North"}
+{79020}{}{Type: "Go South"}
+{79030}{}{Type: "Go East"}
+{79040}{}{Type: "Go West"}
+{80000}{}{You follow the calm water East, it seems to keep going North. Waves lie to the South and to the East.
+
+}
+{80010}{}{Type: "Go North"}
+{80020}{}{Type: "Go South"}
+{80030}{}{Type: "Go East"}
+{80040}{}{Type: "Go West"}
+{81000}{}{The waves bring you to a stop, Do you continue North? Or do you try your luck going in a different direction?
+
+}
+{81010}{}{Type: "Go North"}
+{81020}{}{Type: "Go South"}
+{81030}{}{Type: "Go East"}
+{81040}{}{Type: "Go West"}
+{82000}{}{You have reached calm waters, you see an island to the West.
+
+}
+{82010}{}{Type: "Go North"}
+{82020}{}{Type: "Go South"}
+{82030}{}{Type: "Go East"}
+{82040}{}{Type: "Go West"}
+{83000}{}{You paddle your boat onto the shore. You get out of the boat and look around, You see a house.
+
+}
+{83010}{}{Type: "Go to the house"}
+{84000}{}{You enter the house. Upon entering you say...
+
+}
+{84010}{}{Type: "Honey I'm home"}
+{85000}{}{Your wife greets you with a smile and says "How was your day? I hope your daily commute wasn't too bad."
+
+}
+{85010}{}{Type: "Oh you know, the usual, kill the Troll, slay the Minotaur and so on"}
+{86000}{}{Your wife laughs and says "Oh dear you're such a comedian, by the way, did you remember to pick up the Red Flower on your way home?"
+
+}
+{86010}{}{Type: "Ummmm I forgot..."}
+{87000}{}{Trying not to laugh, your wife says "Looks like you're going to have to back out and get it"
+}
+{87010}{}{Type: "What? Are you serious?"}
+{88000}{}{Your wife, stops and thinks for a moment and says "Well, I guess it can wait till tomorrow"
+}
+{88010}{}{Type: "So? Quest Complete?"}
+{89000}{}{Fireworks, Party Poppers, Confetti and loud Victory music riddle the area! You, my friend, have completed the impossible! You have succeeded where everyone else had failed! You have completed DarkWeek's Forest Adventure! You Are Winner!!!
+}
+{89010}{}{:: Quest Completed :: [A small prize falls out of the machine]}
+{90000}{}{Congraturations! You are Winner! @pname@ has reached a score of: "2 out of 3"! Highscores: 1. DarkWeek (3)  2. Corosive (3) 3. Kilgore (3) 4. DocAN (3) 5. Wipe (3) 6. Uruk (3) 7. Mojuk (3) 8. Cubik2k (3) 9. BONERPARTY89 (3) 10, The Chosen One (3). Prease Pray Again!}
+{90010}{}{[Run! Run far away!]}
+

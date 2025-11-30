@@ -1,0 +1,131 @@
+[comment]
+Random towny in Junktown, wants a carton of smokes. 
+Gives you XP + Caps for your cigs.
+Good for players who don't smoke and find the item useless.
+
+24 Cigs = 1200 Caps + 500 XP
+
+One time only. 
+
+[data]
+lang=engl russ
+
+[dialog]
+&
+1 1000 None 0 #
+5 1010 D _var p name_mem_player_npc = 1 #
+7 1020 D _var p name_mem_player_npc = 0 D _param p ST_INTELLECT } 3 #
+3 1030 D _param p ST_INTELLECT < 3 D _var p name_mem_player_npc = 0 @
+3 2000 None 0 #
+5 2010 D _item p PID_CIGARETTES > 23 R _var p name_mem_player_npc = 1 R _item p PID_CIGARETTES - 24 R _script dialog@r_AddMoney 1 1200 R _script dialog@r_AddExperience 1 1500 #
+6 2020 #
+0 2030 @
+2 3000 None 0 #
+5 3010 D _item p PID_CIGARETTES > 23 R _var p name_mem_player_npc = 1 R _item p PID_CIGARETTES - 24 R _script dialog@r_AddMoney 1 1200 R _param p ST_KARMA + 1 R _script dialog@r_AddExperience 1 1500 #
+6 3020 #
+0 3030 #
+0 3040 @
+5 4000 None 0 @
+6 5000 None 0 @
+7 6000 None 0 #
+8 6010 #
+8 6020 #
+8 6030 #
+8 6040 D _param p ST_PERCEPTION > 5 #
+8 6050 #
+0 6060 @
+8 7000 None 0 #
+2 7010 #
+2 7020 #
+2 7030 #
+2 7040 #
+0 7050 &
+
+[engl]
+{100}{}{Hackler}
+{200}{}{You see a heavy smoker.}
+{210}{}{He's chain smoking like it's going out of style. Some of the fingers on his right hand are stained yellow. He's also got a pretty mean cough. }
+{1000}{}{Predialogue installations}
+{1010}{}{known}
+{1020}{}{notknown}
+{1030}{}{dumb}
+{2000}{}{*Wheeze* You got smokes? *Cough!* *Cough!*... 1200 caps! Twelve...*Wheeze*... Hundred... *Wheeze* Caps... I need a carton of 24! *Wheeze* I'll buy them all! *Cough! *Cough!*}
+{2010}{}{You want smelly sticks? Okay, give me bag of moneys.}
+{2020}{}{Me smoke only when Me on fire.}
+{2030}{}{[Leave the smoke filled room]}
+{3000}{}{*Wheeze* You got smokes? *Cough!* *Cough!*... 1200 caps! Twelve...*Wheeze*... Hundred... *Wheeze* Caps... I need a carton of 24! *Wheeze* I'll buy them all! *Cough! *Cough!*}
+{3010}{}{Here, it wasn't easy, but damn worth it. Show me the money!}
+{3020}{}{I'm not contributing to your filthy habit! }
+{3030}{}{Damn, wish I had some smokes!}
+{3040}{}{[Leave the smoke filled room]}
+{4000}{}{@@*Cough!* *Cough!* Thanks, stranger!@@*Wheeze* Thanks, stranger!@@Oh God! Is that blood?!@@}
+{5000}{}{Damnit! I need those cigarettes!}
+{6000}{}{*Cough!* *Cough!* Ahem-- Who the hell?! *Wheeze* *Cough!* }
+{6010}{}{Whoa! Where's the fire?!}
+{6020}{}{Phewy! It sure is smokey in here! Where do you get all your cigarettes?}
+{6030}{}{You fucking stink! How the hell can you afford to smoke all these cigarettes?!}
+{6040}{}{Judging by the quantity of cigarette butts on the floor over there, you must be running out of smokes, aren't you?}
+{6050}{}{You call this smoke?! I once burnt down an entire forest just to inhale it's tears!}
+{6060}{}{[Leave the smoke filled room]}
+{7000}{}{*Wheeze* Need...More...Smokes...*Cough!* *Cough!*... 1200 caps! Twelve...*Wheeze*... Hundred... *Wheeze* Caps... I need a carton of 24! *Wheeze* I'll buy them all! *Cough! *Cough!*}
+{7010}{}{Twelve hundred caps?! For smokes?! What a deal!}
+{7020}{}{I highly doubt you could afford that, Mr. Coughs. }
+{7030}{}{Maybe you should quit?}
+{7040}{}{Whatever helps you die, and make me a quick buck.}
+{7050}{}{[Leave the smoke filled room]}
+{100000001}{}{Better wash the counter again...}
+{100000002}{}{That's 5 caps buddy. Hey did you hear me? Cough em' up.}
+{100000003}{}{Better change the keg...}
+{100000004}{}{RotGut? You drink that shit?}
+{100000005}{}{Domestic? I got B.E.E.R buddy, do you want one or not?}
+{100000006}{}{Fuckin' dust is getting everywhere. Hey close the fuckin' door!}
+{100000007}{}{I swear if the next asshole doesn't tip. Ima' shoot somebody!}
+{100000008}{}{I got bottles, I got shots, and I got a bat behind the counter for the retards. Your not a retard are you?}
+{100000009}{}{Uh-huh, yeah that's nice buddy. You don't say...What? Of course I'm listening...}
+{100000010}{}{That's 5 caps. FIVE CAPS Tribal! F.I.V.E! }
+{100000011}{}{Shut up and order a fuckin' beer already!}
+{100000012}{}{I swear if I have to serve another drunk, I'm getting the shotgun!}
+{100000013}{}{Look the keg went dry, and it's going to be another month until the caravan shows up again.}
+{100000014}{}{Really? You don't say, buy another drink or get out!}
+{100000015}{}{What? I'm on break.}
+{100000016}{}{Be right with ya'}
+{100000017}{}{Have a sit stranger. I'll be with you in a moment.}
+{100000018}{}{When do we close? Uh, when the place get's shot up, that's when!}
+{100000019}{}{We're fresh outta' cold beer, sorry. You'll just have to drink it warm.}
+{100000020}{}{RotGut? No man, go make that shit yourself! I wouldn't drink it!}
+
+[russ]
+{100}{}{Алкоголик}
+{200}{}{Вы видите пьяницу.}
+{210}{}{Вы видите шатающегося из стороны в сторону пьяного человека в лохмотьях. Лицо его распухло, нос синющий как слива. А аромат рядом с ним такой, что свалит брамина насмерть. Он что-то бормочет про себя и иногда громко поет песни.}
+{210}{}{Вы видите алкаша. Он весьма грязен - кажется, он повалялся в луже, но не особо этим расстроен.}
+{1000}{}{I?aaaeaeiaiaua onoaiiaee}
+{1010}{}{Answer text}
+{1020}{}{notknown}
+{1030}{}{dumb}
+{2000}{}{Welcome to... Junktown...Stranger? Are you okay? You look pretty bad... We've got a doctor that can help you.}
+{2010}{}{Me think that is okay, enjoy the boobies.}
+{2020}{}{Mine! My boobies!}
+{2030}{}{[Leave the smoke filled room]}
+{3000}{}{(The man releases a pathetic *Sigh*, when suddenly his eyes light up) Holy crap! A Cats Paw magazine! Can... Can I have it?! Please! I can't pay you, but I'll be ever so grateful! Please! I... I just need something to hold onto! Please!}
+{3010}{}{I can clearly see that this isn't the book that you deserve, but it's the one that you needed. Here ya' go, enjoy!  }
+{3020}{}{I'd rather keep it, thank you. Looks like you'll just have to use your imagination, sorry. }
+{3030}{}{Fuck off, it's my porn!}
+{3040}{}{[Leave the smoke filled room]}
+{4000}{}{@@I'm so lonely!@@Oh, God!@@*Sob*@@*Wimper*@@*Cries*@@I wish I had a Cats Paw magazine!@@}
+{5000}{}{You bastard! I'm so lonely! Oh God! Why?!}
+{6000}{}{Who the hell are you, and what are you doing here?! Come any closer and I'll shoot!}
+{6010}{}{Whoa! Where's the fire?!}
+{6020}{}{Whoa! Don't shoot! I'm friendly!}
+{6030}{}{Try it, and you'l be dead before you hit the ground!}
+{6040}{}{Your gun isn't even loaded, old man!}
+{6050}{}{You call this smoke?! I once burnt down an entire forest and inhaled the sweet tears of the forest!}
+{6060}{}{[Leave the smoke filled room]}
+{7000}{}{Please! You have to help me! I can't pay you, but you have to find it in your heart to help me! Ever since my Wife died of Cancer I haven't been able to keep up with the bills, and my son is dying. It get's worse everyday, but I figure all I really need is one more bottle of Antidote, I just wish I could afford it! Can you help me, please? It's for my son.
+}
+{7010}{}{What's so helpless? Maybe I can help?}
+{7020}{}{It's not helpless you old coot! Let me help you.}
+{7030}{}{Just spit it out already! What's your problem?}
+{7040}{}{You're lucky I've got time for this!}
+{7050}{}{[Leave the smoke filled room]}
+

@@ -1,0 +1,114 @@
+[comment]
+
+
+[data]
+lang=engl
+
+[dialog]
+&
+1 1000 None 0 #
+2 1010 D _script follower@d_IsOwner 1 1 R _script follower@r_SetFaction 0  #
+7 1020 D _script follower@d_IsClaimable 1 1 #
+8 1030 @
+2 2000 None 0 #
+6 2010 D _script follower@d_IsNotMode 1 2 D _script follower@d_CanStay 0  R _script follower@r_FollowMode 1 2 #
+5 2020 D _script follower@d_IsNotMode 1 0 D _script follower@d_CanLeadMoreFollowers 0  D _script follower@d_IsNotMode 1 1 R _script follower@r_FollowMode 1 0 #
+8 2030 R _script npc_common@r_MoveRandom 1 0 #
+4 2040 #
+3 2050 #
+65506 2060 #
+9 2070 #
+0 2080 R _script follower@r_DropAllItems 0  #
+10 2090 #
+0 2100 @
+3 3000 None 0 #
+2 3010 R _script follower@r_Distance 1 0 #
+2 3020 R _script follower@r_Distance 1 1 #
+2 3030 R _script follower@r_Distance 1 2 @
+4 4000 None 0 #
+2 4010 R _script follower@r_AttackPolicy 1 0 #
+2 4020 R _script follower@r_AttackPolicy 1 7 #
+2 4030 R _script follower@r_AttackPolicy 1 6 @
+5 5000 None 0 #
+0 5010 @
+6 6000 None 0 #
+0 6010 @
+7 7000 None 0 #
+2 7010 R _script follower@r_ClaimFollower 1 0 #
+0 7020 @
+8 8000 None 0 @
+9 9000 follower@dlg_GiveFollower 0 #
+2 9010 @
+10 10000 follower@dlg_ShowStats 0 #
+11 10010 #
+12 10020 D _param n ST_MAX_LIFE < 400 D _item p PID_MR_NIXON_DOLL > 0 R _param n ST_MAX_LIFE + 50 R _item p PID_MR_NIXON_DOLL - 1 #
+12 10030 D _param n TRAIT_FAST_METABOLISM = 0 D _item p PID_MR_NIXON_DOLL > 0 R _param n TRAIT_FAST_METABOLISM = 1 R _item p PID_MR_NIXON_DOLL - 1 #
+12 10040 D _param n TRAIT_HEAVY_HANDED = 0 D _item p PID_MR_NIXON_DOLL > 0 R _param n TRAIT_HEAVY_HANDED = 1 R _item p PID_MR_NIXON_DOLL - 1 #
+12 10050 D _param n PE_TOUGHNESS = 0 D _item p PID_MR_NIXON_DOLL > 0 R _param n PE_TOUGHNESS = 1 R _item p PID_MR_NIXON_DOLL - 1 #
+12 10060 D _param n PE_EVEN_TOUGHER = 0 D _item p PID_MR_NIXON_DOLL > 0 R _param n PE_EVEN_TOUGHER = 1 R _item p PID_MR_NIXON_DOLL - 1 #
+12 10070 D _param n PE_IN_YOUR_FACE = 0 D _item p PID_MR_NIXON_DOLL > 0 R _param n PE_IN_YOUR_FACE = 1 R _item p PID_MR_NIXON_DOLL - 1 #
+12 10080 D _param n PE_ADRENALINE_RUSH = 0 D _item p PID_MR_NIXON_DOLL > 0 R _param n PE_ADRENALINE_RUSH = 1 R _item p PID_MR_NIXON_DOLL - 1 #
+2 10090 @
+11 11000 None 0 #
+11 11010 #
+2 11020 @
+12 12000 None 0 &
+
+[engl]
+{100}{}{Brahmin}
+{200}{}{You see a domesticated brahmin. It's someones beloved pet!}
+{210}{}{There is nothing natural about these cows... save for the friendship they provide! The second head can only be the result of some strange mutation...}
+{1000}{}{Predialogue installations}
+{1010}{}{Is Owner}
+{1020}{}{Claimable}
+{1030}{}{Floaters}
+{2000}{}{Moo-moo!}
+{2010}{}{Stay here, and wait for me!}
+{2020}{}{Okay! Let's get going! Come here, cow.}
+{2030}{}{I need you to move, you're blocking the way.}
+{2040}{}{Let's talk about your combat options...}
+{2050}{}{Good cow! Now let's change our distance up a bit!}
+{2060}{}{I need you to carry something for me, cow...}
+{2070}{}{I think I'm going to leave you with someone else for a while...}
+{2080}{}{Drop everything you're carrying.}
+{2090}{}{Hey, little buddy! Let's bond a bit, shall we?}
+{2100}{}{Ah, nevermind. Go be a cow on your own time.}
+{3000}{}{Moo!@@Moo.@@Moo-ooo@@Mmmmmmmmoooooooooooo!}
+{3010}{}{Stay close to me.}
+{3020}{}{Stick to medium range.}
+{3030}{}{Keep your distance and watch my back.}
+{4000}{}{Moo-ooooooo?@@Moo.@@Moo-moo?@@Moo-moo!}
+{4010}{}{Protect me. Attack anyone who attacks us, unless it's a friend.}
+{4020}{}{Protect me, and my land. I don't take kindly to strangers lurking 'bout.}
+{4030}{}{Stay out of combat! Flee if hostile contacts are spotted.}
+{5000}{}{Moo!@@Moo-moo!@@Mmmoooooooo!}
+{5010}{}{Thanks! Good cow!}
+{6000}{}{Moo.}
+{6010}{}{Good cow.}
+{7000}{}{Moo-moo!}
+{7010}{}{You are mine now, cow.}
+{7020}{}{Go away, you stupid cow!}
+{8000}{}{Moo!@@Moo.@@Moo-ooo@@Mmmmmmmmoooooooooooo!}
+{9000}{}{Moo! [Input name of new owner]}
+{9010}{}{Nevermind.}
+{10000}{}{Moo?
+
+Current statistics:
+@lex stats@
+
+*You can spend 10x Puppets to unlock new abilities for your NPC companions, or spend Puppets to unlock new Perks!*}
+{10010}{}{[Talk about your troubles]}
+{10020}{}{Let's improve your health! [Spend 1x Puppets] [+50 HP!]}
+{10030}{}{Let's improve your healing! [Spend 1x Puppets] [Fast Metabolism!]}
+{10040}{}{Let's improve your damage! [Spend 1x Puppets] [Heavy Handed!]}
+{10050}{}{Let's improve your toughness! [Spend 1x Puppets] [Toughness!]}
+{10060}{}{Let's improve your toughness again! [Spend 1x Puppets] [Even Tougher!]}
+{10070}{}{Let's improve your luck! [Spend 1x Puppets] [In Your Face!]}
+{10080}{}{Let's improve your survival! [Spend 1x Puppets] [Adrenaline Rush!]}
+{10090}{}{Nevermind.}
+{11000}{}{[The cow looks at you with great confusion... but at least they're still listening]}
+{11010}{}{... and then, when I was five...@@... So that's when I...@@... And then you know what ?! ...@@... So then I started ...@@... *crying deeply* ...@@... *furious anger!*...@@... Nobody loves me!...@@... Cira...@@... The American Dream...@@... That fucking Vault Overseer!...@@... That fucking Vault Dweller!...@@... Vault 24...@@... My parents...@@... and then, when I was six...@@... and then, when I was fourteen...@@... my first sexual experience? Well...@@... I suppose it all started when I started thinking about drinking my own pee...@@... and that's when it hit me!...@@... A deathclaw?! Really? In this heat?! Well, I!...@@... and I guess that's about all you can do with iguana...@@... iguana stew... @@... iguana on a stick...@@... just plain roasted iguana...@@... iguana pie, I suppose...@@... iguana loaf...}
+{11020}{}{Wow! You really are the bestest friend I've ever had! Thanks for listening, cow!}
+{12000}{}{MOOOOOOO! I say!@@Moo, I say!@@There is no cow level!@@Moo?! Moo?? Moooooooo!!!@@Moooooooo-arrrrrrr!@@ Hmmmm... moopets...@@Mooooooo-pets!!@@Moopets?!@@Moo! I say! Moooooooo!!}
+{100000001}{}{Moo!@@Mooo!@@Mo-Mo-Mooo!}
+

@@ -1,0 +1,988 @@
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                             
+
+uint8[]FOART_SIGNATURE={0x46,0x4F,0x41,0x52,0x54,0x00,0x17,0x14};                                                                                                  
+
+shared interface Buffer
+{
+	bool IsRaw(uint len);
+	
+	Buffer@opCom();
+	
+	Buffer@opNeg();       
+	
+	Buffer@opShr(int8&value);
+	Buffer@opShl(int8 value);
+	Buffer@Get(int8&value);
+	Buffer@Set(int8&value);
+	
+	Buffer@opShr(int16&value);
+	Buffer@opShl(int16 value);
+	Buffer@Get(int16&value);
+	Buffer@Set(int16&value);
+	
+	Buffer@opShr(int32&value);
+	Buffer@opShl(int32 value);
+	Buffer@Get(int32&value);
+	Buffer@Set(int32&value);
+	
+	Buffer@opShr(int64&value);
+	Buffer@opShl(int64 value);
+	Buffer@Get(int64&value);
+	Buffer@Set(int64&value);
+	
+	Buffer@opShr(uint8&value);
+	Buffer@opShl(uint8 value);
+	Buffer@Get(uint8&value);
+	Buffer@Set(uint8&value);
+	
+	Buffer@opShr(uint16&value);
+	Buffer@opShl(uint16 value);
+	Buffer@Get(uint16&value);
+	Buffer@Set(uint16&value);
+	
+	Buffer@opShr(uint32&value);
+	Buffer@opShl(uint32 value);
+	Buffer@Get(uint32&value);
+	Buffer@Set(uint32&value);
+	
+	Buffer@opShr(uint64&value);
+	Buffer@opShl(uint64 value);
+	Buffer@Get(uint64&value);
+	Buffer@Set(uint64&value);
+	
+	Buffer@opShr(bool&value);
+	Buffer@opShl(bool value);
+	Buffer@Get(bool&value);
+	Buffer@Set(bool&value);
+	
+	Buffer@opShr(string&value);
+	Buffer@opShl(string value);
+	Buffer@Get(string&value);
+	Buffer@Set(string&value);
+	
+	Buffer@opShr(float&value);
+	Buffer@opShl(float value);
+	Buffer@Get(float&value);
+	Buffer@Set(float&value); 
+	
+	Buffer@opShr(array<int8>&value);
+	Buffer@opShl(array<int8>&value);
+	Buffer@Get(array<int8>&value);
+	Buffer@Set(array<int8>&value);
+	
+	Buffer@opShr(array<int16>&value);
+	Buffer@opShl(array<int16>&value);
+	Buffer@Get(array<int16>&value);
+	Buffer@Set(array<int16>&value);
+	
+	Buffer@opShr(array<int32>&value);
+	Buffer@opShl(array<int32>&value);
+	Buffer@Get(array<int32>&value);
+	Buffer@Set(array<int32>&value);
+	
+	Buffer@opShr(array<int64>&value);
+	Buffer@opShl(array<int64>&value);
+	Buffer@Get(array<int64>&value);
+	Buffer@Set(array<int64>&value);
+	
+	Buffer@opShr(array<uint8>&value);
+	Buffer@opShl(array<uint8>&value);
+	Buffer@Get(array<uint8>&value);
+	Buffer@Set(array<uint8>&value);
+	
+	Buffer@opShr(array<uint16>&value);
+	Buffer@opShl(array<uint16>&value);
+	Buffer@Get(array<uint16>&value);
+	Buffer@Set(array<uint16>&value);
+	
+	Buffer@opShr(array<uint32>&value);
+	Buffer@opShl(array<uint32>&value);
+	Buffer@Get(array<uint32>&value);
+	Buffer@Set(array<uint32>&value);
+	
+	Buffer@opShr(array<uint64>&value);
+	Buffer@opShl(array<uint64>&value);
+	Buffer@Get(array<uint64>&value);
+	Buffer@Set(array<uint64>&value);
+	
+	Buffer@opShr(array<bool>&value);
+	Buffer@opShl(array<bool>&value);
+	Buffer@Get(array<bool>&value);
+	Buffer@Set(array<bool>&value);
+	
+	Buffer@opShr(array<string>&value);
+	Buffer@opShl(array<string>&value);
+	Buffer@Get(array<string>&value);
+	Buffer@Set(array<string>&value);
+	
+	Buffer@opShr(array<float>&value);
+	Buffer@opShl(array<float>&value);
+	Buffer@Get(array<float>&value);
+	Buffer@Set(array<float>&value); 
+	
+	Buffer@opShr(array<array<int8>>&value);
+	Buffer@opShl(array<array<int8>>&value);
+	Buffer@Get(array<array<int8>>&value);
+	Buffer@Set(array<array<int8>>&value);
+	
+	Buffer@opShr(array<array<int16>>&value);
+	Buffer@opShl(array<array<int16>>&value);
+	Buffer@Get(array<array<int16>>&value);
+	Buffer@Set(array<array<int16>>&value);
+	
+	Buffer@opShr(array<array<int32>>&value);
+	Buffer@opShl(array<array<int32>>&value);
+	Buffer@Get(array<array<int32>>&value);
+	Buffer@Set(array<array<int32>>&value);
+	
+	Buffer@opShr(array<array<int64>>&value);
+	Buffer@opShl(array<array<int64>>&value);
+	Buffer@Get(array<array<int64>>&value);
+	Buffer@Set(array<array<int64>>&value);
+	
+	Buffer@opShr(array<array<uint8>>&value);
+	Buffer@opShl(array<array<uint8>>&value);
+	Buffer@Get(array<array<uint8>>&value);
+	Buffer@Set(array<array<uint8>>&value);
+	
+	Buffer@opShr(array<array<uint16>>&value);
+	Buffer@opShl(array<array<uint16>>&value);
+	Buffer@Get(array<array<uint16>>&value);
+	Buffer@Set(array<array<uint16>>&value);
+	
+	Buffer@opShr(array<array<uint32>>&value);
+	Buffer@opShl(array<array<uint32>>&value);
+	Buffer@Get(array<array<uint32>>&value);
+	Buffer@Set(array<array<uint32>>&value);
+	
+	Buffer@opShr(array<array<uint64>>&value);
+	Buffer@opShl(array<array<uint64>>&value);
+	Buffer@Get(array<array<uint64>>&value);
+	Buffer@Set(array<array<uint64>>&value);
+	
+	Buffer@opShr(array<array<bool>>&value);
+	Buffer@opShl(array<array<bool>>&value);
+	Buffer@Get(array<array<bool>>&value);
+	Buffer@Set(array<array<bool>>&value);
+	
+	Buffer@opShr(array<array<string>>&value);
+	Buffer@opShl(array<array<string>>&value);
+	Buffer@Get(array<array<string>>&value);
+	Buffer@Set(array<array<string>>&value);
+	
+	Buffer@opShr(array<array<float>>&value);
+	Buffer@opShl(array<array<float>>&value);
+	Buffer@Get(array<array<float>>&value);
+	Buffer@Set(array<array<float>>&value); 
+	
+	Buffer@opShr(array<array<array<int8>>>&value);
+	Buffer@opShl(array<array<array<int8>>>&value);
+	Buffer@Get(array<array<array<int8>>>&value);
+	Buffer@Set(array<array<array<int8>>>&value);
+	
+	Buffer@opShr(array<array<array<int16>>>&value);
+	Buffer@opShl(array<array<array<int16>>>&value);
+	Buffer@Get(array<array<array<int16>>>&value);
+	Buffer@Set(array<array<array<int16>>>&value);
+	
+	Buffer@opShr(array<array<array<int32>>>&value);
+	Buffer@opShl(array<array<array<int32>>>&value);
+	Buffer@Get(array<array<array<int32>>>&value);
+	Buffer@Set(array<array<array<int32>>>&value);
+	
+	Buffer@opShr(array<array<array<int64>>>&value);
+	Buffer@opShl(array<array<array<int64>>>&value);
+	Buffer@Get(array<array<array<int64>>>&value);
+	Buffer@Set(array<array<array<int64>>>&value);
+	
+	Buffer@opShr(array<array<array<uint8>>>&value);
+	Buffer@opShl(array<array<array<uint8>>>&value);
+	Buffer@Get(array<array<array<uint8>>>&value);
+	Buffer@Set(array<array<array<uint8>>>&value);
+	
+	Buffer@opShr(array<array<array<uint16>>>&value);
+	Buffer@opShl(array<array<array<uint16>>>&value);
+	Buffer@Get(array<array<array<uint16>>>&value);
+	Buffer@Set(array<array<array<uint16>>>&value);
+	
+	Buffer@opShr(array<array<array<uint32>>>&value);
+	Buffer@opShl(array<array<array<uint32>>>&value);
+	Buffer@Get(array<array<array<uint32>>>&value);
+	Buffer@Set(array<array<array<uint32>>>&value);
+	
+	Buffer@opShr(array<array<array<uint64>>>&value);
+	Buffer@opShl(array<array<array<uint64>>>&value);
+	Buffer@Get(array<array<array<uint64>>>&value);
+	Buffer@Set(array<array<array<uint64>>>&value);
+	
+	Buffer@opShr(array<array<array<bool>>>&value);
+	Buffer@opShl(array<array<array<bool>>>&value);
+	Buffer@Get(array<array<array<bool>>>&value);
+	Buffer@Set(array<array<array<bool>>>&value);
+	
+	Buffer@opShr(array<array<array<string>>>&value);
+	Buffer@opShl(array<array<array<string>>>&value);
+	Buffer@Get(array<array<array<string>>>&value);
+	Buffer@Set(array<array<array<string>>>&value);
+	
+	Buffer@opShr(array<array<array<float>>>&value);
+	Buffer@opShl(array<array<array<float>>>&value);
+	Buffer@Get(array<array<array<float>>>&value);
+	Buffer@Set(array<array<array<float>>>&value); 
+	
+	Buffer@opUShr(array<int8>&arr);
+	Buffer@opUShrAssign(array<int8>&arr);
+	array<int8>AsInt8();
+	
+	Buffer@opUShr(array<int16>&arr);
+	Buffer@opUShrAssign(array<int16>&arr);
+	array<int16>AsInt16();
+	
+	Buffer@opUShr(array<int32>&arr);
+	Buffer@opUShrAssign(array<int32>&arr);
+	array<int32>AsInt32();
+	
+	Buffer@opUShr(array<int64>&arr);
+	Buffer@opUShrAssign(array<int64>&arr);
+	array<int64>AsInt64();
+	
+	Buffer@opUShr(array<uint8>&arr);
+	Buffer@opUShrAssign(array<uint8>&arr);
+	array<uint8>AsUint8();
+	
+	Buffer@opUShr(array<uint16>&arr);
+	Buffer@opUShrAssign(array<uint16>&arr);
+	array<uint16>AsUint16();
+	
+	Buffer@opUShr(array<uint32>&arr);
+	Buffer@opUShrAssign(array<uint32>&arr);
+	array<uint32>AsUint32();
+	
+	Buffer@opUShr(array<uint64>&arr);
+	Buffer@opUShrAssign(array<uint64>&arr);
+	array<uint64>AsUint64();
+};  
+
+import Buffer@NewBuffer()from"buffer";   
+
+import Buffer@NewBuffer(array<int8>@data)from"buffer";
+
+import Buffer@NewBuffer(array<int16>@data)from"buffer";
+
+import Buffer@NewBuffer(array<int32>@data)from"buffer";
+
+import Buffer@NewBuffer(array<int64>@data)from"buffer";
+
+import Buffer@NewBuffer(array<uint8>@data)from"buffer";
+
+import Buffer@NewBuffer(array<uint16>@data)from"buffer";
+
+import Buffer@NewBuffer(array<uint32>@data)from"buffer";
+
+import Buffer@NewBuffer(array<uint64>@data)from"buffer";                     
+
+shared interface FOArt
+{
+	uint8 Version(); 
+	
+	bool Load(array<uint8>data);
+	bool Save(Buffer&buff);
+	bool Save(array<uint8>&data); 
+	
+	bool Relative();
+	void Relative(bool hexes_relative); 
+	
+	bool AddDefinition(FOArtDefinition@definition);
+	FOArtDefinition@GetDefinition(uint index);
+	uint GetDefinitions(array<FOArtDefinition@>&output);
+	uint GetDefinitionsCount();    
+	
+};
+
+shared interface FOArtDefinition
+{
+	uint16 ItemPid{get;} 
+	
+	void Load(Buffer&buff);
+	void Save(Buffer&buff); 
+	
+	void AddHex(int16 hex_x,int16 hex_y);
+	bool GetHex(uint index,int16&hex_x,int16&hex_y);
+	uint GetHexes(array<int16>&hexes);
+	uint GetHexesCount();
+	bool RemoveHex(int16 hex_x,int16 hex_y);
+	void RemoveHexes(); 
+	
+	void SetAddonData(uint8 addon_id,Buffer&buff);
+	void RemoveAddonData(uint8 addon_id);     
+	
+};
+
+shared interface FOArtAddon
+{
+	uint8 ID();
+	
+	void Enable();
+	void Disable();
+	bool Enabled();
+	bool Disabled();       
+	
+};                               
+
+class FOArt_Addon:FOArtAddon
+{
+	uint8 id;
+	bool enabled;    
+	
+	FOArt_Addon(uint8 id)
+	{
+		this.id=id;
+		this.enabled=true;
+	}
+	
+	uint8 ID()
+	{
+		return(this.id);
+	}
+	
+	void Enable()
+	{
+		this.enabled=true;
+	}
+	
+	void Disable()
+	{
+		this.enabled=false;
+	}
+	
+	bool Enabled()
+	{
+		return((this.enabled==true));
+	}
+	
+	bool Disabled()
+	{
+		return(!this.Enabled());
+	}                                     
+	
+};
+array<FOArtAddon@>FOArtAddons;
+
+bool AddonsInitialized=false; 
+
+FOArtAddon@NewFOArtAddon(uint8 id)
+{
+	if((@GetFOArtAddon(id)!=null))
+	{
+		Log("Addon with id <"+id+"> already exists");
+		return(null);
+	}
+	
+	return(@FOArt_Addon(id));
+} 
+
+FOArtAddon@GetFOArtAddon(uint8 id)
+{
+	for(uint addon=0,addonLen=FOArtAddons.length();addon<addonLen;addon++)
+	{
+		if(FOArtAddons[addon].ID()==id)
+		return(FOArtAddons[addon]);
+	}
+	
+	return(null);
+}  
+
+string GetFOArtString(Buffer&buff)
+{
+	string result="";
+	
+	uint16 len=0;
+	buff>>len;
+	for(uint s=0;s<len;s++)
+	{
+		uint8 char=0;
+		buff>>char;
+		result.resize(s+1);
+		result[s]=char;
+	}
+	return(result);
+}                                                                                                                                                                                                                                                                                                                
+
+class FOArt_Base:FOArt
+{
+	uint8 version;
+	uint16 map_pid;
+	bool hexes_relative;
+	
+	array<FOArtDefinition@>definitions;
+	
+	FOArt_Base(uint8 version=0,uint16 map_pid=0,bool hexes_relative=false)
+	{
+		this.version=version;
+		this.map_pid=map_pid;
+		this.hexes_relative=hexes_relative;
+		this.definitions.resize(0);
+	}
+	
+	uint8 Version()
+	{
+		return(this.version);
+	}  
+	
+	bool Load(array<uint8>data)
+	{
+		Buffer@buff=NewBuffer();
+		
+		for(uint d=0,dLen=data.length();d<dLen;d++)
+		{
+			buff<<uint8(data[d]);
+		}
+		-buff;
+		
+		uint8 version=0;
+		buff>>version;
+		
+		if(version==0)
+		{
+			Log("version not defined");
+			return(false);
+		}
+		
+		{};
+		
+		if(version==1)
+		{
+			this.version=version;
+			uint32 definitions_count=0;
+			
+			buff>>this.map_pid>>this.hexes_relative>>definitions_count;
+			
+			{};
+			
+			for(uint def=0;def<definitions_count;def++)
+			{
+				{};
+				
+				FOArtDefinition@definition=NewFOArtDefinition();
+				if(!(@definition!=null))
+				{
+					{};
+					continue;
+				}
+				
+				{};
+				definition.Load(buff);
+				{};
+				this.AddDefinition(definition);
+			}
+			
+			return(true);
+		}
+		else
+		{
+			{};
+		}
+		return(false);
+	}
+	
+	bool Save(Buffer&buff)
+	{
+		buff<<this.version;
+		
+		if(this.version==1)
+		{
+			uint32 definitions_count=definitions.length();
+			
+			buff<<this.map_pid<<this.hexes_relative<<definitions_count;
+			
+			for(uint def=0;def<definitions_count;def++)
+			{
+				definitions[def].Save(buff);
+			}
+			return(true);
+		}
+		return(false);
+	}
+	
+	bool Save(array<uint8>&data)
+	{
+		Buffer@buff=NewBuffer();
+		
+		if(this.Save(buff))
+		{
+			-buff;
+			while(buff.IsRaw(1))
+			{
+				uint8 char=0;
+				buff>>char;
+				data.insertLast(char);
+			}
+			return(true);
+		}
+		else
+		{
+			return(false);
+		}
+	}  
+	
+	bool AddDefinition(FOArtDefinition@definition)
+	{
+		if(!(@definition!=null))
+		{
+			Log("AddDefinition: definition not valid");
+			return(false);
+		}
+		
+		this.definitions.insertLast(@definition);
+		return(true);
+	}
+	
+	FOArtDefinition@GetDefinition(uint index)
+	{
+		if(index>this.definitions.length()-1)
+		return(null);
+		
+		return(this.definitions[index]);
+	}
+	
+	uint GetDefinitions(array<FOArtDefinition@>&output)
+	{
+		output=this.definitions;
+		return(this.definitions.length());
+	}
+	
+	uint GetDefinitionsCount()
+	{
+		return(this.definitions.length());
+	}  
+	
+	bool Relative()
+	{
+		return(this.hexes_relative);
+	}
+	
+	void Relative(bool hexes_relative)
+	{
+		this.hexes_relative=hexes_relative;
+	}                                
+	
+};
+
+class FOArt_Definition:FOArtDefinition
+{
+	uint16 item_pid;
+	
+	uint16 get_ItemPid()
+	{
+		return(this.item_pid);
+	}
+	
+	array<int16>hexes;
+	
+	array<FOArt_AddonData@>addon_data;
+	
+	FOArt_Definition(uint16 item_pid)
+	{
+		this.item_pid=item_pid;
+		this.RemoveHexes();
+	}
+	
+	void Load(Buffer&buff)
+	{
+		buff>>this.item_pid;
+		
+		this.LoadHexes(buff);
+		this.LoadAddons(buff);
+	} 
+	
+	void Save(Buffer&buff)
+	{
+		buff<<this.item_pid;
+		
+		this.SaveHexes(buff);
+		this.SaveAddons(buff);
+	}  
+	
+	void LoadHexes(Buffer&buff)
+	{
+		this.RemoveHexes();
+		
+		uint32 hex_count=0;
+		buff>>hex_count;
+		
+		for(uint hex=0;hex<hex_count;hex++)
+		{
+			int16 hexX=0;
+			int16 hexY=0;
+			
+			buff>>hexX>>hexY;
+			if(hexX==0&&hexY==0)
+			{
+				Log("hex 0,0 !!!");
+				break;
+			}
+			this.AddHex(hexX,hexY);
+		}
+	}
+	
+	void SaveHexes(Buffer&buff)
+	{
+		uint32 hex_count=this.hexes.length();
+		uint32 hex_count_2=hex_count/2;
+		
+		buff<<hex_count_2;
+		
+		for(uint h=0;h<hex_count;h++)
+		{
+			buff<<int16(this.hexes[h]);
+		}
+	}
+	
+	void AddHex(int16 hex_x,int16 hex_y)
+	{
+		this.hexes.insertLast(hex_x);
+		this.hexes.insertLast(hex_y);
+	}
+	
+	bool GetHex(uint index,int16&hex_x,int16&hex_y)
+	{
+		uint wantedPosition=index*2;
+		
+		if(this.hexes.length()==0||this.hexes.length()<wantedPosition+2)
+		return(false);
+		
+		hex_x=this.hexes[wantedPosition++];
+		hex_y=this.hexes[wantedPosition];
+		
+		return(true);
+	}
+	
+	uint GetHexes(array<int16>&hexes)
+	{
+		hexes=this.hexes;
+		return(this.hexes.length());
+	}
+	
+	uint GetHexesCount()
+	{
+		return(this.hexes.length()/2);
+	}
+	
+	bool RemoveHex(int16 hex_x,int16 hex_y)
+	{
+		for(uint h=0,hLen=this.hexes.length();h<hLen;h++)
+		{
+			if(this.hexes[h]==hex_x&&this.hexes[h+1]==hex_y)
+			{
+				this.hexes.removeAt(h);
+				this.hexes.removeAt(h);
+				
+				return(true);
+			}
+		}
+		
+		return(false);
+	}
+	
+	void RemoveHexes()
+	{
+		this.hexes.resize(0);
+	}  
+	
+	void LoadAddons(Buffer&buff)
+	{
+		uint8 addon_count=0;
+		buff>>addon_count;
+		
+		for(uint addon=0;addon<addon_count;addon++)
+		{
+			FOArt_AddonData@new_addon_data=FOArt_AddonData(0);
+			new_addon_data.Load(buff);
+			this.SetAddonData(new_addon_data.id,new_addon_data.buffer);
+		}
+	}
+	
+	void SaveAddons(Buffer&buff)
+	{
+		uint8 addons_count=this.addon_data.length();
+		buff<<addons_count;
+		
+		for(uint addon=0;addon<addons_count;addon++)
+		{
+			this.addon_data[addon].Save(buff);
+		}
+	}
+	
+	void SetAddonData(uint8 addon_id,Buffer&buff)
+	{
+		for(uint ad=0,adLen=this.addon_data.length();ad<adLen;ad++)
+		{
+			if(this.addon_data[ad].id==addon_id)
+			{
+				{};
+				this.addon_data[ad].Copy(buff);
+				return;
+			}
+		}
+		
+		{};
+		FOArt_AddonData@newAddonData=FOArt_AddonData(addon_id);
+		newAddonData.Copy(buff);
+		this.addon_data.insertLast(@newAddonData);
+	}
+	
+	void RemoveAddonData(uint8 addon_id)
+	{
+		for(uint ad=0,adLen=this.addon_data.length();ad<adLen;ad++)
+		{
+			if(this.addon_data[ad].id==addon_id)
+			{
+				{};
+				this.addon_data.removeAt(ad);
+				return;
+			}
+		}
+	}                                                                                 
+	
+};
+
+class FOArt_AddonData
+{
+	uint8 id;
+	Buffer@buffer;
+	
+	FOArt_AddonData(uint8 id)
+	{
+		this.id=id;
+		@this.buffer=NewBuffer();
+	}
+	
+	void Load(Buffer&buff)
+	{
+		{};
+		
+		uint32 addon_data_length=0;
+		
+		~this.buffer;
+		
+		buff>>this.id;
+		{};
+		
+		buff>>addon_data_length;
+		{}; 
+		
+		for(uint d=0;d<addon_data_length;d++)
+		{
+			uint8 tmp=0;
+			buff>>tmp;
+			this.buffer<<tmp;
+		}
+		
+		-this.buffer;
+	}
+	
+	void Save(Buffer&buff)
+	{
+		array<uint8>addon_data;
+		
+		this.buffer>>>=addon_data;
+		
+		buff<<this.id;
+		buff<<uint32(addon_data.length()); 
+		
+		for(uint d=0,dLen=addon_data.length();d<dLen;d++)
+		{
+			buff<<uint8(addon_data[d]);
+		}
+	}
+	
+	void Copy(Buffer&buff)
+	{
+		array<uint8>addon_data;
+		
+		~this.buffer;
+		
+		buff>>>=addon_data;
+		
+		for(uint d=0,dLen=addon_data.length();d<dLen;d++)
+		{
+			this.buffer<<uint8(addon_data[d]);
+		}
+		
+		-this.buffer;
+	}
+}; 
+
+FOArt@NewFOArt(uint8 version,uint16 map_pid=0,bool hexes_relative=false)
+{
+	return(@FOArt_Base(version,map_pid,hexes_relative));
+} 
+
+FOArtDefinition@NewFOArtDefinition(uint16 pid=0)
+{
+	return(@FOArt_Definition(pid));
+} 
+
+FOArt@LoadFOArtFile(string&filename)
+{
+	if(filename.length()<6)
+	return(null);
+	
+	else if(substring(filename,filename.length()-6,filename.length())!=".foart")
+	{
+		Log(filename+": invalid");
+		return(null);
+	}
+	file artFile;
+	
+	if(artFile.open(filename,"r")>=0)
+	{
+		{};
+		array<uint8>data;
+		
+		uint count=artFile.readData(0,data);
+		artFile.close();
+		
+		if(count<FOART_SIGNATURE.length())
+		{
+			Log(filename+": file corrupted");
+			return(null);
+		}
+		
+		for(uint sig=0,sigLen=FOART_SIGNATURE.length();sig<sigLen;sig++)
+		{
+			if(data[sig]!=FOART_SIGNATURE[sig])
+			{
+				Log(filename+": wrong signature ["+sig+"]");
+				return(null);
+			}
+		}
+		
+		for(uint sig=0,sigLen=FOART_SIGNATURE.length();sig<sigLen;sig++)
+		data.removeFirst();
+		
+		FOArt@art=NewFOArt(0);
+		if(art.Load(data))
+		return(art);
+		else
+		Log(filename+": not loaded");
+	}
+	else
+	{
+		Log(filename+": can't open");
+	}
+	return(null);
+} 
+
+bool SaveFOArtFile(FOArt&art,string&filename)
+{
+	file artFile;
+	if(artFile.open(filename,"w")>=0)
+	{
+		array<uint8>data;
+		for(uint sig=0,sigLen=FOART_SIGNATURE.length();sig<sigLen;sig++)
+		{
+			data.insertLast(FOART_SIGNATURE[sig]);
+		}
+		art.Save(data);
+		artFile.writeData(data,0);
+		artFile.close();
+		return(true);
+	}
+	return(false);
+}                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                       
+
+MapperMap@FOArt_GetActiveMap()
+{
+	array<MapperMap@>maps;
+	int cur=GetLoadedMaps(maps);
+	if(cur==-1)
+	return null;
+	return maps[cur];
+} 
+
+string saveselected(string arg)
+{
+	MapperMap@map=FOArt_GetActiveMap();
+	{if(!(@map!=null))
+		return("No active map.");};
+	
+	if(arg.length()==0)
+	return("No arguments\n"+
+	"Usage: saveselected [filename]\n");
+	
+	array<MapperObject@>objects;
+	uint count=GetSelectedObjects(objects);
+	
+	if(count==0)
+	return("Nothing selected");
+	
+	FOArt@art=NewFOArt(1,0,true);
+	
+	int16 hx=0,hy=0;
+	for(uint o=0;o<count;o++)
+	{
+		uint16 pid=objects[o].ProtoId;
+		if(objects[o].MapObjType==(0))
+		continue;
+		else if(objects[o].MapObjType==(2))
+		{
+			
+			pid=820;
+		}
+		
+		FOArtDefinition@def=NewFOArtDefinition(pid);
+		
+		if(art.GetDefinitionsCount()==0)
+		{
+			hx=objects[o].MapX;
+			hy=objects[o].MapY;
+			def.AddHex(0,0);
+		}
+		else
+		{
+			def.AddHex(objects[o].MapX-hx,objects[o].MapY-hy);
+		} 
+		
+		if(objects[o].MapObjType==(1))
+		{
+			Buffer@buff=NewBuffer();
+			if(GetProtoItem(objects[o].ProtoId).Stackable&&
+			objects[o].Item_Count>1)
+			{
+				~buff;
+				buff<<uint32(objects[o].Item_Count);
+				def.SetAddonData((5),buff);
+			}
+			
+			if(objects[o].OffsetX!=0||objects[o].OffsetY!=0)
+			{
+				~buff;
+				buff<<int16(objects[o].OffsetX);
+				buff<<int16(objects[o].OffsetY);
+				def.SetAddonData((6),buff);
+			}
+			art.AddDefinition(def);
+		}
+		else if(objects[o].MapObjType==(2))
+		{
+			Buffer@buff=NewBuffer();
+			buff<<objects[o].PicMap;
+			buff<<objects[o].PicInv;
+			def.SetAddonData((3),buff);
+			
+			~buff;
+			buff<<uint32((0x00000200));
+			buff<<uint32((0x00000002));
+			def.SetAddonData((1),buff);
+			
+			art.AddDefinition(def);
+		}
+	}
+	
+	Message("Saving");
+	SaveFOArtFile(art,arg);
+	
+	return("");
+}       
+

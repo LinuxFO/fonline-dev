@@ -1,0 +1,46 @@
+[comment]
+
+
+[data]
+lang=engl
+
+[dialog]
+&
+1 1000 None 0 #
+3 1010 D _script dialog@d_IsNotMemberOf 1 FACTION_BOS #
+2 1020 @
+2 2000 None 0 #
+5 2010 #
+4 2020 @
+3 3000 None 0 @
+4 4000 None 0 @
+5 5000 dialog@dlg_SayBuyMedGel 0 #
+6 5010 #
+7 5020 #
+4 5030 @
+6 6000 dialog@dlg_SayBuyCigarettes 0 #
+4 6010 @
+7 7000 dialog@dlg_SayBuyLighter 0 #
+4 7010 &
+
+[engl]
+{100}{}{Tabacconist}
+{200}{}{You see the local tabacconist.}
+{210}{}{It smells great in here! Reminds me of my grandmother! }
+{1000}{}{Predialogue installations}
+{1010}{}{Answer text}
+{1020}{}{Answer text}
+{2000}{}{Hey, @sex@|brother||sister|, need any smokes? I also sell lighters. Smokes or lighters are going for 100 caps, but I've got nearly an infinite amount, so don't be shy! Just let me know when you're ready to place an order.}
+{2010}{}{Let's have a look at the menu, shall we?}
+{2020}{}{Not right now, but thanks.}
+{3000}{}{Brotherhood of Steel ONLY! Beat it!}
+{4000}{}{Sure, smoke em' if you got em'! I've got lots. Come back anytime.}
+{5000}{}{Cigarettes or Lighters sell for 100 caps. Feel free to use the SAY command to let me know what you want. }
+{5010}{}{I want to buy some Cigarettes.}
+{5020}{}{I want to buy some Lighters.}
+{5030}{}{Thanks, but I'm good for now. See ya.}
+{6000}{}{How many packs of smokes do you want? Just use the SAY command to let me know.}
+{6010}{}{Thanks a lot!}
+{7000}{}{How many Lighters do you want? Just use the SAY command to let me know.}
+{7010}{}{Thanks a lot!}
+

@@ -1,0 +1,66 @@
+[comment]
+
+
+[data]
+lang=engl
+
+[dialog]
+&
+1 1000 None 0 #
+2 1010 #
+3 1020 D _param p ST_KARMA < -99 @
+2 2000 None 0 @
+3 3000 None 0 &
+
+[engl]
+{100}{}{Citizen}
+{200}{}{You see a citizen of the NCR.}
+{210}{}{It's just another one of the local folk.}
+{210}{}{They seem to be something of a nobody.}
+{1000}{}{Predialogue installations}
+{1010}{}{Answer text}
+{1020}{}{Hated}
+{2000}{}{I wonder if the market has any Molerat left?@@Do you know how to put tin siding up?@@Can you believe that we used to be tribals?@@Welcome to town, stranger.@@I wonder if there are any more brahmin burgers at Dusty's?@@I can't help but feel like NCR is destined for some good things...@@Buster sure is short, isn't he? I wonder what he eats?@@Maybe later we can do lunch?@@That President Tandi! Love her!@@Hey, did you hear someone tried to kill the president?@@Oh God! You scared! There's a killer running around, you know!@@Those poor girls...@@That poor child...@@Someone needs to stand up for what's right! Hey you! You look tough! Why don't you do it?}
+{3000}{}{Hey, just let me know when you're going to go postal...@@Oh shit! It's you! I've got to go!@@Who the hell do you think you are - coming into this town?!@@Just leave before anyone else gets hurt.@@I don't like you. Pretty sure nobody does.@@One of these days you'll meet him: Death. He's coming to judge us all.@@You're just lucky, that's all. Sooner or later someone bigger, and tougher than you is going to come along, and kill you good.@@Hey, you! Yeah you! Go fuck yourself, you piece of shit! Get the hell out of our town!@@Beat it, loser!@@Jerk!@@Fuck off.@@Nobody likes you.@@Hah! It's this moron! Beat it.}
+{100000001}{}{...the weather outside is awful...}
+{100000002}{}{...didn't think politics would survive the war...}
+{100000003}{}{...religion too... geezus...}
+{100000004}{}{...can't get enough screws... or nails...}
+{100000005}{}{...water sure ain't freakin' cheap...}
+{100000006}{}{...that s.o of mine... sure makes me want to punch something...}
+{100000007}{}{...strangers... strangers everywhere...}
+{100000008}{}{...no one ever say that name to me again...}
+{100000009}{}{...presidents... congress... what the hell...}
+{100000010}{}{...the walls are falling apart again...}
+{100000011}{}{...who keeps throwing trash around?...}
+{100000012}{}{...goddamn dwellers locked me out of my house again...}
+{100000013}{}{...these jerks are just taking over...}
+{100000014}{}{Ah, some days are better than others.}
+{100000015}{}{Guess I shouldn't complain, life is pretty good here.}
+{100000016}{}{Smell that fresh nuclear air! Yum...}
+{100000017}{}{My crops are actually growing, can you believe it? I might have to sell a few off.}
+{100000018}{}{You know, I could be out in Modoc right now, farming for myself...}
+{100000019}{}{So many new faces, it's hard to thing of this place as dead now.}
+{100000020}{}{Can you believe this place used to be full of sand shacks...}
+{100000021}{}{Tandi took us a long way, that's for sure.}
+{100000022}{}{How come Buster is so damn short?}
+{100000023}{}{Yeah, right. Have you seen her kid? }
+{100000024}{}{It's the *new* California, dumb dumb.}
+{100000025}{}{God, how many more murders are going to take place near the front gates today?}
+{100000026}{}{Everyone's got a goddamn Pip Boy. But not me. Nooooooo! Not me at all.}
+{100000027}{}{Is everyone around here high on Jet? }
+{100000028}{}{Ya'll need to lay off the drugs. That stuff it'll rot your brain.}
+{100000029}{}{I knew a guy that once beat The Forest...}
+{100000030}{}{San Francisco can't be trusted, no way. They better stay in their little corner if they know what's good for em'.}
+{100000031}{}{...a world of heroes, and villains...}
+{100000032}{}{Ever since Graham brought those bibles nothing's been the same.}
+{100000033}{}{Hate to say it, but I go to church sometimes... There's a nice one in the Hub.}
+{100000034}{}{Those Mormons... the police sent them over to the Den. What a twist.}
+{100000035}{}{Heard he formed The Legion. Those bastards... we won't capitulate. Not ever.}
+{100000036}{}{There's a lot of them, ain't there? More and more every day...}
+{100000037}{}{Dusty sure knows how to pour a drink.}
+{100000038}{}{Big trader town this is turning into... almost as big as the Hub.}
+{100000039}{}{I heard the detectives are looking for some new recruits. If they got the experience that is.}
+{100000040}{}{At least they ain't tribals...}
+{100000041}{}{...he's still out there...}
+

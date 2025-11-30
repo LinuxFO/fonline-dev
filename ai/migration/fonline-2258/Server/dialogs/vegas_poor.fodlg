@@ -1,0 +1,24 @@
+[comment]
+
+
+[data]
+lang=engl
+
+[dialog]
+&
+1 1000 None 0 #
+2 1010 @
+2 2000 None 0 &
+[engl]
+{100}{}{Poor person}
+{200}{}{You see a poor person.}
+{210}{}{You see a poor person.}
+{1000}{}{Predialogue installations}
+{2000}{}{Have you got any money?@@I have lost everything.@@I need some money.@@Please, help me..@@Nobody cares about me.@@Got any food?@@I don't want to die.}
+{100000001}{}{I have lost everything.}
+{100000001}{}{I need some money.}
+{100000001}{}{Please, help me..}
+{100000001}{}{Nobody cares about me.}
+{100000001}{}{Got any food?}
+{100000001}{}{I don't want to die.}
+

@@ -1,0 +1,108 @@
+[comment]
+
+
+[data]
+lang=engl
+
+[dialog]
+&
+1 1000 None 0 #
+2 1010 @
+2 2000 None 0 #
+3 2010 #
+0 2020 @
+3 3000 None 0 #
+4 3010 #
+5 3020 #
+6 3030 #
+7 3040 #
+8 3050 #
+9 3060 #
+18 3070 D _param p ST_LEVEL > 11 #
+17 3080 D _item p PID_NUKA_COLA > 33 D _var p name_mem_npc_player = 0 R _item p PID_NUKA_COLA - 34 R _script dialog@r_AddExperience 1 4000 R _param p ST_KARMA + 1 R _param p REPUTATION_NECROPOLIS + 100 R _var p name_mem_npc_player = 1 R _item p PID_SUPER_SLEDGE + 1 R _item p PID_SUPER_TOOL_KIT + 1 R _item p PID_SUPER_CATTLE_PROD + 1 R _item p PID_SUPER_STIMPAK + 1 #
+0 3090 @
+4 4000 None 0 #
+14 4010 @
+5 5000 None 0 #
+10 5010 #
+12 5020 @
+6 6000 None 0 #
+10 6010 #
+11 6020 @
+7 7000 None 0 #
+9 7010 @
+8 8000 None 0 @
+9 9000 None 0 @
+10 10000 None 0 #
+13 10010 @
+11 11000 None 0 @
+12 12000 None 0 #
+15 12010 @
+13 13000 None 0 @
+14 14000 None 0 @
+15 15000 None 0 #
+16 15010 @
+16 16000 None 0 #
+17 16010 @
+17 17000 None 0 @
+18 18000 None 0 #
+19 18010 @
+19 19000 None 0 #
+20 19010 D _param p ST_KARMA } 0 @
+20 20000 None 0 #
+21 20010 @
+21 21000 None 0 #
+17 21010 &
+
+[engl]
+{100}{}{Krieger}
+{200}{}{You see an old ghoul wearing a wig, sunglasses, and a Fedora.}
+{210}{}{It's Krieger. The local "Hotel" owner. This place is a dump, but the ghouls love it here.}
+{1000}{}{Predialogue installations}
+{1010}{}{Answer text}
+{2000}{}{Whoa! Geez! Oh, man. Ohh, whoa. Whoa. You're human?! }
+{2010}{}{Yeah, fresh meat. Why? You don't want a bite, do you?@@As human as they get.@@Sometimes I wonder.@@Who's to say anymore?@@Sure ain't a damn Brahmin.@@More human than you.}
+{2020}{}{No, no, no. I'm a sophisticated humanoid android. Watch as I execute my exit function. Bzzt!}
+{3000}{}{Ugh! [He shrugs] Have you ever tried human? Molerat is where it's at, cool cat.@@Welcome to my pad.@@Welcome to my place.@@No vacancy, sorry.@@Some of the locals don't like humans.@@You don't look Chinese. But you still look greasy.@@Chill, cat. Go purr a bit.}
+{3010}{}{Can you tell me a little about Necropolis?}
+{3020}{}{Why do the caravans come here so often?}
+{3030}{}{What happened to this place?}
+{3040}{}{So what is this? A hotel? Can I rent a room?}
+{3050}{}{Mister, you got a strange accent.}
+{3060}{}{This place sure looks... dead.}
+{3070}{}{You, uh, got any work? Or anything?}
+{3080}{}{Hey, cool cat! Got you some Nuka-Cola. 34x Bottles!}
+{3090}{}{I'd better get going. Before something tries to eat me.}
+{4000}{}{Necropolis? Oh right... here. Ruins of Bakersfield. Vault 12. It didn't close all the way. What a bummer. We all turned into this. Heh. }
+{4010}{}{Bakersfield? Vault 12? Oh, I've heard of that. I didn't think it would look this bad. Our vault records said this place had a G.E.C.K.}
+{5000}{}{Carts, man, carts. They come and go. Ringhold, down below. He's doing something with the vault. Don't know what. Just making something brighter out of today. But he's losing it. Got that dimension. Sad, sad, sad.}
+{5010}{}{Ringhold? Who's that?}
+{5020}{}{So... what's he doing?}
+{6000}{}{Whoa! This place? It's coming back, man. Yeah, yeah. Soon. Ringhold got's a plan. }
+{6010}{}{Ringhold? Who's that?}
+{6020}{}{What do you mean? "Coming back"?}
+{7000}{}{No vacancy. Rooms all full. Got my cool cat's here living around. They don't mind the rain, or shine. Broken holes, man. Keep you going. Good enough for me, and my people. We got homes. Go find a human place. What a drag.}
+{7010}{}{Uh, alright. Thanks?}
+{8000}{}{You're killing my buzz, oh man. I'm no funny one. I'm the jazz man. Don't even try to understand. You won't understand. I'm from loooong ago. Ring-a-ding-ding! You follow?}
+{9000}{}{Like your face. Give it time. Beat it. You're crampin' my style. }
+{10000}{}{Ringhold's the coolest cat in town. Nobody believes it, but he killed Vault 13's Overseer!}
+{10010}{}{What? No way.}
+{11000}{}{You'll see. With lights, and jazz!}
+{12000}{}{Aw shucks! He's rebuilding the vault! 'Ow bit' it! Crampin' the style.}
+{12010}{}{Rebuilding the vault? How}
+{13000}{}{He's got this story, man. All on holotape. Crazy, crazy. Aw shucks! More customers! What a bummer.}
+{14000}{}{What the hell is a geck? We had a water chip once...}
+{15000}{}{Man, I don't know. I keep a beat up here. He plays the rhythm down there. Man, you and those Chinese. Ask too many questions.}
+{15010}{}{The Chinese? What do you mean?}
+{16000}{}{San Fran wants us to all get yellow fever. Caravans come by, they talk about this, and that. Word on the street is, the Chinese want a piece of this place. Don't know why.}
+{16010}{}{Maybe that vault of yours still has something of value in it.}
+{17000}{}{Ban Chao. Ban Chao. Everyone says Ban Chao when they're from San Fran. What the fuck is a Ban Chao?}
+{18000}{}{Chill, kitty. You wanna clean the rooms?}
+{18010}{}{No.}
+{19000}{}{Aw, shucks, man. No one wants to clean them. Not even the guests.}
+{19010}{}{I meant did you need any help?}
+{20000}{}{Some bad critters in the sewers. You can kill them for us. That would help.}
+{20010}{}{Maybe later. Did you need anything else? Cool cat?}
+{21000}{}{Swell, words, friend. I'm a little moved. So moved I'm going to chill. I need to refill on that Nuka-Cola. I need 34x bottles, my friend. What a bummer. I got this here thing you can have. Shhhh! It's a secret. Come by, later. Later.}
+{21010}{}{Alright, cool cat. We'll see.}
+
