@@ -32,12 +32,11 @@
 #endif
 
 #pragma bindfunc "int string::replaceText(string@+,string@+) -> Utils.dll String_ReplaceText"
-
 import bool GodOfTheRealm(uint id) from "cheats";
 import int  GetFactionNameMsg(uint faction) from "factions";
 import void PlayMusic(Critter& cr, string& musicName, uint pos, uint repeat) from "media";
 
-class CBroadcastBuffer : IBroadcastBuffer
+class CBroadcastBuffer: IBroadcastBuffer
 {
     // for RunClientScript
     int        type;
@@ -46,45 +45,46 @@ class CBroadcastBuffer : IBroadcastBuffer
     string     message;
     array<int> data;
     // internal
-    int        started;                 /*< time when message was created. negative value = permament */
-    int        lifetime;
-    int        filters;
-    int        filter_level;
-    int        filter_location;
-    int        filter_map;
-    int        filter_faction;
-    int        gm;
-    bool       toDelete;
+    int  started;                       /*< time when message was created. negative value = permament */
+    int  lifetime;
+    int  filters;
+    int  filter_level;
+    int  filter_location;
+    int  filter_map;
+    int  filter_faction;
+    int  gm;
+    bool toDelete;
 
     CBroadcastBuffer(int type, int time, int setup, string message, array<int> data, int lifetime, int filters)
     {
-        this.type                       = type;
-        this.time                       = time;
-        this.setup                      = setup;
-        this.message            = message;
-        this.data                       = data;
-        this.started            = ELAPSED_TIME;
-        this.lifetime           = lifetime;
-        this.filters            = filters;
-        this.filter_level       = 0;
+        this.type = type;
+        this.time = time;
+        this.setup = setup;
+        this.message = message;
+        this.data = data;
+        this.started = ELAPSED_TIME;
+        this.lifetime = lifetime;
+        this.filters = filters;
+        this.filter_level = 0;
         this.filter_location = 0;
-        this.filter_map         = 0;
-        this.gm                         = 0;
-        this.toDelete           = false;
+        this.filter_map = 0;
+        this.gm = 0;
+        this.toDelete = false;
     }
-
     // client stuff
-
     string GetString()
     {
         string result = "";
         string sdata = "";
-        if(data.length() > 0)
+
+        if (data.length() > 0)
         {
-            for(uint d = 0; d < this.data.length(); d++)
+            for (uint d = 0; d < this.data.length(); d++)
             {
-                if(d > 0)
+                if (d > 0)
+                {
                     sdata += BROADCAST_SEPARATOR_DATA;
+                }
                 sdata += "" + data[d];
             }
         }
@@ -96,256 +96,294 @@ class CBroadcastBuffer : IBroadcastBuffer
             sdata
             );
     }
-
     void SetType(int type)
     {
         this.type = type;
     }
-
     int GetType()
     {
         return(this.type);
     }
-
     void SetTime(int time)
     {
         this.time = time;
     }
-
     int GetTime()
     {
         return(this.time);
     }
-
     void SetSetup(int setup)
     {
         this.setup = setup;
     }
-
     int GetSetup()
     {
         return(this.setup);
     }
-
     void SetMessage(string message)
     {
         this.message = message;
     }
-
     void AppendMessage(string message)
     {
         this.message = this.message + message;
     }
-
     string GetMessage()
     {
         return(this.message);
     }
-
     void SetData(array<int> data)
     {
         this.data = data;
     }
-
     void SetStart(int time)
     {
         this.started = time;
     }
-
     void ResetStart()
     {
         this.started = ELAPSED_TIME;
     }
-
     void SetLifetime(int lifetime)
     {
         this.lifetime = lifetime;
     }
-
     void SetFilters(int filters)
     {
         this.filters = filters;
     }
-
     void SetFilter(int filter)
     {
         SETFLAG(this.filters, filter);
     }
-
     void SetFilter(int filter, int data)
     {
         this.SetFilter(filter);
-        if(FLAG(filter, BROADCAST_FILTER_LEVEL))
+        if (FLAG(filter, BROADCAST_FILTER_LEVEL))
+        {
             this.filter_level = data;
-        if(FLAG(filter, BROADCAST_FILTER_LOCATION))
+        }
+        if (FLAG(filter, BROADCAST_FILTER_LOCATION))
+        {
             this.filter_location = data;
-        if(FLAG(filter, BROADCAST_FILTER_MAP))
+        }
+        if (FLAG(filter, BROADCAST_FILTER_MAP))
+        {
             this.filter_map = data;
-        if(FLAG(filter, BROADCAST_FILTER_FACTION))
+        }
+        if (FLAG(filter, BROADCAST_FILTER_FACTION))
+        {
             this.filter_faction = data;
+        }
     }
-
     void UnsetFilter(int filter)
     {
         UNSETFLAG(this.filters, filter);
     }
-
     bool Filter(int filter)
     {
-        if(FLAG(this.filters, filter))
+        if (FLAG(this.filters, filter))
+        {
             return(true);
+        }
         else
+        {
             return(false);
+        }
     }
-
     bool CheckFilters(Critter@ player)
     {
-        if(this.type == BROADCAST_NONE || this.toDelete || this.started < 0)
-            return(false);
-
-        if(!valid(player))
-            return(false);
-
-        if(!player.IsPlayer())
-            return(false);
-
-        if(this.filters > 0)
+        if (this.type == BROADCAST_NONE || this.toDelete || this.started < 0)
         {
-            if(this.Filter(BROADCAST_FILTER_TESTER) && player.GetAccess() < ACCESS_TESTER)
-                return(false);
-            if(this.Filter(BROADCAST_FILTER_MODER) && player.GetAccess() < ACCESS_MODER)
-                return(false);
-            if(this.Filter(BROADCAST_FILTER_ADMIN) && player.GetAccess() < ACCESS_ADMIN)
-                return(false);
-            if(this.Filter(BROADCAST_FILTER_GOD) && !GodOfTheRealm(player.Id))
-                return(false);
-            if(this.Filter(BROADCAST_FILTER_MORTAL) && GodOfTheRealm(player.Id))
-                return(false);
-            if(this.Filter(BROADCAST_FILTER_FEMALE) && player.Param[ST_GENDER] != GENDER_FEMALE)
-                return(false);
-            if(this.Filter(BROADCAST_FILTER_MALE) && player.Param[ST_GENDER] != GENDER_MALE)
-                return(false);
-            if(this.Filter(BROADCAST_FILTER_WORLDMAP) && valid(player.GetMap()))
-                return(false);
-            if(this.Filter(BROADCAST_FILTER_ANYMAP) && !valid(player.GetMap()))
-                return(false);
-            if(this.Filter(BROADCAST_FILTER_LEVEL) && player.Param[ST_LEVEL] < this.filter_level)
-                return(false);
-            if(this.Filter(BROADCAST_FILTER_LOCATION))
-            {
-                if(!valid(player.GetMap()))
-                    return(false);
+            return(false);
+        }
 
-                if(int(player.GetMap().GetLocation().Id) != this.filter_location)
-                    return(false);
-            }
-            if(this.Filter(BROADCAST_FILTER_NOTLOCATION))
+        if (!valid(player))
+        {
+            return(false);
+        }
+
+        if (!player.IsPlayer())
+        {
+            return(false);
+        }
+
+        if (this.filters > 0)
+        {
+            if (this.Filter(BROADCAST_FILTER_TESTER) && player.GetAccess() < ACCESS_TESTER)
             {
-                if(!valid(player.GetMap()))
+                return(false);
+            }
+            if (this.Filter(BROADCAST_FILTER_MODER) && player.GetAccess() < ACCESS_MODER)
+            {
+                return(false);
+            }
+            if (this.Filter(BROADCAST_FILTER_ADMIN) && player.GetAccess() < ACCESS_ADMIN)
+            {
+                return(false);
+            }
+            if (this.Filter(BROADCAST_FILTER_GOD) && !GodOfTheRealm(player.Id))
+            {
+                return(false);
+            }
+            if (this.Filter(BROADCAST_FILTER_MORTAL) && GodOfTheRealm(player.Id))
+            {
+                return(false);
+            }
+            if (this.Filter(BROADCAST_FILTER_FEMALE) && player.Param[ST_GENDER] != GENDER_FEMALE)
+            {
+                return(false);
+            }
+            if (this.Filter(BROADCAST_FILTER_MALE) && player.Param[ST_GENDER] != GENDER_MALE)
+            {
+                return(false);
+            }
+            if (this.Filter(BROADCAST_FILTER_WORLDMAP) && valid(player.GetMap()))
+            {
+                return(false);
+            }
+            if (this.Filter(BROADCAST_FILTER_ANYMAP) && !valid(player.GetMap()))
+            {
+                return(false);
+            }
+            if (this.Filter(BROADCAST_FILTER_LEVEL) && player.Param[ST_LEVEL] < this.filter_level)
+            {
+                return(false);
+            }
+            if (this.Filter(BROADCAST_FILTER_LOCATION))
+            {
+                if (!valid(player.GetMap()))
+                {
+                    return(false);
+                }
+
+                if (int(player.GetMap().GetLocation().Id) != this.filter_location)
+                {
+                    return(false);
+                }
+            }
+            if (this.Filter(BROADCAST_FILTER_NOTLOCATION))
+            {
+                if (!valid(player.GetMap()))
+                {
                     return(true);
+                }
 
-                if(int(player.GetMap().GetLocation().Id) == this.filter_location)
+                if (int(player.GetMap().GetLocation().Id) == this.filter_location)
+                {
                     return(false);
+                }
             }
-            if(this.Filter(BROADCAST_FILTER_MAP))
+            if (this.Filter(BROADCAST_FILTER_MAP))
             {
-                if(!valid(player.GetMap()))
+                if (!valid(player.GetMap()))
+                {
                     return(false);
+                }
 
-                else if(int(player.GetMap().Id) != this.filter_map)
+                else if (int(player.GetMap().Id) != this.filter_map)
+                {
                     return(false);
+                }
             }
-            if(this.Filter(BROADCAST_FILTER_FACTION) && player.Param[ST_TEAM_ID] != this.filter_faction)
+            if (this.Filter(BROADCAST_FILTER_FACTION) && player.Param[ST_TEAM_ID] != this.filter_faction)
+            {
                 return(false);
+            }
         }
         return(true);
     }
-
     bool Send(Critter@ player)
     {
-        if(this.type == BROADCAST_NONE || this.toDelete || this.started < 0)
+        if (this.type == BROADCAST_NONE || this.toDelete || this.started < 0)
+        {
             return(false);
+        }
 
-        if(!valid(player))
+        if (!valid(player))
         {
             Log("Invalid critter");
             return(false);
         }
 
-        if(!player.IsPlayer())
+        if (!player.IsPlayer())
         {
             Log("Not a player: critter<" + player.Id + ">");
             return(false);
         }
 
-        if(this.CheckFilters(player))
+        if (this.CheckFilters(player))
         {
             player.RunClientScript(BROADCAST_SCRIPT, this.type, this.time, this.setup, this.message, this.data);
             return(true);
         }
         else
+        {
             return(false);
+        }
     }
-
     uint SendToAll()
     {
-        if(this.type == BROADCAST_NONE || this.toDelete || this.started < 0)
+        if (this.type == BROADCAST_NONE || this.toDelete || this.started < 0)
+        {
             return(0);
+        }
 
         array<Critter@> player;
         uint            num = GetAllOnlinePlayers(player);
         uint            count = 0;
-        for(uint p = 0; p < num; p++)
+        for (uint p = 0; p < num; p++)
         {
-            if(!valid(player[p]))
+            if (!valid(player[p]))
+            {
                 continue;
+            }
 
-            if(this.Send(player[p]))
+            if (this.Send(player[p]))
+            {
                 count++;
+            }
         }
         return(count);
     }
-
     void SetGM(int id)
     {
         this.gm = id;
     }
-
     void UnsetGM()
     {
         this.gm = 0;
     }
-
     void ToDelete()
     {
         this.toDelete = true;
     }
 };
 array<CBroadcastBuffer> BroadcastBuffer;
-
 IBroadcastBuffer@ AddBroadcastBuffer(int t, int i, int s, string& m, array<int>& d, int l, int f)
 {
     BroadcastBuffer.insertLast(CBroadcastBuffer(t, i, s, m, d, l, f));
     int idx =  BroadcastBuffer.length() - 1;
     return(BroadcastBuffer[idx]);
 }
-
 void DumpBroadcastBuffer(Critter@ player)
 {
-    //if(BroadcastBuffer.length() == 0)
+    // if(BroadcastBuffer.length() == 0)
     //   return;
 
-    if(!valid(player))
+    if (!valid(player))
     {
         Log("Invalid player");
         return;
     }
 
     string dump = " ";
-    for(uint b = 0; b < BroadcastBuffer.length(); b++)
+    for (uint b = 0; b < BroadcastBuffer.length(); b++)
     {
-        if(b > 0)
+        if (b > 0)
+        {
             dump += BROADCAST_SEPARATOR_MAIN;
+        }
 
         dump += BroadcastBuffer[b].GetString();
     }
@@ -353,21 +391,21 @@ void DumpBroadcastBuffer(Critter@ player)
     array<int> data;
     player.RunClientScript(BROADCAST_SCRIPTDUMP, 0, 0, 0, dump, data);
 }
-
 void dump(Critter& player, int, int, int)
 {
     DumpBroadcastBuffer(player);
 }
-
 uint FindBroadcastBufferByType(int type, array<IBroadcastBuffer@>& buf)
 {
-    if(BroadcastBuffer.length() == 0)
+    if (BroadcastBuffer.length() == 0)
+    {
         return(0);
+    }
 
     uint count = 0;
-    for(uint b = 0; b < BroadcastBuffer.length(); b++)
+    for (uint b = 0; b < BroadcastBuffer.length(); b++)
     {
-        if(BroadcastBuffer[b].type == type)
+        if (BroadcastBuffer[b].type == type)
         {
             buf.insertLast(BroadcastBuffer[b]);
             count++;
@@ -375,16 +413,17 @@ uint FindBroadcastBufferByType(int type, array<IBroadcastBuffer@>& buf)
     }
     return(count);
 }
-
 uint FindBroadcastBufferByGM(int id, array<IBroadcastBuffer@>& buf)
 {
-    if(BroadcastBuffer.length() == 0)
+    if (BroadcastBuffer.length() == 0)
+    {
         return(0);
+    }
 
     uint count = 0;
-    for(uint b = 0; b < BroadcastBuffer.length(); b++)
+    for (uint b = 0; b < BroadcastBuffer.length(); b++)
     {
-        if(BroadcastBuffer[b].gm == id)
+        if (BroadcastBuffer[b].gm == id)
         {
             buf.insertLast(BroadcastBuffer[b]);
             count++;
@@ -392,20 +431,21 @@ uint FindBroadcastBufferByGM(int id, array<IBroadcastBuffer@>& buf)
     }
     return(count);
 }
-
 void UpdateBroadcast()
 {
-    if(BroadcastBuffer.length() == 0)
-        return;
-
-    for(uint b = 0; b < BroadcastBuffer.length(); b++)
+    if (BroadcastBuffer.length() == 0)
     {
-        if(BroadcastBuffer[b].toDelete ||
-        ((BroadcastBuffer[b].type == BROADCAST_TC && int(ELAPSED_TIME) >= BroadcastBuffer[b].lifetime) ||
-        (BroadcastBuffer[b].type != BROADCAST_TC && int(ELAPSED_TIME) >= BroadcastBuffer[b].started + BroadcastBuffer[b].lifetime)) ||
-		((BroadcastBuffer[b].type == BROADCAST_SERVER_EVENT_COUNTDOWN && int(ELAPSED_TIME) >= BroadcastBuffer[b].lifetime) ||
-        (BroadcastBuffer[b].type != BROADCAST_SERVER_EVENT_COUNTDOWN && int(ELAPSED_TIME) >= BroadcastBuffer[b].started + BroadcastBuffer[b].lifetime)) &&
-		BroadcastBuffer[b].started >= 0)
+        return;
+    }
+
+    for (uint b = 0; b < BroadcastBuffer.length(); b++)
+    {
+        if (BroadcastBuffer[b].toDelete ||
+            ((BroadcastBuffer[b].type == BROADCAST_TC && int(ELAPSED_TIME) >= BroadcastBuffer[b].lifetime) ||
+             (BroadcastBuffer[b].type != BROADCAST_TC && int(ELAPSED_TIME) >= BroadcastBuffer[b].started + BroadcastBuffer[b].lifetime)) ||
+            ((BroadcastBuffer[b].type == BROADCAST_SERVER_EVENT_COUNTDOWN && int(ELAPSED_TIME) >= BroadcastBuffer[b].lifetime) ||
+             (BroadcastBuffer[b].type != BROADCAST_SERVER_EVENT_COUNTDOWN && int(ELAPSED_TIME) >= BroadcastBuffer[b].started + BroadcastBuffer[b].lifetime)) &&
+            BroadcastBuffer[b].started >= 0)
         {
             Log("BroadcastBuffer cleanup" + (BroadcastBuffer.length() - 1 > 0 ? ", " + (BroadcastBuffer.length() - 1) + " message(s) left" : ""));
             BroadcastBuffer.removeAt(b);
@@ -426,75 +466,79 @@ uint[] LockedLocations =
     LOCATION_TheDen,
     LOCATION_Redding
 };
-
 bool IsLocked(uint location_pid)
 {
-    if(LockState == false)
+    if (LockState == false)
+    {
         return(false);
+    }
 
-    if(Present(location_pid, LockedLocations))
+    if (Present(location_pid, LockedLocations))
+    {
         return(true);
+    }
 
     return(false);
 }
-
 void tclock(Critter& player, int one, int two, int lock)
 {
-    if((one * two) == 1613759)         // JIC
+    if ((one * two) == 1613759)         // JIC
     {
-        if(lock == 0)
+        if (lock == 0)
+        {
             LockState = false;
-        else if(lock == 1)
+        }
+        else if (lock == 1)
+        {
             LockState = true;
+        }
         player.Say(SAY_NETMSG, "Broadcast TC lock: " + (LockState ? "en" : "dis") + "abled");
     }
 }
-
 // Server messages
-
 IBroadcastBuffer@ Broadcast_Message(string& message, int time, int filters, bool send)   // Export
 {
     array<int>        data;
     IBroadcastBuffer@ msg = AddBroadcastBuffer(BROADCAST_MESSAGE, time, 0, message, data, time, filters);
-    if(send)
+
+    if (send)
+    {
         msg.SendToAll();
+    }
     return(msg);
 }
-
 IBroadcastBuffer@ Broadcast_Message(string& message, int time, int filters)   // Export
 {
     return(Broadcast_Message(message, time, filters, true));
 }
-
-
 IBroadcastBuffer@ Broadcast_Message(string& message, int& time)   // Export
 {
     return(Broadcast_Message(message, time, BROADCAST_FILTER_NONE, true));
 }
-
 IBroadcastBuffer@ Broadcast_Message(string& message, bool send)      // Export
 {
     int time = REAL_MINUTE(1) + REAL_MS(100 * message.length());     // client-like
+
     return(Broadcast_Message(message, time, BROADCAST_FILTER_NONE, send));
 }
-
 IBroadcastBuffer@ Broadcast_Message(string& message)                 // Export
 {
     int time = REAL_MINUTE(1) + REAL_MS(100 * message.length());     // client-like
+
     return(Broadcast_Message(message, time, BROADCAST_FILTER_NONE, true));
 }
-
 // Town Control
-
 IBroadcastBuffer@ GetTownControlBuffer(int location)
 {
-    if(BroadcastBuffer.length() == 0)
-        return(null);
-
-    for(uint b = 0; b < BroadcastBuffer.length(); b++)
+    if (BroadcastBuffer.length() == 0)
     {
-        if(BroadcastBuffer[b].type == BROADCAST_TOWN_CONTROL && BroadcastBuffer[b].data.length() > 0 &&
-           BroadcastBuffer[b].data[0] == location)
+        return(null);
+    }
+
+    for (uint b = 0; b < BroadcastBuffer.length(); b++)
+    {
+        if (BroadcastBuffer[b].type == BROADCAST_TOWN_CONTROL && BroadcastBuffer[b].data.length() > 0 &&
+            BroadcastBuffer[b].data[0] == location)
         {
             DLog("Broadcast:TC for location <" + location + "> found, idx <" + b + ">");
             return(BroadcastBuffer[b]);
@@ -502,10 +546,9 @@ IBroadcastBuffer@ GetTownControlBuffer(int location)
     }
     return(null);
 }
-
 void Broadcast_TownControl_Set(string& message, int location, int time, int faction)
 {
-    if(time <= 0)
+    if (time <= 0)
     {
         Broadcast_TownControl_Stop(location);
         return;
@@ -514,7 +557,7 @@ void Broadcast_TownControl_Set(string& message, int location, int time, int fact
     IBroadcastBuffer@ tc = GetTownControlBuffer(location);
 
     int[] data = { location, GetFactionNameMsg(faction) };
-    if(valid(tc))
+    if (valid(tc))
     {
         Log("Overwriting Broadcast:TC buffer for location <" + location + ">: faction<" + faction + "> time<" + time + ">");
         tc.SetTime(time);
@@ -530,16 +573,15 @@ void Broadcast_TownControl_Set(string& message, int location, int time, int fact
     }
     tc.SendToAll();
 }
-
 void Broadcast_TownControl_Set(int location, int time, int faction)
 {
     Broadcast_TownControl_Set(" ", location, time, faction);
 }
-
 void Broadcast_TownControl_Stop(int location)
 {
     IBroadcastBuffer@ tc = GetTownControlBuffer(location);
-    if(valid(tc))
+
+    if (valid(tc))
     {
         DLog("Stopping Broadcast:TC for location <" + location + ">");
         int[] data = { location };
@@ -560,13 +602,13 @@ void Broadcast_TownControl_Stop(int location)
 
 GMTServerFunc(tc, player, location, time, faction, unused1, unused2)
 {
-    if(location <= 0)
+    if (location <= 0)
     {
         player.Say(SAY_NETMSG, "Wrong location pid.");
         return;
     }
 
-    if(IsLocked(location))
+    if (IsLocked(location))
     {
         player.Say(SAY_NETMSG, "Location <" + location + "> is locked, can't be modified.");
         return;
@@ -574,18 +616,18 @@ GMTServerFunc(tc, player, location, time, faction, unused1, unused2)
 
     Broadcast_TownControl_Set(location, AFTER(REAL_SECOND(time)), faction);
 }
-
 // Influence
-
 IBroadcastBuffer@ GetInfluenceBuffer(int location)
 {
-    if(BroadcastBuffer.length() == 0)
-        return(null);
-
-    for(uint b = 0; b < BroadcastBuffer.length(); b++)
+    if (BroadcastBuffer.length() == 0)
     {
-        if(BroadcastBuffer[b].type == BROADCAST_INFLUENCE && BroadcastBuffer[b].data.length() > 0 &&
-           BroadcastBuffer[b].data[0] == location)
+        return(null);
+    }
+
+    for (uint b = 0; b < BroadcastBuffer.length(); b++)
+    {
+        if (BroadcastBuffer[b].type == BROADCAST_INFLUENCE && BroadcastBuffer[b].data.length() > 0 &&
+            BroadcastBuffer[b].data[0] == location)
         {
             DLog("Broadcast:Influence for location <" + location + "> found, idx <" + b + ">");
             return(BroadcastBuffer[b]);
@@ -593,11 +635,11 @@ IBroadcastBuffer@ GetInfluenceBuffer(int location)
     }
     return(null);
 }
-
 IBroadcastBuffer@ Broadcast_Influence(int location, int time, string& message)
 {
     IBroadcastBuffer@ influence = GetInfluenceBuffer(location);
-    if(valid(influence))
+
+    if (valid(influence))
     {
         influence.ResetStart();
         influence.SetLifetime(0);
@@ -617,27 +659,28 @@ GMTServerFunc(influence, player, location, time, unused1, unused2, unused3)
 
     influence.Send(player);
 }
-
 // RequestHelp, returns id of a GM who received the broadcast
 //
 uint Broadcast_RequestHelp(Critter@ player, string& message)
 {
-    if(!valid(player))
+    if (!valid(player))
+    {
         return 0;
+    }
 
-    Critter@   gm = GetOnlineGM();
+    Critter@ gm = GetOnlineGM();
 
     array<int> data;
-    if(valid(gm))
+    if (valid(gm))
     {
         // we have a GM online - prepare the message and inform the player
         IBroadcastBuffer@ req = AddBroadcastBuffer(BROADCAST_REQUESTHELP, REAL_MINUTE(1), 0,
-                                                   GetCritterInfo(player) + BROADCAST_SEPARATOR_MAIN + message, data, 0, BROADCAST_FILTER_AUTHENTICATED);
+            GetCritterInfo(player) + BROADCAST_SEPARATOR_MAIN + message, data, 0, BROADCAST_FILTER_AUTHENTICATED);
 
         player.Say(SAY_NETMSG, "Sending help request. If an administrator won't appear within a few minutes, try again later.");
         FLog(LOG_GM_HELP, player.Name + " Asking the GM/Admin " + gm.Name + " to assist.");
 
-        if(req.Send(gm) == true)
+        if (req.Send(gm) == true)
         {
             // broadcast send, now push message into GM client log
             gm.Say(SAY_NETMSG, "|4294901760 " + "GM help requested: the character " + GetCritterInfo(player) + " has requested help. Message:");
@@ -654,10 +697,12 @@ uint Broadcast_RequestHelp(Critter@ player, string& message)
 
             array<Critter@> auth;
             uint            all = GetAuthenticatedPlayers(auth);
-            for(uint a = 0; a < all; a++)
+            for (uint a = 0; a < all; a++)
             {
-                if(auth[a].Id == gm.Id)
+                if (auth[a].Id == gm.Id)
+                {
                     continue;
+                }
                 req.SetTime(REAL_SECOND(Random(25, 35)));
                 req.Send(auth[a]);
             }
@@ -678,47 +723,52 @@ uint Broadcast_RequestHelp(Critter@ player, string& message)
         SetRequestedHelp(player, 10);
 
         IBroadcastBuffer@ req = AddBroadcastBuffer(BROADCAST_REQUESTHELP, REAL_MINUTE(1), 0,
-                                                   GetCritterInfo(player) + BROADCAST_SEPARATOR_MAIN + msg, data, REAL_MINUTE(30),
-                                                   BROADCAST_FILTER_AUTHENTICATED);
+            GetCritterInfo(player) + BROADCAST_SEPARATOR_MAIN + msg, data, REAL_MINUTE(30),
+            BROADCAST_FILTER_AUTHENTICATED);
 
         player.Say(SAY_NETMSG, "Sending help request. If an admin won't appear within a few minutes, you can try #reloaded.");
         return 0;
     }
 }
-
 void Broadcast_CheckRequestHelpBuffer(Critter@ gm)
 {
-    if(BroadcastBuffer.length() == 0)
+    if (BroadcastBuffer.length() == 0)
+    {
         return;
+    }
 
-    if(!valid(gm))
+    if (!valid(gm))
     {
         Log("GM invalid");
         return;
     }
 
     int count = 0;
-    for(uint b = 0; b < BroadcastBuffer.length(); b++)
+    for (uint b = 0; b < BroadcastBuffer.length(); b++)
     {
-        if(BroadcastBuffer[b].type == BROADCAST_REQUESTHELP)
+        if (BroadcastBuffer[b].type == BROADCAST_REQUESTHELP)
+        {
             count++;
+        }
     }
 
-    if(count > 0)
+    if (count > 0)
     {
-        if(GodOfTheRealm(gm.Id)
-           #ifdef __DEBUG__
-           || gm.Id == 1
-           #endif
-           )
+        if (GodOfTheRealm(gm.Id)
+            #ifdef __DEBUG__
+            || gm.Id == 1
+            #endif
+            )
         {
             array<int>        data;
             IBroadcastBuffer@ info = AddBroadcastBuffer(BROADCAST_MESSAGE, REAL_SECOND(40), 0,
-                                                        "Awaiting requests: " + count + " - use `getrequests to read", data, 0,
-                                                        // can't use AUTHENTICATED filter here - function is called before access change happens
-                                                        BROADCAST_FILTER_NONE);
-            if(info.Send(gm))
+                "Awaiting requests: " + count + " - use `getrequests to read", data, 0,
+                // can't use AUTHENTICATED filter here - function is called before access change happens
+                BROADCAST_FILTER_NONE);
+            if (info.Send(gm))
+            {
                 info.ToDelete();
+            }
         }
         else
         {
@@ -726,32 +776,33 @@ void Broadcast_CheckRequestHelpBuffer(Critter@ gm)
         }
     }
 }
-
 void Broadcast_DumpRequestHelpBuffer(Critter @gm)
 {
-    if(BroadcastBuffer.length() == 0)
+    if (BroadcastBuffer.length() == 0)
+    {
         return;
+    }
 
-    if(!valid(gm))
+    if (!valid(gm))
     {
         Log("GM invalid");
         return;
     }
 
-    for(uint b = 0; b < BroadcastBuffer.length(); b++)
+    for (uint b = 0; b < BroadcastBuffer.length(); b++)
     {
-        if(BroadcastBuffer[b].type == BROADCAST_REQUESTHELP)
+        if (BroadcastBuffer[b].type == BROADCAST_REQUESTHELP)
         {
             // can't use AUTHENTICATED filter here - function is called before access change happens
             BroadcastBuffer[b].SetFilters(BROADCAST_FILTER_NONE);
-            if(BroadcastBuffer[b].Send(gm))
+            if (BroadcastBuffer[b].Send(gm))
             {
                 BroadcastBuffer[b].ToDelete();
                 array<string@>@ msg = split(BroadcastBuffer[b].GetMessage(), BROADCAST_SEPARATOR_MAIN);
                 int id = 0;
                 gm.Say(SAY_NETMSG, "|4294901760 " + "GM help requested: the character " +
-                       (msg.length() > 0 && (valid(msg[0])) ? msg[0] : "?") +
-                       " has requested help. Message:");
+                    (msg.length() > 0 && (valid(msg[0])) ? msg[0] : "?") +
+                    " has requested help. Message:");
                 gm.Say(SAY_NETMSG, "|4294901760 " + (msg.length() > 1 && (valid(msg[1])) ? msg[1] : ""));
             }
             else
@@ -773,18 +824,18 @@ GMTServerFunc(reqclear, player, unused1, unused2, unused3, unused4, unused5)
 {
     SetRequestedHelp(player, 0);
 }
-
 // Event CountDown
-
 IBroadcastBuffer@ GetEventCountDownBuffer(int location, int type)
 {
-    if(BroadcastBuffer.length() == 0)
-        return(null);
-
-    for(uint b = 0; b < BroadcastBuffer.length(); b++)
+    if (BroadcastBuffer.length() == 0)
     {
-        if(BroadcastBuffer[b].type == BROADCAST_SERVER_EVENT_COUNTDOWN && BroadcastBuffer[b].data.length() > 0 &&
-           BroadcastBuffer[b].data[0] == location && BroadcastBuffer[b].data[1] == type)
+        return(null);
+    }
+
+    for (uint b = 0; b < BroadcastBuffer.length(); b++)
+    {
+        if (BroadcastBuffer[b].type == BROADCAST_SERVER_EVENT_COUNTDOWN && BroadcastBuffer[b].data.length() > 0 &&
+            BroadcastBuffer[b].data[0] == location && BroadcastBuffer[b].data[1] == type)
         {
             DLog("Broadcast: Event type <" + type + "> in location <" + location + "> found, idx <" + b + ">");
             return(BroadcastBuffer[b]);
@@ -792,10 +843,9 @@ IBroadcastBuffer@ GetEventCountDownBuffer(int location, int type)
     }
     return(null);
 }
-
 void ServerEventCountDownStart(string& message, int location, int time, int type) // faction
 {
-    if(time <= 0)
+    if (time <= 0)
     {
         ServerEventCountDownStop(location, type);
         return;
@@ -804,7 +854,7 @@ void ServerEventCountDownStart(string& message, int location, int time, int type
     IBroadcastBuffer@ event = GetEventCountDownBuffer(location, type);
 
     int[] data = { location, type };
-    if(valid(event))
+    if (valid(event))
     {
         Log("Overwriting Broadcast:Event buffer for location <" + location + ">: type<" + type + "> time<" + time + ">");
         event.SetTime(time);
@@ -820,16 +870,15 @@ void ServerEventCountDownStart(string& message, int location, int time, int type
     }
     event.SendToAll();
 }
-
 void ServerEventCountDownStart(int location, int time, int type)
 {
     ServerEventCountDownStart(" ", location, time, type);
 }
-
 void ServerEventCountDownStop(int location, int type)
 {
     IBroadcastBuffer@ event = GetEventCountDownBuffer(location, type);
-    if(valid(event))
+
+    if (valid(event))
     {
         DLog("Stopping Broadcast:Event for location <" + location + ">, type <" + type + ">");
         int[] data = { location, type };
@@ -850,116 +899,106 @@ void ServerEventCountDownStop(int location, int type)
 
 GMTServerFunc(event, player, location, time, type, unused1, unused2)
 {
-    if(location <= 0)
+    if (location <= 0)
     {
         player.Say(SAY_NETMSG, "Wrong location pid.");
         return;
     }
 
     /* if(IsLocked(location))
-    {
+       {
         player.Say(SAY_NETMSG, "Location <" + location + "> is locked, can't be modified.");
         return;
-    } */
+       } */
 
     ServerEventCountDownStart(location, AFTER(REAL_SECOND(time)), type);
 }
-
 void wipe(Critter& player, int, int, int)
 {
     array<int> data;
+
     AddBroadcastBuffer(BROADCAST_MESSAGE, ELAPSED_TIME * 10, 0, "Everything is dead or dying.", data, ELAPSED_TIME * 10, BROADCAST_FILTER_NONE)
     .SendToAll();
 }
-
 void baseControl(string msg, int mapId, uint time)
 {
     array<int> data = { mapId };
+
     AddBroadcastBuffer(BROADCAST_BASE_CONTROL, time, 0, msg, data, time, BROADCAST_FILTER_NONE)
     .SendToAll();
 }
-
 void baseControlLocal(string msg, int mapId, uint time)
 {
-    array<int> data = { mapId };
+    array<int>        data = { mapId };
     IBroadcastBuffer@ broadcastInfo = AddBroadcastBuffer(BROADCAST_BASE_CONTROL, time, 0, msg, data, time, BROADCAST_FILTER_NONE);
+
     broadcastInfo.SetFilter(BROADCAST_FILTER_MAP, mapId);
     broadcastInfo.SendToAll();
 }
-
 void baseControlRadio(string msg, uint time, int mapId, uint factionId)
 {
-    array<int> data;
+    array<int>        data;
     IBroadcastBuffer@ radioInfo = AddBroadcastBuffer(BROADCAST_BASE_RADIO, time, 0, msg, data, 0, BROADCAST_FILTER_NONE);
+
     radioInfo.SetFilter(BROADCAST_FILTER_MAP, mapId);
     radioInfo.SetFilter(BROADCAST_FILTER_FACTION, factionId);
     radioInfo.SendToAll();
 }
-
 void ServerEventMSG(uint time, string msg)
 {
-	array<int> data;
-	AddBroadcastBuffer(BROADCAST_SERVER_EVENT_MSG, REAL_SECOND(time), 0, msg, data, REAL_SECOND(time), BROADCAST_FILTER_NONE)
-	.SendToAll();
-}
+    array<int> data;
 
+    AddBroadcastBuffer(BROADCAST_SERVER_EVENT_MSG, REAL_SECOND(time), 0, msg, data, REAL_SECOND(time), BROADCAST_FILTER_NONE)
+    .SendToAll();
+}
 void ServerEventCNTSet(string message, uint location, uint type, uint time)
 {
-	ServerEventCountDownStart(message, location, ELAPSED_TIME + time, type);
+    ServerEventCountDownStart(message, location, ELAPSED_TIME + time, type);
 }
-
 void ServerEventCNTSet(uint location, uint type, uint time)
 {
-	ServerEventCountDownStart(" ", location, ELAPSED_TIME + time, type);
+    ServerEventCountDownStart(" ", location, ELAPSED_TIME + time, type);
 }
-
 void ServerEventCNTStop(uint location, uint type)
 {
-	ServerEventCountDownStop(location, type);
+    ServerEventCountDownStop(location, type);
 }
-
 /* void ServerEventCountDownStart(uint time, string msg, uint location, uint type)
-{
-	Broadcast_TownControl_Set("Vault 13 outer door are opened for %COUNTDOWN%.", LOCATION_Vault13, ELAPSED_TIME + REAL_SECOND(time), 201);
-}
+   {
+        Broadcast_TownControl_Set("Vault 13 outer door are opened for %COUNTDOWN%.", LOCATION_Vault13, ELAPSED_TIME + REAL_SECOND(time), 201);
+   }
 
-void ServerEventCountDownStop(uint location, uint type)
-{
-	Broadcast_TownControl_Stop(LOCATION_Vault13);
-}
-*/
-
+   void ServerEventCountDownStop(uint location, uint type)
+   {
+        Broadcast_TownControl_Stop(LOCATION_Vault13);
+   }
+ */
 void V13test(Critter& player, int time, int, int)
 {
-	array<int> data;
-	AddBroadcastBuffer(BROADCAST_SERVER_EVENT_MSG, REAL_SECOND(time), 0, "Vault 13 outer door are opened for %COUNTDOWN%.", data, REAL_SECOND(time), BROADCAST_FILTER_NONE)
-	.SendToAll();
-}
+    array<int> data;
 
+    AddBroadcastBuffer(BROADCAST_SERVER_EVENT_MSG, REAL_SECOND(time), 0, "Vault 13 outer door are opened for %COUNTDOWN%.", data, REAL_SECOND(time), BROADCAST_FILTER_NONE)
+    .SendToAll();
+}
 void V13teststart(Critter& player, int location, int type, int seconds)
 {
-	ServerEventCountDownStart("Vault 13 outer door are opened for %COUNTDOWN%. DEBUG: Location: " + location + ", type: " + type, location, ELAPSED_TIME + REAL_SECOND(seconds), type);
+    ServerEventCountDownStart("Vault 13 outer door are opened for %COUNTDOWN%. DEBUG: Location: " + location + ", type: " + type, location, ELAPSED_TIME + REAL_SECOND(seconds), type);
 }
-
 void V13teststarthuman(Critter& player, int location, int type, int seconds)
 {
-	ServerEventCountDownStart("Vault 13 outer door are opened for %COUNTDOWN_HUMAN%. DEBUG: Location: " + location + ", type: " + type, location, ELAPSED_TIME + REAL_SECOND(seconds), type);
+    ServerEventCountDownStart("Vault 13 outer door are opened for %COUNTDOWN_HUMAN%. DEBUG: Location: " + location + ", type: " + type, location, ELAPSED_TIME + REAL_SECOND(seconds), type);
 }
-
 void V13teststop(Critter& player, int location, int type, int)
 {
-	ServerEventCountDownStop(location, type);
+    ServerEventCountDownStop(location, type);
 }
-
 void teststart(Critter& player, int location, int type, int seconds)
 {
-	ServerEventCountDownStart(location, ELAPSED_TIME + REAL_SECOND(seconds), type);
+    ServerEventCountDownStart(location, ELAPSED_TIME + REAL_SECOND(seconds), type);
 }
-
-
 void teststop(Critter& player, int location, int type, int)
 {
-	ServerEventCountDownStop(location, type);
+    ServerEventCountDownStop(location, type);
 }
 
 #endif /* __BROADCAST__ */

@@ -29,11 +29,10 @@ enum Ingredients // used internally, do NOT change name
 # ifdef __CLIENT
 #  define Item    ItemCl
 # endif
-
 import bool   HaveAnyIngredient(Item& item) from "prod_ingredients";
 import bool   HaveIngredient(Item& item, uint8 ingredient) from "prod_ingredients";
 import uint16 GetIngredientReturnItem(Item& item, uint8 ingredient) from "prod_ingredients";
 import string IngredientName(uint8 ingredient) from "prod_ingredients";
-import uint   IngredientsNames(Item& item, array<string>& names) from "prod_ingredients";
+import uint   IngredientsNames(Item& item, array < string > &names) from "prod_ingredients";
 #endif // __PROD_INGREDIENTS__
 #endif // __PROD_INGREDIENTS_H__ //

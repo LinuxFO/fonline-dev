@@ -17,14 +17,30 @@ uint CrittersKilled = 0;
 uint PlayerDeaths = 0;
 uint ItemsGenerated = 0;
 uint ItemsPicked = 0;
-
-void AddCaveGenerated()     { CavesGenerated++; }
-void AddCrittersGenerated() { CrittersGenerated++; }
-void AddCrittersKilled()    { CrittersKilled++; }
-void AddPlayerDeaths()      { PlayerDeaths++; }
-void AddItemsGenerated()    { ItemsGenerated++; }
-void AddItemsPicked()       { ItemsPicked++; }
-
+void AddCaveGenerated()
+{
+    CavesGenerated++;
+}
+void AddCrittersGenerated()
+{
+    CrittersGenerated++;
+}
+void AddCrittersKilled()
+{
+    CrittersKilled++;
+}
+void AddPlayerDeaths()
+{
+    PlayerDeaths++;
+}
+void AddItemsGenerated()
+{
+    ItemsGenerated++;
+}
+void AddItemsPicked()
+{
+    ItemsPicked++;
+}
 void InitCaveLog()
 {
     // file f;
@@ -33,11 +49,12 @@ void InitCaveLog()
     // f.close();
     // CreateTimeEvent(__FullMinute+CAVE_TIME, "e_CaveLog", 0, false);
 }
-
 void CritterEnterCave(Critter& critter)
 {
-    if(!critter.IsPlayer())
+    if (!critter.IsPlayer())
+    {
         return;
+    }
 
     file f;
     f.open("logs/cavelog.txt", "a");
@@ -45,7 +62,6 @@ void CritterEnterCave(Critter& critter)
     // f.writeString("Player entered cave:" + GetSafePlayerName(critter.Id)+","+critter.Id+","+critter.Stat[ST_LEVEL]+","+critter.GetMap().GetProtoId()+ "\n");
     f.close();
 }
-
 void ClearVariables()
 {
     CavesGenerated = 0;

@@ -10,21 +10,22 @@
 
 #define ADD_TRADER    # (name, properties) CBrahminTrader name(); name.properties; AddBrahminTrader(name)
 
-array<IBrahminTrader@> BrahminTraders;
-
+array < IBrahminTrader@ > BrahminTraders;
 IBrahminTrader@ GetBrahminTrader(uint id)
 {
-    if(BrahminTraders.length() > id - 1)
+    if (BrahminTraders.length() > id - 1)
+    {
         return BrahminTraders[id - 1];
+    }
     else
+    {
         return null;
+    }
 }
-
 void AddBrahminTrader(CBrahminTrader@ trader)
 {
     BrahminTraders.insertLast(trader);
 }
-
 void InitBrahminTraders()
 {
     Log("Initializing brahmin traders");

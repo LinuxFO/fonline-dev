@@ -240,110 +240,110 @@ const int[] DrugEffects =
     -1,         0,      0,      0,          0,     0,
     -1,         0,      0,      0,          0,     0
 };
-
 int GetDrugTableIndex(uint16 drugPid)
 {
     int index = 0;
-    switch(drugPid)
+
+    switch (drugPid)
     {
-    case PID_STIMPAK:
-        index = 0;
-        break;
-    case PID_RADAWAY:
-        index = 1;
-        break;
-    case PID_ANTIDOTE:
-        index = 2;
-        break;
-    case PID_MENTATS:
-        index = 3;
-        break;
-    case PID_MUTATED_FRUIT:
-        index = 4;
-        break;
-    case PID_IGUANA_ON_A_STICK:
-        index = 5;
-        break;
-    case PID_BUFFOUT:
-        index = 6;
-        break;
-    case PID_MEAT_ON_A_STICK:
-        index = 7;
-        break;
-    case PID_NUKA_COLA:
-        index = 8;
-        break;
-    case PID_RAD_X:
-        index = 9;
-        break;
-    case PID_PSYCHO:
-        index = 10;
-        break;
-    case PID_BEER:
-        index = 11;
-        break;
-    case PID_BOOZE:
-        index = 12;
-        break;
-    case PID_SUPER_STIMPAK:
-        index = 13;
-        break;
-    case PID_JET:
-        index = 14;
-        break;
-    case PID_JET_ANTIDOTE:
-        index = 15;
-        break;
-    case PID_HEALING_POWDER:
-        index = 16;
-        break;
-    case PID_GAMMA_GULP_BEER:
-        index = 17;
-        break;
-    case PID_ROENTGEN_RUM:
-        index = 18;
-        break;
-    case PID_HYPO_POISON:
-        index = 19;
-        break;
-    case PID_COOKIE:
-        index = 20;
-        break;
-    case PID_MONUMENT_CHUNCK:
-        index = 21;
-        break;
-    case PID_ROT_GUT:
-        index = 22;
-        break;
-    case PID_MUTATED_TOE:
-        index = 23;
-        break;
-    case PID_KITTY_SEX_DRUG_AGILITY:
-        index = 24;
-        break;
-    case PID_KITTY_SEX_DRUG_INTELLIGENCE:
-        index = 25;
-        break;
-    case PID_KITTY_SEX_DRUG_STRENGTH:
-        index = 26;
-        break;
-    case PID_HYPO:
-        index = 27;
-        break;
-    case PID_CIGARETTES:
-        index = 28;
-        break;
-    case PID_WATERBAG:
-        index = 29;
-        break;
-    case PID_WEAK_HEALING_POWDER:
-        index = 30;
-        break;
-    case PID_BOTTLE_FULL:
-        index = 31;
-        break;
-    default:
-        break;
+        case PID_STIMPAK:
+            index = 0;
+            break;
+        case PID_RADAWAY:
+            index = 1;
+            break;
+        case PID_ANTIDOTE:
+            index = 2;
+            break;
+        case PID_MENTATS:
+            index = 3;
+            break;
+        case PID_MUTATED_FRUIT:
+            index = 4;
+            break;
+        case PID_IGUANA_ON_A_STICK:
+            index = 5;
+            break;
+        case PID_BUFFOUT:
+            index = 6;
+            break;
+        case PID_MEAT_ON_A_STICK:
+            index = 7;
+            break;
+        case PID_NUKA_COLA:
+            index = 8;
+            break;
+        case PID_RAD_X:
+            index = 9;
+            break;
+        case PID_PSYCHO:
+            index = 10;
+            break;
+        case PID_BEER:
+            index = 11;
+            break;
+        case PID_BOOZE:
+            index = 12;
+            break;
+        case PID_SUPER_STIMPAK:
+            index = 13;
+            break;
+        case PID_JET:
+            index = 14;
+            break;
+        case PID_JET_ANTIDOTE:
+            index = 15;
+            break;
+        case PID_HEALING_POWDER:
+            index = 16;
+            break;
+        case PID_GAMMA_GULP_BEER:
+            index = 17;
+            break;
+        case PID_ROENTGEN_RUM:
+            index = 18;
+            break;
+        case PID_HYPO_POISON:
+            index = 19;
+            break;
+        case PID_COOKIE:
+            index = 20;
+            break;
+        case PID_MONUMENT_CHUNCK:
+            index = 21;
+            break;
+        case PID_ROT_GUT:
+            index = 22;
+            break;
+        case PID_MUTATED_TOE:
+            index = 23;
+            break;
+        case PID_KITTY_SEX_DRUG_AGILITY:
+            index = 24;
+            break;
+        case PID_KITTY_SEX_DRUG_INTELLIGENCE:
+            index = 25;
+            break;
+        case PID_KITTY_SEX_DRUG_STRENGTH:
+            index = 26;
+            break;
+        case PID_HYPO:
+            index = 27;
+            break;
+        case PID_CIGARETTES:
+            index = 28;
+            break;
+        case PID_WATERBAG:
+            index = 29;
+            break;
+        case PID_WEAK_HEALING_POWDER:
+            index = 30;
+            break;
+        case PID_BOTTLE_FULL:
+            index = 31;
+            break;
+        default:
+            break;
     }
     index *= 36;
     return index;

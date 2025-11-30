@@ -27,9 +27,9 @@ import bool     DisbandFollower(Critter& player, Critter& cr, bool reset) from "
 import bool     MakeFollower(Critter& critter, uint type, string& script, uint dialogid, Critter& owner, bool FreeBarter) from "follower_common";
 import Critter@ LocateFollowerByType(IMerc@ merc, Critter& owner) from "follower_common";
 import Critter@ LocateFollowerByID(uint id, Critter& owner) from "follower_common";
-import int      GetFollowers(Critter& player, Map@ map, array<Critter@>& followers, bool OnlyIsSeen) from "follower_common";
-import int      GetFollowers(Critter& player, Map@ map, array<Critter@>& followers) from "follower_common";
-import int      GetFollowers(Critter& player, bool all, array<Critter@>& followers) from "follower_common";
+import int      GetFollowers(Critter& player, Map@ map, array < Critter@ > &followers, bool OnlyIsSeen) from "follower_common";
+import int      GetFollowers(Critter& player, Map@ map, array < Critter@ > &followers) from "follower_common";
+import int      GetFollowers(Critter& player, bool all, array < Critter@ > &followers) from "follower_common";
 import uint     CountFollowers(Critter& player, bool all) from "follower_common";
 import uint     CountFollowers(Critter& player, Map@ map) from "follower_common";
 import uint     GetPartyPointsMax(Critter& player) from "follower_common";

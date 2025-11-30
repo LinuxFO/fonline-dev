@@ -18,20 +18,20 @@
 //
 const array<uint>@ MHexData(uint16 protoId)
 {
-    switch(protoId)
+    switch (protoId)
     {
-    case PID_GRAVESITE_V:
-        return @MHexDataGravesiteV;
-    case PID_GRAVESITE_H:
-        return @MHexDataGravesiteH;
-    case PID_VAULT_CITY_GATE:
-        return @MHexDataVaultCityGate;
-    case PID_CORRUGATED_GATE:
-        return @MHexDataCorrugatedGate;
-    case PID_ACCESS_GATE_1:
-        return @MHexDataAccessGate;
-    case PID_ACCESS_GATE_2:
-        return @MHexDataAccessGate;
+        case PID_GRAVESITE_V:
+            return @MHexDataGravesiteV;
+        case PID_GRAVESITE_H:
+            return @MHexDataGravesiteH;
+        case PID_VAULT_CITY_GATE:
+            return @MHexDataVaultCityGate;
+        case PID_CORRUGATED_GATE:
+            return @MHexDataCorrugatedGate;
+        case PID_ACCESS_GATE_1:
+            return @MHexDataAccessGate;
+        case PID_ACCESS_GATE_2:
+            return @MHexDataAccessGate;
     }
     return null;
 }

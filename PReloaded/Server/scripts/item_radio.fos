@@ -6,12 +6,11 @@
 //
 
 #include "_macros.fos"
-
 void item_init(Item& radio, bool firstTime)
 {
-    if(firstTime)
+    if (firstTime)
     {
-        radio.RadioChannel = 0; //Random(0, 10);
+        radio.RadioChannel = 0; // Random(0, 10);
         radio.RadioFlags = RADIO_DISABLE_RECV;
         radio.Update();
     }

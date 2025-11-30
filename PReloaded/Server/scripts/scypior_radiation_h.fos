@@ -10,9 +10,7 @@
 //
 #ifndef __RADIATION_H__
 #define __RADIATION_H__
-
 import void InitRadiationEffects() from "radiation";
-
 import void Irradiate(Critter& cr, int dose) from "radiation";
 import void RadiationSideEffects(Critter& cr) from "radiation";
 import void HealRadiation(Critter& cr) from "radiation";

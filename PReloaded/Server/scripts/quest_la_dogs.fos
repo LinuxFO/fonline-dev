@@ -11,7 +11,6 @@
 #include "utils_h.fos"
 #include "npc_planes_h.fos"
 #include "entire.fos"
-
 import uint GetZonesWithFlag(uint flag, array<IZone@>@ zones) from "worldmap";
 
 #define ALL_KILLED            (2)
@@ -21,7 +20,6 @@ import uint GetZonesWithFlag(uint flag, array<IZone@>@ zones) from "worldmap";
 #define PID                   (82)
 // the time after dog group is added to the zone it's been removed from
 #define GROUP_RESPAWN_TIME    (REAL_HOUR(Random(20, 30)))
-
 // check if there is some group of dog roaming on the worldmap near LA
 bool d_CheckDogs(Critter& player, Critter@ npc)
 {
@@ -36,17 +34,23 @@ bool d_NoDogs(Critter& player, Critter@ npc)
 {
     return !d_CheckDogs(player, npc);
 }
-
 void r_SpawnLoc(Critter& player, Critter@ npc)
 {
     array<IZone@> zones;
     uint          num = GetZonesWithFlag(FLAG_LA_Surroundings, zones);
     array<IZone@> dogzones;
-    for(uint i = 0; i < num; i++)
-        if(zones[i].GetBaseQuantity(GROUP_Dog) > 0)
+
+    for (uint i = 0; i < num; i++)
+    {
+        if (zones[i].GetBaseQuantity(GROUP_Dog) > 0)
+        {
             dogzones.insertLast(zones[i]);
-    if(dogzones.length() == 0)
+        }
+    }
+    if (dogzones.length() == 0)
+    {
         return;
+    }
 
     IZone@ zone = random_from_array(dogzones);
     uint   wx = zone.GetX() * __GlobalMapZoneLength;
@@ -56,23 +60,27 @@ void r_SpawnLoc(Critter& player, Critter@ npc)
 
     array<uint16> pids;
     num = zone.GetLocationPids(pids);
-    uint16        locPid = pids[Random(0, num - 1)];
+    uint16 locPid = pids[Random(0, num - 1)];
     Critter@[] crits = { player };
-    int           loc = CreateLocation(locPid, wx, wy, crits);
-    if(loc == 0)
+    int loc = CreateLocation(locPid, wx, wy, crits);
+    if (loc == 0)
+    {
         return;
+    }
     player.SetKnownLoc(true, loc);
-    GameVar@  locidv = GetLocalVar(LVAR_q_la_dogs_locid, player.Id);
+    GameVar@ locidv = GetLocalVar(LVAR_q_la_dogs_locid, player.Id);
     locidv = loc;
     Location@ location = GetLocation(loc);
     location.Color = COLOR_WM_QUEST;
     location.Update();
-    if(player.Mode[MODE_DEFAULT_COMBAT] == COMBAT_MODE_TURN_BASED)
+    if (player.Mode[MODE_DEFAULT_COMBAT] == COMBAT_MODE_TURN_BASED)
+    {
         SetTurnBasedAvailability(location);
+    }
     location.AutoGarbage = false;
     array<Map@> maps;
     uint        mapcount = location.GetMaps(maps);
-    for(uint c = 0; c < mapcount; c++)
+    for (uint c = 0; c < mapcount; c++)
     {
         maps[c].SetScript(null);
         maps[c].SetEvent(MAP_EVENT_IN_CRITTER, null);
@@ -82,22 +90,22 @@ void r_SpawnLoc(Critter& player, Critter@ npc)
     SetOwnerId(map, player.Id);
     // spawn dogz
     bool spawned = false;
-    while(!spawned)
+    while (!spawned)
     {
         array<Entire> entires;
         ParseEntires(map, entires, 0);
-        Entire@       ent = random_from_array(entires);
-        uint16        hx = ent.HexX;
-        uint16        hy = ent.HexY;
+        Entire@ ent = random_from_array(entires);
+        uint16  hx = ent.HexX;
+        uint16  hy = ent.HexY;
         map.GetHexCoord(ent.HexX, ent.HexY, hx, hy, Random(0, 359), Random(3, 7));
-        for(uint i = 0, j = Random(7, 12); i < j; i++)
+        for (uint i = 0, j = Random(7, 12); i < j; i++)
         {
             int[] params =
             {
                 ST_DIALOG_ID, DIALOG
             };
             Critter@ doggie = map.AddNpc(PID, hx, hy, Random(0, 5), params, null, "quest_la_dogs@critter_init");
-            if(valid(doggie))
+            if (valid(doggie))
             {
                 spawned = true;
             }
@@ -111,15 +119,13 @@ void test(Critter& cr, int, int, int)
 {
     r_SpawnLoc(cr, null);
 }
-
-
 void r_DeleteLoc(Critter& player, Critter@ npc)
 {
     GameVar@ var = GetLocalVar(LVAR_q_la_dogs_locid, player.Id);
+
     DeleteLocation(var.GetValue());
     DynamicLocationDelLog(player, npc, var, "quest_la_dogs");
 }
-
 void critter_init(Critter& cr, bool firstTime)
 {
     cr.StatBase[ST_REPLICATION_TIME] = REPLICATION_DELETE;
@@ -131,22 +137,19 @@ void critter_init(Critter& cr, bool firstTime)
 
     _CritSetExtMode(cr, MODE_EXT_MOB);
 }
-
 void _DogIdle(Critter& mob)
 {
     MobIdle(mob);
 }
-
 void _DogShowCritter(Critter& mob, Critter& showCrit)
 {
     MobShowCritter(mob, showCrit);
 }
-
 void _DogDead(Critter& cr, Critter@ killer)
 {
     uint16[] pids = { cr.GetProtoId() };
     Map@ map = cr.GetMap();
-    if(MobsDead(map, pids))
+    if (MobsDead(map, pids))
     {
         GameVar@ var = GetLocalVar(LVAR_q_la_dogs, GetOwnerId(map));
         var = ALL_KILLED;
@@ -161,15 +164,14 @@ void _DogDead(Critter& cr, Critter@ killer)
 uint e_SpawnDogGroup(array<uint>@ values)
 {
     IZone@ zone = GetZone(values[0], values[1]);
+
     // zone.ChangeQuantity(GROUP_Dog, 1);
     return 0;
 }
-
 bool _DogAttacked(Critter& cr, Critter& attacker)
 {
     return MobAttacked(cr, attacker);
 }
-
 void _DogOnMessage(Critter& cr, Critter& fromCr, int message, int value)
 {
     MobOnMessage(cr, fromCr, message, value);

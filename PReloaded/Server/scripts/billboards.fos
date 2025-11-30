@@ -18,11 +18,12 @@
 #define QE_ADVENTURE4              (23189)
 #define QE_ADVENTURE9              (23194)
 #define QE_ADVENTURE11             (23196)
-
 bool s_Billboard(Critter& player, Scenery& terminal, int skill, Item@ item)
 {
-    if(!player.IsPlayer() || skill != -1 || valid(item))
+    if (!player.IsPlayer() || skill != -1 || valid(item))
+    {
         return false;
+    }
 
     return true;
 }

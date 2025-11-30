@@ -5,19 +5,22 @@
 #include "blackjack_h.fos"
 #include "blackjack_deck.fos"
 #include "_macros.fos"
- 
+
 class CShoe
 {
     private uint numberOfDecks;        //  Number of card decks (packs) used.
-    private array<CCard@> cards;       //  Cards in the shoe.
+    private      array < CCard@ > cards; //  Cards in the shoe.
     private uint currentCardIndex;
- 
     bool IsEmpty()
     {
         if (currentCardIndex >= cards.length())
+        {
             return true;
+        }
         else
+        {
             return false;
+        }
     }
     uint GetCurrentCardIndex()
     {
@@ -31,13 +34,12 @@ class CShoe
     {
         return numberOfDecks;
     }
- 
+
     CShoe(uint decks)
     {
         numberOfDecks = CLAMP(decks, BLACKJACK_MIN_DECKS_IN_SHOE, BLACKJACK_MAX_DECKS_IN_SHOE);
         Init();
     }
- 
     void Init()
     {
         currentCardIndex = 0;
@@ -50,20 +52,24 @@ class CShoe
             }
         }
     }
- 
     void Shuffle()
     {
         for (int i = 0; i < 10; i++)
         {
             if (Random(0, 1) == 0)
+            {
                 HinduShuffle();
+            }
             if (Random(0, 1) == 0)
+            {
                 SplitShuffle();
+            }
             if (Random(0, 1) == 0)
+            {
                 Cut();
+            }
         }
     }
- 
     //  If you don't know how Hindu shuffle is done, check it on youtube.
     void HinduShuffle()
     {
@@ -71,7 +77,7 @@ class CShoe
         int maxTake = 15;
         int maxIndex = cards.length();
         int index = Random(minTake, maxTake);
-        array<CCard@> tempShoe;
+        array < CCard@ > tempShoe;
         int lastIndex = 0;
         while (index < maxIndex - maxTake)
         {
@@ -86,19 +92,18 @@ class CShoe
         {
             tempShoe.insertLast(cards[i]);
         }
-        array<CCard@> tmp;
+        array < CCard@ > tmp;
         cards = tmp;
         for (int i = 0; i < maxIndex; i++)
         {
             cards.insertLast(tempShoe[maxIndex - i - 1]);
         }
     }
- 
     //  Also known as Pharao shuffle, split in half, and mix them up.
     void SplitShuffle()
     {
-        uint index = Random(cards.length()*4/10, cards.length()*6/10);
-        array<CCard@> tempCards;
+        uint index = Random(cards.length() * 4 / 10, cards.length() * 6 / 10);
+        array < CCard@ > tempCards;
         uint i = 0;
         uint j = index;
         while (i + j - index < cards.length())
@@ -124,12 +129,11 @@ class CShoe
         }
         cards = tempCards;
     }
- 
     //  If you don't know what a cut is, get off the Blackjack table.
     void Cut()
     {
-        int index = Random(cards.length()/4, cards.length()*3/4);
-        array<CCard@> tempCards;
+        int index = Random(cards.length() / 4, cards.length() * 3 / 4);
+        array < CCard@ > tempCards;
         for (uint i = index; i < cards.length(); i++)
         {
             tempCards.insertLast(cards[i]);
@@ -140,11 +144,10 @@ class CShoe
         }
         cards = tempCards;
     }
- 
     //  Used for debugging only
     void List()
     {
-        //Log("Listing cards in shoe:");
+        // Log("Listing cards in shoe:");
         for (uint i = 0; i < cards.length(); i++)
         {
             string log = " - ";
@@ -152,11 +155,10 @@ class CShoe
             {
                 log += "  ";
             }
-            //Log(log + cards[i].GetCardNotation());
+            // Log(log + cards[i].GetCardNotation());
         }
-        //Log("Total of " + cards.length() + " cards." );
+        // Log("Total of " + cards.length() + " cards." );
     }
- 
     //  Takes next card, returning it and incrementing the index.
     CCard@ TakeNextCard()
     {
@@ -174,9 +176,7 @@ class CShoe
             return currentCard;
         }
     }
- 
     /**< For testing purposes */
- 
     //  Even money option shall not be offered.
     void InsertTestValuesForPlayerBlackjackAndDealerNotAce()
     {
@@ -187,7 +187,6 @@ class CShoe
         cards.insertFirst(CCard(CARD_TYPE_JACK, CARD_SUIT_SPADES));
         cards.insertFirst(CCard(CARD_TYPE_ACE, CARD_SUIT_SPADES));
     }
- 
     void InsertTestValuesForPlayerBlackjackAndDealerIs21()
     {
         //  dealer
@@ -198,7 +197,6 @@ class CShoe
         cards.insertFirst(CCard(CARD_TYPE_JACK, CARD_SUIT_SPADES));
         cards.insertFirst(CCard(CARD_TYPE_ACE, CARD_SUIT_SPADES));
     }
- 
     void InsertTestValuesForPlayerBlackjackAndDealerBlackjack()
     {
         //  dealer
@@ -208,7 +206,6 @@ class CShoe
         cards.insertFirst(CCard(CARD_TYPE_JACK, CARD_SUIT_SPADES));
         cards.insertFirst(CCard(CARD_TYPE_ACE, CARD_SUIT_SPADES));
     }
- 
     void InsertTestValuesForPlayerBlackjackAndDealerStandOn17()
     {
         //  dealer
@@ -218,7 +215,6 @@ class CShoe
         cards.insertFirst(CCard(CARD_TYPE_SIX, CARD_SUIT_SPADES));
         cards.insertFirst(CCard(CARD_TYPE_ACE, CARD_SUIT_SPADES));
     }
- 
     void InsertTestValuesForPlayerDoubleDown20AndDealerBlackjack()
     {
         //  player
@@ -230,7 +226,6 @@ class CShoe
         cards.insertFirst(CCard(CARD_TYPE_FIVE, CARD_SUIT_SPADES));
         cards.insertFirst(CCard(CARD_TYPE_FIVE, CARD_SUIT_SPADES));
     }
- 
     void InsertTestValuesForPlayerDoubleDown20AndDealer18()
     {
         //  player
@@ -242,7 +237,6 @@ class CShoe
         cards.insertFirst(CCard(CARD_TYPE_FIVE, CARD_SUIT_SPADES));
         cards.insertFirst(CCard(CARD_TYPE_FIVE, CARD_SUIT_SPADES));
     }
- 
     void InsertTestValuesForPlayerDoubleDown20AndDealer21()
     {
         //  dealer
@@ -256,7 +250,6 @@ class CShoe
         cards.insertFirst(CCard(CARD_TYPE_FIVE, CARD_SUIT_SPADES));
         cards.insertFirst(CCard(CARD_TYPE_FIVE, CARD_SUIT_SPADES));
     }
- 
     void InsertTestValuesForPlayerDoubleDownAfterThirdCard20AndDealer18()
     {
         //  player
@@ -269,7 +262,6 @@ class CShoe
         cards.insertFirst(CCard(CARD_TYPE_FIVE, CARD_SUIT_SPADES));
         cards.insertFirst(CCard(CARD_TYPE_FIVE, CARD_SUIT_SPADES));
     }
- 
     void InsertTestValuesForPlayerDoubleDownAndBustAndDealer18()
     {
         //  player
@@ -281,7 +273,6 @@ class CShoe
         cards.insertFirst(CCard(CARD_TYPE_TEN, CARD_SUIT_SPADES));
         cards.insertFirst(CCard(CARD_TYPE_FIVE, CARD_SUIT_SPADES));
     }
- 
     /**< Test data for Lucky Ladies side bet. */
     void InsertTestValuesForLuckyLadiesQohpAndDealerBlackjack()
     {
@@ -328,7 +319,6 @@ class CShoe
         cards.insertFirst(CCard(CARD_TYPE_KING, CARD_SUIT_CLUBS));
         cards.insertFirst(CCard(CARD_TYPE_QUEEN, CARD_SUIT_HEARTS));
     }
- 
     /**< Test data for Perfect Pair side bet. */
     void InsertTestValuesForPerfectPairPlayerPerfectPair()
     {
@@ -357,7 +347,6 @@ class CShoe
         cards.insertFirst(CCard(CARD_TYPE_NINE, CARD_SUIT_HEARTS));
         cards.insertFirst(CCard(CARD_TYPE_NINE, CARD_SUIT_SPADES));
     }
- 
     /**< Test data for Royal Match side bet. */
     void InsertTestValuesForRoyalMatchPlayerRoyalMatch()
     {

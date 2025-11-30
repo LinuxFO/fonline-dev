@@ -16,13 +16,13 @@ shared interface IConfigVar
 {
     string        GetName();
     string        GetValue();
-    array<string> GetValueAsArray();
-    array<string> GetValueAsArray(string& delimeter);
+    array < string > GetValueAsArray();
+    array < string > GetValueAsArray(string & delimeter);
     void          SetValue(int val);
     void          SetValue(uint val);
     void          SetValue(string& val);
-    void          SetValue(array<string>& val);
-    void          SetValue(array<string>& val, string& delimeter);
+    void          SetValue(array < string > &val);
+    void          SetValue(array < string > &val, string& delimeter);
 };
 
 shared interface IConfigSection
@@ -33,7 +33,7 @@ shared interface IConfigSection
     bool        DeleteVar(string& var, bool caseSensitive);
     IConfigVar@ GetVar(string& var);
     IConfigVar@ GetVar(string& varname, bool caseSensitive);
-    void        GetVars(array<string>& list);
+    void        GetVars(array < string > &list);
     bool        SetVar(string& varname, string val);
     bool        VarExists(string& var);
     bool        VarExists(string& var, bool caseSensitive);
@@ -46,28 +46,24 @@ shared interface IConfigFile
     bool            AddSection(string& section);
     IConfigSection@ GetSection(string& section);
     IConfigSection@ GetSection(string& sectioname, bool caseSensitive);
-    void            GetSections(array<string>& list);
+    void            GetSections(array < string > &list);
     bool            SectionExists(string& section);
     bool            SectionExists(string& section, bool caseSensitive);
 };
 
 #ifndef __CONFIG_FILE__
-
 import IConfigFile@ NewConfig(string& filename) from "config_file";
 import bool         LoadConfig(string& filename) from "config_file";
 import bool         SaveConfig(string& filename) from "config_file";
 import bool         UnloadConfig(string& filename) from "config_file";
-
 import IConfigFile@    GetConfigFile(string& filename) from "config_file";
 import IConfigFile@    GetConfigFile(string& filename, bool caseSensitive) from "config_file";
 import IConfigSection@ GetConfigSection(string& filename, string& sectioname) from "config_file";
 import IConfigSection@ GetConfigSection(string& filename, string& sectioname, bool caseSensitive) from "config_file";
 import IConfigVar@     GetConfigVar(string& filename, string& sectioname, string@ varname) from "config_file";
 import IConfigVar@     GetConfigVar(string& filename, string& sectioname, string@ varname, bool caseSensitive) from "config_file";
-
 import string@ GetConfigValue(string& filename, string& section, string@ varname) from "config_file";
 import string@ GetConfigValue(string& filename, string& sectioname, string@ varname, bool caseSensitive) from "config_file";
-
 import bool SetConfigValue(string& filename, string& sectioname, string@ varname, string& value) from "config_file";
 import bool SetConfigValue(string& filename, string& sectioname, string@ varname, bool value) from "config_file";
 import bool SetConfigValue(string& filename, string& sectioname, string@ varname, int value) from "config_file";

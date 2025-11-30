@@ -34,9 +34,8 @@
 
 // now it's the time for the most ugly macro ever:
 #define TAKEENTIRES                                                              \
-    # (arr, max, current)array<uint> arr(max); for(int __i = 0; __i < max; __i++) \
-        arr[__i] = __i; for(int __i = 0; __i < current; __i++) { newindex = Random(__i, max - 1); temp = arr[__i]; arr[__i] = arr[newindex]; arr[newindex] = temp; }
-
+        # (arr, max, current) array<uint> arr(max); for (int __i = 0; __i < max; __i++) \
+        arr[__i] = __i; for (int __i = 0; __i < current; __i++) { newindex = Random(__i, max - 1); temp = arr[__i]; arr[__i] = arr[newindex]; arr[newindex] = temp; }
 import bool AddAttackPlane(Critter& npc, uint priority, Critter& target) from "npc_planes";
 
 shared interface ISlaverunLoc
@@ -64,7 +63,7 @@ shared interface ISlaverunLoc
 };
 
 
-class SlaverunLoc : ISlaverunLoc
+class SlaverunLoc: ISlaverunLoc
 {
     uint        LocPid;
     uint        X1;
@@ -109,13 +108,11 @@ class SlaverunLoc : ISlaverunLoc
         Reward = 0;
         NoItems = false;
     }
-
     ISlaverunLoc@ SetLocPid(uint pid)
     {
         LocPid = pid;
         return this;
     }
-
     ISlaverunLoc@ SetCoords(uint x1, uint y1, uint x2, uint y2)
     {
         X1 = x1;
@@ -124,13 +121,11 @@ class SlaverunLoc : ISlaverunLoc
         Y2 = y2;
         return this;
     }
-
     ISlaverunLoc@ SetReward(uint reward)
     {
         Reward = reward;
         return this;
     }
-
     ISlaverunLoc@ SetLevels(uint hlevel, uint nlevel, uint slevel)
     {
         Hlevel = hlevel;
@@ -138,49 +133,41 @@ class SlaverunLoc : ISlaverunLoc
         Slevel = slevel;
         return this;
     }
-
     ISlaverunLoc@ SetNoItems()
     {
         NoItems = true;
         return this;
     }
-
     uint GetLocPid()
     {
         return LocPid;
     }
-
     uint GetReward()
     {
         return Reward;
     }
-
     ISlaverunLoc@ AddHostile(uint pid)
     {
         Hostiles.insertLast(pid);
         return this;
     }
-
     ISlaverunLoc@ AddNormal(uint pid)
     {
         Normals.insertLast(pid);
         return this;
     }
-
     ISlaverunLoc@ Scripts(string& script1, string& script2)
     {
         Hscript = script1;
         Nscript = script2;
         return this;
     }
-
     ISlaverunLoc@ AIPacks(uint pack1, uint pack2)
     {
         Hpack = pack1;
         Npack = pack2;
         return this;
     }
-
     ISlaverunLoc@ Dialogs(uint dialog1, uint dialog2, uint sdialog)
     {
         Hdialog = dialog1;
@@ -188,7 +175,6 @@ class SlaverunLoc : ISlaverunLoc
         Sdialog = sdialog;
         return this;
     }
-
     ISlaverunLoc@ AddWeapon(uint pid, uint ammo, uint min, uint max)
     {
         Weaps.insertLast(pid);
@@ -197,7 +183,6 @@ class SlaverunLoc : ISlaverunLoc
         Weaps.insertLast(max);
         return this;
     }
-
     ISlaverunLoc@ AddItem(uint pid, uint chance, uint min, uint max)
     {
         Items.insertLast(pid);
@@ -206,7 +191,6 @@ class SlaverunLoc : ISlaverunLoc
         Items.insertLast(max);
         return this;
     }
-
     ISlaverunLoc@ AddContItem(uint pid, uint chance, uint min, uint max)
     {
         ContItems.insertLast(pid);
@@ -215,10 +199,9 @@ class SlaverunLoc : ISlaverunLoc
         ContItems.insertLast(max);
         return this;
     }
-
     bool SpawnHostile(Map@ map, uint16 hexX, uint16 hexY)
     {
-        if(Hostiles.length() == 0)
+        if (Hostiles.length() == 0)
         {
             Log("No hostiles found");
             return false;
@@ -226,12 +209,14 @@ class SlaverunLoc : ISlaverunLoc
 
         int      pid = random_from_array(Hostiles);
         Critter@ npc = AddNpc(map, pid, hexX, hexY, Random(0, 5), Hdialog, Hscript, Hpack, 1, TEAM_Mob0, false, Hlevel);     // TODO: levels?
-        if(!valid(npc))
+        if (!valid(npc))
+        {
             return false;
+        }
 
         npc.StatBase[ST_REPLICATION_TIME] = REPLICATION_DELETE;
 
-        if(Weaps.length() == 0)
+        if (Weaps.length() == 0)
         {
             Log("No weapons found");
             return true;
@@ -239,7 +224,7 @@ class SlaverunLoc : ISlaverunLoc
 
         int weap = 4 * Random(0, (Weaps.length()) / 4 - 1);
 
-        if(Weaps[weap] != 0)     // i.e. not hands
+        if (Weaps[weap] != 0)     // i.e. not hands
         {
             // add weapon, move to hands
             Item@ item = npc.AddItem(Weaps[weap], 1);
@@ -247,28 +232,35 @@ class SlaverunLoc : ISlaverunLoc
             npc.MoveItem(item.Id, 1, SLOT_HAND1);
 
             // add ammo
-            if(Weaps[weap + 1] != 0)
+            if (Weaps[weap + 1] != 0)
+            {
                 npc.AddItem(Weaps[weap + 1], Random(Weaps[weap + 2], Weaps[weap + 3]));
+            }
         }
 
         _CritSetExtMode(npc, MODE_EXT_NO_SLAVE);
 
-        if(NoItems)
+        if (NoItems)
+        {
             return true;
+        }
 
         // add other items
         uint items = Items.length() / 4;
-        for(uint i = 0; i < items; i++)
-            if(uint(Random(1, 100)) <= Items[4 * i + 1])
+        for (uint i = 0; i < items; i++)
+        {
+            if (uint(Random(1, 100)) <= Items[4 * i + 1])
+            {
                 npc.AddItem(Items[4 * i], Random(Items[4 * i + 2], Items[4 * i + 3]));
+            }
+        }
 
 
         return true;
     }
-
     bool SpawnNormal(Map@ map, uint16 hexX, uint16 hexY)
     {
-        if(Normals.length() == 0)
+        if (Normals.length() == 0)
         {
             Log("No normals found");
             return false;
@@ -276,36 +268,47 @@ class SlaverunLoc : ISlaverunLoc
 
         int      pid = random_from_array(Normals);
         Critter@ npc = AddNpc(map, pid, hexX, hexY, Random(0, 5), Ndialog, Nscript, Npack, 1, TEAM_Mob1, false, Nlevel);     // TODO: levels?
-        if(!valid(npc))
+        if (!valid(npc))
+        {
             return false;
+        }
 
         npc.StatBase[ST_REPLICATION_TIME] = REPLICATION_DELETE;
 
         // add other items
         uint items = Items.length() / 4;
-        for(uint i = 0; i < items; i++)
-            if(uint(Random(1, 100)) <= Items[4 * i + 1])
+        for (uint i = 0; i < items; i++)
+        {
+            if (uint(Random(1, 100)) <= Items[4 * i + 1])
+            {
                 npc.AddItem(Items[4 * i], Random(Items[4 * i + 2], Items[4 * i + 3]));
+            }
+        }
 
         _CritSetExtMode(npc, MODE_EXT_NO_SLAVE);
         return true;
     }
-
     void FillContainer(Map@ map, uint16 hexX, uint16 hexY)
     {
         array<Item@> items;
+
         map.GetItems(hexX, hexY, items);
-        for(uint i = 0, j = items.length(); i < j; i++)
-            if(items[i].GetType() == ITEM_TYPE_CONTAINER)
+        for (uint i = 0, j = items.length(); i < j; i++)
+        {
+            if (items[i].GetType() == ITEM_TYPE_CONTAINER)
             {
                 uint contitems = ContItems.length() / 4;
-                for(uint k = 0; k < contitems; k++)
-                    if(uint(Random(1, 100)) <= ContItems[4 * k + 1])
+                for (uint k = 0; k < contitems; k++)
+                {
+                    if (uint(Random(1, 100)) <= ContItems[4 * k + 1])
+                    {
                         items[i].AddItem(ContItems[4 * k], Random(ContItems[4 * k + 2], ContItems[4 * k + 3]), 0);
+                    }
+                }
                 break;
             }
+        }
     }
-
     bool SpawnSlaver(Map@ map, uint16 hexX, uint16 hexY, uint teamId)   // this one is somewhat hardcoded
     {
         // pid 217
@@ -315,8 +318,10 @@ class SlaverunLoc : ISlaverunLoc
         uint[] max = { 10, 10, 10, 16, 14 };
         uint     num = Random(0, 4);
         Critter@ npc = AddNpc(map, SLAVERUN_PID_SLAVER, hexX, hexY, Random(0, 5), Sdialog, SCRIPT_slaverun_slaver, AIPACKET_SLAVER, 1, teamId, false, Slevel);
-        if(!valid(npc))
+        if (!valid(npc))
+        {
             return false;
+        }
 
         // choose and add weapon
         uint  weapnum = Random(0, weaps.length() - 1);
@@ -331,27 +336,28 @@ class SlaverunLoc : ISlaverunLoc
         _CritSetExtMode(npc, MODE_EXT_NO_SLAVE);   // hehe
         return true;
     }
-
     uint Create(Critter@ player)
     {
         Critter@[] crits = { player };
         int loc = CreateLocation(LocPid, Random(X1, X2), Random(Y1, Y2), crits);
-        if(loc == 0)
+        if (loc == 0)
+        {
             return 0;
-        if(player.Mode[MODE_DEFAULT_COMBAT] == COMBAT_MODE_TURN_BASED)
+        }
+        if (player.Mode[MODE_DEFAULT_COMBAT] == COMBAT_MODE_TURN_BASED)
+        {
             SetTurnBasedAvailability(GetLocation(loc));
+        }
 
         return loc;
     }
 };
 
 array<ISlaverunLoc@> SlaverunLocs;
-
 void InitSlaveruns() // Export
 {
     #include "slaverun_init.fos"
 }
-
 void FillMap(Map@ map, uint& hostiles, uint& normals, uint& slavers, uint teamId)
 {
     array<Entire> ent_slaver;
@@ -360,13 +366,14 @@ void FillMap(Map@ map, uint& hostiles, uint& normals, uint& slavers, uint teamId
     array<Entire> ent_cont;
     array<Entire> ent_gecko;
     array<Entire> ent_brahmin;
+
     SlaveLog("Slaverun " + map.GetLocation().Id + " fillmap, taking entires.");
-    int           slaver_max = ParseEntires(map, ent_slaver, ENTIRE_SLAVERUN_SLAVER);
-    int           slave_n_max = ParseEntires(map, ent_slave_n, ENTIRE_SLAVERUN_SLAVE_N);
-    int           slave_h_max = ParseEntires(map, ent_slave_h, ENTIRE_SLAVERUN_SLAVE_H);
-    int           cont_max = ParseEntires(map, ent_cont, ENTIRE_SLAVERUN_CONT);
-    int           gecko_max = ParseEntires(map, ent_gecko, ENTIRE_SLAVERUN_GECKO);
-    int           brahmin_max = ParseEntires(map, ent_brahmin, ENTIRE_SLAVERUN_BRAHMIN);
+    int slaver_max = ParseEntires(map, ent_slaver, ENTIRE_SLAVERUN_SLAVER);
+    int slave_n_max = ParseEntires(map, ent_slave_n, ENTIRE_SLAVERUN_SLAVE_N);
+    int slave_h_max = ParseEntires(map, ent_slave_h, ENTIRE_SLAVERUN_SLAVE_H);
+    int cont_max = ParseEntires(map, ent_cont, ENTIRE_SLAVERUN_CONT);
+    int gecko_max = ParseEntires(map, ent_gecko, ENTIRE_SLAVERUN_GECKO);
+    int brahmin_max = ParseEntires(map, ent_brahmin, ENTIRE_SLAVERUN_BRAHMIN);
     SlaveLog("slaver_max: " + slaver_max);
     SlaveLog("slave_n_max: " + slave_n_max);
     SlaveLog("slave_h_max: " + slave_h_max);
@@ -384,14 +391,14 @@ void FillMap(Map@ map, uint& hostiles, uint& normals, uint& slavers, uint teamId
     int  num_slave_h;
     int  num_brahmin;
 
-    if(level == 1)
+    if (level == 1)
     {
         num_slaver = Random(1, (2 * (slaver_max + 1)) / 5) - 1;
         num_slave_n = Random(1, (2 * slave_n_max) / 5);
         num_slave_h = Random(1, (2 * slave_h_max) / 5);
         num_brahmin = Random(1, (2 * brahmin_max) / 5);
     }
-    else if(level == 2)
+    else if (level == 2)
     {
         num_slaver = Random((3 * (slaver_max + 1)) / 10, (7 * (slaver_max + 1)) / 10) - 1;
         num_slave_n = Random((3 * slave_n_max) / 10, (7 * slave_n_max) / 10);
@@ -406,16 +413,26 @@ void FillMap(Map@ map, uint& hostiles, uint& normals, uint& slavers, uint teamId
         num_brahmin = Random((3 * brahmin_max) / 5, brahmin_max);
     }
 
-    if(num_slaver < 1)
+    if (num_slaver < 1)
+    {
         num_slaver = 1;
-    if(num_slave_n < 1)
+    }
+    if (num_slave_n < 1)
+    {
         num_slave_n = 1;
-    if(num_slave_h < 1)
+    }
+    if (num_slave_h < 1)
+    {
         num_slave_h = 1;
-    if(num_brahmin < 1 && brahmin_max != 0)
+    }
+    if (num_brahmin < 1 && brahmin_max != 0)
+    {
         num_brahmin = 1;
-    if(brahmin_max == 0)
+    }
+    if (brahmin_max == 0)
+    {
         num_brahmin = 0;
+    }
 
     SlaveLog("Level " + level);
     SlaveLog("num_slaver: " + num_slaver);
@@ -442,15 +459,17 @@ void FillMap(Map@ map, uint& hostiles, uint& normals, uint& slavers, uint teamId
     uint slaveloc = 0;
     uint locprotoid = map.GetLocation().GetProtoId();
     // Log("findloc");
-    for(uint i = 0, j = SlaverunLocs.length(); i < j; i++)
-        if(SlaverunLocs[i].GetLocPid() == locprotoid)
+    for (uint i = 0, j = SlaverunLocs.length(); i < j; i++)
+    {
+        if (SlaverunLocs[i].GetLocPid() == locprotoid)
         {
             slaveloc = i;
             found = true;
             break;
         }
+    }
 
-    if(!found)
+    if (!found)
     {
         Log("Slaverun location PID not found");
         return;
@@ -462,34 +481,40 @@ void FillMap(Map@ map, uint& hostiles, uint& normals, uint& slavers, uint teamId
     normals = num_slave_n;
     slavers = num_slaver;
 
-    for(int i = 0; i < num_slaver; i++)
+    for (int i = 0; i < num_slaver; i++)
     {
         Entire@ ent = ent_slaver[slaver_ind[i]];
-        if(!slaverun.SpawnSlaver(map, ent.HexX, ent.HexY, teamId))
+        if (!slaverun.SpawnSlaver(map, ent.HexX, ent.HexY, teamId))
+        {
             slavers--;
+        }
         // Log("SLAVER added.");
     }
     SlaveLog("slavers added");
 
-    for(int i = 0; i < num_slave_h; i++)
+    for (int i = 0; i < num_slave_h; i++)
     {
         Entire@ ent = ent_slave_h[slave_h_ind[i]];
-        if(!slaverun.SpawnHostile(map, ent.HexX, ent.HexY))
+        if (!slaverun.SpawnHostile(map, ent.HexX, ent.HexY))
+        {
             hostiles--;
+        }
         // Log("HOSTILE added.");
     }
     SlaveLog("hostiles added");
 
-    for(int i = 0; i < num_slave_n; i++)
+    for (int i = 0; i < num_slave_n; i++)
     {
         Entire@ ent = ent_slave_n[slave_n_ind[i]];
-        if(!slaverun.SpawnNormal(map, ent.HexX, ent.HexY))
+        if (!slaverun.SpawnNormal(map, ent.HexX, ent.HexY))
+        {
             normals--;
+        }
         // Log("NORMAL added.");
     }
     SlaveLog("normals added");
 
-    for(int i = 0; i < num_brahmin; i++)
+    for (int i = 0; i < num_brahmin; i++)
     {
         Entire@  ent = ent_brahmin[brahmin_ind[i]];
         Critter@ npc = AddNpc(map, 10, ent.HexX, ent.HexY, Random(0, 5), 5055 /*brahmin dialog*/, SCRIPT_all_brahmin, AIPACKET_BRAHMIN, 1, TEAM_Neutral0, false, 1);     // TODO?
@@ -498,7 +523,7 @@ void FillMap(Map@ map, uint& hostiles, uint& normals, uint& slavers, uint teamId
     }
     SlaveLog("brahmin added");
 
-    for(int i = 0; i < cont_max; i++)
+    for (int i = 0; i < cont_max; i++)
     {
         Entire@ ent = ent_cont[i];
         slaverun.FillContainer(map, ent.HexX, ent.HexY);
@@ -506,7 +531,7 @@ void FillMap(Map@ map, uint& hostiles, uint& normals, uint& slavers, uint teamId
     }
     SlaveLog("containers filled");
 
-    for(int i = 0; i < gecko_max; i++)
+    for (int i = 0; i < gecko_max; i++)
     {
         Entire@  ent = ent_gecko[i];
         Critter@ npc = AddNpc(map, Random(1, 5) == 1 ? 83 : 80, ent.HexX, ent.HexY, Random(0, 5), 0, "", 0, 1, TEAM_Neutral1, false, 1);
@@ -517,80 +542,85 @@ void FillMap(Map@ map, uint& hostiles, uint& normals, uint& slavers, uint teamId
     SlaveLog("geckos added");
     SlaveLog("Slaverun " + map.GetLocation().Id + " filled: S,H,N,B,C,G: " + slavers + ", " + hostiles + ", " + normals + ", " + num_brahmin + ", " + cont_max + ", " + gecko_max);
 }
-
-
 uint GetSlaverunLocLength()
 {
     return SlaverunLocs.length();
 }
-
 uint SpawnSlaverunLocation(Critter@ player, uint num)
 {
     return SlaverunLocs[num].Create(player);
 }
-
 void StartSlaverunCombat(Map@ map)
 {
-    if(map.GetData(MAP_DATA_SLAVERUN_COMBAT) == INITIALIZED)
+    if (map.GetData(MAP_DATA_SLAVERUN_COMBAT) == INITIALIZED)
+    {
         return;
+    }
     map.SetData(MAP_DATA_SLAVERUN_COMBAT, INITIALIZED);
     array<Critter@> crits;
     array<Critter@> hostiles;
     array<Critter@> slavers;   // including players and their followers
 
-    uint            num = map.GetCritters(0, FIND_LIFE_AND_KO, crits);
+    uint num = map.GetCritters(0, FIND_LIFE_AND_KO, crits);
 
-    for(uint i = 0; i < num; i++)
+    for (uint i = 0; i < num; i++)
     {
-        if(crits[i].IsPlayer() || _IsFollower(crits[i]) || (crits[i].IsNpc() && crits[i].Karma[KARMA_SLAVER] > 0))
+        if (crits[i].IsPlayer() || _IsFollower(crits[i]) || (crits[i].IsNpc() && crits[i].Karma[KARMA_SLAVER] > 0))
         {
             slavers.insertLast(crits[i]);
             continue;
         }
-        if(crits[i].IsNpc() && (_CritHasExtMode(crits[i], MODE_EXT_SLAVE_HOSTILE)))
+        if (crits[i].IsNpc() && (_CritHasExtMode(crits[i], MODE_EXT_SLAVE_HOSTILE)))
+        {
             hostiles.insertLast(crits[i]);
+        }
     }
 
-    for(uint i = 0, hnum = hostiles.length(); i < hnum; i++)
-        for(uint j = 0, snum = slavers.length(); j < snum; j++)
+    for (uint i = 0, hnum = hostiles.length(); i < hnum; i++)
+    {
+        for (uint j = 0, snum = slavers.length(); j < snum; j++)
         {
-            if(hostiles[i].IsNpc())
+            if (hostiles[i].IsNpc())
             {
                 AddAttackPlane(hostiles[i], AI_PLANE_ATTACK_PRIORITY + Random(1, (slavers[j].IsPlayer() ? 30 : 10)), slavers[j]);
                 hostiles[i].AddEnemyInStack(slavers[j].Id);
             }
-            if(slavers[j].IsNpc())
+            if (slavers[j].IsNpc())
             {
                 AddAttackPlane(slavers[j], AI_PLANE_ATTACK_PRIORITY + Random(1, 10), hostiles[i]);
                 slavers[j].AddEnemyInStack(hostiles[i].Id);
             }
             // Log("attacking pair: "+hostiles[i].Id+", "+slavers[j].Id);
         }
+    }
     // Log("Starting combat.");
 }
-
 void SlaversAnnounceSuccess(Map@ map)
 {
     array<Critter@> crits;
 
-    uint            num = map.GetCritters(0, FIND_LIFE_AND_KO | FIND_ONLY_NPC, crits);
+    uint num = map.GetCritters(0, FIND_LIFE_AND_KO | FIND_ONLY_NPC, crits);
 
-    for(uint i = 0; i < num; i++)
-        if(crits[i].Karma[KARMA_SLAVER] > 0)
+    for (uint i = 0; i < num; i++)
+    {
+        if (crits[i].Karma[KARMA_SLAVER] > 0)
         {
             crits[i].Say(SAY_NORM_ON_HEAD, (Random(0, 1) == 0 ? "It's over" : "Another job well done!"));
             crits[i].StatBase[ST_VAR1] = 1;
         }
-        else if(_CritHasExtMode(crits[i], MODE_EXT_SLAVE_NORMAL))
-            if(Random(0, 5) == 0)
+        else if (_CritHasExtMode(crits[i], MODE_EXT_SLAVE_NORMAL))
+        {
+            if (Random(0, 5) == 0)
+            {
                 crits[i].Say(SAY_NORM_ON_HEAD, (Random(0, 1) == 0 ? "Oh no!" : "Please don't hurt me!"));
+            }
+        }
+    }
 }
-
 uint SlaverunLocationReward(uint num)
 {
     return SlaverunLocs[num].GetReward();
 }
-
 // event for deleting map, if you are too late:
 uint e_deleteMap(array<uint>@ values)
 {
@@ -602,7 +632,7 @@ uint e_deleteMap(array<uint>@ values)
 
     Location@ loc = GetLocation(values[1]);
 
-    if(valid(loc))
+    if (valid(loc))
     {
         DeleteLocation(loc.Id);
         FLog(LOG_DYNAMIC_LOC, "slaverun@e_deleteMap: locId " + loc.Id);
@@ -611,10 +641,10 @@ uint e_deleteMap(array<uint>@ values)
     _TIMEEND;
     return 0;
 }
-
 void SlaveLog(string& s)
 {
     file f;
+
     f.open("logs\\slaverun.log", "a");
     f.writeString(s + "\n");
     f.close();

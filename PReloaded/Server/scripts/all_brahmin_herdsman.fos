@@ -10,20 +10,19 @@
 #include "_macros.fos"
 #include "npc_common_h.fos"
 #include "npc_planes_h.fos"
-
 import bool IsDung(Item@ item) from "all_brahmin";
-
 void critter_init(Critter& npc, bool firstTime)
 {
     // Cleaning crap will make them run all over the map sometimes.
     // npc.SetEvent(CRITTER_EVENT_SHOW_ITEM_ON_MAP, "_ShowItemOnMap");
     npc.SetEvent(CRITTER_EVENT_IDLE, "_Idle");
 }
-
 void _Idle(Critter& npc)
 {
-    if(Random(0, 2) == 0)
+    if (Random(0, 2) == 0)
+    {
         MoveRandom(npc, 4);
+    }
     // till next move
     // DISABLED npc.Wait because it makes critter busy for talk (dialog)
     // npc.Wait(Random(500, 20000));

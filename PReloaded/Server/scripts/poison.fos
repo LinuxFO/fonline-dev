@@ -12,7 +12,6 @@
 // import void DropPoison(Critter& cr) from "poison";
 
 #include "_macros.fos"
-
 import void WearHandsOnDeath(Critter& cr) from "repair";
 
 #define POISON_BASE_DURATION    (505)  // In game seconds, need div on 60
@@ -23,63 +22,79 @@ import void WearHandsOnDeath(Critter& cr) from "repair";
 #define STR_POISON_REDUCE       (12812)
 #define STR_POISON_FREE         (12813)
 #define STR_POISON_DEATH        (12814)
-
-
 void AffectPoison(Critter& cr, int value)   // Export
 {
-    if(cr.IsDead())
+    if (cr.IsDead())
+    {
         return;
+    }
 
-    array<uint> indexes;
-    array<uint> durations;
-    bool        isActive = cr.GetTimeEvents(CTE_POISON, indexes, durations, null) != 0;
-    int         levelVal = cr.Stat[ST_POISONING_LEVEL];
-    int         resistVal = cr.Stat[ST_POISON_RESISTANCE];
+    array < uint > indexes;
+    array < uint > durations;
+    bool isActive = cr.GetTimeEvents(CTE_POISON, indexes, durations, null) != 0;
+    int  levelVal = cr.Stat[ST_POISONING_LEVEL];
+    int  resistVal = cr.Stat[ST_POISON_RESISTANCE];
 
-    if(value > 0)
+    if (value > 0)
+    {
         value -= value * resistVal / 100;
-    else if(levelVal == 0)
+    }
+    else if (levelVal == 0)
+    {
         return;
+    }
     cr.StatBase[ST_POISONING_LEVEL] = CLAMP(levelVal + value, 0, 2000);
     levelVal = cr.Stat[ST_POISONING_LEVEL];
 
     uint strNum = 0;
-    if(levelVal == 0)
-        strNum = STR_POISON_FREE;
-    else if(value > 0)
-        strNum = STR_POISON_GAIN;
-    else if(value < 0)
-        strNum = STR_POISON_REDUCE;
-    if(strNum != 0)
-        cr.SayMsg(SAY_NETMSG, TEXTMSG_GAME, strNum);
-
-    if(levelVal > 0)
+    if (levelVal == 0)
     {
-        if(cr.Damage[DAMAGE_POISONED] == 0)
-            cr.DamageBase[DAMAGE_POISONED] = 1;
+        strNum = STR_POISON_FREE;
+    }
+    else if (value > 0)
+    {
+        strNum = STR_POISON_GAIN;
+    }
+    else if (value < 0)
+    {
+        strNum = STR_POISON_REDUCE;
+    }
+    if (strNum != 0)
+    {
+        cr.SayMsg(SAY_NETMSG, TEXTMSG_GAME, strNum);
+    }
 
-        if(levelVal > 100)
+    if (levelVal > 0)
+    {
+        if (cr.Damage[DAMAGE_POISONED] == 0)
+        {
+            cr.DamageBase[DAMAGE_POISONED] = 1;
+        }
+
+        if (levelVal > 100)
         {
             int hp = levelVal - 100;
             cr.StatBase[ST_CURRENT_HP] -= hp;
-            if(cr.Stat[ST_CURRENT_HP] <= 0)
+            if (cr.Stat[ST_CURRENT_HP] <= 0)
             {
-              WearHandsOnDeath(cr);
-              cr.ToDead(Random(0, 1) == 0 ? ANIM2_DEAD_FRONT : ANIM2_DEAD_BACK, null);         // buggy, make macro for safety
-              cr.SayMsg(SAY_NETMSG, TEXTMSG_GAME, STR_POISON_DEATH);
+                WearHandsOnDeath(cr);
+                cr.ToDead(Random(0, 1) == 0 ? ANIM2_DEAD_FRONT : ANIM2_DEAD_BACK, null);       // buggy, make macro for safety
+                cr.SayMsg(SAY_NETMSG, TEXTMSG_GAME, STR_POISON_DEATH);
             }
             cr.StatBase[ST_POISONING_LEVEL] = 100;
         }
     }
     else
     {
-        if(cr.Damage[DAMAGE_POISONED] != 0)
+        if (cr.Damage[DAMAGE_POISONED] != 0)
+        {
             cr.DamageBase[DAMAGE_POISONED] = 0;
+        }
     }
 
-    if(isActive)       // Try hurry event, if new stage aviable
+    if (isActive)       // Try hurry event, if new stage aviable
     {
-        if(levelVal == 0)
+        if (levelVal == 0)
         {
             cr.EraseTimeEvents(CTE_POISON);
         }
@@ -87,8 +102,10 @@ void AffectPoison(Critter& cr, int value)   // Export
         {
             uint oldDuration = durations[0];
             uint newDuration = GetPoisonDuration(cr);
-            if(newDuration < oldDuration)
+            if (newDuration < oldDuration)
+            {
                 cr.ChangeTimeEvent(indexes[0], newDuration, 0);
+            }
         }
     }
     else     // Try start new event
@@ -96,55 +113,63 @@ void AffectPoison(Critter& cr, int value)   // Export
         cr.AddTimeEvent("cte_Poison", GetPoisonDuration(cr), CTE_POISON);
     }
 }
-
 void DropPoison(Critter& cr)   // Export
 {
     cr.EraseTimeEvents(CTE_POISON);
     cr.StatBase[ST_POISONING_LEVEL] = 0;
-    if(cr.Damage[DAMAGE_POISONED] != 0)
+    if (cr.Damage[DAMAGE_POISONED] != 0)
+    {
         cr.DamageBase[DAMAGE_POISONED] = 0;
+    }
 }
-
 uint cte_Poison(Critter& cr, int identifier, uint& rate)
 {
-    if(cr.IsDead())
+    if (cr.IsDead())
+    {
         return GAME_MINUTE(100);
+    }
 
     int levelVal = cr.Stat[ST_POISONING_LEVEL];
-    if(levelVal > 0)
+    if (levelVal > 0)
     {
         cr.SayMsg(SAY_NETMSG, TEXTMSG_GAME, STR_POISON_PROCESS);
         cr.StatBase[ST_POISONING_LEVEL] = CLAMP(levelVal - 2, 0, 2000);
-        //Old cr.StatBase[ST_CURRENT_HP]--;
-		cr.StatBase[ST_CURRENT_HP]-=(cr.StatBase[ST_POISONING_LEVEL]/3)+1; //New, more painful
-        if(cr.Stat[ST_CURRENT_HP] <= 0)
+        // Old cr.StatBase[ST_CURRENT_HP]--;
+        cr.StatBase[ST_CURRENT_HP] -= (cr.StatBase[ST_POISONING_LEVEL] / 3) + 1;   // New, more painful
+        if (cr.Stat[ST_CURRENT_HP] <= 0)
         {
-          WearHandsOnDeath(cr);
-          cr.ToDead(Random(0, 1) == 0 ? ANIM2_DEAD_FRONT : ANIM2_DEAD_BACK, null);                           // buggy, make macro for safety
+            WearHandsOnDeath(cr);
+            cr.ToDead(Random(0, 1) == 0 ? ANIM2_DEAD_FRONT : ANIM2_DEAD_BACK, null);                         // buggy, make macro for safety
         }
     }
 
-    if(cr.Stat[ST_POISONING_LEVEL] == 0)
+    if (cr.Stat[ST_POISONING_LEVEL] == 0)
     {
         cr.SayMsg(SAY_NETMSG, TEXTMSG_GAME, STR_POISON_FREE);
-        if(cr.Damage[DAMAGE_POISONED] != 0)
+        if (cr.Damage[DAMAGE_POISONED] != 0)
+        {
             cr.DamageBase[DAMAGE_POISONED] = 0;
+        }
         return 0;
     }
 
     return GetPoisonDuration(cr);
 }
-
 uint GetPoisonDuration(Critter& cr)
 {
     int duration = POISON_BASE_DURATION;
     int levelVal = cr.Stat[ST_POISONING_LEVEL];
-    if(levelVal == 0)
+
+    if (levelVal == 0)
+    {
         return 0;
+    }
     duration -= levelVal * POISON_DURATION_SUB;
     duration /= 60;
-    if(duration <= 0)
+    if (duration <= 0)
+    {
         duration = 1;
+    }
     return GAME_MINUTE(duration);
 }
 

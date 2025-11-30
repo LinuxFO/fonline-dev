@@ -32,57 +32,82 @@
 #define SESSION_ACCOUNT                        (player.StatBase[ST_VAR0]) // Account which the player uses
 #define SESSION_TRANSFER_ACCOUNT               (player.StatBase[ST_VAR1]) // Account that the player want to transfer money to
 #define SESSION_BANK                           (player.StatBase[ST_VAR2]) // Which bank is it?
-
 // Functions
-
 string GetStrCreditRating(uint rating)
 {
-    if(rating == CREDITTYPE_NONE)
+    if (rating == CREDITTYPE_NONE)
+    {
         return "Bad";
-    else if(rating == CREDITTYPE_FIRST)
+    }
+    else if (rating == CREDITTYPE_FIRST)
+    {
         return "Normal";
-    else if(rating == CREDITTYPE_SECOND)
+    }
+    else if (rating == CREDITTYPE_SECOND)
+    {
         return "Good";
-    else if(rating == CREDITTYPE_THIRD)
+    }
+    else if (rating == CREDITTYPE_THIRD)
+    {
         return "Very good";
+    }
     else
+    {
         return "Unknown";
+    }
 }
-
 string GetStrAccountType(uint accounttype)
 {
-    if(accounttype == ACCOUNT_TYPE_NORMAL)
+    if (accounttype == ACCOUNT_TYPE_NORMAL)
+    {
         return "Normal account";
-    else if(accounttype == ACCOUNT_TYPE_JOINT)
+    }
+    else if (accounttype == ACCOUNT_TYPE_JOINT)
+    {
         return "Joint account";
+    }
     else
+    {
         return "Unknown";
+    }
 }
-
 uint JumpDialog(uint result)
 {
-    if(result == FD_BANK_RESULT_ALREADY_HAS_ACCOUNT)
+    if (result == FD_BANK_RESULT_ALREADY_HAS_ACCOUNT)
+    {
         return FORCE_DIALOG_ALREADY_HAS_ACCOUNT;
-    else if(result == FD_BANK_RESULT_TOO_MANY_ACCOUNTS)
+    }
+    else if (result == FD_BANK_RESULT_TOO_MANY_ACCOUNTS)
+    {
         return FORCE_DIALOG_TOO_MANY_ACCOUNTS;
-    else if(result == FD_BANK_RESULT_UNKNOWN)
+    }
+    else if (result == FD_BANK_RESULT_UNKNOWN)
+    {
         return FORCE_DIALOG_ERROR;
-    else if(result == FD_BANK_RESULT_DATA_ERROR)
+    }
+    else if (result == FD_BANK_RESULT_DATA_ERROR)
+    {
         return FORCE_DIALOG_LOAN_ERROR;
-    else if(result == FD_BANK_RESULT_BANK_EMPTY)
+    }
+    else if (result == FD_BANK_RESULT_BANK_EMPTY)
+    {
         return FORCE_DIALOG_LOAN_NO_MONEY;
-    else if(result == FD_BANK_RESULT_SUCCESS)
+    }
+    else if (result == FD_BANK_RESULT_SUCCESS)
+    {
         return FORCE_DIALOG_LOAN_SUCCESS;
+    }
     else
+    {
         return 0;
+    }
 }
-
 // Dialog functions
 uint r_CreateAccount(Critter& player, Critter@ npc, int value)
 {
     uint result = BankCreateAccount(SESSION_BANK, player.Id);
 
-    if(result != FD_BANK_RESULT_SUCCESS)
+    if (result != FD_BANK_RESULT_SUCCESS)
     {
         return JumpDialog(result);
     }
@@ -92,10 +117,9 @@ uint r_CreateAccount(Critter& player, Critter@ npc, int value)
 
     return FORCE_DIALOG_REGISTRATION_SUCCESS;
 }
-
 uint r_IsFree(Critter& player, Critter@ npc, int value)
 {
-    if(npc.GetTalkedPlayers(null) > 0)
+    if (npc.GetTalkedPlayers(null) > 0)
     {
         return FORCE_DIALOG_BUSY;
     }
@@ -105,50 +129,50 @@ uint r_IsFree(Critter& player, Critter@ npc, int value)
     SESSION_TRANSFER_ACCOUNT = -1;
 
     Map@ map = player.GetMap();
-    if(!valid(map))
+    if (!valid(map))
     {
         Log("ERR: Couldn't obtain map object");
         return 0;
     }
-    //SESSION_BANK = map.GetData(MAP_DATA_BANK);
-	// All banks merged
-	SESSION_BANK = 1;
-	
+    // SESSION_BANK = map.GetData(MAP_DATA_BANK);
+    // All banks merged
+    SESSION_BANK = 1;
+
     return 0;
 }
-
 // Check if loaning is enabled in options
 bool d_LoaningEnabled(Critter& player, Critter@ npc, int val)
 {
     return(LOAN_MODE == 1);
 }
-
 bool d_IsOwnerOfAccount(Critter& player, Critter@ npc, int val)
 {
     return((player.Id) == BankGetAccountOwner(SESSION_BANK, SESSION_ACCOUNT));
 }
-
 bool d_HasAccount(Critter& player, Critter@ npc, int val)
 {
-    if(!(BankGetAccountID(SESSION_BANK, player.Id) == -1))
+    if (!(BankGetAccountID(SESSION_BANK, player.Id) == -1))
+    {
         return false;
+    }
     return true;
 }
-
 bool d_HasJointAccount(Critter& player, Critter@ npc, int val)
 {
-    if(BankGetAccountType(SESSION_BANK, SESSION_ACCOUNT) == ACCOUNT_TYPE_JOINT)
+    if (BankGetAccountType(SESSION_BANK, SESSION_ACCOUNT) == ACCOUNT_TYPE_JOINT)
+    {
         return true;
+    }
     return false;
 }
-
 bool d_HasNormalAccount(Critter& player, Critter@ npc, int val)
 {
-    if(BankGetAccountType(SESSION_BANK, SESSION_ACCOUNT) == ACCOUNT_TYPE_NORMAL)
+    if (BankGetAccountType(SESSION_BANK, SESSION_ACCOUNT) == ACCOUNT_TYPE_NORMAL)
+    {
         return true;
+    }
     return false;
 }
-
 uint r_TakeLoan(Critter& player, Critter@ npc, int val)
 {
     int microloan = int(((BankGetTotalMoney(SESSION_BANK) / 100) * float(LOAN_MICRO_LOAN)));
@@ -156,28 +180,39 @@ uint r_TakeLoan(Critter& player, Critter@ npc, int val)
     int mediumloan = int(((BankGetTotalMoney(SESSION_BANK) / 100) * float(LOAN_MEDIUM_LOAN)));
     int bigloan = int(((BankGetTotalMoney(SESSION_BANK) / 100) * float(LOAN_BIG_LOAN)));
 
-    uint  amount = 0;
+    uint amount = 0;
 
-    if(val == 0)
+    if (val == 0)
+    {
         amount = microloan;
-    else if(val == 1)
+    }
+    else if (val == 1)
+    {
         amount = smallloan;
-    else if(val == 2)
+    }
+    else if (val == 2)
+    {
         amount = mediumloan;
-    else if(val == 3)
+    }
+    else if (val == 3)
+    {
         amount = bigloan;
+    }
     else
+    {
         return 0;
+    }
 
     uint result = BankTakeLoan(SESSION_BANK, SESSION_ACCOUNT, amount);
 
     return JumpDialog(result);
 }
-
 void dlg_ShowInterest(Critter& player, Critter@ npc, string@ text)
 {
-    if(!IS_DIALOG_GENERATED(text))
+    if (!IS_DIALOG_GENERATED(text))
+    {
         return;
+    }
 
     // text += "$loan" + BankGetLoanInterest(SESSION_BANK);
     string interests;
@@ -185,11 +220,12 @@ void dlg_ShowInterest(Critter& player, Critter@ npc, string@ text)
     interests.ParseFloat(val, 2);
     text += "$savings" + interests;
 }
-
 void dlg_ShowLoans(Critter& player, Critter@ npc, string@ text)
 {
-    if(!IS_DIALOG_GENERATED(text))
+    if (!IS_DIALOG_GENERATED(text))
+    {
         return;
+    }
 
     int microloan = int(((BankGetTotalMoney(SESSION_BANK) / 100) * float(LOAN_MICRO_LOAN)));
     int smallloan = int(((BankGetTotalMoney(SESSION_BANK) / 100) * float(LOAN_SMALL_LOAN)));
@@ -202,16 +238,17 @@ void dlg_ShowLoans(Critter& player, Critter@ npc, string@ text)
     text += "$medium" + mediumloan;
     text += "$big" + bigloan;
 }
-
 void dlg_ShowAccountStatus(Critter& player, Critter@ npc, string@ text)
 {
-    if(!IS_DIALOG_GENERATED(text))
+    if (!IS_DIALOG_GENERATED(text))
+    {
         return;
+    }
 
     string accounttype;
     string creditrating;
 
-    uint   type = BankGetAccountType(SESSION_BANK, SESSION_ACCOUNT);
+    uint type = BankGetAccountType(SESSION_BANK, SESSION_ACCOUNT);
 
     accounttype = GetStrAccountType(BankGetAccountType(SESSION_BANK, SESSION_ACCOUNT));
     creditrating = GetStrCreditRating(BankGetCreditRating(SESSION_BANK, SESSION_ACCOUNT));
@@ -223,14 +260,15 @@ void dlg_ShowAccountStatus(Critter& player, Critter@ npc, string@ text)
     text += "$rating" + creditrating;
     text += "$owner" + GetSafePlayerName(BankGetAccountOwner(SESSION_BANK, SESSION_ACCOUNT));
 }
-
 void dlg_WithdrawMoney(Critter& player, Critter@ npc, string@ say)
 {
-    if(!IS_DIALOG_SAY_MODE(say))
+    if (!IS_DIALOG_SAY_MODE(say))
+    {
         return;
+    }
 
     int amount = 0;
-    if(!StrToInt(say, amount) || (amount < 0))
+    if (!StrToInt(say, amount) || (amount < 0))
     {
         player.Say(SAY_DIALOG, "Incorrect amount of money, try again");
         return;
@@ -238,38 +276,39 @@ void dlg_WithdrawMoney(Critter& player, Critter@ npc, string@ say)
 
     uint result = BankWithdrawMoney(SESSION_BANK, player.Id, SESSION_ACCOUNT, amount);
 
-    if(result == FD_BANK_RESULT_BANK_EMPTY)
+    if (result == FD_BANK_RESULT_BANK_EMPTY)
     {
         player.Say(SAY_DIALOG, "I'm sorry, we can't let you withdraw that sum, we don't have that much money in our reserves.");
         return;
     }
 
-    if(result == FD_BANK_RESULT_NOT_ENOUGH_MONEY)
+    if (result == FD_BANK_RESULT_NOT_ENOUGH_MONEY)
     {
         player.Say(SAY_DIALOG, "You don't have that much money.");
         return;
     }
 
-    if(result == FD_BANK_RESULT_UNKNOWN)
+    if (result == FD_BANK_RESULT_UNKNOWN)
     {
         player.Say(SAY_DIALOG, "[An unhandled exception occured. Please tell the admins]");
         return;
     }
 
-    if(result == FD_BANK_RESULT_SUCCESS)
+    if (result == FD_BANK_RESULT_SUCCESS)
     {
         player.Say(SAY_DIALOG, "Money successfully withdrawn");
         return;
     }
 }
-
 uint dlg_DepositMoney(Critter& player, Critter@ npc, string@ say)
 {
-    if(!IS_DIALOG_SAY_MODE(say))
+    if (!IS_DIALOG_SAY_MODE(say))
+    {
         return 0;
+    }
 
     int amount = 0;
-    if(!StrToInt(say, amount) || (amount < 0))
+    if (!StrToInt(say, amount) || (amount < 0))
     {
         player.Say(SAY_DIALOG, "Incorrect amount of money, try again");
         return 0;
@@ -277,38 +316,39 @@ uint dlg_DepositMoney(Critter& player, Critter@ npc, string@ say)
 
     uint result = BankDepositMoney(SESSION_BANK, player.Id, SESSION_ACCOUNT, amount);
 
-    if(result == FD_BANK_RESULT_BANK_FULL)
+    if (result == FD_BANK_RESULT_BANK_FULL)
     {
         player.Say(SAY_DIALOG, "I'm sorry, we can't let you deposit that sum, we can't store more money in our storage");
         return 0;
     }
 
-    if(result == FD_BANK_RESULT_NOT_ENOUGH_MONEY)
+    if (result == FD_BANK_RESULT_NOT_ENOUGH_MONEY)
     {
         player.Say(SAY_DIALOG, "You don't have that much money.");
         return 0;
     }
 
-    if(result == FD_BANK_RESULT_UNKNOWN)
+    if (result == FD_BANK_RESULT_UNKNOWN)
     {
         player.Say(SAY_DIALOG, "[An unhandled exception occured. Please tell the admins]");
         return 0;
     }
 
-    if(result == FD_BANK_RESULT_SUCCESS)
+    if (result == FD_BANK_RESULT_SUCCESS)
     {
         return FORCE_DIALOG_VALID_ACCOUNT; // Go back to the root account node
     }
     return 0;
 }
-
 void dlg_TransferMoney(Critter& player, Critter@ npc, string@ say)
 {
-    if(!IS_DIALOG_SAY_MODE(say))
+    if (!IS_DIALOG_SAY_MODE(say))
+    {
         return;
+    }
 
     int amount = 0;
-    if(!StrToInt(say, amount) || (amount < 0))
+    if (!StrToInt(say, amount) || (amount < 0))
     {
         player.Say(SAY_DIALOG, "Incorrect amount of money, try again");
         return;
@@ -318,50 +358,51 @@ void dlg_TransferMoney(Critter& player, Critter@ npc, string@ say)
 
     DLog("" + FD_Bank_Result2String(result));
 
-    if(result == FD_BANK_RESULT_NOT_ENOUGH_MONEY)
+    if (result == FD_BANK_RESULT_NOT_ENOUGH_MONEY)
     {
         player.Say(SAY_DIALOG, "You don't have that much money.");
         return;
     }
 
-    if(result == FD_BANK_RESULT_NO_ACCOUNT)
+    if (result == FD_BANK_RESULT_NO_ACCOUNT)
     {
         player.Say(SAY_DIALOG, "One of the accounts are invalid");
         return;
     }
 
-    if(result == FD_BANK_RESULT_DATA_ERROR)
+    if (result == FD_BANK_RESULT_DATA_ERROR)
     {
         player.Say(SAY_DIALOG, "[Data error occured. Please contact the admins]");
         return;
     }
 
-    if(result == FD_BANK_RESULT_UNKNOWN)
+    if (result == FD_BANK_RESULT_UNKNOWN)
     {
         player.Say(SAY_DIALOG, "[An unhandled exception occured. Please contact the admins]");
         return;
     }
 
-    if(result == FD_BANK_RESULT_SUCCESS)
+    if (result == FD_BANK_RESULT_SUCCESS)
     {
         player.Say(SAY_DIALOG, "Money successfully transfered");
         return;
     }
 }
-
 uint dlg_EnterTransferNumber(Critter& player, Critter@ npc, string@ say)
 {
-    if(!IS_DIALOG_SAY_MODE(say))
+    if (!IS_DIALOG_SAY_MODE(say))
+    {
         return 0;
+    }
 
     uint transfer = 0;
-    if(!StrToInt(say, transfer))
+    if (!StrToInt(say, transfer))
     {
         player.Say(SAY_DIALOG, "Invalid account number");
         return 0;
     }
 
-    if(BankAccountExists(SESSION_BANK, transfer))
+    if (BankAccountExists(SESSION_BANK, transfer))
     {
         SESSION_TRANSFER_ACCOUNT = transfer;
         return FORCE_DIALOG_TRANSFER_SUM;
@@ -372,15 +413,16 @@ uint dlg_EnterTransferNumber(Critter& player, Critter@ npc, string@ say)
         return 0;
     }
 }
-
 void dlg_GiveAccess(Critter& player, Critter@ npc, string@ say)
 {
-    if(!IS_DIALOG_SAY_MODE(say))
+    if (!IS_DIALOG_SAY_MODE(say))
+    {
         return;
+    }
 
     Critter@ target = GetPlayer(say);
 
-    if(!valid(target))
+    if (!valid(target))
     {
         player.Say(SAY_DIALOG, "Invalid player.");
         return;
@@ -388,19 +430,19 @@ void dlg_GiveAccess(Critter& player, Critter@ npc, string@ say)
 
     uint result = BankAddAccess(SESSION_BANK, SESSION_ACCOUNT, target.Id);
 
-    if(result == FD_BANK_RESULT_DATA_ERROR)
+    if (result == FD_BANK_RESULT_DATA_ERROR)
     {
         player.Say(SAY_DIALOG, "Data error, couldn't add player.");
         return;
     }
 
-    else if(result == FD_BANK_RESULT_INVALID_ACCOUNT_TYPE)
+    else if (result == FD_BANK_RESULT_INVALID_ACCOUNT_TYPE)
     {
         player.Say(SAY_DIALOG, "Invalid account type. This account doesn't have this feature.");
         return;
     }
 
-    else if(result == FD_BANK_RESULT_SUCCESS)
+    else if (result == FD_BANK_RESULT_SUCCESS)
     {
         player.Say(SAY_DIALOG, say + " was added to the list of people who are authorized to access this account.");
         return;
@@ -413,15 +455,16 @@ void dlg_GiveAccess(Critter& player, Critter@ npc, string@ say)
     }
 
 }
-
 void dlg_RevokeAccess(Critter& player, Critter@ npc, string@ say)
 {
-    if(!IS_DIALOG_SAY_MODE(say))
+    if (!IS_DIALOG_SAY_MODE(say))
+    {
         return;
+    }
 
     Critter@ target = GetPlayer(say);
 
-    if(!valid(target))
+    if (!valid(target))
     {
         player.Say(SAY_DIALOG, "Invalid player.");
         return;
@@ -429,23 +472,23 @@ void dlg_RevokeAccess(Critter& player, Critter@ npc, string@ say)
 
     uint result = BankRemoveAccess(SESSION_BANK, SESSION_ACCOUNT, target.Id);
 
-    if(result == FD_BANK_RESULT_DATA_ERROR)
+    if (result == FD_BANK_RESULT_DATA_ERROR)
     {
         player.Say(SAY_DIALOG, "Data error, couldn't remove player.");
         return;
     }
 
-    else if(result == FD_BANK_RESULT_INVALID_ACCOUNT_TYPE)
+    else if (result == FD_BANK_RESULT_INVALID_ACCOUNT_TYPE)
     {
         player.Say(SAY_DIALOG, "Invalid account type. This account doesn't have this feature.");
         return;
     }
-    else if(result == FD_BANK_RESULT_ALREADY_NO_ACCESS)
+    else if (result == FD_BANK_RESULT_ALREADY_NO_ACCESS)
     {
         player.Say(SAY_DIALOG, "This person is not on the list of people who are authorized to access this account.");
         return;
     }
-    else if(result == FD_BANK_RESULT_SUCCESS)
+    else if (result == FD_BANK_RESULT_SUCCESS)
     {
         player.Say(SAY_DIALOG, say + " was removed from the list of people who are authorized to access this account.");
         return;
@@ -456,26 +499,27 @@ void dlg_RevokeAccess(Critter& player, Critter@ npc, string@ say)
         return;
     }
 }
-
 uint dlg_EnterAccountNumber(Critter& player, Critter@ npc, string@ say)
 {
-    if(!IS_DIALOG_SAY_MODE(say))
+    if (!IS_DIALOG_SAY_MODE(say))
+    {
         return 0;
+    }
 
     uint account = 0;
-    if(!StrToInt(say, account))
+    if (!StrToInt(say, account))
     {
         return FORCE_DIALOG_INVALID_ACCOUNT;
     }
 
-    if(BankAccountExists(SESSION_BANK, account))
+    if (BankAccountExists(SESSION_BANK, account))
     {
-        if(BankGetAccountOwner(SESSION_BANK, account) == player.Id)
+        if (BankGetAccountOwner(SESSION_BANK, account) == player.Id)
         {
             SESSION_ACCOUNT = account;
             return FORCE_DIALOG_VALID_ACCOUNT;
         }
-        else if(BankHasAccess(SESSION_BANK, account, player.Id))
+        else if (BankHasAccess(SESSION_BANK, account, player.Id))
         {
             SESSION_ACCOUNT = account;
             return FORCE_DIALOG_VALID_ACCOUNT;
@@ -490,35 +534,35 @@ uint dlg_EnterAccountNumber(Critter& player, Critter@ npc, string@ say)
         return FORCE_DIALOG_INVALID_ACCOUNT;
     }
 }
-
 uint r_CreateJointAccount(Critter& player, Critter@ npc, int value)
 {
-    if(BankGetAccountType(SESSION_BANK, SESSION_ACCOUNT) == ACCOUNT_TYPE_JOINT)
+    if (BankGetAccountType(SESSION_BANK, SESSION_ACCOUNT) == ACCOUNT_TYPE_JOINT)
     {
         return FORCE_DIALOG_JOINT_ACCOUNT_ERROR;
     }
 
-    if(!BankAccountRemoveMoney(SESSION_BANK, SESSION_ACCOUNT, JOINT_ACCOUNT_COST))
+    if (!BankAccountRemoveMoney(SESSION_BANK, SESSION_ACCOUNT, JOINT_ACCOUNT_COST))
     {
         return FORCE_DIALOG_JOINT_ACCOUNT_NO_MONEY;
     }
 
     uint result = BankSetAccountType(SESSION_BANK, SESSION_ACCOUNT, ACCOUNT_TYPE_JOINT);
 
-    if(result != FD_BANK_RESULT_SUCCESS)
+    if (result != FD_BANK_RESULT_SUCCESS)
     {
         return FORCE_DIALOG_JOINT_ACCOUNT_ERROR;
     }
 
     return FORCE_DIALOG_JOINT_ACCOUNT_SUCCESS;
 }
-
 uint r_FindPlayerAccount(Critter& player, Critter@ npc, int value)
 {
     int account = BankGetAccountID(SESSION_BANK, player.Id);
 
-    if(account == -1)
+    if (account == -1)
+    {
         return FORCE_DIALOG_NO_ACCOUNT;
+    }
     else
     {
         SESSION_ACCOUNT = account;

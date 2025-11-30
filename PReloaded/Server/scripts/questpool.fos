@@ -33,7 +33,7 @@ class Quest
 {
     // id of the lvar connected with that quest. The most important value, it
     // in fact identifies quest
-    int  lvar;
+    int lvar;
     // dialog node that is responsible for quest introduction
     uint dialog;
     // dialog node for 'dumb' characters
@@ -57,9 +57,9 @@ class Quest
     uint timeAcquired;
 
     // skills which we require for that quest to be given (see skill defines in _defines.fos)
-    array<int> requiredSkills;
+    array < int > requiredSkills;
     // min skill levels which are required for quest
-    array<int> requiredSkillsValues;
+    array < int > requiredSkillsValues;
 
     //
     // Instantiates quest object with given parameters
@@ -76,11 +76,9 @@ class Quest
         this.lvarFinished = 3;
         this.time = 60;
     }
-
     //
     // Properties setters
     //
-
     Quest@ Initial(int lvarInitial)
     {
         this.lvarInitial = lvarInitial;
@@ -134,11 +132,11 @@ class Quest
 
         DLog("Checking required skills");
         // then check the skill requirements (if any)
-        if(valid(requiredSkills) && valid(requiredSkillsValues))
+        if (valid(requiredSkills) && valid(requiredSkillsValues))
         {
-            for(uint i = 0; i < requiredSkills.length(); i++)
+            for (uint i = 0; i < requiredSkills.length(); i++)
             {
-                if(player.Skill[requiredSkills[i]] < requiredSkillsValues[i])
+                if (player.Skill[requiredSkills[i]] < requiredSkillsValues[i])
                 {
                     DLog("Skill requirements don't met");
                     return false;
@@ -148,12 +146,12 @@ class Quest
         DLog("Checking lvar' value");
         // check if the player's lvar value is equal to 0
         GameVar@ var = GetLocalVar(lvar, player.Id);
-        if(!valid(var))
+        if (!valid(var))
         {
             Log("ERR: couldn't obtain local variable: " + lvar);
             return false;
         }
-        if(var.GetValue() == 0)
+        if (var.GetValue() == 0)
         {
             DLog("lvar check passed");
             return true;
@@ -164,7 +162,6 @@ class Quest
             return false;
         }
     }
-
     //
     // Sets the time at which given quest was acquired
     //
@@ -180,11 +177,11 @@ class Quest
 class QuestPool
 {
     // lists of quest created during NPC initialization
-    array<Quest@> quests;
+    array < Quest@ > quests;
     // useful values stored for quests used when quest is added to the pool
-    array<uint>   data;
+    array < uint >   data;
     // id of the critter to which questpool belongs
-    uint          npcId;
+    uint npcId;
 
     //
     // Reads needed values from AnyData array with id stored in given GameVar
@@ -192,7 +189,7 @@ class QuestPool
     //
     QuestPool(uint npcId)
     {
-        if(!IsAnyData("QuestPool_" + npcId))
+        if (!IsAnyData("QuestPool_" + npcId))
         {
             Log("ERR: Couldn't read AnyData array");
             return;
@@ -200,7 +197,6 @@ class QuestPool
         GetAnyData("QuestPool_" + npcId, data);         // can't fail now, can it
         this.npcId = npcId;
     }
-
     //
     // Add quest object to the array, and reads appropriate data if exists
     //
@@ -214,8 +210,10 @@ class QuestPool
 
         uint i = GetDataIndex(quest.lvar);
         // apply stored data if found
-        if(i != 0)
+        if (i != 0)
+        {
             quest.SetTimeAcquired(data[i]);
+        }
         return quest;
     }
     //
@@ -228,13 +226,11 @@ class QuestPool
         DLog("Lvar: " + lvar + ", quest.lvar: " + quest.lvar);
         return AddQuest(quest);
     }
-
     // void AddQuest(uint lvar, uint dialog, uint lvarInitial, uint time, int[] requiredSkills, int[] requiredSkillValues)
     // {
     //    Quest quest(lvar, dialog, lvarInitial, time, requiredSkills, requiredSkillValues);
     //    AddQuest(quest);
     // }
-
     //
     // Gets the random quest from the list of available ones
     //
@@ -243,15 +239,17 @@ class QuestPool
     {
         DLog("Getting random quest, no of quests: " + quests.length());
         // make a list of available quests
-        array<uint> available;
+        array < uint > available;
 
-        for(uint i = 0; i < quests.length(); i++)
+        for (uint i = 0; i < quests.length(); i++)
         {
-            if(quests[i].IsAvailable(player))
+            if (quests[i].IsAvailable(player))
+            {
                 available.insertLast(i);
+            }
         }
         // we have something
-        if(available.length() > 0)
+        if (available.length() > 0)
         {
             DLog("Randomizing quest, from the " + available.length() + " available");
             uint id = Random(0, available.length() - 1);
@@ -260,17 +258,18 @@ class QuestPool
         }
         return null;
     }
-
     //
     // Get quest with given lvar id
     //
     // Return Quest object, or null if not found
     Quest@ GetQuest(int lvar)
     {
-        for(uint i = 0; i < quests.length(); i++)
+        for (uint i = 0; i < quests.length(); i++)
         {
-            if(quests[i].lvar == lvar)
+            if (quests[i].lvar == lvar)
+            {
                 return quests[i];
+            }
         }
         return null;
     }
@@ -281,10 +280,12 @@ class QuestPool
     // data is stored using the lvar,data,lvar,data layout)
     uint GetDataIndex(uint lvar)
     {
-        for(uint i = 0; i < data.length(); i += 2)
+        for (uint i = 0; i < data.length(); i += 2)
         {
-            if(data[i] == lvar)
+            if (data[i] == lvar)
+            {
                 return data[i + 1];
+            }
         }
         return 0;
     }
@@ -293,15 +294,16 @@ class QuestPool
     //
     bool IsAvailable(int lvar, Critter@ player)
     {
-        for(uint i = 0; i < quests.length(); i++)
+        for (uint i = 0; i < quests.length(); i++)
         {
-            if(quests[i].lvar == lvar)
+            if (quests[i].lvar == lvar)
+            {
                 return quests[i].IsAvailable(player);
+            }
         }
         Log("ERR: wrong quest lvar");
         return false;
     }
-
     //
     // Stores needed values in AnyData array
     //
@@ -318,20 +320,21 @@ class QuestPool
 //
 class CQuestPoolCache
 {
-    array<QuestPool> pools;
+    array < QuestPool > pools;
     // ids of the npcs to which pools are attached
-    array<uint>      indices;
-
+    array < uint >      indices;
     //
     // Gets pool cached at given id, or create new one
     //
     QuestPool@ GetPool(uint npcId)
     {
         DLog("Indices length: " + indices.length());
-        for(uint i = 0; i < indices.length(); i += 2)
+        for (uint i = 0; i < indices.length(); i += 2)
         {
-            if(indices[i] == npcId)
+            if (indices[i] == npcId)
+            {
                 return pools[indices[i + 1]];
+            }
         }
         DLog("Creating new pool");
         // no pool in cache, create new
@@ -345,14 +348,13 @@ class CQuestPoolCache
 };
 // global manager
 CQuestPoolCache QuestPoolCache;
-
 //
 // Retrieves the QuestPool object associated with the given NPC
 //
 // Returns null if the QuestPool don't exist for a given NPC
 QuestPool@ GetQuestPool(Critter@ npc)
 {
-    if(!valid(npc))
+    if (!valid(npc))
     {
         Log("ERR: Couldn't obtain Quest pool, npc is null");
         return null;
@@ -360,7 +362,7 @@ QuestPool@ GetQuestPool(Critter@ npc)
 
     QuestPool@ pool = QuestPoolCache.GetPool(npc.Id);
 
-    if(!valid(pool))
+    if (!valid(pool))
     {
         Log("ERR: Couldn't obtain Quest Pool for given npc with id: " + npc.Id);
         return null;
@@ -368,7 +370,6 @@ QuestPool@ GetQuestPool(Critter@ npc)
     // everything should be ok
     return pool;
 }
-
 //
 // Chooses random quest for player, and stores its lvar id in the unique variable
 // so that if player refuses and ask next time for a job, NPC will give the same again (if available)
@@ -377,13 +378,14 @@ QuestPool@ GetQuestPool(Critter@ npc)
 uint r_ChooseQuest(Critter& player, Critter@ npc, int val)
 {
     uint force = 0;
-    if(!valid(npc))
+
+    if (!valid(npc))
     {
         Log("ERR: must be used only with NPCs");
         return 0;
     }
     GameVar@ job = GetUnicumVar(UVAR_questpool_quest, npc.Id, player.Id);
-    if(!valid(job))
+    if (!valid(job))
     {
         Log("ERR: Couldn't obtain unique variable UVAR_questpool_quest");
         return 0;
@@ -393,15 +395,15 @@ uint r_ChooseQuest(Critter& player, Critter@ npc, int val)
     QuestPool@ questPool = GetQuestPool(npc);
 
     // check if we have quest stored in that variable
-    if(job.GetValue() == 0)
+    if (job.GetValue() == 0)
     {
         DLog("Quest hasn't been chosen already...randomizing.");
         // choose new quest
         @quest = questPool.GetRandomQuest(player);
-        if(valid(quest))
+        if (valid(quest))
         {
             job = quest.lvar;
-            if(player.Stat[ST_INTELLECT] > 3)
+            if (player.Stat[ST_INTELLECT] > 3)
             {
                 force = quest.dialog;
                 DLog("Quest chosen, jumping to node: " + quest.dialog);
@@ -413,20 +415,22 @@ uint r_ChooseQuest(Critter& player, Critter@ npc, int val)
             }
         }
         else
+        {
             DLog("No quest available");
+        }
     }
     else
     {
         DLog("There is quest that has been chosen already, checking its availability");
         // check if it is still available, if not get another
-        if(!questPool.IsAvailable(job.GetValue(), player))
+        if (!questPool.IsAvailable(job.GetValue(), player))
         {
             DLog("Previously chosen quest is no longer available, randomizing new...");
             @quest = questPool.GetRandomQuest(player);
-            if(valid(quest))
+            if (valid(quest))
             {
                 job = quest.lvar;
-                if(player.Stat[ST_INTELLECT] > 3)
+                if (player.Stat[ST_INTELLECT] > 3)
                 {
                     force = quest.dialog;
                     DLog("Quest chosen, jumping to node: " + quest.dialog);
@@ -438,7 +442,9 @@ uint r_ChooseQuest(Critter& player, Critter@ npc, int val)
                 }
             }
             else
+            {
                 DLog("No other quest available");
+            }
         }
         else
         {
@@ -450,20 +456,19 @@ uint r_ChooseQuest(Critter& player, Critter@ npc, int val)
     }
     return force;
 }
-
 //
 // Activates quest if player agrees to do it
 //
 void r_AssignQuest(Critter& player, Critter@ npc, int val)
 {
-    if(!valid(npc))
+    if (!valid(npc))
     {
         Log("ERR: must be used only with NPCs");
         return;
     }
 
     GameVar@ job = GetUnicumVar(UVAR_questpool_quest, npc.Id, player.Id);
-    if(!valid(job))
+    if (!valid(job))
     {
         Log("ERR: Couldn't obtain unique variable UVAR_questpool_quest");
         return;
@@ -472,14 +477,14 @@ void r_AssignQuest(Critter& player, Critter@ npc, int val)
     // Get quest object
     QuestPool@ questPool = GetQuestPool(npc);
     Quest@     quest = questPool.GetQuest(job.GetValue());
-    if(!valid(quest))
+    if (!valid(quest))
     {
         Log("ERR: Invalid quest lvar");
         return;
     }
 
     GameVar@ var = GetLocalVar(quest.lvar, player.Id);
-    if(!valid(quest))
+    if (!valid(quest))
     {
         Log("ERR: Couldn't obtain quest lvar");
         return;
@@ -490,20 +495,19 @@ void r_AssignQuest(Critter& player, Critter@ npc, int val)
     quest.SetTimeAcquired(ELAPSED_TIME);
     questPool.Store();
 }
-
 //
 // Jumps to the node which is used for dialogs about quest in progress
 //
 uint r_AboutQuest(Critter& player, Critter@ npc, int val)
 {
-    if(!valid(npc))
+    if (!valid(npc))
     {
         Log("ERR: must be used only with NPCs");
         return 0;
     }
 
     GameVar@ job = GetUnicumVar(UVAR_questpool_quest, npc.Id, player.Id);
-    if(!valid(job))
+    if (!valid(job))
     {
         Log("ERR: Couldn't obtain unique variable UVAR_questpool_quest");
         return 0;
@@ -512,14 +516,14 @@ uint r_AboutQuest(Critter& player, Critter@ npc, int val)
     // Get quest object
     QuestPool@ questPool = GetQuestPool(npc);
     Quest@     quest = questPool.GetQuest(job.GetValue());
-    if(!valid(quest))
+    if (!valid(quest))
     {
         Log("ERR: Invalid quest lvar");
         return 0;
     }
 
     // jump to 'about' node
-    if(player.Stat[ST_INTELLECT] > 3)
+    if (player.Stat[ST_INTELLECT] > 3)
     {
         DLog("Jumping to about node: " + quest.about);
         return quest.about;
@@ -530,20 +534,19 @@ uint r_AboutQuest(Critter& player, Critter@ npc, int val)
         return quest.dumbAbout;
     }
 }
-
 //
 // Sets quest' lvar to 'failed' state, it means player don't want to do that quest
 //
 void r_DiscardQuest(Critter& player, Critter@ npc, int val)
 {
-    if(!valid(npc))
+    if (!valid(npc))
     {
         Log("ERR: must be used only with NPCs");
         return;
     }
 
     GameVar@ job = GetUnicumVar(UVAR_questpool_quest, npc.Id, player.Id);
-    if(!valid(job))
+    if (!valid(job))
     {
         Log("ERR: Couldn't obtain unique variable UVAR_questpool_quest");
         return;
@@ -552,7 +555,7 @@ void r_DiscardQuest(Critter& player, Critter@ npc, int val)
     // Get quest object
     QuestPool@ questPool = GetQuestPool(npc);
     Quest@     quest = questPool.GetQuest(job.GetValue());
-    if(!valid(quest))
+    if (!valid(quest))
     {
         Log("ERR: Invalid quest lvar");
         return;
@@ -562,7 +565,7 @@ void r_DiscardQuest(Critter& player, Critter@ npc, int val)
     job = 0;
 
     GameVar@ var = GetLocalVar(quest.lvar, player.Id);
-    if(!valid(var))
+    if (!valid(var))
     {
         Log("ERR: Couldn't obtain quest lvar");
         return;
@@ -572,20 +575,19 @@ void r_DiscardQuest(Critter& player, Critter@ npc, int val)
     var = quest.lvarFailed;
     questPool.Store();
 }
-
 //
 // Sets quest' lvar to 'failed' state, it means player don't want to do that quest
 //
 void r_CancelQuest(Critter& player, Critter@ npc, int val)
 {
-    if(!valid(npc))
+    if (!valid(npc))
     {
         Log("ERR: must be used only with NPCs");
         return;
     }
 
     GameVar@ job = GetUnicumVar(UVAR_questpool_quest, npc.Id, player.Id);
-    if(!valid(job))
+    if (!valid(job))
     {
         Log("ERR: Couldn't obtain unique variable UVAR_questpool_quest");
         return;
@@ -594,7 +596,7 @@ void r_CancelQuest(Critter& player, Critter@ npc, int val)
     // Get quest object
     QuestPool@ questPool = GetQuestPool(npc);
     Quest@     quest = questPool.GetQuest(job.GetValue());
-    if(!valid(quest))
+    if (!valid(quest))
     {
         Log("ERR: Invalid quest lvar");
         return;
@@ -603,7 +605,7 @@ void r_CancelQuest(Critter& player, Critter@ npc, int val)
     job = 0;
 
     GameVar@ var = GetLocalVar(quest.lvar, player.Id);
-    if(!valid(var))
+    if (!valid(var))
     {
         Log("ERR: Couldn't obtain quest lvar");
         return;
@@ -613,21 +615,20 @@ void r_CancelQuest(Critter& player, Critter@ npc, int val)
     var = quest.lvarFailed;
     questPool.Store();
 }
-
 //
 // Clears the quest timeAcquired value, and clear assigned 'job' UVAR, so that quest
 // now is finished (lvar should be changed independently)
 //
 void r_FinishQuest(Critter& player, Critter@ npc, int val)
 {
-    if(!valid(npc))
+    if (!valid(npc))
     {
         Log("ERR: must be used only with NPCs");
         return;
     }
 
     GameVar@ job = GetUnicumVar(UVAR_questpool_quest, npc.Id, player.Id);
-    if(!valid(job))
+    if (!valid(job))
     {
         Log("ERR: Couldn't obtain unique variable UVAR_questpool_quest");
         return;
@@ -636,13 +637,13 @@ void r_FinishQuest(Critter& player, Critter@ npc, int val)
     // Get quest object
     QuestPool@ questPool = GetQuestPool(npc);
     Quest@     quest = questPool.GetQuest(job.GetValue());
-    if(!valid(quest))
+    if (!valid(quest))
     {
         Log("ERR: Invalid quest lvar");
         return;
     }
     GameVar@ var = GetLocalVar(quest.lvar, player.Id);
-    if(!valid(var))
+    if (!valid(var))
     {
         Log("ERR: Couldn't obtain quest lvar");
         return;
@@ -656,41 +657,42 @@ void r_FinishQuest(Critter& player, Critter@ npc, int val)
     quest.SetTimeAcquired(0);
     questPool.Store();
 }
-
 //
 // Checks if the quest currently chosen for player is in progress
 // (active and not failed)
 //
 bool d_QuestInProgress(Critter& player, Critter@ npc, int val)
 {
-    if(!valid(npc))
+    if (!valid(npc))
     {
         Log("ERR: must be used only with NPCs");
         return false;
     }
 
     GameVar@ job = GetUnicumVar(UVAR_questpool_quest, npc.Id, player.Id);
-    if(!valid(job))
+    if (!valid(job))
     {
         Log("ERR: Couldn't obtain unique variable UVAR_questpool_quest");
         return false;
     }
 
     // it means we haven't even quest chosen
-    if(job.GetValue() == 0)
+    if (job.GetValue() == 0)
+    {
         return false;
+    }
 
     // Get quest object
     QuestPool@ questPool = GetQuestPool(npc);
     Quest@     quest = questPool.GetQuest(job.GetValue());
-    if(!valid(quest))
+    if (!valid(quest))
     {
         Log("ERR: Invalid quest lvar");
         return false;
     }
 
     GameVar@ var = GetLocalVar(quest.lvar, player.Id);
-    if(!valid(quest))
+    if (!valid(quest))
     {
         Log("ERR: Couldn't obtain quest lvar");
         return false;
@@ -699,46 +701,47 @@ bool d_QuestInProgress(Critter& player, Critter@ npc, int val)
     // check
     // has to be active, but not failed and not finished
     DLog("QuestInProgress: " + var.GetValue() +
-         " vs failed: " + quest.lvarFailed + ", finished: " + quest.lvarFinished);
+        " vs failed: " + quest.lvarFailed + ", finished: " + quest.lvarFinished);
     return(var.GetValue() != 0 &&
            var.GetValue() != quest.lvarFailed &&
            var.GetValue() != quest.lvarFinished);
 }
-
 //
 // Checks if player has got no quest assigned
 //
 bool d_NoQuestActive(Critter& player, Critter@ npc, int val)
 {
-    if(!valid(npc))
+    if (!valid(npc))
     {
         Log("ERR: must be used only with NPCs");
         return false;
     }
 
     GameVar@ job = GetUnicumVar(UVAR_questpool_quest, npc.Id, player.Id);
-    if(!valid(job))
+    if (!valid(job))
     {
         Log("ERR: Couldn't obtain unique variable UVAR_questpool_quest");
         return false;
     }
 
     // there is nothing chosen, so nothing active either
-    if(job.GetValue() == 0)
+    if (job.GetValue() == 0)
+    {
         return true;
+    }
 
     // quest may be chosen, but not activated
     // Get quest object
     QuestPool@ questPool = GetQuestPool(npc);
     Quest@     quest = questPool.GetQuest(job.GetValue());
-    if(!valid(quest))
+    if (!valid(quest))
     {
         Log("ERR: Invalid quest lvar");
         return false;
     }
 
     GameVar@ var = GetLocalVar(quest.lvar, player.Id);
-    if(!valid(quest))
+    if (!valid(quest))
     {
         Log("ERR: Couldn't obtain quest lvar");
         return false;

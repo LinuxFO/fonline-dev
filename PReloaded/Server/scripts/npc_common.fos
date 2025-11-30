@@ -18,11 +18,9 @@
 #include "utils_h.fos"
 #include "npc_planes_h.fos"
 #include "reputations_h.fos"
-
 import bool IsTCTown(Map@ map) from "town";
 import void DropPoison(Critter& cr) from "poison";
 import void DropRadiation(Critter& cr) from "radiation";
-
 /**
  * \~english @defgroup NPCCommon NPC Common
  * Various functions related to NPCs/Critters.
@@ -30,215 +28,248 @@ import void DropRadiation(Critter& cr) from "radiation";
  * \~ @ingroup FOnline2238
  */
 /*@{*/
-
 bool AttackCritter(Critter& attacker, Critter& target, uint minhp)
 {
     return AddAttackPlane(attacker, 0, target, minhp);
 }
-
 bool AttackCritter(Critter& attacker, Critter& target)
 {
     return AttackCritter(attacker, target, __DeadHitPoints);
 }
-
 bool HasIntelligentBrain(Critter& cr)
 {
     return (cr.Stat[ST_BODY_TYPE] == BT_MEN || cr.Stat[ST_BODY_TYPE] == BT_WOMEN ||
             cr.Stat[ST_BODY_TYPE] == BT_SUPER_MUTANT || cr.Stat[ST_BODY_TYPE] == BT_GHOUL || cr.Stat[ST_BODY_TYPE] == BT_ROBOT) &&
            (cr.Stat[ST_INTELLECT] > 1);
 }
-
 void UnsetCritterIllegalFlag(Critter& critter)
 {
     Location@ loc = critter.GetMap().GetLocation();
+
     UnsetCritterIllegalFlag(critter.Id, loc.GetProtoId());
 }
-
 void UnsetCritterIllegalFlag(Critter& critter, int location)
 {
     UnsetCritterIllegalFlag(critter.Id, location);
 }
-
 void UnsetCritterIllegalFlag(uint id, int location)
 {
     GameVar@ var = GetUnicumVar(UVAR_guard_illegal_flag, location, id);
-    if(valid(var))
+
+    if (valid(var))
     {
         #ifdef __DEBUG__
         Critter@ cr = GetCritter(id);
-        if(valid(cr))
+        if (valid(cr))
+        {
             cr.Say(SAY_NETMSG, "Unsetting illegal flag on location " + location + ". Your id: " + id);
+        }
         #endif
         var = 0;
     }
 }
-
 void SetCritterIllegalFlag(Critter& critter, int reason)
 {
     Location@ loc = critter.GetMap().GetLocation();
 
-    if(!valid(loc))
+    if (!valid(loc))
     {
         Log("Location not valid, critter is on map with id: " + critter.GetMapId());
         return;
     }
-    if(!loc.IsTown())
+    if (!loc.IsTown())
+    {
         return;
+    }
 
     SetCritterIllegalFlag(critter, loc.GetProtoId(), reason);
 }
-
 void SetCritterIllegalFlag(Critter& critter, int location, int reason)
 {
-    if(!valid(critter))
+    if (!valid(critter))
+    {
         return;
+    }
 
     int[] data = { critter.Id, location };
 
     GameVar@ var = GetUnicumVar(UVAR_guard_illegal_flag, location, critter.Id);
-    if(valid(var))
+    if (valid(var))
     {
         #ifdef __DEBUG__
         critter.Say(SAY_NETMSG, "You have been flagged on location " + location  + " for " + reason + ". Your id: " + critter.Id);
         #endif
 
-        if((var.GetValue() & reason) != 0)
+        if ((var.GetValue() & reason) != 0)
+        {
             return;
+        }
 
-        if(var.GetValue() == 0)
+        if (var.GetValue() == 0)
+        {
             CreateTimeEvent(AFTER(REAL_MINUTE((60 + (5 * critter.Stat[ST_LEVEL])))), "e_UnsetIllegalFlag", data, true);
+        }
 
         var = var.GetValue() | reason;
-        switch(reason)
+        switch (reason)
         {
-        case ILLEGAL_FLAG_STEALING:
-            SubReputation(critter, ReputationIndex(location), REP_FLAG_PENALTY / (critter.Perk[PE_HARMLESS] != 0 ? 8 : 4));
-            break;
-        default:
-            SubReputation(critter, ReputationIndex(location), REP_FLAG_PENALTY);
+            case ILLEGAL_FLAG_STEALING:
+                SubReputation(critter, ReputationIndex(location), REP_FLAG_PENALTY / (critter.Perk[PE_HARMLESS] != 0 ? 8 : 4));
+                break;
+            default:
+                SubReputation(critter, ReputationIndex(location), REP_FLAG_PENALTY);
         }
     }
 }
-
 void PutAwayItems(Critter& critter)
 {
     Item@ item1 = _CritGetItemHand(critter);
     Item@ item2 = _CritGetItemHandExt(critter);
 
-    if(valid(item1))
+    if (valid(item1))
     {
         _CritMoveItem(critter, item1, SLOT_INV);
         critter.SetFavoriteItem(SLOT_HAND1, 0);
     }
-    if(valid(item2))
+    if (valid(item2))
     {
         _CritMoveItem(critter, item2, SLOT_INV);
         critter.SetFavoriteItem(SLOT_HAND2, 0);
     }
 }
-
 void DropAllItems(Critter& critter)
-{    
+{
     array<Item@> items;
     int          count = critter.GetItems(SLOT_INV, items);
-    if(count > 0)
+
+    if (count > 0)
     {
-        if(valid(critter.GetMap())) 
+        if (valid(critter.GetMap()))
         {
-            for(uint i = 0, j = items.length(); i < j; i++)
+            for (uint i = 0, j = items.length(); i < j; i++)
             {
-                if(items[i].GetProtoId()==PID_ADVANCED_BENCH || items[i].GetProtoId()==PID_WORKBENCH_RAIDERS || items[i].GetProtoId()==PID_AMMO_FACILITY || items[i].GetProtoId()==PID_WORKBENCH || items[i].GetProtoId()==PID_MED_MACHINE ||  items[i].GetProtoId()==PID_WORKBENCH_PRIMITIVE || items[i].GetType()==ITEM_TYPE_CONTAINER || items[i].GetProtoId()==PID_ACTIVE_DYNAMITE || items[i].GetProtoId()==PID_ACTIVE_PLASTIC_EXPLOSIVE || items[i].GetProtoId()==PID_ACTIVE_MINE || items[i].GetProtoId()==PID_ACTIVE_PERSONNEL_MINE)
+                if (items[i].GetProtoId() == PID_ADVANCED_BENCH || items[i].GetProtoId() == PID_WORKBENCH_RAIDERS || items[i].GetProtoId() == PID_AMMO_FACILITY || items[i].GetProtoId() == PID_WORKBENCH || items[i].GetProtoId() == PID_MED_MACHINE ||  items[i].GetProtoId() == PID_WORKBENCH_PRIMITIVE || items[i].GetType() == ITEM_TYPE_CONTAINER || items[i].GetProtoId() == PID_ACTIVE_DYNAMITE || items[i].GetProtoId() == PID_ACTIVE_PLASTIC_EXPLOSIVE || items[i].GetProtoId() == PID_ACTIVE_MINE || items[i].GetProtoId() == PID_ACTIVE_PERSONNEL_MINE)
+                {
                     @items[i] = null;
+                }
             }
-            if(critter.Stat[ST_BODY_TYPE] == BT_RAT)
+            if (critter.Stat[ST_BODY_TYPE] == BT_RAT)
+            {
                 critter.Say(SAY_NORM_ON_HEAD, "Squeak! Squeak!");
-            else if(critter.Stat[ST_BODY_TYPE] == BT_DOG)
+            }
+            else if (critter.Stat[ST_BODY_TYPE] == BT_DOG)
+            {
                 critter.Say(SAY_NORM_ON_HEAD, "Wuff! Wuff!");
-            else if(critter.Stat[ST_BODY_TYPE] == BT_BRAHMIN)
+            }
+            else if (critter.Stat[ST_BODY_TYPE] == BT_BRAHMIN)
+            {
                 critter.Say(SAY_NORM_ON_HEAD, "Moo-moo!");
+            }
             else
+            {
                 critter.Say(SAY_NORM_ON_HEAD, "Dropping all items.");
+            }
             _CritAnimatePickup(critter);
             critter.Wait(1000);
-            if(valid(critter.GetMap())) 
+            if (valid(critter.GetMap()))
+            {
                 MoveItems(items, critter.GetMap(), critter.HexX, critter.HexY);
-            else  
+            }
+            else
+            {
                 DeleteItems(items);
+            }
         }
-        else 
+        else
         {
             return;
         }
     }
     else
     {
-        if(critter.Stat[ST_BODY_TYPE] == BT_RAT)
+        if (critter.Stat[ST_BODY_TYPE] == BT_RAT)
+        {
             critter.Say(SAY_NORM_ON_HEAD, "Squeak!");
-        else if(critter.Stat[ST_BODY_TYPE] == BT_DOG)
+        }
+        else if (critter.Stat[ST_BODY_TYPE] == BT_DOG)
+        {
             critter.Say(SAY_NORM_ON_HEAD, "Wuff!");
-        else if(critter.Stat[ST_BODY_TYPE] == BT_BRAHMIN)
+        }
+        else if (critter.Stat[ST_BODY_TYPE] == BT_BRAHMIN)
+        {
             critter.Say(SAY_NORM_ON_HEAD, "Moo!");
+        }
         else
+        {
             critter.Say(SAY_NORM_ON_HEAD, "Nothing to drop.");
+        }
     }
 }
-
 /**
  * Get illegal flag status of critter in a specific location.
  */
 int GetCritterIllegalFlag(Critter& critter, int location)
 {
     GameVar@ var = GetUnicumVar(UVAR_guard_illegal_flag, location, critter.Id);
+
     return var.GetValue();
 }
-
 /**
  * Clear illegal flags in critter's current location.
  */
 int GetCritterIllegalFlag(Critter& critter)
 {
     Location@ loc = critter.GetMap().GetLocation();
+
     return GetCritterIllegalFlag(critter, loc.GetProtoId());
 }
-
 /**
  * Clear illegal flags in all towns
  */
 void ClearIllegalFlags(Critter& critter)
 {
-    for(uint i = 1; i < 28; i++)
+    for (uint i = 1; i < 28; i++)
+    {
         UnsetCritterIllegalFlag(critter, i);   // todo: scrap uvars here!
+    }
 }
-
 bool IsFlaggedAsIllegal(Critter& critter)
 {
-    if(!valid(critter))
+    if (!valid(critter))
+    {
         return false;
+    }
 
     Map@ map = critter.GetMap();
-    if(!valid(map))
+    if (!valid(map))
+    {
         return false;
+    }
 
     Location@ loc = map.GetLocation();
-    if(!valid(loc))
+    if (!valid(loc))
+    {
         return false;
+    }
 
     return IsFlaggedAsIllegal(critter, loc.GetProtoId());
 }
-
 bool IsFlaggedAsIllegal(Critter& critter, int location)
 {
-    if(!valid(critter))
+    if (!valid(critter))
+    {
         return false;
+    }
     GameVar@ var = GetUnicumVar(UVAR_guard_illegal_flag, location, critter.Id);
-    if(valid(var))
+    if (valid(var))
     {
         return(var.GetValue() != 0);
     }
     else
+    {
         return false;
+    }
 }
-
 /**
  * Heal a critter.
  * @param cr Critter handle.
@@ -255,7 +286,6 @@ void Heal(Critter& cr)
     DropPoison(cr);
     DropRadiation(cr);
 }
-
 /**
  * Check if two critters has the same script assigned.
  */
@@ -263,26 +293,26 @@ bool HasSameScript(Critter& critter1, Critter& critter2)
 {
     return(critter1.GetScriptId() == critter2.GetScriptId());
 }
-
 /**
  * Check if a critter is in a specific location.
  */
 bool IsInLocation(Critter& critter, int locationPID)
 {
-    if(!valid(critter.GetMap()))
+    if (!valid(critter.GetMap()))
+    {
         return false;
+    }
     return(critter.GetMap().GetLocation().GetProtoId() == uint(locationPID));
 }
-
 bool MoveByDir(Critter& critter, uint8 dir, uint steps, bool run)
 {
     uint16 HexX, HexY;
+
     HexX = critter.HexX;
     HexY = critter.HexY;
     critter.GetMap().MoveHexByDir(HexX, HexY, dir, steps);
     return AddWalkPlane(critter, 0, HexX, HexY, dir, run, 0);
 }
-
 /**
  * Gets all general purpose guards in a radius around given hex.
  */
@@ -291,15 +321,17 @@ uint GetNearGuards(Map@ map, uint16 hexX, uint16 hexY, uint radius, array<Critte
     array<Critter@> critters;
     uint            n = map.GetCrittersHex(hexX, hexY, radius, FIND_LIFE_AND_KO | FIND_ONLY_NPC, critters);
     uint            num = 0;
-    for(uint i = 0; i < n; i++)
-        if(_CritHasExtMode(critters[i], MODE_EXT_GUARD))
+
+    for (uint i = 0; i < n; i++)
+    {
+        if (_CritHasExtMode(critters[i], MODE_EXT_GUARD))
         {
             crits.insertLast(critters[i]);
             num++;
         }
+    }
     return num;
 }
-
 /**
  * Gets all faction guards in a radius around given hex.
  */
@@ -308,15 +340,17 @@ uint GetNearFactionGuards(Map@ map, uint16 hexX, uint16 hexY, uint radius, uint 
     array<Critter@> critters;
     uint            n = map.GetCrittersHex(hexX, hexY, radius, FIND_LIFE_AND_KO | FIND_ONLY_NPC, critters);
     uint            num = 0;
-    for(uint i = 0; i < n; i++)
-        if(critters[i].Stat[ST_TEAM_ID] == int(faction) && critters[i].Stat[ST_FACTION_MODE] > 0 && critters[i].Stat[ST_FACTION_MODE] < 5)
+
+    for (uint i = 0; i < n; i++)
+    {
+        if (critters[i].Stat[ST_TEAM_ID] == int(faction) && critters[i].Stat[ST_FACTION_MODE] > 0 && critters[i].Stat[ST_FACTION_MODE] < 5)
         {
             crits.insertLast(critters[i]);
             num++;
         }
+    }
     return num;
 }
-
 /**
  * Arm the best weapon available to the NPC.
  * @remarks Firstly, weapons of the best skill of the NPC is tried, then in the following order: SK_BIG_GUNS, SK_ENERGY_WEAPONS, SK_SMALL_GUNS, SK_THROWING, SK_UNARMED
@@ -329,13 +363,13 @@ Item@ ArmBestWeapon(Critter& critter)
     array<Item@> items;
     uint         num = critter.GetItems(SLOT_INV, items);
 
-    for(uint i = 0; i < skills.length(); i++)
+    for (uint i = 0; i < skills.length(); i++)
     {
-        for(uint y = 0; y < num; y++)
+        for (uint y = 0; y < num; y++)
         {
-            if(items[y].GetType() == ITEM_TYPE_WEAPON && GetProtoItem(items[y].GetProtoId()).Weapon_Skill_0 == skills[i])
+            if (items[y].GetType() == ITEM_TYPE_WEAPON && GetProtoItem(items[y].GetProtoId()).Weapon_Skill_0 == skills[i])
             {
-                if(CanUseWeapon(critter, items[y]))
+                if (CanUseWeapon(critter, items[y]))
                 {
                     _CritMoveItem(critter, items[y], SLOT_HAND1);
                     critter.SetFavoriteItem(SLOT_HAND1, items[y].GetProtoId());
@@ -346,7 +380,6 @@ Item@ ArmBestWeapon(Critter& critter)
     }
     return null;
 }
-
 /**
  * Tries to arm NPC with its favorite weapon.
  */
@@ -354,9 +387,9 @@ Item@ ArmFavoriteWeapon(Critter& critter)
 {
     uint16 pid = critter.GetFavoriteItem(SLOT_HAND1);
 
-    Item@  weapon = critter.GetItem(pid, -1);
+    Item@ weapon = critter.GetItem(pid, -1);
 
-    if(valid(weapon))
+    if (valid(weapon))
     {
         critter.MoveItem(weapon.Id, 1, SLOT_HAND1);
     }
@@ -364,66 +397,79 @@ Item@ ArmFavoriteWeapon(Critter& critter)
     return weapon;
 }
 
-#define _FreeHex      (map.IsHexPassed(hx, hy) && @ (map.GetCritter(hx, hy)) == null)
+#define _FreeHex      (map.IsHexPassed(hx, hy) && @(map.GetCritter(hx, hy)) == null)
 #define _AddHex                                                                  \
-    do { coordsX.insertLast(hx); coordsY.insertLast(hy); free++; if(free == num) \
-             return; } while(false)
+        do { coordsX.insertLast(hx); coordsY.insertLast(hy); free++; if (free == num) \
+             return; } while (false)
 #define _OldHex       (hx == px && hy == py)
-
 void FindFreeHexes(Map@ map, uint16 hexX, uint16 hexY, int& num, array<uint16>& coordsX, array<uint16>& coordsY)
 {
-    if(num == 0)
+    if (num == 0)
+    {
         return;
+    }
     int    free = 0;
     uint16 hx = hexX;
     uint16 hy = hexY;
     uint16 px = 0;
     uint16 py = 0;
-    if(_FreeHex)
+    if (_FreeHex)
+    {
         _AddHex;
-    for(uint8 dir = 0; dir < 6; dir++)
+    }
+    for (uint8 dir = 0; dir < 6; dir++)
     {
         hx = hexX;
         hy = hexY;
         px = hx;
         py = hy;
         map.MoveHexByDir(hx, hy, dir, 1);
-        if(_OldHex || !_FreeHex)
+        if (_OldHex || !_FreeHex)
+        {
             continue;
+        }
         _AddHex;
     }
 
-    for(uint8 dir = 0; dir < 6; dir++)
+    for (uint8 dir = 0; dir < 6; dir++)
     {
         hx = hexX;
         hy = hexY;
         px = hx;
         py = hy;
         map.MoveHexByDir(hx, hy, dir, 1);
-        if(_OldHex)
+        if (_OldHex)
+        {
             continue;
+        }
         px = hx;
         py = hy;
         map.MoveHexByDir(hx, hy, dir, 1);
-        if(_OldHex || !_FreeHex)
+        if (_OldHex || !_FreeHex)
+        {
             continue;
+        }
         _AddHex;
     }
 
-    for(uint8 dir = 0; dir < 6; dir++)
+    for (uint8 dir = 0; dir < 6; dir++)
     {
         hx = hexX;
         hy = hexY;
         px = hx;
         py = hy;
         map.MoveHexByDir(hx, hy, dir, 1);
-        if(_OldHex)
+        if (_OldHex)
+        {
             continue;
+        }
         px = hx;
         py = hy;
         map.MoveHexByDir(hx, hy, (dir + 1) % 6, 1);
-        if(_OldHex || !_FreeHex)
+        if (_OldHex || !_FreeHex)
+        {
             continue;
+        }
         _AddHex;
     }
     num = free;
@@ -437,32 +483,33 @@ bool FindNearestFreeHex(Map@ map, uint16 hexX, uint16 hexY, uint16& outX, uint16
     uint16 hy = hexY;
     uint16 px = 0;
     uint16 py = 0;
-    if(_FreeHex)
+
+    if (_FreeHex)
     {
         _ReturnHex;
     }
-    for(uint8 dir = 0; dir < 6; dir++)
+    for (uint8 dir = 0; dir < 6; dir++)
     {
-        for(uint i = 1; i <= 2; i++)
+        for (uint i = 1; i <= 2; i++)
         {
             hx = hexX;
             hy = hexY;
             px = hx;
             py = hy;
             map.MoveHexByDir(hx, hy, dir, i);
-            if(_OldHex || !_FreeHex)
+            if (_OldHex || !_FreeHex)
+            {
                 continue;
+            }
             _ReturnHex;
         }
     }
     return false;
 }
-
 bool Flee(Critter& cr)
 {
     return Flee(cr, true);
 }
-
 /**
  * Flee to worldmap via closest exitgrid
  */
@@ -473,7 +520,7 @@ bool Flee(Critter& cr, bool Run)
 
     // follower.Say(SAY_SHOUT, "I'm outta here!");
 
-    if(FindPreferredGridApprox(cr.GetMap(), hx, hy))
+    if (FindPreferredGridApprox(cr.GetMap(), hx, hy))
     {
         cr.ErasePlane(AI_PLANE_WALK, true);
         cr.ErasePlane(AI_PLANE_ATTACK, true);
@@ -481,11 +528,12 @@ bool Flee(Critter& cr, bool Run)
         return AddWalkPlane(cr, 60, PLANE_GOTO_EXIT, 0, hx, hy, 0xFF, Run, 1);
     }
     else
+    {
         Log("Unable to find exitgrid to flee to on map PID " + cr.GetMapProtoId() + "!");
+    }
 
     return false;
 }
-
 /**
  * Issue random walk for a critter to a hex in stepDist distance, as long as the actual distance
  * to home pos is less than maxDist. In this case, it issues walkplane closely to homepos.
@@ -497,33 +545,31 @@ void MoveRandom(Critter& npc, uint maxDist)
 {
     MoveRandom(npc, maxDist, maxDist / 2, false);
 }
-
 void MoveRandom(Critter& npc, uint maxDist, bool Run)
 {
     MoveRandom(npc, maxDist, maxDist / 2, false);
 }
-
 void MoveRandom(Critter& npc, uint maxDist, uint stepDist, bool Run)
 {
     uint   dummy;
     uint8  dummy2;
     uint16 hx = 0, hy = 0;
+
     // home position
     npc.GetHomePos(dummy, hx, hy, dummy2);
 
     // don't get too far away
     uint16 dist = GetDistantion(npc.HexX, npc.HexY, hx, hy);
-    if(dist < maxDist)
+    if (dist < maxDist)
+    {
         AddWalkPlane(npc, 0, PLANE_WANDER, 0, npc.HexX + Random(-stepDist, stepDist), npc.HexY + Random(-stepDist, stepDist), 0xff, Run, 0);
+    }
     else
     {
         // come a lil' bit closer
         AddWalkPlane(npc, 0, PLANE_WANDER, 0, hx + Random(-maxDist, maxDist), hy + Random(-maxDist, maxDist), 0xff, Run, 0);
     }
 }
-
-
-
 /**
  * Checks if a critter can use a weapon (has an animation for it).
  * @param critter Critter handle.
@@ -532,11 +578,13 @@ void MoveRandom(Critter& npc, uint maxDist, uint stepDist, bool Run)
 bool CanUseWeapon(Critter& critter, uint proto)
 {
     ProtoItem@ item = GetProtoItem(proto);
-    if(valid(item))
+
+    if (valid(item))
+    {
         return critter.IsAnim1(item.Weapon_Anim1);
+    }
     return false;
 }
-
 /**
  * Checks if a critter can use a weapon (has an animation for it).
  * @param critter Critter handle.
@@ -546,7 +594,6 @@ bool CanUseWeapon(Critter& critter, Item@ weapon)
 {
     return CanUseWeapon(critter, weapon.GetProtoId());
 }
-
 /**
  * Checks if a critter can't use a weapon from a specific bag.
  * @param critter Critter handle.
@@ -558,8 +605,6 @@ bool HasUnusableWeapon(Critter& critter, uint bag)
 {
     return HasUnusableWeapon(critter.GetProtoId(), bag);
 }
-
-
 /**
  * Checks if a critter can't use a weapon in his inventory.
  * @param critter Critter handle.
@@ -571,15 +616,15 @@ bool HasUnusableWeapon(Critter& critter)
     array<Item@> items;
     uint         num = critter.GetItems(-1, items);
 
-    for(uint i = 0; i < num; i++)
+    for (uint i = 0; i < num; i++)
     {
-        if(items[i].GetType() == ITEM_TYPE_WEAPON && !CanUseWeapon(critter.GetProtoId(), items[i].GetProtoId()))
+        if (items[i].GetType() == ITEM_TYPE_WEAPON && !CanUseWeapon(critter.GetProtoId(), items[i].GetProtoId()))
+        {
             return true;
+        }
     }
     return false;
 }
-
-
 /**
  * Checks if a critter PID can't use a weapon from a specific bag.
  * @param crpid Critter PID.
@@ -589,21 +634,23 @@ bool HasUnusableWeapon(Critter& critter)
  */
 bool HasUnusableWeapon(uint crpid, uint bag)
 {
-    uint          crtype = GetCrType(crpid);
+    uint crtype = GetCrType(crpid);
 
     array<uint>   mincounts, maxcounts;
     array<int>    slots;
     array<uint16> pids;
     uint          num = GetBagItems(bag, pids, mincounts, maxcounts, slots);
-    for(uint y = 0; y < num; y++)
+
+    for (uint y = 0; y < num; y++)
     {
         ProtoItem@ item = GetProtoItem(pids[y]);
-        if(item.Type == ITEM_TYPE_WEAPON && !CanUseWeapon(crtype, pids[y]))
+        if (item.Type == ITEM_TYPE_WEAPON && !CanUseWeapon(crtype, pids[y]))
+        {
             return true;
+        }
     }
     return false;
 }
-
 /**
  * The critter will wait for the specified time without getting busy (it can speak to players).
  * @param critter Critter handle.
@@ -613,24 +660,28 @@ void AddWaitPlan(Critter& critter, uint waittime)
 {
     AddMiscPlane(critter, 0, AFTER(REAL_MS(waittime)), null);
 }
-
 // report attack/death in encounter etc.
 void TryReportOffense(Critter@ cr, Critter@ offender, int reputationdrop)
 {
-    if(!valid(cr) || !valid(offender))
+    if (!valid(cr) || !valid(offender))
+    {
         return;
-    if(valid(_CritGetItemHandExt(cr)) && _CritGetItemHandExt(cr).GetProtoId() == PID_RADIO)
+    }
+    if (valid(_CritGetItemHandExt(cr)) && _CritGetItemHandExt(cr).GetProtoId() == PID_RADIO)
+    {
         SubReputation(offender, _GroupIndex(cr), reputationdrop);
+    }
 }
-
 string GetStoredFirstName(Critter& critter)
 {
     GameVar@ first = GetLocalVar(LVAR_npc_name_first, critter.Id);
-    if(first != -1)
+
+    if (first != -1)
+    {
         return GetFirstName(critter.Stat[ST_GENDER], first.GetValue());
+    }
     return "";
 }
-
 // Get name stored in lvars
 string GetStoredName(Critter& critter)
 {
@@ -639,38 +690,44 @@ string GetStoredName(Critter& critter)
     GameVar@ nick = GetLocalVar(LVAR_npc_name_nick, critter.Id);
     GameVar@ surname = GetLocalVar(LVAR_npc_name_surname, critter.Id);
 
-    string   crName = "";
-    if(first != -1)
+    string crName = "";
+
+    if (first != -1)
+    {
         crName += GetFirstName(critter.Stat[ST_GENDER], first.GetValue()) + " ";
-    if(nick != -1)
+    }
+    if (nick != -1)
+    {
         crName += GetNick(critter.Stat[ST_GENDER], nick.GetValue(), (gnick.GetValue() == 1 ? true : false)) + " ";
-    if(surname != -1)
+    }
+    if (surname != -1)
+    {
         crName += GetSurname(surname.GetValue());
+    }
     return crName;
 }
-
 // Generate a new name and save it
 string GenerateNewName(Critter& critter)
 {
     string crName = "";
 
-    int    firstname = -1;
-    bool   gendernick = false;
-    int    nick = -1;
-    int    surname = -1;
+    int  firstname = -1;
+    bool gendernick = false;
+    int  nick = -1;
+    int  surname = -1;
 
-    switch(critter.Stat[ST_BODY_TYPE])
+    switch (critter.Stat[ST_BODY_TYPE])
     {
-    case BT_MEN:
-    case BT_WOMEN:
-        crName = GetRandomFullName(critter.Stat[ST_GENDER], firstname, gendernick, nick, surname);
-        break;
-    case BT_GHOUL:
-    case BT_SUPER_MUTANT:
-        crName = GetRandomFirstName(critter.Stat[ST_GENDER], firstname);
-        break;
-    default:
-        break;
+        case BT_MEN:
+        case BT_WOMEN:
+            crName = GetRandomFullName(critter.Stat[ST_GENDER], firstname, gendernick, nick, surname);
+            break;
+        case BT_GHOUL:
+        case BT_SUPER_MUTANT:
+            crName = GetRandomFirstName(critter.Stat[ST_GENDER], firstname);
+            break;
+        default:
+            break;
     }
 
     // save indices
@@ -684,7 +741,6 @@ string GenerateNewName(Critter& critter)
     varsurname = surname;
     return crName;
 }
-
 /**
  * Gather all critters from a map that share the given script, and comply to the search parameters.
  * @param map Map to take the critters from.
@@ -698,69 +754,72 @@ string GenerateNewName(Critter& critter)
 uint GetCrittersWithScript(Map& map, uint16 pid, uint findType, string& scriptName, string& funcDeclaration, array<Critter@>@ critters)
 {
     uint id = GetScriptId(scriptName, funcDeclaration);
-    if(id == 0)
+
+    if (id == 0)
+    {
         return 0;
+    }
     bool            validCritters = valid(critters);
     array<Critter@> crits;
     uint            n = 0;
-    for(uint i = 0, j = map.GetCritters(pid, findType, crits); i < j; i++)
+    for (uint i = 0, j = map.GetCritters(pid, findType, crits); i < j; i++)
     {
         Critter@ cr = crits[i];
-        if(cr.GetScriptId() == id)
+        if (cr.GetScriptId() == id)
         {
-            if(validCritters)
+            if (validCritters)
+            {
                 critters.insertLast(cr);
+            }
             n++;
         }
     }
     return n;
 }
-
 uint GetCrittersLoc(Location& loc, uint16 pid, uint findType, array<Critter@>@ critters)
 {
     uint        num = 0;
     array<Map@> maps;
-    for(uint i = 0, j = loc.GetMaps(maps); i < j; i++)
+
+    for (uint i = 0, j = loc.GetMaps(maps); i < j; i++)
     {
         num += maps[i].GetCritters(pid, findType, critters);
     }
     return num;
 }
-
 void SetDeleteEvent(Critter& cr, uint time)   // time is in game seconds
 {
     cr.AddTimeEvent("cte_Delete", time, CTE_DELETE, 0);
 }
-
 void DropDeleteEvent(Critter& cr)
 {
     cr.EraseTimeEvents(CTE_DELETE);
 }
-
 uint cte_Delete(Critter& cr, int identifier, uint& rate)
 {
-    if(valid(cr.GetCurPlane()) || cr.IsKnockout())
+    if (valid(cr.GetCurPlane()) || cr.IsKnockout())
+    {
         return REAL_SECOND(10);
-    if(cr.IsDead())
+    }
+    if (cr.IsDead())
+    {
         return 0;
+    }
 
     // todo: true global walk away plane
     DeleteNpc(cr);
     return 0;
 }
-
 /**
  * \~english @name Dialog functions
  *
  * \~ @weight 420
  */
 // @{
-
 void r_MoveRandom(Critter& player, Critter@npc, int val)
 {
     npc.MoveRandom();
 }
-
 /**
  * Checks if a party has specified numbers of members.
  * @param num The amount of players to check for.
@@ -772,20 +831,21 @@ bool d_HasNumPlayersInParty(Critter& leader, Critter@npc, int num)
     return true;
     #endif
     #ifndef __DEBUG__
-    int             nearmembers = 0;
+    int nearmembers = 0;
 
     array<Critter@> crits;
     uint            number = leader.GetFollowGroup(FIND_ALL, crits);
-    for(uint i = 0; i < number; i++)
+    for (uint i = 0; i < number; i++)
     {
-        if((GetCrittersDistantion(leader, crits[i]) < 8))
+        if ((GetCrittersDistantion(leader, crits[i]) < 8))
+        {
             nearmembers++;
+        }
     }
 
     return(nearmembers >= num);
     #endif
 }
-
 /**
  * Checks if a party has NOT specified numbers of members.
  * @param num The amount of players to check for.
@@ -796,29 +856,25 @@ bool d_HasNotNumPlayersInParty(Critter& leader, Critter@npc, int val)
     return !(d_HasNumPlayersInParty(leader, npc, val));
 }
 // @}
-
-
 /*@}*/
-
 void TransferToNPCMap(Critter& critter)
 {
     Map@ npcmap = GetMapByPid(MAP_BufferMap, 0);
     Map@ map = critter.GetMap();
 
-    if(!valid(npcmap))
+    if (!valid(npcmap))
     {
         Log("NPC map is invalid! Couldn't transfer NPC to buffer map");
         return;
     }
 
-    if(critter.GetMapId() != npcmap.Id)
+    if (critter.GetMapId() != npcmap.Id)
     {
         DLog("Transfering to NPC map");
         critter.TransitToMap(npcmap.Id, 0);
         ClearEnemyStack(critter);
     }
 }
-
 // Event that removes flag from certain location after some time, instead of removing on death
 uint e_UnsetIllegalFlag(array<uint>@ values)
 {

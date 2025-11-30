@@ -9,7 +9,6 @@
 #define __ITEM_PERKS_H__
 
 #ifndef __ITEM_PERKS__
-
 import uint ItemPerkTypeParam(uint8 type) from "item_perks";
 import void DisableItemPerk(Critter& cr, uint8 type) from "item_perks";
 import void DisableItemPerk(Critter& cr, Item& item, uint8 type) from "item_perks";

@@ -20,7 +20,6 @@
 #define IsDueling                  # (cr) (GetLvar(cr, LVAR_duel_status) == 1)
 
 #ifndef __NPC_COMMON__
-
 import void   AddWaitPlan(Critter& critter, uint waittime) from "npc_common";
 import bool   AttackCritter(Critter& attacker, Critter& target, uint minhp) from "npc_common";
 import bool   AttackCritter(Critter& attacker, Critter& target) from "npc_common";

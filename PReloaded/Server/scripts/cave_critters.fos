@@ -17,9 +17,9 @@ int[] small_gun_bags = { 156, 157, 212, 234, 220, 230, 240, 241, 265 }; // Shotg
 int[] big_gun_bags = { 239, 242, 272, 273, 194 }; // Flamer, Minigun, Rocketlauncher, Improved flamer, Light support
 int[] melee_bags = { 215, 247, 248, 161, 150, 152, 159, 190 };          // Combat knife, Sharpened spear, Knife, Cattle prod, Crowbar, Club, Switchblade, Ripper
 
-array<int> raider_bags;
-array<int> slaver_bags;
-array<int> all_bags;
+array < int > raider_bags;
+array < int > slaver_bags;
+array < int > all_bags;
 
 AddBagToBag(raider_bags, small_gun_bags);
 AddBagToBag(raider_bags, big_gun_bags);

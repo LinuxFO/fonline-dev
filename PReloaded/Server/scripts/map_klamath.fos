@@ -9,7 +9,6 @@
 #include "economy_h.fos"
 #include "mapdata_h.fos"
 #include "_town.fos"
-
 import bool AddMilitia(Map@ map) from "town";
 import void SpawnInitMilitia(Map@ map) from "town";
 //
@@ -19,14 +18,17 @@ import void SpawnInitMilitia(Map@ map) from "town";
 void map_init(Map& map, bool firstTime)
 {
     map.SetData(MAP_DATA_TOWN, TOWN_KLAMATH);
-    if(firstTime)
+    if (firstTime)
+    {
         SpawnInitMilitia(map);
+    }
 
     map.SetEvent(MAP_EVENT_FINISH, "_Finish");
 }
-
 void _Finish(Map& map, bool deleted)
 {
-	if(deleted)
-		FLog(LOG_DYNAMIC_LOC, "KLAMATH IS GOING TO BE DELETED!");
+    if (deleted)
+    {
+        FLog(LOG_DYNAMIC_LOC, "KLAMATH IS GOING TO BE DELETED!");
+    }
 }

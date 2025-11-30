@@ -17,51 +17,52 @@
 # include "client_gui_h.fos"
 # include "lexems_h.fos"
 
-bool  movemanual; // 1 = move manual, 0 = move automaticly
+bool movemanual;  // 1 = move manual, 0 = move automaticly
 
-class CFollowersAttackButton : CContextButton
+class CFollowersAttackButton: CContextButton
 {
     CFollowersAttackButton()
     {
         super("Attack");
     }
-
     //
     // Performs action depending on attached critter/item
     //
     void Click()
     {
-        if(crId != 0)
+        if (crId != 0)
+        {
             RunServerScriptUnsafe("followers_menu@unsafe_Attack", crId, 0, 0, null, null);
+        }
         FollowersMenu.HideWindow();
     }
 };
 
-class CFollowersAttackHPButton : CContextButton
+class CFollowersAttackHPButton: CContextButton
 {
     CFollowersAttackHPButton()
     {
         super("Attack (high priority)");
     }
-
     //
     // Performs action depending on attached critter/item
     //
     void Click()
     {
-        if(crId != 0)
+        if (crId != 0)
+        {
             RunServerScriptUnsafe("followers_menu@unsafe_Attack", crId, 1, 0, null, null);
+        }
         FollowersMenu.HideWindow();
     }
 };
 
-class CFollowersMoveToButton : CContextButton
+class CFollowersMoveToButton: CContextButton
 {
     CFollowersMoveToButton()
     {
         super("Move to");
     }
-
     void Click()
     {
         RunServerScriptUnsafe("followers_menu@unsafe_MoveTo", 0, hexX, hexY, null, null);
@@ -70,13 +71,12 @@ class CFollowersMoveToButton : CContextButton
     }
 };
 
-class CFollowersMoveToHPButton : CContextButton
+class CFollowersMoveToHPButton: CContextButton
 {
     CFollowersMoveToHPButton()
     {
         super("Move to (high priority)");
     }
-
     void Click()
     {
         RunServerScriptUnsafe("followers_menu@unsafe_MoveTo", 1, hexX, hexY, null, null);
@@ -85,13 +85,12 @@ class CFollowersMoveToHPButton : CContextButton
     }
 };
 
-class CFollowersStopButton : CContextButton
+class CFollowersStopButton: CContextButton
 {
     CFollowersStopButton()
     {
         super("Stop all actions");
     }
-
     void Click()
     {
         RunServerScriptUnsafe("followers_menu@unsafe_Stop", 0, hexX, hexY, null, null);
@@ -99,13 +98,12 @@ class CFollowersStopButton : CContextButton
     }
 };
 
-class CFollowersFollowButton : CContextButton
+class CFollowersFollowButton: CContextButton
 {
     CFollowersFollowButton()
     {
         super("Follow me");
     }
-
     void Click()
     {
         RunServerScriptUnsafe("followers_menu@unsafe_Follow", 0, hexX, hexY, null, null);
@@ -113,13 +111,12 @@ class CFollowersFollowButton : CContextButton
     }
 };
 
-class CFollowersRegroupButton : CContextButton
+class CFollowersRegroupButton: CContextButton
 {
     CFollowersRegroupButton()
     {
         super("Regroup");
     }
-
     void Click()
     {
         RunServerScriptUnsafe("followers_menu@unsafe_Regroup", 0, 0, 0, null, null);
@@ -128,13 +125,12 @@ class CFollowersRegroupButton : CContextButton
     }
 };
 
-class CFollowersFleeButton : CContextButton
+class CFollowersFleeButton: CContextButton
 {
     CFollowersFleeButton()
     {
         super("Flee");
     }
-
     void Click()
     {
         RunServerScriptUnsafe("followers_menu@unsafe_Flee", 0, 0, 0, null, null);
@@ -142,13 +138,12 @@ class CFollowersFleeButton : CContextButton
     }
 };
 
-class CFollowersMoveManualButton : CContextButton
+class CFollowersMoveManualButton: CContextButton
 {
     CFollowersMoveManualButton()
     {
         super("Switch to manual move");
     }
-
     void Click()
     {
         RunServerScriptUnsafe("followers_menu@unsafe_SwitchMode", 1, hexX, hexY, null, null);
@@ -157,13 +152,12 @@ class CFollowersMoveManualButton : CContextButton
     }
 };
 
-class CFollowersMoveAutoButton : CContextButton
+class CFollowersMoveAutoButton: CContextButton
 {
     CFollowersMoveAutoButton()
     {
         super("Switch to auto move");
     }
-
     void Click()
     {
         RunServerScriptUnsafe("followers_menu@unsafe_SwitchMode", 0, hexX, hexY, null, null);
@@ -172,20 +166,21 @@ class CFollowersMoveAutoButton : CContextButton
     }
 };
 
-class CFollowersPushButton : CContextButton
+class CFollowersPushButton: CContextButton
 {
     CFollowersPushButton()
     {
         super("Push");
     }
-
     //
     // Performs action depending on attached critter/item
     //
     void Click()
     {
-        if(crId != 0)
+        if (crId != 0)
+        {
             RunServerScriptUnsafe("unsafe_client@unsafe_PushCritter", crId, 0, 0, null, null);
+        }
         FollowersMenu.HideWindow();
     }
 };
@@ -193,21 +188,20 @@ class CFollowersPushButton : CContextButton
 //
 // Right-click context menu
 //
-class CFollowersContextMenu : Window
+class CFollowersContextMenu: Window
 {
-    CButton@                    title;
-    CFollowersAttackButton@     attack;
-    CFollowersAttackHPButton@   attackHP;
-    CFollowersMoveToButton@     moveTo;
-    CFollowersMoveToHPButton@   moveToHP;
-    CFollowersStopButton@       stop;
+    CButton@                  title;
+    CFollowersAttackButton@   attack;
+    CFollowersAttackHPButton@ attackHP;
+    CFollowersMoveToButton@   moveTo;
+    CFollowersMoveToHPButton@ moveToHP;
+    CFollowersStopButton@     stop;
     // CFollowersFollowButton@ follow;
     CFollowersRegroupButton@    regroup;
     CFollowersFleeButton@       flee;
     CFollowersMoveManualButton@ moveManual;
     CFollowersMoveAutoButton@   moveAuto;
     CFollowersPushButton@       pushcr;
-
     void Init()
     {
         int top = 0;
@@ -240,8 +234,10 @@ class CFollowersContextMenu : Window
         AddControl(@pushcr);
         Window::Init();
     }
-    int Width() { return title.Width(); }
-
+    int Width()
+    {
+        return title.Width();
+    }
     //
     // Shows drop down for given coords
     //
@@ -255,7 +251,7 @@ class CFollowersContextMenu : Window
         // set visible controls
 
         // hide all for a start
-        for(uint i = 0, j = controls.length(); i < j; i++)
+        for (uint i = 0, j = controls.length(); i < j; i++)
         {
             controls[i].Disable();
             controls[i].Hide();
@@ -263,35 +259,43 @@ class CFollowersContextMenu : Window
         title.Show();
         // "loop" through all buttons, choose what should be displayed depending on context
         // critter context
-        if(valid(cr))
+        if (valid(cr))
         {
-            if(cr.IsChosen())
+            if (cr.IsChosen())
+            {
                 title.SetCaption("<<You - " + cr.Id + ">>");
-            else if(cr.IsPlayer())
+            }
+            else if (cr.IsPlayer())
             {
                 string text = "<<Player - " + cr.Id + ">>";
 
-                if(IsLexem(cr, "$@"))
+                if (IsLexem(cr, "$@"))
                 {
                     string lex = GetLexem(cr, "$@");
-                    if(lex == "" || lex == " ")
+                    if (lex == "" || lex == " ")
+                    {
                         text = "<<Critter>>";
+                    }
                     else
+                    {
                         text = "<<Player - ???>>";
+                    }
                 }
 
                 title.SetCaption(text);
             }
             else
+            {
                 title.SetCaption("<<Critter>>");
+            }
 
-            if(!cr.IsChosen())
+            if (!cr.IsChosen())
             {
                 attack.SetCritter(cr);
                 attack.Show();
                 attackHP.SetCritter(cr);
                 attackHP.Show();
-                if(GetCrittersDistantion(GetChosen(), cr) == 1)
+                if (GetCrittersDistantion(GetChosen(), cr) == 1)
                 {
                     pushcr.SetCritter(cr);
                     pushcr.Show();
@@ -320,16 +324,20 @@ class CFollowersContextMenu : Window
         stop.Show();
         // follow.Show();
 
-        if(movemanual)
+        if (movemanual)
+        {
             moveAuto.Show();
+        }
         else
+        {
             moveManual.Show();
+        }
 
         // arrange all controls
         int top = -30;
-        for(uint i = 0, j = controls.length(); i < j; i++)
+        for (uint i = 0, j = controls.length(); i < j; i++)
         {
-            if(controls[i].IsVisible())
+            if (controls[i].IsVisible())
             {
                 controls[i].Enable();
                 controls[i].Show(0, top += 30);
@@ -341,10 +349,10 @@ class CFollowersContextMenu : Window
 };
 
 CFollowersContextMenu FollowersMenu;
-
 void InitFollowersMenu()
 {
     IGUIScreenOpt@ screen = GUI_CreateScreen(CLIENT_SCREEN_FOLLOWERSMENU, null);
+
     screen.Control(FollowersMenu);
     screen.SetCallbackFocus(FollowersMenu);
     screen.SetCallbackShow(FollowersMenu);

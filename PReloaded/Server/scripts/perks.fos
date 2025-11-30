@@ -15,7 +15,6 @@
 
 #include "_macros.fos"
 #include "perks_data.fos"
-
 funcdef bool SatisfiesFunc(Critter& cr, int perk, int level, int p0, int p1, int p2);
 funcdef void ProcessFunc(Critter& cr, int perk, int level, int p0, int p1, int p2);
 
@@ -33,10 +32,14 @@ class Requirement
     }
     bool Satisfies(Critter@ cr)
     {
-        if(Atleast)
+        if (Atleast)
+        {
             return cr.ParamBase[Param] >= Value;
+        }
         else
+        {
             return cr.ParamBase[Param] <= Value;
+        }
     }
 };
 
@@ -55,10 +58,14 @@ class Effect
     }
     void Process(Critter@ cr)
     {
-        if(Increase)
+        if (Increase)
+        {
             cr.ParamBase[Param] = cr.ParamBase[Param] + Value;
+        }
         else
+        {
             cr.ParamBase[Param] = cr.ParamBase[Param] - Value;
+        }
     }
 };
 #endif
@@ -66,26 +73,34 @@ class LevelData
 {
     array<Requirement> Requirements;
     #ifdef __SERVER
-    array<Effect>      UpEffects;
-    array<Effect>      DownEffects;
+    array<Effect> UpEffects;
+    array<Effect> DownEffects;
     #endif
     bool Satisfies(Critter@ cr)
     {
-        for(uint i = 0, j = Requirements.length(); i < j; i++)
-            if(!Requirements[i].Satisfies(cr))
+        for (uint i = 0, j = Requirements.length(); i < j; i++)
+        {
+            if (!Requirements[i].Satisfies(cr))
+            {
                 return false;
+            }
+        }
         return true;
     }
     #ifdef __SERVER
     void ProcessUp(Critter@ cr)
     {
-        for(uint i = 0, j = UpEffects.length(); i < j; i++)
+        for (uint i = 0, j = UpEffects.length(); i < j; i++)
+        {
             UpEffects[i].Process(cr);
+        }
     }
     void ProcessDown(Critter@ cr)
     {
-        for(uint i = 0, j = DownEffects.length(); i < j; i++)
+        for (uint i = 0, j = DownEffects.length(); i < j; i++)
+        {
             DownEffects[i].Process(cr);
+        }
     }
     #endif
 };
@@ -97,12 +112,12 @@ class PerkData
     int            Type;
     SatisfiesFunc@ SatisfiesF;
     #ifdef __SERVER
-    ProcessFunc@   ProcessUpF;
-    ProcessFunc@   ProcessDownF;
+    ProcessFunc@ ProcessUpF;
+    ProcessFunc@ ProcessDownF;
     #endif
-    int            p0;
-    int            p1;
-    int            p2;
+    int p0;
+    int p1;
+    int p2;
 
     PerkData()
     {
@@ -117,29 +132,38 @@ class PerkData
     }
 
     array<LevelData> Levels;
-
     bool Check(Critter@ cr, int level)
     {
-        if(level >= Range)
+        if (level >= Range)
+        {
             return false;
+        }
         return Levels[level].Satisfies(cr) && (!valid(SatisfiesF) || SatisfiesF(cr, Id, level, p0, p1, p2));
     }
     #ifdef __SERVER
     void ProcessUp(Critter@ cr, int fromlevel)
     {
-        if(fromlevel >= int(Range) || fromlevel < 0)
+        if (fromlevel >= int(Range) || fromlevel < 0)
+        {
             return;
+        }
         Levels[fromlevel].ProcessUp(cr);
-        if(valid(ProcessUpF))
+        if (valid(ProcessUpF))
+        {
             ProcessUpF(cr, Id, fromlevel, p0, p1, p2);
+        }
     }
     void ProcessDown(Critter@ cr, int tolevel)
     {
-        if(tolevel >= int(Range) || tolevel < 0)
+        if (tolevel >= int(Range) || tolevel < 0)
+        {
             return;
+        }
         Levels[tolevel].ProcessDown(cr);
-        if(valid(ProcessDownF))
+        if (valid(ProcessDownF))
+        {
             ProcessDownF(cr, Id, tolevel, p0, p1, p2);
+        }
     }
     #endif
     void CustomSatisfies(SatisfiesFunc@ func, int _p0, int _p1, int _p2)
@@ -154,24 +178,22 @@ class PerkData
 
 #ifndef __CLIENT
 import int NextLevelNeedExp(Critter& cr)  from "parameters";
-
 bool d_PerkCheck(Critter& player, Critter@ npc, int perk)
 {
     return PerkCheck(player, perk, true);
 }
-
 bool d_PerkCheckFalse(Critter& player, Critter@ npc, int perk)
 {
     return !PerkCheck(player, perk, true);
 }
-
 bool d_ProfessionPerkCheck(Critter& player, Critter@ npc, int perk, int level)
 {
-    if(player.PerkBase[perk] != level)
+    if (player.PerkBase[perk] != level)
+    {
         return false;
+    }
     return PerkCheck(player, perk, true);
 }
-
 bool d_ProfessionCheck(Critter& player, Critter@ npc, int perk)
 {
     return AssertProfessions(player);
@@ -179,28 +201,32 @@ bool d_ProfessionCheck(Critter& player, Critter@ npc, int perk)
 #endif
 
 array<PerkData> Perks;
-
 void InitPerks() // export
 {
     int i = 0;
+
     do
     {
         array<int>@ header = PerksData[i];
         int id = header[0];
-        if(id == -1)
+        if (id == -1)
+        {
             break;
-        if(int(Perks.length()) <= id)
+        }
+        if (int(Perks.length()) <= id)
+        {
             Perks.resize(id + 1);
+        }
         PerkData@ perk = Perks[id];
         perk.Id = id;
         perk.Type = header[1];
         perk.Range = header[2];
         perk.Levels.resize(perk.Range);
-        for(int clev = 0; clev < perk.Range; clev++)
+        for (int clev = 0; clev < perk.Range; clev++)
         {
             i++;
             perk.Levels[clev].Requirements.resize(PerksData[i].length() / 3);
-            for(uint j = 0, k = perk.Levels[clev].Requirements.length(); j < k; j++)
+            for (uint j = 0, k = perk.Levels[clev].Requirements.length(); j < k; j++)
             {
                 perk.Levels[clev].Requirements[j].Param = PerksData[i][3 * j];
                 perk.Levels[clev].Requirements[j].Atleast = PerksData[i][3 * j + 1] != 0;
@@ -208,11 +234,11 @@ void InitPerks() // export
             }
         }
         #ifdef __SERVER
-        for(int clev = 0; clev < perk.Range; clev++)
+        for (int clev = 0; clev < perk.Range; clev++)
         {
             i++;
             perk.Levels[clev].UpEffects.resize(PerksData[i].length() / 3);
-            for(uint j = 0, k = perk.Levels[clev].UpEffects.length(); j < k; j++)
+            for (uint j = 0, k = perk.Levels[clev].UpEffects.length(); j < k; j++)
             {
                 perk.Levels[clev].UpEffects[j].Param = PerksData[i][3 * j];
                 perk.Levels[clev].UpEffects[j].Increase = PerksData[i][3 * j + 1] != 0;
@@ -220,13 +246,13 @@ void InitPerks() // export
             }
         }
 
-        for(int clev = 0; clev < perk.Range; clev++)
+        for (int clev = 0; clev < perk.Range; clev++)
         {
             i++;
-            if(PerksData[i].length() == 1)
+            if (PerksData[i].length() == 1)
             {
                 perk.Levels[clev].DownEffects.resize(perk.Levels[clev].UpEffects.length());
-                for(uint j = 0, k = perk.Levels[clev].UpEffects.length(); j < k; j++)
+                for (uint j = 0, k = perk.Levels[clev].UpEffects.length(); j < k; j++)
                 {
                     perk.Levels[clev].DownEffects[j].Param = perk.Levels[clev].UpEffects[j].Param;
                     perk.Levels[clev].DownEffects[j].Increase = !perk.Levels[clev].UpEffects[j].Increase;
@@ -235,7 +261,7 @@ void InitPerks() // export
                 continue;
             }
             perk.Levels[clev].UpEffects.resize(PerksData[i].length() / 3);
-            for(uint j = 0, k = perk.Levels[clev].DownEffects.length(); j < k; j++)
+            for (uint j = 0, k = perk.Levels[clev].DownEffects.length(); j < k; j++)
             {
                 perk.Levels[clev].DownEffects[j].Param = PerksData[i][3 * j];
                 perk.Levels[clev].DownEffects[j].Increase = PerksData[i][3 * j + 1] != 0;
@@ -245,10 +271,10 @@ void InitPerks() // export
         #endif
         i++;
     }
-    while(true);
+    while (true);
 
     // still some customizing, todo: make it generic
-    #define SATISFIES    # (__perk, __func, __p0, __p1, __p2)Perks[__perk].CustomSatisfies(__func, __p0, __p1, __p2)
+    #define SATISFIES    # (__perk, __func, __p0, __p1, __p2) Perks[__perk].CustomSatisfies(__func, __p0, __p1, __p2)
 
     SATISFIES(PE_WEAPON_HANDLING,        @_OrRangedSkill, 0, 0, 100);
     SATISFIES(PE_BONUS_RANGED_DAMAGE,    @_OrRangedSkill, 0, 0, 150);
@@ -268,92 +294,92 @@ void InitPerks() // export
     SATISFIES(PE_PROFESSION_ENERGY_EXPERT,     @_ProfessionCheck, SK_SCIENCE, 50, 100);
     SATISFIES(PE_PROFESSION_DEMOLITION_EXPERT, @_ProfessionCheck, SK_TRAPS,   50, 100);
     SATISFIES(PE_PROFESSION_DOCTOR,            @_ProfessionCheck, SK_DOCTOR,  50, 100);
-    
+
     #ifdef __SERVER
     @Perks[PE_SPEAKER].ProcessUpF = _SpeakerUp;
     @Perks[PE_SPEAKER].ProcessDownF = _SpeakerDown;
-	@Perks[PE_EXPLORER].ProcessUpF = _ExplorerUp;
+    @Perks[PE_EXPLORER].ProcessUpF = _ExplorerUp;
     #endif
 }
-
 bool PerkCheck(Critter& cr, uint perk, bool always)   // Export
 {
-    if(perk >= Perks.length() || Perks[perk].Type == 2)
+    if (perk >= Perks.length() || Perks[perk].Type == 2)
+    {
         return false;
+    }
     return (always || Perks[perk].Type == 0) && Perks[perk].Check(cr, cr.Perk[perk]);
 }
-
 bool SupportPerkCheck(Critter& cr, uint perk)   // Export
 {
-    if(perk >= Perks.length() || Perks[perk].Type != 1)
+    if (perk >= Perks.length() || Perks[perk].Type != 1)
+    {
         return false;
+    }
     return Perks[perk].Check(cr, cr.Perk[perk]);
 }
 
 #ifdef __SERVER
 void PerkUp(Critter& cr, uint perk, int fromlevel)   // Export
 {
-    if(perk >= Perks.length())
+    if (perk >= Perks.length())
+    {
         return;
+    }
     Perks[perk].ProcessUp(cr, fromlevel);
 }
-
 void PerkDown(Critter& cr, uint perk, int tolevel)   // Export
 {
-    if(perk >= Perks.length())
+    if (perk >= Perks.length())
+    {
         return;
+    }
     Perks[perk].ProcessDown(cr, tolevel);
 }
 #endif
-
 // todo: make a generic condition in the editor
 bool _OrSkill(Critter& cr, int perk, int level, int skill1, int skill2, int minskill)
 {
     return cr.SkillBase[skill1] >= minskill || cr.SkillBase[skill2] >= minskill;
 }
-
 bool _OrCombatSkill(Critter& cr, int perk, int level, int, int, int minskill)
 {
     return cr.SkillBase[SK_SMALL_GUNS] >= minskill || cr.SkillBase[SK_BIG_GUNS] >= minskill || cr.SkillBase[SK_ENERGY_WEAPONS] >= minskill ||
            cr.SkillBase[SK_UNARMED] >= minskill || cr.SkillBase[SK_THROWING] >= minskill;
 }
-
 bool _OrRangedSkill(Critter& cr, int perk, int level, int, int, int minskill)
 {
     return cr.SkillBase[SK_SMALL_GUNS] >= minskill || cr.SkillBase[SK_BIG_GUNS] >= minskill ||
            cr.SkillBase[SK_ENERGY_WEAPONS] >= minskill || cr.SkillBase[SK_THROWING] >= minskill;
 }
-
 bool _OrRangedGunSkill(Critter& cr, int perk, int level, int, int, int minskill)
 {
     return cr.SkillBase[SK_SMALL_GUNS] >= minskill || cr.SkillBase[SK_BIG_GUNS] >= minskill ||
            cr.SkillBase[SK_ENERGY_WEAPONS] >= minskill;
 }
-
 bool _BRD(Critter& cr, int perk, int level, int, int, int)
 {
     return cr.SkillBase[SK_BIG_GUNS] >= 150 + level * 25 || cr.SkillBase[SK_SMALL_GUNS] >= 150 + level * 25;
 }
-
 bool _Awareness(Critter& cr, int perk, int level, int, int, int)
 {
     return cr.StatBase[ST_PERCEPTION] >= 6 || cr.SkillBase[SK_UNARMED] >= 100;
 }
-
 bool _OneSkill(Critter& cr, int perk, int level, int skill, int, int minskill)
 {
     return cr.SkillBase[skill] >= minskill;
 }
-
 // professions
-
 bool _ProfessionCheck(Critter& cr, int perk, int level, int skill, int level1, int level2)
 {
     #ifdef __SERVER
-    if(!AssertProfessions(cr))
+    if (!AssertProfessions(cr))
+    {
         return false;
-    if(level == 0)
+    }
+    if (level == 0)
+    {
         return cr.SkillBase[skill] >= level1;
+    }
     return cr.SkillBase[skill] >= level2;
     #endif
     #ifdef __CLIENT
@@ -363,49 +389,58 @@ bool _ProfessionCheck(Critter& cr, int perk, int level, int skill, int level1, i
 
 #ifdef __SERVER
 import int GetFollowers(Critter& player, bool all, array<Critter@>& followers) from "follower_common";
-
 void _SpeakerUp(Critter& cr, int perk, int level, int p0, int p1, int p2)
 {
-    if(level != 0)
+    if (level != 0)
+    {
         return;
+    }
     array<Critter@> followers;
-    for(int i = 0, j = GetFollowers(cr, true, followers); i < j; i++)
+    for (int i = 0, j = GetFollowers(cr, true, followers); i < j; i++)
+    {
         SETFLAG(followers[i].FollowerVarBase[FV_FLAGS], FV_FLAG_MASTER_SPEAKER);
+    }
 }
-
 void _SpeakerDown(Critter& cr, int perk, int level, int p0, int p1, int p2)
 {
-    if(level != 0)
+    if (level != 0)
+    {
         return;
+    }
     array<Critter@> followers;
-    for(int i = 0, j = GetFollowers(cr, true, followers); i < j; i++)
+    for (int i = 0, j = GetFollowers(cr, true, followers); i < j; i++)
+    {
         UNSETFLAG(followers[i].FollowerVarBase[FV_FLAGS], FV_FLAG_MASTER_SPEAKER);
+    }
 }
-
 void _ExplorerUp(Critter& cr, int perk, int level, int p0, int p1, int p2)
 {
-	if(level != 0)
-		return;
+    if (level != 0)
+    {
+        return;
+    }
 
-	for(uint x = 0; x < __GlobalMapWidth; x++)
-	{
-		for(uint y = 0; y < __GlobalMapHeight; y++)
-		{
-			cr.SetFog(x, y, WORLDMAP_FOG_NONE);
-		}
-	}
+    for (uint x = 0; x < __GlobalMapWidth; x++)
+    {
+        for (uint y = 0; y < __GlobalMapHeight; y++)
+        {
+            cr.SetFog(x, y, WORLDMAP_FOG_NONE);
+        }
+    }
 }
-
 bool AssertProfessions(Critter& player)
 {
     uint count = 0;
-    for(uint i = PE_PROFESSION_BEGIN; i <= PE_PROFESSION_END; i++)
+
+    for (uint i = PE_PROFESSION_BEGIN; i <= PE_PROFESSION_END; i++)
     {
         count += player.Perk[i];
     }
-    if(count > PROFESSIONS_MAX)
+    if (count > PROFESSIONS_MAX)
+    {
         // assert;)
         Log("ERR: Too many professions...you cheater.");
+    }
     return count < PROFESSIONS_MAX;
 }
 #endif

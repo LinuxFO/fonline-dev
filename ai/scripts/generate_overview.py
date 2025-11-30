@@ -1,9 +1,10 @@
 import json
+import argparse
 from pathlib import Path
 
-def load_analysis():
+def load_analysis(analysis_file):
     """Load analysis results"""
-    with open('docs/analysis.json', 'r', encoding='utf-8') as f:
+    with open(analysis_file, 'r', encoding='utf-8') as f:
         return json.load(f)
 
 def generate_category_page(cat_id, cat_info, scripts, stats):
@@ -32,7 +33,7 @@ This category contains **{len(cat_scripts)} scripts** that handle {cat_info['des
         md += "## Core Scripts\n\n"
         for script in core_scripts:
             desc = script['description'][:100] + '...' if len(script['description']) > 100 else script['description']
-            md += f"### [{script['filename']}.fos](../{script['filename']}.fos.md)\n\n"
+            md += f"### [{script['filename']}.fos](../files/{script['filename']}.fos.md)\n\n"
             if desc:
                 md += f"{desc}\n\n"
             
@@ -53,7 +54,7 @@ This category contains **{len(cat_scripts)} scripts** that handle {cat_info['des
         md += "| Script | Classes | Functions | Size |\n"
         md += "| :--- | :---: | :---: | :---: |\n"
         for script in supporting_scripts:
-            md += f"| [{script['filename']}.fos](../{script['filename']}.fos.md) | {script['classes']} | {script['functions']} | {script['size_kb']} KB |\n"
+            md += f"| [{script['filename']}.fos](../files/{script['filename']}.fos.md) | {script['classes']} | {script['functions']} | {script['size_kb']} KB |\n"
         md += "\n"
     
     # Related categories
@@ -83,6 +84,12 @@ def get_related_categories(cat_id, scripts):
     
     # Sort by overlap count
     related = []
+    # Access CATEGORIES from global scope or pass it in. 
+    # Since we are inside a function, we need to ensure CATEGORIES is available.
+    # It is passed in main, but here we rely on the global one which is loaded from JSON.
+    # Actually, let's pass categories dict to this function or rely on it being available.
+    # In the original code it was global.
+    
     for other_cat, count in sorted(overlaps.items(), key=lambda x: x[1], reverse=True):
         if count > 2:  # At least 3 scripts in common
             related.append({
@@ -104,10 +111,10 @@ Welcome to the comprehensive documentation for FOnline 2238 scripts. This codeba
 
 **New to the codebase?** Start with these essential scripts:
 
-1. **[main.fos](main.fos.md)** - Server entry point and core event handlers
-2. **[utils.fos](utils.fos.md)** - Essential utility functions used throughout
-3. **[_defines.fos](_defines.fos.md)** - Global definitions and constants
-4. **[_macros.fos](_macros.fos.md)** - Macro definitions
+1. **[main.fos](files/main.fos.md)** - Server entry point and core event handlers
+2. **[utils.fos](files/utils.fos.md)** - Essential utility functions used throughout
+3. **[_defines.fos](files/_defines.fos.md)** - Global definitions and constants
+4. **[_macros.fos](files/_macros.fos.md)** - Macro definitions
 
 ## Browse by Category
 
@@ -149,7 +156,7 @@ Welcome to the comprehensive documentation for FOnline 2238 scripts. This codeba
     md += "| Script | Size | Classes | Functions |\n"
     md += "| :--- | ---: | ---: | ---: |\n"
     for script in stats['largest_scripts']:
-        md += f"| [{script['filename']}.fos]({script['filename']}.fos.md) | {script['size_kb']} KB | {script['classes']} | {script['functions']} |\n"
+        md += f"| [{script['filename']}.fos](files/{script['filename']}.fos.md) | {script['size_kb']} KB | {script['classes']} | {script['functions']} |\n"
     
     md += "\n### Most Included Scripts\n\n"
     md += "| Script | Included By |\n"
@@ -161,7 +168,7 @@ Welcome to the comprehensive documentation for FOnline 2238 scripts. This codeba
 
 ## All Scripts
 
-For a complete alphabetical list of all scripts, see [README.md](README.md).
+For a complete alphabetical list of all scripts, see [README.md](files/README.md).
 
 ## Documentation Features
 
@@ -202,21 +209,21 @@ def generate_metrics_page(stats):
 """.format(**stats)
     
     for i, script in enumerate(stats['largest_scripts'], 1):
-        md += f"| {i} | [{script['filename']}.fos](../{script['filename']}.fos.md) | {script['size_kb']} | {script['classes']} | {script['functions']} |\n"
+        md += f"| {i} | [{script['filename']}.fos](files/{script['filename']}.fos.md) | {script['size_kb']} | {script['classes']} | {script['functions']} |\n"
     
     md += "\n## Top 10 Scripts by Class Count\n\n"
     md += "| Rank | Script | Classes | Functions | Size (KB) |\n"
     md += "| :---: | :--- | ---: | ---: | ---: |\n"
     
     for i, script in enumerate(stats['most_classes'], 1):
-        md += f"| {i} | [{script['filename']}.fos](../{script['filename']}.fos.md) | {script['classes']} | {script['functions']} | {script['size_kb']} |\n"
+        md += f"| {i} | [{script['filename']}.fos](files/{script['filename']}.fos.md) | {script['classes']} | {script['functions']} | {script['size_kb']} |\n"
     
     md += "\n## Top 10 Scripts by Function Count\n\n"
     md += "| Rank | Script | Functions | Classes | Size (KB) |\n"
     md += "| :---: | :--- | ---: | ---: | ---: |\n"
     
     for i, script in enumerate(stats['most_functions'], 1):
-        md += f"| {i} | [{script['filename']}.fos](../{script['filename']}.fos.md) | {script['functions']} | {script['classes']} | {script['size_kb']} |\n"
+        md += f"| {i} | [{script['filename']}.fos](files/{script['filename']}.fos.md) | {script['functions']} | {script['classes']} | {script['size_kb']} |\n"
     
     md += "\n## Most Included Scripts\n\n"
     md += "These scripts are dependencies for many other scripts:\n\n"
@@ -231,61 +238,65 @@ def generate_metrics_page(stats):
     md += "| :--- | ---: |\n"
     
     for cat_id, cat_data in sorted(stats['by_category'].items(), key=lambda x: x[1]['count'], reverse=True):
-        md += f"| [{cat_data['name']}](../categories/{cat_id}.md) | {cat_data['count']} |\n"
+        md += f"| [{cat_data['name']}](categories/{cat_id}.md) | {cat_data['count']} |\n"
     
     md += "\n---\n\n[← Back to Index](../index.md)\n"
     
     return md
 
-# Load categories from analyze_scripts.py
-CATEGORIES = {
-    'client': {'name': 'Client Scripts'},
-    'quests': {'name': 'Quest System'},
-    'combat': {'name': 'Combat System'},
-    'economy': {'name': 'Economy'},
-    'factions': {'name': 'Factions'},
-    'maps': {'name': 'Maps'},
-    'npcs': {'name': 'NPCs'},
-    'items': {'name': 'Items'},
-    'production': {'name': 'Production'},
-    'world': {'name': 'World Management'},
-    'mapper': {'name': 'Mapper Tools'},
-    'minigames': {'name': 'Minigames'},
-    'core': {'name': 'Core & Utilities'}
-}
+# Global variable to hold categories, populated in main
+CATEGORIES = {}
 
-if __name__ == '__main__':
-    print("Loading analysis results...")
-    data = load_analysis()
+def main():
+    global CATEGORIES
+    
+    parser = argparse.ArgumentParser(description='Generate FOnline documentation overview.')
+    parser.add_argument('--analysis', '-a', default=r"ai\docs\analysis.json", help='Path to analysis.json file')
+    parser.add_argument('--output', '-o', default=r"ai\docs", help='Output directory for overview files')
+    
+    args = parser.parse_args()
+    
+    analysis_file = Path(args.analysis)
+    output_dir = Path(args.output)
+    
+    print(f"Loading analysis from: {analysis_file}")
+    if not analysis_file.exists():
+        print(f"Error: Analysis file '{analysis_file}' does not exist.")
+        return
+
+    data = load_analysis(analysis_file)
     scripts = data['scripts']
     stats = data['statistics']
-    categories = data['categories']
+    CATEGORIES = data['categories']
     
     # Create directories
-    Path('docs/categories').mkdir(exist_ok=True)
-    Path('docs/guides').mkdir(exist_ok=True)
+    (output_dir / 'categories').mkdir(parents=True, exist_ok=True)
+    (output_dir / 'guides').mkdir(parents=True, exist_ok=True)
     
     print("\nGenerating category pages...")
-    for cat_id, cat_info in categories.items():
+    for cat_id, cat_info in CATEGORIES.items():
         content = generate_category_page(cat_id, cat_info, scripts, stats)
-        output_file = f'docs/categories/{cat_id}.md'
+        output_file = output_dir / f'categories/{cat_id}.md'
         with open(output_file, 'w', encoding='utf-8') as f:
             f.write(content)
-        print(f"  Created: {output_file}")
+        # print(f"  Created: {output_file}")
     
     print("\nGenerating main index...")
-    index_content = generate_main_index(scripts, stats, categories)
-    with open('docs/index.md', 'w', encoding='utf-8') as f:
+    index_content = generate_main_index(scripts, stats, CATEGORIES)
+    with open(output_dir / 'index.md', 'w', encoding='utf-8') as f:
         f.write(index_content)
-    print("  Created: docs/index.md")
+    print(f"  Created: {output_dir / 'index.md'}")
     
     print("\nGenerating metrics dashboard...")
     metrics_content = generate_metrics_page(stats)
-    with open('docs/metrics.md', 'w', encoding='utf-8') as f:
+    with open(output_dir / 'metrics.md', 'w', encoding='utf-8') as f:
         f.write(metrics_content)
-    print("  Created: docs/metrics.md")
+    print(f"  Created: {output_dir / 'metrics.md'}")
     
-    print("\n✅ Overview generation complete!")
+    print("\nOverview generation complete!")
     print(f"   - 13 category pages")
     print(f"   - 1 main index")
     print(f"   - 1 metrics dashboard")
+
+if __name__ == '__main__':
+    main()

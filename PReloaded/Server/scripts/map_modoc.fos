@@ -12,36 +12,37 @@
 
 #define NORMAL_ENTRANCE    (0) // For everyone
 #define SIDE_ENTRANCE      (1) // For people with outdoorsman > 49
-
 import bool AddMilitia(Map@ map) from "town";
 import void SpawnInitMilitia(Map@ map) from "town";
-
 //
 // map.Data:
 // 3 - Town ID, check _town.fos and towns.fos for more info
 //
-
 void map_init(Map& map, bool firstTime)
 {
     DLog("Initializing modoc");
     map.SetData(MAP_DATA_TOWN, TOWN_MODOC);
 
-    if(firstTime)
+    if (firstTime)
+    {
         SpawnInitMilitia(map);
+    }
 
     map.SetEvent(MAP_EVENT_FINISH, "_Finish");
 }
-
 void _Finish(Map& map, bool deleted)
 {
-	if(deleted)
-		FLog(LOG_DYNAMIC_LOC, "MODOC IS GOING TO BE DELETED!");
+    if (deleted)
+    {
+        FLog(LOG_DYNAMIC_LOC, "MODOC IS GOING TO BE DELETED!");
+    }
 }
-
 // Will be called for every entrance.
-bool entrance_modoc(array<Critter@>& critters, uint8 entrance)
+bool entrance_modoc(array < Critter@ > &critters, uint8 entrance)
 {
-    if(entrance == SIDE_ENTRANCE)
+    if (entrance == SIDE_ENTRANCE)
+    {
         return(critters[0].Skill[SK_OUTDOORSMAN] > 49);
+    }
     return true;
 }

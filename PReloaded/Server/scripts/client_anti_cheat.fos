@@ -13,10 +13,9 @@
 uint x;
 uint y;
 uint sacount;
-
 void ActionUpdate(CritterCl& cr)
 {
-    if((cr.HexX == x) && (cr.HexY == y))
+    if ((cr.HexX == x) && (cr.HexY == y))
     {
         #ifdef __DEBUG__
         Message("Static action++");
@@ -33,7 +32,7 @@ void ActionUpdate(CritterCl& cr)
         #endif
     }
 
-    if(sacount >= AC_STATIC_SKILL_THRESHOLD)
+    if (sacount >= AC_STATIC_SKILL_THRESHOLD)
     {
         RunServerScriptUnsafe("unsafe_client@unsafe_ExecACReport", 0, 0, 0, "", null);
         sacount = 0;

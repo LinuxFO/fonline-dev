@@ -26,10 +26,10 @@
 # define BUTTON_SELECTED_NONE    (-1)
 
 // used in main body
-int   FiltersettingOwn = -1;
-int   FiltersettingOpp = -1;
+int FiltersettingOwn = -1;
+int FiltersettingOpp = -1;
 
-class ButtonGroup : Control
+class ButtonGroup: Control
 {
     // only a container
     // child controls should implement "unclick me" on Update() by index comparison and call this.set_Selected() with own index on Click()
@@ -42,19 +42,17 @@ class ButtonGroup : Control
         @this.window = window;
         selected = BUTTON_SELECTED_NONE;
     }
-
     int Top()
     {
         return valid(window) ? window.GetPosY() : 0;
     }
-
     int Left()
     {
         return valid(window) ? window.GetPosX() : 0;
     }
 };
 
-class FilterButton : Control
+class FilterButton: Control
 {
     ButtonGroup@ group; // parent container
     int          index;
@@ -71,62 +69,79 @@ class FilterButton : Control
         this.own = own;
         @this.group = group;
         super(left, top, right - left, bottom - top);
-        if(valid(spriteup) && !spriteUp.Load(spriteup, PATH_ART_INTRFACE))
+        if (valid(spriteup) && !spriteUp.Load(spriteup, PATH_ART_INTRFACE))
+        {
             Message("Couldn't load sprite: " + spriteup);
-        if(valid(spritedown) && !spriteDown.Load(spritedown, PATH_ART_INTRFACE))
+        }
+        if (valid(spritedown) && !spriteDown.Load(spritedown, PATH_ART_INTRFACE))
+        {
             Message("Couldn't load sprite: " + spritedown);
+        }
         selected = false;
     }
-
     void Click()
     {
-        if(!selected)
+        if (!selected)
         {
-            if(own)
+            if (own)
+            {
                 FiltersettingOwn = index;
+            }
             else
+            {
                 FiltersettingOpp = index;
+            }
             // Message("clicked index "+index+" for collection "+collection);
             group.selected = index;
         }
         else
         {
-            if(own)
+            if (own)
+            {
                 FiltersettingOwn = BARTER_FILTER_NONE;
+            }
             else
+            {
                 FiltersettingOpp = BARTER_FILTER_NONE;
+            }
             // Message("UNclicked index "+index+" for collection "+collection);
             group.selected = BUTTON_SELECTED_NONE;
         }
-        if(own)
+        if (own)
+        {
             SetScroll(SCROLL_BARTER, 0);
+        }
         else
+        {
             SetScroll(SCROLL_BARTER_OPPONENT, 0);
+        }
         group.Update();
         RefreshItemsCollection(collection);
     }
-
     void Update()
     {
         selected = (group.selected == index);
     }
-
     void Draw()
     {
-        if(mousePressed || selected)
+        if (mousePressed || selected)
         {
-            if(spriteDown.Id != 0)
+            if (spriteDown.Id != 0)
+            {
                 DrawSprite(spriteDown.Id, 0, Left(), Top(), 0);
+            }
         }
         else
         {
-            if(spriteUp.Id != 0)
+            if (spriteUp.Id != 0)
+            {
                 DrawSprite(spriteUp.Id, 0, Left(), Top(), 0);
+            }
         }
     }
 };
 
-class BarterShow : IGUIScreenCallbackShow
+class BarterShow: IGUIScreenCallbackShow
 {
     void OnShow(int p0, int p1, int p2)
     {
@@ -142,24 +157,25 @@ class BarterShow : IGUIScreenCallbackShow
 BarterShow@  bartershow;
 ButtonGroup@ groupown;
 ButtonGroup@ groupopp;
-
 void ParseFourInts(string& str, int& v0, int& v1, int& v2, int& v3)
 {
     // Message("parsing four ints: "+str);
     array<string@>@ ints = split(str, " ");
-    if(ints.length() < 4)
+    if (ints.length() < 4)
+    {
         return;
+    }
     StrToInt(ints[0], v0);
     StrToInt(ints[1], v1);
     StrToInt(ints[2], v2);
     StrToInt(ints[3], v3);
 }
-
 void InitBarterFilters()
 {
     IGUIScreenOpt@ screen = GUI_GetScreen(CLIENT_SCREEN_BARTER);
+
     @groupown = ButtonGroup(screen);
-    for(uint i = 0; i < 5; i++)
+    for (uint i = 0; i < 5; i++)
     {
         int left = 0, top = 0, right = 0, bottom = 0;
         // FilterButton@ button = FilterButton(i, ITEM_COLLECTION_BARTER, 48+28*i, 328, 70+28*i, 349, groupown, null, "pushed.png");
@@ -169,7 +185,7 @@ void InitBarterFilters()
     }
 
     @groupopp = ButtonGroup(screen);
-    for(uint i = 0; i < 5; i++)
+    for (uint i = 0; i < 5; i++)
     {
         int left = 0, top = 0, right = 0, bottom = 0;
         // FilterButton@ button = FilterButton(i, ITEM_COLLECTION_BARTER_OPPONENT, 455+28*i, 328, 477+28*i, 349, groupopp, null, "pushed.png");

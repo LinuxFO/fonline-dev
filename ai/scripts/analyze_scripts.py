@@ -1,7 +1,8 @@
 import os
 import re
-from pathlib import Path
+import argparse
 import json
+from pathlib import Path
 
 # Category definitions
 CATEGORIES = {
@@ -180,18 +181,22 @@ def extract_metadata(md_file):
     
     return metadata
 
-def analyze_documentation():
+def analyze_documentation(docs_path):
     """Analyze all .md files in docs directory"""
-    docs_dir = Path('docs')
+    docs_dir = Path(docs_path)
     scripts = []
     
-    print("Analyzing documentation files...")
+    print(f"Analyzing documentation files in {docs_dir}...")
     
-    for md_file in sorted(docs_dir.glob('*.fos.md')):
+    if not docs_dir.exists():
+        print(f"Error: Directory {docs_dir} does not exist.")
+        return []
+
+    for md_file in sorted(docs_dir.rglob('*.fos.md')):
         metadata = extract_metadata(md_file)
         if metadata:
             scripts.append(metadata)
-            print(f"  Analyzed: {metadata['filename']}")
+            # print(f"  Analyzed: {metadata['filename']}")
     
     print(f"\nTotal scripts analyzed: {len(scripts)}")
     
@@ -234,7 +239,7 @@ def calculate_statistics(scripts):
     
     return stats
 
-def save_results(scripts, stats):
+def save_results(scripts, stats, output_file):
     """Save analysis results to JSON file"""
     output = {
         'scripts': scripts,
@@ -242,15 +247,27 @@ def save_results(scripts, stats):
         'categories': CATEGORIES
     }
     
-    with open('docs/analysis.json', 'w', encoding='utf-8') as f:
+    output_path = Path(output_file)
+    output_path.parent.mkdir(parents=True, exist_ok=True)
+    
+    with open(output_path, 'w', encoding='utf-8') as f:
         json.dump(output, f, indent=2)
     
-    print("\nResults saved to docs/analysis.json")
+    print(f"\nResults saved to {output_path}")
 
-if __name__ == '__main__':
-    scripts = analyze_documentation()
+def main():
+    parser = argparse.ArgumentParser(description='Analyze FOnline script documentation.')
+    parser.add_argument('--docs', '-d', default=r"ai\docs\files", help='Directory containing generated .md documentation')
+    parser.add_argument('--output', '-o', default=r"ai\docs\analysis.json", help='Output JSON file for analysis results')
+    
+    args = parser.parse_args()
+    
+    scripts = analyze_documentation(args.docs)
+    if not scripts:
+        return
+
     stats = calculate_statistics(scripts)
-    save_results(scripts, stats)
+    save_results(scripts, stats, args.output)
     
     print("\n=== Statistics Summary ===")
     print(f"Total Scripts: {stats['total_scripts']}")
@@ -260,3 +277,6 @@ if __name__ == '__main__':
     print(f"\nScripts by Category:")
     for cat_id, cat_data in sorted(stats['by_category'].items(), key=lambda x: x[1]['count'], reverse=True):
         print(f"  {cat_data['name']}: {cat_data['count']}")
+
+if __name__ == '__main__':
+    main()

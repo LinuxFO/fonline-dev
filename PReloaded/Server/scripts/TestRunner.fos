@@ -1,0 +1,86 @@
+// TestRunner.fos
+// Simple Unit Testing Framework for FOnline
+
+shared interface ITest {
+    void Run();
+    string GetName();
+}
+
+class TestResult {
+    string Name;
+    bool   Success;
+    string Message;
+
+    TestResult(string name, bool success, string message)
+    {
+        Name = name;
+        Success = success;
+        Message = message;
+    }
+}
+
+class TestRunner {
+    array < TestResult > Results;
+    int Passed;
+    int Failed;
+
+    TestRunner()
+    {
+        Passed = 0;
+        Failed = 0;
+    }
+    void Assert(bool condition, string message)
+    {
+        if (!condition)
+        {
+            Log("ASSERTION FAILED: " + message);
+            // In a real framework we'd want to stop the current test here
+        }
+    }
+    void AssertEquals(int expected, int actual, string message)
+    {
+        if (expected != actual)
+        {
+            Log("ASSERTION FAILED: " + message + " (Expected: " + expected + ", Actual: " + actual + ")");
+        }
+    }
+    void AssertEquals(string expected, string actual, string message)
+    {
+        if (expected != actual)
+        {
+            Log("ASSERTION FAILED: " + message + " (Expected: '" + expected + "', Actual: '" + actual + "')");
+        }
+    }
+    void LogResult(string name, bool success, string message)
+    {
+        Results.insertLast(TestResult(name, success, message));
+        if (success)
+        {
+            Passed++;
+            Log("PASS: " + name);
+        }
+        else
+        {
+            Failed++;
+            Log("FAIL: " + name + " - " + message);
+        }
+    }
+    void PrintSummary()
+    {
+        Log("==========================================");
+        Log("Test Summary");
+        Log("==========================================");
+        Log("Total: " + (Passed + Failed));
+        Log("Passed: " + Passed);
+        Log("Failed: " + Failed);
+        Log("==========================================");
+    }
+}
+
+// Global instance
+TestRunner Runner;
+
+// Macros for easier testing
+#define TEST #(name) void Test_ ## name()
+#define ASSERT #(cond, msg) Runner.Assert(cond, msg)
+#define ASSERT_EQ #(exp, act, msg) Runner.AssertEquals(exp, act, msg)

@@ -13,100 +13,97 @@
 
 # define FILTER_BUTTON_SELECTED_NONE    (-1)
 
-InjectLabel@ insect;
-int          itemsVolume = 0;
-int          containerVolume = 0;
-string       indicatorLabel;
-uint         containerId;
-uint         bodyId;
-PickupShow@  pickupShow;
+InjectLabel@       insect;
+int                itemsVolume = 0;
+int                containerVolume = 0;
+string             indicatorLabel;
+uint               containerId;
+uint               bodyId;
+PickupShow@        pickupShow;
 ButtonGroupPickup@ pickupGroupOwn;
 ButtonGroupPickup@ pickupGroupOpp;
-int   pickupFilterOwn = -1;
-int   pickupFilterOpp = -1;
-bool disableItemMove = false;
-
+int                pickupFilterOwn = -1;
+int                pickupFilterOpp = -1;
+bool               disableItemMove = false;
 int GetPickupFilterOwn()
 {
     return pickupFilterOwn;
 }
-
 int GetPickupFilterOpp()
 {
     return pickupFilterOpp;
 }
-
 uint GetContainerId()
 {
     return containerId;
 }
-
 uint GetBodyId()
 {
     return bodyId;
 }
-
 void SetContainerBodyId(uint cId, uint bId)
 {
     containerId = cId;
     bodyId = bId;
 }
-
 void UpdateCaption()
 {
     // indicatorLabel="Container space: "+itemsVolume+"/"+containerVolume;
     indicatorLabel = "Space taken: " + (itemsVolume * 100 / (containerVolume == 0 ? 1 : containerVolume)) + "%";
-    if(valid(insect))
+    if (valid(insect))
+    {
         insect.SetCaption(indicatorLabel);
+    }
 }
-
 void HideVolumeIndicator()
 {
     indicatorLabel = "";
-    if(valid(insect))
+    if (valid(insect))
     {
         insect.visible = false;
         insect.SetCaption(indicatorLabel);
     }
 }
-
 void ZeroVolumeFillIndicator()
 {
     itemsVolume = 0;
     UpdateCaption();
 }
-
 void SetVolumeFillIndicator(array<ItemCl@> items)
 {
     itemsVolume = 0;
-    for(uint i = 0, j = items.length(); i < j; i++)
+    for (uint i = 0, j = items.length(); i < j; i++)
     {
-        if( !valid(items[i]) )
+        if (!valid(items[i]) )
+        {
             continue;
+        }
         itemsVolume += items[i].Proto.Volume * items[i].GetCount();
     }
     UpdateCaption();
 }
-
 void SetVolumeIndicator(uint pid)
 {
     ProtoItem@ container = GetProtoItem(pid);
-    if(valid(container) && container.Type == ITEM_TYPE_CONTAINER)
+
+    if (valid(container) && container.Type == ITEM_TYPE_CONTAINER)
     {
         containerVolume = container.Container_Volume;
         UpdateCaption();
         insect.visible = true;
     }
     else
+    {
         HideVolumeIndicator();
+    }
 }
-
 void InitContainerAddons()
 {
-    string         ini = "PupVolumeInd";
-    string         txtIni = "PupVolumeIndText";
+    string ini = "PupVolumeInd";
+    string txtIni = "PupVolumeIndText";
 
     IGUIScreenOpt@ pickupScreen = GUI_GetScreen(CLIENT_SCREEN_PICKUP);
+
     @insect = InjectLabel(pickupScreen);
     insect.PicPosition(ini);
     insect.TextPosition(txtIni);
@@ -114,10 +111,10 @@ void InitContainerAddons()
     insect.SetFormat(FONT_FLAG_CENTERY | FONT_FLAG_CENTERX);
 
     InjectPutAllButton@  insectPutAll = InjectPutAllButton(pickupScreen);
-    InjectTakeAllButton@  insectTakeAll = InjectTakeAllButton(pickupScreen);
+    InjectTakeAllButton@ insectTakeAll = InjectTakeAllButton(pickupScreen);
 
     @pickupGroupOwn = ButtonGroupPickup(pickupScreen);
-    for(uint i = 0; i < 5; i++)
+    for (uint i = 0; i < 5; i++)
     {
         int left = 0, top = 0, right = 0, bottom = 0;
         ParseFourInts(GetIfaceIniStr("PupFilerLeft" + i), left, top, right, bottom);
@@ -126,7 +123,7 @@ void InitContainerAddons()
     }
 
     @pickupGroupOpp = ButtonGroupPickup(pickupScreen);
-    for(uint i = 0; i < 5; i++)
+    for (uint i = 0; i < 5; i++)
     {
         int left = 0, top = 0, right = 0, bottom = 0;
         ParseFourInts(GetIfaceIniStr("PupFilerRight" + i), left, top, right, bottom);
@@ -136,7 +133,7 @@ void InitContainerAddons()
 
     @pickupShow = @PickupShow();
     Control@ control = @Control();
-    control.AddControl(@insect);    
+    control.AddControl(@insect);
     control.AddControl(@insectPutAll);
     control.AddControl(@insectTakeAll);
     control.AddControl(pickupGroupOwn);
@@ -145,36 +142,37 @@ void InitContainerAddons()
     pickupScreen.SetCallbackShow(pickupShow);
     pickupScreen.Multiinstance(false);
 }
-
 void _EnableItemsMove(int param1, int param2, int param3, string@ param4, array<int>@ param5)
 {
     disableItemMove = false;
 }
-
-void ExecutePutAll() 
+void ExecutePutAll()
 {
-    if(disableItemMove)
+    if (disableItemMove)
+    {
         return;
+    }
     disableItemMove = true;
 
-    RunServerScriptUnsafe( "unsafe_client@unsafe_PutAll", containerId, bodyId, pickupFilterOwn, null, null );
+    RunServerScriptUnsafe("unsafe_client@unsafe_PutAll", containerId, bodyId, pickupFilterOwn, null, null);
 }
-
-void ExecuteTakeAll() 
+void ExecuteTakeAll()
 {
-    if(disableItemMove)
+    if (disableItemMove)
+    {
         return;
+    }
     disableItemMove = true;
-    
-    RunServerScriptUnsafe( "unsafe_client@unsafe_TakeAll", containerId, bodyId, pickupFilterOpp, null, null );
+
+    RunServerScriptUnsafe("unsafe_client@unsafe_TakeAll", containerId, bodyId, pickupFilterOpp, null, null);
 }
 
-class InjectLabel : CLabel
+class InjectLabel: CLabel
 {
     IGUIScreenOpt@ window;
     // bool infected;
-    Sprite         backgroundPic;
-    Control@       picControl;
+    Sprite   backgroundPic;
+    Control@ picControl;
 
     InjectLabel(IGUIScreenOpt@ window /*, int infected,*/)
     {
@@ -190,7 +188,6 @@ class InjectLabel : CLabel
            else
                 this.infected = false;*/
     }
-
     /*void Init()
        {
             if( this.infected )
@@ -201,45 +198,46 @@ class InjectLabel : CLabel
                     this.Size( 0, 0 );
             }
        }*/
-
     void PicPosition(string& ini)
     {
         picControl.Position(ini);
     }
-
     void TextPosition(string& ini)
     {
         CLabel::Position(ini);
     }
-
     int Left()
     {
-        if(valid(this.window))
+        if (valid(this.window))
+        {
             return(this.window.GetPosX() + this.left);
+        }
         return(0);
     }
-
     int PicLeft()
     {
-        if(valid(this.window))
+        if (valid(this.window))
+        {
             return(this.window.GetPosX() + this.picControl.left);
+        }
         return(0);
     }
-
     int Top()
     {
-        if(valid(this.window))
+        if (valid(this.window))
+        {
             return(this.window.GetPosY() + this.top);
+        }
         return(0);
     }
-
     int PicTop()
     {
-        if(valid(this.window))
+        if (valid(this.window))
+        {
             return(this.window.GetPosY() + this.picControl.top);
+        }
         return(0);
     }
-
     void Draw()
     {
         DrawSprite(this.backgroundPic.Id, 0, this.PicLeft(), this.PicTop(), 0);
@@ -247,7 +245,7 @@ class InjectLabel : CLabel
     }
 };
 
-class InjectPutAllButton : Control
+class InjectPutAllButton: Control
 {
     IGUIScreenOpt@ window;
     Sprite         buttonDown;
@@ -257,39 +255,40 @@ class InjectPutAllButton : Control
         @this.window = window;
         this.buttonDown.LoadByIni("PupPutAllPic", PATH_ART_INTRFACE);
     }
-
     void Init()
     {
         this.Position("PupPutAll");
     }
-
     void Click()
     {
         ExecutePutAll();
     }
-
     int Left()
     {
-        if(valid(this.window))
+        if (valid(this.window))
+        {
             return(this.window.GetPosX() + this.left);
+        }
         return(0);
     }
-
     int Top()
     {
-        if(valid(this.window))
+        if (valid(this.window))
+        {
             return(this.window.GetPosY() + this.top);
+        }
         return(0);
     }
-
     void Draw()
     {
-        if(this.mousePressed)
+        if (this.mousePressed)
+        {
             DrawSprite(this.buttonDown.Id, 0, this.Left(), this.Top(), 0);
+        }
     }
 };
 
-class InjectTakeAllButton : Control
+class InjectTakeAllButton: Control
 {
     IGUIScreenOpt@ window;
     Sprite         buttonDown;
@@ -299,39 +298,40 @@ class InjectTakeAllButton : Control
         @this.window = window;
         this.buttonDown.LoadByIni("PupTAPicDn", PATH_ART_INTRFACE);
     }
-
     void Init()
     {
         this.Position("PupTakeAll");
     }
-
     void Click()
     {
         ExecuteTakeAll();
     }
-
     int Left()
     {
-        if(valid(this.window))
+        if (valid(this.window))
+        {
             return(this.window.GetPosX() + this.left);
+        }
         return(0);
     }
-
     int Top()
     {
-        if(valid(this.window))
+        if (valid(this.window))
+        {
             return(this.window.GetPosY() + this.top);
+        }
         return(0);
     }
-
     void Draw()
     {
-        if(this.mousePressed)
+        if (this.mousePressed)
+        {
             DrawSprite(this.buttonDown.Id, 0, this.Left(), this.Top(), 0);
+        }
     }
 };
 
-class ButtonGroupPickup : Control
+class ButtonGroupPickup: Control
 {
     // only a container
     // child controls should implement "unclick me" on Update() by index comparison and call this.set_Selected() with own index on Click()
@@ -344,27 +344,25 @@ class ButtonGroupPickup : Control
         @this.window = window;
         selected = FILTER_BUTTON_SELECTED_NONE;
     }
-
     int Top()
     {
         return valid(window) ? window.GetPosY() : 0;
     }
-
     int Left()
     {
         return valid(window) ? window.GetPosX() : 0;
     }
 };
 
-class PickupFilterButton : Control
+class PickupFilterButton: Control
 {
     ButtonGroupPickup@ group; // parent container
-    int          index;
-    int          collection;
-    bool         selected;
-    bool         own;
-    Sprite       spriteUp;
-    Sprite       spriteDown;
+    int                index;
+    int                collection;
+    bool               selected;
+    bool               own;
+    Sprite             spriteUp;
+    Sprite             spriteDown;
 
     PickupFilterButton(int index, int collection, bool own, int left, int top, int right, int bottom, ButtonGroupPickup@ group, string@ spriteup, string@ spritedown)
     {
@@ -373,63 +371,80 @@ class PickupFilterButton : Control
         this.own = own;
         @this.group = group;
         super(left, top, right - left, bottom - top);
-        if(valid(spriteup) && !spriteUp.Load(spriteup, PATH_ART_INTRFACE))
+        if (valid(spriteup) && !spriteUp.Load(spriteup, PATH_ART_INTRFACE))
+        {
             Message("Couldn't load sprite: " + spriteup);
-        if(valid(spritedown) && !spriteDown.Load(spritedown, PATH_ART_INTRFACE))
+        }
+        if (valid(spritedown) && !spriteDown.Load(spritedown, PATH_ART_INTRFACE))
+        {
             Message("Couldn't load sprite: " + spritedown);
+        }
 
         selected = false;
     }
-
     void Click()
     {
-        if(!selected)
+        if (!selected)
         {
-            if(own)
+            if (own)
+            {
                 pickupFilterOwn = index;
+            }
             else
+            {
                 pickupFilterOpp = index;
-            //Message("clicked index "+index+" for collection "+collection);
+            }
+            // Message("clicked index "+index+" for collection "+collection);
             group.selected = index;
         }
         else
         {
-            if(own)
+            if (own)
+            {
                 pickupFilterOwn = PICKUP_FILTER_NONE;
+            }
             else
+            {
                 pickupFilterOpp = PICKUP_FILTER_NONE;
-            //Message("UNclicked index "+index+" for collection "+collection);
+            }
+            // Message("UNclicked index "+index+" for collection "+collection);
             group.selected = FILTER_BUTTON_SELECTED_NONE;
         }
-        if(own)
+        if (own)
+        {
             SetScroll(SCROLL_PICKUP, 0);
+        }
         else
+        {
             SetScroll(SCROLL_PICKUP_FROM, 0);
+        }
         group.Update();
         RefreshItemsCollection(collection);
     }
-
     void Update()
     {
         selected = (group.selected == index);
     }
-
     void Draw()
     {
-        if(mousePressed || selected)
+        if (mousePressed || selected)
         {
-            if(spriteDown.Id != 0)
+            if (spriteDown.Id != 0)
+            {
                 DrawSprite(spriteDown.Id, 0, Left(), Top(), 0);
+            }
         }
         else
         {
-            if(spriteUp.Id != 0)
+            if (spriteUp.Id != 0)
+            {
                 DrawSprite(spriteUp.Id, 0, Left(), Top(), 0);
+            }
         }
     }
 };
 
-class PickupShow : IGUIScreenCallbackShow
+class PickupShow: IGUIScreenCallbackShow
 {
     void OnShow(int p0, int p1, int p2)
     {
@@ -438,16 +453,17 @@ class PickupShow : IGUIScreenCallbackShow
         pickupGroupOwn.selected = FILTER_BUTTON_SELECTED_NONE;
         pickupGroupOwn.Update();
         pickupGroupOpp.selected = FILTER_BUTTON_SELECTED_NONE;
-        pickupGroupOpp.Update();       
+        pickupGroupOpp.Update();
     }
 };
-
 void ParseFourInts(string& str, int& v0, int& v1, int& v2, int& v3)
 {
     // Message("parsing four ints: "+str);
     array<string@>@ ints = split(str, " ");
-    if(ints.length() < 4)
+    if (ints.length() < 4)
+    {
         return;
+    }
     StrToInt(ints[0], v0);
     StrToInt(ints[1], v1);
     StrToInt(ints[2], v2);

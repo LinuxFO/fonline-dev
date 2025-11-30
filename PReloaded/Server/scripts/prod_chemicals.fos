@@ -13,8 +13,6 @@
 // #define TEXT_LOW_SKILLS	(3071)
 #define TEXT_USE_SCIENCE            (3076)
 // #define TEXT_TIMEOUTED	(3073)
-
-
 import bool ShuffleItem(Item& item) from "shuffling_spawner";
 
 #define PILE_CAPACITY_CHEMICALS     (6)
@@ -22,21 +20,20 @@ import bool ShuffleItem(Item& item) from "shuffling_spawner";
 
 #define PILE_BATCH_CHEMICALS        (2)
 #define PILE_BATCH_CHEMICALS2       (2)
-
-
 void _InitPileChemicals(Item& item, bool firstTime)
 {
-    if(firstTime)
+    if (firstTime)
+    {
         item.Val0 = PILE_CAPACITY_CHEMICALS;
+    }
     item.SetEvent(ITEM_EVENT_SKILL, "_SkillPileChemicals");
 }
-
 bool _SkillPileChemicals(Item& item, Critter& cr, int skill)
 {
     _Desneak(cr);
 
     item.Val0 -= 1;
-    if(item.Val0 <= 0)
+    if (item.Val0 <= 0)
     {
         ShuffleItem(item);
     }
@@ -46,20 +43,20 @@ bool _SkillPileChemicals(Item& item, Critter& cr, int skill)
 
     return true;
 }
-
 void _InitPileChemicals2(Item& item, bool firstTime)
 {
-    if(firstTime)
+    if (firstTime)
+    {
         item.Val0 = PILE_CAPACITY_CHEMICALS2;
+    }
     item.SetEvent(ITEM_EVENT_SKILL, "_SkillPileChemicals2");
 }
-
 bool _SkillPileChemicals2(Item& item, Critter& cr, int skill)
 {
     _Desneak(cr);
 
     item.Val0 -= 1;
-    if(item.Val0 <= 0)
+    if (item.Val0 <= 0)
     {
         ShuffleItem(item);
     }
@@ -69,11 +66,6 @@ bool _SkillPileChemicals2(Item& item, Critter& cr, int skill)
 
     return true;
 }
-
-
-
-
-
 bool s_Use(Critter& crit, Scenery& sc, int skill, Item@ item)
 {
     Log("Obsolete script used");

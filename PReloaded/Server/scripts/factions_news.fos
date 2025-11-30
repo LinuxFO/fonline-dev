@@ -21,18 +21,18 @@ class FactionNews
 {
     // array layout:
     // {master, slave, type, time, ...}
-    array<uint>  news;
+    array < uint >  news;
     Serializator serialiser;
     // name of the faction the news belong
-    string       factionName;
+    string factionName;
 
-    FactionNews(const string &factionName)
+    FactionNews(const string& factionName)
     {
         WLog("factions", "Instantiating FactionNews object for " + factionName);
         this.factionName = factionName;
-        if(IsAnyData("FactionNews: " + factionName))
+        if (IsAnyData("FactionNews: " + factionName))
         {
-            if(!GetAnyData("FactionNews: " + factionName, news))
+            if (!GetAnyData("FactionNews: " + factionName, news))
             {
                 Log("ERR: Couldn't read faction news from array: FactionNews: " + factionName);
                 return;
@@ -44,7 +44,6 @@ class FactionNews
             UpdateData();
         }
     }
-
     //
     // Number of news
     //
@@ -52,7 +51,6 @@ class FactionNews
     {
         return news.length() / 5;
     }
-
     //
     // Add news at the end of the array
     //
@@ -63,17 +61,16 @@ class FactionNews
         news.insertLast(type);
         news.insertLast(uint(__Year));
         news.insertLast(uint(
-                            (__Month << 24) | (__Day << 16) | (__Hour << 8) | __Minute));
+            (__Month << 24) | (__Day << 16) | (__Hour << 8) | __Minute));
     }
-
     //
     // Gets news data for given index, returns false when not found
     //
     bool GetNews(uint index, uint& out master, uint& out slave, uint& out type,
-                 uint16& out year, uint8& out month, uint8& out day, uint8& out hour, uint8& out minute)
+        uint16& out year, uint8& out month, uint8& out day, uint8& out hour, uint8& out minute)
 
     {
-        if(index * 5 + 4 < news.length())
+        if (index * 5 + 4 < news.length())
         {
             master = news[index * 5];
             slave = news[index * 5 + 1];
@@ -87,7 +84,9 @@ class FactionNews
             return true;
         }
         else
+        {
             return false;
+        }
     }
     //
     // Updates AnyData

@@ -7,10 +7,10 @@
 
 shared interface IClientAccessLevelOpt
 {
-	void setAccessLevel(int level);
-	void setPlayerGender(int g);
-	int getAccessLevel();
-	int getPlayerGender();
+    void setAccessLevel(int level);
+    void setPlayerGender(int g);
+    int getAccessLevel();
+    int getPlayerGender();
 }
 
-#endif //__CLIENT_ACCESS__
+#endif // __CLIENT_ACCESS__

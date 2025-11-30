@@ -10,7 +10,6 @@
 
 #define FIREWOODS    # (it) (it.Val1)
 #define FRUITS       # (it) (it.Val2)
-
 void item_init(Item& item, bool firstTime)
 {
     // redirect:
@@ -18,22 +17,21 @@ void item_init(Item& item, bool firstTime)
     // item.SetEvent(ITEM_EVENT_SKILL, "_Skill");
     // item.SetEvent(ITEM_EVENT_USE_ON_ME, "_Item");
 }
-
 //
 // Using still
 //
 bool _Skill(Item& item, Critter& crit, int skill)
 {
-    if(skill == -1)
+    if (skill == -1)
     {
-        if(IsReady(item))
+        if (IsReady(item))
         {
-            if(crit.Timeout[TO_GATHERING] > TIMEOUT_CUMULATIVE)
+            if (crit.Timeout[TO_GATHERING] > TIMEOUT_CUMULATIVE)
             {
                 crit.SayMsg(SAY_NETMSG, TEXTMSG_GAME, STR_SKILL_WEARINESS);
                 return true;
             }
-            if(IsOverweighted(crit))
+            if (IsOverweighted(crit))
             {
                 crit.SayMsg(SAY_NETMSG, TEXTMSG_GAME, STR_OVERWEIGHT);
                 return true;
@@ -50,12 +48,12 @@ bool _Skill(Item& item, Critter& crit, int skill)
         }
         else
         {
-            if(FireReady(item))
+            if (FireReady(item))
             {
                 // fire ready, ingredients needed
                 crit.SayMsg(SAY_NETMSG, TEXTMSG_TEXT, 3025);
             }
-            else if(IngredientsReady(item))
+            else if (IngredientsReady(item))
             {
                 // start a fire
                 crit.SayMsg(SAY_NETMSG, TEXTMSG_TEXT, 3019);
@@ -69,9 +67,10 @@ bool _Skill(Item& item, Critter& crit, int skill)
         return true;
     }
     else
+    {
         return false;
+    }
 }
-
 //
 // Using item on still (inserting ingredients)
 //
@@ -79,14 +78,14 @@ bool _Item(Item& item, Critter& crit, Item@ usedItem)
 {
 
     // crit.Say(SAY_NETMSG, "" + fruits + "fruits, " + firewoods + " firewoods.");
-    if(usedItem.GetProtoId() == PID_FIREWOOD)
+    if (usedItem.GetProtoId() == PID_FIREWOOD)
     {
-        if(FireReady(item))
+        if (FireReady(item))
         {
             // fire already set up
             crit.SayMsg(SAY_NETMSG, TEXTMSG_TEXT, 3022);
         }
-        else if(IngredientsReady(item))
+        else if (IngredientsReady(item))
         {
             FIREWOODS(item)++;
             // fire started, product will be ready soon
@@ -104,9 +103,9 @@ bool _Item(Item& item, Critter& crit, Item@ usedItem)
         }
         return true;
     }
-    else if(usedItem.GetProtoId() == PID_MUTATED_FRUIT)
+    else if (usedItem.GetProtoId() == PID_MUTATED_FRUIT)
     {
-        if(IngredientsReady(item))
+        if (IngredientsReady(item))
         {
             // ingredients already inserted
             crit.SayMsg(SAY_NETMSG, TEXTMSG_TEXT, 3024);
@@ -115,7 +114,7 @@ bool _Item(Item& item, Critter& crit, Item@ usedItem)
         {
             // add fruits
             // you can put 2 fruits at one use
-            if(FRUITS(item) == 0 && usedItem.GetCount() >= 2)
+            if (FRUITS(item) == 0 && usedItem.GetCount() >= 2)
             {
                 FRUITS(item) += 2;
                 _CritDeleteItem(crit, usedItem.GetProtoId(), 2);
@@ -131,11 +130,15 @@ bool _Item(Item& item, Critter& crit, Item@ usedItem)
             }
 
             // 'everything ready'
-            if(IsReady(item))
+            if (IsReady(item))
+            {
                 crit.SayMsg(SAY_NETMSG, TEXTMSG_TEXT, 3026);
-            else if(IngredientsReady(item))
+            }
+            else if (IngredientsReady(item))
+            {
                 // fire needed
                 crit.SayMsg(SAY_NETMSG, TEXTMSG_TEXT, 3019);
+            }
         }
         return true;
     }

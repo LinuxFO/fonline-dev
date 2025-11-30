@@ -87,18 +87,18 @@ class CAlertSettings
 
         CycleLength = ALERT_CYCLE;
     }
-
     void Init()
     {
         __AlertLevelReact = ALERT_LEVEL_REACT;
         Load();
         Update();
     }
-
     void Load()
     {
-        if(!IsAnyData("AlertSettings"))
+        if (!IsAnyData("AlertSettings"))
+        {
             return;
+        }
         Serializator serializer;
         serializer.Load("AlertSettings");
         serializer.Get(this.AlertLevelNone)
@@ -116,7 +116,6 @@ class CAlertSettings
         .Get(this.CycleLength)
         .Get(__AlertLevelReact);
     }
-
     void Save()
     {
         Serializator serializer;
@@ -136,7 +135,6 @@ class CAlertSettings
         .Set(__AlertLevelReact);
         serializer.Save("AlertSettings");
     }
-
     void Update()
     {
         Thresholds[0] = this.AlertLevelLight;
@@ -159,12 +157,12 @@ class CAlertSettings
 
 class CAlertMap
 {
-    uint        Index;
-    uint        MapId;
+    uint Index;
+    uint MapId;
 
-    uint        AlertLevel;
-    bool        NoReinforcements;
-    bool        Dead;
+    uint AlertLevel;
+    bool NoReinforcements;
+    bool Dead;
 
     array<uint> Reinforcements;
     array<uint> ReinforcementsMax;
@@ -198,146 +196,185 @@ class CAlertMap
 
         AlertLevel = 0;
 
-        if(!valid(maxes) || maxes.length() == 0)
+        if (!valid(maxes) || maxes.length() == 0)
+        {
             NoReinforcements = true;
+        }
         else
         {
             NoReinforcements = false;
             Dead = false;
             Reinforcements.resize(REINFORCEMENT_COUNT);
             ReinforcementsMax.resize(REINFORCEMENT_COUNT);
-            for(uint i = 0, j = MIN(maxes.length(), REINFORCEMENT_COUNT); i < j; i++)
+            for (uint i = 0, j = MIN(maxes.length(), REINFORCEMENT_COUNT); i < j; i++)
+            {
                 ReinforcementsMax[i] = maxes[i];
-            for(uint i = 0, j = MIN(maxes.length(), REINFORCEMENT_COUNT); i < j; i++)
+            }
+            for (uint i = 0, j = MIN(maxes.length(), REINFORCEMENT_COUNT); i < j; i++)
+            {
                 Reinforcements[i] = maxes[i];
+            }
             Calling.resize(REINFORCEMENT_COUNT);
             fill_array(Calling, false);
             EventId.resize(REINFORCEMENT_COUNT);
             fill_array(EventId, 0);
         }
     }
-
     void StartCalling(uint type)
     {
-        if(type >= REINFORCEMENT_COUNT)
+        if (type >= REINFORCEMENT_COUNT)
+        {
             type = REINFORCEMENT_COUNT - 1;
+        }
         type++;
         do
         {
             type--;
-            if(this.Calling[type])
+            if (this.Calling[type])
+            {
                 continue;
+            }
             Observe(this.Index, "starting to call " + type);
             uint[] values = { this.Index, type };
             this.EventId[type] = CreateTimeEvent(AFTER(Random(settings.ReinforcementsDelayLow, settings.ReinforcementsDelayHigh)), "e_CallReinforcements", values, true);
             this.Calling[type] = (this.EventId[type] > 0);
         }
-        while(type > 0);
+        while (type > 0);
     }
-
     void Spawn(uint type)
     {
-        if(IsDead())
+        if (IsDead())
+        {
             return;
+        }
         Observe(this.Index, "trying to spawn " + type);
-        if(type >= REINFORCEMENT_COUNT)
+        if (type >= REINFORCEMENT_COUNT)
+        {
             return;
-        if(this.Reinforcements[type] == 0)
+        }
+        if (this.Reinforcements[type] == 0)
+        {
             return;
+        }
         uint n = Random(settings.ReinforcementsCountLow, settings.ReinforcementsCountHigh);
         n = MIN(n, this.Reinforcements[type]);
         n = CallReinforcements(this.Attackers, this, n, type);
         this.Reinforcements[type] -= n;
         Observe(this.Index, "... spawned " + n + ", " + this.Reinforcements[type] + ", remaining");
     }
-
     void Cycle()
     {
-        if(IsDead())
+        if (IsDead())
+        {
             return;
+        }
         Observe(this.Index, "cycle start, alert level " + this.AlertLevel);
         uint drop = (settings.AlertCountPDrop * this.AlertLevel) / 100;
         drop = MAX(drop, settings.AlertCountDrop);
-        if(this.AlertLevel < drop)
+        if (this.AlertLevel < drop)
+        {
             this.AlertLevel = 0;
+        }
         else
+        {
             this.AlertLevel -= drop;
-        if(NoReinforcements)
+        }
+        if (NoReinforcements)
         {
             Observe(this.Index, "cycle end, alert level " + this.AlertLevel);
             return;
         }
-        if(this.AlertLevel == 0)
+        if (this.AlertLevel == 0)
+        {
             this.Attackers.resize(0);
-        for(uint i = 0; i < REINFORCEMENT_COUNT; i++)
-            if(this.Calling[i] && this.AlertLevel < Thresholds[i])
+        }
+        for (uint i = 0; i < REINFORCEMENT_COUNT; i++)
+        {
+            if (this.Calling[i] && this.AlertLevel < Thresholds[i])
             {
                 this.Calling[i] = false;
                 EraseTimeEvent(this.EventId[i]);
                 this.EventId[i] = 0;
                 Observe(this.Index, "cycle: stopped calling " + i);
             }
+        }
         Observe(this.Index, "cycle end, alert level " + this.AlertLevel);
     }
-
     void ProcessDeath(Critter& cr, Critter@ killer)
     {
-        if(IsDead())
+        if (IsDead())
+        {
             return;
+        }
         Observe(this.Index, "process death start, alert level " + this.AlertLevel);
 
-        if(_CritHasExtMode(cr, MODE_EXT_GUARD))
+        if (_CritHasExtMode(cr, MODE_EXT_GUARD))
+        {
             this.AlertLevel += settings.AlertCountGuard;
-        else if(_IsTrueNpc(cr))
+        }
+        else if (_IsTrueNpc(cr))
+        {
             this.AlertLevel += settings.AlertCountNpc;
+        }
 
-        if(NoReinforcements)
+        if (NoReinforcements)
         {
             Observe(this.Index, "process death end, alert level " + this.AlertLevel);
             return;
         }
 
-        if(this.AlertLevel >= ALERT_LEVEL_REGISTER && valid(killer))
-            if(!Present(killer.Id, this.Attackers))
+        if (this.AlertLevel >= ALERT_LEVEL_REGISTER && valid(killer))
+        {
+            if (!Present(killer.Id, this.Attackers))
+            {
                 this.Attackers.insertLast(killer.Id);
+            }
+        }
 
         uint i = REINFORCEMENT_COUNT;
         do
         {
             i--;
-            if(this.AlertLevel >= Thresholds[i])
+            if (this.AlertLevel >= Thresholds[i])
             {
-                if(!this.Calling[i])
+                if (!this.Calling[i])
+                {
                     StartCalling(i);
+                }
                 break;
             }
         }
-        while(i > 0);
+        while (i > 0);
         Observe(this.Index, "process death end, alert level " + this.AlertLevel);
     }
-
     void ReinforcementReturn(uint type)
     {
-        if(IsDead())
+        if (IsDead())
+        {
             return;
-        if(type >= REINFORCEMENT_COUNT)
+        }
+        if (type >= REINFORCEMENT_COUNT)
+        {
             return;
+        }
         this.Reinforcements[type]++;
-        if(this.Reinforcements[type] > this.ReinforcementsMax[type])
+        if (this.Reinforcements[type] > this.ReinforcementsMax[type])
+        {
             this.Reinforcements[type] = this.ReinforcementsMax[type];
+        }
         Observe(this.Index, "returned " + type + ", current amount: " + this.Reinforcements[type]);
     }
-
     bool IsDead()
     {
         return this.Dead;
     }
-
     void Validate()
     {
         Map@ map = GetMap(MapId);
-        if(!valid(map) || map.GetData(MAP_DATA_ALERT_INDEX) != int(this.Index))
+        if (!valid(map) || map.GetData(MAP_DATA_ALERT_INDEX) != int(this.Index))
+        {
             this.Dead = true;
+        }
     }
 
 };
@@ -345,20 +382,19 @@ class CAlertMap
 
 CAlertSettings    settings;
 array<CAlertMap@> alerts;
-
 void SaveAlertMaps() // export, call on world save or on adding new alertmap
 {
     // Log("saving alert maps");
     settings.Save();
     Serializator serializer;
     uint         len = alerts.length();
-    if(len == 0)
+    if (len == 0)
     {
         Log("ERR: no dummy alert");
         return;
     }
     serializer.Set(len - 1);
-    for(uint i = 1; i < len; i++)
+    for (uint i = 1; i < len; i++)
     {
         serializer.Set(alerts[i].Index)
         .Set(alerts[i].MapId)
@@ -372,25 +408,29 @@ void SaveAlertMaps() // export, call on world save or on adding new alertmap
     }
     serializer.Save("AlertMaps");
 }
-
 void SetAlertMap(Map& map, array<uint>@ maxes)     // export
 {
-    if(!Initialized)
+    if (!Initialized)
+    {
         InitAlertMaps();
+    }
     uint n = alerts.length();
-    for(uint i = 1; i < n; i++)
+    for (uint i = 1; i < n; i++)
+    {
         alerts[i].Validate();
+    }
     // Log("setting map id "+map.Id+" as alert map "+n);
     CAlertMap@ alert = CAlertMap(n, map.Id, maxes);
     alerts.insertLast(alert);
     map.SetData(MAP_DATA_ALERT_INDEX, n);
 }
-
 bool InitAlertMaps() // export
 {
-    if(Initialized)
+    if (Initialized)
+    {
         return true;
-    if(Thresholds.length() != REINFORCEMENT_COUNT)
+    }
+    if (Thresholds.length() != REINFORCEMENT_COUNT)
     {
         Log("ERR: Failed to initialize: Thresholds length != REINFORCEMENT_COUNT");
         return false;
@@ -398,16 +438,20 @@ bool InitAlertMaps() // export
     settings.Init();
     CreateTimeEvent(AFTER(settings.CycleLength), "e_AlertMapsCycle", false);
     Initialized = true;
-    CAlertMap@   dummy = CAlertMap();
+    CAlertMap@ dummy = CAlertMap();
     alerts.insertLast(dummy);   // dummy alert with 0 level, so that others start from 1 (*)
     Serializator serializer;
-    if(!IsAnyData("AlertMaps"))
+    if (!IsAnyData("AlertMaps"))
+    {
         return true;
-    if(!serializer.Load("AlertMaps"))
+    }
+    if (!serializer.Load("AlertMaps"))
+    {
         return true;
+    }
     uint n = 0;
     serializer.Get(n);
-    for(uint i = 0; i < n; i++)
+    for (uint i = 0; i < n; i++)
     {
         CAlertMap@ alert = CAlertMap();
         serializer.Get(alert.Index)
@@ -424,53 +468,52 @@ bool InitAlertMaps() // export
     // Log("loaded "+n);
     return true;
 }
-
 bool IsAlertMap(Map& map)                           // export
 {
     return map.GetData(MAP_DATA_ALERT_INDEX) > 0;   // (*) this is the reason
 }
-
 uint GetAlertLevel(Map& map)                        // export
 {
-    if(map.GetData(MAP_DATA_ALERT_INDEX) == 0)
+    if (map.GetData(MAP_DATA_ALERT_INDEX) == 0)
+    {
         return 0;
+    }
     return alerts[map.GetData(MAP_DATA_ALERT_INDEX)].AlertLevel;
 }
-
 void ProcessDeath(Map& map, Critter& cr, Critter@ killer)   // export
 {
-    if(map.GetData(MAP_DATA_ALERT_INDEX) == 0)
+    if (map.GetData(MAP_DATA_ALERT_INDEX) == 0)
+    {
         return;
+    }
     alerts[map.GetData(MAP_DATA_ALERT_INDEX)].ProcessDeath(cr, killer);
 }
-
 void ReinforcementReturn(Critter& npc)
 {
     alerts[npc.Stat[ST_VAR2]].ReinforcementReturn(npc.Stat[ST_VAR1]);
 }
-
 uint e_ReinforcementReturn(array<uint>@ values)     // index, type
 {
     alerts[values[0]].ReinforcementReturn(values[1]);
     return 0;
 }
-
 uint e_CallReinforcements(array<uint>@ values)     // index, type
 {
-    if(alerts[values[0]].Dead)
+    if (alerts[values[0]].Dead)
+    {
         return 0;
+    }
     alerts[values[0]].Spawn(values[1]);
     return Random(settings.ReinforcementsDelayLow, settings.ReinforcementsDelayHigh);
 }
-
 uint e_AlertMapsCycle(array<uint>@ values)
 {
-    for(uint i = 1, j = alerts.length(); i < j; i++)
+    for (uint i = 1, j = alerts.length(); i < j; i++)
+    {
         alerts[i].Cycle();
+    }
     return settings.CycleLength;
 }
-
-
 /**
  * Gets the PID number for the reinforcement guard appropriate for the location
  * @param     locpid     Location pid
@@ -481,7 +524,7 @@ uint e_AlertMapsCycle(array<uint>@ values)
  */
 uint GetPid(uint locpid, uint mappid, uint type)
 {
-    if(type == 0)     // light
+    if (type == 0)     // light
     {
         return 71;
     }
@@ -490,7 +533,6 @@ uint GetPid(uint locpid, uint mappid, uint type)
         return 71;
     }
 }
-
 /**
  * Gets the bag number for the reinforcement guard appropriate for the location
  * @param     locpid     Location pid
@@ -501,7 +543,7 @@ uint GetPid(uint locpid, uint mappid, uint type)
  */
 uint GetBag(uint locpid, uint mappid, uint type)
 {
-    if(type == 0)     // light
+    if (type == 0)     // light
     {
         return 211;                                                         // Combat Shotgun
     }
@@ -510,7 +552,6 @@ uint GetBag(uint locpid, uint mappid, uint type)
         return 211;                                                                                                 // Combat Shotgun
     }
 }
-
 /**
  * Gets the level for the reinforcement guard appropriate for the location
  * @param     locpid     Location pid
@@ -523,7 +564,6 @@ uint GetLevel(uint locpid, uint mappid, uint type)
 {
     return 12 + 9 * type;
 }
-
 /**
  * Gets the team id for the reinforcement guard appropriate for the location
  * @param     locpid     Location pid
@@ -536,7 +576,6 @@ uint GetTeamId(uint locpid, uint mappid, uint type)
 {
     return ReputationIndex(locpid);
 }
-
 /**
  * Gets the dialog id for the reinforcement guard appropriate for the location
  * @param     locpid     Location pid
@@ -558,17 +597,24 @@ uint GetDialog(uint locpid, uint mappid, uint type)
 uint CallReinforcements(array<uint>@ enemies, CAlertMap& alert, uint amount, uint type)
 {
     Map@ map = GetMap(alert.MapId);
-    if(!valid(map))
+
+    if (!valid(map))
+    {
         return 0;
+    }
 
     array<Entire> enter_entires;
-    if(ParseEntires(map, enter_entires, ENTIRE_REINFORCEMENTS) == 0)
+    if (ParseEntires(map, enter_entires, ENTIRE_REINFORCEMENTS) == 0)
+    {
         return 0;
+    }
 
     Entire@ entire = enter_entires[Random(0, (enter_entires.length() - 1))];
 
-    if(!valid(entire))
+    if (!valid(entire))
+    {
         return 0;
+    }
 
     uint locpid = map.GetLocation().GetProtoId();
     uint mappid = map.GetProtoId();
@@ -580,7 +626,7 @@ uint CallReinforcements(array<uint>@ enemies, CAlertMap& alert, uint amount, uin
     uint teamid = GetTeamId(locpid, mappid, type);
     uint dialog = GetDialog(locpid, mappid, type);
 
-    for(uint i = 0; i < amount; i++)
+    for (uint i = 0; i < amount; i++)
     {
         int[] params =
         {
@@ -608,42 +654,46 @@ uint CallReinforcements(array<uint>@ enemies, CAlertMap& alert, uint amount, uin
            npc.MoveItem(items[0].Id,items[0].GetCount(),SLOT_HAND1);
            }*/
 
-        if(!valid(npc))
+        if (!valid(npc))
+        {
             return i;
+        }
 
-        for(int i = 0, j = enemies.length(); i < j; i++)
+        for (int i = 0, j = enemies.length(); i < j; i++)
         {
             Critter@ enemy = GetCritter(enemies[i]);
-            if(valid(enemy))
+            if (valid(enemy))
+            {
                 AddAttackPlane(npc, 0, enemy, true);
+            }
         }
     }
 
     return amount;
 }
-
 void _ReinforcementInit(Critter& npc, bool firstTime)
 {
     GuardInit(npc);
 
-    if(firstTime)
+    if (firstTime)
+    {
         GuardPerks(npc);
+    }
 
     npc.SetEvent(CRITTER_EVENT_IDLE, "_ReinforcementIdle");
     npc.SetEvent(CRITTER_EVENT_PLANE_END, "_ReinforcementPlaneEnd");
     npc.SetEvent(CRITTER_EVENT_FINISH, "_ReinforcementFinish");
     npc.ModeBase[MODE_NO_HOME] = 1;
 }
-
 void _ReinforcementIdle(Critter& npc)
 {
-    if(npc.Stat[ST_VAR0] == 0)
+    if (npc.Stat[ST_VAR0] == 0)
     {
         npc.StatBase[ST_VAR0] = ELAPSED_TIME;
         npc.Wait(500);
     }
 
-    if(GetAlertLevel(npc.GetMap()) >= Thresholds[npc.Stat[ST_VAR1]] - 4)
+    if (GetAlertLevel(npc.GetMap()) >= Thresholds[npc.Stat[ST_VAR1]] - 4)
     {
         // wander aimlessly
         uint16 pbx = 0;
@@ -655,15 +705,17 @@ void _ReinforcementIdle(Critter& npc)
         return;
     }
 
-    if(npc.Stat[ST_VAR0] + (REAL_MINUTE(1) >> 1) > int(ELAPSED_TIME))
+    if (npc.Stat[ST_VAR0] + (REAL_MINUTE(1) >> 1) > int(ELAPSED_TIME))
     {
         npc.Wait(10000);
         return;
     }
 
     uint16 hx = npc.HexX, hy = npc.HexY;
-    if(!GetNearEntire(npc.GetMap(), ENTIRE_REINFORCEMENTS, hx, hy))
+    if (!GetNearEntire(npc.GetMap(), ENTIRE_REINFORCEMENTS, hx, hy))
+    {
         DeleteNpc(npc);
+    }
     else
     {
         NpcPlane@ plane = CreatePlane();
@@ -675,14 +727,15 @@ void _ReinforcementIdle(Critter& npc)
         plane.Walk_Dir = 0xFF;
         plane.Run = false;
         plane.Walk_Cut = 1;
-        if(!npc.AddPlane(plane))
+        if (!npc.AddPlane(plane))
+        {
             DeleteNpc(npc);
+        }
     }
 }
-
 void _ReinforcementFinish(Critter& npc, bool deleted)
 {
-    if(!npc.IsDead())
+    if (!npc.IsDead())
     {
         ReinforcementReturn(npc);
         return;
@@ -690,16 +743,15 @@ void _ReinforcementFinish(Critter& npc, bool deleted)
     uint[] values = { npc.Stat[ST_VAR2], npc.Stat[ST_VAR1] };
     CreateTimeEvent(AFTER(settings.ReinforcementsDelayRet), "e_ReinforcementReturn", values, true);
 }
-
 int _ReinforcementPlaneEnd(Critter& npc, NpcPlane& plane, int reason, Critter@ someCr, Item@ someItem)
 {
-    if(plane.Identifier == PLANE_WANDER)
+    if (plane.Identifier == PLANE_WANDER)
     {
         npc.Wait(5000);
         return PLANE_DISCARD;
     }
 
-    if(plane.Identifier == PLANE_GOTO_EXIT)
+    if (plane.Identifier == PLANE_GOTO_EXIT)
     {
         DeleteNpc(npc);
         return PLANE_DISCARD;
@@ -721,14 +773,13 @@ int _ReinforcementPlaneEnd(Critter& npc, NpcPlane& plane, int reason, Critter@ s
    bool[] Calling;
    uint[] EventId;
  */
-
 void log(Critter& cr, int, int, int)
 {
-    for(uint j = 1, k = alerts.length(); j < k; j++)
+    for (uint j = 1, k = alerts.length(); j < k; j++)
     {
         CAlertMap@ alert = alerts[j];
         cr.Say(SAY_NETMSG, "Index: " + alert.Index);
-        if(alert.Dead)
+        if (alert.Dead)
         {
             cr.Say(SAY_NETMSG, "Dead");
             continue;
@@ -737,28 +788,31 @@ void log(Critter& cr, int, int, int)
         cr.Say(SAY_NETMSG, "Alert level: " + alert.AlertLevel);
         cr.Say(SAY_NETMSG, "NoReinforcements: " + (alert.NoReinforcements ? "true" : "false"));
         string s = "";
-        for(uint i = 0; i < REINFORCEMENT_COUNT; i++)
+        for (uint i = 0; i < REINFORCEMENT_COUNT; i++)
         {
             s += (alert.Reinforcements[i] + "/" + alert.ReinforcementsMax[i]);
-            if(alert.Calling[i])
+            if (alert.Calling[i])
+            {
                 s += "!";
-            if(i + 1 != REINFORCEMENT_COUNT)
+            }
+            if (i + 1 != REINFORCEMENT_COUNT)
+            {
                 s += ", ";
+            }
         }
         cr.Say(SAY_NETMSG, "Reinforcements: " + s);
     }
 }
-
 void logthis(Critter& cr, int, int, int)
 {
-    if(!IsAlertMap(cr.GetMap()))
+    if (!IsAlertMap(cr.GetMap()))
     {
         cr.Say(SAY_NETMSG, "Not an alert map.");
         return;
     }
     CAlertMap@ alert = alerts[cr.GetMap().GetData(MAP_DATA_ALERT_INDEX)];
     cr.Say(SAY_NETMSG, "Index: " + alert.Index);
-    if(alert.Dead)
+    if (alert.Dead)
     {
         cr.Say(SAY_NETMSG, "Dead");
         return;
@@ -767,17 +821,20 @@ void logthis(Critter& cr, int, int, int)
     cr.Say(SAY_NETMSG, "Alert level: " + alert.AlertLevel);
     cr.Say(SAY_NETMSG, "NoReinforcements: " + (alert.NoReinforcements ? "true" : "false"));
     string s = "";
-    for(uint i = 0; i < REINFORCEMENT_COUNT; i++)
+    for (uint i = 0; i < REINFORCEMENT_COUNT; i++)
     {
         s += (alert.Reinforcements[i] + "/" + alert.ReinforcementsMax[i]);
-        if(alert.Calling[i])
+        if (alert.Calling[i])
+        {
             s += "!";
-        if(i + 1 != REINFORCEMENT_COUNT)
+        }
+        if (i + 1 != REINFORCEMENT_COUNT)
+        {
             s += ", ";
+        }
     }
     cr.Say(SAY_NETMSG, "Reinforcements: " + s);
 }
-
 /*
    uint AlertLevelNone;
    uint AlertLevelLight;
@@ -798,7 +855,6 @@ void logthis(Critter& cr, int, int, int)
 
    __AlertLevelReact;
  */
-
 void showsettings(Critter& cr, int, int, int)
 {
     cr.Say(SAY_NETMSG, "AlertLevelNone (0) : " + settings.AlertLevelNone);
@@ -820,62 +876,60 @@ void showsettings(Critter& cr, int, int, int)
 
     cr.Say(SAY_NETMSG, "AlertLevelReact (13) : " + __AlertLevelReact);
 }
-
 void setsettings(Critter& cr, int n, int val, int)
 {
-    switch(n)
+    switch (n)
     {
-    case 0:
-        settings.AlertLevelNone = val;
-        break;
-    case 1:
-        settings.AlertLevelLight = val;
-        break;
-    case 2:
-        settings.AlertLevelHeavy = val;
-        break;
+        case 0:
+            settings.AlertLevelNone = val;
+            break;
+        case 1:
+            settings.AlertLevelLight = val;
+            break;
+        case 2:
+            settings.AlertLevelHeavy = val;
+            break;
 
-    case 3:
-        settings.AlertCountGuard = val;
-        break;
-    case 4:
-        settings.AlertCountNpc = val;
-        break;
-    case 5:
-        settings.AlertCountDrop = val;
-        break;
-    case 6:
-        settings.AlertCountPDrop = val;
-        break;
+        case 3:
+            settings.AlertCountGuard = val;
+            break;
+        case 4:
+            settings.AlertCountNpc = val;
+            break;
+        case 5:
+            settings.AlertCountDrop = val;
+            break;
+        case 6:
+            settings.AlertCountPDrop = val;
+            break;
 
-    case 7:
-        settings.ReinforcementsDelayLow = val;
-        break;
-    case 8:
-        settings.ReinforcementsDelayHigh = val;
-        break;
-    case 9:
-        settings.ReinforcementsDelayRet = val;
-        break;
-    case 10:
-        settings.ReinforcementsCountLow = val;
-        break;
-    case 11:
-        settings.ReinforcementsCountHigh = val;
-        break;
+        case 7:
+            settings.ReinforcementsDelayLow = val;
+            break;
+        case 8:
+            settings.ReinforcementsDelayHigh = val;
+            break;
+        case 9:
+            settings.ReinforcementsDelayRet = val;
+            break;
+        case 10:
+            settings.ReinforcementsCountLow = val;
+            break;
+        case 11:
+            settings.ReinforcementsCountHigh = val;
+            break;
 
-    case 12:
-        settings.CycleLength = val;
-        break;
+        case 12:
+            settings.CycleLength = val;
+            break;
 
-    case 13:
-        __AlertLevelReact = val;
-        break;
-    default:
+        case 13:
+            __AlertLevelReact = val;
+            break;
+        default:
     }
     settings.Update();
 }
-
 void clear(Critter& cr, int, int, int)
 {
     alerts.resize(1);
@@ -885,16 +939,17 @@ void clear(Critter& cr, int, int, int)
 
 #ifdef __DEBUG__
 uint obs = 0;
-
 void observer(Critter& cr, int, int, int)
 {
     obs = cr.Id;
 }
-
 void ExecObserve(uint n, string& str)
 {
     Critter@ cr = GetCritter(obs);
-    if(valid(cr))
+
+    if (valid(cr))
+    {
         cr.Say(SAY_NETMSG, "" + n + ": " + str);
+    }
 }
 #endif

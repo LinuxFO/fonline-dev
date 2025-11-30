@@ -4,9 +4,7 @@
 
 #include "blackjack_h.fos"
 #include "blackjack_manager.fos"
- 
 /**< Init */
- 
 void r_Init(Critter& player, Critter@ dealer)
 {
     blackjackManager.RemovePlayerGame(player.Id);
@@ -19,18 +17,16 @@ void r_Init(Critter& player, Critter@ dealer)
         Log("Invalid dealer. ");
     }
 }
- 
 /**< Leave Blackjack table */
 void r_LeaveBlackjackTable(Critter& player, Critter@ dealer)
 {
     blackjackManager.RemovePlayerGame(player.Id);
 }
- 
 /**< Side bet related. */
- 
 void r_SetSidebetType(Critter& player, Critter@ dealer, int sidebetType)
 {
     CBlackjack@ bj = blackjackManager.GetPlayerGame(player.Id);
+
     if (valid(bj))
     {
         bj.SetSidebetType(sidebetType);
@@ -40,10 +36,10 @@ void r_SetSidebetType(Critter& player, Critter@ dealer, int sidebetType)
         Log("Blackjack module failed: Can't find player's game.");
     }
 }
- 
 void r_SetSidebetValue(Critter& player, Critter@ dealer, int sidebetValue)
 {
     CBlackjack@ bj = blackjackManager.GetPlayerGame(player.Id);
+
     if (valid(bj))
     {
         bj.SetSidebetValue(sidebetValue);
@@ -53,10 +49,10 @@ void r_SetSidebetValue(Critter& player, Critter@ dealer, int sidebetValue)
         Log("Blackjack module failed: Can't find player's game.");
     }
 }
- 
 bool d_IsSidebetAvailable(Critter& player, Critter@ dealer)
 {
     CBlackjack@ bj = blackjackManager.GetPlayerGame(player.Id);
+
     if (valid(bj))
     {
         return bj.IsSidebetAvailable();
@@ -67,12 +63,11 @@ bool d_IsSidebetAvailable(Critter& player, Critter@ dealer)
     }
     return false;
 }
- 
 /**< Bet related. */
- 
 void r_SetBetValue(Critter& player, Critter@ dealer, int value)
 {
     CBlackjack@ bj = blackjackManager.GetPlayerGame(player.Id);
+
     if (valid(bj))
     {
         bj.SetBetValue(value);
@@ -82,12 +77,11 @@ void r_SetBetValue(Critter& player, Critter@ dealer, int value)
         Log("Blackjack module failed: Can't find player's game.");
     }
 }
- 
 /**< First action related. */
- 
 bool d_IsHitAvailable(Critter& player, Critter@ dealer)
 {
     CBlackjack@ bj = blackjackManager.GetPlayerGame(player.Id);
+
     if (valid(bj))
     {
         return bj.IsHitAvailable();
@@ -98,10 +92,10 @@ bool d_IsHitAvailable(Critter& player, Critter@ dealer)
     }
     return false;
 }
- 
 void r_Hit(Critter& player, Critter@ dealer)
 {
     CBlackjack@ bj = blackjackManager.GetPlayerGame(player.Id);
+
     if (valid(bj))
     {
         bj.Hit();
@@ -111,10 +105,10 @@ void r_Hit(Critter& player, Critter@ dealer)
         Log("Blackjack module failed: Can't find player's game.");
     }
 }
- 
 bool d_IsStandAvailable(Critter& player, Critter@ dealer)
 {
     CBlackjack@ bj = blackjackManager.GetPlayerGame(player.Id);
+
     if (valid(bj))
     {
         return bj.IsStandAvailable();
@@ -125,10 +119,10 @@ bool d_IsStandAvailable(Critter& player, Critter@ dealer)
     }
     return false;
 }
- 
 void r_Stand(Critter& player, Critter@ dealer)
 {
     CBlackjack@ bj = blackjackManager.GetPlayerGame(player.Id);
+
     if (valid(bj))
     {
         bj.Stand();
@@ -138,10 +132,10 @@ void r_Stand(Critter& player, Critter@ dealer)
         Log("Blackjack module failed: Can't find player's game.");
     }
 }
- 
 bool d_IsPlayerBusted(Critter& player, Critter@ dealer)
 {
     CBlackjack@ bj = blackjackManager.GetPlayerGame(player.Id);
+
     if (valid(bj))
     {
         return bj.IsPlayerBust();
@@ -152,10 +146,10 @@ bool d_IsPlayerBusted(Critter& player, Critter@ dealer)
     }
     return false;
 }
- 
 bool d_IsDoubleDownContinueAvailable(Critter& player, Critter@ dealer)
 {
     CBlackjack@ bj = blackjackManager.GetPlayerGame(player.Id);
+
     if (valid(bj))
     {
         return !bj.IsPlayerBust();
@@ -166,10 +160,10 @@ bool d_IsDoubleDownContinueAvailable(Critter& player, Critter@ dealer)
     }
     return false;
 }
- 
 bool d_IsDoubleDownAvailable(Critter& player, Critter@ dealer)
 {
     CBlackjack@ bj = blackjackManager.GetPlayerGame(player.Id);
+
     if (valid(bj))
     {
         return bj.IsDoubleDownAvailable();
@@ -180,10 +174,10 @@ bool d_IsDoubleDownAvailable(Critter& player, Critter@ dealer)
     }
     return false;
 }
- 
 void r_DoubleDown(Critter& player, Critter@ dealer)
 {
     CBlackjack@ bj = blackjackManager.GetPlayerGame(player.Id);
+
     if (valid(bj))
     {
         bj.DoubleDown();
@@ -193,15 +187,14 @@ void r_DoubleDown(Critter& player, Critter@ dealer)
         Log("Blackjack module failed: Can't find player's game.");
     }
 }
- 
 bool d_IsSplitPairsAvailable(Critter& player, Critter@ dealer)
 {
     return false;
 }
- 
 bool d_IsInsuranceAvailable(Critter& player, Critter@ dealer)
 {
     CBlackjack@ bj = blackjackManager.GetPlayerGame(player.Id);
+
     if (valid(bj))
     {
         return bj.IsInsuranceAvailable();
@@ -212,10 +205,10 @@ bool d_IsInsuranceAvailable(Critter& player, Critter@ dealer)
     }
     return false;
 }
- 
 void r_Insurance(Critter& player, Critter@ dealer)
 {
     CBlackjack@ bj = blackjackManager.GetPlayerGame(player.Id);
+
     if (valid(bj))
     {
         bj.Insurance();
@@ -225,10 +218,10 @@ void r_Insurance(Critter& player, Critter@ dealer)
         Log("Blackjack module failed: Can't find player's game.");
     }
 }
- 
 bool d_IsEvenMoneyAvailable(Critter& player, Critter@ dealer)
 {
     CBlackjack@ bj = blackjackManager.GetPlayerGame(player.Id);
+
     if (valid(bj))
     {
         return bj.IsEvenMoneyAvailable();
@@ -239,10 +232,10 @@ bool d_IsEvenMoneyAvailable(Critter& player, Critter@ dealer)
     }
     return false;
 }
- 
 bool d_IsSurrenderAvailable(Critter& player, Critter@ dealer)
 {
     CBlackjack@ bj = blackjackManager.GetPlayerGame(player.Id);
+
     if (valid(bj))
     {
         return bj.IsSurrenderAvailable();
@@ -253,10 +246,10 @@ bool d_IsSurrenderAvailable(Critter& player, Critter@ dealer)
     }
     return false;
 }
- 
 void r_Surrender(Critter& player, Critter@ dealer)
 {
     CBlackjack@ bj = blackjackManager.GetPlayerGame(player.Id);
+
     if (valid(bj))
     {
         bj.Surrender();
@@ -266,10 +259,10 @@ void r_Surrender(Critter& player, Critter@ dealer)
         Log("Blackjack module failed: Can't find player's game.");
     }
 }
- 
 void r_NewRound(Critter& player, Critter@ dealer)
 {
     CBlackjack@ bj = blackjackManager.GetPlayerGame(player.Id);
+
     if (valid(bj))
     {
         bj.ResetVariables();
@@ -279,10 +272,10 @@ void r_NewRound(Critter& player, Critter@ dealer)
         Log("Blackjack module failed: Can't find player's game.");
     }
 }
- 
 void r_EvenMoney(Critter& player, Critter@ dealer)
 {
     CBlackjack@ bj = blackjackManager.GetPlayerGame(player.Id);
+
     if (valid(bj))
     {
         bj.EvenMoney();
@@ -292,10 +285,10 @@ void r_EvenMoney(Critter& player, Critter@ dealer)
         Log("Blackjack module failed: Can't find player's game.");
     }
 }
- 
 void r_DealerTakesCard(Critter& player, Critter@ dealer)
 {
     CBlackjack@ bj = blackjackManager.GetPlayerGame(player.Id);
+
     if (valid(bj))
     {
         bj.DealerTakesCard();
@@ -305,10 +298,10 @@ void r_DealerTakesCard(Critter& player, Critter@ dealer)
         Log("Blackjack module failed: Can't find player's game.");
     }
 }
- 
 bool d_IsDealerDone(Critter& player, Critter@ dealer)
 {
     CBlackjack@ bj = blackjackManager.GetPlayerGame(player.Id);
+
     if (valid(bj))
     {
         return bj.IsDealerDone();
@@ -319,10 +312,10 @@ bool d_IsDealerDone(Critter& player, Critter@ dealer)
     }
     return false;
 }
- 
 bool d_IsDealerNotDone(Critter& player, Critter@ dealer)
 {
-        CBlackjack@ bj = blackjackManager.GetPlayerGame(player.Id);
+    CBlackjack@ bj = blackjackManager.GetPlayerGame(player.Id);
+
     if (valid(bj))
     {
         return !bj.IsDealerDone();
@@ -333,10 +326,10 @@ bool d_IsDealerNotDone(Critter& player, Critter@ dealer)
     }
     return false;
 }
- 
 void r_DealerFinishedTurn(Critter& player, Critter@ dealer)
 {
     CBlackjack@ bj = blackjackManager.GetPlayerGame(player.Id);
+
     if (valid(bj))
     {
         bj.DealerFinishedTurn();
@@ -346,15 +339,17 @@ void r_DealerFinishedTurn(Critter& player, Critter@ dealer)
         Log("Blackjack module failed: Can't find player's game.");
     }
 }
- 
 void dlg_ShowInfo(Critter& player, Critter@ npc, string@ text)
 {
     CBlackjack@ bj = blackjackManager.GetPlayerGame(player.Id);
+
     if (valid(bj))
     {
-        if(!IS_DIALOG_GENERATED(text))
+        if (!IS_DIALOG_GENERATED(text))
+        {
             return;
- 
+        }
+
         text += "$lastAction" + bj.GetLastAction();
         text += "$playerHand" + bj.GetPlayerHand();
         text += "$dealerHand" + bj.GetDealerHand();
@@ -366,6 +361,6 @@ void dlg_ShowInfo(Critter& player, Critter@ npc, string@ text)
     {
         //  Shall not log error here, because this function get's called after client clicked exit, this error always happens.
         //  Log("Blackjack module failed at dlg_ShowInfo: Can't find player's game.");
- 
+
     }
 }

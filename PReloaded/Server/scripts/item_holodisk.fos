@@ -6,12 +6,13 @@
 //
 
 #include "_macros.fos"
-
 void item_init(Item& item, bool firstTime)
 {
-    if(!firstTime || !FLAG(item.Flags, ITEM_FLAG_HOLODISK))
+    if (!firstTime || !FLAG(item.Flags, ITEM_FLAG_HOLODISK))
+    {
         return;
-    if(item.Val0 != 0)
+    }
+    if (item.Val0 != 0)
     {
         item.HolodiskNumber = item.Val0;
         item.Update();

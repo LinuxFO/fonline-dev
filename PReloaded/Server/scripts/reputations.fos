@@ -8,19 +8,16 @@
 #define __REPUTATIONS_MODULE__
 #include "reputations_h.fos"
 #include "utils_h.fos"
-
 import void ApplyReputationModifiers(Critter& cr, uint index, int num, int den) from "reputations_modifiers";
 import int  GetReputationModifier(uint, uint) from "reputations_modifiers";
 import int  GetGroupsStatus(uint, uint) from "reputations_modifiers";
-
 /**
  * \~english @defgroup ReputationsGroup Reputations
  * Global functions used to modify critters' reputations.
  * Include reputations_h.fos for usage.
  * \~ @ingroup FOnline2238
  */
- /*@{*/
-
+/*@{*/
 /**
  * Adds reputation points for the critter
  * @param     cr        Critter which reputation should increase
@@ -33,7 +30,6 @@ void AddReputation(Critter@ cr, uint index, int val)
     _CheckValidIndex(index);
     cr.ReputationBase[index] = cr.Reputation[index] + val;
 }
-
 /**
  * Substracts reputation points for the critter
  * @param     cr        Critter which reputation should decrease
@@ -46,7 +42,6 @@ void SubReputation(Critter@ cr, uint index, int val)
     _CheckValidIndex(index);
     cr.ReputationBase[index] = cr.Reputation[index] - val;
 }
-
 // capped versions
 /**
  * Adds reputation points to the critter, but not above the specified cap
@@ -60,14 +55,17 @@ void AddReputation(Critter@ cr, uint index, int val, int cap)
 {
     _CheckValidIndex(index);
     int rep = cr.Reputation[index];
-    if(rep >= cap)
+    if (rep >= cap)
+    {
         return;
+    }
     rep += val;
-    if(rep > cap)
+    if (rep > cap)
+    {
         rep = cap;
+    }
     cr.ReputationBase[index] = rep;
 }
-
 /**
  * Substracts reputation points for the critter
  * @param     cr        Critter which reputation should decrease
@@ -80,14 +78,17 @@ void SubReputation(Critter@ cr, uint index, int val, int cap)
 {
     _CheckValidIndex(index);
     int rep = cr.Reputation[index];
-    if(rep <= cap)
+    if (rep <= cap)
+    {
         return;
+    }
     rep -= val;
-    if(rep < cap)
+    if (rep < cap)
+    {
         rep = cap;
+    }
     cr.ReputationBase[index] = rep;
 }
-
 // todo: change to use map data faction
 /**
  * Checks the reputation index of the location owners
@@ -100,26 +101,33 @@ uint ReputationIndex(uint locid)
     return FACTION_NONE;
 }
 /*@}*/
-
 void ProcessProfitReputation(Critter@ cr, uint index, int profit)
 {
     _CheckValidIndex(index);
     int points = cr.Reputation[index];
-    if(points >= REP_TRADE_CAP)
+    if (points >= REP_TRADE_CAP)
+    {
         return;
+    }
     points = points * ABS(points);   // points^2*sgn(points)
     points += profit;
-    if(points < 0)
+    if (points < 0)
     {
         int sq = -int(sqrt(float(-points)));
-        if(sq <= cr.Reputation[index])
+        if (sq <= cr.Reputation[index])
+        {
             return;
+        }
         cr.ReputationBase[index] = sq;
         return;
     }
     int sq = int(sqrt(float(points)));
-    if(sq > REP_TRADE_CAP)
+    if (sq > REP_TRADE_CAP)
+    {
         sq = REP_TRADE_CAP;
-    if(sq > cr.Reputation[index])
+    }
+    if (sq > cr.Reputation[index])
+    {
         cr.ReputationBase[index] = sq;
+    }
 }

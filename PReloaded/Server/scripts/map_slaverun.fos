@@ -12,9 +12,7 @@
 
 #include "slaverun_h.fos"
 #include "utils_h.fos"
-
 import void FillMap(Map@ map, uint& hostiles, uint& normals, uint& slavers, uint teamId) from "slaverun";
-
 void map_init(Map& map, bool firstTime)
 {
     map.SetEvent(MAP_EVENT_IN_CRITTER, "_OnInCritter");
@@ -23,24 +21,27 @@ void map_init(Map& map, bool firstTime)
     map.SetData(MAP_DATA_SLAVERUN_PLAYER, 0);
     map.SetData(MAP_DATA_SLAVERUN_COMBAT, UNITIALIZED);
 }
-
 void _OnInCritter(Map& map, Critter& player)
 {
-    if(!player.IsPlayer())
+    if (!player.IsPlayer())
+    {
         return;
+    }
     map.GetLocation().AutoGarbage = true;
     GameVar@ loc = GetLocalVar(LVAR_slaverun_current_loc, player.Id);
-    if(loc != map.GetLocation().Id)
+    if (loc != map.GetLocation().Id)
+    {
         return;
+    }
 
     EraseTimeEvent(GetLvar(player, LVAR_slaverun_eventnum));
     map.SetData(MAP_DATA_SLAVERUN_PLAYER, player.Id);
-    if(map.GetData(MAP_DATA_SLAVERUN_INIT) != INITIALIZED)       // should be always true TODO!!!!
+    if (map.GetData(MAP_DATA_SLAVERUN_INIT) != INITIALIZED)       // should be always true TODO!!!!
     {
         map.SetData(MAP_DATA_SLAVERUN_INIT, INITIALIZED);
-        uint     hostiles = 0;
-        uint     normals = 0;
-        uint     slavers = 0;
+        uint hostiles = 0;
+        uint normals = 0;
+        uint slavers = 0;
 
         GameVar@ status = GetLocalVar(LVAR_slaverun_status, player.Id);
         status = SLAVERUN_ATTEMPTED | SLAVERUN_ACTIVE;
@@ -55,9 +56,10 @@ void _OnInCritter(Map& map, Critter& player)
     }
     player.Say(SAY_NETMSG, "You've entered the slave run area.");
 }
-
 void _OnOutCritter(Map& map, Critter& player)
 {
-    if(player.IsPlayer())
+    if (player.IsPlayer())
+    {
         player.UnsetKnownLoc(true, map.GetLocation().Id);
+    }
 }

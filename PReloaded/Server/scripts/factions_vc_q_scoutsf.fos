@@ -8,7 +8,6 @@
 #include "_macros.fos"
 #include "_maps.fos"
 #include "_vars.fos"
-
 void ScoutSFMap(Map@ map, Critter@ player)
 {
     // Ugh, rewrite to use bitflags
@@ -18,7 +17,7 @@ void ScoutSFMap(Map@ map, Critter@ player)
     GameVar@ var = GetLocalVar(LVAR_factions_q_vc_scoutsf, player.Id);
 
     // The quest is active
-    if(var == 1 || var > 9)
+    if (var == 1 || var > 9)
     {
         // If the area was not visited, mark it as visited
     }

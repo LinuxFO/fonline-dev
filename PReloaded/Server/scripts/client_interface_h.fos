@@ -17,13 +17,12 @@
 #define TOWN_COUNT      (6)
 
 #ifndef __CLIENT_INTERFACE__
-
 import void IndicatorMouse(bool down, int click) from "client_interface";
 import void ToggleInterfaceShown() from "client_interface";
 import void SetInterfaceShown(bool setting) from "client_interface";
 import bool IsInterfaceShown() from "client_interface";
 import bool IsWallRoofTransparency() from "client_interface";
 import bool ToggleWallRoofTransparency() from "client_interface";
-import void RestoreWallRoofTransparency( bool force = false ) from "client_interface";
+import void RestoreWallRoofTransparency(bool force = false) from "client_interface";
 #endif // !__CLIENT_INTERFACE__
 #endif // __CLIENT_INTERFACE_H__ //

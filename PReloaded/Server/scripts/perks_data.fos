@@ -11,19 +11,19 @@
 int[][] PerksData =
 {
     { 300, 2, 1 }, // Bookworm, Disabled, 1 ranks
-    array<int>(0),              // level 1 requirements
-    
+    array < int > (0),              // level 1 requirements
+
     #ifdef __SERVER
-    array<int>(0),               // level 1 perk up effects
+    array < int > (0),               // level 1 perk up effects
     {              // level 1 perk down effects
         -1         // Just revert
     },
     #endif
 
     { 301, 2, 1 }, // Awareness, Disabled, 1 ranks
-    array<int>(0),               // level 1 requirements
+    array < int > (0),               // level 1 requirements
     #ifdef __SERVER
-    array<int>(0),               // level 1 perk up effects
+    array < int > (0),               // level 1 perk up effects
     {              // level 1 perk down effects
         -1         // Just revert
     },
@@ -34,7 +34,7 @@ int[][] PerksData =
         77, 1, 18, // Level at least 18
     },
     #ifdef __SERVER
-    array<int>(0),               // level 1 perk up effects
+    array < int > (0),               // level 1 perk up effects
     {              // level 1 perk down effects
         -1         // Just revert
     },
@@ -73,7 +73,7 @@ int[][] PerksData =
         77, 1, 9,  // Level at least 9
     },
     #ifdef __SERVER
-    array<int>(0),               // level 1 perk up effects
+    array < int > (0),               // level 1 perk up effects
     {              // level 1 perk down effects
         -1         // Just revert
     },
@@ -84,7 +84,7 @@ int[][] PerksData =
         77, 1, 18, // Level at least 18
     },
     #ifdef __SERVER
-    array<int>(0),               // level 1 perk up effects
+    array < int > (0),               // level 1 perk up effects
     {              // level 1 perk down effects
         -1         // Just revert
     },
@@ -132,18 +132,18 @@ int[][] PerksData =
     #endif
 
     { 310, 2, 1 }, // Night Vision, Disabled, 1 ranks
-    array<int>(0),               // level 1 requirements
+    array < int > (0),               // level 1 requirements
     #ifdef __SERVER
-    array<int>(0),              // level 1 perk up effects
+    array < int > (0),              // level 1 perk up effects
     {              // level 1 perk down effects
         -1         // Just revert
     },
     #endif
 
     { 311, 2, 1 }, // Presence, Disabled, 1 ranks
-    array<int>(0),               // level 1 requirements
+    array < int > (0),               // level 1 requirements
     #ifdef __SERVER
-    array<int>(0),               // level 1 perk up effects
+    array < int > (0),               // level 1 perk up effects
     {              // level 1 perk down effects
         -1         // Just revert
     },
@@ -184,7 +184,7 @@ int[][] PerksData =
         26, 1, 5,  // Plasma Damage Resistance increased by 5
         27, 1, 5,  // Electric Damage Resistance increased by 5
         28, 1, 5,  // EMP Damage Resistance increased by 5
-        29, 1, 5,  // Explode Damage Resistance increased by 5        
+        29, 1, 5,  // Explode Damage Resistance increased by 5
     },
     {              // level 1 perk down effects
         -1         // Just revert
@@ -211,7 +211,7 @@ int[][] PerksData =
         4, 1, 3,   // Intelligence at least 3
     },
     #ifdef __SERVER
-    array<int>(0),               // level 1 perk up effects
+    array < int > (0),               // level 1 perk up effects
     {              // level 1 perk down effects
         -1         // Just revert
     },
@@ -223,7 +223,7 @@ int[][] PerksData =
         208, 1, 100, // Sneak at least 100
     },
     #ifdef __SERVER
-    array<int>(0),                 // level 1 perk up effects
+    array < int > (0),                 // level 1 perk up effects
     {                // level 1 perk down effects
         -1           // Just revert
     },
@@ -234,16 +234,16 @@ int[][] PerksData =
         217, 1, 125, // Outdoorsman at least 125
     },
     #ifdef __SERVER
-    array<int>(0),                 // level 1 perk up effects
+    array < int > (0),                 // level 1 perk up effects
     {                // level 1 perk down effects
         -1           // Just revert
     },
     #endif
 
     { 318, 2, 1 }, // Master Trader, Disabled, 1 ranks
-    array<int>(0),              // level 1 requirements
+    array < int > (0),              // level 1 requirements
     #ifdef __SERVER
-    array<int>(0),               // level 1 perk up effects
+    array < int > (0),               // level 1 perk up effects
     {              // level 1 perk down effects
         -1         // Just revert
     },
@@ -255,7 +255,7 @@ int[][] PerksData =
         212, 1, 100, // Science at least 100
     },
     #ifdef __SERVER
-    array<int>(0),                 // level 1 perk up effects
+    array < int > (0),                 // level 1 perk up effects
     {                // level 1 perk down effects
         -1           // Just revert
     },
@@ -269,7 +269,7 @@ int[][] PerksData =
         333, 1, 1    // Medic perk
     },
     #ifdef __SERVER
-    array<int>(0),                // level 1 perk up effects
+    array < int > (0),                // level 1 perk up effects
     {               // level 1 perk down effects
         -1          // Just revert
     },
@@ -282,7 +282,7 @@ int[][] PerksData =
         6, 1, 8,     // Luck at least 8
     },
     #ifdef __SERVER
-    array<int>(0),               // level 1 perk up effects
+    array < int > (0),               // level 1 perk up effects
     {              // level 1 perk down effects
         -1         // Just revert
     },
@@ -293,34 +293,34 @@ int[][] PerksData =
         77, 1, 12, // Level at least 12
     },
     #ifdef __SERVER
-    array<int>(0),               // level 1 perk up effects
+    array < int > (0),               // level 1 perk up effects
     {              // level 1 perk down effects
         -1         // Just revert
     },
     #endif
 
     { 323, 2, 1 }, // Empathy, Disabled, 1 ranks
-    array<int>(0),               // level 1 requirements
+    array < int > (0),               // level 1 requirements
     #ifdef __SERVER
-    array<int>(0),               // level 1 perk up effects
+    array < int > (0),               // level 1 perk up effects
     {              // level 1 perk down effects
         -1         // Just revert
     },
     #endif
 
     { 324, 2, 1 }, // Slayer, Disabled, 1 ranks
-    array<int>(0),              // level 1 requirements
+    array < int > (0),              // level 1 requirements
     #ifdef __SERVER
-    array<int>(0),               // level 1 perk up effects
+    array < int > (0),               // level 1 perk up effects
     {              // level 1 perk down effects
         -1         // Just revert
     },
     #endif
 
     { 325, 2, 1 }, // Sniper, Disabled, 1 ranks
-    array<int>(0),              // level 1 requirements
+    array < int > (0),              // level 1 requirements
     #ifdef __SERVER
-    array<int>(0),               // level 1 perk up effects
+    array < int > (0),               // level 1 perk up effects
     {              // level 1 perk down effects
         -1         // Just revert
     },
@@ -332,7 +332,7 @@ int[][] PerksData =
         208, 1, 175, // Sneak at least 175
     },
     #ifdef __SERVER
-    array<int>(0),                // level 1 perk up effects
+    array < int > (0),                // level 1 perk up effects
     {                // level 1 perk down effects
         -1           // Just revert
     },
@@ -363,9 +363,9 @@ int[][] PerksData =
     #endif
 
     { 328, 2, 1 }, // Mental Block, Disabled, 1 ranks
-    array<int>(0),               // level 1 requirements
+    array < int > (0),               // level 1 requirements
     #ifdef __SERVER
-    array<int>(0),               // level 1 perk up effects
+    array < int > (0),               // level 1 perk up effects
     {              // level 1 perk down effects
         -1         // Just revert
     },
@@ -414,8 +414,8 @@ int[][] PerksData =
         203, 1, 175, // Close Combat at least 175
     },
     #ifdef __SERVER
-    array<int>(0),               // level 1 perk up effects
-    array<int>(0),               // level 2 perk up effects
+    array < int > (0),               // level 1 perk up effects
+    array < int > (0),               // level 2 perk up effects
     {              // level 1 perk down effects
         -1         // Just revert
     },
@@ -444,7 +444,7 @@ int[][] PerksData =
         213, 1, 120, // Repair at least 150
     },
     #ifdef __SERVER
-    array<int>(0),                 // level 1 perk up effects
+    array < int > (0),                 // level 1 perk up effects
     {                // level 1 perk down effects
         -1           // Just revert
     },
@@ -458,7 +458,7 @@ int[][] PerksData =
         207, 1, 125, // Doctor at least 125
     },
     #ifdef __SERVER
-    array<int>(0),                 // level 1 perk up effects
+    array < int > (0),                 // level 1 perk up effects
     {                // level 1 perk down effects
         -1           // Just revert
     },
@@ -469,7 +469,7 @@ int[][] PerksData =
         210, 1, 125, // Steal at least 125
     },
     #ifdef __SERVER
-    array<int>(0),                 // level 1 perk up effects
+    array < int > (0),                 // level 1 perk up effects
     {                // level 1 perk down effects
         -1           // Just revert
     },
@@ -480,7 +480,7 @@ int[][] PerksData =
         214, 1, 125, // Speech at least 125
     },
     #ifdef __SERVER
-    array<int>(0),                 // level 1 perk up effects
+    array < int > (0),                 // level 1 perk up effects
     {                // level 1 perk down effects
         -1           // Just revert
     },
@@ -492,16 +492,16 @@ int[][] PerksData =
         205, 1, 125, // Throwing at least 125
     },
     #ifdef __SERVER
-    array<int>(0),                 // level 1 perk up effects
+    array < int > (0),                 // level 1 perk up effects
     {                // level 1 perk down effects
         -1           // Just revert
     },
     #endif
 
     { 337, 2, 1 }, // Friendly Foe, Disabled, 1 ranks
-    array<int>(0),               // level 1 requirements
+    array < int > (0),               // level 1 requirements
     #ifdef __SERVER
-    array<int>(0),               // level 1 perk up effects
+    array < int > (0),               // level 1 perk up effects
     {              // level 1 perk down effects
         -1         // Just revert
     },
@@ -512,7 +512,7 @@ int[][] PerksData =
         210, 1, 125, // Steal at least 125
     },
     #ifdef __SERVER
-    array<int>(0),                 // level 1 perk up effects
+    array < int > (0),                 // level 1 perk up effects
     {                // level 1 perk down effects
         -1           // Just revert
     },
@@ -524,16 +524,16 @@ int[][] PerksData =
         208, 1, 150, // Sneak at least 150
     },
     #ifdef __SERVER
-    array<int>(0),                 // level 1 perk up effects
+    array < int > (0),                 // level 1 perk up effects
     {                // level 1 perk down effects
         -1           // Just revert
     },
     #endif
 
     { 340, 2, 1 }, // Cult of Personality, Disabled, 1 ranks
-    array<int>(0),               // level 1 requirements
+    array < int > (0),               // level 1 requirements
     #ifdef __SERVER
-    array<int>(0),               // level 1 perk up effects
+    array < int > (0),               // level 1 perk up effects
     {              // level 1 perk down effects
         -1         // Just revert
     },
@@ -546,7 +546,7 @@ int[][] PerksData =
         6, 1, 7,     // Luck at least 7
     },
     #ifdef __SERVER
-    array<int>(0),               // level 1 perk up effects
+    array < int > (0),               // level 1 perk up effects
     {              // level 1 perk down effects
         -1         // Just revert
     },
@@ -557,16 +557,16 @@ int[][] PerksData =
         217, 1, 150, // Outdoorsman at least 150
     },
     #ifdef __SERVER
-    array<int>(0),                 // level 1 perk up effects
+    array < int > (0),                 // level 1 perk up effects
     {                // level 1 perk down effects
         -1           // Just revert
     },
     #endif
 
     { 343, 2, 1 }, // Flower Child, Disabled, 1 ranks
-    array<int>(0),              // level 1 requirements
+    array < int > (0),              // level 1 requirements
     #ifdef __SERVER
-    array<int>(0),               // level 1 perk up effects
+    array < int > (0),               // level 1 perk up effects
     {              // level 1 perk down effects
         -1         // Just revert
     },
@@ -577,16 +577,16 @@ int[][] PerksData =
         217, 1, 150, // Outdoorsman at least 150
     },
     #ifdef __SERVER
-    array<int>(0),                 // level 1 perk up effects
+    array < int > (0),                 // level 1 perk up effects
     {                // level 1 perk down effects
         -1           // Just revert
     },
     #endif
 
     { 345, 2, 1 }, // Animal Friend, Disabled, 1 ranks
-    array<int>(0),              // level 1 requirements
+    array < int > (0),              // level 1 requirements
     #ifdef __SERVER
-    array<int>(0),               // level 1 perk up effects
+    array < int > (0),               // level 1 perk up effects
     {              // level 1 perk down effects
         -1         // Just revert
     },
@@ -597,16 +597,16 @@ int[][] PerksData =
         217, 1, 150, // Outdoorsman at least 150
     },
     #ifdef __SERVER
-    array<int>(0),                 // level 1 perk up effects
+    array < int > (0),                 // level 1 perk up effects
     {                // level 1 perk down effects
         -1           // Just revert
     },
     #endif
 
     { 347, 2, 1 }, // Mysterious Stranger, Disabled, 1 ranks
-    array<int>(0),               // level 1 requirements
+    array < int > (0),               // level 1 requirements
     #ifdef __SERVER
-    array<int>(0),               // level 1 perk up effects
+    array < int > (0),               // level 1 perk up effects
     {              // level 1 perk down effects
         -1         // Just revert
     },
@@ -617,7 +617,7 @@ int[][] PerksData =
         217, 1, 100, // Outdoorsman at least 100
     },
     #ifdef __SERVER
-    array<int>(0),                 // level 1 perk up effects
+    array < int > (0),                 // level 1 perk up effects
     {                // level 1 perk down effects
         -1           // Just revert
     },
@@ -629,16 +629,16 @@ int[][] PerksData =
         5, 1, 5,   // Agility at least 5
     },
     #ifdef __SERVER
-    array<int>(0),               // level 1 perk up effects
+    array < int > (0),               // level 1 perk up effects
     {              // level 1 perk down effects
         -1         // Just revert
     },
     #endif
 
     { 350, 2, 1 }, // Smooth Talker, Disabled, 1 ranks
-    array<int>(0),              // level 1 requirements
+    array < int > (0),              // level 1 requirements
     #ifdef __SERVER
-    array<int>(0),               // level 1 perk up effects
+    array < int > (0),               // level 1 perk up effects
     {              // level 1 perk down effects
         -1         // Just revert
     },
@@ -650,38 +650,38 @@ int[][] PerksData =
         212, 1, 50, // Science at least 50
     },
     #ifdef __SERVER
-    array<int>(0),                // level 1 perk up effects
+    array < int > (0),                // level 1 perk up effects
     {               // level 1 perk down effects
         -1          // Just revert
     },
     #endif
 
     { 352, 2, 1 }, // Tag!, Disabled, 1 ranks
-    array<int>(0),              // level 1 requirements
+    array < int > (0),              // level 1 requirements
     #ifdef __SERVER
-    array<int>(0),               // level 1 perk up effects
+    array < int > (0),               // level 1 perk up effects
     {              // level 1 perk down effects
         -1         // Just revert
     },
     #endif
 
     { 353, 2, 1 }, // Mutate!, Disabled, 1 ranks
-    array<int>(0),               // level 1 requirements
+    array < int > (0),               // level 1 requirements
     #ifdef __SERVER
-    array<int>(0),               // level 1 perk up effects
+    array < int > (0),               // level 1 perk up effects
     {              // level 1 perk down effects
         -1         // Just revert
     },
     #endif
 
     { 354, 1, 3 }, // Profession: Armorer, Support, 3 ranks
-    array<int>(0),               // level 1 requirements
-    array<int>(0),               // level 2 requirements
-    array<int>(0),               // level 3 requirements
+    array < int > (0),               // level 1 requirements
+    array < int > (0),               // level 2 requirements
+    array < int > (0),               // level 3 requirements
     #ifdef __SERVER
-    array<int>(0),               // level 1 perk up effects
-    array<int>(0),               // level 2 perk up effects
-    array<int>(0),               // level 3 perk up effects
+    array < int > (0),               // level 1 perk up effects
+    array < int > (0),               // level 2 perk up effects
+    array < int > (0),               // level 3 perk up effects
     {              // level 1 perk down effects
         -1         // Just revert
     },
@@ -694,13 +694,13 @@ int[][] PerksData =
     #endif
 
     { 355, 1, 3 }, // Profession: Gunsmith (Small Guns), Support, 3 ranks
-    array<int>(0),               // level 1 requirements
-    array<int>(0),               // level 2 requirements
-    array<int>(0),               // level 3 requirements
+    array < int > (0),               // level 1 requirements
+    array < int > (0),               // level 2 requirements
+    array < int > (0),               // level 3 requirements
     #ifdef __SERVER
-    array<int>(0),               // level 1 perk up effects
-    array<int>(0),               // level 2 perk up effects
-    array<int>(0),               // level 3 perk up effects
+    array < int > (0),               // level 1 perk up effects
+    array < int > (0),               // level 2 perk up effects
+    array < int > (0),               // level 3 perk up effects
     {              // level 1 perk down effects
         -1         // Just revert
     },
@@ -713,13 +713,13 @@ int[][] PerksData =
     #endif
 
     { 356, 1, 3 }, // Profession: Gunsmith (Big Guns), Support, 3 ranks
-    array<int>(0),              // level 1 requirements
-    array<int>(0),              // level 2 requirements
-    array<int>(0),              // level 3 requirements
+    array < int > (0),              // level 1 requirements
+    array < int > (0),              // level 2 requirements
+    array < int > (0),              // level 3 requirements
     #ifdef __SERVER
-    array<int>(0),              // level 1 perk up effects
-    array<int>(0),              // level 2 perk up effects
-    array<int>(0),              // level 3 perk up effects
+    array < int > (0),              // level 1 perk up effects
+    array < int > (0),              // level 2 perk up effects
+    array < int > (0),              // level 3 perk up effects
     {              // level 1 perk down effects
         -1         // Just revert
     },
@@ -732,13 +732,13 @@ int[][] PerksData =
     #endif
 
     { 357, 1, 3 }, // Profession: Energy Expert, Support, 3 ranks
-    array<int>(0),              // level 1 requirements
-    array<int>(0),              // level 2 requirements
-    array<int>(0),              // level 3 requirements
+    array < int > (0),              // level 1 requirements
+    array < int > (0),              // level 2 requirements
+    array < int > (0),              // level 3 requirements
     #ifdef __SERVER
-    array<int>(0),              // level 1 perk up effects
-    array<int>(0),              // level 2 perk up effects
-    array<int>(0),              // level 3 perk up effects
+    array < int > (0),              // level 1 perk up effects
+    array < int > (0),              // level 2 perk up effects
+    array < int > (0),              // level 3 perk up effects
     {              // level 1 perk down effects
         -1         // Just revert
     },
@@ -751,13 +751,13 @@ int[][] PerksData =
     #endif
 
     { 358, 1, 3 }, // Profession: Demolition Expert, Support, 3 ranks
-    array<int>(0),              // level 1 requirements
-    array<int>(0),              // level 2 requirements
-    array<int>(0),              // level 3 requirements
+    array < int > (0),              // level 1 requirements
+    array < int > (0),              // level 2 requirements
+    array < int > (0),              // level 3 requirements
     #ifdef __SERVER
-    array<int>(0),              // level 1 perk up effects
-    array<int>(0),              // level 2 perk up effects
-    array<int>(0),              // level 3 perk up effects
+    array < int > (0),              // level 1 perk up effects
+    array < int > (0),              // level 2 perk up effects
+    array < int > (0),              // level 3 perk up effects
     {              // level 1 perk down effects
         -1         // Just revert
     },
@@ -770,13 +770,13 @@ int[][] PerksData =
     #endif
 
     { 359, 1, 3 }, // Profession: Doctor, Support, 3 ranks
-    array<int>(0),              // level 1 requirements
-    array<int>(0),              // level 2 requirements
-    array<int>(0),              // level 3 requirements
+    array < int > (0),              // level 1 requirements
+    array < int > (0),              // level 2 requirements
+    array < int > (0),              // level 3 requirements
     #ifdef __SERVER
-    array<int>(0),              // level 1 perk up effects
-    array<int>(0),              // level 2 perk up effects
-    array<int>(0),              // level 3 perk up effects
+    array < int > (0),              // level 1 perk up effects
+    array < int > (0),              // level 2 perk up effects
+    array < int > (0),              // level 3 perk up effects
     {              // level 1 perk down effects
         -1         // Just revert
     },
@@ -789,13 +789,13 @@ int[][] PerksData =
     #endif
 
     { 360, 2, 3 }, // Profession: Mordino's Druggist, Disabled, 3 ranks
-    array<int>(0),              // level 1 requirements
-    array<int>(0),              // level 2 requirements
-    array<int>(0),              // level 3 requirements
+    array < int > (0),              // level 1 requirements
+    array < int > (0),              // level 2 requirements
+    array < int > (0),              // level 3 requirements
     #ifdef __SERVER
-    array<int>(0),              // level 1 perk up effects
-    array<int>(0),              // level 2 perk up effects
-    array<int>(0),              // level 3 perk up effects
+    array < int > (0),              // level 1 perk up effects
+    array < int > (0),              // level 2 perk up effects
+    array < int > (0),              // level 3 perk up effects
     {              // level 1 perk down effects
         -1         // Just revert
     },
@@ -808,13 +808,13 @@ int[][] PerksData =
     #endif
 
     { 361, 2, 3 }, // Profession: Thief, Disabled, 3 ranks
-    array<int>(0),              // level 1 requirements
-    array<int>(0),              // level 2 requirements
-    array<int>(0),              // level 3 requirements
+    array < int > (0),              // level 1 requirements
+    array < int > (0),              // level 2 requirements
+    array < int > (0),              // level 3 requirements
     #ifdef __SERVER
-    array<int>(0),              // level 1 perk up effects
-    array<int>(0),              // level 2 perk up effects
-    array<int>(0),              // level 3 perk up effects
+    array < int > (0),              // level 1 perk up effects
+    array < int > (0),              // level 2 perk up effects
+    array < int > (0),              // level 3 perk up effects
     {              // level 1 perk down effects
         -1         // Just revert
     },
@@ -827,13 +827,13 @@ int[][] PerksData =
     #endif
 
     { 362, 2, 3 }, // Profession: Librarian, Disabled, 3 ranks
-    array<int>(0),              // level 1 requirements
-    array<int>(0),              // level 2 requirements
-    array<int>(0),              // level 3 requirements
+    array < int > (0),              // level 1 requirements
+    array < int > (0),              // level 2 requirements
+    array < int > (0),              // level 3 requirements
     #ifdef __SERVER
-    array<int>(0),              // level 1 perk up effects
-    array<int>(0),              // level 2 perk up effects
-    array<int>(0),              // level 3 perk up effects
+    array < int > (0),              // level 1 perk up effects
+    array < int > (0),              // level 2 perk up effects
+    array < int > (0),              // level 3 perk up effects
     {              // level 1 perk down effects
         -1         // Just revert
     },
@@ -846,13 +846,13 @@ int[][] PerksData =
     #endif
 
     { 363, 2, 3 }, // Profession: Scout, Disabled, 3 ranks
-    array<int>(0),              // level 1 requirements
-    array<int>(0),              // level 2 requirements
-    array<int>(0),              // level 3 requirements
+    array < int > (0),              // level 1 requirements
+    array < int > (0),              // level 2 requirements
+    array < int > (0),              // level 3 requirements
     #ifdef __SERVER
-    array<int>(0),              // level 1 perk up effects
-    array<int>(0),              // level 2 perk up effects
-    array<int>(0),              // level 3 perk up effects
+    array < int > (0),              // level 1 perk up effects
+    array < int > (0),              // level 2 perk up effects
+    array < int > (0),              // level 3 perk up effects
     {              // level 1 perk down effects
         -1         // Just revert
     },
@@ -870,7 +870,7 @@ int[][] PerksData =
         0, 1, 5,   // Strength at least 5
     },
     #ifdef __SERVER
-    array<int>(0),              // level 1 perk up effects
+    array < int > (0),              // level 1 perk up effects
     {              // level 1 perk down effects
         -1         // Just revert
     },
@@ -882,16 +882,16 @@ int[][] PerksData =
         217, 1, 100, // Outdoorsman at least 100
     },
     #ifdef __SERVER
-    array<int>(0),                // level 1 perk up effects
+    array < int > (0),                // level 1 perk up effects
     {                // level 1 perk down effects
         -1           // Just revert
     },
     #endif
 
     { 382, 2, 1 }, // Comprehension, Disabled, 1 ranks
-    array<int>(0),              // level 1 requirements
+    array < int > (0),              // level 1 requirements
     #ifdef __SERVER
-    array<int>(0),              // level 1 perk up effects
+    array < int > (0),              // level 1 perk up effects
     {              // level 1 perk down effects
         -1         // Just revert
     },
@@ -902,16 +902,16 @@ int[][] PerksData =
         211, 1, 125, // Traps at least 125
     },
     #ifdef __SERVER
-    array<int>(0),                // level 1 perk up effects
+    array < int > (0),                // level 1 perk up effects
     {                // level 1 perk down effects
         -1           // Just revert
     },
     #endif
 
     { 384, 2, 1 }, // Gambler, Disabled, 1 ranks
-    array<int>(0),              // level 1 requirements
+    array < int > (0),              // level 1 requirements
     #ifdef __SERVER
-    array<int>(0),              // level 1 perk up effects
+    array < int > (0),              // level 1 perk up effects
     {              // level 1 perk down effects
         -1         // Just revert
     },
@@ -1021,16 +1021,16 @@ int[][] PerksData =
         210, 1, 125, // Steal at least 125
     },
     #ifdef __SERVER
-    array<int>(0),                // level 1 perk up effects
+    array < int > (0),                // level 1 perk up effects
     {                // level 1 perk down effects
         -1           // Just revert
     },
     #endif
 
     { 393, 2, 1 }, // Here and Now, Disabled, 1 ranks
-    array<int>(0),              // level 1 requirements
+    array < int > (0),              // level 1 requirements
     #ifdef __SERVER
-    array<int>(0),              // level 1 perk up effects
+    array < int > (0),              // level 1 perk up effects
     {              // level 1 perk down effects
         -1         // Just revert
     },
@@ -1041,25 +1041,25 @@ int[][] PerksData =
         77, 1, 6,  // Level at least 6
     },
     #ifdef __SERVER
-    array<int>(0),              // level 1 perk up effects
+    array < int > (0),              // level 1 perk up effects
     {              // level 1 perk down effects
         -1         // Just revert
     },
     #endif
 
     { 395, 1, 1 }, // Kama Sutra Master [PE_KAMA_SUTRA_MASTER], Support, 1 ranks
-    array<int>(0),              // level 1 requirements
+    array < int > (0),              // level 1 requirements
     #ifdef __SERVER
-    array<int>(0),              // level 1 perk up effects
+    array < int > (0),              // level 1 perk up effects
     {              // level 1 perk down effects
         -1         // Just revert
     },
     #endif
 
     { 396, 2, 1 }, // Karma Beacon, Disabled, 1 ranks
-    array<int>(0),              // level 1 requirements
+    array < int > (0),              // level 1 requirements
     #ifdef __SERVER
-    array<int>(0),              // level 1 perk up effects
+    array < int > (0),              // level 1 perk up effects
     {              // level 1 perk down effects
         -1         // Just revert
     },
@@ -1070,7 +1070,7 @@ int[][] PerksData =
         211, 1, 50, // Traps at least 50
     },
     #ifdef __SERVER
-    array<int>(0),               // level 1 perk up effects
+    array < int > (0),               // level 1 perk up effects
     {               // level 1 perk down effects
         -1          // Just revert
     },
@@ -1082,7 +1082,7 @@ int[][] PerksData =
         206, 1, 150, // First aid at least 150
     },
     #ifdef __SERVER
-    array<int>(0),                // level 1 perk up effects
+    array < int > (0),                // level 1 perk up effects
     {                // level 1 perk down effects
         -1           // Just revert
     },
@@ -1093,7 +1093,7 @@ int[][] PerksData =
         214, 1, 100, // Speech at least 100
     },
     #ifdef __SERVER
-    array<int>(0),                // level 1 perk up effects
+    array < int > (0),                // level 1 perk up effects
     {                // level 1 perk down effects
         -1           // Just revert
     },
@@ -1104,7 +1104,7 @@ int[][] PerksData =
         215, 1, 125, // Barter at least 125
     },
     #ifdef __SERVER
-    array<int>(0),                // level 1 perk up effects
+    array < int > (0),                // level 1 perk up effects
     {                // level 1 perk down effects
         -1           // Just revert
     },
@@ -1115,7 +1115,7 @@ int[][] PerksData =
         77, 1, 3,  // Level at least 3
     },
     #ifdef __SERVER
-    array<int>(0),              // level 1 perk up effects
+    array < int > (0),              // level 1 perk up effects
     {              // level 1 perk down effects
         -1         // Just revert
     },
@@ -1126,7 +1126,7 @@ int[][] PerksData =
         77, 1, 9,    // Level at least 9
     },
     #ifdef __SERVER
-    array<int>(0),                // level 1 perk up effects
+    array < int > (0),                // level 1 perk up effects
     {                // level 1 perk down effects
         -1           // Just revert
     },
@@ -1138,7 +1138,7 @@ int[][] PerksData =
         5, 1, 6,   // Agility at least 6
     },
     #ifdef __SERVER
-    array<int>(0),              // level 1 perk up effects
+    array < int > (0),              // level 1 perk up effects
     {              // level 1 perk down effects
         -1         // Just revert
     },
@@ -1149,7 +1149,7 @@ int[][] PerksData =
         215, 1, 75, // Barter at least 75
     },
     #ifdef __SERVER
-    array<int>(0),               // level 1 perk up effects
+    array < int > (0),               // level 1 perk up effects
     {               // level 1 perk down effects
         -1          // Just revert
     },
@@ -1161,7 +1161,7 @@ int[][] PerksData =
         0, 1, 6,   // Strength at least 6
     },
     #ifdef __SERVER
-    array<int>(0),              // level 1 perk up effects
+    array < int > (0),              // level 1 perk up effects
     {              // level 1 perk down effects
         -1         // Just revert
     },
@@ -1172,7 +1172,7 @@ int[][] PerksData =
         210, 1, 100, // Steal at least 100
     },
     #ifdef __SERVER
-    array<int>(0),                // level 1 perk up effects
+    array < int > (0),                // level 1 perk up effects
     {                // level 1 perk down effects
         -1           // Just revert
     },
@@ -1183,16 +1183,16 @@ int[][] PerksData =
         77, 1, 3,  // Level at least 3
     },
     #ifdef __SERVER
-    array<int>(0),              // level 1 perk up effects
+    array < int > (0),              // level 1 perk up effects
     {              // level 1 perk down effects
         -1         // Just revert
     },
     #endif
 
     { 408, 2, 1 }, // Vault City Training, Disabled, 1 ranks
-    array<int>(0),              // level 1 requirements
+    array < int > (0),              // level 1 requirements
     #ifdef __SERVER
-    array<int>(0),              // level 1 perk up effects
+    array < int > (0),              // level 1 perk up effects
     {              // level 1 perk down effects
         -1         // Just revert
     },
@@ -1223,9 +1223,9 @@ int[][] PerksData =
     #endif
 
     { 417, 2, 1 }, // Expert Excrement Expeditor, Disabled, 1 ranks
-    array<int>(0),              // level 1 requirements
+    array < int > (0),              // level 1 requirements
     #ifdef __SERVER
-    array<int>(0),              // level 1 perk up effects
+    array < int > (0),              // level 1 perk up effects
     {              // level 1 perk down effects
         -1         // Just revert
     },
@@ -1237,25 +1237,25 @@ int[][] PerksData =
         3, 1, 3,   // Charisma at least 3
     },
     #ifdef __SERVER
-    array<int>(0),              // level 1 perk up effects
+    array < int > (0),              // level 1 perk up effects
     {              // level 1 perk down effects
         -1         // Just revert
     },
     #endif
 
     { 419, 2, 1 }, // Jinxed, Disabled, 1 ranks
-    array<int>(0),              // level 1 requirements
+    array < int > (0),              // level 1 requirements
     #ifdef __SERVER
-    array<int>(0),              // level 1 perk up effects
+    array < int > (0),              // level 1 perk up effects
     {              // level 1 perk down effects
         -1         // Just revert
     },
     #endif
 
     { 420, 2, 1 }, // Terminator, Disabled, 1 ranks
-    array<int>(0),              // level 1 requirements
+    array < int > (0),              // level 1 requirements
     #ifdef __SERVER
-    array<int>(0),              // level 1 perk up effects
+    array < int > (0),              // level 1 perk up effects
     {              // level 1 perk down effects
         -1         // Just revert
     },
@@ -1267,7 +1267,7 @@ int[][] PerksData =
         2, 1, 6,   // Endurance at least 6
     },
     #ifdef __SERVER
-    array<int>(0),              // level 1 perk up effects
+    array < int > (0),              // level 1 perk up effects
     {              // level 1 perk down effects
         -1         // Just revert
     },
@@ -1280,7 +1280,7 @@ int[][] PerksData =
         2, 1, 6,   // Endurance at least 6
     },
     #ifdef __SERVER
-    array<int>(0),              // level 1 perk up effects
+    array < int > (0),              // level 1 perk up effects
     {              // level 1 perk down effects
         -1         // Just revert
     },
@@ -1292,7 +1292,7 @@ int[][] PerksData =
         2, 1, 8,   // Endurance at least 8
     },
     #ifdef __SERVER
-    array<int>(0),              // level 1 perk up effects
+    array < int > (0),              // level 1 perk up effects
     {              // level 1 perk down effects
         -1         // Just revert
     },
@@ -1316,7 +1316,7 @@ int[][] PerksData =
         77, 1, 15, // Level at least 15
     },
     #ifdef __SERVER
-    array<int>(0),              // level 1 perk up effects
+    array < int > (0),              // level 1 perk up effects
     {              // level 1 perk down effects
         -1         // Just revert
     },
@@ -1327,7 +1327,7 @@ int[][] PerksData =
         77, 1, 6,  // Level at least 6
     },
     #ifdef __SERVER
-    array<int>(0),              // level 1 perk up effects
+    array < int > (0),              // level 1 perk up effects
     {              // level 1 perk down effects
         -1         // Just revert
     },
@@ -1338,7 +1338,7 @@ int[][] PerksData =
         77, 1, 6,  // Level at least 6
     },
     #ifdef __SERVER
-    array<int>(0),              // level 1 perk up effects
+    array < int > (0),              // level 1 perk up effects
     {              // level 1 perk down effects
         -1         // Just revert
     },
@@ -1349,7 +1349,7 @@ int[][] PerksData =
         77, 1, 15, // Level at least 15
     },
     #ifdef __SERVER
-    array<int>(0),              // level 1 perk up effects
+    array < int > (0),              // level 1 perk up effects
     {              // level 1 perk down effects
         -1         // Just revert
     },
@@ -1361,7 +1361,7 @@ int[][] PerksData =
         5, 1, 6,   // Agility at least 6
     },
     #ifdef __SERVER
-    array<int>(0),              // level 1 perk up effects
+    array < int > (0),              // level 1 perk up effects
     {              // level 1 perk down effects
         -1         // Just revert
     },
@@ -1372,7 +1372,7 @@ int[][] PerksData =
         217, 1, 50, // Outdoorsman at least 50
     },
     #ifdef __SERVER
-    array<int>(0),               // level 1 perk up effects
+    array < int > (0),               // level 1 perk up effects
     {               // level 1 perk down effects
         -1          // Just revert
     },
@@ -1395,10 +1395,10 @@ int[][] PerksData =
     #endif
 
     { 432, 1, 1 }, // Dermal Impact Armor, Implant, 1 ranks
-    array<int>(0),              // level 1 requirements
+    array < int > (0),              // level 1 requirements
     #ifdef __SERVER
     {              // level 1 perk up effects
-	    23, 1, 2,  // Normal Resistance increased by 2%
+        23, 1, 2,      // Normal Resistance increased by 2%
         29, 1, 2,  // Explode Resistance increased by 2%
     },
     {              // level 1 perk down effects
@@ -1407,12 +1407,12 @@ int[][] PerksData =
     #endif
 
     { 433, 1, 1 }, // Dermal Impact Asslt. Enhance., Implant, 1 ranks
-    array<int>(0),              // level 1 requirements
+    array < int > (0),              // level 1 requirements
     #ifdef __SERVER
     {              // level 1 perk up effects
-	    16, 1, 1,  // Normal Threshold increased by 1
+        16, 1, 1,      // Normal Threshold increased by 1
         22, 1, 1,  // Explode Threshold increased by 1
-		23, 1, 2,  // Normal Resistance increased by 2%
+        23, 1, 2,          // Normal Resistance increased by 2%
         29, 1, 2,  // Explode Resistance increased by 2%
     },
     {              // level 1 perk down effects
@@ -1421,11 +1421,11 @@ int[][] PerksData =
     #endif
 
     { 434, 1, 1 }, // Phoenix Armor Implants, Implant, 1 ranks
-    array<int>(0),              // level 1 requirements
+    array < int > (0),              // level 1 requirements
     #ifdef __SERVER
     {              // level 1 perk up effects
         24, 1, 2,  // Laser Resistance increased by 2%
-	    25, 1, 2,  // Fire Resistance increased by 2%
+        25, 1, 2,      // Fire Resistance increased by 2%
         26, 1, 2,  // Plasma Resistance increased by 2%
     },
     {              // level 1 perk down effects
@@ -1434,14 +1434,14 @@ int[][] PerksData =
     #endif
 
     { 435, 1, 1 }, // Phoenix Assault Enhancement, Implant, 1 ranks
-    array<int>(0),              // level 1 requirements
+    array < int > (0),              // level 1 requirements
     #ifdef __SERVER
     {              // level 1 perk up effects
         17, 1, 1,  // Laser Threshold increased by 1
-	    18, 1, 1,  // Fire Threshold increased by 1
+        18, 1, 1,      // Fire Threshold increased by 1
         19, 1, 1,  // Plasma Threshold increased by 1
-	    24, 1, 2,  // Laser Resistance increased by 2%
-	    25, 1, 2,  // Fire Resistance increased by 2%
+        24, 1, 2,      // Laser Resistance increased by 2%
+        25, 1, 2,      // Fire Resistance increased by 2%
         26, 1, 2,  // Plasma Resistance increased by 2%
     },
     {              // level 1 perk down effects
@@ -1454,7 +1454,7 @@ int[][] PerksData =
         77, 1, 9,  // Level at least 9
     },
     #ifdef __SERVER
-    array<int>(0),              // level 1 perk up effects
+    array < int > (0),              // level 1 perk up effects
     {              // level 1 perk down effects
         -1         // Just revert
     },
@@ -1495,7 +1495,7 @@ int[][] PerksData =
         206, 1, 100, // First aid at least 100
     },
     #ifdef __SERVER
-    array<int>(0),                // level 1 perk up effects
+    array < int > (0),                // level 1 perk up effects
     {                // level 1 perk down effects
         -1           // Just revert
     },
@@ -1507,7 +1507,7 @@ int[][] PerksData =
         206, 1, 125, // First aid at least 125
     },
     #ifdef __SERVER
-    array<int>(0),                // level 1 perk up effects
+    array < int > (0),                // level 1 perk up effects
     {                // level 1 perk down effects
         -1           // Just revert
     },
@@ -1519,7 +1519,7 @@ int[][] PerksData =
         208, 1, 75, // Sneak at least 75
     },
     #ifdef __SERVER
-    array<int>(0),               // level 1 perk up effects
+    array < int > (0),               // level 1 perk up effects
     {               // level 1 perk down effects
         -1          // Just revert
     },
@@ -1531,7 +1531,7 @@ int[][] PerksData =
         208, 1, 125, // Sneak at least 125
     },
     #ifdef __SERVER
-    array<int>(0),                // level 1 perk up effects
+    array < int > (0),                // level 1 perk up effects
     {                // level 1 perk down effects
         -1           // Just revert
     },
@@ -1542,7 +1542,7 @@ int[][] PerksData =
         77, 1, 6,  // Level at least 6
     },
     #ifdef __SERVER
-    array<int>(0),              // level 1 perk up effects
+    array < int > (0),              // level 1 perk up effects
     {              // level 1 perk down effects
         -1         // Just revert
     },
@@ -1554,7 +1554,7 @@ int[][] PerksData =
         203, 1, 125 // Close Combat 125
     },
     #ifdef __SERVER
-    array<int>(0),              // level 1 perk up effects
+    array < int > (0),              // level 1 perk up effects
     {              // level 1 perk down effects
         -1         // Just revert
     },
@@ -1565,7 +1565,7 @@ int[][] PerksData =
         77, 1, 12, // Level at least 12
     },
     #ifdef __SERVER
-    array<int>(0),              // level 1 perk up effects
+    array < int > (0),              // level 1 perk up effects
     {              // level 1 perk down effects
         -1         // Just revert
     },
@@ -1576,7 +1576,7 @@ int[][] PerksData =
         77, 1, 15, // Level at least 15
     },
     #ifdef __SERVER
-    array<int>(0),              // level 1 perk up effects
+    array < int > (0),              // level 1 perk up effects
     {              // level 1 perk down effects
         -1         // Just revert
     },
@@ -1588,7 +1588,7 @@ int[][] PerksData =
         205, 1, 150, // Throwing at least 150
     },
     #ifdef __SERVER
-    array<int>(0),                // level 1 perk up effects
+    array < int > (0),                // level 1 perk up effects
     {                // level 1 perk down effects
         -1           // Just revert
     },
@@ -1599,7 +1599,7 @@ int[][] PerksData =
         215, 1, 100, // Barter at least 100
     },
     #ifdef __SERVER
-    array<int>(0),                // level 1 perk up effects
+    array < int > (0),                // level 1 perk up effects
     {                // level 1 perk down effects
         -1           // Just revert
     },
@@ -1610,7 +1610,7 @@ int[][] PerksData =
         215, 1, 125, // Barter at least 125
     },
     #ifdef __SERVER
-    array<int>(0),                // level 1 perk up effects
+    array < int > (0),                // level 1 perk up effects
     {                // level 1 perk down effects
         -1           // Just revert
     },
@@ -1621,7 +1621,7 @@ int[][] PerksData =
         214, 1, 75, // Speech at least 75
     },
     #ifdef __SERVER
-    array<int>(0),               // level 1 perk up effects
+    array < int > (0),               // level 1 perk up effects
     {               // level 1 perk down effects
         -1          // Just revert
     },
@@ -1632,16 +1632,16 @@ int[][] PerksData =
         214, 1, 150, // Speech at least 150
     },
     #ifdef __SERVER
-    array<int>(0),                // level 1 perk up effects
+    array < int > (0),                // level 1 perk up effects
     {                // level 1 perk down effects
         -1           // Just revert
     },
     #endif
 
     { 452, 2, 1 }, // Trapper, Disabled, 1 ranks
-    array<int>(0),              // level 1 requirements
+    array < int > (0),              // level 1 requirements
     #ifdef __SERVER
-    array<int>(0),              // level 1 perk up effects
+    array < int > (0),              // level 1 perk up effects
     {              // level 1 perk down effects
         -1         // Just revert
     },
@@ -1652,7 +1652,7 @@ int[][] PerksData =
         213, 1, 125, // Repair at least 125
     },
     #ifdef __SERVER
-    array<int>(0),                // level 1 perk up effects
+    array < int > (0),                // level 1 perk up effects
     {                // level 1 perk down effects
         -1           // Just revert
     },
@@ -1664,7 +1664,7 @@ int[][] PerksData =
         213, 1, 100, // Repair at least 100
     },
     #ifdef __SERVER
-    array<int>(0),                // level 1 perk up effects
+    array < int > (0),                // level 1 perk up effects
     {                // level 1 perk down effects
         -1           // Just revert
     },
@@ -1675,7 +1675,7 @@ int[][] PerksData =
         213, 1, 75, // Repair at least 75
     },
     #ifdef __SERVER
-    array<int>(0),               // level 1 perk up effects
+    array < int > (0),               // level 1 perk up effects
     {               // level 1 perk down effects
         -1          // Just revert
     },
@@ -1686,7 +1686,7 @@ int[][] PerksData =
         212, 1, 120, // Science at least 120
     },
     #ifdef __SERVER
-    array<int>(0),                // level 1 perk up effects
+    array < int > (0),                // level 1 perk up effects
     {                // level 1 perk down effects
         -1           // Just revert
     },
@@ -1697,7 +1697,7 @@ int[][] PerksData =
         212, 1, 125, // Science at least 125
     },
     #ifdef __SERVER
-    array<int>(0),                // level 1 perk up effects
+    array < int > (0),                // level 1 perk up effects
     {                // level 1 perk down effects
         -1           // Just revert
     },
@@ -1709,7 +1709,7 @@ int[][] PerksData =
         212, 1, 75, // Science at least 75
     },
     #ifdef __SERVER
-    array<int>(0),               // level 1 perk up effects
+    array < int > (0),               // level 1 perk up effects
     {               // level 1 perk down effects
         -1          // Just revert
     },
@@ -1720,7 +1720,7 @@ int[][] PerksData =
         209, 1, 125, // Lockpick at least 150
     },
     #ifdef __SERVER
-    array<int>(0),                // level 1 perk up effects
+    array < int > (0),                // level 1 perk up effects
     {                // level 1 perk down effects
         -1           // Just revert
     },
@@ -1731,7 +1731,7 @@ int[][] PerksData =
         209, 1, 100, // Lockpick at least 100
     },
     #ifdef __SERVER
-    array<int>(0),                // level 1 perk up effects
+    array < int > (0),                // level 1 perk up effects
     {                // level 1 perk down effects
         -1           // Just revert
     },
@@ -1743,15 +1743,15 @@ int[][] PerksData =
         207, 1, 50, // Doctor at least 50
     },
     #ifdef __SERVER
-    array<int>(0),               // level 1 perk up effects
+    array < int > (0),               // level 1 perk up effects
     {               // level 1 perk down effects
         -1          // Just revert
     },
     #endif
 
     { 462, 1, 2 }, // Nemean Armor, Implant, 2 ranks
-    array<int>(0),              // level 1 requirements
-    array<int>(0),              // level 2 requirements
+    array < int > (0),              // level 1 requirements
+    array < int > (0),              // level 2 requirements
     #ifdef __SERVER
     {              // level 1 perk up effects
         7, 1, 10,  // Maximum Hit Points increased by 10
@@ -1766,9 +1766,9 @@ int[][] PerksData =
         -1         // Just revert
     },
     #endif
-	
+
     { 463, 1, 1 }, // Strength Implant, Implant, 1 ranks
-    array<int>(0),              // level 1 requirements
+    array < int > (0),              // level 1 requirements
     #ifdef __SERVER
     {              // level 1 perk up effects
         0, 1, 1,   // Strength increased by 1
@@ -1776,10 +1776,10 @@ int[][] PerksData =
     {              // level 1 perk down effects
         -1         // Just revert
     },
-    #endif	
-	
+    #endif
+
     { 464, 1, 1 }, // Perception Implant, Implant, 1 ranks
-    array<int>(0),              // level 1 requirements
+    array < int > (0),              // level 1 requirements
     #ifdef __SERVER
     {              // level 1 perk up effects
         1, 1, 1,   // Perception increased by 1
@@ -1788,9 +1788,9 @@ int[][] PerksData =
         -1         // Just revert
     },
     #endif
-	
-	{ 465, 1, 1 }, // Endurance Implant, Implant, 1 ranks
-    array<int>(0),              // level 1 requirements
+
+    { 465, 1, 1 },     // Endurance Implant, Implant, 1 ranks
+    array < int > (0),              // level 1 requirements
     #ifdef __SERVER
     {              // level 1 perk up effects
         2, 1, 1,   // Endurance increased by 1
@@ -1799,9 +1799,9 @@ int[][] PerksData =
         -1         // Just revert
     },
     #endif
-	
-	{ 466, 1, 1 }, // Charisma Implant, Implant, 1 ranks
-    array<int>(0),              // level 1 requirements
+
+    { 466, 1, 1 },     // Charisma Implant, Implant, 1 ranks
+    array < int > (0),              // level 1 requirements
     #ifdef __SERVER
     {              // level 1 perk up effects
         3, 1, 1,   // Charisma increased by 1
@@ -1810,9 +1810,9 @@ int[][] PerksData =
         -1         // Just revert
     },
     #endif
-	
-	{ 467, 1, 1 }, // Intelligence Implant, Implant, 1 ranks
-    array<int>(0),              // level 1 requirements
+
+    { 467, 1, 1 },     // Intelligence Implant, Implant, 1 ranks
+    array < int > (0),              // level 1 requirements
     #ifdef __SERVER
     {              // level 1 perk up effects
         4, 1, 1,   // Intelligence increased by 1
@@ -1821,9 +1821,9 @@ int[][] PerksData =
         -1         // Just revert
     },
     #endif
-	
-	{ 468, 1, 1 }, // Agility Implant, Implant, 1 ranks
-    array<int>(0),              // level 1 requirements
+
+    { 468, 1, 1 },     // Agility Implant, Implant, 1 ranks
+    array < int > (0),              // level 1 requirements
     #ifdef __SERVER
     {              // level 1 perk up effects
         5, 1, 1,   // Agility increased by 1
@@ -1832,9 +1832,9 @@ int[][] PerksData =
         -1         // Just revert
     },
     #endif
-	
-	{ 469, 1, 1 }, // Luck Implant, Implant, 1 ranks
-    array<int>(0),              // level 1 requirements
+
+    { 469, 1, 1 },     // Luck Implant, Implant, 1 ranks
+    array < int > (0),              // level 1 requirements
     #ifdef __SERVER
     {              // level 1 perk up effects
         6, 1, 1,   // Luck increased by 1
@@ -1843,6 +1843,6 @@ int[][] PerksData =
         -1         // Just revert
     },
     #endif
-	
+
     { -1, -1, -1 }
 };

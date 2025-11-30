@@ -714,7 +714,7 @@ int[] reptable34 /*FACTION_FREE_TRADERS*/ =
     FACTION_LA, 1000
 };
 
-int[] reptable35; /*FACTION_REDDING_GUTTERSNIPES*/ 
+int[] reptable35; /*FACTION_REDDING_GUTTERSNIPES*/
 int[] reptable36 /*FACTION_FLC*/ =
 {
     FACTION_RAIDERS,      -800,

@@ -61,16 +61,19 @@ shared interface IElevator
     uint       get_Type();
 };
 
-class CElevator : IElevator
+class CElevator: IElevator
 {
     array<CFloor> floors;
     // players (their ids) that are inside the elevator
     // usually one per floor
-    array<uint>      players;
+    array<uint> players;
     // type of the elevator (descriptor number)
     uint             type;
     IElevatorOnMove@ onmove;
-    uint get_Type() { return type; }
+    uint get_Type()
+    {
+        return type;
+    }
     // first floor number
     // uint base;
     // custom floors
@@ -128,10 +131,12 @@ class CElevator : IElevator
     //
     uint GetCurrentLevel(Critter& player)
     {
-        for(uint i = 0, j = floors.length(); i < j; i++)
+        for (uint i = 0, j = floors.length(); i < j; i++)
         {
-            if(floors[i].MapId == player.GetMapId())
+            if (floors[i].MapId == player.GetMapId())
+            {
                 return i;
+            }
         }
         return 0;
     }
@@ -141,25 +146,28 @@ class CElevator : IElevator
     bool IsInside(Critter& player)
     {
         // DLog("IsInside - length: " + players.length());
-        for(uint i = 0; i < players.length(); i++)
+        for (uint i = 0; i < players.length(); i++)
         {
             // DLog("IsInside: " + players[i] + " vs " + player.Id);
-            if(players[i] == player.Id)
+            if (players[i] == player.Id)
+            {
                 return true;
+            }
         }
         return false;
     }
-
     //
     // Put player inside the elevator
     //
     void AddPlayer(Critter& player)
     {
-        for(uint i = 0; i < players.length(); i++)
+        for (uint i = 0; i < players.length(); i++)
         {
             // this shouldn't happen anyway
-            if(players[i] == player.Id)
+            if (players[i] == player.Id)
+            {
                 return;
+            }
         }
         players.insertLast(player.Id);
     }
@@ -168,9 +176,9 @@ class CElevator : IElevator
     //
     void RemovePlayer(Critter@ player)
     {
-        for(uint i = 0; i < players.length(); i++)
+        for (uint i = 0; i < players.length(); i++)
         {
-            if(players[i] == player.Id)
+            if (players[i] == player.Id)
             {
                 players.removeAt(i);
                 return;
@@ -185,22 +193,24 @@ class CElevator : IElevator
     {
         // remove player from elevator
         this.RemovePlayer(player);
-        if(valid(onmove) && !onmove.OnMove(player, floor))
+        if (valid(onmove) && !onmove.OnMove(player, floor))
+        {
             return;
+        }
         CFloor@ dest = floors[floor];
         // only if destination differs from actual map
-        if(player.GetMapId() != dest.MapId)
+        if (player.GetMapId() != dest.MapId)
         {
-            uint8 partyTransit = 0;
+            uint8  partyTransit = 0;
             uint16 hx = player.HexX;
             uint16 hy = player.HexY;
 
             array<Critter @> critters;
             uint             critterCount = player.GetFollowGroup(FIND_LIFE | FIND_ONLY_PLAYERS, critters);
             player.TransitToMap(dest.MapId, dest.EntireNum);
-            for(uint i = 0; i < critterCount && partyTransit < 3; ++i)
+            for (uint i = 0; i < critterCount && partyTransit < 3; ++i)
             {
-                if(critters[i].Timeout[TO_BATTLE] == 0 && GetDistantion(hx, hy, critters[i].HexX, critters[i].HexY) < 6)
+                if (critters[i].Timeout[TO_BATTLE] == 0 && GetDistantion(hx, hy, critters[i].HexX, critters[i].HexY) < 6)
                 {
                     critters[i].TransitToMap(dest.MapId, dest.EntireNum);
                     ++partyTransit;
@@ -212,6 +222,7 @@ class CElevator : IElevator
     {
         CFloor@ floor = floors[floornum];
         Map@    map = GetMap(floor.MapId);
+
         map.PlaySound("elevator.acm", floor.HexX, floor.HexY, 10);
     }
     //
@@ -223,11 +234,10 @@ class CElevator : IElevator
         floors.insertLast(CFloor(mapId, entireNum));
         return this;
     }
-
     void Debug(Critter& player)
     {
         player.Say(SAY_NETMSG, "=== Elevator ===");
-        for(uint i = 0; i < floors.length(); i++)
+        for (uint i = 0; i < floors.length(); i++)
         {
             player.Say(SAY_NETMSG, "" + i + ", " + floors[i].MapId + "/" + floors[i].EntireNum);
         }
@@ -246,16 +256,19 @@ class CElevator : IElevator
 // Mayck: "It's sorta improvized, I just needed something to use in quest locations (while not having elevator instance for each location instance)."
 
 
-class CPidElevator : IElevator
+class CPidElevator: IElevator
 {
     array<CPidFloor> floors;
     // players (their ids) that are inside the elevator
     // usually one per floor
-    array<uint>      players;
+    array<uint> players;
     // type of the elevator (descriptor number)
     uint             type;
     IElevatorOnMove@ onmove;
-    uint get_Type() { return type; }
+    uint get_Type()
+    {
+        return type;
+    }
     // first floor number
     // uint base;
     // custom floors
@@ -286,10 +299,12 @@ class CPidElevator : IElevator
     //
     uint GetCurrentLevel(Critter& player)
     {
-        for(uint i = 0, j = floors.length(); i < j; i++)
+        for (uint i = 0, j = floors.length(); i < j; i++)
         {
-            if(floors[i].MapPid == player.GetMapProtoId())
+            if (floors[i].MapPid == player.GetMapProtoId())
+            {
                 return i;
+            }
         }
         return 0;
     }
@@ -299,25 +314,28 @@ class CPidElevator : IElevator
     bool IsInside(Critter& player)
     {
         // DLog("IsInside - length: " + players.length());
-        for(uint i = 0; i < players.length(); i++)
+        for (uint i = 0; i < players.length(); i++)
         {
             // DLog("IsInside: " + players[i] + " vs " + player.Id);
-            if(players[i] == player.Id)
+            if (players[i] == player.Id)
+            {
                 return true;
+            }
         }
         return false;
     }
-
     //
     // Put player inside the elevator
     //
     void AddPlayer(Critter& player)
     {
-        for(uint i = 0; i < players.length(); i++)
+        for (uint i = 0; i < players.length(); i++)
         {
             // this shouldn't happen anyway
-            if(players[i] == player.Id)
+            if (players[i] == player.Id)
+            {
                 return;
+            }
         }
         players.insertLast(player.Id);
     }
@@ -326,9 +344,9 @@ class CPidElevator : IElevator
     //
     void RemovePlayer(Critter@ player)
     {
-        for(uint i = 0; i < players.length(); i++)
+        for (uint i = 0; i < players.length(); i++)
         {
-            if(players[i] == player.Id)
+            if (players[i] == player.Id)
             {
                 players.removeAt(i);
                 return;
@@ -343,28 +361,30 @@ class CPidElevator : IElevator
     {
         // remove player from elevator
         this.RemovePlayer(player);
-        if(valid(onmove) && !onmove.OnMove(player, floor))
+        if (valid(onmove) && !onmove.OnMove(player, floor))
+        {
             return;
+        }
         CPidFloor@ dest = floors[floor];
         // only if destination differs from actual map
-        if(player.GetMapProtoId() != dest.MapPid)
+        if (player.GetMapProtoId() != dest.MapPid)
         {
             Location@ loc = GetLocationOf(player);
-            if(valid(loc))
+            if (valid(loc))
             {
                 Map@ destinationMap = loc.GetMap(dest.MapPid);
-                if(valid(destinationMap))
+                if (valid(destinationMap))
                 {
-                    uint8 partyTransit = 0;
+                    uint8  partyTransit = 0;
                     uint16 hx = player.HexX;
                     uint16 hy = player.HexY;
 
                     array<Critter @> critters;
                     uint             critterCount = player.GetFollowGroup(FIND_LIFE | FIND_ONLY_PLAYERS, critters);
                     player.TransitToMap(destinationMap.Id, dest.EntireNum);
-                    for(uint i = 0; i < critterCount && partyTransit < 3; ++i)
+                    for (uint i = 0; i < critterCount && partyTransit < 3; ++i)
                     {
-                        if(critters[i].Timeout[TO_BATTLE] == 0 && GetDistantion(hx, hy, critters[i].HexX, critters[i].HexY) < 6)
+                        if (critters[i].Timeout[TO_BATTLE] == 0 && GetDistantion(hx, hy, critters[i].HexX, critters[i].HexY) < 6)
                         {
                             critters[i].TransitToMap(destinationMap.Id, dest.EntireNum);
                             ++partyTransit;
@@ -378,7 +398,8 @@ class CPidElevator : IElevator
     {
         CPidFloor@ floor = floors[floornum];
         Location@  loc = GetLocationOf(player);
-        if(valid(loc))
+
+        if (valid(loc))
         {
             Map@ map = loc.GetMap(floor.MapPid);
             map.PlaySound("elevator.acm", floor.HexX, floor.HexY, 10);
@@ -393,11 +414,10 @@ class CPidElevator : IElevator
         floors.insertLast(CPidFloor(mapId, entireNum));
         return this;
     }
-
     void Debug(Critter& player)
     {
         player.Say(SAY_NETMSG, "=== Elevator ===");
-        for(uint i = 0; i < floors.length(); i++)
+        for (uint i = 0; i < floors.length(); i++)
         {
             player.Say(SAY_NETMSG, "" + i + ", " + floors[i].MapPid + "/" + floors[i].EntireNum);
         }

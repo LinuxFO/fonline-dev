@@ -31,31 +31,33 @@
 // idle time in milseconds (normal is slower for performance issues)
 #define IDLE_NORMAL                   (5000)
 #define IDLE_ALERTED                  (1000)
-
 import void NpcSetLevel(Critter& npc, int level) from "parameters";
 import void SetWear(Item& item, int wearProcent) from "repair";
 import void SetMinWear(Item& item, int wearProcent) from "repair";
 
 #define STR_MUTANT_ENTRANCE_ATTACK    (1)
 
-uint16[] npcProtos = { 552, 553};
+uint16[] npcProtos = { 552, 553 };
 uint16[] npcBags = { 201, 309, 307, 165, 313, 183 };
 uint16[] npcBagsExtra = { 279 };
-
 void r_SpawnLocation(Critter& player, Critter@ npc)
 {
     Critter@[] crits = { player };
     int loc = CreateLocation(LOCATION_MutantsHideout, Random(1700, 1850), Random(2300, 2500), crits);
-    if(loc == 0)
+    if (loc == 0)
+    {
         return;
-    GameVar@  locidv = GetLocalVar(LVAR_q_la_gunrunners_caravan_locid, player.Id);
+    }
+    GameVar@ locidv = GetLocalVar(LVAR_q_la_gunrunners_caravan_locid, player.Id);
     locidv = loc;
     Location@ location = GetLocation(loc);
     location.Color = COLOR_WM_QUEST;
     location.Update();
-    Map@      map = location.GetMapByIndex(0);
-    if(player.Mode[MODE_DEFAULT_COMBAT] == COMBAT_MODE_TURN_BASED)
+    Map@ map = location.GetMapByIndex(0);
+    if (player.Mode[MODE_DEFAULT_COMBAT] == COMBAT_MODE_TURN_BASED)
+    {
         SetTurnBasedAvailability(location);
+    }
     map.SetData(MAP_DATA_GUNRUNNER_CARAVAN_OWNER, player.Id);
     map.SetEvent(MAP_EVENT_IN_CRITTER, "_CritterInMap");
 
@@ -63,23 +65,25 @@ void r_SpawnLocation(Critter& player, Critter@ npc)
     // player.SetKnownLoc(true, loc);
 
     Map@ cave = location.GetMapByIndex(1);
-    if(valid(cave))
+    if (valid(cave))
     {
         array<Entire> entires;
         ParseEntires(cave, entires, 80);
         uint8 maxNpc = Random(15, 20);
 
-        for(uint8 i = 0; i < maxNpc; ++i)
+        for (uint8 i = 0; i < maxNpc; ++i)
         {
-            uint entId = Random(0, entires.length()-1);
-            Entire@       ent = entires[entId];
+            uint    entId = Random(0, entires.length() - 1);
+            Entire@ ent = entires[entId];
             entires.removeAt(entId);
 
             uint16 npcPid = random_from_array(npcProtos);
             uint16 npcBag = random_from_array(npcBags);
 
-            if(Random(0, 100) < 3)
+            if (Random(0, 100) < 3)
+            {
                 npcBag = random_from_array(npcBagsExtra);
+            }
 
             int[] params =
             {
@@ -90,58 +94,60 @@ void r_SpawnLocation(Critter& player, Critter@ npc)
                 ST_AI_ID, 194,
                 ST_BAG_ID, npcBag
             };
-     
-            Critter@ npc = cave.AddNpc(npcPid , ent.HexX, ent.HexY, Random(0, 5), params, null, "_Mutant");
+
+            Critter@ npc = cave.AddNpc(npcPid, ent.HexX, ent.HexY, Random(0, 5), params, null, "_Mutant");
         }
     }
 
     array<uint> data = { loc };
-    CreateTimeEvent( __FullSecond + REAL_SECOND(20), "e_WearWeapons", data, true ); 
+    CreateTimeEvent(__FullSecond + REAL_SECOND(20), "e_WearWeapons", data, true);
     DynamicLocationAddLog(player, npc, locidv, "quest_la_gunr_caravan");
 }
-
 void _CritterInMap(Map& map, Critter& cr)
 {
-    if(cr.IsPlayer())
+    if (cr.IsPlayer())
     {
         Location@ loc = map.GetLocation();
-        if(valid(loc) && !cr.IsKnownLoc(true,loc.Id)) 
+        if (valid(loc) && !cr.IsKnownLoc(true, loc.Id))
         {
             cr.SetKnownLoc(true, loc.Id);
             cr.Say(SAY_NETMSG, "You note coordinates of this location in your PipBoy.");
         }
     }
 }
-
 uint e_WearWeapons(uint[] @ values)
 {
     Location@ location = GetLocation(values[0]);
 
-    if(valid(location))
+    if (valid(location))
     {
         array<Map@> maps;
-        uint count = location.GetMaps(maps);
-        for(uint m = 0; m < count; m++)
+        uint        count = location.GetMaps(maps);
+        for (uint m = 0; m < count; m++)
         {
             if (!valid(maps[m]))
+            {
                 continue;
+            }
 
             array<Critter@> critters;
-            uint n = maps[m].GetCritters(0, FIND_ALL | FIND_ONLY_NPC, critters);
-            for(uint c = 0; c < n; ++c)
+            uint            n = maps[m].GetCritters(0, FIND_ALL | FIND_ONLY_NPC, critters);
+            for (uint c = 0; c < n; ++c)
             {
                 if (!valid(critters[c]))
+                {
                     continue;
+                }
 
                 array<Item@> weapon;
-                uint w = critters[c].GetItemsByType(ITEM_TYPE_WEAPON, weapon);
+                uint         w = critters[c].GetItemsByType(ITEM_TYPE_WEAPON, weapon);
                 for (uint i = 0; i < w; ++i)
                 {
-                    if(valid(weapon[i]) && weapon[i].IsDeteriorable() && !weapon[i].IsStackable())
+                    if (valid(weapon[i]) && weapon[i].IsDeteriorable() && !weapon[i].IsStackable())
                     {
                         uint wear = Random(10, 50);
                         SetMinWear(weapon[i], wear);
-                        SetWear(weapon[i], wear+Random(10, 30));
+                        SetWear(weapon[i], wear + Random(10, 30));
                     }
                 }
             }
@@ -150,35 +156,32 @@ uint e_WearWeapons(uint[] @ values)
 
     return 0;
 }
-
 void r_DeleteLocation(Critter& player, Critter@ npc)
 {
     GameVar@ var = GetLocalVar(LVAR_q_la_gunrunners_caravan_locid, player.Id);
+
     DeleteLocation(var.GetValue());
     DynamicLocationDelLog(player, npc, var, "quest_la_gunr_caravan");
 }
-
 Critter@ GetOwner(Map& map)
 {
     return GetCritter(map.GetData(MAP_DATA_GUNRUNNER_CARAVAN_OWNER));
 }
-
 // =============================================
 // Map trigger
 // =============================================
-
 void t_EntranceAttack(Critter& cr, Scenery& trigger, bool entered, uint8 dir)
 {
-    if(!cr.IsPlayer() || !entered)
+    if (!cr.IsPlayer() || !entered)
+    {
         return;
+    }
 
     cr.SendMessage(MSG_ENTRANCE_MUTANT_ATTACK, 0, MESSAGE_TO_VISIBLE_ME);
 }
-
 // =============================================
 // Super Mutants / Critter
 // =============================================
-
 void _Mutant(Critter& cr, bool firstTime)
 {
     cr.StatBase[ST_REPLICATION_TIME] = REPLICATION_NEVER;
@@ -194,13 +197,12 @@ void _Mutant(Critter& cr, bool firstTime)
 
     // GuardInit(cr);
 
-    if(firstTime)
+    if (firstTime)
     {
         NpcSetLevel(cr, 15);
         GuardPerks(cr);
     }
 }
-
 bool _Attacked(Critter& cr, Critter& attacker)
 {
     cr.SendMessage(MSG_IM_ATTACKED, attacker.Id, MESSAGE_TO_ALL_ON_MAP);
@@ -208,20 +210,20 @@ bool _Attacked(Critter& cr, Critter& attacker)
 }
 void _OnMessage(Critter& cr, Critter& fromCr, int message, int value)
 {
-    if(message == MSG_IM_ATTACKED)
+    if (message == MSG_IM_ATTACKED)
+    {
         AttackCritter(cr, fromCr);
+    }
 
-    if(message == MSG_ENTRANCE_MUTANT_ATTACK)
+    if (message == MSG_ENTRANCE_MUTANT_ATTACK)
     {
         AttackCritter(cr, fromCr);
         cr.SayMsg(SAY_NORM_ON_HEAD, TEXTMSG_DLG, DLGSTR(DIALOG_ID, STR_MUTANT_ENTRANCE_ATTACK));
     }
 }
-
 // =============================================
 // Mob script parts
 // =============================================
-
 //
 // Checks if critter is within attack distance
 //
@@ -230,14 +232,17 @@ void _MobIdle(Critter& cr)
     // check critters in sight
     array<Critter@> crits;
     // get visible players
-    uint            num = cr.GetCritters(false, FIND_ONLY_PLAYERS | FIND_LIFE, crits);
+    uint num = cr.GetCritters(false, FIND_ONLY_PLAYERS | FIND_LIFE, crits);
     // mob.Say(SAY_NORM_ON_HEAD, ""+num);
     // check distance
     uint dist = GetDistance(cr);
-    for(uint i = 0; i < num; i++)
+
+    for (uint i = 0; i < num; i++)
     {
-        if(GetCrittersDistantion(cr, crits[i]) > dist)
+        if (GetCrittersDistantion(cr, crits[i]) > dist)
+        {
             continue;
+        }
         else
         {
             // attack
@@ -245,7 +250,7 @@ void _MobIdle(Critter& cr)
             return;
         }
     }
-    if(ALERTED(cr) > 0)
+    if (ALERTED(cr) > 0)
     {
         // MoveMob(mob, false);
         cr.Wait(IDLE_ALERTED);
@@ -257,11 +262,11 @@ void _MobIdle(Critter& cr)
         cr.Wait(IDLE_NORMAL);
     }
 }
-
 void MoveMob(Critter& cr, bool run)
 {
     int dist = Random(0, (cr.Stat[ST_NPC_ROLE] % 100 / 10));
-    if(dist == 0)
+
+    if (dist == 0)
     {
         cr.MoveRandom();
     }
@@ -274,7 +279,6 @@ void MoveMob(Critter& cr, bool run)
         AddWalkPlane(cr, 0, hexX, hexY, 0xff, run, 0);
     }
 }
-
 //
 // Gets distance after which critter becomes agressive
 //
@@ -285,15 +289,16 @@ uint GetDistance(Critter& cr)
 
     // switch works only for ints??
     int role = int(cr.Stat[ST_NPC_ROLE]);
-    switch(role)
+
+    switch (role)
     {
-    case ROLE_DEFAULT:
-        // mob.Say(SAY_NORM, "" + base + "/" + 3 + "=" + base/3);
-        return base / 3;
-    case ROLE_AGRESSIVE:
-        return base / 2;
-    case ROLE_PASSIVE:
-        return base / 4;
+        case ROLE_DEFAULT:
+            // mob.Say(SAY_NORM, "" + base + "/" + 3 + "=" + base/3);
+            return base / 3;
+        case ROLE_AGRESSIVE:
+            return base / 2;
+        case ROLE_PASSIVE:
+            return base / 4;
     }
     return base / 3;
 }
@@ -302,50 +307,50 @@ uint GetDistance(Critter& cr)
 //
 void _MobShowCritter(Critter& cr, Critter& showCrit)
 {
-    if(showCrit.IsPlayer())
+    if (showCrit.IsPlayer())
+    {
         ALERTED(cr) += 1;
+    }
 }
-
 void _MobHideCritter(Critter& cr, Critter& hideCrit)
 {
-    if(hideCrit.IsPlayer())
+    if (hideCrit.IsPlayer())
+    {
         ALERTED(cr) -= 1;
+    }
 }
-
-
-
-
 //
 // 30-08-2013 Cubik: dodany CD dla gracza na ponowne wybranie questu : 6-9 real-time godzin
 //
 void r_QuestCD(Critter& player, Critter@ npc)
 {
     GameVar@ var = GetLocalVar(LVAR_q_la_gunrunners_caravan, player.Id);
+
     var = 8; // zakonczenie questu
     uint[] values = { player.Id, npc.Id };
-    
+
     #ifndef __DEBUG__
-    CreateTimeEvent(AFTER(REAL_HOUR(Random(6,9))), "e_reset_quest_var", values, true);
+    CreateTimeEvent(AFTER(REAL_HOUR(Random(6, 9))), "e_reset_quest_var", values, true);
     #endif
-    
+
     #ifdef __DEBUG__
-    CreateTimeEvent(AFTER(REAL_MINUTE(Random(1,1))), "e_reset_quest_var", values, true); // dla testow 1 minute czekania na reset questu
+    CreateTimeEvent(AFTER(REAL_MINUTE(Random(1, 1))), "e_reset_quest_var", values, true); // dla testow 1 minute czekania na reset questu
     #endif
 }
-
 uint e_reset_quest_var(array<uint>@ values)
-{    	
-	GameVar@ var = GetLocalVar(LVAR_q_la_gunrunners_caravan, values[0]);
-	var = 0;
+{
+    GameVar@ var = GetLocalVar(LVAR_q_la_gunrunners_caravan, values[0]);
 
-	GameVar@ var0 = GetLocalVar(LVAR_q_la_gunrunners_caravan_locid, values[0]);
-	var0 = 0;
-	
-	GameVar@ var1 = GetLocalVar(LVAR_q_la_gunrunners_team, values[0]);
-	var1 = 0;
-		
-	GameVar@ var2 = GetLocalVar(LVAR_q_la_gunrunners_box, values[0]);
-	var2 = 0;		
+    var = 0;
+
+    GameVar@ var0 = GetLocalVar(LVAR_q_la_gunrunners_caravan_locid, values[0]);
+    var0 = 0;
+
+    GameVar@ var1 = GetLocalVar(LVAR_q_la_gunrunners_team, values[0]);
+    var1 = 0;
+
+    GameVar@ var2 = GetLocalVar(LVAR_q_la_gunrunners_box, values[0]);
+    var2 = 0;
 
     return 0;
 }

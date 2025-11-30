@@ -12,16 +12,13 @@
 # include "logging_h.fos"
 # include "debug_h.fos"
 
-# define _BankLog                               # (text) do { WLog("banks", text); FLog(LOG_BANKS, text); } while(false)
-# define _TradeLog                              # (text) do { WLog("banks", text); f.open("logs/trade.log", "a"); f.writeString(GetCurrentDateTimeString() + "> " + text + "\n"); f.close(); } while(false)
+# define _BankLog                               # (text) do { WLog("banks", text); FLog(LOG_BANKS, text); } while (false)
+# define _TradeLog                              # (text) do { WLog("banks", text); f.open("logs/trade.log", "a"); f.writeString(GetCurrentDateTimeString() + "> " + text + "\n"); f.close(); } while (false)
 
 # ifndef __ECONOMY__
-
 // Imported functions, use these.
-
 import void InitEconomy() from "economy";
 import void SendLevelThresholds(Critter&) from "economy";
-
 // Account functions
 import bool BankAccountExists(uint bankid, uint account) from "economy";
 import bool BankAccountRemoveMoney(uint bankid, uint account, uint amount) from "economy";
@@ -43,14 +40,12 @@ import uint BankSetLoan(uint bankid, uint account, uint loan) from "economy";
 import uint BankTakeLoan(uint bankid, uint account, uint amount) from "economy";
 import uint BankTransferMoney(uint bankid, uint fromaccount, uint toaccount, uint amount) from "economy";
 import uint BankWithdrawMoney(uint bankid, uint playerid, uint account, int amount) from "economy";
-
 // Banks function (affects all banks)
 import bool BanksTransferFromCritter(Critter& critter, uint amount, uint type, bool virtual) from "economy";
 import bool BanksTransferToCritter(Critter& critter, uint amount, uint type, bool virtual) from "economy";
 import uint BanksGetTotalMoney() from "economy";
 import void BanksAddMoney(uint amount) from "economy";
 import void BanksRemoveMoney(uint amount) from "economy";
-
 // Bank functions
 import bool  BankAddMoney(uint bankid, uint amount) from "economy";
 import bool  BankRemoveMoney(uint bankid, uint amount) from "economy";
@@ -64,9 +59,7 @@ import float BankGetReserveRatio(uint bankid) from "economy";
 import uint  BankSetLoanInterest(uint bankid, uint interest) from "economy";
 import uint  BankSetSaveInterest(uint bankid, float interest) from "economy";
 import bool  BankTransferFromCritter(uint bankId, Critter& critter, uint amount, uint type, bool virtual) from "economy";
-
 import void SaveBankData() from "economy";
-
 // Item price functions
 // import uint GetItemPrice(uint pid) from "economy";
 // import uint[] GetItemPrices(uint[] pids) from "economy";
@@ -75,9 +68,8 @@ import int  GetItemBuyModifier(Critter& player, Critter& trader) from "economy";
 import uint GetItemCost(Item& item, Critter& cr, Critter& trader, bool sell) from "economy";
 import uint GetItemCostPlain(Item& item, Critter& cr, Critter& trader) from "economy";
 
-import array<int> GetTraderLevels(Critter@ npc) from "economy";
+import array < int > GetTraderLevels(Critter@ npc) from "economy";
 import uint       GetTraderLevel(Critter@ npc, uint type) from "economy";
-
 import uint ItemLevel(Item& item) from "economy";
 import uint ItemLevel(uint pid) from "economy";
 import uint TraderCapacity(Critter@ npc) from "economy";
@@ -188,32 +180,52 @@ import uint TradingItemType(uint pid) from "economy";
 # define FD_BANK_RESULT_ALREADY_HAS_ACCESS      (12) // The player already has access to the specified account
 # define FD_BANK_RESULT_ALREADY_NO_ACCESS       (13) // The player doesn't have any access
 # define FD_BANK_RESULT_INVALID_ACCOUNT_TYPE    (14) // The account type does not allow this action
-
 /*@}*/
-
 const string@ FD_Bank_Result2String(uint res)
 {
-    if(res == FD_BANK_RESULT_SUCCESS)
+    if (res == FD_BANK_RESULT_SUCCESS)
+    {
         return "FD_BANK_RESULT_SUCCESS";
-    else if(res == FD_BANK_RESULT_UNKNOWN)
+    }
+    else if (res == FD_BANK_RESULT_UNKNOWN)
+    {
         return "FD_BANK_RESULT_UNKNOWN";
-    else if(res == FD_BANK_RESULT_TOO_MANY_ACCOUNTS)
+    }
+    else if (res == FD_BANK_RESULT_TOO_MANY_ACCOUNTS)
+    {
         return "FD_BANK_RESULT_TOO_MANY_ACCOUNTS";
-    else if(res == FD_BANK_RESULT_ALREADY_HAS_ACCOUNT)
+    }
+    else if (res == FD_BANK_RESULT_ALREADY_HAS_ACCOUNT)
+    {
         return "FD_BANK_RESULT_ALREADY_HAS_ACCOUNT";
-    else if(res == FD_BANK_RESULT_NOT_ENOUGH_MONEY)
+    }
+    else if (res == FD_BANK_RESULT_NOT_ENOUGH_MONEY)
+    {
         return "FD_BANK_RESULT_NOT_ENOUGH_MONEY";
-    else if(res == FD_BANK_RESULT_BANK_FULL)
+    }
+    else if (res == FD_BANK_RESULT_BANK_FULL)
+    {
         return "FD_BANK_RESULT_BANK_FULL";
-    else if(res == FD_BANK_RESULT_BANK_EMPTY)
+    }
+    else if (res == FD_BANK_RESULT_BANK_EMPTY)
+    {
         return "FD_BANK_RESULT_BANK_EMPTY";
-    else if(res == FD_BANK_RESULT_DATA_ERROR)
+    }
+    else if (res == FD_BANK_RESULT_DATA_ERROR)
+    {
         return "FD_BANK_RESULT_DATA_ERROR";
-    else if(res == FD_BANK_RESULT_INVALID_PLAYER)
+    }
+    else if (res == FD_BANK_RESULT_INVALID_PLAYER)
+    {
         return "FD_BANK_RESULT_INVALID_PLAYER";
-    else if(res == FD_BANK_RESULT_NO_ACCOUNT)
+    }
+    else if (res == FD_BANK_RESULT_NO_ACCOUNT)
+    {
         return "FD_BANK_RESULT_NO_ACCOUNT";
+    }
     else
+    {
         return "FD_Result: Unknown error code";
+    }
 }
 #endif

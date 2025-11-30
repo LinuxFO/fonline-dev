@@ -60,7 +60,7 @@ shared interface ITown
     ITown@ SetInfluenceMemberRequirement(uint number);
     ITown@ SetNearbyMemberRequirement(uint number);
     ITown@ SetTotalMemberRequirement(uint number);
-	ITown@ SetControlMemberRequirement(uint number);
+    ITown@ SetControlMemberRequirement(uint number);
     ITown@ SetLimboContainer(Item@ container);
     ITown@ SetRewardContainer(Item@ container);
     ITown@ SetTownLeader(Critter@ leader);
@@ -70,9 +70,7 @@ shared interface ITown
     ITown@ SetMilitiaEnabled();
     ITown@ SetRewardStartCaps(uint caps);
     ITown@ SetVersion(uint version);
-
     uint GetVersion();
-
     uint        GetTownID();
     string      GetTownName();
     bool        LoadData();
@@ -126,16 +124,12 @@ shared interface ITown
     void        TownCheck();
     void        ControlCheck();
     void        AddReward(uint itemPid, int count);
-
     bool IsLaw(uint law);
     void SetLaw(uint law, bool enabled);
-
     void AddMoney(int money);
     int  GetMoney();
-
     // version 3
     float GetInfluence(uint faction);
-
     Location@ GetLocation();
 };
 #endif

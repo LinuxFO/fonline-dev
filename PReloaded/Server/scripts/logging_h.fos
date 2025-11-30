@@ -9,7 +9,6 @@
 #define __LOGGING_H__
 
 #ifndef __LOGGING__
-
 import void InitLogs() from "logging";
 import void FLog(uint logindex, string& text) from "logging";
 import void ILog(string& section, string& text) from "logging";
@@ -39,7 +38,7 @@ import void DynamicLocationDelLog(Critter& cr, Critter& npc, GameVar& var, strin
 #define LOG_PERKS          (12)
 #define LOG_FACTIONS       (13)
 #define LOG_WMLOCATIONS    (14)
-#define LOG_LOGIN		   (15)
+#define LOG_LOGIN                  (15)
 #define LOG_PERKS_PICKED   (16)
 #define LOG_CHARS_CREATED  (17)
 #define LOG_CHARS_DELETED  (18)
@@ -48,9 +47,9 @@ import void DynamicLocationDelLog(Critter& cr, Critter& npc, GameVar& var, strin
 #define LOG_DIALOG_EXP     (21)
 #define LOG_SPECIAL_ENC    (22)
 #define LOG_DYNAMIC_LOC    (23)
-#define LOG_PVP_EXP		   (24)
+#define LOG_PVP_EXP                (24)
 #define LOG_PLAYER_FARMS   (25)
-#define LOG_ILLEGAL	       (26)
+#define LOG_ILLEGAL            (26)
 
 #define LOG_COUNT          (27)
 #endif

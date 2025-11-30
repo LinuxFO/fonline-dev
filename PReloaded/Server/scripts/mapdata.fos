@@ -1,6 +1,5 @@
 #ifndef __MAPDATA__
 #define __MAPDATA__
-
 /**
  * Retrieves map data for root-map of the location the given map is in.
  */
@@ -15,7 +14,6 @@ void SetRootMapData(Map& map, uint index, int val)
 {
     map.GetLocation().GetMapByIndex(0).SetData(index, val);
 }
-
 /**
  * Retrieves map data for root-map of the location.
  */

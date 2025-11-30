@@ -8,7 +8,6 @@
 // included in utils_h.fos and client_utils_h.fos, also used in mapper
 #ifndef __STRTOINT_H__
 #define __STRTOINT_H__
-
 import bool StrToInt(string@ s, uint64& inout val) from "strtoint";
 import bool StrToInt(string@ s, uint& inout val) from "strtoint";
 import bool StrToInt(string@ s, uint16& inout val) from "strtoint";

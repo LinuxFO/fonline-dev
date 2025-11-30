@@ -47,27 +47,27 @@
  *  Reviewer:   N/A
  *  Tester:     N/A
  */
- 
+
 #ifndef __BLACKJACK_H__
 #define __BLACKJACK_H__
- 
+
 #define BLACKJACK_MIN_DECKS_IN_SHOE             (2)         //  Should not be lower than 2, since some side bets require at least 2 decks.
 #define BLACKJACK_MAX_DECKS_IN_SHOE             (8)
 #define BLACKJACK_DEFAULT_DECKS_IN_SHOE         (6)
- 
+
 #define BLACKJACK_SIDE_NONE                     (0)
 #define BLACKJACK_SIDE_LUCKY_LADIES             (1)
 #define BLACKJACK_SIDE_PERFECT_PAIR             (2)
 #define BLAKCJACK_SIDE_ROYAL_MATCH              (3)
- 
+
 #define BLACKJACK_SHUFFLE_THRESHOLD_MIN         (10)        //  Percentage
 #define BLACKJACK_SHUFFLE_THRESHOLD_MAX         (50)        //  Percentage
 #define BLACKJACK_SHUFFLE_SKILL_THRESHOLD       (50)        //  To get maximum effect from gambling, the player shall have more skill than the dealer by this amount.
- 
+
 #define BLACKJACK_SKILL_TO_SEE_SHOE_SIZE        (40)        //  This is checked to see, if player can detect the size of the shoe used.
 #define BLACKJACK_SKILL_TO_SEE_SHUFFLING        (60)        //  This is checked to see, if the player get's a report about reshuffling of the shoe.
 #define BLACKJACK_SKILL_DIFF_TO_SEE_HOLE_CARD   (10)        //  Difficulty factor to see the hole card of the host. (used in a random)
- 
+
 //  Lucky Ladies side bet multiplication factors
 //  http://www.blackjack.com.au/side-bets/lucky-ladies/
 #define BLACKJACK_SIDE_FACTOR_LL_QOHP_BJ        (1000)  //  Player start hand is a Queen of hearts pair and dealer has Blackjack.
@@ -75,35 +75,35 @@
 #define BLACKJACK_SIDE_FACTOR_LL_MATCHED        (19)    //  Player start hand is a pair matching in suit and face and having total value of 20
 #define BLACKJACK_SIDE_FACTOR_LL_SUITED         (9)     //  Player start hand is two cards with same suit and having total value of 20.
 #define BLACKJACK_SIDE_FACTOR_LL_UNSUITED       (4)     //  Player start hand is two cards with total value of 20.
- 
+
 //  Perfect Pair side bet multiplication factors
 //  http://www.blackjack.com.au/side-bets/perfect-pairs/
 #define BLACKJACK_SIDE_FACTOR_PP_PERFECTPAIR    (25)    //  Player start hand is a pair that matches in suit and face.
 #define BLACKJACK_SIDE_FACTOR_PP_COLOREDPAIR    (12)    //  Player start hand is a pair with the same color, but not same suit.
 #define BLACKJACK_SIDE_FACTOR_PP_MIXEDPAIR      (6)     //  Player start hand is a pair with different color.
- 
+
 //  Royal Match side bet multiplication factors
 //  http://www.blackjack.com.au/side-bets/
 #define BALCKJACK_SIDE_FACTOR_RM_ROYAL_MATCH    (25)    //  Player starting hand is a Queen and a King of the same suit.
 #define BLACKJACK_SIDE_FACTOR_RM_SUITED         (2.5)   //  Player starting hand is two cards with the same suit.
- 
- 
+
+
 //  To keep track of game progress bc of rules.
 enum BlackjackProgress
 {
-    Init = 0,               //  Blackjack session is initialized, cue is generated and shuffled.
-    Bet = 1,                //  Player can bet or side bet at this point. Once he bet, he cannot side bet.
-    SidebetDone = 2,        //  Player had bet on a side bet, other side bets are disabled for this round.
-    First = 3,              //  At first 2 cards, more options are available at this point.
-    Rest = 4,               //  More than 2 cards, some options are not available from this point
-    SplitOneFirst = 5,
-    SplitOneRest = 6,
-    SplitTwoFirst = 7,
-    SplitTwoRest = 8,
-    PlayerBust = 9,         //  Players card value exceeds 21, which is a default loss.
+    Init            = 0,    //  Blackjack session is initialized, cue is generated and shuffled.
+    Bet             = 1,    //  Player can bet or side bet at this point. Once he bet, he cannot side bet.
+    SidebetDone     = 2,    //  Player had bet on a side bet, other side bets are disabled for this round.
+    First           = 3,    //  At first 2 cards, more options are available at this point.
+    Rest            = 4,    //  More than 2 cards, some options are not available from this point
+    SplitOneFirst   = 5,
+    SplitOneRest    = 6,
+    SplitTwoFirst   = 7,
+    SplitTwoRest    = 8,
+    PlayerBust      = 9,    //  Players card value exceeds 21, which is a default loss.
     PlayerBlackjack = 10,   //  Player can have Blackjack only from the first 2 cards.
-    DealersTurn = 11,       //  Player finished his moves, now it's the dealers turn.
-    Result = 12
+    DealersTurn     = 11,   //  Player finished his moves, now it's the dealers turn.
+    Result          = 12
 };
- 
+
 #endif // __BLACKJACK_H__

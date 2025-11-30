@@ -12,20 +12,19 @@
 
 #define LOCK_ID            (1337)
 #define LOCK_COMPLEXITY    (150)
-
 //
 // map.Data:
 // 2 - Bank ID, for more information check _economy.fos
 //
 void map_init(Map& map, bool firstTime)
 {
-    if(firstTime)
+    if (firstTime)
     {
         map.SetData(MAP_DATA_BANK, BANK_REDDING);         // This bank vault belongs to the Redding bank
 
-        array<Item@> lockers;
-        uint         numlockers = map.GetItems(PID_WALL_LOCKER_CLEAN_LEFT, lockers);
-        for(uint i = 0; i < numlockers; i++)
+        array < Item@ > lockers;
+        uint numlockers = map.GetItems(PID_WALL_LOCKER_CLEAN_LEFT, lockers);
+        for (uint i = 0; i < numlockers; i++)
         {
             lockers[i].LockerId = LOCK_ID;
             lockers[i].LockerComplexity = LOCK_COMPLEXITY;

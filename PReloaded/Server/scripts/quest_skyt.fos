@@ -8,8 +8,8 @@
 #include "npc_common_h.fos"
 #include "npc_planes_h.fos"
 #include "utils_h.fos"
- 
-#define QUEST_FAILED                (0)  //value of quest lvar in case of quest failed
+
+#define QUEST_FAILED                (0)  // value of quest lvar in case of quest failed
 
 #define ROLE_DEFAULT      (0)
 #define ROLE_AGRESSIVE    (1)
@@ -19,99 +19,104 @@
 
 #define NPC_HUMAN_COUNT             (Random(5, 10))
 
-array<uint> npcHumanPids = { 594, 595, 596, 597, 598, 599 };
-array<uint> npcHumanBags = { 578, 410, 155, 182, 578, 578 }; 
-
-//function called as request from dialog to spawn quest location
+array < uint > npcHumanPids = { 594, 595, 596, 597, 598, 599 };
+array < uint > npcHumanBags = { 578, 410, 155, 182, 578, 578 };
+// function called as request from dialog to spawn quest location
 void r_SpawnLoc(Critter& player, Critter@ npc)
 {
-    //roll X,Y value of WM zone index, in this case from 3x2 zones area under Hub
-    uint zoneX = Random(35, 35);    
-    uint zoneY = Random(13, 15);    
- 
-    //get X,Y value of quest location position on WM in zone we picked above
-    uint   wx = zoneX * __GlobalMapZoneLength;          //get zone X,Y start value
-    uint   wy = zoneY * __GlobalMapZoneLength;
-    wx += Random(0, __GlobalMapZoneLength);             //add random value from 0 to zone size
+    // roll X,Y value of WM zone index, in this case from 3x2 zones area under Hub
+    uint zoneX = Random(35, 35);
+    uint zoneY = Random(13, 15);
+
+    // get X,Y value of quest location position on WM in zone we picked above
+    uint wx = zoneX * __GlobalMapZoneLength;            // get zone X,Y start value
+    uint wy = zoneY * __GlobalMapZoneLength;
+
+    wx += Random(0, __GlobalMapZoneLength);             // add random value from 0 to zone size
     wy += Random(0, __GlobalMapZoneLength);
- 
-    //version with defined set of maps, comment this one and uncomment lines about to use zone maps
-    array<uint16> locationIds = { 237 };
+
+    // version with defined set of maps, comment this one and uncomment lines about to use zone maps
+    array < uint16 > locationIds = { 237 };
     uint num = locationIds.length;
- 
-    //pick random encounter map
-    uint16        locPid = locationIds[Random(0, num - 1)];
-   
-    //create quest location
+
+    // pick random encounter map
+    uint16 locPid = locationIds[Random(0, num - 1)];
+
+    // create quest location
     Critter@[] crits = { player };
-    int           loc = CreateLocation(locPid, wx, wy, crits);
-    if(loc == 0)
+    int loc = CreateLocation(locPid, wx, wy, crits);
+    if (loc == 0)
+    {
         return;
+    }
     player.SetKnownLoc(true, loc);
-     
-    //change location color on WM
+
+    // change location color on WM
     Location@ location = GetLocation(loc);
     location.Color = COLOR_WM_QUEST;
     location.Update();
-	
-	//set TB combat mode if needed
-    if(player.Mode[MODE_DEFAULT_COMBAT] == COMBAT_MODE_TURN_BASED)
+
+    // set TB combat mode if needed
+    if (player.Mode[MODE_DEFAULT_COMBAT] == COMBAT_MODE_TURN_BASED)
+    {
         SetTurnBasedAvailability(location);
- 
-    //set location id to quest lvar (used when you need to delete location)
-    GameVar@  locidv = GetLocalVar(LVAR_z_docandun2_locid, player.Id);
+    }
+
+    // set location id to quest lvar (used when you need to delete location)
+    GameVar@ locidv = GetLocalVar(LVAR_z_docandun2_locid, player.Id);
     locidv = loc;
 
-	//player can die and come back
+    // player can die and come back
     location.AutoGarbage = false;
 
-    array<Map@> maps;
-    uint        mapcount = location.GetMaps(maps);
-    for(uint c = 0; c < mapcount; c++)
+    array < Map@ > maps;
+    uint mapcount = location.GetMaps(maps);
+    for (uint c = 0; c < mapcount; c++)
     {
-        array<Entire> entires;
+        array < Entire > entires;
         ParseEntires(maps[c], entires, 666);
 
         uint cntNpc = NPC_HUMAN_COUNT;
-        uint npcHumanPidCount = npcHumanPids.length()-1;
+        uint npcHumanPidCount = npcHumanPids.length() - 1;
 
-        for(uint i = 0; i < cntNpc; i++)
+        for (uint i = 0; i < cntNpc; i++)
         {
             if (entires.length() == 0)
+            {
                 ParseEntires(maps[c], entires, 666);
+            }
 
-            uint entId = Random(0, entires.length()-1);
+            uint    entId = Random(0, entires.length() - 1);
             Entire@ ent = entires[entId];
             entires.removeAt(entId);
 
-            uint16 pos = Random(0, npcHumanPidCount);   
+            uint16 pos = Random(0, npcHumanPidCount);
             uint16 npcPid = npcHumanPids[pos];
             int[] params =
             {
                 ST_REPLICATION_TIME, REPLICATION_NEVER,
                 ST_NPC_ROLE, Random(0, 1),
                 ST_TEAM_ID, 5024,
-                ST_BAG_ID, npcHumanBags[pos],           
+                ST_BAG_ID, npcHumanBags[pos],
                 ST_LEVEL, Random(5, 40)
             };
-     
-            Critter@ npc = maps[c].AddNpc(npcPid , ent.HexX, ent.HexY, Random(0, 5), params, null, "_MobNPC");
+
+            Critter@ npc = maps[c].AddNpc(npcPid, ent.HexX, ent.HexY, Random(0, 5), params, null, "_MobNPC");
         }
     }
-	
-	//12 hour decay
-	SetQuestGarbager(12 * 60, player.Id, loc, LVAR_z_docandun2, QUEST_FAILED);
+
+    // 12 hour decay
+    SetQuestGarbager(12 * 60, player.Id, loc, LVAR_z_docandun2, QUEST_FAILED);
     DynamicLocationAddLog(player, npc, locidv, "docan dungeon 1");
 }
- 
-//dialog function used in request to delete quest location (after player report finishing the quest)
+// dialog function used in request to delete quest location (after player report finishing the quest)
 void r_DeleteLoc(Critter& player, Critter@ npc)
 {
     GameVar@ var = GetLocalVar(LVAR_z_docandun2_locid, player.Id);
+
     DeleteLocation(var.GetValue());
     DynamicLocationDelLog(player, npc, var, "docan dungeon 1");
 }
-
 void _MobNPC(Critter& mob, bool firstTime)
 {
     _CritSetExtMode(mob, MODE_EXT_MOB);
@@ -122,28 +127,27 @@ void _MobNPC(Critter& mob, bool firstTime)
     mob.SetEvent(CRITTER_EVENT_MESSAGE, "_MobOnMessage");
     mob.SetEvent(CRITTER_EVENT_SMTH_DEAD, "_MobSmthDead");
 }
-
 void _MobIdle(Critter& mob)
 {
-    if(!mob.IsLife())
+    if (!mob.IsLife())
     {
         mob.Wait(IDLE_NORMAL);
         return;
     }
 
-    array<Critter@> crits;
-    uint            num = mob.GetCritters(false, FIND_ONLY_PLAYERS | FIND_LIFE, crits);
+    array < Critter@ > crits;
+    uint num = mob.GetCritters(false, FIND_ONLY_PLAYERS | FIND_LIFE, crits);
     uint dist = GetDistance(mob);
-    for(uint i = 0; i < num; i++)
+    for (uint i = 0; i < num; i++)
     {
         uint curDist = GetCrittersDistantion(mob, crits[i]);
-        if(curDist > dist)
+        if (curDist > dist)
         {
             continue;
         }
         else
         {
-            if(crits[i].Mode[MODE_HIDE] != 0 || curDist < 5)
+            if (crits[i].Mode[MODE_HIDE] != 0 || curDist < 5)
             {
                 AttackCritter(mob, crits[i]);
             }
@@ -155,52 +159,54 @@ void _MobIdle(Critter& mob)
         }
     }
 
-    if(crits.length() > 0)
+    if (crits.length() > 0)
     {
         mob.Wait(IDLE_ALERTED);
     }
     else
     {
-        if(Random(0, 5) == 0)
+        if (Random(0, 5) == 0)
+        {
             mob.MoveRandom();
+        }
         mob.Wait(IDLE_NORMAL);
     }
 }
-
 uint GetDistance(Critter& cr)
 {
     uint base = __LookNormal + 3 * cr.Stat[ST_PERCEPTION];
 
-    if(cr.Stat[ST_NPC_ROLE] == ROLE_AGRESSIVE)
+    if (cr.Stat[ST_NPC_ROLE] == ROLE_AGRESSIVE)
+    {
         return base / 2;
+    }
     else
+    {
         return base / 3;
+    }
 }
-
 bool _MobAttacked(Critter& cr, Critter& attacker)
 {
     cr.SendMessage(MSG_IM_ATTACKED, attacker.Id, SENDMESSAGE_TO_WHO_SEES_ME);
     return false;
 }
-
 bool _MobAttacking(Critter& cr, Critter& attacker)
 {
     cr.SendMessage(MSG_GUARD_ATTACKING, attacker.Id, SENDMESSAGE_TO_WHO_SEES_ME);
     return false;
 }
-
 void _MobOnMessage(Critter& cr, Critter& fromCr, int message, int value)
 {
-    if(message == MSG_IM_ATTACKED || message == MSG_GUARD_ATTACKING)
+    if (message == MSG_IM_ATTACKED || message == MSG_GUARD_ATTACKING)
     {
         uint dist = GetDistance(cr);
-        if(GetCrittersDistantion(cr, fromCr) <= dist/2)
+        if (GetCrittersDistantion(cr, fromCr) <= dist / 2)
+        {
             AttackCritter(cr, GetCritter(value));
-    }        
+        }
+    }
 }
-
 void _MobSmthDead(Critter& cr, Critter& killed, Critter@ killer)
 {
     cr.EraseEnemyFromStack(killed.Id);
 }
- 

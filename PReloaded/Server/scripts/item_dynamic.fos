@@ -17,14 +17,13 @@
 #define ITEM_DYNAMIC_REALPID           # (_item)                    _item.Val5
 #define ITEM_DYNAMIC_REALPID_SET       # (_item, _pid)ITEM_DYNAMIC_REALPID(_item) = _pid
 #define ITEM_DYNAMIC_REALPID_REMOVE    # (_item)             ITEM_DYNAMIC_REALPID(_item) = _item.Proto.StartValue_5
-
 void item_init(Item& item, bool firstTime)
 {
-    if(firstTime)
+    if (firstTime)
     {
         uint16 pid = item.GetProtoId();
 
-        if(item.ChangeProto(20000 + item.GetType()))
+        if (item.ChangeProto(20000 + item.GetType()))
         {
             ITEM_DYNAMIC_REALPID_SET(item, pid);
             item.Val8 = SPECIAL_ITEM_DYNAMIC;
@@ -41,22 +40,21 @@ void item_init(Item& item, bool firstTime)
         }
     }
 }
-
 bool IsDynamicItem(Item& item)
 {
-    if(item.Val8 != SPECIAL_ITEM_DYNAMIC)
+    if (item.Val8 != SPECIAL_ITEM_DYNAMIC)
     {
         // DLog( "IsDynamicItem: val8 fail : "+item.Val8+" != "+SPECIAL_ITEM_DYNAMIC );
         return(false);
     }
 
-    if(ITEM_DYNAMIC_REALPID(item) <= 0)
+    if (ITEM_DYNAMIC_REALPID(item) <= 0)
     {
         // DLog( "IsDynamicItem: val5 fail : "+ITEM_DYNAMIC_REALPID(item) );
         return(false);
     }
 
-    if(!valid(GetProtoItem(ITEM_DYNAMIC_REALPID(item))))
+    if (!valid(GetProtoItem(ITEM_DYNAMIC_REALPID(item))))
     {
         // DLog( "IsDynamicItem: GetProtoItem("+ITEM_DYNAMIC_REALPID(item)+") fail" );
         return(false);
@@ -65,23 +63,23 @@ bool IsDynamicItem(Item& item)
     // DLog( "IsDynamicItem!" );
     return(true);
 }
-
 bool IsDynamicItem(Item& item, uint16 pid)
 {
-    if(IsDynamicItem(item) && ITEM_DYNAMIC_REALPID(item) == int(pid))
+    if (IsDynamicItem(item) && ITEM_DYNAMIC_REALPID(item) == int(pid))
+    {
         return(true);
+    }
 
     return(false);
 }
-
 bool ContainsDynamicItems(Location& location, uint16 pid)
 {
-    array<Map@> maps;
-    uint        count = location.GetMaps(maps);
+    array < Map@ > maps;
+    uint count = location.GetMaps(maps);
 
-    for(uint m = 0; m < count; m++)
+    for (uint m = 0; m < count; m++)
     {
-        if(ContainsDynamicItems(maps[m], pid))
+        if (ContainsDynamicItems(maps[m], pid))
         {
             // DLog( "ContainsDynamicItems location<"+location.Id+">, pid<"+pid+"> = true" );
             return(true);
@@ -91,15 +89,14 @@ bool ContainsDynamicItems(Location& location, uint16 pid)
     // DLog( "ContainsDynamicItems location<"+location.Id+">, pid<"+pid+"> = false" );
     return(false);
 }
-
 bool ContainsDynamicItems(Map& map, uint16 pid)
 {
-    array<Item@> items;
-    uint         count = map.GetItems(0, items);
+    array < Item@ > items;
+    uint count = map.GetItems(0, items);
 
-    for(uint i = 0; i < count; i++)
+    for (uint i = 0; i < count; i++)
     {
-        if(IsDynamicItem(items[i]) && ITEM_DYNAMIC_REALPID(items[i]) == int(pid))
+        if (IsDynamicItem(items[i]) && ITEM_DYNAMIC_REALPID(items[i]) == int(pid))
         {
             // DLog( "ContainsDynamicItems map<"+map.Id+">, pid<"+pid+"> = true" );
             return(true);
@@ -109,72 +106,73 @@ bool ContainsDynamicItems(Map& map, uint16 pid)
     // DLog( "ContainsDynamicItems map<"+map.Id+">, pid<"+pid+"> = false" );
     return(false);
 }
-
 void ShowAllDynamicItems(Location& location, uint16 pid)
 {
-    array<Map@> maps;
-    uint        count = location.GetMaps(maps);
+    array < Map@ > maps;
+    uint count = location.GetMaps(maps);
 
-    for(uint m = 0; m < count; m++)
+    for (uint m = 0; m < count; m++)
     {
         ShowAllDynamicItems(maps[m], pid);
     }
 }
-
 void ShowAllDynamicItems(Map& map, uint16 pid)
 {
-    array<Item@> items;
-    uint         count = map.GetItems(0, items);
+    array < Item@ > items;
+    uint count = map.GetItems(0, items);
 
-    for(uint i = 0; i < count; i++)
+    for (uint i = 0; i < count; i++)
     {
-        if(IsDynamicItem(items[i], pid))
+        if (IsDynamicItem(items[i], pid))
+        {
             ShowDynamicItem(items[i]);
+        }
     }
 }
-
 void ShowAllDynamicItems(Location& location, uint16 pid, uint& found, uint& shown)
 {
-    array<Map@> maps;
-    uint        count = location.GetMaps(maps);
+    array < Map@ > maps;
+    uint count = location.GetMaps(maps);
 
-    for(uint m = 0; m < count; m++)
+    for (uint m = 0; m < count; m++)
     {
         ShowAllDynamicItems(maps[m], pid, found, shown);
     }
 }
-
 void ShowAllDynamicItems(Map& map, uint16 pid, uint& found, uint& shown)
 {
-    array<Item@> items;
-    uint         count = map.GetItems(0, items);
+    array < Item@ > items;
+    uint count = map.GetItems(0, items);
 
-    for(uint i = 0; i < count; i++)
+    for (uint i = 0; i < count; i++)
     {
-        if(IsDynamicItem(items[i], pid))
+        if (IsDynamicItem(items[i], pid))
         {
             found++;
-            if(ShowDynamicItem(items[i]))
+            if (ShowDynamicItem(items[i]))
+            {
                 shown++;
+            }
         }
     }
 }
-
 bool ShowDynamicItem(Item& item)
 {
-    if(IsDynamicItem(item))
+    if (IsDynamicItem(item))
     {
         uint16 pid = ITEM_DYNAMIC_REALPID(item);
 
         ITEM_DYNAMIC_REALPID_REMOVE(item);
         item.Val8 = item.Proto.StartValue_8;
 
-        if(item.ChangeProto(pid))
+        if (item.ChangeProto(pid))
         {
             item.Flags = item.Proto.Flags;             // from real PID
             string@ script = item.Proto.GetScriptName();
-            if(valid(script) && script.length() >= 3)
+            if (valid(script) && script.length() >= 3)
+            {
                 item.SetScript(script);
+            }
             item.Update();
 
             return(true);

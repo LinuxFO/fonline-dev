@@ -21,9 +21,9 @@ interface IAttack
 class CBoss
 {
 
-    uint            id;
+    uint id;
 
-    uint            timeEvent;
+    uint timeEvent;
 
     array<uint>     critterList;
     array<IAttack@> attacks;
@@ -52,13 +52,10 @@ class CBoss
 
         patern = false;
     }
-
-
     void SetId(uint id)
     {
         this.id = id;
     }
-
     void AddAttack(IAttack@ attack, int chance, int timeBeforeAttack, int timeAfterAttack)
     {
         attacks.insertLast(attack);
@@ -67,7 +64,6 @@ class CBoss
         attackPrepareTimes.insertLast(timeBeforeAttack);
         attackRecuperations.insertLast(timeAfterAttack);
     }
-
     void AddCritter(Critter& crit)
     {
         critterList.insertLast(crit.Id);
@@ -77,17 +73,15 @@ class CBoss
         crit.SetEvent(CRITTER_EVENT_DEAD, "_BossDead");
         crit.ParamBase[ST_VAR0] = id;
     }
-
     void MakeAgressive()
     {
         aggressionStart();
 
         startAttack();
     }
-
     void startAttack()
     {
-        if(patern)
+        if (patern)
         {
             currentAttack = (currentAttack + 1) % attacks.length();
         }
@@ -97,11 +91,13 @@ class CBoss
             int sum = 0;
             int i = 0;
             int j = attacks.length();
-            for( ; i < j; i++)
+            for (; i < j; i++)
             {
                 sum += attackChances[i];
-                if(sum > roll)
+                if (sum > roll)
+                {
                     break;
+                }
             }
             currentAttack = i;
         }
@@ -109,116 +105,127 @@ class CBoss
         array<int> vals = { id };
         timeEvent = CreateTimeEvent(AFTER(attackPrepareTimes[currentAttack]), "e_CommenceAttack", vals, false);
     }
-
     void commenceAttack()
     {
         attacks[currentAttack].AttackCommence();
         array<int> vals = { id };
         timeEvent = CreateTimeEvent(AFTER(attackRecuperations[currentAttack]), "e_FinishAttack", vals, false);
     }
-
     void finishAttack()
     {
         attacks[currentAttack].AttackRecuperationEnd();
         startAttack();
     }
-
     void aggressionStart()
-    {}
-
+    {
+    }
     void bossSee(Critter& cr, Critter& shownCr)
-    {}
-
+    {
+    }
     bool bossAttacked(Critter& cr, Critter& attacker)
     {
         return false;
     }
-
     void bossHit(Critter& cr, Critter@ attacker, int dmg)
-    {}
-
+    {
+    }
     void bossKilled(Critter& cr, Critter@ attacker)
-    {}
-
+    {
+    }
     void bossFinish(Critter& cr, bool deleted)
-    {}
+    {
+    }
 
 };
-
 uint e_CommenceAttack(array<int>@ vals)
 {
     CBoss@ boss = GetBoss(vals[0]);
-    if(valid(boss))
+
+    if (valid(boss))
+    {
         boss.commenceAttack();
+    }
     return 0;
 }
-
 uint e_FinishAttack(array<int>@ vals)
 {
     CBoss@ boss = GetBoss(vals[0]);
-    if(valid(boss))
+
+    if (valid(boss))
+    {
         boss.finishAttack();
+    }
     return 0;
 }
-
 void _BossShowCritter(Critter& cr, Critter& shownCr)
 {
     CBoss@ boss = GetBoss(cr.Param[ST_VAR0]);
-    if(valid(boss))
-        boss.bossSee(cr, shownCr);
-}
 
+    if (valid(boss))
+    {
+        boss.bossSee(cr, shownCr);
+    }
+}
 bool _BossAttacked(Critter& cr, Critter& attacker)
 {
     bool   retVal = false;
     CBoss@ boss = GetBoss(cr.Param[ST_VAR0]);
-    if(valid(boss))
+
+    if (valid(boss))
+    {
         retVal = boss.bossAttacked(cr, attacker);
+    }
 
     array<uint> vals = { cr.Id, attacker.Id, cr.Param[ST_CURRENT_HP] };
     cr.ParamBase[ST_VAR1] = CreateTimeEvent(0, "_BossHit", vals, false);
     return retVal;
 }
-
 uint _BossHit(array<uint>@ values)
 {
     Critter@ cr = GetCritter(values[0]);
-    if(!valid(cr))
+
+    if (!valid(cr))
+    {
         return 0;
+    }
     Critter@ attacker = GetCritter(values[1]);
     int      damage = int(values[2]) - cr.Param[ST_CURRENT_HP];
 
     cr.ParamBase[ST_VAR1] = 0;
 
     CBoss@ boss = GetBoss(cr.Param[ST_VAR0]);
-    if(valid(boss))
+    if (valid(boss))
+    {
         boss.bossHit(cr, attacker, damage);
+    }
 
     return 0;
 }
-
 void _BossDead(Critter& cr, Critter@ killer)
 {
-    if(cr.Param[ST_VAR1] != 0)
+    if (cr.Param[ST_VAR1] != 0)
     {
         EraseTimeEvent(cr.Param[ST_VAR1]);
         cr.ParamBase[ST_VAR1] = 0;
     }
 
     CBoss@ boss = GetBoss(cr.Param[ST_VAR0]);
-    if(valid(boss))
+    if (valid(boss))
+    {
         boss.bossKilled(cr, killer);
+    }
 }
-
 void _BossFinish(Critter& cr, bool deleted)
 {
-    if(cr.Param[ST_VAR1] != 0)
+    if (cr.Param[ST_VAR1] != 0)
     {
         EraseTimeEvent(cr.Param[ST_VAR1]);
         cr.ParamBase[ST_VAR1] = 0;
     }
 
     CBoss@ boss = GetBoss(cr.Param[ST_VAR0]);
-    if(valid(boss))
+    if (valid(boss))
+    {
         boss.bossFinish(cr, deleted);
+    }
 }

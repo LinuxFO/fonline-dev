@@ -9,7 +9,7 @@
 #define __ANIMATION__
 
 // Animation macro
-#define _CritAnimate                                                         # (cr, anim)cr.Animate(0, anim, null, true, true)
+#define _CritAnimate                                                         # (cr, anim) cr.Animate(0, anim, null, true, true)
 #define _CritAnimateUse                                                      # (cr) cr.Animate(0, ANIM2_USE, null, true, true)
 #define _CritAnimatePickup                                                   # (cr) cr.Animate(0, ANIM2_PICKUP, null, true, true)
 #define _CritAnimatePunch                                                    # (cr) cr.Animate(0, ANIM2_PUNCH_RIGHT, null, true, true)
@@ -23,9 +23,9 @@
 #define _CritAnimateFidget                                                   # (cr) cr.Animate(0, ANIM2_FIDGET, null, true, true)
 
 // Anim types
-#define ANIM_TYPE_TACTICS                                                    (ANIM_TYPE_LAST+1)
-#define ANIM_TYPE_ARCANUM                                                    (ANIM_TYPE_LAST+2)
-#define ANIM_TYPE_EXPERIMENTS                                                (ANIM_TYPE_LAST+3)
+#define ANIM_TYPE_TACTICS                                                    (ANIM_TYPE_LAST + 1)
+#define ANIM_TYPE_ARCANUM                                                    (ANIM_TYPE_LAST + 2)
+#define ANIM_TYPE_EXPERIMENTS                                                (ANIM_TYPE_LAST + 3)
 
 // Anim loading flags
 #define ANIM_FLAG_FIRST_FRAME                                                (0x01)
@@ -149,7 +149,7 @@
 #define ANIM2_DEAD_EXPLODE                                                   (117)
 #define ANIM2_DEAD_BURN                                                      (118)
 #define ANIM2_DEAD_BURN_RUN                                                  (119)
-#define ANIM2_SMOKE															 (120)
+#define ANIM2_SMOKE                                                                                                                      (120)
 
 // Knockout animations, f - face up/down
 #define KNOCKOUT_ANIM2_DEFAULT                                               # (f)  ((f) ? ANIM2_KNOCK_FRONT : ANIM2_KNOCK_BACK), ((f) ? ANIM2_IDLE_PRONE_FRONT : ANIM2_IDLE_PRONE_BACK), ((f) ? ANIM2_STANDUP_FRONT : ANIM2_STANDUP_BACK)

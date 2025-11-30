@@ -14,7 +14,6 @@
 #define COLOR_RGB               # (r, g, b)(uint((0xFF << 24) | (((r) & 0xFF) << 16) | (((g) & 0xFF) << 8) | ((b) & 0xFF)))
 #define COLOR_RGBA              # (r, g, b, a)(uint((((a) & 0xFF) << 24) | (((r) & 0xFF) << 16) | (((g) & 0xFF) << 8) | ((b) & 0xFF)))
 #define COLOR_LIGHT             # (color, light)(COLOR_CHANGE_ALPHA(__GetColor(((color >> 16) & 0xFF) + light, ((color >> 8) & 0xFF) + light, (color & 0xFF) + light), (color >> 24) & 0xFF))
-
 uint __GetColor(int r, int g, int b, int a = 0xFF)
 {
     r = CLAMP(r, 0, 255);
@@ -54,21 +53,21 @@ uint __GetColor(int r, int g, int b, int a = 0xFF)
 #define COLOR_DARK              (COLOR_RGB(0x30, 0x30, 0x30))
 #define COLOR_GREEN_RED         (COLOR_RGB(0, 0xC8, 0xC8))
 #define COLOR_SAND              (COLOR_RGB(0x8F, 0x6F, 0))
-#define COLOR_ORANGE			(COLOR_RGB(0xff, 0xa5, 0))
-#define COLOR_SKY_BLUE			(COLOR_RGB(0x64, 0x95, 0xed))
+#define COLOR_ORANGE                    (COLOR_RGB(0xff, 0xa5, 0))
+#define COLOR_SKY_BLUE                  (COLOR_RGB(0x64, 0x95, 0xed))
 
 // World Map
-#define COLOR_WM_ALPHA			(120)
-#define COLOR_WM_BASE			(COLOR_RGBA(40, 200, 255, COLOR_WM_ALPHA))
+#define COLOR_WM_ALPHA                  (120)
+#define COLOR_WM_BASE                   (COLOR_RGBA(40, 200, 255, COLOR_WM_ALPHA))
 #define COLOR_WM_TENT           (COLOR_RGBA(46, 111, 146, COLOR_WM_ALPHA))
-#define COLOR_WM_QUEST			(COLOR_RGBA(255, 128, 0, COLOR_WM_ALPHA))
-#define COLOR_WM_TC_CONTROL		(COLOR_RGBA(255, 64, 0, COLOR_WM_ALPHA))
-#define COLOR_WM_TC_FREE		(COLOR_RGBA(0, 255, 0, COLOR_WM_ALPHA))
+#define COLOR_WM_QUEST                  (COLOR_RGBA(255, 128, 0, COLOR_WM_ALPHA))
+#define COLOR_WM_TC_CONTROL             (COLOR_RGBA(255, 64, 0, COLOR_WM_ALPHA))
+#define COLOR_WM_TC_FREE                (COLOR_RGBA(0, 255, 0, COLOR_WM_ALPHA))
 #define COLOR_WM_PLAYER_CARAVAN (COLOR_RGBA(255, 70, 0, COLOR_WM_ALPHA))
 
 // Hinkley (from minigame.fos)
-#define COLOR_HINKLEY_TEAM1		(COLOR_RGB(255, 170, 0))
-#define COLOR_HINKLEY_TEAM2		(COLOR_RGB(0, 100, 240))
+#define COLOR_HINKLEY_TEAM1             (COLOR_RGB(255, 170, 0))
+#define COLOR_HINKLEY_TEAM2             (COLOR_RGB(0, 100, 240))
 
 // Other
 #define COLOR_GAME_RGB          # (r, g, b)(__GetColor(r + __Light, g + __Light, b + __Light))

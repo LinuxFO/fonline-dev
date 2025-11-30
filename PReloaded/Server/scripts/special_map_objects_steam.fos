@@ -11,7 +11,7 @@
 #define STEAM_PID            (PID_TANKER_STEAM)
 
 
-class CSteamSearcher : ISearchingCallback
+class CSteamSearcher: ISearchingCallback
 {
     uint FindTogglableSMOs(array<ITogglableSMO@>& list, Map& map, int globalId)
     {
@@ -19,25 +19,27 @@ class CSteamSearcher : ISearchingCallback
         array<Item@> spawners;
         uint         spawnerCount = map.GetItems(STEAM_SPAWNER_PID, spawners);
 
-        uint         searchedSpawnerCount = 0;
+        uint searchedSpawnerCount = 0;
         array<bool> spawnerValidity(spawnerCount);
 
-        for(uint i = 0; i < spawnerCount; i++)
+        for (uint i = 0; i < spawnerCount; i++)
         {
-            if(globalId == -1 || globalId == spawners[i].Val1)
+            if (globalId == -1 || globalId == spawners[i].Val1)
             {
                 spawnerValidity[i] = true;
                 searchedSpawnerCount++;
             }
             else
+            {
                 spawnerValidity[i] = false;
+            }
         }
 
         list.resize(origLength + searchedSpawnerCount);
 
-        for(uint i = 0, j = origLength; i < spawnerCount; i++)
+        for (uint i = 0, j = origLength; i < spawnerCount; i++)
         {
-            if(spawnerValidity[i])
+            if (spawnerValidity[i])
             {
                 @list[j] = MapSteamObject(spawners[i], map, STEAM_PID);
                 j++;
@@ -45,32 +47,33 @@ class CSteamSearcher : ISearchingCallback
         }
         return searchedSpawnerCount;
     }
-
     uint FindSteamObjects(array<MapSteamObject@>& list, Map& map, int id)
     {
         uint         origLength = list.length();
         array<Item@> spawners;
         uint         spawnerCount = map.GetItems(STEAM_SPAWNER_PID, spawners);
 
-        uint         searchedSpawnerCount = 0;
+        uint searchedSpawnerCount = 0;
         array<bool> spawnerValidity(spawnerCount);
 
-        for(uint i = 0; i < spawnerCount; i++)
+        for (uint i = 0; i < spawnerCount; i++)
         {
-            if(id == -1 || id == spawners[i].Val0)
+            if (id == -1 || id == spawners[i].Val0)
             {
                 spawnerValidity[i] = true;
                 searchedSpawnerCount++;
             }
             else
+            {
                 spawnerValidity[i] = false;
+            }
         }
 
         list.resize(origLength + searchedSpawnerCount);
 
-        for(uint i = 0, j = origLength; i < spawnerCount; i++)
+        for (uint i = 0, j = origLength; i < spawnerCount; i++)
         {
-            if(spawnerValidity[i])
+            if (spawnerValidity[i])
             {
                 @list[j] = MapSteamObject(spawners[i], map, STEAM_PID);
                 j++;
@@ -81,86 +84,94 @@ class CSteamSearcher : ISearchingCallback
 };
 
 CSteamSearcher@ SteamSearcher = CSteamSearcher();
-
 // init functions
-
 void _InitSteamSpawner(Item& spawner, bool firstTime)
 {
-    if(!firstTime)
+    if (!firstTime)
+    {
         return;
+    }
     uint[] values = { spawner.Id };
     CreateTimeEvent(__FullSecond + REAL_SECOND(1), "e_StartSteam", values, true);
 }
-
-
 // Valve functions
-
 bool s_SteamValve(Critter& player, Scenery& terminal, int skill, Item@ item, int steamId)
 {
-    if(player.IsPlayer() && skill == -1 && !valid(item))
+    if (player.IsPlayer() && skill == -1 && !valid(item))
     {
         Map@                   map = player.GetMap();
         array<MapSteamObject@> steamItems;
-        for(uint i = 0, j = SteamSearcher.FindSteamObjects(steamItems, map, steamId); i < j; i++)
+        for (uint i = 0, j = SteamSearcher.FindSteamObjects(steamItems, map, steamId); i < j; i++)
+        {
             steamItems[i].Toggle();
+        }
     }
     return false;
 }
-
 bool s_SteamValve(Critter& player, Scenery& terminal, int skill, Item@ item, int steamId, int mapPid)
 {
-    if(player.IsPlayer() && skill == -1 && !valid(item))
+    if (player.IsPlayer() && skill == -1 && !valid(item))
     {
         Location@ loc = GetLocationOf(player);
         Map @ map;
-        if(valid(loc))
+        if (valid(loc))
+        {
             @map = loc.GetMap(mapPid);
+        }
         array<MapSteamObject@> steamItems;
-        for(uint i = 0, j = SteamSearcher.FindSteamObjects(steamItems, map, steamId); i < j; i++)
+        for (uint i = 0, j = SteamSearcher.FindSteamObjects(steamItems, map, steamId); i < j; i++)
+        {
             steamItems[i].Toggle();
+        }
     }
     return false;
 }
-
-
 // timeevents and search functions
-
 uint e_StartSteam(array<uint>@ values)     // delayed item initialization
 {
     Item@ spawner = GetItem(values[0]);
-    if(!valid(spawner) || spawner.MapId == 0)
+
+    if (!valid(spawner) || spawner.MapId == 0)
+    {
         return 0;
+    }
 
     uint16 hexX, hexY;
     Map@   map = spawner.GetMapPosition(hexX, hexY);
-    if(!valid(map))
+    if (!valid(map))
+    {
         return 0;
+    }
 
     MapSteamObject@ steamItem = MapSteamObject(spawner, map, STEAM_PID);
 
-    if(steamItem.IsOn())
+    if (steamItem.IsOn())
     {
         steamItem.ForceOn();
     }
     return 0;
 }
-
 uint e_SpawnSteamItem(array<uint>@ values)
 {
     MapSteamObject@ steamItem;
 
-    Item@           spawner = GetItem(values[0]);
-    Map@            map = GetMap(values[1]);
-    if(!valid(spawner) || !valid(map))
+    Item@ spawner = GetItem(values[0]);
+    Map@  map = GetMap(values[1]);
+
+    if (!valid(spawner) || !valid(map))
+    {
         return 0;
+    }
     Item@ steam;
-    if(values[2] != 0)
+    if (values[2] != 0)
     {
         Item@ steam = GetItem(values[2]);
         @steamItem = MapSteamObject(spawner, map, STEAM_PID, steam);
     }
     else
+    {
         @steamItem = MapSteamObject(spawner, map, STEAM_PID);
+    }
 
     values[2] = steamItem.MoveSteam();
 
@@ -169,7 +180,7 @@ uint e_SpawnSteamItem(array<uint>@ values)
 
 // class
 
-class MapSteamObject : ITogglableSMO
+class MapSteamObject: ITogglableSMO
 {
     Item@ spawner;
     Map@  map;
@@ -194,18 +205,17 @@ class MapSteamObject : ITogglableSMO
 
         steamInitialized = false;
     }
-
     void LazyInitSteam()     // searches for steam only once it's needed
     {
-        if(IsOn())
+        if (IsOn())
         {
             array<Item@> steamItems;
             uint         steamCount = map.GetItems(steamPid, steamItems);
 
 
-            for(uint i = 0; i < steamCount; i++)
+            for (uint i = 0; i < steamCount; i++)
             {
-                if(spawner.Id == uint(steamItems[i].Val0))
+                if (spawner.Id == uint(steamItems[i].Val0))
                 {
                     @steam = steamItems[i];
                     break;
@@ -215,12 +225,13 @@ class MapSteamObject : ITogglableSMO
 
         steamInitialized = true;
     }
-
     void Toggle()
     {
-        if(!steamInitialized)
+        if (!steamInitialized)
+        {
             LazyInitSteam();
-        if(IsOn())
+        }
+        if (IsOn())
         {
             TurnOff();
         }
@@ -229,27 +240,25 @@ class MapSteamObject : ITogglableSMO
             TurnOn();
         }
     }
-
     bool IsOn()
     {
         return FLAG(spawner.Val3, STEAM_ON);
     }
-
     bool IsOff()
     {
         return !FLAG(spawner.Val3, STEAM_ON);
     }
-
     void ForceOn()
     {
         int radiusOfMovement = GetMovementRadius();
         int movementInterval = GetMovementInterval();
+
         @steam = map.AddItem(spawner.HexX, spawner.HexY, STEAM_PID, 1);
 
-        if(movementInterval >= 1 && radiusOfMovement >= 1)
+        if (movementInterval >= 1 && radiusOfMovement >= 1)
         {
             uint[] values = { spawner.Id, map.Id, 0 };
-            if(valid(steam))
+            if (valid(steam))
             {
                 values[2] = steam.Id;
                 steam.Val0 = spawner.Id;
@@ -258,68 +267,69 @@ class MapSteamObject : ITogglableSMO
         }
         SETFLAG(spawner.Val3, STEAM_ON);
     }
-
     void TurnOn()
     {
         // if(!steamInitialized) LazyInitSteam();
-        if(IsOff())
+        if (IsOff())
         {
             ForceOn();
         }
     }
-
     void TurnOff()
     {
-        if(!steamInitialized)
-            LazyInitSteam();
-        if(IsOn())
+        if (!steamInitialized)
         {
-            if(spawner.Val4 != 0)
+            LazyInitSteam();
+        }
+        if (IsOn())
+        {
+            if (spawner.Val4 != 0)
             {
                 EraseTimeEvent(spawner.Val4);
                 spawner.Val4 = 0;
             }
-            if(valid(steam))
+            if (valid(steam))
+            {
                 DeleteItem(steam);
+            }
 
             UNSETFLAG(spawner.Val3, STEAM_ON);
         }
     }
-
     void SetMovementRadius(uint radius)
     {
         spawner.Val2 = (spawner.Val2 & 0x0000FFFF) | ((radius << 16) & 0xFFFF0000);
     }
-
     uint GetMovementRadius()
     {
         return (spawner.Val2 >> 16) & 0x0000FFFF;
     }
-
     void SetMovementInterval(uint interval)
     {
         spawner.Val2 = (spawner.Val2 & 0xFFFF0000) | (interval & 0x0000FFFF);
     }
-
     uint GetMovementInterval()
     {
         return spawner.Val2 & 0x0000FFFF;
     }
-
     uint MoveSteam()
     {
-        if(!steamInitialized)
+        if (!steamInitialized)
+        {
             LazyInitSteam();
-        int    radiusOfMovement = GetMovementRadius();
-        int    movementInterval = GetMovementInterval();
+        }
+        int radiusOfMovement = GetMovementRadius();
+        int movementInterval = GetMovementInterval();
 
         uint16 x = spawner.HexX;
         uint16 y = spawner.HexY;
         uint   dist = Random(0, radiusOfMovement);
-        if(dist != 0)
+        if (dist != 0)
+        {
             map.GetHexCoord(spawner.HexX, spawner.HexY, x, y, Random(1, 360), dist);
+        }
 
-        if(valid(steam))
+        if (valid(steam))
         {
             MoveItem(steam, 1, map, x, y);
             return steam.Id;
@@ -327,8 +337,10 @@ class MapSteamObject : ITogglableSMO
         else
         {
             @steam = map.AddItem(x, y, STEAM_PID, 1);
-            if(valid(steam))
+            if (valid(steam))
+            {
                 steam.Val0 = spawner.Id;
+            }
             return steam.Id;
         }
 

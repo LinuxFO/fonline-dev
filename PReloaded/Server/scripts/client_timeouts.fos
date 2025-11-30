@@ -38,48 +38,48 @@
 
 class CTimeout
 {
-    bool          Enabled;      /**< on/off */
-    uint          Direction;    /**< (0 - down (gathering ... first aid), 1 - up (first aid ... gathering)) */
-    int           PositionX;    /**< positive: position from left, negative: position from right */
-    int           PositionY;    /**< positive: position from top, negative: position from bottom */
-    uint          SpacingX;     /**< spacing between start position of timeout name and its value */
-    uint          SpacingY;     /**< spacing between each line */
-    uint          NameColor;    /**< skill name color */
-    uint          ValueColor;   /**< timeout value color */
-    uint          Alpha;        /**< */
-    uint          Font;         /**< (see _client_defines.fos) */
-    uint          FontFlags;    /**< (see _client_defines.fos) */
-    bool          Worldmap;     /**< show on worldmap */
-    int           WorldmapX;    /**< position when on worldmap, @sa CTimeout::PositionX */
-    int           WorldmapY;    /**< position when on worldmap, @sa CTimeout::PositionY */
-    uint          TimeFormat;   /**< 0 - 7:00:00, 7:00, 7 (default)
+    bool Enabled;               /**< on/off */
+    uint Direction;             /**< (0 - down (gathering ... first aid), 1 - up (first aid ... gathering)) */
+    int  PositionX;             /**< positive: position from left, negative: position from right */
+    int  PositionY;             /**< positive: position from top, negative: position from bottom */
+    uint SpacingX;              /**< spacing between start position of timeout name and its value */
+    uint SpacingY;              /**< spacing between each line */
+    uint NameColor;             /**< skill name color */
+    uint ValueColor;            /**< timeout value color */
+    uint Alpha;                 /**< */
+    uint Font;                  /**< (see _client_defines.fos) */
+    uint FontFlags;             /**< (see _client_defines.fos) */
+    bool Worldmap;              /**< show on worldmap */
+    int  WorldmapX;             /**< position when on worldmap, @sa CTimeout::PositionX */
+    int  WorldmapY;             /**< position when on worldmap, @sa CTimeout::PositionY */
+    uint TimeFormat;            /**< 0 - 7:00:00, 7:00, 7 (default)
                                      1 - 7:00:00, 7:00, 7s
                                      2 - 7:00:00, 7:00, 7 sec
                                      3 - 7:00:00, 7:00, 7 seconds
-                                     4 - 7:00:00, 7:00, 0:07 
+                                     4 - 7:00:00, 7:00, 0:07
                                      5 - 7:00:00, 07:00, 00:07
                                      6 - 7h 0m 0s, 7m 0s, 7s
                                      7 - 7h 0 min 0 sec, 7 min 0 sec, 7 sec
-                                */
+                                 */
 
     array<string> Ini;
 
     CTimeout()
     {
-        this.Enabled    = true;
-        this.Direction  = 1;
-        this.PositionX  = -145;
-        this.PositionY  = -110;
-        this.SpacingX   = 72;
-        this.SpacingY   = 10;
-        this.NameColor  = COLOR_RGB(0, 255, 0);
+        this.Enabled = true;
+        this.Direction = 1;
+        this.PositionX = -145;
+        this.PositionY = -110;
+        this.SpacingX = 72;
+        this.SpacingY = 10;
+        this.NameColor = COLOR_RGB(0, 255, 0);
         this.ValueColor = COLOR_RGB(0, 255, 0);
-        this.Alpha              = 0;
-        this.Font               = FONT_TYPE_DEFAULT;
-        this.FontFlags  = 0;
-        this.Worldmap   = false;
-        this.WorldmapX  = -145;
-        this.WorldmapY  = -110;
+        this.Alpha = 0;
+        this.Font = FONT_TYPE_DEFAULT;
+        this.FontFlags = 0;
+        this.Worldmap = false;
+        this.WorldmapX = -145;
+        this.WorldmapY = -110;
         this.TimeFormat = 0;
     }
 };
@@ -87,44 +87,42 @@ CTimeout Timeouts;
 
 class CTimeoutCustom
 {
-    int           PositionX;    /**< positive: position from left, negative: position from right */
-    int           PositionY;    /**< positive: position from top, negative: position from bottom */
-    uint          SpacingX;     /**< spacing between start position of timeout name and its value */
-    uint          NameColor;    /**< skill name color */
-    uint          ValueColor;   /**< timeout value color */
-    uint          Alpha;        /**< */
-    uint          Font;         /**< (see _client_defines.fos) (4, 5, 6, 7, 8) */
-    bool          ShowLabel;    /**< on/off */
-    int           CustomMode;   /**< 0 off, 1 all, 2 color only */
+    int  PositionX;             /**< positive: position from left, negative: position from right */
+    int  PositionY;             /**< positive: position from top, negative: position from bottom */
+    uint SpacingX;              /**< spacing between start position of timeout name and its value */
+    uint NameColor;             /**< skill name color */
+    uint ValueColor;            /**< timeout value color */
+    uint Alpha;                 /**< */
+    uint Font;                  /**< (see _client_defines.fos) (4, 5, 6, 7, 8) */
+    bool ShowLabel;             /**< on/off */
+    int  CustomMode;            /**< 0 off, 1 all, 2 color only */
 
     CTimeoutCustom()
     {
-        this.PositionX  = 0;
-        this.PositionY  = 0;
-        this.SpacingX   = 72;
-        this.NameColor  = COLOR_RGB(0, 255, 0);
+        this.PositionX = 0;
+        this.PositionY = 0;
+        this.SpacingX = 72;
+        this.NameColor = COLOR_RGB(0, 255, 0);
         this.ValueColor = COLOR_RGB(0, 255, 0);
-        this.Font       = FONT_TYPE_DEFAULT;
-        this.Alpha      = 0;
-        this.ShowLabel  = true;
+        this.Font = FONT_TYPE_DEFAULT;
+        this.Alpha = 0;
+        this.ShowLabel = true;
         this.CustomMode = 0;
     }
-
     void SetValues(int x, int y, uint sx, uint8 nR, uint8 nG, uint8 nB, uint8 vR, uint8 vG, uint8 vB, uint8 f, bool sl)
     {
-        this.PositionX  = x;
-        this.PositionY  = y;
-        this.SpacingX   = sx;
-        this.NameColor  = COLOR_RGB(nR, nG, nB);
+        this.PositionX = x;
+        this.PositionY = y;
+        this.SpacingX = sx;
+        this.NameColor = COLOR_RGB(nR, nG, nB);
         this.ValueColor = COLOR_RGB(vR, vG, vB);
-        this.Font       = f;
-        this.ShowLabel  = sl;
+        this.Font = f;
+        this.ShowLabel = sl;
         this.CustomMode = 1;
     }
-
     void SetValues(uint8 nR, uint8 nG, uint8 nB, uint8 vR, uint8 vG, uint8 vB)
     {
-        this.NameColor  = COLOR_RGB(nR, nG, nB);
+        this.NameColor = COLOR_RGB(nR, nG, nB);
         this.ValueColor = COLOR_RGB(vR, vG, vB);
         this.CustomMode = 2;
     }
@@ -140,89 +138,124 @@ class MyTimeout
 
     MyTimeout(string name, uint value, uint tick)
     {
-        this.name       = name;
-        this.value      = value;
-        this.tick       = tick;
+        this.name = name;
+        this.value = value;
+        this.tick = tick;
     }
 };
 array<MyTimeout> MyTimeouts;
 #endif // CUSTOM_TIMEOUTS
-
 void TimeoutsConfig(string& customConfig)
 {
-    for(uint8 i=0; i < 20; ++i)
+    for (uint8 i = 0; i < 20; ++i)
     {
         TimeoutsCustom.insertLast(CTimeoutCustom());
     }
 
-    string          sectioname = (customConfig == "" ? TO_SECTION : TO_SECTION + ":" + customConfig);
+    string sectioname = (customConfig == "" ? TO_SECTION : TO_SECTION + ":" + customConfig);
 
     IConfigSection@ section = GetConfigSection(CONFIG_FILE, sectioname);
 
-    if(valid(section))
+    if (valid(section))
     {
         array<string> vars;
         section.GetVars(vars);
 
-        if(vars.length() == 0)
+        if (vars.length() == 0)
+        {
             return;
+        }
 
-        for(uint v = 0; v < vars.length(); v++)
+        for (uint v = 0; v < vars.length(); v++)
         {
             IConfigVar@ var = section.GetVar(vars[v]);
-            if(!valid(var))
+            if (!valid(var))
+            {
                 continue;
+            }
 
-            if(var.GetName() == "Enabled")
-                Timeouts.Enabled        = string2bool(var.GetValue());
-            else if(var.GetName() == "Direction")
-                Timeouts.Direction      = string2uint(var.GetValue());
-            else if(var.GetName() == "PositionX")
-                Timeouts.PositionX      = string2int(var.GetValue());
-            else if(var.GetName() == "PositionY")
-                Timeouts.PositionY      = string2int(var.GetValue());
-            else if(var.GetName() == "SpacingX")
-                Timeouts.SpacingX       = string2uint(var.GetValue());
-            else if(var.GetName() == "SpacingY")
-                Timeouts.SpacingY       = string2uint(var.GetValue());
-            else if(var.GetName() == "NameColor")
-                Timeouts.NameColor      = rgb_string2uint(var.GetValue());
-            else if(var.GetName() == "ValueColor")
+            if (var.GetName() == "Enabled")
+            {
+                Timeouts.Enabled = string2bool(var.GetValue());
+            }
+            else if (var.GetName() == "Direction")
+            {
+                Timeouts.Direction = string2uint(var.GetValue());
+            }
+            else if (var.GetName() == "PositionX")
+            {
+                Timeouts.PositionX = string2int(var.GetValue());
+            }
+            else if (var.GetName() == "PositionY")
+            {
+                Timeouts.PositionY = string2int(var.GetValue());
+            }
+            else if (var.GetName() == "SpacingX")
+            {
+                Timeouts.SpacingX = string2uint(var.GetValue());
+            }
+            else if (var.GetName() == "SpacingY")
+            {
+                Timeouts.SpacingY = string2uint(var.GetValue());
+            }
+            else if (var.GetName() == "NameColor")
+            {
+                Timeouts.NameColor = rgb_string2uint(var.GetValue());
+            }
+            else if (var.GetName() == "ValueColor")
+            {
                 Timeouts.ValueColor = rgb_string2uint(var.GetValue());
-            else if(var.GetName() == "Font")
-                Timeouts.Font           = font_string2uint(var.GetValue());
+            }
+            else if (var.GetName() == "Font")
+            {
+                Timeouts.Font = font_string2uint(var.GetValue());
+            }
             /*
                else if( var.GetName() == "FontFlags" )		Timeouts.FontFlags = string2uint( var.GetValue() );
              */
-            else if(var.GetName() == "Transparency")
+            else if (var.GetName() == "Transparency")
             {
-                Timeouts.Alpha  = CLAMP(string2uint(var.GetValue()), 0, 100);
-                if(Timeouts.Alpha > 0)
+                Timeouts.Alpha = CLAMP(string2uint(var.GetValue()), 0, 100);
+                if (Timeouts.Alpha > 0)
+                {
                     Timeouts.Alpha = (255 * (100 - Timeouts.Alpha)) / 100;
+                }
             }
-            else if(var.GetName() == "Worldmap")
-                Timeouts.Worldmap       = string2bool(var.GetValue());
-            else if(var.GetName() == "WorldmapX")
-                Timeouts.WorldmapX      = string2int(var.GetValue());
-            else if(var.GetName() == "WorldmapY")
-                Timeouts.WorldmapY      = string2int(var.GetValue());
-            else if(var.GetName() == "TimeFormat")
-                Timeouts.TimeFormat      = CLAMP(string2uint(var.GetValue()), 0, 7);
+            else if (var.GetName() == "Worldmap")
+            {
+                Timeouts.Worldmap = string2bool(var.GetValue());
+            }
+            else if (var.GetName() == "WorldmapX")
+            {
+                Timeouts.WorldmapX = string2int(var.GetValue());
+            }
+            else if (var.GetName() == "WorldmapY")
+            {
+                Timeouts.WorldmapY = string2int(var.GetValue());
+            }
+            else if (var.GetName() == "TimeFormat")
+            {
+                Timeouts.TimeFormat = CLAMP(string2uint(var.GetValue()), 0, 7);
+            }
             else
             {
-                for(uint i=1; i < 20; ++i)
+                for (uint i = 1; i < 20; ++i)
                 {
-                    if(var.GetName() == ("CustomTimeout"+i))
+                    if (var.GetName() == ("CustomTimeout" + i))
                     {
                         array<string@>@ vals = split(var.GetValue(), " ");
-                        if(vals.length() == 11)
-                            TimeoutsCustom[i].SetValues(string2int(vals[0]), string2int(vals[1]), string2uint(vals[2]),         //x, y, spacingX
-                                                        string2uint(vals[3]), string2uint(vals[4]), string2uint(vals[5]),       //R G B of name color
-                                                        string2uint(vals[6]), string2uint(vals[7]), string2uint(vals[8]),       //R G B of value color
-                                                        string2uint(vals[9]), string2bool(vals[10]));                           //font, ShowLabel
-                        else if(vals.length() == 6)
-                            TimeoutsCustom[i].SetValues(string2uint(vals[0]), string2uint(vals[1]), string2uint(vals[2]),       //R G B of name color
-                                                        string2uint(vals[3]), string2uint(vals[4]), string2uint(vals[5]));      //R G B of value color
+                        if (vals.length() == 11)
+                        {
+                            TimeoutsCustom[i].SetValues(string2int(vals[0]), string2int(vals[1]), string2uint(vals[2]),         // x, y, spacingX
+                                string2uint(vals[3]), string2uint(vals[4]), string2uint(vals[5]),                               // R G B of name color
+                                string2uint(vals[6]), string2uint(vals[7]), string2uint(vals[8]),                               // R G B of value color
+                                string2uint(vals[9]), string2bool(vals[10]));                                                   // font, ShowLabel
+                        }
+                        else if (vals.length() == 6)
+                        {
+                            TimeoutsCustom[i].SetValues(string2uint(vals[0]), string2uint(vals[1]), string2uint(vals[2]),       // R G B of name color
+                                string2uint(vals[3]), string2uint(vals[4]), string2uint(vals[5]));                              // R G B of value color
+                        }
                         break;
                     }
                 }
@@ -231,7 +264,6 @@ void TimeoutsConfig(string& customConfig)
         // Message( "Loaded timeouts configuration" );
     }
 }
-
 /*
    void screen_timeouts_save()
    {
@@ -242,140 +274,169 @@ int screen_timeouts_draw(CritterCl& critter, uint skill, string& skillname, int 
     #ifdef CUSTOM_TIMEOUTS
     return(screen_timeouts_draw(critter, skill, skillname, x, y, false, z, userCustomMode));
 }
-
 int screen_timeouts_draw(CritterCl& critter, uint skill, string& skillname, int x, int y, bool custom, uint z, uint userCustomMode)
 {
-    if(GetCurrentMapPid() == 0 && userCustomMode == 1)
+    if (GetCurrentMapPid() == 0 && userCustomMode == 1)
+    {
         userCustomMode = 2;
+    }
 
     #endif // CUSTOM_TIMEOUTS
     int timeout;
     #ifdef CUSTOM_TIMEOUTS
-    if(custom)
+    if (custom)
+    {
         timeout = __TimeMultiplier * skill;
+    }
     else
     #endif // CUSTOM_TIMEOUTS
     timeout = critter.Timeout[skill];
 
     timeout /= __TimeMultiplier;
-                            //we are adding 1s to skills cooldown because they were disappearing faster then they should 
-    if(!custom)             //(example skill cd no longer displayed while character's skill is still about 1s on cd).
-        timeout += 1;       //it's like that because timeout /= __TimeMultiplier is rounding down
+    // we are adding 1s to skills cooldown because they were disappearing faster then they should
+    if (!custom)             // (example skill cd no longer displayed while character's skill is still about 1s on cd).
+    {
+        timeout += 1;       // it's like that because timeout /= __TimeMultiplier is rounding down
 
-    if(timeout > 0)
+    }
+    if (timeout > 0)
     {
         string text = "";
 
-        if(timeout >= 3153600)
+        if (timeout >= 3153600)
         {
             int y = timeout / 3153600;
             timeout -= y * 3153600;
             text += y + " year" + (y == 1 ? "" : "s");
         }
-        else if(timeout >= 2419200)
+        else if (timeout >= 2419200)
         {
             int m = timeout / 2419200;
             timeout -= m * 2419200;
             text += m + " month" + (m == 1 ? "" : "s");
         }
-        else if(timeout >= 604800)
+        else if (timeout >= 604800)
         {
             int w = timeout / 604800;
             timeout -= w * 604800;
             text += w + " week" + (w == 1 ? "" : "s");
         }
-        else if(timeout >= 86400)
+        else if (timeout >= 86400)
         {
             int d = timeout / 86400;
             timeout -= d * 86400;
             text += d + " day" + (d == 1 ? "" : "s");
         }
-        else if(timeout >= 3600)
+        else if (timeout >= 3600)
         {
             int h = timeout / 3600;
             timeout -= h * 3600;
             int m = timeout / 60;
             timeout -= m * 60;
 
-            if(Timeouts.TimeFormat < 6)
+            if (Timeouts.TimeFormat < 6)
             {
-                text += h+":";
-                text += ((m < 10)?("0"+m):(""+m))+":";
-                text += ((timeout < 10)?("0"+timeout):(""+timeout));
+                text += h + ":";
+                text += ((m < 10) ? ("0" + m) : ("" + m)) + ":";
+                text += ((timeout < 10) ? ("0" + timeout) : ("" + timeout));
             }
             else
             {
-                text += h+"h ";
-                text += m+((Timeouts.TimeFormat == 6)?"m ":" min ");
-                text += timeout+((Timeouts.TimeFormat == 6)?"s":" sec");
+                text += h + "h ";
+                text += m + ((Timeouts.TimeFormat == 6) ? "m " : " min ");
+                text += timeout + ((Timeouts.TimeFormat == 6) ? "s" : " sec");
             }
         }
-        else if(timeout >= 60)
+        else if (timeout >= 60)
         {
             int m = timeout / 60;
             timeout -= m * 60;
 
-            if(Timeouts.TimeFormat < 5)
-                text += m+":"+((timeout < 10)?("0"+timeout):(""+timeout));
-            else if(Timeouts.TimeFormat == 5)
+            if (Timeouts.TimeFormat < 5)
             {
-                text += ((m < 10)?("0"+m):(""+m))+":";
-                text += ((timeout < 10)?("0"+timeout):(""+timeout));
+                text += m + ":" + ((timeout < 10) ? ("0" + timeout) : ("" + timeout));
+            }
+            else if (Timeouts.TimeFormat == 5)
+            {
+                text += ((m < 10) ? ("0" + m) : ("" + m)) + ":";
+                text += ((timeout < 10) ? ("0" + timeout) : ("" + timeout));
             }
             else
             {
-                text += m+((Timeouts.TimeFormat == 6)?"m ":" min ");
-                text += timeout+((Timeouts.TimeFormat == 6)?"s":" sec");
+                text += m + ((Timeouts.TimeFormat == 6) ? "m " : " min ");
+                text += timeout + ((Timeouts.TimeFormat == 6) ? "s" : " sec");
             }
         }
         else
         {
-            switch(Timeouts.TimeFormat)
+            switch (Timeouts.TimeFormat)
             {
-                case 0: text += timeout; break;
-                case 1: text += timeout+"s"; break;
-                case 2: text += timeout+" sec"; break;
-                case 3: text += timeout+" seconds"; break;
-                case 4: text += "0:"+((timeout < 10)?("0"+timeout):(""+timeout)); break;
-                case 5: text += "00:"+((timeout < 10)?("0"+timeout):(""+timeout)); break;
-                case 6: text += timeout+"s"; break;
-                case 7: text += timeout+" sec"; break;
+                case 0:
+                    text += timeout;
+                    break;
+                case 1:
+                    text += timeout + "s";
+                    break;
+                case 2:
+                    text += timeout + " sec";
+                    break;
+                case 3:
+                    text += timeout + " seconds";
+                    break;
+                case 4:
+                    text += "0:" + ((timeout < 10) ? ("0" + timeout) : ("" + timeout));
+                    break;
+                case 5:
+                    text += "00:" + ((timeout < 10) ? ("0" + timeout) : ("" + timeout));
+                    break;
+                case 6:
+                    text += timeout + "s";
+                    break;
+                case 7:
+                    text += timeout + " sec";
+                    break;
             }
         }
 
         int yy = y;
-        if(userCustomMode == 1)
+        if (userCustomMode == 1)
         {
             x = TimeoutsCustom[z].PositionX;
             y = TimeoutsCustom[z].PositionY;
         }
 
-        if(x < 0)
+        if (x < 0)
+        {
             x += __ScreenWidth;
-        if(y < 0)
+        }
+        if (y < 0)
+        {
             y += __ScreenHeight;
-        if(yy < 0)
+        }
+        if (yy < 0)
+        {
             yy += __ScreenHeight;
+        }
 
-        int color1 = (userCustomMode != 0)?TimeoutsCustom[z].NameColor:Timeouts.NameColor;
-        int color2 = (userCustomMode != 0)?TimeoutsCustom[z].ValueColor:Timeouts.ValueColor;
+        int color1 = (userCustomMode != 0) ? TimeoutsCustom[z].NameColor : Timeouts.NameColor;
+        int color2 = (userCustomMode != 0) ? TimeoutsCustom[z].ValueColor : Timeouts.ValueColor;
 
-        if(((skillname == "Gathering" && timeout <= TO_GATHERING_OK) ||
-            (skillname == "Crafting"  && timeout <= TO_CRAFTING_OK)) &&
-           (Timeouts.Alpha != 0))
+        if (((skillname == "Gathering" && timeout <= TO_GATHERING_OK) ||
+             (skillname == "Crafting"  && timeout <= TO_CRAFTING_OK)) &&
+            (Timeouts.Alpha != 0))
         {
             color1 = COLOR_CHANGE_ALPHA(Timeouts.NameColor,  Timeouts.Alpha);
             color2 = COLOR_CHANGE_ALPHA(Timeouts.ValueColor, Timeouts.Alpha);
         }
 
-        if(userCustomMode == 1)
+        if (userCustomMode == 1)
         {
-            if(TimeoutsCustom[z].ShowLabel)
+            if (TimeoutsCustom[z].ShowLabel)
             {
                 DrawText(skillname + ":", x, y, __ScreenWidth, 10, color1, TimeoutsCustom[z].Font, Timeouts.FontFlags);
                 x += TimeoutsCustom[z].SpacingX;
             }
-            DrawText(text, x, y, __ScreenWidth, 10, color2, TimeoutsCustom[z].Font, Timeouts.FontFlags);        
+            DrawText(text, x, y, __ScreenWidth, 10, color2, TimeoutsCustom[z].Font, Timeouts.FontFlags);
             y = yy;
         }
         else
@@ -384,31 +445,41 @@ int screen_timeouts_draw(CritterCl& critter, uint skill, string& skillname, int 
             x += Timeouts.SpacingX;
             DrawText(text, x, y, __ScreenWidth, 10, color2, Timeouts.Font, Timeouts.FontFlags);
 
-            if(Timeouts.Direction == 0)
+            if (Timeouts.Direction == 0)
+            {
                 y += Timeouts.SpacingY;
+            }
             else
-                y -= Timeouts.SpacingY;        
+            {
+                y -= Timeouts.SpacingY;
+            }
         }
     }
     return(y);
 }
-
 void TimeoutsDraw() // client_main@render_iface
 {
     CritterCl@ critter = GetChosen();
-    if(!valid(critter))
-        return;
 
-    if(!Timeouts.Enabled)
+    if (!valid(critter))
+    {
         return;
+    }
 
-    if(GetCurrentMapPid() == 0 && !Timeouts.Worldmap)
+    if (!Timeouts.Enabled)
+    {
         return;
+    }
+
+    if (GetCurrentMapPid() == 0 && !Timeouts.Worldmap)
+    {
+        return;
+    }
 
     int x = 0;
     int y = 0;
 
-    if(GetCurrentMapPid() == 0)
+    if (GetCurrentMapPid() == 0)
     {
         x = Timeouts.WorldmapX;
         y = Timeouts.WorldmapY;
@@ -422,16 +493,16 @@ void TimeoutsDraw() // client_main@render_iface
     bool goUp = Timeouts.Direction == 0;
 
     #ifdef CUSTOM_TIMEOUTS
-    if(MyTimeouts.length() > 0)
+    if (MyTimeouts.length() > 0)
     {
-        for(uint c = 0; c < MyTimeouts.length(); c++)
+        for (uint c = 0; c < MyTimeouts.length(); c++)
         {
-            if(MyTimeouts[c].value > 0)
+            if (MyTimeouts[c].value > 0)
             {
-                if(GetTick() - MyTimeouts[c].tick >= 1000)
+                if (GetTick() - MyTimeouts[c].tick >= 1000)
                 {
                     MyTimeouts[c].value--;
-                    if(MyTimeouts[c].value == 0)
+                    if (MyTimeouts[c].value == 0)
                     {
                         # ifdef __DEBUG__
                         string name = MyTimeouts[c].name;
@@ -450,91 +521,90 @@ void TimeoutsDraw() // client_main@render_iface
     }
     #endif     // CUSTOM_TIMEOUTS
 
-    for(uint z = (goUp ? uint(1) : uint(19)); z != (goUp ? uint(20) : uint(0)); (goUp ? z++ : z--))
+    for (uint z = (goUp ? uint(1) : uint(19)); z != (goUp ? uint(20) : uint(0)); (goUp ? z++ : z--))
     {
-        if(z == 1 && critter.Timeout[TO_GATHERING] > 0)
+        if (z == 1 && critter.Timeout[TO_GATHERING] > 0)
         {
             y = screen_timeouts_draw(critter, TO_GATHERING, "Gathering", x, y, z, TimeoutsCustom[z].CustomMode);
         }
-        if(z == 2 && critter.Timeout[TO_REPLICATION] > 0)
+        if (z == 2 && critter.Timeout[TO_REPLICATION] > 0)
         {
             y = screen_timeouts_draw(critter, TO_REPLICATION, "Replication", x, y, z, TimeoutsCustom[z].CustomMode);
         }
-        if(z == 3 && critter.Timeout[TO_BATTLE] > 0 && !IsTurnBased())
+        if (z == 3 && critter.Timeout[TO_BATTLE] > 0 && !IsTurnBased())
         {
             y = screen_timeouts_draw(critter, TO_BATTLE, "Battle", x, y, z, TimeoutsCustom[z].CustomMode);
         }
-        if(z == 4 && critter.Timeout[TO_FIXBOY] > 0)
+        if (z == 4 && critter.Timeout[TO_FIXBOY] > 0)
         {
             y = screen_timeouts_draw(critter, TO_FIXBOY, "Crafting", x, y, z, TimeoutsCustom[z].CustomMode);
         }
-        if(z == 5 && critter.Timeout[TO_WEAKENED] > 0)
+        if (z == 5 && critter.Timeout[TO_WEAKENED] > 0)
         {
             y = screen_timeouts_draw(critter, TO_WEAKENED, "Weakened", x, y, z, TimeoutsCustom[z].CustomMode);
         }
-        if(z == 6 && critter.Timeout[TO_SK_STEAL] > 0)
+        if (z == 6 && critter.Timeout[TO_SK_STEAL] > 0)
         {
             y = screen_timeouts_draw(critter, TO_SK_STEAL, "Steal", x, y, z, TimeoutsCustom[z].CustomMode);
         }
-        if(z == 7 && critter.Timeout[TO_SK_LOCKPICK] > 0)
+        if (z == 7 && critter.Timeout[TO_SK_LOCKPICK] > 0)
         {
             y = screen_timeouts_draw(critter, TO_SK_LOCKPICK, "Lockpick", x, y, z, TimeoutsCustom[z].CustomMode);
         }
-        if(z == 8 && critter.Timeout[TO_SK_SCIENCE] > 0)
+        if (z == 8 && critter.Timeout[TO_SK_SCIENCE] > 0)
         {
             y = screen_timeouts_draw(critter, TO_SK_SCIENCE, "Science", x, y, z, TimeoutsCustom[z].CustomMode);
         }
-        if(z == 9 && critter.Timeout[TO_SK_REPAIR] > 0)
+        if (z == 9 && critter.Timeout[TO_SK_REPAIR] > 0)
         {
             y = screen_timeouts_draw(critter, TO_SK_REPAIR, "Repair", x, y, z, TimeoutsCustom[z].CustomMode);
         }
-        if(z == 10 && critter.Timeout[TO_SK_DOCTOR] > 0)
+        if (z == 10 && critter.Timeout[TO_SK_DOCTOR] > 0)
         {
             y = screen_timeouts_draw(critter, TO_SK_DOCTOR, "Doctor", x, y, z, TimeoutsCustom[z].CustomMode);
         }
-        if(z == 11 && critter.Timeout[TO_SK_FIRST_AID] > 0)
+        if (z == 11 && critter.Timeout[TO_SK_FIRST_AID] > 0)
         {
             y = screen_timeouts_draw(critter, TO_SK_FIRST_AID, "First Aid", x, y, z, TimeoutsCustom[z].CustomMode);
         }
-        if(z == 12   && critter.Timeout[TO_CIGARETTES] > 0)
+        if (z == 12   && critter.Timeout[TO_CIGARETTES] > 0)
         {
             y = screen_timeouts_draw(critter, TO_CIGARETTES, "Cigarettes", x, y, z, TimeoutsCustom[z].CustomMode);
         }
-        if(z == 13 && critter.Timeout[TO_NUKA_COLA] > 0)
+        if (z == 13 && critter.Timeout[TO_NUKA_COLA] > 0)
         {
             y = screen_timeouts_draw(critter, TO_NUKA_COLA, "Nuka Cola", x, y, z, TimeoutsCustom[z].CustomMode);
         }
-        if(z == 14 && critter.Timeout[TO_BEER] > 0)
+        if (z == 14 && critter.Timeout[TO_BEER] > 0)
         {
             y = screen_timeouts_draw(critter, TO_BEER, "Beer", x, y, z, TimeoutsCustom[z].CustomMode);
         }
-        if(z == 15 && critter.Timeout[TO_MENTATS] > 0)
+        if (z == 15 && critter.Timeout[TO_MENTATS] > 0)
         {
             y = screen_timeouts_draw(critter, TO_MENTATS, "Mentats", x, y, z, TimeoutsCustom[z].CustomMode);
         }
-        if(z == 16 && critter.Timeout[TO_BUFFOUT] > 0)
+        if (z == 16 && critter.Timeout[TO_BUFFOUT] > 0)
         {
             y = screen_timeouts_draw(critter, TO_BUFFOUT, "Buffout", x, y, z, TimeoutsCustom[z].CustomMode);
         }
-        if(z == 17 && critter.Timeout[TO_PSYCHO] > 0)
+        if (z == 17 && critter.Timeout[TO_PSYCHO] > 0)
         {
             y = screen_timeouts_draw(critter, TO_PSYCHO, "Psycho", x, y, z, TimeoutsCustom[z].CustomMode);
         }
-        if(z == 18 && critter.Timeout[TO_JET] > 0)
+        if (z == 18 && critter.Timeout[TO_JET] > 0)
         {
             y = screen_timeouts_draw(critter, TO_JET, "Jet", x, y, z, TimeoutsCustom[z].CustomMode);
         }
-        if(z == 19 && critter.Timeout[TO_RAD_X] > 0)
+        if (z == 19 && critter.Timeout[TO_RAD_X] > 0)
         {
             y = screen_timeouts_draw(critter, TO_RAD_X, "Rad-X", x, y, z, TimeoutsCustom[z].CustomMode);
         }
     }
 }
-
 bool TimeoutsCommand(string& message)   // client_main@out_message
 {
     array<string@>@ options = split(message, " ");
-    if(message == "~timeouts" || options[1] == "")
+    if (message == "~timeouts" || options[1] == "")
     {
         Timeouts.Enabled = !Timeouts.Enabled;
         Message("Timeouts display: " + (Timeouts.Enabled ? "ON" : "OFF"));
@@ -549,85 +619,99 @@ bool TimeoutsCommand(string& message)   // client_main@out_message
                         screen_timeouts_save( options[2], true );
         }
  */
-    else if(options[1] == "load")
+    else if (options[1] == "load")
     {
-        if(options.length() == 2)
+        if (options.length() == 2)
+        {
             TimeoutsConfig("");
-        else if(options.length() == 3 && options[2] != "")
+        }
+        else if (options.length() == 3 && options[2] != "")
+        {
             TimeoutsConfig(options[2]);
+        }
     }
-    if(!Timeouts.Enabled)
-        return(false);
-
-    if(options[1] == "color")
+    if (!Timeouts.Enabled)
     {
-        if((options[2].length() + options[3].length() + options[4].length()) >= 3)
+        return(false);
+    }
+
+    if (options[1] == "color")
+    {
+        if ((options[2].length() + options[3].length() + options[4].length()) >= 3)
         {
             Timeouts.NameColor = COLOR_RGB_STRING(options[2], options[3], options[4]);
             Timeouts.ValueColor = COLOR_RGB_STRING(options[2], options[3], options[4]);
         }
     }
-    else if(options[1] == "color1")
+    else if (options[1] == "color1")
     {
-        if((options[2].length() + options[3].length() + options[4].length()) >= 3)
+        if ((options[2].length() + options[3].length() + options[4].length()) >= 3)
+        {
             Timeouts.NameColor = COLOR_RGB_STRING(options[2], options[3], options[4]);
+        }
     }
-    else if(options[1] == "color2")
+    else if (options[1] == "color2")
     {
-        if((options[2].length() + options[3].length() + options[4].length()) >= 3)
+        if ((options[2].length() + options[3].length() + options[4].length()) >= 3)
+        {
             Timeouts.ValueColor = COLOR_RGB_STRING(options[2], options[3], options[4]);
+        }
     }
-    else if(options[1] == "direction" && options[2].length() > 0)
+    else if (options[1] == "direction" && options[2].length() > 0)
     {
-        if(options[2] == "up")
+        if (options[2] == "up")
+        {
             Timeouts.Direction = 1;
-        else if(options[2] == "down")
+        }
+        else if (options[2] == "down")
+        {
             Timeouts.Direction = 0;
+        }
     }
-    else if(options[1] == "font")
+    else if (options[1] == "font")
     {
-        if(options[2].length() >= 1)
+        if (options[2].length() >= 1)
         {
             uint font = 0;
             StrToInt(options[2], font);
 
             Timeouts.Font = font_string2uint(options[2]);
-            if(font != Timeouts.Font)
+            if (font != Timeouts.Font)
             {
                 Message("Timeouts [font]: invalid font (" + font + ")");
                 return(false);
             }
-            ;
         }
-        ;
     }
-    else if(options[1] == "spacingx")
+    else if (options[1] == "spacingx")
     {
-        if(options[2].length() >= 1)
+        if (options[2].length() >= 1)
+        {
             StrToInt(options[2], Timeouts.SpacingX);
+        }
     }
-    else if(options[1] == "spacingy")
+    else if (options[1] == "spacingy")
     {
-        if(options[2].length() >= 1)
+        if (options[2].length() >= 1)
         {
             StrToInt(options[2], Timeouts.SpacingY);
         }
     }
-    else if(options[1] == "wm" || options[1] == "worldmap")
+    else if (options[1] == "wm" || options[1] == "worldmap")
     {
         Timeouts.Worldmap = !Timeouts.Worldmap;
     }
-    else if(options[1] == "xy")
+    else if (options[1] == "xy")
     {
-        if(options.length() >= 4 && (options[2].length() > 0) && (options[3].length() > 0))
+        if (options.length() >= 4 && (options[2].length() > 0) && (options[3].length() > 0))
         {
             StrToInt(options[2], Timeouts.PositionX);
             StrToInt(options[3], Timeouts.PositionY);
         }
     }
-    else if(options[1] == "worldmapxy")
+    else if (options[1] == "worldmapxy")
     {
-        if(options.length() >= 4 && (options[2].length() >= 1) && (options[3].length() >= 1))
+        if (options.length() >= 4 && (options[2].length() >= 1) && (options[3].length() >= 1))
         {
             StrToInt(options[2], Timeouts.WorldmapX);
             StrToInt(options[3], Timeouts.WorldmapY);
@@ -635,33 +719,33 @@ bool TimeoutsCommand(string& message)   // client_main@out_message
     }
     #ifdef CUSTOM_TIMEOUTS
     // undocumented
-    else if(options[1] == "0x1337" && options.length() >= 4 && options[2].length() > 0 && options[3].length() > 0)
+    else if (options[1] == "0x1337" && options.length() >= 4 && options[2].length() > 0 && options[3].length() > 0)
     {
         int val = 0;
         StrToInt(options[3], val);
         screen_timeouts_add(options[2], val);
     }
-    ;
     #endif     // CUSTOM_TIMEOUTS
     return(false);
-};
+}
 
 #ifdef CUSTOM_TIMEOUTS
 void screen_timeouts_add(string& name, int value)
 {
     screen_timeouts_add(name, value, GetTick());
 }
-
 void screen_timeouts_add(string& name, int value, int tick)
 {
-    if(value <= 0)
-        return;
-
-    if(MyTimeouts.length() > 0)
+    if (value <= 0)
     {
-        for(uint c = 0; c < MyTimeouts.length(); c++)
+        return;
+    }
+
+    if (MyTimeouts.length() > 0)
+    {
+        for (uint c = 0; c < MyTimeouts.length(); c++)
         {
-            if(MyTimeouts[c].name == name)
+            if (MyTimeouts[c].name == name)
             {
                 # ifdef __DEBUG__
                 Message("Overwriting custom timeout: " + name + " (" + value + "):" + tick);
@@ -678,15 +762,16 @@ void screen_timeouts_add(string& name, int value, int tick)
     Message("Added custom timeout: " + name + " (" + value + "):" + tick);
     Message("Custom timeouts: " + MyTimeouts.length());
     # endif
-};
-
+}
 void _add_unsafe(int value, int, int, string@ name, array<int>@)
 {
-    if(valid(name) && name != "" && value > 0)
+    if (valid(name) && name != "" && value > 0)
+    {
         screen_timeouts_add(name, value);
+    }
 
     return;
-};
+}
 #endif // CUSTOM_TIMEOUTS
 
 #ifndef CUSTOM_TIMEOUTS

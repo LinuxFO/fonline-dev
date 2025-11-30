@@ -15,7 +15,7 @@
 #define valid           # (__ptr)  (@__ptr != null)
 
 // appending an array
-#define append_array    # (a1, a2) do { uint a1len = a1.length(); uint a2len = a2len = a2.length(); a1.resize(a1len + a2len); for(uint iter = 0; iter < a2len; iter++) { a1[a1len + iter] = a2[iter]; } } while(false);
+#define append_array    # (a1, a2) do { uint a1len = a1.length(); uint a2len = a2len = a2.length(); a1.resize(a1len + a2len); for (uint iter = 0; iter < a2len; iter++) { a1[a1len + iter] = a2[iter]; } } while (false);
 
 // Changing directions
 #define _TurnRight      # (dir, times)(((dir) + (times)) % 6)

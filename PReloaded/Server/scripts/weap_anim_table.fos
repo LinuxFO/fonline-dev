@@ -6,17 +6,18 @@
 //
 
 #include "_macros.fos"
-
 uint GetCrType(uint pid)
 {
     return pid_crtype_table[pid - 1];
 }
-
 bool CanUseWeapon(uint crtype, uint weaponpid)
 {
     ProtoItem@ item = GetProtoItem(weaponpid);
-    if(item.Type != ITEM_TYPE_WEAPON)
+
+    if (item.Type != ITEM_TYPE_WEAPON)
+    {
         return false;
+    }
 
     return(IsCritterAnim1(crtype, item.Weapon_Anim1));
 }

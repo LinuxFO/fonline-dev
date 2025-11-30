@@ -22,7 +22,6 @@
 #define HLP_LINK       (2)
 
 #define HLP_WIKI       "commands.txt"
-
 import int stringReplaceText(string& s, string@ f, string@ t) from "config_file";
 
 class CCheatHelp
@@ -36,37 +35,34 @@ class CCheatHelp
 
     CCheatHelp(string command, int type)
     {
-        this.command            = command;
-        this.type                       = type;
-        this.scripted           = false;
-        this.disabled           = false;
+        this.command = command;
+        this.type = type;
+        this.scripted = false;
+        this.disabled = false;
         this.description.resize(0);
         this.see_also.resize(0);
     }
-
     void Description(string line)
     {
         stringReplaceText(line, "%CMD%", this.command);
         push_back(this.description, line);
     }
-
     void SeeAlso(string line)
     {
         push_back(this.see_also, line);
     }
 };
 array<CCheatHelp> CheatHelp;
-
 bool IsCorrectCommand(string& command)
 {
-    if(command.length() < 2 ||
-       !(substring(command, 0, 1) == "`" || substring(command, 0, 1) == "~"  || substring(command, 0, 1) == "+"))
+    if (command.length() < 2 ||
+        !(substring(command, 0, 1) == "`" || substring(command, 0, 1) == "~"  || substring(command, 0, 1) == "+"))
     {
         Log("CheatHelp : wrong prefix : " + command);
         return(false);
     }
 
-    if(substring(command, 0, 1) == "`" && !IsInArray(commandlist, substring(command, 1, command.length() - 1)))
+    if (substring(command, 0, 1) == "`" && !IsInArray(commandlist, substring(command, 1, command.length() - 1)))
     {
         Log("CheatHelp : unknown command (not on list) : " + command);
         return(false);
@@ -74,23 +70,27 @@ bool IsCorrectCommand(string& command)
 
     return(true);
 }
-
 bool IsHelp(string& command)
 {
-    for(uint c = 0; c < CheatHelp.length(); c++)
+    for (uint c = 0; c < CheatHelp.length(); c++)
     {
-        if(CheatHelp[c].command == command)
+        if (CheatHelp[c].command == command)
+        {
             return(true);
+        }
     }
     return(false);
 }
-
 int GetCommandType(string& command)
 {
-    if(substring(command, 0, 1) == "`")
+    if (substring(command, 0, 1) == "`")
+    {
         return(HLP_NORMAL);
-    else if(substring(command, 0, 1) == "~" || substring(command, 0, 1) == "+")
+    }
+    else if (substring(command, 0, 1) == "~" || substring(command, 0, 1) == "+")
+    {
         return(HLP_CLIENT);
+    }
     else
     {
         // should never happen
@@ -98,23 +98,25 @@ int GetCommandType(string& command)
         return(HLP_UNKNOWN);
     }
 }
-
 int AddCommand(string& command, uint type)
 {
-    if(!IsCorrectCommand(command))
+    if (!IsCorrectCommand(command))
+    {
         return(-1);
+    }
 
     push_back(CheatHelp, CCheatHelp(command, type));
     return(CheatHelp.length() - 1);
 }
-
 int AddCommand(string& command, string& description)
 {
-    if(!IsCorrectCommand(command))
+    if (!IsCorrectCommand(command))
+    {
         return(-1);
+    }
 
     int type = GetCommandType(command);
-    if(type <= HLP_UNKNOWN)
+    if (type <= HLP_UNKNOWN)
     {
         Log("CheatHelp : unknown command type : command<" + command + "> gettype returns<" + type + ">");
         return(-1);
@@ -124,11 +126,12 @@ int AddCommand(string& command, string& description)
     CheatHelp[id].Description(description);
     return(id);
 }
-
 int AddLink(string& command_short, string& command_long)
 {
-    if(!IsCorrectCommand(command_short) || !IsCorrectCommand(command_long))
+    if (!IsCorrectCommand(command_short) || !IsCorrectCommand(command_long))
+    {
         return(-1);
+    }
 
     push_back(CheatHelp, CCheatHelp(command_short, HLP_LINK));
     uint id = CheatHelp.length() - 1;
@@ -137,15 +140,14 @@ int AddLink(string& command_short, string& command_long)
 }
 
 bool CheatHelpInitialized = false;
-
 void InitHelp()
 {
     CheatHelp.resize(0);
 
     // helpers
     uint cmd = 0;
-    #define LongCommand    # (name, text)cmd = AddCommand(name, text)
-    #define LongLink       # (sh, lo)cmd = AddLink(sh, lo)
+    #define LongCommand    # (name, text) cmd = AddCommand(name, text)
+    #define LongLink       # (sh, lo) cmd = AddLink(sh, lo)
     #define LastCommand    # (text)                 CheatHelp[cmd].Description(text)
     #define LastLink       # (text)                        CheatHelp[cmd].SeeAlso(text)
     #define LastType       # (t)                           CheatHelp[cmd].type = t
@@ -533,62 +535,75 @@ void InitHelp()
 //	AddCommand( "`zone",				"" );
 //	AddCommand( "`zoneplayers",			"" );
 }
-
 void CheatHelpShow(Critter& player, string& command)
 {
-    if(!CheatHelpInitialized)
-        InitHelp();
-
-    if(CheatHelp.length() > 0)
+    if (!CheatHelpInitialized)
     {
-        for(uint c = 0; c < CheatHelp.length(); c++)
+        InitHelp();
+    }
+
+    if (CheatHelp.length() > 0)
+    {
+        for (uint c = 0; c < CheatHelp.length(); c++)
         {
-            if(CheatHelp[c].command == command)
+            if (CheatHelp[c].command == command)
             {
                 player.Say(SAY_NETMSG, "Command: " + command);
-                if(CheatHelp[c].type == HLP_NORMAL)
+                if (CheatHelp[c].type == HLP_NORMAL)
                 {
-                    if(IsInArray(testercommandlist, substring(command, 1, command.length() - 1)))
+                    if (IsInArray(testercommandlist, substring(command, 1, command.length() - 1)))
+                    {
                         player.Say(SAY_NETMSG, "Access: tester");
-                    else if(IsInArray(gmcommandlist, substring(command, 1, command.length() - 1)))
+                    }
+                    else if (IsInArray(gmcommandlist, substring(command, 1, command.length() - 1)))
+                    {
                         player.Say(SAY_NETMSG, "Access: moder");
-                    else if(IsInArray(commandlist, substring(command, 1, command.length() - 1)))
+                    }
+                    else if (IsInArray(commandlist, substring(command, 1, command.length() - 1)))
+                    {
                         player.Say(SAY_NETMSG, "Access: admin");
+                    }
                 }
 
-                for(uint d = 0; d < CheatHelp[c].description.length(); d++)
+                for (uint d = 0; d < CheatHelp[c].description.length(); d++)
                 {
                     string line = CheatHelp[c].description[d];
                     stringReplaceText(line, "[[", "");
                     stringReplaceText(line, "]]", "");
                     player.Say(SAY_NETMSG, " " + line);
                 }
-                if(CheatHelp[c].type == HLP_NORMAL || CheatHelp[c].type == HLP_CLIENT)
+                if (CheatHelp[c].type == HLP_NORMAL || CheatHelp[c].type == HLP_CLIENT)
                 {
-                    if(CheatHelp[c].see_also.length() > 0)
+                    if (CheatHelp[c].see_also.length() > 0)
                     {
-                        if(CheatHelp[c].see_also.length() == 1)
+                        if (CheatHelp[c].see_also.length() == 1)
+                        {
                             player.Say(SAY_NETMSG, " See also: " + CheatHelp[c].see_also[0]);
+                        }
                         else
                         {
                             player.Say(SAY_NETMSG, " See also:");
-                            for(uint s = 0; s < CheatHelp[c].see_also.length(); s++)
+                            for (uint s = 0; s < CheatHelp[c].see_also.length(); s++)
                             {
                                 player.Say(SAY_NETMSG, "\t" + CheatHelp[c].see_also[s]);
                             }
                         }
                     }
                 }
-                else if(CheatHelp[c].type == HLP_LINK)
+                else if (CheatHelp[c].type == HLP_LINK)
                 {
-                    if(CheatHelp[c].see_also.length() == 0)
+                    if (CheatHelp[c].see_also.length() == 0)
+                    {
                         player.Say(SAY_NETMSG, "<ERR: No HLP_LINK destination, blame random dev>");
-                    else if(CheatHelp[c].see_also.length() == 1)
+                    }
+                    else if (CheatHelp[c].see_also.length() == 1)
+                    {
                         player.Say(SAY_NETMSG, " See: " + CheatHelp[c].see_also[0]);
+                    }
                     else
                     {
                         player.Say(SAY_NETMSG, " See:");
-                        for(uint s = 0; s < CheatHelp[c].see_also.length(); s++)
+                        for (uint s = 0; s < CheatHelp[c].see_also.length(); s++)
                         {
                             player.Say(SAY_NETMSG, "\t" + CheatHelp[c].see_also[s]);
                         }
@@ -601,10 +616,9 @@ void CheatHelpShow(Critter& player, string& command)
     player.Say(SAY_NETMSG, " " + command + ": no help available");
     return;
 }
-
 void ExecHelpCommand(array<string@>@ command, Critter@ player)
 {
-    if(command.length() >= 3 && command[2].length() > 0)
+    if (command.length() >= 3 && command[2].length() > 0)
     {
         CheatHelpShow(player, command[2]);
         return;
@@ -612,27 +626,27 @@ void ExecHelpCommand(array<string@>@ command, Critter@ player)
     player.Say(SAY_NETMSG, "Syntax error.");
     return;
 }
-
 void GMWikiCommands()
 {
     file f;
-    if(f.open(HLP_WIKI, "w") >= 0)
+
+    if (f.open(HLP_WIKI, "w") >= 0)
     {
         bool          client = false;
         bool          server = false;
         array<string> parsed;
-        for(uint c = 0; c < CheatHelp.length(); c++)
+        for (uint c = 0; c < CheatHelp.length(); c++)
         {
             push_back(parsed, substring(CheatHelp[c].command, 1, CheatHelp[c].command.length() - 1));
-            if(c == 0)
+            if (c == 0)
             {}
 
-            if(!client && !server && CheatHelp[c].command[0] == '~')
+            if (!client && !server && CheatHelp[c].command[0] == '~')
             {
                 f.writeString("^  CLIENT COMMANDS  ^^\n");
                 client = true;
             }
-            else if(!server && CheatHelp[c].command[0] == '`')
+            else if (!server && CheatHelp[c].command[0] == '`')
             {
                 f.writeString("\n^  SERVER COMMANDS  ^^^\n");
                 f.writeString("^  Command  ^  Access  ^  Description  ^\n");
@@ -643,56 +657,78 @@ void GMWikiCommands()
             bool tester = false;
             bool moder = false;
             bool admin = false;
-            if(IsInArray(testercommandlist, substring(CheatHelp[c].command, 1, CheatHelp[c].command.length() - 1)))
-                tester = true;
-            if(IsInArray(gmcommandlist, substring(CheatHelp[c].command, 1, CheatHelp[c].command.length() - 1)))
-                moder = true;
-            if(IsInArray(commandlist, substring(CheatHelp[c].command, 1, CheatHelp[c].command.length() - 1)))
-                admin = true;
-            if(server)
+            if (IsInArray(testercommandlist, substring(CheatHelp[c].command, 1, CheatHelp[c].command.length() - 1)))
             {
-                if(tester && moder && admin)
+                tester = true;
+            }
+            if (IsInArray(gmcommandlist, substring(CheatHelp[c].command, 1, CheatHelp[c].command.length() - 1)))
+            {
+                moder = true;
+            }
+            if (IsInArray(commandlist, substring(CheatHelp[c].command, 1, CheatHelp[c].command.length() - 1)))
+            {
+                admin = true;
+            }
+            if (server)
+            {
+                if (tester && moder && admin)
+                {
                     f.writeString(" Tester+ ");
-                else if(!tester && moder && admin)
+                }
+                else if (!tester && moder && admin)
+                {
                     f.writeString(" Moder+ ");
-                else if(!tester && !moder && admin)
+                }
+                else if (!tester && !moder && admin)
+                {
                     f.writeString(" Admin ");
+                }
                 else
+                {
                     f.writeString((tester ? "Tester" : "") + (moder || admin ? "," : "") + " " + (moder ? "Moder" : "") + (admin ? "," : "") + " " + (admin ? "Admin" : "-"));
+                }
                 f.writeString(" | ");
             }
-            for(uint d = 0; d < CheatHelp[c].description.length(); d++)
+            for (uint d = 0; d < CheatHelp[c].description.length(); d++)
             {
                 string line = CheatHelp[c].description[d];
                 // stringReplaceText( line, " ", "&nbsp;" );
                 f.writeString(line);
-                if(d != (CheatHelp[c].description.length() - 1))
-                    f.writeString("\\\\ ");
-            }
-            if(CheatHelp[c].see_also.length() > 0)
-            {
-                if(CheatHelp[c].description.length() > 0)
-                    f.writeString(" |\n| |" + (server ? "|" : "") + " ");
-                f.writeString("//See" + (CheatHelp[c].type == HLP_LINK ? "" : " also") + ":");
-                for(uint s = 0; s < CheatHelp[c].see_also.length(); s++)
+                if (d != (CheatHelp[c].description.length() - 1))
                 {
-                    if(s != 0)
+                    f.writeString("\\\\ ");
+                }
+            }
+            if (CheatHelp[c].see_also.length() > 0)
+            {
+                if (CheatHelp[c].description.length() > 0)
+                {
+                    f.writeString(" |\n| |" + (server ? "|" : "") + " ");
+                }
+                f.writeString("//See" + (CheatHelp[c].type == HLP_LINK ? "" : " also") + ":");
+                for (uint s = 0; s < CheatHelp[c].see_also.length(); s++)
+                {
+                    if (s != 0)
+                    {
                         f.writeString(",");
+                    }
                     f.writeString(" " + CheatHelp[c].see_also[s]);
                 }
                 f.writeString("// |\n");
             }
             else
+            {
                 f.writeString(" |\n");
+            }
         }
 
         bool   u = false;
         string us = "\nUnlisted commands:\\\\\n";
-        for(uint c = 0; c < commandlist.length(); c++)
+        for (uint c = 0; c < commandlist.length(); c++)
         {
-            if(!IsInArray(parsed, commandlist[c]))
+            if (!IsInArray(parsed, commandlist[c]))
             {
-                if(!u)
+                if (!u)
                 {
                     u = true;
                     f.writeString(us);
@@ -701,11 +737,11 @@ void GMWikiCommands()
                 push_back(parsed, commandlist[c]);
             }
         }
-        for(uint c = 0; c < gmcommandlist.length(); c++)
+        for (uint c = 0; c < gmcommandlist.length(); c++)
         {
-            if(!IsInArray(parsed, gmcommandlist[c]))
+            if (!IsInArray(parsed, gmcommandlist[c]))
             {
-                if(!u)
+                if (!u)
                 {
                     u = true;
                     f.writeString(us);
@@ -714,11 +750,11 @@ void GMWikiCommands()
                 push_back(parsed, gmcommandlist[c]);
             }
         }
-        for(uint c = 0; c < testercommandlist.length(); c++)
+        for (uint c = 0; c < testercommandlist.length(); c++)
         {
-            if(!IsInArray(parsed, testercommandlist[c]))
+            if (!IsInArray(parsed, testercommandlist[c]))
             {
-                if(!u)
+                if (!u)
                 {
                     u = true;
                     f.writeString(us);
@@ -735,11 +771,12 @@ void GMWikiCommands()
         Log("Cannot create: " + HLP_WIKI);
     }
 }
-
 void gmwiki(Critter&, int, int, int)
 {
-    if(!CheatHelpInitialized)
+    if (!CheatHelpInitialized)
+    {
         InitHelp();
+    }
 
     Log("Dump commands list");
     GMWikiCommands();

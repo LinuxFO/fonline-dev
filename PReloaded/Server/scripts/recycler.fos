@@ -29,12 +29,9 @@ array<array<uint> > RecyclerTargets =
 {
     array<uint>(0),
     array<uint>(0)
-    //{}, // ENCOUNTER_RECYCLER
-    //{}  // TENT_RECYCLER
+    // {}, // ENCOUNTER_RECYCLER
+    // {}  // TENT_RECYCLER
 };
-
-
-
 // ENCOUNTER_RECYCLER
 //
 void _InitEncounterRecycler(Item& item, bool firstTime)
@@ -42,7 +39,7 @@ void _InitEncounterRecycler(Item& item, bool firstTime)
     SETFLAG(item.Flags, ITEM_FLAG_ALWAYS_VIEW);
 
     RECYCLER_TYPE(item) = ENCOUNTER_RECYCLER;
-    if(RECYCLER_INTERVAL(item) == 0)
+    if (RECYCLER_INTERVAL(item) == 0)
     {
         RECYCLER_INTERVAL(item) = RECYCLER_INTERVAL_DEFAULT;
     }
@@ -52,10 +49,9 @@ void _InitEncounterRecycler(Item& item, bool firstTime)
     array<uint> values = { item.Id };
     CreateTimeEvent(AFTER(RECYCLER_INTERVAL(item)), "e_Recycle", values, false);
 }
-
 void RecycleEncounter(Location@ loc)
 {
-    if(!valid(loc))
+    if (!valid(loc))
     {
         return;
     }
@@ -72,8 +68,6 @@ void RecycleEncounter(Location@ loc)
     RecycleLocation(loc, ENCOUNTER_RECYCLER, itemTypes, RECYCLE_FLOOR | RECYCLE_DEAD);
     PurgeRecycler(ENCOUNTER_RECYCLER, 500, 25);
 }
-
-
 // TENT_RECYCLER
 //
 void _InitTentRecycler(Item& item, bool firstTime)
@@ -81,7 +75,7 @@ void _InitTentRecycler(Item& item, bool firstTime)
     SETFLAG(item.Flags, ITEM_FLAG_ALWAYS_VIEW);
 
     RECYCLER_TYPE(item) = TENT_RECYCLER;
-    if(RECYCLER_INTERVAL(item) == 0)
+    if (RECYCLER_INTERVAL(item) == 0)
     {
         RECYCLER_INTERVAL(item) = RECYCLER_INTERVAL_DEFAULT;
     }
@@ -91,10 +85,9 @@ void _InitTentRecycler(Item& item, bool firstTime)
     array<uint> values = { item.Id };
     CreateTimeEvent(AFTER(RECYCLER_INTERVAL(item)), "e_Recycle", values, false);
 }
-
 void RecycleTent(Location@ loc)
 {
-    if(!valid(loc))
+    if (!valid(loc))
     {
         return;
     }
@@ -111,17 +104,13 @@ void RecycleTent(Location@ loc)
     RecycleLocation(loc, TENT_RECYCLER, itemTypes, RECYCLE_FLOOR | RECYCLE_CONTAINERS | RECYCLE_DEAD);
     PurgeRecycler(TENT_RECYCLER, 1000, 50);
 }
-
-
-
-
-
 // Moves an item from recycler to one of target containers.
 //
 uint e_Recycle(array<uint>@ data)
 {
     Item@ recycler = GetItem(data[0]);
-    if(!valid(recycler))
+
+    if (!valid(recycler))
     {
         return 0;
     }
@@ -129,14 +118,14 @@ uint e_Recycle(array<uint>@ data)
     array<Item@> recycledItems;
     uint         recycledItemsNum = recycler.GetItems(uint(-1), recycledItems);
 
-    uint         targetsNum = RecyclerTargets[RECYCLER_TYPE(recycler)].length();
+    uint targetsNum = RecyclerTargets[RECYCLER_TYPE(recycler)].length();
 
-    if(recycledItemsNum > 0 && targetsNum > 0)
+    if (recycledItemsNum > 0 && targetsNum > 0)
     {
         // Get recycled item
         //
         Item@ recycledItem = recycledItems[Random(0, recycledItemsNum - 1)];
-        if(recycledItem.Val9 == 0 && recycledItem.Val8 != SPECIAL_ITEM_ARENA && (FLAG(recycledItem.Flags, ITEM_FLAG_CAN_PICKUP)))
+        if (recycledItem.Val9 == 0 && recycledItem.Val8 != SPECIAL_ITEM_ARENA && (FLAG(recycledItem.Flags, ITEM_FLAG_CAN_PICKUP)))
         {
             uint recycledItemCount = recycledItem.GetCount();
             recycledItemCount = (recycledItemCount > 50) ? Random(1, 50) : Random(1, recycledItemCount);
@@ -144,23 +133,23 @@ uint e_Recycle(array<uint>@ data)
             // Try to find a suitable target starting from a random offset
             //
             uint offset = Random(0, targetsNum - 1);
-            for(uint i = offset, j = offset + targetsNum; i < j; i++)
+            for (uint i = offset, j = offset + targetsNum; i < j; i++)
             {
                 Item@ target = GetItem(RecyclerTargets[RECYCLER_TYPE(recycler)][i % targetsNum]);
-                if(valid(target) && target.GetType() == ITEM_TYPE_CONTAINER && _LockerIsClose(target))
+                if (valid(target) && target.GetType() == ITEM_TYPE_CONTAINER && _LockerIsClose(target))
                 {
                     Item@ targetItemSameProto = target.GetItem(recycledItem.Proto.ProtoId, 0);
-                    if(valid(targetItemSameProto) && targetItemSameProto.GetCount() > 300)
+                    if (valid(targetItemSameProto) && targetItemSameProto.GetCount() > 300)
                     {
                         continue;
                     }
                     array<Item@> targetItems;
-                    if(target.GetItems(uint(-1), targetItems) < 3)
+                    if (target.GetItems(uint(-1), targetItems) < 3)
                     {
                         WLog("recycler", "Moved item " + recycledItem.Id + " [PID: " + recycledItem.Proto.ProtoId + "] (x" + recycledItemCount + ") from encounter recycler to container " + target.Id, DEBUG_MESSAGE);
                         MoveItem(recycledItem, recycledItemCount, target, 0);
                         Map@ map = GetMap(recycler.MapId);
-                        if(valid(map))
+                        if (valid(map))
                         {
                             map.SetText(recycler.HexX, recycler.HexY, 0, "sent " + recycledItemCount + " item" + (recycledItemCount != 1 ? "s" : "") + " to target " + target.Id);
                         }
@@ -177,79 +166,67 @@ uint e_Recycle(array<uint>@ data)
     }
     return RECYCLER_INTERVAL(recycler);
 }
-
-
-
-
-
 // Makes an item a target of a recycler.
 //
 void ConnectRecycler(Item@ item, uint recyclerIndex)
 {
-    if(!valid(item) || recyclerIndex >= RecyclerTargets.length())
+    if (!valid(item) || recyclerIndex >= RecyclerTargets.length())
     {
         return;
     }
     RecyclerTargets[recyclerIndex].insertLast(item.Id);
 }
-
-
-
 // Removes item from the list of the targets of a recycler.
 //
 void DisconnectRecycler(Item@ item, uint recyclerIndex)
 {
-    if(!valid(item) || recyclerIndex >= RecyclerTargets.length())
+    if (!valid(item) || recyclerIndex >= RecyclerTargets.length())
     {
         return;
     }
-    for(uint i = 0, j = RecyclerTargets[recyclerIndex].length(); i < j; i++)
+    for (uint i = 0, j = RecyclerTargets[recyclerIndex].length(); i < j; i++)
     {
-        if(item.Id == RecyclerTargets[recyclerIndex][i])
+        if (item.Id == RecyclerTargets[recyclerIndex][i])
         {
             RecyclerTargets[recyclerIndex].removeAt(i);
             return;
         }
     }
 }
-
-
-
 // Purge over-filled recycler
 //
 void PurgeRecycler(uint recyclerType, uint maxLevel, uint minLevel)
 {
     Item@ recycler = GetRecycler(recyclerType);
-    if(!valid(recycler) || (minLevel > maxLevel))
+
+    if (!valid(recycler) || (minLevel > maxLevel))
     {
         return;
     }
 
     array<Item@> recyclerItems;
     uint         recyclerItemsNum = recycler.GetItems(uint(-1), recyclerItems);
-    if(recyclerItemsNum > maxLevel)
+    if (recyclerItemsNum > maxLevel)
     {
         recyclerItems.resize(recyclerItemsNum - minLevel);
         DeleteItems(recyclerItems);
     }
 }
-
-
-
 void RecycleMap(Map@ map, uint recyclerType, array<int>& itemTypes, int recycle)
 {
 
     Item@ recycler = GetRecycler(recyclerType);
-    if(!valid(recycler) || !valid(map) || (map.GetData(MAP_DATA_SPAWNER) > 0))
+
+    if (!valid(recycler) || !valid(map) || (map.GetData(MAP_DATA_SPAWNER) > 0))
     {
         return;
     }
 
     array<Item@> items;
 
-    if(FLAG(recycle, RECYCLE_FLOOR))
+    if (FLAG(recycle, RECYCLE_FLOOR))
     {
-        for(uint i = 0, j = itemTypes.length(); i < j; i++)
+        for (uint i = 0, j = itemTypes.length(); i < j; i++)
         {
             map.GetItemsByType(itemTypes[i], items);
         }
@@ -267,17 +244,17 @@ void RecycleMap(Map@ map, uint recyclerType, array<int>& itemTypes, int recycle)
        }
      */
 
-    if(FLAG(recycle, RECYCLE_DEAD))
+    if (FLAG(recycle, RECYCLE_DEAD))
     {
         array<Critter@> critters;
         map.GetCritters(0, FIND_DEAD, critters);
-        for(uint i = 0, j = critters.length(); i < j; i++)
+        for (uint i = 0, j = critters.length(); i < j; i++)
         {
-            if(_IsRealPlayer(critters[i]) || (critters[i].IsNpc() && critters[i].SpawnedBy == 0))
+            if (_IsRealPlayer(critters[i]) || (critters[i].IsNpc() && critters[i].SpawnedBy == 0))
             {
-                if(_CritCanDropItemsOnDead(critters[i]))
+                if (_CritCanDropItemsOnDead(critters[i]))
                 {
-                    for(uint ii = 0, jj = itemTypes.length(); ii < jj; ii++)
+                    for (uint ii = 0, jj = itemTypes.length(); ii < jj; ii++)
                     {
                         critters[i].GetItemsByType(itemTypes[ii], items);
                     }
@@ -288,86 +265,75 @@ void RecycleMap(Map@ map, uint recyclerType, array<int>& itemTypes, int recycle)
 
     uint itemsNum = items.length();
 
-    if(itemsNum > 0)
+    if (itemsNum > 0)
     {
         MoveItems(items, recycler, 0);
         WLog("recycler", "Recycler " + recyclerType + " [" + recycler.Id + "] " + "received " + itemsNum + " item" + (itemsNum > 1 ? "s " : " ") + "from map " + map.Id, DEBUG_MESSAGE);
     }
 }
-
-
 void RecycleLocation(Location@ loc, uint recyclerType, array<int>& itemTypes, int recycle)
 {
-    if(!valid(loc))
+    if (!valid(loc))
     {
         return;
     }
     array<Map@> maps;
     loc.GetMaps(maps);
 
-    for(uint i = 0, j = maps.length(); i < j; i++)
+    for (uint i = 0, j = maps.length(); i < j; i++)
     {
         RecycleMap(maps[i], recyclerType, itemTypes, recycle);
     }
 }
-
-
-
-
-
-
-
-
 //
-
 bool ValidRecyclerType(int type)   // helper
 {
-    if(EnumContains("RecyclerType", type))
+    if (EnumContains("RecyclerType", type))
     {
         array<string@> names;
         array<int>     values;
         uint           count = GetEnum("RecyclerType", names, values);
-        for(uint e = 0; e < count; e++)
+        for (uint e = 0; e < count; e++)
         {
-            if(values[e] == type && type >= 0)
+            if (values[e] == type && type >= 0)
+            {
                 return(true);
+            }
         }
     }
 
     // WLog() ?
     return(false);
 }
-
 Item@ GetRecycler(int recyclerType)
 {
-    if(!ValidRecyclerType(recyclerType))
+    if (!ValidRecyclerType(recyclerType))
     {
         // WLog() ?
         return(null);
     }
 
-    if(uint(recyclerType) >= Recycler.length())
+    if (uint(recyclerType) >= Recycler.length())
     {
         // WLog() ?
         return(null);
     }
 
     Item@ recycler = GetItem(Recycler[recyclerType]);
-    if(valid(recycler))
+    if (valid(recycler))
     {
         return(recycler);
     }
     return(null);
 }
-
 uint GetRecyclers(array<int> recyclersTypes, array<Item@>& recyclers)
 {
     uint count = 0;
 
-    for(uint t = 0, tLen = recyclersTypes.length(); t < tLen; t++)
+    for (uint t = 0, tLen = recyclersTypes.length(); t < tLen; t++)
     {
         Item@ newRecycler = GetRecycler(recyclersTypes[t]);
-        if(valid(newRecycler))
+        if (valid(newRecycler))
         {
             recyclers.insertLast(newRecycler);
             count++;
@@ -376,18 +342,18 @@ uint GetRecyclers(array<int> recyclersTypes, array<Item@>& recyclers)
 
     return(count);
 }
-
 uint GetRecyclers(array<Item@>& recyclers)
 {
-    uint           count = 0;
+    uint count = 0;
 
     array<string@> names;
     array<int>     values;
     uint           ecount = GetEnum("RecyclerType", names, values);
-    for(uint e = 0; e < ecount; e++)
+
+    for (uint e = 0; e < ecount; e++)
     {
         Item@ newRecycler = GetRecycler(values[e]);
-        if(valid(newRecycler))
+        if (valid(newRecycler))
         {
             recyclers.insertLast(newRecycler);
             count++;
@@ -396,10 +362,9 @@ uint GetRecyclers(array<Item@>& recyclers)
 
     return(count);
 }
-
 Item@ GetRecycledItem(int recyclerType, uint16 pid)
 {
-    if(!ValidRecyclerType(recyclerType))
+    if (!ValidRecyclerType(recyclerType))
     {
         // WLog() ?
         return(null);
@@ -407,67 +372,73 @@ Item@ GetRecycledItem(int recyclerType, uint16 pid)
 
     array<Item@> items;
     uint         count = GetRecycledItems(recyclerType, pid, items);
-    if(count > 0)
+    if (count > 0)
     {
         Item@ item = items[Random(count, count - 1)];
-        if(valid(item))
+        if (valid(item))
+        {
             return(item);
+        }
     }
 
     return(null);
 }
-
 uint GetRecycledItems(int recyclerType, uint16 pid, array<Item@>& items)
 {
     uint  count = 0;
     Item@ recycler = GetRecycler(recyclerType);
-    if(valid(recycler))
+
+    if (valid(recycler))
     {
         count += recycler.GetItems(pid, items);
     }
 
     return(count);
 }
-
 uint GetRecycledItems(int recyclerType, array<uint16> pids, array<bool>& pidFound, array<Item@>& items)
 {
     uint  count = 0;
     Item@ recycler = GetRecycler(recyclerType);
-    if(valid(recycler))
+
+    if (valid(recycler))
     {
-        for(uint p = 0, pLen = pids.length(); p < pLen; p++)
+        for (uint p = 0, pLen = pids.length(); p < pLen; p++)
         {
             uint ccount = recycler.GetItems(pids[p], items);
             count += ccount;
 
-            if(ccount > 0)
+            if (ccount > 0)
+            {
                 pidFound.insertLast(true);
+            }
             else
+            {
                 pidFound.insertLast(false);
+            }
         }
     }
 
     return(count);
 }
-
 //  Spawn Encounter Recycler...
 //
 void encounter_recycler(Critter& cr, int, int, int)
 {
     Map@ map = cr.GetMap();
-    if(valid(map))
+
+    if (valid(map))
     {
         Item@ recycler = map.AddItem(cr.HexX, cr.HexY, PID_WAGON_GREY, 1);
         recycler.SetScript("_InitEncounterRecycler");
     }
 }
-
 //  Spawn Tent Recycler...
 //
 void tent_recycler(Critter& cr, int, int, int)
 {
     Map@ map = cr.GetMap();
-    if(valid(map))
+
+    if (valid(map))
     {
         Item@ recycler = map.AddItem(cr.HexX, cr.HexY, PID_BARGE_BAG, 1);
         recycler.SetScript("_InitTentRecycler");
@@ -476,10 +447,9 @@ void tent_recycler(Critter& cr, int, int, int)
         recycler.Update();
     }
 }
-
 void info(Critter& cr, int, int, int)
 {
-    for(uint i = 0, j = Recycler.length(); i < j; i++)
+    for (uint i = 0, j = Recycler.length(); i < j; i++)
     {
         cr.Say(SAY_NETMSG, "Recycler " + i + ": " + Recycler[i]);
     }

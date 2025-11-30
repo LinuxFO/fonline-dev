@@ -18,7 +18,6 @@
 #include "entire.fos"
 #include "_entires.fos"
 #include "logging_h.fos"
-
 import void FlushScreen(Critter& cr, bool fadeOut, uint timeMs) from "effects";
 
 #define DIALOG_WAREHOUSE_MAIN    (10272)
@@ -27,39 +26,40 @@ import void FlushScreen(Critter& cr, bool fadeOut, uint timeMs) from "effects";
 #define ALL_KILLED               (3)
 // #define RAPED			(4) via dialog
 // #define TIME_OVER		(5) via quest garbager
-
 void r_SpawnMap(Critter& player, Critter@ npc)
 {
     Critter@[] crits = { player };
     int loc = CreateLocation(LOCATION_LAWarehouse, 1336, 2216, crits);
-    if(loc == 0)
+    if (loc == 0)
+    {
         return;
-    GameVar@  locidv = GetLocalVar(LVAR_q_la_warehouse_locid, player.Id);
+    }
+    GameVar@ locidv = GetLocalVar(LVAR_q_la_warehouse_locid, player.Id);
     locidv = loc;
     Location@ location = GetLocation(loc);
     location.Color = COLOR_WM_QUEST;
     location.Update();
-    Map@      map = location.GetMapByIndex(0);
-    if(player.Mode[MODE_DEFAULT_COMBAT] == COMBAT_MODE_TURN_BASED)
+    Map@ map = location.GetMapByIndex(0);
+    if (player.Mode[MODE_DEFAULT_COMBAT] == COMBAT_MODE_TURN_BASED)
+    {
         SetTurnBasedAvailability(location);
+    }
     map.SetData(MAP_DATA_WAREHOUSE_OWNER, player.Id);
     SendPunksToSleep(map);
     SetQuestGarbager(0, player.Id, loc, LVAR_q_la_warehouse, 5);
     DynamicLocationAddLog(player, npc, locidv, "quest_la_warehouse");
     // player.SetKnownLoc(true, loc);
 }
-
 // Should be called after var x in dialog is set and player leaves the map, so location gets deleted.
 void r_DeleteMap(Critter& critter, Critter@ npc, bool firstTime)
 {
-    if(firstTime)
+    if (firstTime)
     {
         GameVar@ var = GetLocalVar(LVAR_q_la_warehouse_locid, critter.Id);
         DeleteLocation(var.GetValue());
         DynamicLocationDelLog(critter, npc, var, "quest_la_warehouse");
     }
 }
-
 Critter@ GetOwner(Map& map)
 {
     return GetCritter(map.GetData(MAP_DATA_WAREHOUSE_OWNER));
@@ -68,55 +68,59 @@ uint GetOwnerId(Map& map)
 {
     return map.GetData(MAP_DATA_WAREHOUSE_OWNER);
 }
-
 // =============================================
 // Demand / Result stuff
 // =============================================
-
 void r_RemovePunks(Critter& player, Critter@ tray)
 {
     // Show is over, send the punks home.
     array<Critter@> punks;
-    for(uint i = 0, j = GetPunks(player.GetMap(), punks); i < j; i++)
-        DeleteNpc(punks[i]);
-}
 
+    for (uint i = 0, j = GetPunks(player.GetMap(), punks); i < j; i++)
+    {
+        DeleteNpc(punks[i]);
+    }
+}
 void r_FlushScreen(Critter& player, Critter@ tray)
 {
     FlushScreen(player, false, 1);
     FlushScreen(player, true, 5000);
 }
-
 void r_RemoveWeapon(Critter& player, Critter@ tray)
 {
     Item@ item = player.GetItem(0, SLOT_HAND1);
-    if(valid(item))
-        player.MoveItem(item.Id, 0, SLOT_GROUND);
-    @item = player.GetItem(0, SLOT_HAND2);
-    if(valid(item))
-        player.MoveItem(item.Id, 0, SLOT_INV);
-}
 
+    if (valid(item))
+    {
+        player.MoveItem(item.Id, 0, SLOT_GROUND);
+    }
+    @item = player.GetItem(0, SLOT_HAND2);
+    if (valid(item))
+    {
+        player.MoveItem(item.Id, 0, SLOT_INV);
+    }
+}
 // =============================================
 // Map trigger
 // =============================================
-
 void t_StartAmbush(Critter& cr, Scenery& trigger, bool entered, uint8 dir)
 {
-    if(!cr.IsPlayer() || !entered)
+    if (!cr.IsPlayer() || !entered)
+    {
         return;
+    }
 
     // Flush the screen and place critters. Maybe let the player stop his movement too.
     Map      @map = cr.GetMap();
     GameVar@ var = GetLocalVar(LVAR_q_la_warehouse_trigger, GetOwnerId(map));
-    if(var.GetValue() == 0)
+    if (var.GetValue() == 0)
     {
         var = 1;
         map.GetLocation().AutoGarbage = true;
         FlushScreen(cr, false, 1);
         // Move critters to their correct positions.
         array<Critter@> punks;
-        for(uint i = 0, j = GetPunks(cr.GetMap(), punks); i < j; i++)
+        for (uint i = 0, j = GetPunks(cr.GetMap(), punks); i < j; i++)
         {
             Critter@ punk = punks[i];
             uint     dummy = 0;
@@ -132,22 +136,23 @@ void t_StartAmbush(Critter& cr, Scenery& trigger, bool entered, uint8 dir)
         FlushScreen(cr, true, 5000);
     }
 }
-
 void t_PunkAttack(Critter& cr, Scenery& trigger, bool entered, uint8 dir)
 {
-    if(!cr.IsPlayer() || !entered)
+    if (!cr.IsPlayer() || !entered)
+    {
         return;
+    }
 
     Map      @map = cr.GetMap();
     GameVar@ var = GetLocalVar(LVAR_q_la_warehouse_trigger, GetOwnerId(map));
-    if(var.GetValue() == 1)
+    if (var.GetValue() == 1)
+    {
         cr.SendMessage(MSG_PUNK_ATTACK, 0, MESSAGE_TO_VISIBLE_ME);
+    }
 }
-
 // =============================================
 // Critter stuff
 // =============================================
-
 void _Punk(Critter& cr, bool firstTime)
 {
     cr.StatBase[ST_REPLICATION_TIME] = REPLICATION_NEVER;
@@ -156,24 +161,23 @@ void _Punk(Critter& cr, bool firstTime)
     cr.SetEvent(CRITTER_EVENT_ATTACKED, "_Attacked");
     cr.SetEvent(CRITTER_EVENT_MESSAGE, "_OnMessage");
 
-    if(firstTime)
+    if (firstTime)
     {
         Map @map = cr.GetMap();
         map.SetData(MAP_DATA_WAREHOUSE_PUNKS, map.GetData(MAP_DATA_WAREHOUSE_PUNKS) + 1);
     }
 }
-
 void _PunkDead(Critter& cr, Critter@ killer)
 {
     Map @map = cr.GetMap();
+
     map.SetData(MAP_DATA_WAREHOUSE_PUNKS, map.GetData(MAP_DATA_WAREHOUSE_PUNKS) - 1);
-    if(map.GetData(MAP_DATA_WAREHOUSE_PUNKS) == 0)
+    if (map.GetData(MAP_DATA_WAREHOUSE_PUNKS) == 0)
     {
         GameVar@ var = GetLocalVar(LVAR_q_la_warehouse, GetOwnerId(map));
         var = ALL_KILLED;
     }
 }
-
 bool _Attacked(Critter& cr, Critter& attacker)
 {
     cr.SendMessage(MSG_IM_ATTACKED, attacker.Id, MESSAGE_TO_ALL_ON_MAP);
@@ -181,25 +185,29 @@ bool _Attacked(Critter& cr, Critter& attacker)
 }
 void _OnMessage(Critter& cr, Critter& fromCr, int message, int value)
 {
-    if(message == MSG_IM_ATTACKED || message == MSG_PUNK_ATTACK)
+    if (message == MSG_IM_ATTACKED || message == MSG_PUNK_ATTACK)
+    {
         AttackCritter(cr, fromCr);
+    }
 }
-
 void SendPunksToSleep(Map& map)
 {
     array<Entire> entires;
-    if(ParseEntires(map, entires, ENTIRE_PUNKS_SLEEP) == 0)
-        return;
-    array<Critter@> punks;
-    for(uint i = 0, j = GetPunks(map, punks); i < j; i++)
-        punks[i].TransitToHex(entires[0].HexX, entires[0].HexY, 0);
-}
 
+    if (ParseEntires(map, entires, ENTIRE_PUNKS_SLEEP) == 0)
+    {
+        return;
+    }
+    array<Critter@> punks;
+    for (uint i = 0, j = GetPunks(map, punks); i < j; i++)
+    {
+        punks[i].TransitToHex(entires[0].HexX, entires[0].HexY, 0);
+    }
+}
 uint GetPunks(Map& map, array<Critter@>@ critters)
 {
     return GetCrittersWithScript(map, 0, FIND_ONLY_NPC | FIND_LIFE, "quest_la_warehouse@_Punk", "void %s(Critter&,bool)", critters);
 }
-
 void CheckOwner(Critter& cr, int p0, int p1, int p2)
 {
     cr.Say(SAY_NETMSG, "Owner: " + GetSafePlayerName(cr.GetMap().GetData(MAP_DATA_WAREHOUSE_OWNER)));
@@ -208,10 +216,12 @@ void CheckPunks(Critter& cr, int p0, int p1, int p2)
 {
     cr.Say(SAY_NETMSG, "Punks dead: " + cr.GetMap().GetData(MAP_DATA_WAREHOUSE_PUNKS));
 }
-
 void PointPunks(Critter& cr, int p0, int p1, int p2)
 {
     array<Critter@> punks;
-    for(uint i = 0, j = GetPunks(cr.GetMap(), punks); i < j; i++)
+
+    for (uint i = 0, j = GetPunks(cr.GetMap(), punks); i < j; i++)
+    {
         punks[i].Say(SAY_SHOUT, "Here!");
+    }
 }

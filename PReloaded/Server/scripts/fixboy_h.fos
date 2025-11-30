@@ -71,53 +71,56 @@ shared enum CraftingCheck // uint8
 
 shared interface ICraftingItem
 {
-    uint16        ID                               { get; __SERVER_set }
-    string        Name                             { get; __SERVER_set }
-    string        Description              { get; __SERVER_set }
-    uint16        Minimum                  { get; __SERVER_set }
-    uint16        Maximum                  { get; __SERVER_set }
-    uint16        Step                             { get; __SERVER_set }
+    uint16 ID                               { get;
+                                              __SERVER_set }
+    string Name                             { get;
+                                              __SERVER_set }
+    string Description              { get;
+                                      __SERVER_set }
+    uint16 Minimum                  { get;
+                                      __SERVER_set }
+    uint16 Maximum                  { get;
+                                      __SERVER_set }
+    uint16 Step                             { get;
+                                              __SERVER_set }
     #ifdef __SERVER
-    uint16        Experience               { get; set; }
-    string        Script                   { get; set; }
+    uint16 Experience               { get;
+                                      set;
+    }
+    string Script                   { get;
+                                      set;
+    }
 
-    array<uint16> Packed    { get; }
+    array < uint16 > Packed    { get;
+    }
     #endif
-
     bool CanSee(Critter& cr);
     bool CanCraft(Critter& cr, uint16 multipler = 1);
-
     bool HaveParams(Critter& cr);
     bool HaveTools(Critter& cr);
     bool HaveMaterials(Critter& cr, uint16 multipler = 1);
-
     bool AddRequireShow(CraftingRequirement type, uint require, CraftingCheck check, uint16 count);
     bool AddRequireParam(uint require, CraftingCheck check, uint16 count);
     bool AddRequireParamBase(uint require, CraftingCheck check, uint16 count);
     bool AddRequireTool(uint require, CraftingCheck check, uint16 count);
     bool AddRequireMaterial(uint require, uint16 count);
-
-    uint GetResult(array<uint16>& outResult);
-    uint GetResult(array<array<uint16> >& outResult);
-    uint GetResult(array<ProtoItem@>& proto, array<uint16>& count);
-
+    uint GetResult(array < uint16 > &outResult);
+    uint GetResult(array < array < uint16 >> &outResult);
+    uint GetResult(array < ProtoItem@ > &proto, array < uint16 > &count);
     bool AddResult(uint16 protoId, uint16 count = 1);       // root
-    bool AddResult(array<uint16> newResult);
+    bool AddResult(array < uint16 > newResult);
     bool AddResult(ProtoItem& proto, uint16 count = 1);
-
-    bool SetResult(array<uint16> newResult);
-    bool SetResult(array<array<uint16> > newResult);
+    bool SetResult(array < uint16 > newResult);
+    bool SetResult(array < array < uint16 >> newResult);
     #ifdef __SERVER
     void Pack();
     #endif
-    void Unpack(array<uint16>& data);
-
+    void Unpack(array < uint16 > &data);
     // DEBUG
     string Dump();
 };
 
 #ifndef __FIXBOY__
-
 import ICraftingItem@ NewCraftingItem() from "fixboy";
 // import ICraftingItem@ NewCraftingItem( array<uint8>& data ) from "fixboy";
 #endif

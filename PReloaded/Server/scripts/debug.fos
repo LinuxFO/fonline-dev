@@ -14,8 +14,7 @@
 #include "logging_h.fos"
 #include "utils_h.fos"
 
-#define SET_DEBUG_LEVEL    # (name, level)Dict.set(name, level)
-
+#define SET_DEBUG_LEVEL    # (name, level) Dict.set(name, level)
 // Set minimum levels here
 void InitDebug() // export
 {
@@ -45,8 +44,8 @@ void InitDebug() // export
     SET_DEBUG_LEVEL("cheats", DEBUG_WARNING);
     SET_DEBUG_LEVEL("utils", DEBUG_WARNING);
     SET_DEBUG_LEVEL("special_description", DEBUG_WARNING);
- //   SET_DEBUG_LEVEL("rooms", DEBUG_WARNING);
- //   SET_DEBUG_LEVEL("rooms", DEBUG_WARNING);
+    //   SET_DEBUG_LEVEL("rooms", DEBUG_WARNING);
+    //   SET_DEBUG_LEVEL("rooms", DEBUG_WARNING);
     SET_DEBUG_LEVEL("patrolling", DEBUG_WARNING);
     SET_DEBUG_LEVEL("factions", DEBUG_WARNING);
     SET_DEBUG_LEVEL("tents", DEBUG_WARNING);
@@ -69,78 +68,96 @@ void InitDebug() // export
 #endif
 
 dictionary Dict;
-
 void WLog(string& type, string& message, int level)   // export
 {
-    if(!ToShow(type, level))
+    if (!ToShow(type, level))
+    {
         return;
+    }
 
     string@ name = LevelToString(level);
     Log(type + " " + name + message);
 
-    if(ToShowCallstack(level))
+    if (ToShowCallstack(level))
+    {
         PrintCallstack(1);
+    }
 
-    if(ToBroadcast(level))
+    if (ToBroadcast(level))
     {
         ILog("debug", "(" + type + ") " + name + message);
-        array<Critter@> players;
-        for(uint i = 0, j = _PlayersGetter(players); i < j; i++)
+        array < Critter@ > players;
+        for (uint i = 0, j = _PlayersGetter(players); i < j; i++)
+        {
             players[i].Say(SAY_NETMSG, type + " " + name + message);
+        }
     }
 }
-
 // Duplication: PrintCallstack requires it
 void WLog(string& type, string& message)   // export
 {
     int level = DEBUG_MESSAGE;
-    if(!ToShow(type, level))
+
+    if (!ToShow(type, level))
+    {
         return;
+    }
 
     string@ name = LevelToString(level);
     Log(type + " " + name + message);
 
-    if(ToShowCallstack(level))
+    if (ToShowCallstack(level))
+    {
         PrintCallstack();
+    }
 
-    if(ToBroadcast(level))
+    if (ToBroadcast(level))
     {
         ILog("debug", "(" + type + ") " + name + message);
-        array<Critter@> players;
-        for(uint i = 0, j = _PlayersGetter(players); i < j; i++)
+        array < Critter@ > players;
+        for (uint i = 0, j = _PlayersGetter(players); i < j; i++)
+        {
             players[i].Say(SAY_NETMSG, type + " " + name + message);
+        }
     }
 }
-
 bool ToShow(string& type, int level)
 {
     #ifndef __DEBUG__
-    if(level == DEBUG_MESSAGE)
+    if (level == DEBUG_MESSAGE)
+    {
         return false;
+    }
     #endif
 
-	if(level == DEBUG_INFO)
-		return true;
-
-	#ifdef __DEBUG__
-    if(level >= DEBUG_WARNING)
+    if (level == DEBUG_INFO)
+    {
         return true;
+    }
+
+    #ifdef __DEBUG__
+    if (level >= DEBUG_WARNING)
+    {
+        return true;
+    }
     #endif
 
-	if(level >= DEBUG_ERROR)
+    if (level >= DEBUG_ERROR)
+    {
         return true;
+    }
 
-	int minlevel = DEBUG_ERROR;
-    if(!Dict.get(type, minlevel))
+    int minlevel = DEBUG_ERROR;
+    if (!Dict.get(type, minlevel))
+    {
         return false;
+    }
     return minlevel <= level;
 }
-
 bool ToShowCallstack(int level)
 {
     return level >= DEBUG_ERROR;
 }
-
 bool ToBroadcast(int level)
 {
     #ifdef __DEBUG__
@@ -150,25 +167,24 @@ bool ToBroadcast(int level)
     return level >= DEBUG_CRITICAL;
     #endif
 }
-
 string@ LevelToString(int level)
 {
-    switch(level)
+    switch (level)
     {
-    case DEBUG_MESSAGE:
-        return "MSG: ";
-	case DEBUG_INFO:
-		return "INFO: ";
-    case DEBUG_WARNING:
-        return "WARN: ";
-    case DEBUG_ERROR:
-        return "ERR: ";
-    case DEBUG_CRITICAL:
-        return "CRITICAL: ";
-    case DEBUG_FATAL:
-        return "FATAL: ";
-    default:
-        ;
+        case DEBUG_MESSAGE:
+            return "MSG: ";
+        case DEBUG_INFO:
+            return "INFO: ";
+        case DEBUG_WARNING:
+            return "WARN: ";
+        case DEBUG_ERROR:
+            return "ERR: ";
+        case DEBUG_CRITICAL:
+            return "CRITICAL: ";
+        case DEBUG_FATAL:
+            return "FATAL: ";
+        default:
+            ;
     }
     return "LEVEL " + level + ": ";
 }

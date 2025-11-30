@@ -14,129 +14,143 @@
 # define valid         # (ptr) (@ptr != null)
 #endif // !valid
 
-#define FUNCTION_IS    # (isName, listName) bool PidIs ## isName(uint p) { array<uint> l; PidList_ ## listName(l); return (l.find(p) >= 0); }
-#define FUNCTIONS      # (isName, listName, enumName) bool PidIs ## isName(uint p) { array<uint> l; PidList_ ## listName(l); return (l.find(p) >= 0); } uint PidList_ ## listName(array<uint>&v) { return (GroupNameToPids(enumName, v)); }
+#define FUNCTION_IS    # (isName, listName) bool PidIs ## isName(uint p) { array < uint > l; PidList_ ## listName(l); return(l.find(p) >= 0); }
+#define FUNCTIONS      # (isName, listName, enumName) bool PidIs ## isName(uint p) { array < uint > l; PidList_ ## listName(l); return(l.find(p) >= 0); } uint PidList_ ## listName(array < uint > &v) { return(GroupNameToPids(enumName, v)); }
 
 #ifdef __SERVER
 # pragma bindfunc "void dummy() -> Utils.dll SERVER"
 #endif
-
 void test() // ASCompiler -run
 {
     Log("PidToName( 241 ) = \"" + PidToName(241) + "\"");
     Log("PidToGroupName( 241 ) = \"" + PidToGroupName(241) + "\"");
     Log("NameToPid( \"PID_223_PISTOL\" ) = " + NameToPid("PID_223_PISTOL"));
     Log("PidIsPistol( 241 ) = " + (PidIsPistol(241) ? "yes" : "no"));
-    array<string> sgn;
-    array<uint>   sgp;
-    uint          sgnc = 0, sgpc = 0;
+    array < string > sgn;
+    array < uint >   sgp;
+    uint sgnc = 0, sgpc = 0;
     Log("Pistols: " + (sgnc = GroupNameToNames(PidToGroupName(241), sgn)) + " or " +
         (sgpc = GroupNameToPids(PidToGroupName(241), sgp)));
-    if(sgnc != sgpc)
+    if (sgnc != sgpc)
+    {
         Log("ERROR> sgnc != sgpc <ERROR");
-    for(uint g = 0; g < sgnc; g++)
+    }
+    for (uint g = 0; g < sgnc; g++)
     {
         Log(sgn[g] + " = " + sgp[g]);
     }
 }
-
 void check0(Critter& cr, int, int, int)
 {
-    array<string@> enumNames;
-    array<string@> names;
-    array<int>     values;
-    uint           enumCount = GetEnumList(enumNames);
-    for(uint e = 0; e < enumCount; e++)
+    array < string@ > enumNames;
+    array < string@ > names;
+    array < int >     values;
+    uint enumCount = GetEnumList(enumNames);
+    for (uint e = 0; e < enumCount; e++)
     {
         uint pidCount = GetEnum(enumNames[e], names, values);
-        for(uint n = 0, nlen = names.length(); n < nlen; n++)
+        for (uint n = 0, nlen = names.length(); n < nlen; n++)
         {
-            if(values[n] <= 0)
+            if (values[n] <= 0)
+            {
                 Log("ZERO:" + enumNames[e] + "->" + names[n] + "=" + values[n]);
+            }
 
             // must be server function, ASCompiler will always return valid, but empty proto
             ProtoItem@ proto = GetProtoItem(values[n]);
-            if(!valid(proto))
+            if (!valid(proto))
+            {
                 cr.Say(11 /*SAY_NETMSG*/, "INVALID: " + enumNames[e] + "->" + names[n] + "=" + values[n]);
+            }
         }
     }
 }
-
 string PidToName(uint pid)
 {
-    array<string@> enumNames;
-    uint           enumCount = GetEnumList(enumNames);
-    for(uint e = 0; e < enumCount; e++)
+    array < string@ > enumNames;
+    uint enumCount = GetEnumList(enumNames);
+    for (uint e = 0; e < enumCount; e++)
     {
-        array<string@> names;
-        array<int>     values;
-        uint           pidCount = GetEnum(enumNames[e], names, values);
-        for(uint v = 0, vlen = values.length(); v < vlen; v++)
+        array < string@ > names;
+        array < int >     values;
+        uint pidCount = GetEnum(enumNames[e], names, values);
+        for (uint v = 0, vlen = values.length(); v < vlen; v++)
         {
-            if(values[v] <= 0)
+            if (values[v] <= 0)
+            {
                 continue;
+            }
 
-            if(uint(values[v]) == pid)
+            if (uint(values[v]) == pid)
+            {
                 return(names[v]);
+            }
         }
     }
 
     return("<PID:" + pid + ">");
 }
-
 string PidToGroupName(uint pid)
 {
-    array<string@> enumNames;
-    array<string@> names;
-    array<int>     values;
-    uint           enumCount = GetEnumList(enumNames);
-    for(uint e = 0; e < enumCount; e++)
+    array < string@ > enumNames;
+    array < string@ > names;
+    array < int >     values;
+    uint enumCount = GetEnumList(enumNames);
+    for (uint e = 0; e < enumCount; e++)
     {
         uint pidCount = GetEnum(enumNames[e], names, values);
-        for(uint v = 0, vlen = values.length(); v < vlen; v++)
+        for (uint v = 0, vlen = values.length(); v < vlen; v++)
         {
-            if(values[v] <= 0)
+            if (values[v] <= 0)
+            {
                 continue;
+            }
 
-            if(uint(values[v]) == pid)
+            if (uint(values[v]) == pid)
+            {
                 return(enumNames[e]);
+            }
         }
     }
 
     return("<PID:" + pid + ">");
 }
-
 uint NameToPid(string& name)
 {
-    array<string@> enumNames;
-    array<string@> names;
-    array<int>     values;
-    uint           enumCount = GetEnumList(enumNames);
-    for(uint e = 0; e < enumCount; e++)
+    array < string@ > enumNames;
+    array < string@ > names;
+    array < int >     values;
+    uint enumCount = GetEnumList(enumNames);
+    for (uint e = 0; e < enumCount; e++)
     {
         uint pidCount = GetEnum(enumNames[e], names, values);
-        for(uint n = 0, nlen = names.length(); n < nlen; n++)
+        for (uint n = 0, nlen = names.length(); n < nlen; n++)
         {
-            if(values[n] <= 0)
+            if (values[n] <= 0)
+            {
                 continue;
+            }
 
-            if(strupr(name) == strupr(names[n]))
+            if (strupr(name) == strupr(names[n]))
+            {
                 return(values[n]);
+            }
         }
     }
 
     return(0);
 }
-
-uint GroupNameToPids(string& groupName, array<uint>& pids)
+uint GroupNameToPids(string& groupName, array < uint > &pids)
 {
-    array<string@> names;
-    array<int>     values;
-    uint           count = GetEnum(groupName, names, values), realCount = 0;
-    for(uint v = 0; v < count; v++)
+    array < string@ > names;
+    array < int >     values;
+    uint count = GetEnum(groupName, names, values), realCount = 0;
+    for (uint v = 0; v < count; v++)
     {
-        if(values[v] <= 0)
+        if (values[v] <= 0)
+        {
             continue;
+        }
 
         pids.insertLast(values[v]);
         realCount++;
@@ -144,19 +158,22 @@ uint GroupNameToPids(string& groupName, array<uint>& pids)
 
     return(realCount);
 }
-
-uint GroupNameToNames(string& groupName, array<string>& pidNames)
+uint GroupNameToNames(string& groupName, array < string > &pidNames)
 {
-    array<string@> names;
-    array<int>     values;
-    uint           count = GetEnum(groupName, names, values), realCount = 0;
-    for(uint n = 0; n < count; n++)
+    array < string@ > names;
+    array < int >     values;
+    uint count = GetEnum(groupName, names, values), realCount = 0;
+    for (uint n = 0; n < count; n++)
     {
-        if(values[n] <= 0)
+        if (values[n] <= 0)
+        {
             continue;
+        }
 
-        if(!valid(names[n]) || names[n].length() == 0)
+        if (!valid(names[n]) || names[n].length() == 0)
+        {
             continue;
+        }
 
         pidNames.insertLast(names[n]);
         realCount++;
@@ -164,12 +181,10 @@ uint GroupNameToNames(string& groupName, array<string>& pidNames)
 
     return(realCount);
 }
-
 /***********
 * HELMETS *
 ***********/
-
-uint PidList_Helmets(array<uint>& pids)
+uint PidList_Helmets(array < uint > &pids)
 {
     uint count = 0;
 
@@ -187,12 +202,10 @@ FUNCTIONS(LightHelmet,  LightHelmets,  "HelmetLight");
 FUNCTIONS(MetalHelmet,  MetalHelmets,  "HelmetMetal");
 FUNCTIONS(CombatHelmet, CombatHelmets, "HelmetCombat");
 FUNCTIONS(HeavyHelmet,  HeavyHelmets,  "HelmetHeavy");
-
 /**********
 * ARMORS *
 **********/
-
-uint PidList_Armors(array<uint>& pids)
+uint PidList_Armors(array < uint > &pids)
 {
     uint count = 0;
 
@@ -214,12 +227,10 @@ FUNCTIONS(LightArmor,  LightArmors,  "ArmorLight");
 FUNCTIONS(MetalArmor,  MetalArmors,  "ArmorMetal");
 FUNCTIONS(CombatArmor, CombatArmors, "ArmorCombat");
 FUNCTIONS(HeavyArmor,  HeavyArmors,  "ArmorHeavy");
-
 /***********
 * WEAPONS *
 ***********/
-
-uint PidList_Weapons(array<uint>& pids)
+uint PidList_Weapons(array < uint > &pids)
 {
     uint count = 0;
 
@@ -236,8 +247,7 @@ uint PidList_Weapons(array<uint>& pids)
 FUNCTION_IS(Weapon, Weapons);
 
 FUNCTIONS(SpecialWeapon, SpecialWeapons, "WeaponSpecial");
-
-uint PidList_SmallGuns(array<uint>& pids)
+uint PidList_SmallGuns(array < uint > &pids)
 {
     uint count = 0;
 
@@ -255,8 +265,7 @@ FUNCTIONS(Pistol,     Pistols,     "WeaponPistol");
 FUNCTIONS(Shotgun,    Shotguns,    "WeaponShotgun");
 FUNCTIONS(Rifle,      Rifles,      "WeaponRifle");
 FUNCTIONS(Submachine, Submachines, "WeaponSubmachine");
-
-uint PidList_BigGuns(array<uint>& pids)
+uint PidList_BigGuns(array < uint > &pids)
 {
     uint count = 0;
 
@@ -272,8 +281,7 @@ FUNCTION_IS(BigGun, BigGuns);
 FUNCTIONS(Flamer,     Flamers,     "WeaponFlamer");
 FUNCTIONS(Minigun,    Miniguns,    "WeaponMinigun");
 FUNCTIONS(BigGunMisc, BigGunsMisc, "WeaponBigMisc");
-
-uint PidList_EnergyWeapons(array<uint>& pids)
+uint PidList_EnergyWeapons(array < uint > &pids)
 {
     uint count = 0;
 
@@ -289,8 +297,7 @@ FUNCTION_IS(EnergyWeapon, EnergyWeapons);
 FUNCTIONS(LaserWeapon,  LaserWeapons,  "WeaponLaser");
 FUNCTIONS(PlasmaWeapon, PlasmaWeapons, "WeaponPlasma");
 FUNCTIONS(PulseWeapon,  PulseWeapons,  "WeaponPulse");
-
-uint PidList_ThrowingWeapons(array<uint>& pids)
+uint PidList_ThrowingWeapons(array < uint > &pids)
 {
     uint count = 0;
 
@@ -304,8 +311,7 @@ uint PidList_ThrowingWeapons(array<uint>& pids)
 FUNCTION_IS(ThrowingWeapon, ThrowingWeapons);
 
 FUNCTIONS(ThrowingMisc, ThrowingMisc, "WeaponThrowMisc");
-
-uint PidList_Grenades(array<uint>& pids)
+uint PidList_Grenades(array < uint > &pids)
 {
     uint count = 0;
 
@@ -319,8 +325,7 @@ FUNCTION_IS(Grenade, Grenades);
 
 FUNCTIONS(RealGrenade, RealGrenades, "WeaponGrenade");
 FUNCTIONS(FakeGrenade, FakeGrenades, "WeaponGrenadeFake");
-
-uint PidList_Flares(array<uint>& pids)
+uint PidList_Flares(array < uint > &pids)
 {
     uint count = 0;
 
@@ -334,8 +339,7 @@ FUNCTION_IS(Flare,         Flares);
 
 FUNCTIONS(InactiveFlare, InactiveFlares, "WeaponFlare")
 FUNCTIONS(ActiveFlare,   ActiveFlares,   "WeaponFlareActive")
-
-uint PidList_MeleeWeapons(array<uint>& pids)
+uint PidList_MeleeWeapons(array < uint > &pids)
 {
     uint count = 0;
 
@@ -357,12 +361,10 @@ FUNCTIONS(ElectricWeapon,    ElectricWeapons,    "WeaponElectric");
 FUNCTIONS(MeleePlasmaWeapon, MeleePlasmaWeapons, "WeaponPlasmaMelee");
 
 FUNCTIONS(UnarmedWeapon, UnarmedWeapons, "WeaponUnarmed");
-
 /********
 * AMMO *
 ********/
-
-uint PidList_Ammunition(array<uint>& pids)
+uint PidList_Ammunition(array < uint > &pids)
 {
     uint count = 0;
 
@@ -384,12 +386,10 @@ FUNCTIONS(Cartridge,      Cartridges,     "AmmunitionCartridge");
 FUNCTIONS(WeaponFulel,    WeaponFuel,     "AmmunitionWeaponFuel");
 FUNCTIONS(Rocket,         Rockets,        "AmmunitionRocket");
 FUNCTIONS(AmmunitionMisc, AmmunitionMisc, "AmmunitionMisc");
-
 /***************
 * CONSUMABLES *
 ***************/
-
-uint PidList_Consumables(array<uint>& pids)
+uint PidList_Consumables(array < uint > &pids)
 {
     uint count = 0;
 
@@ -409,12 +409,10 @@ FUNCTIONS(Medicine, Medicines, "ConsumableMedicine");
 FUNCTIONS(Alcohol,  Alcohol,   "ConsumableAlcohol");
 FUNCTIONS(Drug,     Drugs,     "ConsumableDrug");
 FUNCTIONS(Food,     Food,      "ConsumableFood");
-
 /**************
 * CONTAINERS *
 **************/
-
-uint PidList_Containers(array<uint>& pids)
+uint PidList_Containers(array < uint > &pids)
 {
     uint count = 0;
 

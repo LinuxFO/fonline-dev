@@ -7,25 +7,27 @@
 
 #include "_macros.fos"
 #include "production_h.fos"
-
 import bool ShuffleItem(Item& item) from "shuffling_spawner";
 
 #define PLANT_XANDER_BATCH       (1)
 #define PLANT_XANDER_CAPACITY    (4)
-
 void item_init(Item& item, bool firstTime)
 {
-    if(firstTime)
+    if (firstTime)
+    {
         item.Val0 = PLANT_XANDER_CAPACITY;
+    }
     item.SetEvent(ITEM_EVENT_SKILL, "_SkillPlantXander");
 }
-
 bool _SkillPlantXander(Item& item, Critter& cr, int skill)
 {
 
     Map@ map = cr.GetMap();
-    if(!valid(map))
+
+    if (!valid(map))
+    {
         return false;
+    }
 
     DeleteItem(item);
     cr.Say(SAY_NETMSG, "You have collected some Xander roots.");
@@ -38,7 +40,7 @@ bool _SkillPlantXander(Item& item, Critter& cr, int skill)
 
 
 /*
-   #define STR_GATHERED	(3040)
+ #define STR_GATHERED	(3040)
 
    void item_init(Item& item, bool firstTime)
    {

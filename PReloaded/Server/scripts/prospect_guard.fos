@@ -13,7 +13,6 @@
 
 
 #include "guard_h.fos"
-
 void critter_init(Critter& guard, bool firstTime)
 {
     guard.SetEvent(CRITTER_EVENT_IDLE, "_Idle");
@@ -21,14 +20,14 @@ void critter_init(Critter& guard, bool firstTime)
 
     GuardInit(guard);
 }
-
 void _Idle(Critter& guard)
 {
-    if(Random(0, 2) == 0)
+    if (Random(0, 2) == 0)
+    {
         MoveRandom(guard, 4);
+    }
     guard.Wait(Random(5000, 20000));
 }
-
 void _OnMessage(Critter& npc, Critter& player, int num, int val)
 {
     GuardOnMessage(npc, player, num, val);

@@ -1,4 +1,3 @@
-
 //
 // FOnline: 2238
 // Rotators
@@ -61,20 +60,20 @@
 #define ROLE_HUB_GUARD_BRAHMIN1            (24)
 #define ROLE_HUB_METROGUARD_1              (25)
 #define ROLE_HUB_METROGUARD_2              (26)
-#define ROLE_HUB_CAR		               (27)
-#define ROLE_HUB_SING		               (28)
-#define ROLE_HUB_BAR		               (29)
-#define ROLE_HUB_CHURCH		               (30)
-#define ROLE_HUB_FARM		               (31)
-#define ROLE_HUB_GUARD_CLINIC		(31)
-#define ROLE_HUB_GUARD_CHURCH		(32)
-#define ROLE_HUB_PREA		(34)
-#define ROLE_HUB_STONE		(35)
+#define ROLE_HUB_CAR                           (27)
+#define ROLE_HUB_SING                          (28)
+#define ROLE_HUB_BAR                           (29)
+#define ROLE_HUB_CHURCH                        (30)
+#define ROLE_HUB_FARM                          (31)
+#define ROLE_HUB_GUARD_CLINIC           (31)
+#define ROLE_HUB_GUARD_CHURCH           (32)
+#define ROLE_HUB_PREA           (34)
+#define ROLE_HUB_STONE          (35)
 
 // NCR
 #define ROLE_NCR_GUARD_PATROL1             (1)
 #define ROLE_NCR_ROOMKEEPER                (2)
-#define ROLE_NCR_CIVI		               (33)
+#define ROLE_NCR_CIVI                          (33)
 
 // NCR Mine
 #define ROLE_NCR_MINE_OVERSEER             (1)
@@ -175,6 +174,6 @@
 #define ROLE_NC_GUARD_PATROL1                   (1)
 
 // Vault Runner
-#define ROLE_VR_AU							(88)
-#define ROLE_VR_GU							(89)
-#define ROLE_VR_KU							(90)
+#define ROLE_VR_AU                                                      (88)
+#define ROLE_VR_GU                                                      (89)
+#define ROLE_VR_KU                                                      (90)

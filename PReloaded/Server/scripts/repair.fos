@@ -8,11 +8,9 @@
 #include "_macros.fos"
 #include "MsgStr.h"
 #include "utils_h.fos"
-
 // item.IsDeteriorable() - Can be deteriorated
 // item.Deterioration - deterioration
 // item.BrokenCount - minimum deterioration
-
 /*
  * TODO
  *	fill the table below (requires client graphics changed)
@@ -23,111 +21,159 @@
    };
 
  */
-
 // with item - either a tool, or another item of the same type
 void RepairCallback(Critter& cr, uint n, string& s)
 {
     Item@ item = GetItem(cr.Stat[ST_VAR0]);
     Item@ with_item = GetItem(n);
+
     #ifdef __DEBUG__
     cr.Say(SAY_NETMSG, "items " + cr.Stat[ST_VAR0] + " and " + n);
     #endif
-    if(!valid(item) || !valid(with_item))
+    if (!valid(item) || !valid(with_item))
+    {
         return;
+    }
 
-    if(item.Accessory != ACCESSORY_CRITTER || with_item.Accessory != ACCESSORY_CRITTER ||
-       item.CritId != cr.Id || with_item.CritId != cr.Id)
+    if (item.Accessory != ACCESSORY_CRITTER || with_item.Accessory != ACCESSORY_CRITTER ||
+        item.CritId != cr.Id || with_item.CritId != cr.Id)
+    {
         return;
+    }
 
-    if(!TryRepairItemCall(cr, item, with_item))
+    if (!TryRepairItemCall(cr, item, with_item))
     {
         cr.SayMsg(SAY_NETMSG, TEXTMSG_GAME, STR_USE_NOTHING);
     }
 }
-
 bool TryRepairItem(Critter& cr, Item& item)
 {
-    if(!item.IsDeteriorable())
+    if (!item.IsDeteriorable())
+    {
         return false;
+    }
 
-    if(cr.Timeout[TO_BATTLE] > 0)
+    if (cr.Timeout[TO_BATTLE] > 0)
     {
         cr.SayMsg(SAY_NETMSG, TEXTMSG_GAME, STR_TIMEOUT_BATTLE_WAIT);
         return true;
     }
 
-    if(cr.Timeout[TO_SK_REPAIR] > 0)
+    if (cr.Timeout[TO_SK_REPAIR] > 0)
     {
         cr.SayMsg(SAY_NETMSG, TEXTMSG_GAME, STR_SKILL_WEARINESS);
         return true;
     }
 
-    if(FLAG(item.BrokenFlags, BI_ETERNAL) || FLAG(item.BrokenFlags, BI_NOTRESC))
+    if (FLAG(item.BrokenFlags, BI_ETERNAL) || FLAG(item.BrokenFlags, BI_NOTRESC))
     {
         cr.SayMsg(SAY_NETMSG, TEXTMSG_GAME, STR_DETERIORATION_NO_RESC);
         return true;
     }
 
-    if(item.Deterioration == 0)
+    if (item.Deterioration == 0)
     {
         cr.Say(SAY_NETMSG, "This item does not require repair.");
         return true;
     }
 
-    if(item.Deterioration <= (item.BrokenCount * MAX_DETERIORATION) / 100)
+    if (item.Deterioration <= (item.BrokenCount * MAX_DETERIORATION) / 100)
     {
         cr.Say(SAY_NETMSG, "This item cannot be repaired any further.");
         return true;
     }
-	
-	// Repair
-    int repair = cr.Skill[SK_REPAIR]-30;
+
+    // Repair
+    int repair = cr.Skill[SK_REPAIR] - 30;
     repair = CLAMP(repair, 5, 95);
-	int bonus=0;
-	
-	Item@ tool = cr.GetItem(0, SLOT_HAND1);
-    if(valid(tool) && tool.GetProtoId() == PID_SUPER_TOOL_KIT) bonus=Random(10,12);
-	else if(valid(tool) && tool.GetProtoId() == PID_MULTI_TOOL) bonus=Random(5,7);
-	else if(valid(tool) && tool.GetProtoId() == PID_WRENCH) bonus=Random(8,9);
-	else 
-		{
-		bonus=Random(0,3);
-		if(valid(tool) && tool.GetProtoId()!=PID_OIL_CAN) @tool=null;
-		}
-	
-	bool cleanRepair=false;
-	if(valid(tool) && tool.GetProtoId() == PID_SUPER_TOOL_KIT && Random(0,99)<20) cleanRepair=true;
-	else if(valid(tool) && tool.GetProtoId() == PID_WRENCH && Random(0,99)<15) cleanRepair=true;
-	else if(valid(tool) && tool.GetProtoId() == PID_MULTI_TOOL && Random(0,99)<10) cleanRepair=true;
-	else if(valid(tool) && tool.GetProtoId() == PID_OIL_CAN) cleanRepair=true;
+    int bonus = 0;
 
-	if(!cleanRepair)
-	{
-    item.BrokenCount += 15-bonus;
-    if(item.BrokenCount > 100)	item.BrokenCount = 100;	
-	if(item.Deterioration/100 < item.BrokenCount) item.Deterioration=item.BrokenCount*100;
-	}
-	
-	if((Random(1, 100) < repair) || cleanRepair)
-	{
-	item.Deterioration = item.BrokenCount*100;
-    cr.Say(SAY_NETMSG, "Maintenance successful.");
-	if(cleanRepair) {cr.Say(SAY_NETMSG, "It went perfectly.");cr.StatBase[ST_EXPERIENCE] += 250;}
-	}
-	else cr.Say(SAY_NETMSG, "Maintenance failed.");
-	
-	if(valid(tool) && ((Random(0, 19) == 0) || tool.GetProtoId()==PID_OIL_CAN)) cr.DeleteItem(tool.GetProtoId(), 1);
-	
-	
-	if(item.Deterioration == MAX_DETERIORATION)  SETFLAG(item.BrokenFlags, BI_BROKEN);
-	
-    item.Update();	
-	
-	
+    Item@ tool = cr.GetItem(0, SLOT_HAND1);
+    if (valid(tool) && tool.GetProtoId() == PID_SUPER_TOOL_KIT)
+    {
+        bonus = Random(10, 12);
+    }
+    else if (valid(tool) && tool.GetProtoId() == PID_MULTI_TOOL)
+    {
+        bonus = Random(5, 7);
+    }
+    else if (valid(tool) && tool.GetProtoId() == PID_WRENCH)
+    {
+        bonus = Random(8, 9);
+    }
+    else
+    {
+        bonus = Random(0, 3);
+        if (valid(tool) && tool.GetProtoId() != PID_OIL_CAN)
+        {
+            @tool = null;
+        }
+    }
 
-    //cr.RunClientScript("client_interface@_RepairSession", item.GetProtoId(), item.Id, 0, null, null);
-    //cr.StatBase[ST_VAR0] = item.Id;
-    //cr.ShowScreen(SHOW_SCREEN_BAG, 0, "RepairCallback");
+    bool cleanRepair = false;
+    if (valid(tool) && tool.GetProtoId() == PID_SUPER_TOOL_KIT && Random(0, 99) < 20)
+    {
+        cleanRepair = true;
+    }
+    else if (valid(tool) && tool.GetProtoId() == PID_WRENCH && Random(0, 99) < 15)
+    {
+        cleanRepair = true;
+    }
+    else if (valid(tool) && tool.GetProtoId() == PID_MULTI_TOOL && Random(0, 99) < 10)
+    {
+        cleanRepair = true;
+    }
+    else if (valid(tool) && tool.GetProtoId() == PID_OIL_CAN)
+    {
+        cleanRepair = true;
+    }
+
+    if (!cleanRepair)
+    {
+        item.BrokenCount += 15 - bonus;
+        if (item.BrokenCount > 100)
+        {
+            item.BrokenCount = 100;
+        }
+        if (item.Deterioration / 100 < item.BrokenCount)
+        {
+            item.Deterioration = item.BrokenCount * 100;
+        }
+    }
+
+    if ((Random(1, 100) < repair) || cleanRepair)
+    {
+        item.Deterioration = item.BrokenCount * 100;
+        cr.Say(SAY_NETMSG, "Maintenance successful.");
+        if (cleanRepair)
+        {
+            cr.Say(SAY_NETMSG, "It went perfectly.");
+            cr.StatBase[ST_EXPERIENCE] += 250;
+        }
+    }
+    else
+    {
+        cr.Say(SAY_NETMSG, "Maintenance failed.");
+    }
+
+    if (valid(tool) && ((Random(0, 19) == 0) || tool.GetProtoId() == PID_OIL_CAN))
+    {
+        cr.DeleteItem(tool.GetProtoId(), 1);
+    }
+
+
+    if (item.Deterioration == MAX_DETERIORATION)
+    {
+        SETFLAG(item.BrokenFlags, BI_BROKEN);
+    }
+
+    item.Update();
+
+
+
+    // cr.RunClientScript("client_interface@_RepairSession", item.GetProtoId(), item.Id, 0, null, null);
+    // cr.StatBase[ST_VAR0] = item.Id;
+    // cr.ShowScreen(SHOW_SCREEN_BAG, 0, "RepairCallback");
     return true;
 }
 bool TryRepairItemCall(Critter& cr, Item@ item, Item@ with_item)
@@ -138,9 +184,9 @@ bool TryRepairItemCall(Critter& cr, Item@ item, Item@ with_item)
     // if tool used, apply skill bonus
     // if item of the same type used, check for tool in the main slot and (possibly) apply bonus
     // otherwise fail
-    if(valid(with_item))
+    if (valid(with_item))
     {
-        if(with_item.Proto.Misc_ToolSkillNum == SK_REPAIR)
+        if (with_item.Proto.Misc_ToolSkillNum == SK_REPAIR)
         {
             repair += with_item.Proto.Misc_ToolSkillBonus;
             #ifdef __DEBUG__
@@ -148,82 +194,110 @@ bool TryRepairItemCall(Critter& cr, Item@ item, Item@ with_item)
             #endif
             @with_item = null;
         }
-        else if(item.GetProtoId() != with_item.GetProtoId())
+        else if (item.GetProtoId() != with_item.GetProtoId())
+        {
             return false;
+        }
         else
         {
-            if(FLAG(with_item.BrokenFlags, BI_BROKEN))
+            if (FLAG(with_item.BrokenFlags, BI_BROKEN))
             {
                 cr.Say(SAY_NETMSG, "This item can be no longer used for repairs.");
                 return true;
             }
             Item@ tool = cr.GetItem(0, SLOT_HAND1);
-            if(valid(tool) && tool.Proto.Misc_ToolSkillNum == SK_REPAIR)
+            if (valid(tool) && tool.Proto.Misc_ToolSkillNum == SK_REPAIR)
+            {
                 repair += tool.Proto.Misc_ToolSkillBonus;
+            }
         }
     }
     repair = CLAMP(repair, 5, 300);
 
     // at this point, with_item is either selected item, or null, in which case we search for new one
-    if(!valid(with_item))
+    if (!valid(with_item))
     {
         #ifdef __DEBUG__
         cr.Say(SAY_NETMSG, "finding valid weapon...");
         #endif
-        array<Item@> items;
-        uint16       item_pid = item.GetProtoId();
-        for(uint i = 0, j = cr.GetItems(SLOT_INV, items); i < j; i++)
+        array < Item@ > items;
+        uint16 item_pid = item.GetProtoId();
+        for (uint i = 0, j = cr.GetItems(SLOT_INV, items); i < j; i++)
         {
-            if(items[i].Id == item.Id)
-                continue;
-            if(items[i].GetProtoId() == item_pid)
+            if (items[i].Id == item.Id)
             {
-                if(!valid(with_item) && !FLAG(items[i].BrokenFlags, BI_BROKEN))
+                continue;
+            }
+            if (items[i].GetProtoId() == item_pid)
+            {
+                if (!valid(with_item) && !FLAG(items[i].BrokenFlags, BI_BROKEN))
+                {
                     @with_item = items[i];
-                else if(!FLAG(items[i].BrokenFlags, BI_BROKEN) && items[i].Deterioration > with_item.Deterioration)
+                }
+                else if (!FLAG(items[i].BrokenFlags, BI_BROKEN) && items[i].Deterioration > with_item.Deterioration)
+                {
                     @with_item = items[i];
+                }
             }
         }
         #ifdef __DEBUG__
-        if(!valid(with_item))
+        if (!valid(with_item))
+        {
             cr.Say(SAY_NETMSG, "no available weapons!");
+        }
         else
+        {
             cr.Say(SAY_NETMSG, "found weapon with deterioration " + with_item.Deterioration);
+        }
         #endif
     }
 
-    if(!valid(with_item))
+    if (!valid(with_item))
     {
         cr.Say(SAY_NETMSG, "You don't have any spare parts to repair it.");
         return true;
     }
 
-    if(Random(1, 300) > repair)
+    if (Random(1, 300) > repair)
+    {
         item.BrokenCount += Random(0, 6);
-    if(item.BrokenCount > 100)
+    }
+    if (item.BrokenCount > 100)
+    {
         item.BrokenCount = 100;
+    }
     int wear_min = (item.BrokenCount * MAX_DETERIORATION) / 100;
-    if(int(item.Deterioration) < wear_min)
+    if (int(item.Deterioration) < wear_min)
+    {
         item.Deterioration = wear_min;
+    }
     int max_repair = item.Deterioration - (item.BrokenCount * MAX_DETERIORATION) / 100;
-    if(max_repair == 0)
+    if (max_repair == 0)
     {
         cr.Say(SAY_NETMSG, "This item can't be repaired any further.");
         return true;
     }
 
     int salvage = MAX_DETERIORATION - with_item.Deterioration;
-    if(cr.Perk[PE_BEST_OF_A_BAD_LOT] != 0 && salvage * 20 < MAX_DETERIORATION * 3)
+    if (cr.Perk[PE_BEST_OF_A_BAD_LOT] != 0 && salvage * 20 < MAX_DETERIORATION * 3)
+    {
         salvage = (MAX_DETERIORATION * 3) / 20;
+    }
     int salvage_factor = 0;
-    if(cr.Perk[PE_MR_FIXIT] != 0)
+    if (cr.Perk[PE_MR_FIXIT] != 0)
+    {
         salvage_factor = 70 + repair / 10;
+    }
     else
+    {
         salvage_factor = 25 + repair / 4;
+    }
     CLAMP(salvage_factor, 1, 100);
     salvage = (salvage_factor * salvage) / 100;
-    if(salvage == 0)
+    if (salvage == 0)
+    {
         salvage = 1;
+    }
     #ifdef __DEBUG__
     cr.Say(SAY_NETMSG, "max_repair: " + max_repair);
     cr.Say(SAY_NETMSG, "salvage: " + salvage);
@@ -231,7 +305,7 @@ bool TryRepairItemCall(Critter& cr, Item@ item, Item@ with_item)
 
     UNSETFLAG(item.BrokenFlags, BI_BROKEN);
 
-    if(max_repair >= salvage)
+    if (max_repair >= salvage)
     {
         #ifdef __DEBUG__
         cr.Say(SAY_NETMSG, "max_repair>=salvage, used weapon weariness to maximum.");
@@ -250,7 +324,7 @@ bool TryRepairItemCall(Critter& cr, Item@ item, Item@ with_item)
         cr.Say(SAY_NETMSG, "adding needed_salvage to used weapon: " + needed_salvage);
         #endif
         with_item.Deterioration += needed_salvage;
-        if(with_item.Deterioration > MAX_DETERIORATION)
+        if (with_item.Deterioration > MAX_DETERIORATION)
         {
             #ifdef __DEBUG__
             cr.Say(SAY_NETMSG, "capping at maximum.");
@@ -345,14 +419,15 @@ bool TryRepairItemCall(Critter& cr, Item@ item, Item@ with_item)
     // _SetTimeout(cr,TO_SK_REPAIR,REPAIR_TIMEOUT(cr));
     // return true;
 }
-
 void WearItem(Critter& cr, Item& item, int wearCount)   // Export
 {
-    if(wearCount <= 0 || !item.IsDeteriorable() || FLAG(item.BrokenFlags, BI_ETERNAL) || FLAG(item.BrokenFlags, BI_BROKEN))
+    if (wearCount <= 0 || !item.IsDeteriorable() || FLAG(item.BrokenFlags, BI_ETERNAL) || FLAG(item.BrokenFlags, BI_BROKEN))
+    {
         return;
+    }
 
     item.Deterioration += wearCount;
-    if(item.Deterioration > MAX_DETERIORATION)
+    if (item.Deterioration > MAX_DETERIORATION)
     {
         item.Deterioration = MAX_DETERIORATION;
         SETFLAG(item.BrokenFlags, BI_BROKEN);
@@ -365,59 +440,73 @@ void WearItem(Critter& cr, Item& item, int wearCount)   // Export
            else if(brokenLvl==1) SETFLAG(item.BrokenFlags,BI_NORMBROKEN);
            else SETFLAG(item.BrokenFlags,BI_LOWBROKEN);
          */
-        if(item.GetType() == ITEM_TYPE_WEAPON)
+        if (item.GetType() == ITEM_TYPE_WEAPON)
+        {
             cr.SayMsg(SAY_NETMSG, TEXTMSG_GAME, STR_DETERIORATION_WEAPON_BROKEN);
-        else if(item.GetType() == ITEM_TYPE_ARMOR)
+        }
+        else if (item.GetType() == ITEM_TYPE_ARMOR)
+        {
             cr.SayMsg(SAY_NETMSG, TEXTMSG_GAME, STR_DETERIORATION_ARMOR_BROKEN);
+        }
 
         // TODO SetPictureWear( item );
     }
 
     item.Update();
 }
-
 void WearHandsOnDeath(Critter& cr)
 {
-    if(!valid(cr) || !cr.IsPlayer())
+    if (!valid(cr) || !cr.IsPlayer())
+    {
         return;
+    }
 
     Item@ hand1 = cr.GetItem(0, SLOT_HAND1);
-    if(valid(hand1) && hand1.GetType() == ITEM_TYPE_WEAPON && hand1.IsDeteriorable())
-        WearItem(cr, hand1, (Random(10, 15)*MAX_DETERIORATION/100));
+    if (valid(hand1) && hand1.GetType() == ITEM_TYPE_WEAPON && hand1.IsDeteriorable())
+    {
+        WearItem(cr, hand1, (Random(10, 15) * MAX_DETERIORATION / 100));
+    }
 
     Item@ hand2 = cr.GetItem(0, SLOT_HAND2);
-    if(valid(hand2) && hand2.GetType() == ITEM_TYPE_WEAPON && hand2.IsDeteriorable())
-        WearItem(cr, hand2, (Random(10, 15)*MAX_DETERIORATION/100));
+    if (valid(hand2) && hand2.GetType() == ITEM_TYPE_WEAPON && hand2.IsDeteriorable())
+    {
+        WearItem(cr, hand2, (Random(10, 15) * MAX_DETERIORATION / 100));
+    }
 }
-
 void SetWear(Item& item, int wearProcent)   // Export
 {
-    if(!item.IsDeteriorable())
+    if (!item.IsDeteriorable())
+    {
         return;
+    }
     UNSETFLAG(item.BrokenFlags, BI_BROKEN);
     wearProcent = CLAMP(wearProcent, int(item.BrokenCount), 100);
     item.Deterioration = MAX_DETERIORATION * wearProcent / 100;
 
-    if(wearProcent == 100)
+    if (wearProcent == 100)
+    {
         SETFLAG(item.BrokenFlags, BI_BROKEN);
+    }
     // TODO SetPictureWear( item );
     item.Update();
 }
-
 void SetMinWear(Item& item, int wearProcent)   // Export
 {
-    if(!item.IsDeteriorable())
+    if (!item.IsDeteriorable())
+    {
         return;
+    }
     UNSETFLAG(item.BrokenFlags, BI_BROKEN);
     wearProcent = CLAMP(wearProcent, 0, 100);
 
     item.BrokenCount = wearProcent;
-    if(item.Deterioration < item.BrokenCount * MAX_DETERIORATION / 100)
+    if (item.Deterioration < item.BrokenCount * MAX_DETERIORATION / 100)
+    {
         SetWear(item, item.BrokenCount);
+    }
 
     item.Update();
 }
-
 /*
    void SetPictureWear( Item& item )
    {
@@ -445,17 +534,19 @@ void SetMinWear(Item& item, int wearProcent)   // Export
         }
    }
  */
-
 int GetWearProcent(Item& item)   // Export
 {
-    if(!item.IsDeteriorable())
+    if (!item.IsDeteriorable())
+    {
         return 0;
-    if(FLAG(item.BrokenFlags, BI_BROKEN))
+    }
+    if (FLAG(item.BrokenFlags, BI_BROKEN))
+    {
         return 100;
+    }
     int value = item.Deterioration * 100 / MAX_DETERIORATION;
     return CLAMP(value, 0, 100);
 }
-
 void CompleteRepair(Item& item)   // export
 {
     item.BrokenFlags = 0;
@@ -464,7 +555,6 @@ void CompleteRepair(Item& item)   // export
     // TODO SetPictureWear( item );
     item.Update();
 }
-
 void CloneWear(Item& to, Item& from)   // export
 {
     to.BrokenCount = from.BrokenCount;
@@ -473,11 +563,11 @@ void CloneWear(Item& to, Item& from)   // export
     // TODO SetPictureWear( to );
     to.Update();
 }
-
 void test(Critter& cr, int, int, int)
 {
     Item@ item = cr.AddItem(PID_SNIPER_RIFLE, 1);
     int   minwear = Random(20, 80);
+
     SetMinWear(item, minwear);
     SetWear(item, Random(minwear, 90));
 }

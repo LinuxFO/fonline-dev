@@ -21,17 +21,16 @@
 
 const uint16[] WorkbenchesPids =
 {
-	PID_WORKBENCH,
-	PID_WORKBENCH_PRIMITIVE,
-	PID_WORKBENCH_RAIDERS,
-	PID_MFC_MACHINE,
-	PID_MED_MACHINE,
-	PID_AMMO_FACILITY,
-	PID_CAMPFIRE,
-	PID_ADVANCED_BENCH,
-	PID_TOBACCO_BENCH
+    PID_WORKBENCH,
+    PID_WORKBENCH_PRIMITIVE,
+    PID_WORKBENCH_RAIDERS,
+    PID_MFC_MACHINE,
+    PID_MED_MACHINE,
+    PID_AMMO_FACILITY,
+    PID_CAMPFIRE,
+    PID_ADVANCED_BENCH,
+    PID_TOBACCO_BENCH
 };
-
 void item_init(Item& item, bool firstTime)
 {
     // set events
@@ -39,12 +38,10 @@ void item_init(Item& item, bool firstTime)
     item.SetEvent(ITEM_EVENT_DROP, "_Drop");
     item.SetEvent(ITEM_EVENT_MOVE, "_Move");
 }
-
 void _Campfire(Item& item, bool firstTime)   // WIPENIGHT: old campfire
 {
     item.SetScript("map_tent@_RegenItem");
 }
-
 void _Primitive(Item& item, bool firstTime)
 {
     // set events
@@ -52,7 +49,6 @@ void _Primitive(Item& item, bool firstTime)
     item.SetEvent(ITEM_EVENT_DROP, "_Drop");
     item.SetEvent(ITEM_EVENT_MOVE, "_Move");
 }
-
 void _Advanced(Item& item, bool firstTime)
 {
     // set events
@@ -60,7 +56,6 @@ void _Advanced(Item& item, bool firstTime)
     item.SetEvent(ITEM_EVENT_DROP, "_Drop");
     item.SetEvent(ITEM_EVENT_MOVE, "_Move");
 }
-
 void _Tobacco(Item& item, bool firstTime)
 {
     // set events
@@ -68,7 +63,6 @@ void _Tobacco(Item& item, bool firstTime)
     item.SetEvent(ITEM_EVENT_DROP, "_Drop");
     item.SetEvent(ITEM_EVENT_MOVE, "_Move");
 }
-
 void _Raiders(Item& item, bool firstTime)
 {
     // set events
@@ -76,7 +70,6 @@ void _Raiders(Item& item, bool firstTime)
     item.SetEvent(ITEM_EVENT_DROP, "_Drop");
     item.SetEvent(ITEM_EVENT_MOVE, "_Move");
 }
-
 void _SierraAmmo(Item& item, bool firstTime)
 {
     // set events
@@ -84,7 +77,6 @@ void _SierraAmmo(Item& item, bool firstTime)
     item.SetEvent(ITEM_EVENT_DROP, "_Drop");
     item.SetEvent(ITEM_EVENT_MOVE, "_Move");
 }
-
 void _SierraMed(Item& item, bool firstTime)
 {
     // set events
@@ -92,7 +84,6 @@ void _SierraMed(Item& item, bool firstTime)
     item.SetEvent(ITEM_EVENT_DROP, "_Drop");
     item.SetEvent(ITEM_EVENT_MOVE, "_Move");
 }
-
 void _VCMed(Item& item, bool firstTime)
 {
     // set events
@@ -100,21 +91,18 @@ void _VCMed(Item& item, bool firstTime)
     item.SetEvent(ITEM_EVENT_DROP, "_Drop");
     item.SetEvent(ITEM_EVENT_MOVE, "_Move");
 }
-
 // removes item if dropped
 void _Drop(Item& item, Critter& cr)
 {
     DeleteItem(item);
 }
-
 void _Move(Item& item, Critter& cr, uint8 fromSlot)
 {
     DeleteItem(item);
 }
-
 bool _UseSkillPrimitive(Item& item, Critter& player, int skill)
 {
-    if(skill == SKILL_PICK_ON_GROUND)
+    if (skill == SKILL_PICK_ON_GROUND)
     {
         // refresh fixboy list
         player.DropTimers();
@@ -125,14 +113,13 @@ bool _UseSkillPrimitive(Item& item, Critter& player, int skill)
 
     return false;
 }
-
 // Using Ammo Facility in Sierra Army Depot
 bool _UseSkillSierraAmmo(Item& item, Critter& player, int skill)
 {
     // use it
-    if(skill == SKILL_PICK_ON_GROUND)
+    if (skill == SKILL_PICK_ON_GROUND)
     {
-        if(GetGlobalVar(GVAR_sierra_backup_power) == 3)
+        if (GetGlobalVar(GVAR_sierra_backup_power) == 3)
         {
             // refresh fixboy list
             player.DropTimers();
@@ -146,19 +133,20 @@ bool _UseSkillSierraAmmo(Item& item, Critter& player, int skill)
             return true;
         }
         else
+        {
             player.Say(SAY_NETMSG, "This terminal controls the Ammo Repair Facility in the next room. You could use it to start some production, but the power input is low.");
+        }
     }
 
     return false;
 }
-
 // Using Med Facility in Sierra Army Depot
 bool _UseSkillSierraMed(Item& item, Critter& player, int skill)
 {
     // use it
-    if(skill == SKILL_PICK_ON_GROUND)
+    if (skill == SKILL_PICK_ON_GROUND)
     {
-        if(GetGlobalVar(GVAR_sierra_backup_power) == 2)
+        if (GetGlobalVar(GVAR_sierra_backup_power) == 2)
         {
             // refresh fixboy list
             player.DropTimers();
@@ -175,12 +163,11 @@ bool _UseSkillSierraMed(Item& item, Critter& player, int skill)
     }
     return false;
 }
-
 // Using Med Facility in Vault City
 bool _UseSkillVCMed(Item& item, Critter& player, int skill)
 {
     // use it
-    if(skill == SKILL_PICK_ON_GROUND)
+    if (skill == SKILL_PICK_ON_GROUND)
     {
         player.Animate(ANIM1_UNARMED, ANIM2_USE, item, true, true);
         // refresh fixboy list
@@ -192,12 +179,11 @@ bool _UseSkillVCMed(Item& item, Critter& player, int skill)
     }
     return false;
 }
-
 // Using workbench
 bool _UseSkill(Item& item, Critter& player, int skill)
 {
     // use it
-    if(skill == SKILL_PICK_ON_GROUND)
+    if (skill == SKILL_PICK_ON_GROUND)
     {
         // refresh fixboy list
         player.DropTimers();
@@ -208,12 +194,11 @@ bool _UseSkill(Item& item, Critter& player, int skill)
     }
     return false;
 }
-
 // Using advanced bench
 bool _UseSkillAdvanced(Item& item, Critter& player, int skill)
 {
     // use it
-    if(skill == SKILL_PICK_ON_GROUND)
+    if (skill == SKILL_PICK_ON_GROUND)
     {
         player.Animate(ANIM1_UNARMED, ANIM2_USE, item, true, true);
         // refresh fixboy list
@@ -225,12 +210,11 @@ bool _UseSkillAdvanced(Item& item, Critter& player, int skill)
     }
     return false;
 }
-
 // Using tobacco bench
 bool _UseSkillTobacco(Item& item, Critter& player, int skill)
 {
     // use it
-    if(skill == SKILL_PICK_ON_GROUND)
+    if (skill == SKILL_PICK_ON_GROUND)
     {
         // refresh fixboy list
         player.DropTimers();
@@ -241,12 +225,11 @@ bool _UseSkillTobacco(Item& item, Critter& player, int skill)
     }
     return false;
 }
-
 // Using Raiders Workbench
 bool _UseSkillRaiders(Item& item, Critter& player, int skill)
 {
     // use it
-    if(skill == SKILL_PICK_ON_GROUND)
+    if (skill == SKILL_PICK_ON_GROUND)
     {
         // refresh fixboy list
         player.DropTimers();
@@ -263,12 +246,13 @@ bool _UseSkillRaiders(Item& item, Critter& player, int skill)
     }
     return false;
 }
-
 // gives invisible workbench to players inv, so that it serves as 'tool'
 void GiveWorkbench(Critter& player, uint pid)
 {
-    if(_CritCountItem(player, pid) > 0)
+    if (_CritCountItem(player, pid) > 0)
+    {
         return;
+    }
     Item@ workbench = player.AddItem(pid, 1);
     // SETFLAG(workbench.Flags, ITEM_FLAG_HIDDEN);
     workbench.SetScript("item_init");
@@ -281,51 +265,53 @@ void GiveWorkbench(Critter& player, uint pid)
 // removes workbench from player inventory
 void RemoveWorkbench(Critter& player, uint pid)
 {
-    if(player.CountItem(pid) > 0)
+    if (player.CountItem(pid) > 0)
+    {
         player.DeleteItem(pid, player.CountItem(pid));
+    }
 }
 // remove all workbenches from inventory
 void RemoveWorkbenches(Critter& player)
 {
-	for( uint w=0, wLen=WorkbenchesPids.length(); w<wLen; w++ )
-	{
-		RemoveWorkbench(player, WorkbenchesPids[w]);
-	}
+    for ( uint w = 0, wLen = WorkbenchesPids.length(); w < wLen; w++ )
+    {
+        RemoveWorkbench(player, WorkbenchesPids[w]);
+    }
 }
 // remove all workbenches on map
 void RemoveWorkbenches(Map& map)
 {
-	array<Item@> items;
-	for( uint w=0, wLen=WorkbenchesPids.length(); w<wLen; w++ )
-	{
-		map.GetItems( WorkbenchesPids[w], items );
-	}
+    array < Item@ > items;
+    for ( uint w = 0, wLen = WorkbenchesPids.length(); w < wLen; w++ )
+    {
+        map.GetItems(WorkbenchesPids[w], items);
+    }
 
-	DeleteItems( items );
+    DeleteItems(items);
 }
 // remove all workbenches in location
 void RemoveWorkbenches(Location& loc)
 {
-	array<Map@> maps;
-	for( uint m=0, mLen=loc.GetMaps(maps); m<mLen; m++ )
-	{
-		if( valid(maps[m]) )
-			RemoveWorkbenches( maps[m] );
-	}
+    array < Map@ > maps;
+    for ( uint m = 0, mLen = loc.GetMaps(maps); m < mLen; m++ )
+    {
+        if (valid(maps[m]) )
+        {
+            RemoveWorkbenches(maps[m]);
+        }
+    }
 }
-
 void t_Workbench(Critter& player, Scenery& trigger, bool entered, uint8 dir)
 {
-    if(!entered)
+    if (!entered)
     {
         RemoveWorkbenches(player);
         player.DropTimers();
     }
 }
-
 void t_WorkbenchRaiders(Critter& player, Scenery& trigger, bool entered, uint8 dir)
 {
-    if(!entered)
+    if (!entered)
     {
         // player.Say(SAY_NORM, "Leaving Workbench");
         RemoveWorkbench(player, PID_WORKBENCH);
@@ -333,29 +319,30 @@ void t_WorkbenchRaiders(Critter& player, Scenery& trigger, bool entered, uint8 d
         player.DropTimers();
     }
 }
-
 // Mariposa Terminal
 bool s_Terminal(Critter& player, Scenery& terminal, int skill, Item@ item)
 {
-    if(player.IsPlayer() && skill == -1 && !valid(item))
+    if (player.IsPlayer() && skill == -1 && !valid(item))
+    {
         RunDialog(player, TERMINAL_DIALOG, terminal.HexX, terminal.HexY, false);
+    }
 
     return true;
 }
-
 // Sierra Terminal/Mainframe
 bool s_Terminal_SAD(Critter& player, Scenery& terminal, int skill, Item@ item)
 {
-    if(player.IsPlayer() && skill == -1 && !valid(item))
+    if (player.IsPlayer() && skill == -1 && !valid(item))
+    {
         RunDialog(player, TERMINAL_SAD_DIALOG, terminal.HexX, terminal.HexY, false);
+    }
 
     return true;
 }
-
 // Mariposa Machine for Micro Fusion Cells production
 bool s_Mfc_Machine(Critter& player, Scenery& terminal, int skill, Item@ item)
 {
-    if(player.IsPlayer() && skill == -1 && !valid(item))
+    if (player.IsPlayer() && skill == -1 && !valid(item))
     {
         // refresh fixboy list
         player.DropTimers();
@@ -372,33 +359,37 @@ bool s_Mfc_Machine(Critter& player, Scenery& terminal, int skill, Item@ item)
     }
     return false;
 }
-
 // Sierra Backup Power Supply
 bool s_Power_SAD(Critter& player, Scenery& terminal, int skill, Item@ item)
 {
     GameVar@ power = GetGlobalVar(GVAR_sierra_backup_power);
-    if(!valid(power))
+
+    if (!valid(power))
     {
         Log("ERROR: not valid GameVar №" + GVAR_sierra_backup_power + " " + GetLastError());
         return true;
     }
 
     // Checking out the status
-    if(player.IsPlayer() && skill == -1 && !valid(item))
+    if (player.IsPlayer() && skill == -1 && !valid(item))
     {
-        if(power == 0)          // generator not working
+        if (power == 0)          // generator not working
+        {
             player.SayMsg(SAY_NETMSG, TEXTMSG_DLG, DLGSTR(TERMINAL_SAD_DIALOG, MSG_SAD_POWER_NOT_OK));
-        if(power > 0)           // generator OK
+        }
+        if (power > 0)           // generator OK
+        {
             player.SayMsg(SAY_NETMSG, TEXTMSG_DLG, DLGSTR(TERMINAL_SAD_DIALOG, MSG_SAD_POWER_OK));
+        }
     }
 
-    if(player.IsPlayer() && skill == SK_REPAIR && !valid(item))
+    if (player.IsPlayer() && skill == SK_REPAIR && !valid(item))
     {
         int check = Random(80, 120);           // check
 
-        if(power == 0)
+        if (power == 0)
         {
-            if(((player.Skill[SK_REPAIR]) > check))
+            if (((player.Skill[SK_REPAIR]) > check))
             {
                 power = 1;
                 // DLog("Gvar == " + power);
@@ -406,16 +397,20 @@ bool s_Power_SAD(Critter& player, Scenery& terminal, int skill, Item@ item)
                 player.SayMsg(SAY_NETMSG, TEXTMSG_DLG, DLGSTR(TERMINAL_SAD_DIALOG, MSG_SAD_POWER_REPAIRED));
             }
             else
+            {
                 player.SayMsg(SAY_NETMSG, TEXTMSG_DLG, DLGSTR(TERMINAL_SAD_DIALOG, MSG_SAD_POWER_NOT_REPAIRED));
+            }
         }
-        if(power > 1)
+        if (power > 1)
+        {
             player.SayMsg(SAY_NETMSG, TEXTMSG_DLG, DLGSTR(TERMINAL_SAD_DIALOG, MSG_SAD_POWER_OK));
+        }
     }
     return true;
 }
-
 void place_campfire(Critter& cr, int, int, int)
 {
     Item@ it = cr.GetMap().AddItem(cr.HexX, cr.HexY, PID_CAMPFIRE, 1);
+
     it.SetScript("_Campfire");
 }

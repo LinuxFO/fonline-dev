@@ -10,21 +10,18 @@
 
 #include "_mapper_defines.fos"
 #include "_mapper_macros.fos"
-
-
 // Returns handle to active map
 //
 MapperMap@ GetActiveMap()
 {
-    array<MapperMap@> maps;
-    int               cur = GetLoadedMaps(maps);
-    if(cur == -1)
+    array < MapperMap@ > maps;
+    int cur = GetLoadedMaps(maps);
+    if (cur == -1)
     {
         return null;
     }
     return maps[cur];
 }
-
 // Returns an offset between hexes in some direction, in screen pixels.
 // There might be a better way to do it...
 //
@@ -42,7 +39,7 @@ void HexOffset(uint8 dir, int& x, int& y)
 
     MoveHexByDir(toX, toY, (dir % 6), 1);
 
-    if(dir > 5)     // dir > 5 is interpreted as 2 hexes away, "intermediate" directions
+    if (dir > 5)     // dir > 5 is interpreted as 2 hexes away, "intermediate" directions
     {
         MoveHexByDir(toX, toY, _TurnRight(dir, 1), 1);
     }
@@ -53,16 +50,14 @@ void HexOffset(uint8 dir, int& x, int& y)
     x = x2 - x1;
     y = y2 - y1;
 }
-
 uint GetHexWidth()
 {
     int x1 = 0, x2 = 0, y = 0;
+
     GetHexPos(0, 0, x1, y);
     GetHexPos(1, 0, x2, y);
     return x1 - x2;
 }
-
-
 // Returns current zoom level, in %. Not very precise :P
 //
 uint GetZoom()
@@ -70,17 +65,18 @@ uint GetZoom()
     int x = 0;
     int y1 = 0;
     int y2 = 0;
+
     GetHexPos(0, 0, x, y1);
     GetHexPos(0, 9, x, y2);
     return (y2 - y1) * 100 / 108;
 }
-
 // "Patch"
 //
 bool GetMonitorHexSigh(int x, int y, uint16& hx, uint16& hy, bool ignoreInterface = false)
 {
     int saveMouseX = __MouseX;
     int saveMouseY = __MouseY;
+
     __MouseX = x;
     __MouseY = y;
     bool result = GetMonitorHex(x, y, hx, hy, ignoreInterface);

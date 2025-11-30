@@ -12,7 +12,6 @@
 #include "_macros.fos"
 #include "client_keybinds_h.fos"
 #include "config_file_h.fos"
-
 import string@ GetRecord(const string& filename) from "client_recording";
 import void    StartReplay(string@ rec) from "client_recording";
 import int     GUI_GetActiveScreen() from "client_gui";
@@ -25,69 +24,79 @@ import int     GUI_GetActiveMainScreen() from "client_gui";
 
 array<BindList> bindlists;
 
-dictionary      KeyMap;
-dictionary      KeyMapRaw;
+dictionary KeyMap;
+dictionary KeyMapRaw;
 
-uint8           CurrentAim = HIT_LOCATION_UNCALLED;
-
+uint8 CurrentAim = HIT_LOCATION_UNCALLED;
 uint8 GetCurrentAim() // export
 {
     return CurrentAim;
 }
-
 // read basic bind string ("Ctrl Alt Del 1")
 bool TryAddBind(string@ s, BaseBind& bind)
 {
-    if(!valid(s))
-        return true;
-    array<string@>@ splitted = split(s, " ");
-    if(!valid(splitted) || splitted.length() == 0)
-        return false;
-    for(uint i = 0, j = splitted.length() - 1; i < j; i++)
+    if (!valid(s))
     {
-        if(splitted[i] == "Ctrl")
+        return true;
+    }
+    array<string@>@ splitted = split(s, " ");
+    if (!valid(splitted) || splitted.length() == 0)
+    {
+        return false;
+    }
+    for (uint i = 0, j = splitted.length() - 1; i < j; i++)
+    {
+        if (splitted[i] == "Ctrl")
+        {
             bind.ctrl = true;
-        else if(splitted[i] == "Shift")
+        }
+        else if (splitted[i] == "Shift")
+        {
             bind.shift = true;
-        else if(splitted[i] == "Alt")
+        }
+        else if (splitted[i] == "Alt")
+        {
             bind.alt = true;
+        }
     }
 
     int key = 0;
-    if(!KeyMapRaw.get(splitted.last(), key))
+    if (!KeyMapRaw.get(splitted.last(), key))
+    {
         return false;
+    }
     bindlists[key].AddBind(bind);
     return true;
 }
-
 // Bind key -> cheat
 void AddGMBind(int key, array<int>& modifiers, string command)
 {
     GMBind bnd;
+
     bnd.commands.insertLast(command);
     bnd.modifiers = modifiers;
     bindlists[key].AddBind(bnd);
 }
-
 bool AddAimBind(string& cfgkey, uint8 num)
 {
     string@ s = GetConfigValue(CONFIG_FILE, CONFIG_BINDINGS, cfgkey);
     AimBind bnd(num);
     return TryAddBind(s, bnd);
 }
-
 bool ProcessBind(uint8 key)   // export
 {
     int mainScreen = GUI_GetActiveMainScreen();
     int screen = GUI_GetActiveScreen();
-    if(mainScreen == CLIENT_MAIN_SCREEN_REGISTRATION ||
-       mainScreen == CLIENT_MAIN_SCREEN_LOGIN ||
-       screen == CLIENT_SCREEN_SAY /*||
-                                      screen == CLIENT_SCREEN_INPUTBOX*/)
+
+    if (mainScreen == CLIENT_MAIN_SCREEN_REGISTRATION ||
+        mainScreen == CLIENT_MAIN_SCREEN_LOGIN ||
+        screen == CLIENT_SCREEN_SAY /*||
+                                       screen == CLIENT_SCREEN_INPUTBOX*/)
+    {
         return false;
+    }
     return bindlists[key].TryRun();
 }
-
 bool InitBinds() // export
 {
     InitKeyMap();
@@ -110,45 +119,51 @@ bool InitBinds() // export
     ret = ret && InitStopCritterBind();
     ret = ret && InitScienceAtHexBind();
     ret = ret && InitCenterChosenBind();
-	ret = ret && InitTransparencyBind();
+    ret = ret && InitTransparencyBind();
     return ret;
 }
-
 bool InitGMBinds()
 {
     // binds[int(DIK_HOME)]="teleport ncr";
 
     file f;
-    if(f.open("keybinds.cfg", "r") >= 0)
+
+    if (f.open("keybinds.cfg", "r") >= 0)
     {
         string str;
         int    l = f.readString(f.getSize(), str);
         f.close();
         // now we need to process that whole string
         array<string@>@ lines = split(str, "\n");
-        for(uint i = 0; i < lines.length(); i++)
+        for (uint i = 0; i < lines.length(); i++)
         {
-            if(lines[i].length() < 5)
+            if (lines[i].length() < 5)
+            {
                 continue;
+            }
 
             array<string@>@ param = split(lines[i], " ");
-            string     command;
+            string command;
 
             array<int> modifiers;
             string     mainkey;
 
-            uint       l = 0;
-            for(uint j = 0; j < param.length(); j++)
+            uint l = 0;
+            for (uint j = 0; j < param.length(); j++)
             {
-                if(substring(param[j], 0, 3) == "DIK")
-                    l++;
-            }
-            if(l > 1)
-            {
-                for(uint j = 0; j < l; j++)
+                if (substring(param[j], 0, 3) == "DIK")
                 {
-                    if(j == (l - 1))
+                    l++;
+                }
+            }
+            if (l > 1)
+            {
+                for (uint j = 0; j < l; j++)
+                {
+                    if (j == (l - 1))
+                    {
                         mainkey = param[j];
+                    }
                     else
                     {
                         int modkey;
@@ -158,14 +173,20 @@ bool InitGMBinds()
                 }
             }
             else
-                mainkey = param[0];
-
-            for(uint k = l; k < param.length(); k++)
             {
-                if(k == param.length() - 1)
+                mainkey = param[0];
+            }
+
+            for (uint k = l; k < param.length(); k++)
+            {
+                if (k == param.length() - 1)
+                {
                     command += substring(param[k], 0, param[k].length() - 1);   // don't add \n
+                }
                 else
+                {
                     command += param[k] + " ";
+                }
             }
 
             int key = 0;
@@ -176,40 +197,53 @@ bool InitGMBinds()
 
     return true;
 }
-
 bool InitUseBinds()
 {
-    for(int i = 0; ; i++)     // infinite loop until break
+    for (int i = 0; ; i++)     // infinite loop until break
     {
         string@ s = GetConfigValue(CONFIG_FILE, CONFIG_BINDINGS, "UseBind" + i);
-        if(!valid(s))
+        if (!valid(s))
+        {
             break;
+        }
         array<string@>@ splitted = split(s, " ");
-        if(!valid(splitted) || splitted.length() == 0)
+        if (!valid(splitted) || splitted.length() == 0)
+        {
             return false;
-        bool          ctrl = false;
-        bool          alt = false;
-        bool          shift = false;
+        }
+        bool ctrl = false;
+        bool alt = false;
+        bool shift = false;
 
         bool          parsepids = false;
         array<uint16> pids;
         int           key = 0;
-        for(uint i = 0, j = splitted.length(); i < j; i++)
+        for (uint i = 0, j = splitted.length(); i < j; i++)
         {
-            if(!parsepids)
+            if (!parsepids)
             {
-                if(splitted[i] == "Ctrl")
-                    ctrl = true;
-                else if(splitted[i] == "Shift")
-                    shift = true;
-                else if(splitted[i] == "Alt")
-                    alt = true;
-                else if(splitted[i] == "|")
+                if (splitted[i] == "Ctrl")
                 {
-                    if(i == 0)
+                    ctrl = true;
+                }
+                else if (splitted[i] == "Shift")
+                {
+                    shift = true;
+                }
+                else if (splitted[i] == "Alt")
+                {
+                    alt = true;
+                }
+                else if (splitted[i] == "|")
+                {
+                    if (i == 0)
+                    {
                         return false;
-                    if(!KeyMapRaw.exists(splitted[i - 1]))
+                    }
+                    if (!KeyMapRaw.exists(splitted[i - 1]))
+                    {
                         return false;
+                    }
                     KeyMapRaw.get(splitted[i - 1], key);
                     parsepids = true;
                 }
@@ -230,113 +264,113 @@ bool InitUseBinds()
     }
     return true;
 }
-
 bool InitStopCritterBind()
 {
-    string@    s = GetConfigValue(CONFIG_FILE, CONFIG_BINDINGS, "StopMove");
+    string@         s = GetConfigValue(CONFIG_FILE, CONFIG_BINDINGS, "StopMove");
     StopCritterBind bnd;
+
     return TryAddBind(s, bnd);
 }
-
 bool InitReloadBind()
 {
     string@    s = GetConfigValue(CONFIG_FILE, CONFIG_BINDINGS, "Reload");
     ReloadBind bnd;
+
     return TryAddBind(s, bnd);
 }
-
 bool InitPickupBind()
 {
     PickupBind bnd;
+
     return TryAddBind("Ctrl G", bnd);
 }
-
 bool InitDropallBind()
 {
     DropallBind bnd;
+
     return TryAddBind("Ctrl D", bnd);
 }
-
 bool InitFASelfBind()
 {
     string@    s = GetConfigValue(CONFIG_FILE, CONFIG_BINDINGS, "FASelf");
     FASelfBind bnd;
+
     return TryAddBind(s, bnd);
 }
-
 bool InitDocSelfBind()
 {
-    string@    s = GetConfigValue(CONFIG_FILE, CONFIG_BINDINGS, "DocSelf");
+    string@     s = GetConfigValue(CONFIG_FILE, CONFIG_BINDINGS, "DocSelf");
     DocSelfBind bnd;
+
     return TryAddBind(s, bnd);
 }
-
 bool InitSSOtherBind()
 {
-    string@    s = GetConfigValue(CONFIG_FILE, CONFIG_BINDINGS, "SSOther");
+    string@     s = GetConfigValue(CONFIG_FILE, CONFIG_BINDINGS, "SSOther");
     SSOtherBind bnd;
+
     return TryAddBind(s, bnd);
 }
-
 bool InitFogBind()
 {
-    string@    s = GetConfigValue(CONFIG_FILE, CONFIG_BINDINGS, "ToggleFog");
+    string@       s = GetConfigValue(CONFIG_FILE, CONFIG_BINDINGS, "ToggleFog");
     ToggleFogBind bnd;
+
     return TryAddBind(s, bnd);
 }
-
 bool InitRoofBind()
 {
-    string@    s = GetConfigValue(CONFIG_FILE, CONFIG_BINDINGS, "ToggleRoof");
+    string@        s = GetConfigValue(CONFIG_FILE, CONFIG_BINDINGS, "ToggleRoof");
     ToggleRoofBind bnd;
+
     return TryAddBind(s, bnd);
 }
-
 bool InitWallBind()
 {
-    string@    s = GetConfigValue(CONFIG_FILE, CONFIG_BINDINGS, "ToggleWall");
+    string@        s = GetConfigValue(CONFIG_FILE, CONFIG_BINDINGS, "ToggleWall");
     ToggleWallBind bnd;
+
     return TryAddBind(s, bnd);
 }
-
 bool InitMsFovBind()
 {
-    string@    s = GetConfigValue(CONFIG_FILE, CONFIG_BINDINGS, "ToggleMsFov");
+    string@         s = GetConfigValue(CONFIG_FILE, CONFIG_BINDINGS, "ToggleMsFov");
     ToggleMsFovBind bnd;
+
     return TryAddBind(s, bnd);
 }
-
 bool InitDischargeBind()
 {
-    string@    s = GetConfigValue(CONFIG_FILE, CONFIG_BINDINGS, "Discharge");
+    string@       s = GetConfigValue(CONFIG_FILE, CONFIG_BINDINGS, "Discharge");
     DischargeBind bnd;
+
     return TryAddBind(s, bnd);
 }
-
 bool InitScienceAtHexBind()
 {
-    string@    s = GetConfigValue(CONFIG_FILE, CONFIG_BINDINGS, "ScienceAtHex");
+    string@          s = GetConfigValue(CONFIG_FILE, CONFIG_BINDINGS, "ScienceAtHex");
     ScienceAtHexBind bnd;
+
     return TryAddBind(s, bnd);
 }
-
 bool InitCenterChosenBind()
 {
-    string@    s = GetConfigValue(CONFIG_FILE, CONFIG_BINDINGS, "CenterChosen");
+    string@          s = GetConfigValue(CONFIG_FILE, CONFIG_BINDINGS, "CenterChosen");
     CenterChosenBind bnd;
+
     return TryAddBind(s, bnd);
 }
-
 bool InitTransparencyBind()
 {
-	string@ s = GetConfigValue( CONFIG_FILE, CONFIG_BINDINGS, "ToggleWallRoofTransparency" );
-	TransparencyBind bnd;
-	return TryAddBind(s, bnd);
-}
+    string@          s = GetConfigValue(CONFIG_FILE, CONFIG_BINDINGS, "ToggleWallRoofTransparency");
+    TransparencyBind bnd;
 
+    return TryAddBind(s, bnd);
+}
 bool InitAimBinds()
 {
     bool ret = true;
+
     ret = ret && AddAimBind("AimUncalled", HIT_LOCATION_UNCALLED);
     ret = ret && AddAimBind("AimHead", HIT_LOCATION_HEAD);
     ret = ret && AddAimBind("AimEyes", HIT_LOCATION_EYES);
@@ -349,7 +383,6 @@ bool InitAimBinds()
 
     return ret;
 }
-
 void InitKeyMap()
 {
     KeyMapRaw.set("1", DIK_1);

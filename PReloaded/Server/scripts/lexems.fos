@@ -24,7 +24,6 @@
 # pragma bindfunc "void Critter::GetLexems(string&) -> Utils.dll Critter_GetLexems"
 # pragma bindfunc "void Item::GetLexems(string&)    -> Utils.dll Item_GetLexems"
 #endif
-
 string GetCritterLexems(CritterMutual& critter)
 {
     #ifdef __CLIENT
@@ -37,7 +36,6 @@ string GetCritterLexems(CritterMutual& critter)
     return(lexems);
     #endif
 }
-
 string GetItemLexems(ItemMutual& item)
 {
     #ifdef __CLIENT
@@ -50,54 +48,60 @@ string GetItemLexems(ItemMutual& item)
     return(lexems);
     #endif
 }
-
 bool IsLexem(CritterMutual& critter, string& lex)
 {
     return(IsLexem(GetCritterLexems(critter), lex));
 }
-
 bool IsLexem(ItemMutual& item, string& lex)
 {
     return(IsLexem(GetItemLexems(item), lex));
 }
-
 bool IsLexem(string& lexems, string& lex)
 {
-    if(lexems.length() < 3 || lex.length() < 2)       // $nV || $n
+    if (lexems.length() < 3 || lex.length() < 2)       // $nV || $n
+    {
         return(false);
+    }
 
     int pos = findFirst(lexems, lex);
-    if(pos < 0)
+    if (pos < 0)
+    {
         return(false);
+    }
     else
+    {
         return(true);
+    }
 }
-
 string GetLexem(CritterMutual& critter, string& lex)
 {
     return(GetLexem(GetCritterLexems(critter), lex));
 }
-
 string GetLexem(ItemMutual& item, string& lex)
 {
     return(GetLexem(GetItemLexems(item), lex));
 }
-
 string GetLexem(string& lexems, string& lex)
 {
-    if(lexems.length() < 3 || lex.length() < 2)       // $nV || $n
+    if (lexems.length() < 3 || lex.length() < 2)       // $nV || $n
+    {
         return("");
+    }
 
-    if(lex[0] != "$")
+    if (lex[0] != "$")
+    {
         return("");
+    }
 
-    if(!IsLexem(lexems, lex))
+    if (!IsLexem(lexems, lex))
+    {
         return("");
+    }
 
     array<string@>@ lexem = split(lexems, "$");
-    for(uint l = 0; l < lexem.length(); l++)
+    for (uint l = 0; l < lexem.length(); l++)
     {
-        if(("$" + substring(lexem[l], 0, lex.length() - 1)) == lex)
+        if (("$" + substring(lexem[l], 0, lex.length() - 1)) == lex)
         {
             return(substring(lexem[l], lex.length() - 1, lexem[l].length() - (lex.length() - 1)));
         }
@@ -109,33 +113,41 @@ string GetLexem(string& lexems, string& lex)
 void SetLexem(CritterMutual& critter, string& lex, string& value)
 {
     string lexems = SetLexem(GetCritterLexems(critter), lex, value);
+
     critter.SetLexems(lexems);
 }
-
 void SetLexem(ItemMutual& item, string& lex, string& value)
 {
     string lexems = SetLexem(GetItemLexems(item), lex, value);
+
     item.SetLexems(lexems);
     item.Update();
 }
-
 string SetLexem(string& lexems, string& lex, string& value)
 {
-    if(lex.length() < 2)       // $n
+    if (lex.length() < 2)       // $n
+    {
         return(lexems);
+    }
 
-    if(!IsLexem(lexems, lex))
+    if (!IsLexem(lexems, lex))
+    {
         return(lexems + lex + value);
+    }
 
-    if(value.length() == 0)
+    if (value.length() == 0)
+    {
         return(UnsetLexem(lexems, lex));
+    }
 
     array<string@>@ lexem = split(lexems, "$");
-    if(lexem[0].length() == 0)
-        lexem.removeAt(0);
-    for(uint l = 0; l < lexem.length(); l++)
+    if (lexem[0].length() == 0)
     {
-        if(("$" + substring(lexem[l], 0, lex.length() - 1)) == lex)
+        lexem.removeAt(0);
+    }
+    for (uint l = 0; l < lexem.length(); l++)
+    {
+        if (("$" + substring(lexem[l], 0, lex.length() - 1)) == lex)
         {
             lexem[l] = substring(lex, 1, lex.length() - 1) + value;
             break;
@@ -143,37 +155,42 @@ string SetLexem(string& lexems, string& lex, string& value)
     }
 
     string result = "";
-    for(uint l = 0; l < lexem.length(); l++)
+    for (uint l = 0; l < lexem.length(); l++)
+    {
         result += "$" + lexem[l];
+    }
 
     return(result);
 }
-
 void UnsetLexem(CritterMutual& critter, string& lex)
 {
     critter.SetLexems(UnsetLexem(GetCritterLexems(critter), lex));
 }
-
 void UnsetLexem(ItemMutual& item, string& lex)
 {
     item.SetLexems(UnsetLexem(GetItemLexems(item), lex));
     item.Update();
 }
-
 string UnsetLexem(string& lexems, string& lex)
 {
-    if(lexems.length() < 3 || lex.length() < 2)       // $nV || $n
+    if (lexems.length() < 3 || lex.length() < 2)       // $nV || $n
+    {
         return(lexems);
+    }
 
-    if(!IsLexem(lexems, lex))
+    if (!IsLexem(lexems, lex))
+    {
         return(lexems);
+    }
 
     array<string@>@ lexem = split(lexems, "$");
-    if(lexem[0].length() == 0)
-        lexem.removeAt(0);
-    for(uint l = 0; l < lexem.length(); l++)
+    if (lexem[0].length() == 0)
     {
-        if(("$" + substring(lexem[l], 0, lex.length() - 1)) == lex)
+        lexem.removeAt(0);
+    }
+    for (uint l = 0; l < lexem.length(); l++)
+    {
+        if (("$" + substring(lexem[l], 0, lex.length() - 1)) == lex)
         {
             lexem.removeAt(l);
             break;
@@ -181,8 +198,10 @@ string UnsetLexem(string& lexems, string& lex)
     }
 
     string result = "";
-    for(uint l = 0; l < lexem.length(); l++)
+    for (uint l = 0; l < lexem.length(); l++)
+    {
         result += "$" + lexem[l];
+    }
 
     return(result);
 }
@@ -190,20 +209,20 @@ string UnsetLexem(string& lexems, string& lex)
 # include "_macros.fos"
 void get(Critter& player, int, int crId, int itId)
 {
-    if(crId > 0)
+    if (crId > 0)
     {
         Critter@ cr = GetCritter(crId);
-        if(valid(cr))
+        if (valid(cr))
         {
             string lexems = "";
             cr.GetLexems(lexems);
             player.Say(SAY_NETMSG, "critter <" + lexems + ">");
         }
     }
-    if(itId > 0)
+    if (itId > 0)
     {
         Item@ it = GetItem(itId);
-        if(valid(it))
+        if (valid(it))
         {
             string lexems = "";
             it.GetLexems(lexems);
@@ -214,7 +233,7 @@ void get(Critter& player, int, int crId, int itId)
 
 // tests
 /*
-   #include "_defines.fos"
+ #include "_defines.fos"
 
    void test( Critter& cr, int, int, int )
    {
@@ -335,7 +354,7 @@ void get(Critter& player, int, int crId, int itId)
         }
    }
 
-   #include "_macros.fos"
+ #include "_macros.fos"
 
 
    void unset( Critter& cr, int id, int, int )

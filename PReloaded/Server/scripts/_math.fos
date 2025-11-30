@@ -22,8 +22,8 @@
 #define POW2                # (a)                 ((a) * (a))
 #define POW3                # (a)                 ((a) * (a) * (a))
 #define POW                                                                                                    \
-    # (__x, __y)            do { int __v = 1; for(int __j = __y; __j > 0; __j >>= 1, __x *= __x) { if(__j % 2) \
-                                                                                                       __v *= __x; } __x = __v; } while(false)
+        # (__x, __y)            do { int __v = 1; for (int __j = __y; __j > 0; __j >>= 1, __x *= __x) { if (__j % 2) \
+                                                                                                        __v *= __x; } __x = __v; } while (false)
 
 #define ABS                 # (val)                (((val) > 0) ? (val) : (-(val)))
 #define DISTANCE            # (x1, y1, x2, y2)DIST(x1, y1, x2, y2)

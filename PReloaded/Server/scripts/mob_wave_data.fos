@@ -8,14 +8,14 @@
 #ifndef __MOB_WAVE_DATA__
 #define __MOB_WAVE_DATA__
 
-const array<array<array<array<uint> > > > MobWaves =
+const array < array < array < array < uint >> >> MobWaves =
 {
     //  MOB_WAVE_TYPE_CUSTOM <-- TODO: make it editable by GMs
     //
-    { 
-        { 
-            array<uint>(2)
-        } 
+    {
+        {
+            array < uint > (2)
+        }
     },
     //  MOB_WAVE_TYPE_ENCOUNTER
     //

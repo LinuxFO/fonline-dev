@@ -6,9 +6,7 @@
 //
 
 #include "_macros.fos"
-
 import void InitBountyRecord(Critter& npc) from "bounties";
-
 void critter_init(Critter& npc, bool firstTime)
 {
     InitBountyRecord(npc);

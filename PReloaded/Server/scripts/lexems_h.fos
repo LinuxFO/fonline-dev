@@ -10,48 +10,48 @@
 
 // shared!
 
-#define LEXEM#(name) ("$"+name)
+#define LEXEM#(name) ("$" + name)
 
 // overwrites player description
 //	overwrites npc description, "You see [name]. [+text if long description]"
 //	enforces using LEXEM_CRITTER_NAME or Critter::Name (in that order) for all look types
-#define LEXEM_CRITTER_DESCRIPTION		LEXEM("~")
+#define LEXEM_CRITTER_DESCRIPTION               LEXEM("~")
 
 // overwrites name over head, can be empty. player only
-#define LEXEM_CRITTER_HEAD				LEXEM("@")
+#define LEXEM_CRITTER_HEAD                              LEXEM("@")
 
 // overwrites name used in long/short description and combat messages
-#define LEXEM_CRITTER_NAME				LEXEM("N")
+#define LEXEM_CRITTER_NAME                              LEXEM("N")
 
 // tattoo text
-#define LEXEM_CRITTER_TATTOO			LEXEM("T")
+#define LEXEM_CRITTER_TATTOO                    LEXEM("T")
 
 // faction name
-#define LEXEM_CRITTER_FACTION			LEXEM("F")
+#define LEXEM_CRITTER_FACTION                   LEXEM("F")
 
 // overwrites short description
-#define LEXEM_ITEM_DESCRIPTION_OVERRIDE	LEXEM("~")
+#define LEXEM_ITEM_DESCRIPTION_OVERRIDE LEXEM("~")
 
 // a
-#define LEXEM_ITEM_DESCRIPTION_ADD		LEXEM("+")
+#define LEXEM_ITEM_DESCRIPTION_ADD              LEXEM("+")
 
-#define LEXEM_ITEM_DESCRIPTION_SHORT	LEXEM("-")
+#define LEXEM_ITEM_DESCRIPTION_SHORT    LEXEM("-")
 
-#define LEXEM_ITEM_CRAFTER				LEXEM("c")
+#define LEXEM_ITEM_CRAFTER                              LEXEM("c")
 
-#define LEXEM_KEY_DESCRIPTION			LEXEM("k")
+#define LEXEM_KEY_DESCRIPTION                   LEXEM("k")
 
 // name of player/npc
 //	military   "[surname], [name]"
 //	custom
 //		player "[name]"
 //		npc    "[name] [nickWithSpace_or_nothing][surname]"
-#define LEXEM_DOGTAG_OWNER				LEXEM("o")
+#define LEXEM_DOGTAG_OWNER                              LEXEM("o")
 
 // extra info
 //	military "[id]/[birth_month]/[birth_year]/[blood_type]"
 //	custom   "[birth_month]/[birth_year]/[blood_type]"
-#define LEXEM_DOGTAG_INFO				LEXEM("i")
+#define LEXEM_DOGTAG_INFO                               LEXEM("i")
 
 /*
    Critter
@@ -62,7 +62,7 @@
         $@		overwrites name over head, can be empty. player only
         $name	overwrites name used in long/short description and combat messages
         $tatoo
-		$faction
+                $faction
 
    Item
    ----
@@ -76,7 +76,7 @@
         $~		overwrites long description
 
         $desc	key description
-		$crafter
+                $crafter
 
    Special Item
    -------------
@@ -102,14 +102,11 @@
 #endif
 
 #ifndef __LEXEMS__
-
 import string GetCritterLexems(CritterMutual& critter) from "lexems";
 import string GetItemLexems(ItemMutual& item) from "lexems";
-
 import bool IsLexem(CritterMutual& critter, string& lex) from "lexems";
 import bool IsLexem(ItemMutual& it, string& lex) from "lexems";
 import bool IsLexem(string& lexems, string& lex) from "lexems";
-
 import string GetLexem(CritterMutual& critter, string& lex) from "lexems";
 import string GetLexem(ItemMutual& item, string& lex) from "lexems";
 import string GetLexem(string& lexems, string& lex) from "lexems";
@@ -118,7 +115,6 @@ import string GetLexem(string& lexems, string& lex) from "lexems";
 import void   SetLexem(CritterMutual& critter, string& lex, string& value) from "lexems";
 import void   SetLexem(ItemMutual& item, string& lex, string& value) from "lexems";
 import string SetLexem(string& lexems, string& lex, string& value) from "lexems";
-
 import void   UnsetLexem(CritterMutual& critter, string& lex) from "lexems";
 import void   UnsetLexem(ItemMutual& item, string& lex) from "lexems";
 import string UnsetLexem(string& lexems, string& lex) from "lexems";

@@ -11,29 +11,28 @@ class CBlackjack
 {
     private uint playerId;
     private uint dealerId;
- 
+
     private int playerSkill;
     private int dealerSkill;
     private int skillDifference;
- 
-    private CShoe shoe;
+
+    private CShoe             shoe;
     private BlackjackProgress progress;
-    private bool doubleDown;
-    private bool insurance;
- 
+    private bool              doubleDown;
+    private bool              insurance;
+
     private int sidebetType;
     private int sidebetValue;
     private int betValue;
- 
+
     private bool showDealerCards;
- 
+
     private string lastAction;
     private string result;
     private string sidebetResult;
- 
-    private array<CCard@> playerHand;
-    private array<CCard@> dealerHand;
- 
+
+    private array < CCard@ > playerHand;
+    private array < CCard@ > dealerHand;
     /**< Getters */
     uint GetPlayerId()
     {
@@ -103,7 +102,7 @@ class CBlackjack
     {
         return result;
     }
- 
+
     /**< Constructor - Well, only a simple function to call after declaring variable. */
     CBlackjack(uint playerId, uint dealerId, int decksInShoe)
     {
@@ -112,7 +111,6 @@ class CBlackjack
         shoe = CShoe(decksInShoe);
         Init();
     }
- 
     /**< Initialize variables for a clean session, generate a new shoe and shuffle it. */
     void Init()
     {
@@ -122,11 +120,11 @@ class CBlackjack
         ResetVariables();
         progress = BlackjackProgress::Bet;
         //  Insert test cases here.
-        //InsertTestCasesForPlayerBlackjack();
-        //InsertTestCasesForDoubleDown();
-        //InsertTestCasesForLuckyLadies();
-        //InsertTestCasesForPerfectPair();
-        //InsertTestCasesForRoyalMatch();
+        // InsertTestCasesForPlayerBlackjack();
+        // InsertTestCasesForDoubleDown();
+        // InsertTestCasesForLuckyLadies();
+        // InsertTestCasesForPerfectPair();
+        // InsertTestCasesForRoyalMatch();
     }
     void SetGamblingSkills()
     {
@@ -148,23 +146,27 @@ class CBlackjack
     bool IsSeeShoeSize()
     {
         if (playerSkill >= BLACKJACK_SKILL_TO_SEE_SHOE_SIZE)
+        {
             return true;
+        }
         else
+        {
             return false;
+        }
     }
     void ResetVariables()
     {
         sidebetType = BLACKJACK_SIDE_NONE;
         sidebetValue = 0;
-        playerHand = array<CCard@>(0);
-        dealerHand = array<CCard@>(0);
+        playerHand = array < CCard@ > (0);
+        dealerHand = array < CCard@ > (0);
         result = "Round is not finished yet!";
         sidebetResult = "No side bet set.";
         doubleDown = false;
         insurance = false;
         if (IsSeeDealerCards())
         {
-            //Log("Show dealers card.");
+            // Log("Show dealers card.");
             showDealerCards = true;
         }
         else
@@ -196,7 +198,6 @@ class CBlackjack
         }
         progress = BlackjackProgress::Bet;
     }
- 
     /**< Gambling skill related stuff. */
     bool IsSeeDealerCards()
     {
@@ -230,7 +231,7 @@ class CBlackjack
             float max = BLACKJACK_SHUFFLE_THRESHOLD_MAX;
             float threshold = BLACKJACK_SHUFFLE_SKILL_THRESHOLD;
             float factor = CLAMP(threshold - skillDifference, 0, threshold) / threshold;
-            //Log("factor = " + factor);
+            // Log("factor = " + factor);
             int shuffleThreshold = min + ((max - min) * factor);
             if (cardsLeftInPercent <= shuffleThreshold)
             {
@@ -238,7 +239,7 @@ class CBlackjack
             }
             else
             {
-                //Log("Cards: Left = " + cardsLeftInPercent + "%, threshold = " + shuffleThreshold + "%. ");
+                // Log("Cards: Left = " + cardsLeftInPercent + "%, threshold = " + shuffleThreshold + "%. ");
                 return false;
             }
         }
@@ -268,7 +269,6 @@ class CBlackjack
             return false;
         }
     }
- 
     void SetSidebetType(int type)
     {
         switch (type)
@@ -282,7 +282,6 @@ class CBlackjack
                 sidebetType = BLACKJACK_SIDE_NONE;
         }
     }
- 
     string GetSidebetType()
     {
         switch (sidebetType)
@@ -296,7 +295,6 @@ class CBlackjack
         }
         return "no side bet";
     }
- 
     void SetSidebetValue(int value)
     {
         sidebetValue = value;
@@ -304,18 +302,15 @@ class CBlackjack
         lastAction = "Set " + GetSidebetType() + " side bet for " + sidebetValue + " caps. ";
         sidebetResult = "Side bet set on " + GetSidebetType() + " for " + sidebetValue + " caps. ";
     }
- 
     void ProgressToSidebetDone()
     {
         progress = SidebetDone;
     }
- 
     string GetSidebetResult()
     {
         return sidebetResult;
     }
     /**<  */
- 
     /**<
      *  Bet related.
      */
@@ -326,14 +321,13 @@ class CBlackjack
         lastAction = "You placed bet for " + value + " caps. ";
     }
     /**<  */
- 
     /**<
      *  Hit related.
      */
     bool IsHitAvailable()
     {
-        if ((progress == BlackjackProgress::First || progress == BlackjackProgress::Rest)
-            && GetHandSoftValue(playerHand) < 21)
+        if ((progress == BlackjackProgress::First || progress == BlackjackProgress::Rest) &&
+            GetHandSoftValue(playerHand) < 21)
         {
             return true;
         }
@@ -361,7 +355,6 @@ class CBlackjack
             ProgressToRest();
         }
     }
- 
     /**<
      *  Stand related.
      */
@@ -378,19 +371,25 @@ class CBlackjack
     }
     bool IsEvenMoneyAvailable()
     {
-        if (progress == BlackjackProgress::First
-            && IsPlayerBlackjack()
-            && IsDealerFirstCardAce())
+        if (progress == BlackjackProgress::First &&
+            IsPlayerBlackjack() &&
+            IsDealerFirstCardAce())
+        {
             return true;
+        }
         else
+        {
             return false;
+        }
     }
     bool IsDealerFirstCardAce()
     {
         if (dealerHand.length() > 0)
         {
             if (dealerHand[0].Type() == CARD_TYPE_ACE)
+            {
                 return true;
+            }
         }
         return false;
     }
@@ -401,7 +400,6 @@ class CBlackjack
         GivePlayerMoney(amountWon);
         ProgressToResult();
     }
- 
     /**<
      *  Double down related.
      *  Double down is available anytime as long as the player is not busted or does not have 21 already.
@@ -409,10 +407,10 @@ class CBlackjack
      */
     bool IsDoubleDownAvailable()
     {
-        if (GetHandSoftValue(playerHand) < 21
-            && (progress == BlackjackProgress::First || progress == BlackjackProgress::Rest)
-            && doubleDown == false
-            && IsPlayerHaveMoney(betValue))
+        if (GetHandSoftValue(playerHand) < 21 &&
+            (progress == BlackjackProgress::First || progress == BlackjackProgress::Rest) &&
+            doubleDown == false &&
+            IsPlayerHaveMoney(betValue))
         {
             return true;
         }
@@ -442,17 +440,25 @@ class CBlackjack
     {
         Critter@ player = GetCritter(playerId);
         if (valid(player) && player.CountItem(PID_BOTTLE_CAPS) >= value)
+        {
             return true;
+        }
         else
+        {
             return false;
+        }
     }
     /**< Surrender related, available only at starting hand. (Early surrender, bc easier to implement and easier for player also.) */
     bool IsSurrenderAvailable()
     {
         if (progress == BlackjackProgress::First &&  !IsPlayerBlackjack())
+        {
             return true;
+        }
         else
+        {
             return false;
+        }
     }
     void Surrender()
     {
@@ -463,15 +469,19 @@ class CBlackjack
     /**< Insurance related - Only available when Dealer has an Ace revealed and only wins if host has a Blackjack. */
     bool IsInsuranceAvailable()
     {
-        if (dealerHand.length() > 0
-            && dealerHand[0].Type() == CARD_TYPE_ACE
-            && IsPlayerHaveMoney(betValue)
-            && !IsPlayerBlackjack()
-            && !IsPlayerBust()
-            && insurance == false)
+        if (dealerHand.length() > 0 &&
+            dealerHand[0].Type() == CARD_TYPE_ACE &&
+            IsPlayerHaveMoney(betValue) &&
+            !IsPlayerBlackjack() &&
+            !IsPlayerBust() &&
+            insurance == false)
+        {
             return true;
+        }
         else
+        {
             return false;
+        }
     }
     void Insurance()
     {
@@ -492,10 +502,9 @@ class CBlackjack
         dealerHand.insertLast(thirdCard);
         CCard@ fourthCard = shoe.TakeNextCard();
         dealerHand.insertLast(fourthCard);
-        lastAction = "You got a " + firstCard.GetCardNotation() + " and a " + secondCard.GetCardNotation()
-                    + ". The dealer got a " + thirdCard.GetCardNotation() + ". ";
+        lastAction = "You got a " + firstCard.GetCardNotation() + " and a " + secondCard.GetCardNotation() +
+                     ". The dealer got a " + thirdCard.GetCardNotation() + ". ";
     }
- 
     void giveCardToPlayer()
     {
         if (!shoe.IsEmpty())
@@ -509,26 +518,25 @@ class CBlackjack
             Log("Blackjack error: shoe got empty and cards were to be taken. This may not happen.");
         }
     }
- 
     void showDealersHoleCard()
     {
         lastAction = "Dealers hole card is a " + GetDealersHoleCard().GetCardNotation() + ". ";
         showDealerCards = true;
     }
- 
     CCard@ GetDealersHoleCard()
     {
         return dealerHand[1];
     }
- 
-    int GetHandSoftValue(array<CCard@> hand)
+    int GetHandSoftValue(array < CCard@ > hand)
     {
         int nrOfAces = 0;
         int total = 0;
         for (uint i = 0; i < hand.length(); i++)
         {
             if (hand[i].Type() == CARD_TYPE_ACE)
+            {
                 nrOfAces++;
+            }
             total += hand[i].Value();
         }
         if (total <= 21)
@@ -541,12 +549,13 @@ class CBlackjack
             {
                 total -= 10;
                 if (total <= 21)
+                {
                     return total;
+                }
             }
         }
         return total;
     }
- 
     /**< Needed for the "Hit hard 17" rule, but only for the dealer. */
     int GetDealerHandHardValue()
     {
@@ -555,25 +564,29 @@ class CBlackjack
         for (uint i = 0; i < dealerHand.length(); i++)
         {
             if (dealerHand[i].Type() == CARD_TYPE_ACE)
+            {
                 nrOfAces++;
+            }
             total += dealerHand[i].Value();
         }
         total -= 10 * nrOfAces;
         return total;
     }
- 
     bool IsPlayerBust()
     {
         if (GetHandSoftValue(playerHand) > 21)
+        {
             return true;
+        }
         else
+        {
             return false;
+        }
     }
- 
     bool IsPlayerBlackjack()
     {
-        if (GetHandSoftValue(playerHand) == 21
-            && playerHand.length() == 2)
+        if (GetHandSoftValue(playerHand) == 21 &&
+            playerHand.length() == 2)
         {
             return true;
         }
@@ -582,15 +595,17 @@ class CBlackjack
             return false;
         }
     }
- 
     bool DidPlayerReachBlackjackValue()
     {
         if (GetHandSoftValue(playerHand) == 21)
+        {
             return true;
+        }
         else
+        {
             return false;
+        }
     }
- 
     /**< Side bet result check */
     void ProcessSidebet()
     {
@@ -720,53 +735,77 @@ class CBlackjack
     }
     bool IsPlayerHaveTwenty()
     {
-        if (playerHand.length() >= 2
-            && playerHand[0].Value() + playerHand[1].Value() == 20)
+        if (playerHand.length() >= 2 &&
+            playerHand[0].Value() + playerHand[1].Value() == 20)
+        {
             return true;
+        }
         else
+        {
             return false;
+        }
     }
     bool IsPlayerHaveQueenOfHearts()
     {
-        if (playerHand.length() >= 2
-            && playerHand[0].Type() == CARD_TYPE_QUEEN && playerHand[0].Suit() == CARD_SUIT_HEARTS
-            && playerHand[1].Type() == CARD_TYPE_QUEEN && playerHand[1].Suit() == CARD_SUIT_HEARTS)
+        if (playerHand.length() >= 2 &&
+            playerHand[0].Type() == CARD_TYPE_QUEEN && playerHand[0].Suit() == CARD_SUIT_HEARTS &&
+            playerHand[1].Type() == CARD_TYPE_QUEEN && playerHand[1].Suit() == CARD_SUIT_HEARTS)
+        {
             return true;
+        }
         else
+        {
             return false;
+        }
     }
     bool IsPlayerHaveSuit()
     {
-        if (playerHand.length() >= 2
-            && playerHand[0].Suit() == playerHand[1].Suit())
+        if (playerHand.length() >= 2 &&
+            playerHand[0].Suit() == playerHand[1].Suit())
+        {
             return true;
+        }
         else
+        {
             return false;
+        }
     }
     bool IsPlayerHavePair()
     {
-        if (playerHand.length() >= 2
-            && playerHand[0].Type() == playerHand[1].Type())
+        if (playerHand.length() >= 2 &&
+            playerHand[0].Type() == playerHand[1].Type())
+        {
             return true;
+        }
         else
+        {
             return false;
+        }
     }
     bool IsPlayerHaveColor()
     {
-        if (playerHand.length() >= 2
-            && playerHand[0].Color() == playerHand[1].Color())
+        if (playerHand.length() >= 2 &&
+            playerHand[0].Color() == playerHand[1].Color())
+        {
             return true;
+        }
         else
+        {
             return false;
+        }
     }
     bool IsPlayerHaveRoyalPair()
     {
-        if (playerHand.length() >= 2
-            && ( (playerHand[0].Type() == CARD_TYPE_KING && playerHand[1].Type() == CARD_TYPE_QUEEN)
-                 || (playerHand[0].Type() == CARD_TYPE_QUEEN && playerHand[1].Type() == CARD_TYPE_KING)))
+        if (playerHand.length() >= 2 &&
+            ( (playerHand[0].Type() == CARD_TYPE_KING && playerHand[1].Type() == CARD_TYPE_QUEEN) ||
+              (playerHand[0].Type() == CARD_TYPE_QUEEN && playerHand[1].Type() == CARD_TYPE_KING)))
+        {
             return true;
+        }
         else
+        {
             return false;
+        }
     }
     /**<
      *  Progress calls - Most of these are in separate function for readability.
@@ -810,8 +849,8 @@ class CBlackjack
     }
     bool IsDealerDone()
     {
-        if (progress == BlackjackProgress::DealersTurn
-            && !IsPlayerBlackjack())
+        if (progress == BlackjackProgress::DealersTurn &&
+            !IsPlayerBlackjack())
         {
             return false;
         }
@@ -822,26 +861,38 @@ class CBlackjack
     }
     bool canDealerStand()
     {
-        if (GetHandSoftValue(dealerHand) >= 17
-            && GetHandSoftValue(dealerHand) <= 21)
+        if (GetHandSoftValue(dealerHand) >= 17 &&
+            GetHandSoftValue(dealerHand) <= 21)
+        {
             return true;
+        }
         else
+        {
             return false;
+        }
     }
     bool isDealerBust()
     {
         if (GetHandSoftValue(dealerHand) > 21)
+        {
             return true;
+        }
         else
+        {
             return false;
+        }
     }
     bool IsDealerBlackjack()
     {
-        if (GetHandSoftValue(dealerHand) == 21
-            &&  dealerHand.length() == 2)
+        if (GetHandSoftValue(dealerHand) == 21 &&
+            dealerHand.length() == 2)
+        {
             return true;
+        }
         else
+        {
             return false;
+        }
     }
     void DealerTakesCard()
     {
@@ -963,7 +1014,6 @@ class CBlackjack
             Log("Blackjack Error: Player to take money from not found.");
         }
     }
- 
     /**<
      *  Test cases - Function names speak for themselves, they should cover all possibilities, use the correct one for your tests.
      */
@@ -978,7 +1028,6 @@ class CBlackjack
         //  First case: Even money is offered, it's a push on stand.
         shoe.InsertTestValuesForPlayerBlackjackAndDealerBlackjack();
     }
- 
     void InsertTestCasesForDoubleDown()
     {
         //  Fifth case: Double down and bust.
@@ -992,7 +1041,6 @@ class CBlackjack
         //  First case: Double down shall be available after taking the 2nd and 3rd card in hand. Player doubles down after 3rd and wins.
         shoe.InsertTestValuesForPlayerDoubleDownAfterThirdCard20AndDealer18();
     }
- 
     void InsertTestCasesForLuckyLadies()
     {
         //  Fifth case: Unsuited total of 20 in start hand.
@@ -1006,7 +1054,6 @@ class CBlackjack
         //  First case: Queen of hearts pair and player blackjack.
         shoe.InsertTestValuesForLuckyLadiesQohpAndDealerBlackjack();
     }
- 
     void InsertTestCasesForPerfectPair()
     {
         //  Third case: Mixed Pair.
@@ -1016,7 +1063,6 @@ class CBlackjack
         //  First case: Perfect pair.
         shoe.InsertTestValuesForPerfectPairPlayerPerfectPair();
     }
- 
     void InsertTestCasesForRoyalMatch()
     {
         //  Seconds case: Suited.

@@ -12,18 +12,14 @@
 #include "_macros.fos"
 #include "factions_h.fos"
 #include "factions_generic.fos"
-
-
 void critter_init(Critter& bartender, bool firstTime)
 {
     bartender.SetEvent(CRITTER_EVENT_IDLE, "_Idle");
     bartender.SetEvent(CRITTER_EVENT_MESSAGE, "_OnMessage");
 }
-
 //
 // Welcomes faction' member if around
 //
-
 void _Idle(Critter& npc)
 {
     IdleLookAround(npc, 5, MessageHandler);
@@ -31,23 +27,22 @@ void _Idle(Critter& npc)
     // 1 second till another idle
     npc.Wait(1000);
 }
-
 void _OnMessage(Critter& bartender, Critter& sender, int num, int val)
 {
-    switch(num)
+    switch (num)
     {
-    case MSG_PLAYER_NEAR:
-        GreetMember(bartender, sender, MessageHandler);
-        break;
-    case MSG_SAY_HELLO:
-        sender.Say(SAY_NETMSG, "Bartender nods at you as you approach");
-        bartender.Say(SAY_NORM_ON_HEAD, "Hello");
-        break;
+        case MSG_PLAYER_NEAR:
+            GreetMember(bartender, sender, MessageHandler);
+            break;
+        case MSG_SAY_HELLO:
+            sender.Say(SAY_NETMSG, "Bartender nods at you as you approach");
+            bartender.Say(SAY_NORM_ON_HEAD, "Hello");
+            break;
     }
 }
 
 // implement IMessageHandler to act as a delegate
-class CMessageHandler : IMessageHandler
+class CMessageHandler: IMessageHandler
 {
     void OnMessage(Critter& critter, Critter& sender, int num, int val)
     {

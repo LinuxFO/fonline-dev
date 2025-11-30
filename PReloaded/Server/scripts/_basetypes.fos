@@ -46,8 +46,8 @@
 #define CRTYPE_FEMALE_KID                (103)
 #define CRTYPE_MALE_KID                  (27)
 // Ian & Old Ian
-#define CRTYPE_IAN						(45)
-#define CRTYPE_OLDIAN					(128)
+#define CRTYPE_IAN                                              (45)
+#define CRTYPE_OLDIAN                                   (128)
 
 /*
  * Everything else
@@ -113,7 +113,7 @@
 #define CRTYPE_DEATHCLAW_SMALL           (60)
 #define CRTYPE_FEMALE_TRIBAL             (61)
 #define CRTYPE_MALE_TRIBAL               (62)
-#define CRTYPE_MALE_SULIK 				 (64)
+#define CRTYPE_MALE_SULIK                                (64)
 #define CRTYPE_SPORE_PLANT               (65)
 #define CRTYPE_MECH                      (66)
 #define CRTYPE_GECKO_SMALL               (67)
@@ -190,14 +190,14 @@
 
 #define CRTYPE_PUNK_LA                   (134)
 #define CRTYPE_PASHTSHUUR                (135)
-#define CRTYPE_PUNK_MA					 (136)
-#define CRTYPE_PUNK_JUMPSUIT			 (137)
-#define CRTYPE_PUNK_PRIMITIVE			 (138)
-#define CRTYPE_FEMALE_CADESERT			 (139)
-#define CRTYPE_MALE_CADESERT			 (140)
-#define CRTYPE_ROBE_RED					 (141)
-#define CRTYPE_PRIMITIVE_MALE_BLACK		 (142)
-#define CRTYPE_MALE_LEATHER_BLACK		 (143)
+#define CRTYPE_PUNK_MA                                   (136)
+#define CRTYPE_PUNK_JUMPSUIT                     (137)
+#define CRTYPE_PUNK_PRIMITIVE                    (138)
+#define CRTYPE_FEMALE_CADESERT                   (139)
+#define CRTYPE_MALE_CADESERT                     (140)
+#define CRTYPE_ROBE_RED                                  (141)
+#define CRTYPE_PRIMITIVE_MALE_BLACK              (142)
+#define CRTYPE_MALE_LEATHER_BLACK                (143)
 #define CRTYPE_MALE_LONGHAIR_BROWN_PANTS (144)
 
 // VIC armor animations from Mega Mod
@@ -207,7 +207,7 @@
 #define CRTYPE_VIC_CA                    (148)
 #define CRTYPE_VIC_PA                    (149)
 
-// BALD/CASSIDY 
+// BALD/CASSIDY
 #define CRTYPE_BALD_PA                   (150)
 
 // Male Jumpsuit Black from RP
@@ -226,7 +226,7 @@
 #define CRTYPE_SULIK_PA                  (159)
 
 // Leather Armor Mk2 (Darker for normal hair types)
-#define CRTYPE_MALE_LEATHER_ARMOR_MK2 	 (160)
+#define CRTYPE_MALE_LEATHER_ARMOR_MK2    (160)
 #define CRTYPE_FEMALE_LEATHER_ARMOR_MK2  (161)
 
 // Red Vault Suits
@@ -241,7 +241,7 @@
 // Punk Girl Leather Jacket
 #define CRTYPE_PUNK_LEATHER_JACKET       (166)
 
- // 167-199 : NOT ASSIGNED
+// 167-199 : NOT ASSIGNED
 
 #ifndef NO_CRTYPE_ALIASES
 

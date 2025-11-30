@@ -43,28 +43,24 @@
 #define _ID               # (item)     (item.Val1)
 
 #ifndef __MODULE__
-
 // imports from main module
 import ICaravan@ GetCaravan(uint id) from "caravans";
 import ICaravan@ GetCaravan(Critter& cr) from "caravans";
-
 import void InitCaravans() from "caravans";
 #endif
-
 import bool TakeNextLine(file& f, string& line) from "trains";
 import array<int>@ TakeNextNumLine(file & f) from "trains";
-
 /**
  * Checks if given critter is leader of some caravan.
  */
 bool IsCaravanLeader(Critter& cr)
 {
     ICaravan@ caravan = GetCaravan(cr);
+
     // Log("caravan> "+(valid(caravan)));
     // Log("caravan1 "+(caravan.GetWMLeaderId())+ " "+cr.Id);
     return valid(caravan) && (caravan.GetLeaderId() == cr.Id || caravan.GetWMLeaderId() == cr.Id);
 }
-
 /**
  * Starts the caravan (sends it to the worldmap).
  *
@@ -73,7 +69,8 @@ bool IsCaravanLeader(Critter& cr)
 void CaravanStart(Critter& leader)
 {
     ICaravan@ caravan = GetCaravan(leader.Id);
-    if(!valid(caravan))
+
+    if (!valid(caravan))
     {
         Log("ERR: Couldn't start caravan, npc is not assigned to any of them.");
         return;
@@ -81,42 +78,34 @@ void CaravanStart(Critter& leader)
 
     caravan.Start();
 }
-
 void CaravanProcessStartFast()
-{}
-
+{
+}
 void CaravanProcessMove()
-{}
+{
+}
 /**
  * Global interface for caravan objects
  */
 shared interface ICaravan
 {
     void Init();
-
     uint GetState();
-
     uint GetLeaderId();
     uint GetWMLeaderId();
-
     bool IsCaravanMember(Critter&);
-
     ICaravan@ Route(uint16 origLoc, uint8 origMap, uint16 destLoc, uint8 destMap);
     ICaravan@ Route(uint16 x, uint16 y);
     ICaravan@ _AddNpc(uint16 pid, uint dialogId, uint bagId, uint level);
-
     void Assign(Critter& cr);
     void Leave(Critter& cr);
     void GetCurrentCoords(float&, float&);
     bool EndOfTrack();
     void IncRoutePosition();
-
     string GetName();
     string GetNextDestinationName();
     uint   GetActPay();
     uint   GetDepartTime();
-
-
     void Start();
     void PrepareDeparture(uint);
     void Arrive();
@@ -167,10 +156,18 @@ class CRoute
     private uint         TailId;
     private array<float> X;
     private array<float> Y;
-
-    uint GetId()     { return Id; }
-    uint GetHeadId() { return HeadId; }
-    uint GetTailId() { return TailId; }
+    uint GetId()
+    {
+        return Id;
+    }
+    uint GetHeadId()
+    {
+        return HeadId;
+    }
+    uint GetTailId()
+    {
+        return TailId;
+    }
 
     CRoute(uint id, uint headId, uint tailId)
     {
@@ -178,12 +175,32 @@ class CRoute
         HeadId = headId;
         TailId = tailId;
     }
-    uint  NodesCount()                         { return X.length(); }
-    float GetX(uint node)                      { return X[node]; }
-    float GetY(uint node)                      { return Y[node]; }
-    void  GetXY(uint node, float& x, float& y) { x = X[node]; y = Y[node]; }
-    void  AddNode(float x, float y)            { X.insertLast(x); Y.insertLast(y); }
-    bool  IsLast(uint idx)                     { return idx + 1 == NodesCount(); }
+    uint  NodesCount()
+    {
+        return X.length();
+    }
+    float GetX(uint node)
+    {
+        return X[node];
+    }
+    float GetY(uint node)
+    {
+        return Y[node];
+    }
+    void  GetXY(uint node, float& x, float& y)
+    {
+        x = X[node];
+        y = Y[node];
+    }
+    void  AddNode(float x, float y)
+    {
+        X.insertLast(x);
+        Y.insertLast(y);
+    }
+    bool  IsLast(uint idx)
+    {
+        return idx + 1 == NodesCount();
+    }
 };
 
 class CCaravanStation
@@ -196,19 +213,33 @@ class CCaravanStation
     {
         Id = id;
         @MapPtr = GetMapByPid(map_pid, 0);
-        if(!valid(MapPtr))
+        if (!valid(MapPtr))
         {
             WLog("trains", "wrong map pid=" + map_pid, DEBUG_ERROR);
             return;
         }
         @LocPtr = MapPtr.GetLocation();
     }
-
-    uint      GetId()       { return Id; }
-    float     GetX()        { return LocPtr.WorldX; }
-    float     GetY()        { return LocPtr.WorldY; }
-    Map@      GetMap()      { return MapPtr; }
-    Location@ GetLocation() { return LocPtr; }
+    uint      GetId()
+    {
+        return Id;
+    }
+    float     GetX()
+    {
+        return LocPtr.WorldX;
+    }
+    float     GetY()
+    {
+        return LocPtr.WorldY;
+    }
+    Map@      GetMap()
+    {
+        return MapPtr;
+    }
+    Location@ GetLocation()
+    {
+        return LocPtr;
+    }
 };
 
 
@@ -218,26 +249,30 @@ class CaravanManager
     array<CRoute@>          Routes;
     array<CCaravanStation@> Stations;
     array<ICaravan@>        Caravans;
-
     CCaravanStation@ GetStation(uint id)
     {
-        if(id >= Stations.length())
+        if (id >= Stations.length())
+        {
             return null;
+        }
         return Stations[id];
     }
     ICaravan@ GetCaravan(uint id)
     {
-        if(id >= Caravans.length())
+        if (id >= Caravans.length())
+        {
             return null;
+        }
         return Caravans[id];
     }
     CRoute@ GetRoute(uint id)
     {
-        if(id >= Routes.length())
+        if (id >= Routes.length())
+        {
             return null;
+        }
         return Routes[id];
     }
-
     void Load(string& filename)
     {
         Caravans.insertLast(null);
@@ -249,7 +284,7 @@ class CaravanManager
         array<int>@ data = TakeNextNumLine(f);
         array<int>@ data1;
         array<int>@ data2;
-        for(uint i = 0, j = data.length(); i < j; i++)
+        for (uint i = 0, j = data.length(); i < j; i++)
         {
             CCaravanStation@ station = @CCaravanStation(i, data[i]);
             Stations.insertLast(station);
@@ -259,21 +294,23 @@ class CaravanManager
         // routes
         @data = TakeNextNumLine(f);
         uint routes = data[0];
-        for(uint i = 0; i < routes; i++)
+        for (uint i = 0; i < routes; i++)
         {
             @data = TakeNextNumLine(f);
             CRoute@ route = CRoute(i, data[0], data[1]);
             Routes.insertLast(route);
-            for(uint k = 2; k < data.length(); k += 2)
+            for (uint k = 2; k < data.length(); k += 2)
+            {
                 route.AddNode(data[k], data[k + 1]);                                                // extra waypoints
+            }
             CCaravanStation@ station = GetStation(data[1]);
             route.AddNode(station.GetX(), station.GetY());
         }
-        for(uint i = 0; i < routes; i++)
+        for (uint i = 0; i < routes; i++)
         {
             CRoute@ toInvert = Routes[i];
             CRoute@ inverted = CRoute(i + routes, toInvert.GetTailId(), toInvert.GetHeadId());
-            for(int j = toInvert.NodesCount() - 2; j >= 0; j--)
+            for (int j = toInvert.NodesCount() - 2; j >= 0; j--)
             {
                 float x = 0;
                 float y = 0;
@@ -290,7 +327,7 @@ class CaravanManager
         // caravans
         @data = TakeNextNumLine(f);
         uint caravans = data[0];
-        for(uint i = 0; i < caravans; i++)
+        for (uint i = 0; i < caravans; i++)
         {
             string name = "";
             TakeNextLine(f, name);
@@ -301,8 +338,8 @@ class CaravanManager
             // TakeNextLine(f,name);
             CCaravan@ caravan = CCaravan(i + 1, data, data2, data1[0], data1[1], data1[2], data1[3], data1[4], name, this);
             @data = TakeNextNumLine(f);
-            uint      townPid = data[0];
-            uint      townBag = data[1];
+            uint townPid = data[0];
+            uint townBag = data[1];
 
             @data = TakeNextNumLine(f);
             uint leaderPid = data[0];
@@ -315,7 +352,7 @@ class CaravanManager
             array<uint>@ guardBags = array<uint>(guardTypeCount);
             // guardBags.resize(guardTypeCount);
 
-            for(uint k = 0, l = 0; k < guardTypeCount; k++)
+            for (uint k = 0, l = 0; k < guardTypeCount; k++)
             {
                 guardPids[k] = data[l];
                 guardBags[k] = data[l + 1];
@@ -329,8 +366,10 @@ class CaravanManager
         f.close();
 
         // CreatingCaravans=true;
-        for(uint i = 1; i < Caravans.length(); i++)
+        for (uint i = 1; i < Caravans.length(); i++)
+        {
             Caravans[i].Init();
+        }
         // CreatingCaravans=false;
     }
 };
@@ -342,10 +381,10 @@ class CaravanManager
 /**
  * Holds the caravan info
  */
-class CCaravan : ICaravan
+class CCaravan: ICaravan
 {
     // index of the caravan
-    uint            id;
+    uint id;
 
     CaravanManager@ mgr;
 
@@ -369,21 +408,21 @@ class CCaravan : ICaravan
     /** Caravan destination's location pid. */
     uint16 destLoc;
     /** Map in destination location (index to the location maps list) */
-    uint8  destMap;
+    uint8 destMap;
     /** Origin location */
     uint16 origLoc;
     uint8  origMap;
     /** Current location. Either origin or destination, or 0 (worldmap).*/
-    uint   currLoc;
-    uint8  currMap;
+    uint  currLoc;
+    uint8 currMap;
 
-    uint   entire;
-    uint   timeInTown;
+    uint entire;
+    uint timeInTown;
 
-    uint   timeEvent;
-    uint   departure;
+    uint timeEvent;
+    uint departure;
 
-    uint   state;
+    uint state;
 
     /** Actual target (index to the routes table). */
     int          target;
@@ -393,14 +432,14 @@ class CCaravan : ICaravan
     array<int>@ rewards;
     string name;
 
-    uint   townDlg;
-    uint   wmDlg;
+    uint townDlg;
+    uint wmDlg;
 
-    uint   townLeaderPid;
-    uint   townLeaderBag;
-    uint   leaderPid;
-    uint   leaderBag;
-    uint   factionId;
+    uint townLeaderPid;
+    uint townLeaderBag;
+    uint leaderPid;
+    uint leaderBag;
+    uint factionId;
     array<uint>@ guardPids;
     array<uint>@ guardBags;
 
@@ -420,7 +459,6 @@ class CCaravan : ICaravan
         @this.mgr = mgr;
         timeEvent = 0;
     }
-
     void SetBagsAndPids(uint townLeaderPid, uint townLeaderBag, uint leaderPid, uint leaderBag, array<uint>@ guardPids, array<uint>@ guardBags)
     {
         this.townLeaderPid = townLeaderPid;
@@ -430,7 +468,6 @@ class CCaravan : ICaravan
         @this.guardPids = guardPids;
         @this.guardBags = guardBags;
     }
-
     //
     // Loads caravan data from anydata array
     //
@@ -452,12 +489,13 @@ class CCaravan : ICaravan
         // npcs
         serializer.Get(num);
         critters.resize(num);
-        for(uint i = 0; i < num; i++)
+        for (uint i = 0; i < num; i++)
+        {
             serializer.Get(critters[i]);
+        }
 
         // actual target, pos?
     }
-
     void SetDefault()
     {
         routeIndex = 0;
@@ -484,16 +522,15 @@ class CCaravan : ICaravan
         // critters
         num = critters.length();
         serializer.Set(num);
-        for(uint i = 0; i < num; i++)
+        for (uint i = 0; i < num; i++)
+        {
             serializer.Set(critters[i]);
+        }
 
         // actual target, pos?
 
         serializer.Save("Caravan_" + id);
     }
-
-
-
     /**
      * Sets the caravan id.
      */
@@ -510,7 +547,7 @@ class CCaravan : ICaravan
         // return;
         DLog("Caravan::Init: " + id);
 
-        if(IsAnyData("Caravan_" + id))
+        if (IsAnyData("Caravan_" + id))
         {
             // read
             LoadData();
@@ -527,14 +564,15 @@ class CCaravan : ICaravan
 
         SpawnCaravan();
     }
-
     void ClearCaravan()
     {
-        for(uint i = 0, j = critters.length(); i < j; i++)
+        for (uint i = 0, j = critters.length(); i < j; i++)
         {
             Critter@ cr = GetCritter(critters[i]);
-            if(valid(cr))
+            if (valid(cr))
+            {
                 DeleteNpc(cr);
+            }
         }
         critters.resize(2);
 
@@ -543,7 +581,6 @@ class CCaravan : ICaravan
 
         destinationStationId = actRoute.GetTailId();
     }
-
     /**
      * Spawns caravan on current map, at the point marked by spawnpoint item.
      */
@@ -553,13 +590,16 @@ class CCaravan : ICaravan
         CCaravanStation@ origin = mgr.GetStation(originStationId);
         Map@             map = origin.GetMap();
         int[] params = { ST_DIALOG_ID, townDlg, ST_BAG_ID, townLeaderBag, ST_TEAM_ID, factionId, ST_FACTION_MODE, 1, MODE_NO_LOOT, 1, MODE_NO_STEAL, 1 };
-        uint16           x = 0;
-        uint16           y = 0;
-        map.GetEntireCoords(entire, 0, x, y);
-        Critter@         cr = map.AddNpc(townLeaderPid, x, y, 3, params, null, "caravans@_CaravanTownNpc");
+        uint16 x = 0;
+        uint16 y = 0;
 
-        if(!valid(cr))
+        map.GetEntireCoords(entire, 0, x, y);
+        Critter@ cr = map.AddNpc(townLeaderPid, x, y, 3, params, null, "caravans@_CaravanTownNpc");
+
+        if (!valid(cr))
+        {
             return;
+        }
         cr.StatBase[ST_REPLICATION_TIME] = REPLICATION_MINUTE(1);
         SetLvar(cr.Id, LVAR_caravan_id, id);
 
@@ -614,7 +654,6 @@ class CCaravan : ICaravan
         // }
 
     }
-
     void PrepareDeparture(uint departTime)
     {
         state = STATE_PREPARE;
@@ -628,24 +667,22 @@ class CCaravan : ICaravan
         leader.TransitToGlobal(false);
         critters[1] = leader.Id;
     }
-
     void GetCurrentCoords(float& x, float& y)
     {
         CRoute@ route = mgr.GetRoute(routes[routeIndex]);
+
         route.GetXY(routePosition, x, y);
     }
-
     bool EndOfTrack()
     {
         CRoute@ route = mgr.GetRoute(routes[routeIndex]);
+
         return route.IsLast(routePosition);
     }
-
     void IncRoutePosition()
     {
         routePosition++;
     }
-
     /**
      * Caravan leader's id
      */
@@ -653,28 +690,30 @@ class CCaravan : ICaravan
     {
         return critters[0];
     }
-
     uint GetWMLeaderId()
     {
         return critters[1];
     }
-
     bool IsCaravanMember(Critter& crit)
     {
-        if(crit.IsPlayer())
+        if (crit.IsPlayer())
         {
-            for(uint i = 0, j = players.length(); i < j; i++)
+            for (uint i = 0, j = players.length(); i < j; i++)
             {
-                if(players[i] == crit.Id)
+                if (players[i] == crit.Id)
+                {
                     return true;
+                }
             }
         }
         else
         {
-            for(uint i = 0, j = critters.length(); i < j; i++)
+            for (uint i = 0, j = critters.length(); i < j; i++)
             {
-                if(critters[i] == crit.Id)
+                if (critters[i] == crit.Id)
+                {
                     return true;
+                }
             }
         }
         return false;
@@ -720,6 +759,7 @@ class CCaravan : ICaravan
     void Assign(Critter& cr)
     {
         GameVar@ var = GetLocalVar(LVAR_caravan_id, cr.Id);
+
         var = id;
         // follow mode
         cr.StatBase[ST_FOLLOW_CRIT] = GetWMLeaderId();
@@ -729,53 +769,52 @@ class CCaravan : ICaravan
      */
     void Leave(Critter& cr)
     {
-        if(cr.IsPlayer())
+        if (cr.IsPlayer())
         {
-            for(uint i = 0, j = players.length(); i < j; i++)
+            for (uint i = 0, j = players.length(); i < j; i++)
             {
-                if(players[i] == cr.Id)
+                if (players[i] == cr.Id)
+                {
                     players[i] = 0;
+                }
             }
         }
         else
         {
-            for(uint i = 0, j = critters.length(); i < j; i++)
+            for (uint i = 0, j = critters.length(); i < j; i++)
             {
-                if(critters[i] == cr.Id)
+                if (critters[i] == cr.Id)
+                {
                     critters[i] = 0;
+                }
             }
         }
         GameVar@ var = GetLocalVar(LVAR_caravan_id, cr.Id);
         var = 0;
         // cr.StatBase[ST_FOLLOW_CRIT]=0;
     }
-
     uint GetState()
     {
         return state;
     }
-
     string GetName()
     {
         return name;
     }
-
     string GetNextDestinationName()
     {
         CCaravanStation@ destination = mgr.GetStation(destinationStationId);
+
         return GetLocationName(destination.GetLocation());
     }
-
     uint GetActPay()
     {
         return rewards[routeIndex];
     }
-
     uint GetDepartTime()
     {
         return departure;
     }
-
     /**
      * Starts the caravan route to the next target (destination, or way back to origin).
      */
@@ -783,7 +822,8 @@ class CCaravan : ICaravan
     {
         Map@     map;
         Critter@ townNpc = GetCritter(critters[0]);
-        if(valid(townNpc))
+
+        if (valid(townNpc))
         {
             @map = townNpc.GetMap();
             DeleteNpc(townNpc);
@@ -792,32 +832,38 @@ class CCaravan : ICaravan
         routePosition = 0;
         state = STATE_RUNNING;
 
-        Critter@        wmNpc = GetCritter(critters[1]);
+        Critter@ wmNpc = GetCritter(critters[1]);
         // Log("Departin "+critters[1]+" "+wmNpc.Id);
         array<Critter@> crits = wmNpc.GetGlobalGroup();
         uint            playerCount = crits.length() - 1;
         players.resize(playerCount);
-        for(uint i = 1, j = crits.length(); i < j; i++)
+        for (uint i = 1, j = crits.length(); i < j; i++)
         {
             players[i - 1] = crits[i].Id;
             SetLvar(crits[i].Id, LVAR_caravan_id, id);
             crits[i].Say(SAY_NETMSG, "You have departed with caravan.");
         }
 
-        //uint neededGuards = 4 - playerCount;
-		//uint neededGuards = MAX(0, 4 - playerCount);
-		uint neededGuards;
-		if(playerCount > 5) neededGuards=0;
-		else neededGuards = 6-playerCount;
-		//Log("Player count: " + playerCount);
-		//Log("Needed guards: " + neededGuards);
+        // uint neededGuards = 4 - playerCount;
+        // uint neededGuards = MAX(0, 4 - playerCount);
+        uint neededGuards;
+        if (playerCount > 5)
+        {
+            neededGuards = 0;
+        }
+        else
+        {
+            neededGuards = 6 - playerCount;
+        }
+        // Log("Player count: " + playerCount);
+        // Log("Needed guards: " + neededGuards);
         critters.resize(2 + neededGuards);
-        if(valid(map))
+        if (valid(map))
         {
             uint guardTypeCount = guardPids.length();
-            for(uint i = 0; i < neededGuards; i++)
+            for (uint i = 0; i < neededGuards; i++)
             {
-                uint     guardType = Random(0, guardTypeCount - 1);
+                uint guardType = Random(0, guardTypeCount - 1);
                 int[] params = { ST_BAG_ID, guardBags[guardType], ST_TEAM_ID, factionId, ST_FACTION_MODE, 1 };
                 Critter@ npc = map.AddNpc(guardPids[guardType], 1, 1, 0, params, null, "caravans@_CaravanGuard");
                 npc.ParamBase[ST_VAR1] = critters[1];
@@ -829,64 +875,63 @@ class CCaravan : ICaravan
         CCaravanStation@ origin = mgr.GetStation(originStationId);
         CCaravanStation@ destination = mgr.GetStation(destinationStationId);
 
-		string message = GetName() + " departed on its journey, from " + GetLocationName(origin.GetLocation()) + " to " + GetLocationName(destination.GetLocation()) + ".";
-        //Log(message);
-		RadioMessage(1, message);
+        string message = GetName() + " departed on its journey, from " + GetLocationName(origin.GetLocation()) + " to " + GetLocationName(destination.GetLocation()) + ".";
+        // Log(message);
+        RadioMessage(1, message);
     }
-
     void Reward()
     {
         Critter@ leader = GetCritter(GetWMLeaderId());
-        if(valid(leader))
+
+        if (valid(leader))
         {
             array<Critter@> crits = leader.GetGlobalGroup();
             uint            playerCount = crits.length() - 1;
             players.resize(playerCount);
-            for(uint i = 1, j = crits.length(); i < j; i++)
+            for (uint i = 1, j = crits.length(); i < j; i++)
             {
-                if(crits[i].IsPlayer())
+                if (crits[i].IsPlayer())
                 {
-                    uint reward = GetActPay()*2;
+                    uint reward = GetActPay() * 2;
                     BanksTransferToCritter(crits[i], reward, TRANSACTION_DEFAULT, false);
                     crits[i].Say(SAY_NETMSG, "You have received " + reward + " caps as your pay.");
-                    int cap = GetActPay()*5;
-					int expAmount = MIN(crits[i].Stat[ST_LEVEL]*reward/10, cap);
-					crits[i].StatBase[ST_EXPERIENCE] += expAmount;
+                    int cap = GetActPay() * 5;
+                    int expAmount = MIN(crits[i].Stat[ST_LEVEL] * reward / 10, cap);
+                    crits[i].StatBase[ST_EXPERIENCE] += expAmount;
                     crits[i].Say(SAY_NETMSG, "|0xFFFFFF You have gained " + expAmount + " experience points.");
                 }
             }
         }
     }
-
     void Arrive()
     {
         CCaravanStation@ origin = mgr.GetStation(originStationId);
         CCaravanStation@ destination = mgr.GetStation(destinationStationId);
-		string message = GetName() + " successfully completed its journey, from " + GetLocationName(origin.GetLocation()) + " to " + GetLocationName(destination.GetLocation()) + ".";
-        //Log(message);
-		RadioMessage(1, message);
-		Reward();
+        string           message = GetName() + " successfully completed its journey, from " + GetLocationName(origin.GetLocation()) + " to " + GetLocationName(destination.GetLocation()) + ".";
+
+        // Log(message);
+        RadioMessage(1, message);
+        Reward();
         routeIndex = (routeIndex + 1) % routes.length();
         ClearCaravan();
         SpawnCaravan();
     }
-
     void PrepareRespawn()
     {
         CCaravanStation@ origin = mgr.GetStation(originStationId);
         CCaravanStation@ destination = mgr.GetStation(destinationStationId);
-		string message = GetName() + " failed its journey, from " + GetLocationName(origin.GetLocation()) + " to " + GetLocationName(destination.GetLocation()) + ".";
-        //Log(message);
-		RadioMessage(1, message);
-		routeIndex = (routeIndex + 1) % routes.length();
+        string           message = GetName() + " failed its journey, from " + GetLocationName(origin.GetLocation()) + " to " + GetLocationName(destination.GetLocation()) + ".";
+
+        // Log(message);
+        RadioMessage(1, message);
+        routeIndex = (routeIndex + 1) % routes.length();
         ClearCaravan();
         CreateTimeEvent(AFTER(REAL_MINUTE(7)), "caravans@e_RespawnCaravan", id, false);
     }
-
     void Respawn()
     {
         SpawnCaravan();
         CCaravanStation@ origin = mgr.GetStation(originStationId);
-        //Log(GetName() + " respawned in " + GetLocationName(origin.GetLocation()) + ".");
+        // Log(GetName() + " respawned in " + GetLocationName(origin.GetLocation()) + ".");
     }
 };

@@ -23,7 +23,6 @@ import void GuardMultihexMove(Item& item, uint8 fromSlot, uint8 toSlot) from "mu
 # define Critter    CritterCl
 # define Item       ItemCl
 #endif
-
 ////////////////////////////////////////////////////////////////////////////////////////////////////
 // Call on something critter want move item from one slot to another.
 // Return true to allow transaction, false to disallow.
@@ -34,31 +33,33 @@ bool critter_check_move_item(Critter& cr, Item& item, uint8 toSlot, Item@ itemSw
 
     // Guarding not legit items - although transaction is allowed it will delete item if not legit
     #ifdef __SERVER
-    if(GuardNotLegit(cr, item, true))
+    if (GuardNotLegit(cr, item, true))
+    {
         return true;
+    }
     #endif
 
 
     if (cr.IsPlayer() && item.GetType() == ITEM_TYPE_ARMOR && item.CritSlot == SLOT_ARMOR && cr.Timeout[TO_BATTLE] > 0)
     {
         #ifdef __SERVER
-            cr.Say(SAY_NETMSG, "You can't change your armor while in combat.");
+        cr.Say(SAY_NETMSG, "You can't change your armor while in combat.");
         #endif
         #ifdef __CLIENT
-            Message("You can't change your armor while in combat.");
+        Message("You can't change your armor while in combat.");
         #endif
         return false;
     }
 
     // Drop
-    if(toSlot == SLOT_GROUND)
+    if (toSlot == SLOT_GROUND)
     {
         #ifdef __SERVER
         // this is just ugly
-        if(item.GetType() == ITEM_TYPE_CONTAINER && item.GetProtoId() != PID_TENT)
+        if (item.GetType() == ITEM_TYPE_CONTAINER && item.GetProtoId() != PID_TENT)
         {
             Location@ loc = GetLocationOf(cr);
-            if(valid(loc) && !loc.IsBase() && !loc.IsEncounter() && !loc.IsTent())
+            if (valid(loc) && !loc.IsBase() && !loc.IsEncounter() && !loc.IsTent())
             {
                 cr.Say(SAY_NETMSG, "You can't drop this here.");
                 return false;
@@ -68,80 +69,98 @@ bool critter_check_move_item(Critter& cr, Item& item, uint8 toSlot, Item@ itemSw
         return true;
     }
 
-    if(item.GetType() == ITEM_TYPE_CONTAINER && toSlot != SLOT_INV)
-		return false;
+    if (item.GetType() == ITEM_TYPE_CONTAINER && toSlot != SLOT_INV)
+    {
+        return false;
+    }
 
     // If busy, then allow only hands item swapping
     bool handsSwap = ((fromSlot == SLOT_HAND1 && toSlot == SLOT_HAND2) || (fromSlot == SLOT_HAND2 && toSlot == SLOT_HAND1));
-    if(valid(itemSwap) && !handsSwap)
+    if (valid(itemSwap) && !handsSwap)
+    {
         return false;
+    }
 
     // Weapon animation
-	if(toSlot == SLOT_HAND1 || toSlot == SLOT_HAND2)
+    if (toSlot == SLOT_HAND1 || toSlot == SLOT_HAND2)
     {
-        if(item.GetType() == ITEM_TYPE_WEAPON )
-		{
-			if( !IsCritterAnim1( cr.CrType, item.Proto.Weapon_Anim1 ))
-				return( false );
-		}
+        if (item.GetType() == ITEM_TYPE_WEAPON)
+        {
+            if (!IsCritterAnim1(cr.CrType, item.Proto.Weapon_Anim1))
+            {
+                return(false);
+            }
+        }
     }
 
     // Armor animation
-    if(toSlot == SLOT_ARMOR)
+    if (toSlot == SLOT_ARMOR)
     {
         bool can = true;
-        if(item.GetType() != ITEM_TYPE_ARMOR || item.Proto.Slot != SLOT_ARMOR)
+        if (item.GetType() != ITEM_TYPE_ARMOR || item.Proto.Slot != SLOT_ARMOR)
         {
-            if(cr.PerkBase[PE_TERMINATOR] == 1337)
+            if (cr.PerkBase[PE_TERMINATOR] == 1337)
             {
                 #ifdef __SERVER
-                if(GodOfTheRealm(cr.Id))
+                if (GodOfTheRealm(cr.Id))
                 #endif
                 can = true;
             }
             else
+            {
                 can = false;
+            }
         }
 
-        if(can && !IsCritterCanArmor(cr.CrType))
+        if (can && !IsCritterCanArmor(cr.CrType))
+        {
             can = false;
+        }
 
         return(can);
     }
 
     // Custom slot checks
-    if(toSlot > SLOT_ARMOR)
+    if (toSlot > SLOT_ARMOR)
     {
-        if(toSlot != item.Proto.Slot)
+        if (toSlot != item.Proto.Slot)
         {
-            if(cr.PerkBase[PE_TERMINATOR] == 1337)
+            if (cr.PerkBase[PE_TERMINATOR] == 1337)
             {
                 #ifdef __SERVER
-                if(GodOfTheRealm(cr.Id))
+                if (GodOfTheRealm(cr.Id))
                 #endif
                 return(true);
             }
             return(false);
         }
 
-        if(toSlot == SLOT_TROPHY && cr.IsPlayer())           // add ST_BASE_CRTYPE here?
-            return(false);
-    }
-        
-    #ifdef __SERVER
-    if(handsSwap && valid(itemSwap))
-    {
-        if(itemSwap.Proto.ProtoId == PID_BINOCULARS)
+        if (toSlot == SLOT_TROPHY && cr.IsPlayer())           // add ST_BASE_CRTYPE here?
         {
-            if(itemSwap.CritSlot == SLOT_HAND1)
-                cr.ParamBase[ST_BONUS_LOOK] -= 6;
+            return(false);
+        }
+    }
 
-            if(itemSwap.CritSlot == SLOT_HAND2)
+    #ifdef __SERVER
+    if (handsSwap && valid(itemSwap))
+    {
+        if (itemSwap.Proto.ProtoId == PID_BINOCULARS)
+        {
+            if (itemSwap.CritSlot == SLOT_HAND1)
+            {
+                cr.ParamBase[ST_BONUS_LOOK] -= 6;
+            }
+
+            if (itemSwap.CritSlot == SLOT_HAND2)
+            {
                 cr.ParamBase[ST_BONUS_LOOK] += 6;
-            
-            if(valid(cr.GetMap()))
+            }
+
+            if (valid(cr.GetMap()))
+            {
                 cr.RefreshVisible();
-        }    
+            }
+        }
     }
     #endif
 
@@ -160,74 +179,90 @@ void critter_move_item(Critter& cr, Item& item, uint8 fromSlot)
     GuardMultihexMove(item, fromSlot, toSlot);
 
     // Armor changing
-    if(item.GetType() == ITEM_TYPE_ARMOR && (fromSlot == SLOT_ARMOR || toSlot == SLOT_ARMOR))
+    if (item.GetType() == ITEM_TYPE_ARMOR && (fromSlot == SLOT_ARMOR || toSlot == SLOT_ARMOR))
     {
-        if(GetCritterAnimType(cr.CrType) != ANIM_TYPE_3D)
+        if (GetCritterAnimType(cr.CrType) != ANIM_TYPE_3D)
         {
             // Default dude
             bool isMale = (cr.Stat[ST_GENDER] == GENDER_MALE);
             uint crType = cr.Stat[ST_BASE_CRTYPE];
-            if(crType == 0)
-                crType = (isMale ? CRTYPE_MALE_DEFAULT : CRTYPE_FEMALE_DEFAULT);
-
-            if(toSlot == SLOT_ARMOR)
+            if (crType == 0)
             {
-                if(cr.Stat[ST_OVERRIDE_CRTYPE] == 0)               // old, default behaviour
+                crType = (isMale ? CRTYPE_MALE_DEFAULT : CRTYPE_FEMALE_DEFAULT);
+            }
+
+            if (toSlot == SLOT_ARMOR)
+            {
+                if (cr.Stat[ST_OVERRIDE_CRTYPE] == 0)               // old, default behaviour
+                {
                     crType = (isMale ? item.Proto.Armor_CrTypeMale : item.Proto.Armor_CrTypeFemale);
+                }
                 else
                 {
                     uint over = cr.Stat[ST_OVERRIDE_CRTYPE];
-                    if(isMale)
+                    if (isMale)
                     {
-                        if(over == item.Proto.Armor_CrTypeMale2 ||
-                           over == item.Proto.Armor_CrTypeMale3 ||
-                           over == item.Proto.Armor_CrTypeMale4)
+                        if (over == item.Proto.Armor_CrTypeMale2 ||
+                            over == item.Proto.Armor_CrTypeMale3 ||
+                            over == item.Proto.Armor_CrTypeMale4)
+                        {
                             crType = over;
+                        }
                     }
                     else
                     {
-                        if(over == item.Proto.Armor_CrTypeFemale2 ||
-                           over == item.Proto.Armor_CrTypeFemale3 ||
-                           over == item.Proto.Armor_CrTypeFemale4)
+                        if (over == item.Proto.Armor_CrTypeFemale2 ||
+                            over == item.Proto.Armor_CrTypeFemale3 ||
+                            over == item.Proto.Armor_CrTypeFemale4)
+                        {
                             crType = over;
+                        }
                     }
                 }
 
-				if( cr.IsPlayer() || (cr.IsNpc() && cr.Stat[ST_OVERRIDE_CRTYPE] == 0) )
-				{
-					Skin@ skin = GetSkin( cr );
-					if( valid(skin) )
-						crType = skin[crType];
-				}
+                if (cr.IsPlayer() || (cr.IsNpc() && cr.Stat[ST_OVERRIDE_CRTYPE] == 0) )
+                {
+                    Skin@ skin = GetSkin(cr);
+                    if (valid(skin) )
+                    {
+                        crType = skin[crType];
+                    }
+                }
 
-			} // toSlot == SLOT_ARMOR
+            }             // toSlot == SLOT_ARMOR
 
-			if(cr.CrType != crType)
-			{
+            if (cr.CrType != crType)
+            {
                 cr.ChangeCrType(crType);
 
-				if( toSlot == SLOT_ARMOR )
-				{
-					array<Item@> items = { cr.GetItem( 0, SLOT_HAND1 ), cr.GetItem( 0, SLOT_HAND2 ) };
-					for( uint i=0, iLen=items.length(); i<iLen; i++ )
-					{
-						if( !valid(items[i]) )
-							continue;
+                if (toSlot == SLOT_ARMOR)
+                {
+                    array < Item@ > items = { cr.GetItem(0, SLOT_HAND1), cr.GetItem(0, SLOT_HAND2) };
+                    for ( uint i = 0, iLen = items.length(); i < iLen; i++ )
+                    {
+                        if (!valid(items[i]) )
+                        {
+                            continue;
+                        }
 
-						if( items[i].Proto.Type != ITEM_TYPE_WEAPON )
-							continue;
+                        if (items[i].Proto.Type != ITEM_TYPE_WEAPON)
+                        {
+                            continue;
+                        }
 
-						if( !IsCritterAnim1( crType, items[i].Proto.Weapon_Anim1 ))
-							cr.MoveItem(items[i].Id, 0, SLOT_INV );
-					}
-				}
-			}
+                        if (!IsCritterAnim1(crType, items[i].Proto.Weapon_Anim1))
+                        {
+                            cr.MoveItem(items[i].Id, 0, SLOT_INV);
+                        }
+                    }
+                }
+            }
         }
 
-        //desneak if changing to heavy armor while sneaked
-        if(_IsRealPlayer(cr) && toSlot == SLOT_ARMOR && cr.Mode[MODE_HIDE] != 0)
+        // desneak if changing to heavy armor while sneaked
+        if (_IsRealPlayer(cr) && toSlot == SLOT_ARMOR && cr.Mode[MODE_HIDE] != 0)
         {
-            switch(item.GetProtoId())
+            switch (item.GetProtoId())
             {
                 case PID_POWERED_ARMOR:
                 case PID_HARDENED_POWER_ARMOR:
@@ -252,49 +287,61 @@ void critter_move_item(Critter& cr, Item& item, uint8 fromSlot)
         }
 
         // Armor modifiers
-        if(toSlot == SLOT_ARMOR)
+        if (toSlot == SLOT_ARMOR)
+        {
             EnableItemPerk(cr, item, ITEM_PERK_ARMOR);
-        else if(fromSlot == SLOT_ARMOR)
+        }
+        else if (fromSlot == SLOT_ARMOR)
+        {
             DisableItemPerk(cr, item, ITEM_PERK_ARMOR);
+        }
     }
 
-    if(fromSlot == SLOT_HEAD || toSlot == SLOT_HEAD)
+    if (fromSlot == SLOT_HEAD || toSlot == SLOT_HEAD)
     {
         // Helmet modifiers
-        if(toSlot == SLOT_HEAD)
+        if (toSlot == SLOT_HEAD)
+        {
             EnableItemPerk(cr, item, ITEM_PERK_HELMET);
-        else if(fromSlot == SLOT_HEAD)
+        }
+        else if (fromSlot == SLOT_HEAD)
+        {
             DisableItemPerk(cr, item, ITEM_PERK_HELMET);
+        }
     }
 
-    if(item.GetType() == ITEM_TYPE_WEAPON && item.Proto.Weapon_NoRunning)
+    if (item.GetType() == ITEM_TYPE_WEAPON && item.Proto.Weapon_NoRunning)
     {
-        if(toSlot == SLOT_HAND1 || toSlot == SLOT_HAND2)
+        if (toSlot == SLOT_HAND1 || toSlot == SLOT_HAND2)
+        {
             cr.ModeBase[MODE_NO_RUN] = cr.ModeBase[MODE_NO_RUN] + 1;
-        if(fromSlot == SLOT_HAND1 || fromSlot == SLOT_HAND2)
+        }
+        if (fromSlot == SLOT_HAND1 || fromSlot == SLOT_HAND2)
+        {
             cr.ModeBase[MODE_NO_RUN] = cr.ModeBase[MODE_NO_RUN] - 1;                                                  // mustn't put else here
+        }
     }
 
     // Add/remove sneak penalty for carrying active explosives.
     // It works also for arming/disarming, because explosives are replaced with
     // a new item when armed/disarmed.
     //
-    if(item.Proto.ProtoId == PID_ACTIVE_PLASTIC_EXPLOSIVE ||
-       item.Proto.ProtoId == PID_ACTIVE_DYNAMITE ||
-       item.Proto.ProtoId == PID_ACTIVE_MINE ||
-       item.Proto.ProtoId == PID_ACTIVE_PERSONNEL_MINE )
+    if (item.Proto.ProtoId == PID_ACTIVE_PLASTIC_EXPLOSIVE ||
+        item.Proto.ProtoId == PID_ACTIVE_DYNAMITE ||
+        item.Proto.ProtoId == PID_ACTIVE_MINE ||
+        item.Proto.ProtoId == PID_ACTIVE_PERSONNEL_MINE)
     {
-        if(fromSlot == SLOT_GROUND)
+        if (fromSlot == SLOT_GROUND)
         {
             SETFLAG(cr.ParamBase[ST_SNEAK_FLAGS], 0x1);
             DSay(cr, "Added sneak penalty for armed explosives.");
         }
         else
         {
-            if(!valid(cr.GetItem(PID_ACTIVE_PLASTIC_EXPLOSIVE, -1)) &&
-               !valid(cr.GetItem(PID_ACTIVE_DYNAMITE, -1)) &&
-               !valid(cr.GetItem(PID_ACTIVE_MINE, -1)) &&
-               !valid(cr.GetItem(PID_ACTIVE_PERSONNEL_MINE, -1)))
+            if (!valid(cr.GetItem(PID_ACTIVE_PLASTIC_EXPLOSIVE, -1)) &&
+                !valid(cr.GetItem(PID_ACTIVE_DYNAMITE, -1)) &&
+                !valid(cr.GetItem(PID_ACTIVE_MINE, -1)) &&
+                !valid(cr.GetItem(PID_ACTIVE_PERSONNEL_MINE, -1)))
             {
                 UNSETFLAG(cr.ParamBase[ST_SNEAK_FLAGS], 0x1);
                 DSay(cr, "Removed sneak penalty for armed explosives.");
@@ -303,24 +350,32 @@ void critter_move_item(Critter& cr, Item& item, uint8 fromSlot)
     }
 
     // Refreshing vision on Stealth Boy/Motion sensor slot changes
-    if(item.Proto.ProtoId == PID_ACTIVE_MOTION_SENSOR || item.Proto.ProtoId == PID_ACTIVE_STEALTH_BOY)
+    if (item.Proto.ProtoId == PID_ACTIVE_MOTION_SENSOR || item.Proto.ProtoId == PID_ACTIVE_STEALTH_BOY)
     {
-        if(valid(cr.GetMap()))
+        if (valid(cr.GetMap()))
+        {
             cr.RefreshVisible();
+        }
     }
 
     // Binoculars bonus view
-    if(item.Proto.ProtoId == PID_BINOCULARS && fromSlot != toSlot)
+    if (item.Proto.ProtoId == PID_BINOCULARS && fromSlot != toSlot)
     {
-        if(fromSlot == SLOT_HAND1)
+        if (fromSlot == SLOT_HAND1)
+        {
             cr.ParamBase[ST_BONUS_LOOK] -= 6;
+        }
 
-        if(toSlot == SLOT_HAND1)
+        if (toSlot == SLOT_HAND1)
+        {
             cr.ParamBase[ST_BONUS_LOOK] += 6;
+        }
 
-        if((fromSlot == SLOT_HAND1 || toSlot == SLOT_HAND1) && valid(cr.GetMap()))
+        if ((fromSlot == SLOT_HAND1 || toSlot == SLOT_HAND1) && valid(cr.GetMap()))
+        {
             cr.RefreshVisible();
-    }        
+        }
+    }
 
     // Slot modifiers
 // SLOT_PERK_MIRROR_SHADES // +1 charisma

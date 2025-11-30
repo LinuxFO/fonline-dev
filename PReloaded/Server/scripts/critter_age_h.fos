@@ -11,7 +11,6 @@
 #define AGE_CAP    (90)      // enough for one-year-long session
 
 #ifndef __CRITTER_AGE__
-
 import void SetBirthDate(Critter& cr) from "critter_age";
 import void CheckBirthDate(Critter& cr) from "critter_age";
 import void CritterAgeInit(Critter& cr) from "critter_age";

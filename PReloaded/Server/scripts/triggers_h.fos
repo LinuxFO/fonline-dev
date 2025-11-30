@@ -9,10 +9,10 @@
 #define __TRIGGERS_H__
 
 #define GetTriggerFunction          # (tr) (tr.Val0)
-#define SetTriggerFunction          # (tr, val)tr.Val0 = val
+#define SetTriggerFunction          # (tr, val) tr.Val0 = val
 
 #define GetTriggerSettings          # (tr) (tr.Val1)
-#define SetTriggerSettings          # (tr, val)tr.Val1 = val
+#define SetTriggerSettings          # (tr, val) tr.Val1 = val
 
 #define GetTriggerGroup             # (tr) (GetTriggerSettings(tr) & 0xFF)
 #define SetTriggerGroup             # (tr, val)SetTriggerSettings(tr, ((GetTriggerSettings(tr) & 0xFFFFFF00) | ((val) & 0xFF)))
@@ -31,7 +31,6 @@
 #define TRIGGER_KEEP_TICKING        (0x00002000)
 #define TRIGGER_CRITTERLESS         (0x00004000) // Run TRIGGER_FUNC even if critter who started trigger isn't available anymore
 #define TRIGGER_RESERVED            (0x00008000)
-
 funcdef bool TRIGGER_FUNC(Item& tr, Critter@ cr, uint dir, uint count, array<uint>@ values);
 
 #define VALUE_TRIGGER_ID            (0)

@@ -25,13 +25,13 @@
 
 class CSetEntry
 {
-    bool        isGroup;   // group of entries
-    uint8       role;
-    uint        ent1;
-    uint        ent2;
-    array<uint> entries;
-    array<uint> horizincident;
-    array<uint> vertincident;
+    bool  isGroup;         // group of entries
+    uint8 role;
+    uint  ent1;
+    uint  ent2;
+    array < uint > entries;
+    array < uint > horizincident;
+    array < uint > vertincident;
 
     CSetEntry()
     {
@@ -55,7 +55,7 @@ class CSetEntry
         entries[0] = part1;
         entries[1] = part2;
     }
-    CSetEntry(array<uint>&nentries)
+    CSetEntry(array < uint > &nentries)
     {
         isGroup = false;
         role = ROLE_NONE;
@@ -63,13 +63,14 @@ class CSetEntry
         ent2 = 0;
         uint len = nentries.length();
         entries.resize(len);
-        for(uint i = 0; i < len; i++)
+        for (uint i = 0; i < len; i++)
+        {
             entries[i] = nentries[i];
+        }
     }
-
     void AddIncident(uint id, bool verti)
     {
-        if(verti)
+        if (verti)
         {
             vertincident.insertLast(id);
         }
@@ -78,9 +79,9 @@ class CSetEntry
             horizincident.insertLast(id);
         }
     }
-    void AddIncidents(array<uint>& ids, bool verti)
+    void AddIncidents(array < uint > &ids, bool verti)
     {
-        if(verti)
+        if (verti)
         {
             append_array(vertincident, ids);
         }
@@ -94,27 +95,27 @@ class CSetEntry
 
 class CWallSet
 {
-    uint        id;
-    string      name;
-    array<uint> walls_nw;
-    array<uint> walls_se;
-    array<uint> walls_ne;
-    array<uint> walls_sw;
-    array<uint> wall_blank_nw;
-    array<uint> wall_blank_se;
-    array<uint> wall_blank_ne;
-    array<uint> wall_blank_sw;
-    array<uint> corners_n;
-    array<uint> corners_e;
-    array<uint> corners_w;
-    array<uint> corners_s;
-    array<uint> junctions_nw;
-    array<uint> junctions_ne;
-    array<uint> junctions_sw;
-    array<uint> junctions_se;
-    array<uint> crosses;
-    array<uint> tilegroups;
-    array<uint> roofgroups;
+    uint   id;
+    string name;
+    array < uint > walls_nw;
+    array < uint > walls_se;
+    array < uint > walls_ne;
+    array < uint > walls_sw;
+    array < uint > wall_blank_nw;
+    array < uint > wall_blank_se;
+    array < uint > wall_blank_ne;
+    array < uint > wall_blank_sw;
+    array < uint > corners_n;
+    array < uint > corners_e;
+    array < uint > corners_w;
+    array < uint > corners_s;
+    array < uint > junctions_nw;
+    array < uint > junctions_ne;
+    array < uint > junctions_sw;
+    array < uint > junctions_se;
+    array < uint > crosses;
+    array < uint > tilegroups;
+    array < uint > roofgroups;
 
     CWallSet()
     {

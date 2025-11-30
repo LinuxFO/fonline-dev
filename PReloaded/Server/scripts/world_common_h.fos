@@ -9,7 +9,6 @@
 
 #ifndef __WORLD_COMMON_H__
 #define __WORLD_COMMON_H__
-
 import bool IsNight() from "world_common";
 import bool IsDay() from "world_common";
 import bool IsMorning() from "world_common";

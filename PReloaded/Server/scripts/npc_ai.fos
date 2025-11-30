@@ -32,37 +32,42 @@
 #define AI_CHEM_PRIM_DESIRE_0    # (ai) AIData_[(((ai) < AIPACKET_COUNT ? (ai) : 0) * 22 + 19)]
 #define AI_CHEM_PRIM_DESIRE_1    # (ai) AIData_[(((ai) < AIPACKET_COUNT ? (ai) : 0) * 22 + 20)]
 #define AI_CHEM_PRIM_DESIRE_2    # (ai) AIData_[(((ai) < AIPACKET_COUNT ? (ai) : 0) * 22 + 21)]
-
-
 void AI_TrySayCombatText(Critter& npc, int textType)
 {
     AI_TrySayCombatText(npc, textType, false);
 }
-
 void AI_TrySayCombatText(Critter& npc, int textType, bool force)
 {
-    if(!npc.IsLife())
+    if (!npc.IsLife())
+    {
         return;
+    }
     uint ai = npc.Stat[ST_AI_ID];
-    if(!force && AI_MESS_CHANCE(ai) < Random(1, 230))
+    if (!force && AI_MESS_CHANCE(ai) < Random(1, 230))
+    {
         return;
+    }
 
     uint start = 0, end = 0;
-    if(textType >= COMBAT_TEXT_RUN_AWAY && textType <= COMBAT_TEXT_MISS)
+    if (textType >= COMBAT_TEXT_RUN_AWAY && textType <= COMBAT_TEXT_MISS)
     {
         start = AIGeneralMsg_[AI_GENERAL_TYPE(ai) * 8 + textType * 2];
         end = AIGeneralMsg_[AI_GENERAL_TYPE(ai) * 8 + textType * 2 + 1];
     }
-    else if(textType >= COMBAT_TEXT_HIT_HEAD && textType <= COMBAT_TEXT_HIT_GROIN)
+    else if (textType >= COMBAT_TEXT_HIT_HEAD && textType <= COMBAT_TEXT_HIT_GROIN)
     {
         textType -= 10;
         start = AIBodyMsg_[AI_BODY_TYPE(ai) * 16 + textType * 2];
         end = AIBodyMsg_[AI_BODY_TYPE(ai) * 16 + textType * 2 + 1];
     }
     else
+    {
         return;
-    if(start <= end)
+    }
+    if (start <= end)
+    {
         npc.SayMsg(SAY_NORM_ON_HEAD, TEXTMSG_COMBAT, Random(start, end) * 10);
+    }
 }
 
 const int[] AIData_ =

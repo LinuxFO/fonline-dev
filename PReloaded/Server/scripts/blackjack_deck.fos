@@ -3,11 +3,11 @@
  */
 
 #include "blackjack_card.fos"
- 
+
 class CDeck
 {
-    array<CCard@> cards;
- 
+    array < CCard@ > cards;
+
     CDeck()
     {
         for (int cardType = CARD_TYPE_ACE; cardType <= CARD_TYPE_KING; cardType++)

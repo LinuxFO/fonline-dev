@@ -17,11 +17,14 @@
 # include "client_gui_h.fos"
 # include "sprite.fos"
 
-class CElevatorButton : Control
+class CElevatorButton: Control
 {
     Sprite spriteDown;
     uint8  floor;
-    uint8 get_Floor() { return floor; }
+    uint8 get_Floor()
+    {
+        return floor;
+    }
 
     CElevatorButton(int left, int top, int right, int bottom, int floor)
     {
@@ -34,20 +37,25 @@ class CElevatorButton : Control
     //
     void Draw()
     {
-        if(mousePressed)
+        if (mousePressed)
+        {
             DrawSprite(spriteDown.Id, 0, Left(), Top(), 0);
+        }
     }
-
     void Click()
     {
-        if(ElevatorScreen.CurrFloor == floor)
+        if (ElevatorScreen.CurrFloor == floor)
+        {
             parent.HideWindow();
+        }
         else
+        {
             ElevatorScreen.Goto(floor);
+        }
     }
 };
 
-class CElevatorScreen : Window
+class CElevatorScreen: Window
 {
     // pictures // intrface.lst index
     Sprite bos;     // 143
@@ -73,69 +81,72 @@ class CElevatorScreen : Window
     {
         type = val;
         addPic = 0;
-        switch(type)
+        switch (type)
         {
-        case ELEVATOR_BOS_1234:
-            mainPic = bos.Id;
-            Size(230, 284);
-            floors = 4;
-            break;
-        case ELEVATOR_BOS_01:
-            mainPic = bos.Id;
-            addPic = bos2.Id;
-            Size(230, 284);
-            floors = 2;
-            break;
-        case ELEVATOR_MASTER_123:
-            mainPic = mast1.Id;
-            Size(230, 284);
-            floors = 3;
-            break;
-        case ELEVATOR_MASTER_34:
-            mainPic = mast1.Id;
-            addPic = mast2.Id;
-            Size(230, 284);
-            floors = 2;
-            break;
-        case ELEVATOR_MILITARY_123:
-            mainPic = mil1.Id;
-            Size(231, 285);
-            floors = 3;
-            break;
-        case ELEVATOR_MILITARY_34:
-            mainPic = mil1.Id;
-            addPic = mil2.Id;
-            Size(231, 285);
-            floors = 2;
-            break;
-        case ELEVATOR_MILITARY_346:
-            mainPic = mil1.Id;
-            addPic = mil3.Id;
-            Size(231, 285);
-            floors = 3;
-            break;
-        case ELEVATOR_MILITARY_456:
-            mainPic = mil1.Id;
-            addPic = mil4.Id;
-            Size(231, 285);
-            floors = 3;
-            break;
-        case ELEVATOR_VAULT_123:
-            mainPic = vault.Id;
-            Size(230, 284);
-            floors = 3;
-            break;
-        case ELEVATOR_MILITARY_12:
-            mainPic = bos.Id;
-            addPic = mb.Id;
-            Size(230, 284);
-            floors = 2;
-            break;
-        default:
-            Message("Wrong elevator type.");
+            case ELEVATOR_BOS_1234:
+                mainPic = bos.Id;
+                Size(230, 284);
+                floors = 4;
+                break;
+            case ELEVATOR_BOS_01:
+                mainPic = bos.Id;
+                addPic = bos2.Id;
+                Size(230, 284);
+                floors = 2;
+                break;
+            case ELEVATOR_MASTER_123:
+                mainPic = mast1.Id;
+                Size(230, 284);
+                floors = 3;
+                break;
+            case ELEVATOR_MASTER_34:
+                mainPic = mast1.Id;
+                addPic = mast2.Id;
+                Size(230, 284);
+                floors = 2;
+                break;
+            case ELEVATOR_MILITARY_123:
+                mainPic = mil1.Id;
+                Size(231, 285);
+                floors = 3;
+                break;
+            case ELEVATOR_MILITARY_34:
+                mainPic = mil1.Id;
+                addPic = mil2.Id;
+                Size(231, 285);
+                floors = 2;
+                break;
+            case ELEVATOR_MILITARY_346:
+                mainPic = mil1.Id;
+                addPic = mil3.Id;
+                Size(231, 285);
+                floors = 3;
+                break;
+            case ELEVATOR_MILITARY_456:
+                mainPic = mil1.Id;
+                addPic = mil4.Id;
+                Size(231, 285);
+                floors = 3;
+                break;
+            case ELEVATOR_VAULT_123:
+                mainPic = vault.Id;
+                Size(230, 284);
+                floors = 3;
+                break;
+            case ELEVATOR_MILITARY_12:
+                mainPic = bos.Id;
+                addPic = mb.Id;
+                Size(230, 284);
+                floors = 2;
+                break;
+            default:
+                Message("Wrong elevator type.");
         }
     }
-    uint get_Type() { return type; }
+    uint get_Type()
+    {
+        return type;
+    }
     // current floor (the one showed when you enter lift)
     uint currFloor;
     void set_CurrFloor(uint val)
@@ -143,7 +154,10 @@ class CElevatorScreen : Window
         indicatorPos = GetIndicatorPos(val);
         currFloor = val;
     }
-    uint get_CurrFloor() { return currFloor; }
+    uint get_CurrFloor()
+    {
+        return currFloor;
+    }
     // level count
     uint floors;
     // target floor
@@ -163,7 +177,6 @@ class CElevatorScreen : Window
         lastUpdate = 0;
         running = false;
     }
-
     // returns indicator position for given floor
     uint GetIndicatorPos(uint floor)
     {
@@ -173,10 +186,15 @@ class CElevatorScreen : Window
     int GetFloorFromIndicator()
     {
         int div = (12 / (floors - 1));
-        if(indicatorPos % div == 0)
+
+        if (indicatorPos % div == 0)
+        {
             return indicatorPos / div;
+        }
         else
+        {
             return -1;
+        }
     }
     void Init()
     {
@@ -196,18 +214,19 @@ class CElevatorScreen : Window
         @buttons[1] = CElevatorButton(11, 102, 58, 151, 1);
         @buttons[2] = CElevatorButton(11, 162, 58, 211, 2);
         @buttons[3] = CElevatorButton(11, 222, 58, 271, 3);
-        for(uint i = 0; i < 4; i++)
+        for (uint i = 0; i < 4; i++)
+        {
             AddControl(@buttons[i]);
+        }
 
         Window::Init();
     }
-
     void OnShow()
     {
         Center();
-        for(uint i = 0; i < 4; i++)
+        for (uint i = 0; i < 4; i++)
         {
-            if(i < floors)
+            if (i < floors)
             {
                 buttons[i].Show();
                 buttons[i].Enable();
@@ -219,35 +238,43 @@ class CElevatorScreen : Window
             }
         }
     }
-
     bool KeyDown(uint8 key)
     {
-        if(running && key == DIK_ESCAPE)         // block closing window
+        if (running && key == DIK_ESCAPE)         // block closing window
+        {
             return true;
+        }
         else
+        {
             return false;
+        }
     }
     void Draw()
     {
-        if(mainPic != 0)
+        if (mainPic != 0)
+        {
             DrawSprite(mainPic, -1, Left(), Top(), 0);
-        if(addPic != 0)
+        }
+        if (addPic != 0)
+        {
             DrawSprite(addPic, -1, Left() + 0, Top() + 37, 0);                 // luckily, those offsets are constants for now
+        }
         // indicator
         DrawSprite(indicator.Id, indicatorPos, Left() + 121, Top() + 41, 0);   // luckily, those offsets are constants for now
         Window::Draw();
     }
-
     // run elev
     void Update()
     {
-        if(!running)
+        if (!running)
+        {
             return;
+        }
         uint now = GetTick();
         uint diff = now - lastUpdate;
-        if(diff > 75 * floors)
+        if (diff > 75 * floors)
         {
-            if(indicatorPos == GetIndicatorPos(target))
+            if (indicatorPos == GetIndicatorPos(target))
             {
                 RunServerScriptUnsafe("elevators@unsafe_Transit", target, 0, 0, null, null);
                 HideWindow();
@@ -255,15 +282,21 @@ class CElevatorScreen : Window
             }
 
             lastUpdate = now;
-            if(target > currFloor)
+            if (target > currFloor)
+            {
                 indicatorPos++;
+            }
             else
+            {
                 indicatorPos--;
+            }
 
             // play world sounds if passing by floors inbetween
             int curr = GetFloorFromIndicator();
-            if(curr == -1)
+            if (curr == -1)
+            {
                 return;
+            }
 
             // Message("Playing sound at floor: " + curr);
             // play 'arriving/passing by' sound on that map
@@ -271,7 +304,6 @@ class CElevatorScreen : Window
         }
 
     }
-
     // sets elev in motion
     void Goto(int floor)
     {
@@ -284,45 +316,47 @@ class CElevatorScreen : Window
         // elv1_2.acm - -''- - short
         // elv1_3.acm - -''- - shortest
         int diff = GetIndicatorPos(floor) - GetIndicatorPos(currFloor);
+
         diff = ABS(diff) / 4;
 
-        switch(diff)
+        switch (diff)
         {
-        case 3:
-            PlaySound("elv1_1.acm");
-            break;
-        case 2:
-            PlaySound("elv2_3.acm");
-            break;
-        case 1:
-            PlaySound("elv1_2.acm");
-            break;
-            // case 4:
-            //	PlaySound("elv1_1.acm");
-            //	break;
+            case 3:
+                PlaySound("elv1_1.acm");
+                break;
+            case 2:
+                PlaySound("elv2_3.acm");
+                break;
+            case 1:
+                PlaySound("elv1_2.acm");
+                break;
+                // case 4:
+                //	PlaySound("elv1_1.acm");
+                //	break;
         }
         // RunServerScriptUnsafe("elevators@unsafe_PlayStartSound", 0, 0, 0, null, null); <-unfortunately that doesn't sound good
 
         running = true;
         target = floor;
         // disable buttons
-        for(uint i = 0; i < 4; i++)
+        for (uint i = 0; i < 4; i++)
+        {
             buttons[i].Disable();
+        }
     }
 };
 CElevatorScreen ElevatorScreen;
-
 void InitElevatorScreens()
 {
     IGUIScreenOpt@ screen = GUI_CreateScreen(CLIENT_SCREEN_ELEVATOR_SCRIPT, "");
+
     screen.Control(ElevatorScreen);
     screen.SetCallbackShow(ElevatorScreen);
     screen.CanMove(false);
     screen.Modal(true);
     screen.Multiinstance(false);
 }
-
-void ShowElevator(int type, int floor, int p2, string@ + p3, array<int>@ + p4)
+void ShowElevator(int type, int floor, int p2, string@ + p3, array<int>@+p4)
 {
     ChangeCursor(CURSOR_DEFAULT);
     ElevatorScreen.Type = type;

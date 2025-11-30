@@ -17,73 +17,83 @@
 #define MERC_MIN_COST           (50) // Minimum cost to lower to with dynamic prices
 
 array<IMerc@> Mercs;
-
 IMerc@ GetMerc(uint id)
 {
-    for(uint i = 0; i < uint(Mercs.length()); i++)
+    for (uint i = 0; i < uint(Mercs.length()); i++)
     {
-        if(id == Mercs[i].GetID())
+        if (id == Mercs[i].GetID())
         {
             return Mercs[i];
         }
     }
     return null;
 }
-
 int GetMercId(int pid, uint type)
 {
-    for(uint i = 0, j = Mercs.length(); i < j; i++)
+    for (uint i = 0, j = Mercs.length(); i < j; i++)
     {
-        if(Mercs[i].GetType() != type)
+        if (Mercs[i].GetType() != type)
+        {
             continue;
+        }
         array<int> pids = Mercs[i].GetPIDs();
-        for(uint k = 0, l = pids.length(); k < l; k++)
-            if(pid == pids[k])
+        for (uint k = 0, l = pids.length(); k < l; k++)
+        {
+            if (pid == pids[k])
+            {
                 return int(Mercs[i].GetID());
+            }
+        }
     }
     return -1;
 }
-
 void AddMerc(CMerc& merc)
 {
     Mercs.insertLast(merc);
 }
-
 uint e_UpdateMercPrices(array<uint>@ values)
 {
     _TIMEBEGIN;
     Log("Updating merc prices");
     int min = 0;
-    for(uint i = 0; i < Mercs.length() - 1; i++)
+    for (uint i = 0; i < Mercs.length() - 1; i++)
     {
-        if(Mercs[i].GetCost() == 0 || !Mercs[i].IsDynamicPrice())
+        if (Mercs[i].GetCost() == 0 || !Mercs[i].IsDynamicPrice())
+        {
             continue;
+        }
 
         min = Mercs[i].GetBagValue() + MERC_MIN_COST;
         DLog("min cost=" + min);
         uint rand = Random(0, 35);
         int  cost = Mercs[i].GetCost();
-        if((cost - rand) < min)
+        if ((cost - rand) < min)
+        {
             Mercs[i].Cost(min);
+        }
         else
+        {
             Mercs[i].Cost(cost - rand);
+        }
     }
     _TIMEEND;
     return MERC_UPDATE_INTERVAL;
 }
-
 // Here we add our mercs, increment each new prototype's id with 1 (.ID(<previous merc's id+1>))
 void InitMercs()
 {
     GameVar@ var = GetGlobalVar(GVAR_merc_prices_event);
-    if(valid(var) && var.GetValue() == 0)
+
+    if (valid(var) && var.GetValue() == 0)
     {
         Log("Creating merc event");
         CreateTimeEvent(AFTER(MERC_UPDATE_INTERVAL), "e_UpdateMercPrices", true);
         var = 1;
     }
     else
+    {
         Log("Merc event already exists");
+    }
 
     // int[] thug_pids = { 33, 34, 35, 36, 37, 69, 70, 72 };
     // int[] thug_melee = { 492, 493, 494, 495 };
@@ -133,7 +143,7 @@ void InitMercs()
     ADD_MERC(dog_2,                ID(19).PID(9).Type(FOLLOWER_TYPE_DOG).Dialog(9311).Bag(1).Level(15).StartCost(700));                                                            // Klamath
     ADD_MERC(dog_3,                ID(40).PID(522).Type(FOLLOWER_TYPE_DOG).Dialog(9311).Bag(1).Level(15).StartCost(500));                                                          // Scout Dog
 
-    ADD_MERC(pigrat_1,                 ID(41).PID(116).Type(FOLLOWER_TYPE_PIGRAT).Dialog(9322).Bag(1).Level(24).StartCost(750));                                           			// Tamable pigrat
+    ADD_MERC(pigrat_1,                 ID(41).PID(116).Type(FOLLOWER_TYPE_PIGRAT).Dialog(9322).Bag(1).Level(24).StartCost(750));                                                                // Tamable pigrat
     ADD_MERC(molerat_1,                ID(42).PID(110).Type(FOLLOWER_TYPE_MOLERAT).Dialog(9322).Bag(1).Level(24).StartCost(1000));                                                 // Tamable molerat
 
     // Brahmin are very strong in general. Thats why the low level
@@ -156,5 +166,5 @@ void InitMercs()
     ADD_MERC(generic_female_slave, ID(22).PID(generic_female_slave_pids).Type(FOLLOWER_TYPE_SLAVE).Dialog(9314).SellPrice(300));             // since they are not buyable (hence spawnable), some data is missing
     // next entry is ID 23!
 
-    //SetGvar(GVAR_merc_prices_init, 1);                                                                                                       // Dynamic prices initialized
+    // SetGvar(GVAR_merc_prices_init, 1);                                                                                                       // Dynamic prices initialized
 }

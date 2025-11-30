@@ -21,7 +21,7 @@
 #define TERMINAL_DIALOG                      (9060)
 
 #define SEND_ERROR_RETURN                    # (cr, error)     { cr.SayMsg(SAY_DIALOG, TEXTMSG_TEXT, error); return; }
-#define IF_NOT_VALID_RETURN                  # (obj, name)  { if(not valid(obj)) { Log("Null value: " + name); return; } }
+#define IF_NOT_VALID_RETURN                  # (obj, name)  { if (not valid(obj)) { Log("Null value: " + name); return; } }
 
 // msgs
 
@@ -63,12 +63,8 @@
 #define FORCE_DIALOG_LEADER                  (116)
 #define FORCE_DIALOG_OVERTHROWN              (117)
 #define FORCE_DIALOG_NO_NEWS                 (118)
-
-
 import void UpdateBasesVisibility(IFaction@ faction, Critter& player) from "factions";
 import void UpdateOneBaseVisibility(IFaction@ faction, Critter& player, IFactionBase@ base) from "factions";
-
-
 //
 // Gets the faction to whihc terminal belongs
 // using map.GetData(MAP_DATA_FACTION) value
@@ -77,33 +73,37 @@ import void UpdateOneBaseVisibility(IFaction@ faction, Critter& player, IFaction
 uint GetTerminalFaction(Critter& player)
 {
     Map@ map = player.GetMap();
-    if(!valid(map))
+
+    if (!valid(map))
     {
         Log("ERR: Couldn't obtain map object");
         return 0;
     }
     uint faction = map.GetData(MAP_DATA_FACTION);
-    if(faction <= FACTION_NONE)
+    if (faction <= FACTION_NONE)
+    {
         Log("ERR: Faction id hasn't been assigned to the map");
+    }
     return faction;
 }
-
 // increases the update_seq for given faction database
 // this value is later used for player's data synchronization
 void IncreaseUpdateSeq(uint faction_id)
 {
     IFaction@ faction = GetFaction(faction_id);
+
     faction.UpdateSeq = faction.UpdateSeq + 1;
 }
-
 bool s_Terminal(Critter& player, Scenery& terminal, int skill, Item@ item)
 {
-    if(!player.IsPlayer() || skill != -1 || valid(item))
+    if (!player.IsPlayer() || skill != -1 || valid(item))
+    {
         return false;
+    }
 
     uint faction = GetTerminalFaction(player);
 
-    if(faction == 0)
+    if (faction == 0)
     {
         player.Say(SAY_NETMSG, "This terminal seems to be inactive");
         return false;
@@ -112,14 +112,15 @@ bool s_Terminal(Critter& player, Scenery& terminal, int skill, Item@ item)
     RunDialog(player, TERMINAL_DIALOG, terminal.HexX, terminal.HexY, false);
     return true;
 }
-
 //
 // Adds the faction name to the lexem in the welcome screen of the terminal.
 //
 void dlg_TerminalWelcome(Critter& player, Critter@ terminal, string@ text)
 {
-    if(!IS_DIALOG_GENERATED(text))
+    if (!IS_DIALOG_GENERATED(text))
+    {
         return;
+    }
     uint      faction_id = GetTerminalFaction(player);
     IFaction@ faction = GetFaction(faction_id);
     text += "$faction" + faction.Name;
@@ -129,13 +130,14 @@ void dlg_TerminalWelcome(Critter& player, Critter@ terminal, string@ text)
 //
 void dlg_FactionName(Critter& player, Critter@ terminal, string@ text)
 {
-    if(!IS_DIALOG_GENERATED(text))
+    if (!IS_DIALOG_GENERATED(text))
+    {
         return;
+    }
     uint      faction_id = GetTerminalFaction(player);
     IFaction@ faction = GetFaction(faction_id);
     text += "$faction" + faction.Name;
 }
-
 //
 // Gets the id of the player with specified name, and store it
 // in the local variable: LVAR_terminal_current, so that it can
@@ -144,11 +146,13 @@ void dlg_FactionName(Critter& player, Critter@ terminal, string@ text)
 // it is used by terminal
 uint dlg_ChoosePlayer(Critter& player, Critter@ terminal, string@ playerName)
 {
-    if(!valid(playerName) || playerName.length() == 0)
+    if (!valid(playerName) || playerName.length() == 0)
+    {
         return 0;
+    }
 
     GameVar@ var = GetLocalVar(LVAR_terminal_current, player.Id);
-    if(!valid(var))
+    if (!valid(var))
     {
         Log("Variable LVAR_terminal_current not defined");
         return 0;
@@ -157,7 +161,7 @@ uint dlg_ChoosePlayer(Critter& player, Critter@ terminal, string@ playerName)
     var = 0;
 
     uint chosenId = GetPlayerId(playerName);
-    if(chosenId == 0)
+    if (chosenId == 0)
     {
         player.Say(SAY_DIALOG, "Incorrect name");
         return 0;
@@ -165,7 +169,7 @@ uint dlg_ChoosePlayer(Critter& player, Critter@ terminal, string@ playerName)
 
     uint faction = GetTerminalFaction(player);
 
-    if(!StoredInDB(faction, chosenId))
+    if (!StoredInDB(faction, chosenId))
     {
         player.Say(SAY_DIALOG, "Record not found");
         return 0;
@@ -180,10 +184,10 @@ uint dlg_ChoosePlayer(Critter& player, Critter@ terminal, string@ playerName)
 //
 void dlg_ShowRecord(Critter& player, Critter@ npc, string@ say)
 {
-    if(IS_DIALOG_GENERATED(say))
+    if (IS_DIALOG_GENERATED(say))
     {
         GameVar@ var = GetLocalVar(LVAR_terminal_current, player.Id);
-        if(!valid(var))
+        if (!valid(var))
         {
             Log("Variable LVAR_terminal_current not defined");
             return;
@@ -207,6 +211,7 @@ void dlg_ShowRecord(Critter& player, Critter@ npc, string@ say)
 string@ GenerateDescription(uint id, uint faction_id, uint rank, uint status, int8 reputation)
 {
     string say;
+
     // for now, player's id instead of name, since we can't retrieve name basing only on player id (well, we can, but only when player is logged in, and that's not the point)
     say += "$name" + GetSafePlayerName(id);
     IFaction@ faction = GetFaction(faction_id);
@@ -237,23 +242,24 @@ uint r_SelectMember(Critter& player, Critter@ npc, int value)
     // this is our currently selected member
     GameVar@ var = GetLocalVar(LVAR_terminal_current, player.Id);
     uint     curr = var.GetValue();
-    if(!valid(var))
+
+    if (!valid(var))
     {
         Log("Variable LVAR_terminal_current not defined");
         return FORCE_DIALOG_ERROR;
     }
-    IFaction@   faction = GetFaction(GetTerminalFaction(player));
-    array<uint> members;
-    int         num = faction.GetMembers(members);
+    IFaction@ faction = GetFaction(GetTerminalFaction(player));
+    array < uint > members;
+    int num = faction.GetMembers(members);
 
     // default
     var = members[0];
 
-    if(value == 1)       // fetch next
+    if (value == 1)       // fetch next
     {
-        for(int i = 0; i < num; i++)
+        for (int i = 0; i < num; i++)
         {
-            if(members[i] == curr)
+            if (members[i] == curr)
             {
                 // give next, or wrap around
                 int idx = i + 1 < num ? i + 1 : 0;
@@ -262,11 +268,11 @@ uint r_SelectMember(Critter& player, Critter@ npc, int value)
             }
         }
     }
-    else if(value == -1)       // fetch previous
+    else if (value == -1)       // fetch previous
     {
-        for(int i = 0; i < num; i++)
+        for (int i = 0; i < num; i++)
         {
-            if(members[i] == curr)
+            if (members[i] == curr)
             {
                 // give previous, or wrap around
                 int idx = i - 1 < 0 ? num - 1 : i - 1;
@@ -277,7 +283,6 @@ uint r_SelectMember(Critter& player, Critter@ npc, int value)
     }
     return 0;
 }
-
 //
 // Selects record
 //
@@ -291,22 +296,23 @@ uint r_SelectRecord(Critter& player, Critter@ npc, int value)
     // this is our currently selected member
     GameVar@ var = GetLocalVar(LVAR_terminal_current, player.Id);
     uint     curr = var.GetValue();
-    if(!valid(var))
+
+    if (!valid(var))
     {
         Log("Variable LVAR_terminal_current not defined");
         return 0;
     }
-    IFaction@   faction = GetFaction(GetTerminalFaction(player));
-    array<uint> records;
-    int         num = faction.GetRecords(records);
+    IFaction@ faction = GetFaction(GetTerminalFaction(player));
+    array < uint > records;
+    int num = faction.GetRecords(records);
 
     var = records[0];
 
-    if(value == 1)       // fetch next
+    if (value == 1)       // fetch next
     {
-        for(int i = 0; i < num; i++)
+        for (int i = 0; i < num; i++)
         {
-            if(records[i] == curr)
+            if (records[i] == curr)
             {
                 // give next, or wrap around
                 int idx = i + 1 < num ? i + 1 : 0;
@@ -315,11 +321,11 @@ uint r_SelectRecord(Critter& player, Critter@ npc, int value)
             }
         }
     }
-    else if(value == -1)       // fetch previous
+    else if (value == -1)       // fetch previous
     {
-        for(int i = 0; i < num; i++)
+        for (int i = 0; i < num; i++)
         {
-            if(records[i] == curr)
+            if (records[i] == curr)
             {
                 // give previous, or wrap around
                 int idx = i - 1 < 0 ? num - 1 : i - 1;
@@ -330,7 +336,6 @@ uint r_SelectRecord(Critter& player, Critter@ npc, int value)
     }
     return 0;
 }
-
 //
 // Checks whenever current record belongs to a member,
 // so other member cannot modify them
@@ -338,15 +343,19 @@ uint r_SelectRecord(Critter& player, Critter@ npc, int value)
 bool IsReadOnly(uint faction, uint id)
 {
     uint chosenPlayerFaction = GetPlayerFaction(id);
+
     DLog("faction: " + faction + ", selected record faction: " + chosenPlayerFaction);
     // in case player have chosen records of another member of the same faction
     // we don't allow to modify
-    if(chosenPlayerFaction == faction)
+    if (chosenPlayerFaction == faction)
+    {
         return true;
+    }
     else
+    {
         return false;
+    }
 }
-
 //
 // Changes the status of the player stored in db
 // Player id was previously chosen, and is stored in the
@@ -356,13 +365,14 @@ uint r_ModifyStatus(Critter& player, Critter@ npc, int value)
 {
     // Get stored critter.
     GameVar@ var = GetLocalVar(LVAR_terminal_current, player.Id);
-    if(!valid(var))
+
+    if (!valid(var))
     {
         Log("Variable LVAR_terminal_current not defined");
         return 0;
     }
 
-    if(!STATUS_VALID(value))
+    if (!STATUS_VALID(value))
     {
         Log("ERR: Invalid status value");
         return FORCE_DIALOG_ERROR;
@@ -370,7 +380,7 @@ uint r_ModifyStatus(Critter& player, Critter@ npc, int value)
 
     uint factionId = GetTerminalFaction(player);
 
-    if(IsReadOnly(factionId, var.GetValue()))
+    if (IsReadOnly(factionId, var.GetValue()))
     {
         return FORCE_DIALOG_READ_ONLY;
     }
@@ -381,11 +391,12 @@ uint r_ModifyStatus(Critter& player, Critter@ npc, int value)
 
     IncreaseUpdateSeq(factionId);
 
-    if(valid(cr))
+    if (valid(cr))
+    {
         UpdateBasesVisibility(faction, cr);
+    }
     return 0;
 }
-
 //
 // Changes the reputation of the actually selected player
 // with regard to the player operating terminal
@@ -397,12 +408,13 @@ void r_ModifyReputation(Critter& player, Critter@ npc, int value)
 {
     // Get stored critter.
     GameVar@ var = GetLocalVar(LVAR_terminal_current, player.Id);
-    if(!valid(var))
+
+    if (!valid(var))
     {
         Log("Variable LVAR_terminal_current not defined");
         return;
     }
-    if(player.Id == uint(var.GetValue()))
+    if (player.Id == uint(var.GetValue()))
     {
         player.Say(SAY_DIALOG, "You narcist!!!");
         return;
@@ -410,7 +422,6 @@ void r_ModifyReputation(Critter& player, Critter@ npc, int value)
     // set player - player reputation
     // SetPlayerReputation(player.Id, var.GetValue(), value); DISABLED
 }
-
 //
 // Changes the rank of the player stored in db
 // Player id was previously chosen, and is stored in the
@@ -420,20 +431,21 @@ uint r_ModifyRank(Critter& player, Critter@ npc, int value)
 {
     // Get stored critter.
     GameVar@ var = GetLocalVar(LVAR_terminal_current, player.Id);
-    if(!valid(var))
+
+    if (!valid(var))
     {
         Log("Variable LVAR_terminal_current not defined");
         return 0;
     }
 
-    if(!RANK_VALID(value))
+    if (!RANK_VALID(value))
     {
         Log("ERR: Invalid rank value");
         return FORCE_DIALOG_ERROR;
     }
 
     uint factionId = GetTerminalFaction(player);
-    if(IsReadOnly(factionId, var.GetValue()))
+    if (IsReadOnly(factionId, var.GetValue()))
     {
         return FORCE_DIALOG_READ_ONLY;
     }
@@ -444,11 +456,12 @@ uint r_ModifyRank(Critter& player, Critter@ npc, int value)
 
     IncreaseUpdateSeq(factionId);
 
-    if(valid(cr))
+    if (valid(cr))
+    {
         UpdateBasesVisibility(faction, cr);
+    }
     return 0;
 }
-
 //
 // Changes the faction of the player stored in db
 // Player id was previously chosen, and is stored in the
@@ -458,20 +471,21 @@ uint r_ModifyFaction(Critter& player, Critter@ npc, int value)
 {
     // Get stored critter.
     GameVar@ var = GetLocalVar(LVAR_terminal_current, player.Id);
-    if(!valid(var))
+
+    if (!valid(var))
     {
         Log("Variable LVAR_terminal_current not defined");
         return 0;
     }
 
-    if(!FACTION_VALID(value))
+    if (!FACTION_VALID(value))
     {
         Log("ERR: Invalid faction value");
         return FORCE_DIALOG_ERROR;
     }
 
     uint factionId = GetTerminalFaction(player);
-    if(IsReadOnly(factionId, var.GetValue()))
+    if (IsReadOnly(factionId, var.GetValue()))
     {
         return FORCE_DIALOG_READ_ONLY;
     }
@@ -480,12 +494,13 @@ uint r_ModifyFaction(Critter& player, Critter@ npc, int value)
 
     Critter@  cr = GetCritter(var.GetValue());
     IFaction@ faction = GetFaction(factionId);
-    if(valid(cr))
+    if (valid(cr))
+    {
         UpdateBasesVisibility(faction, cr);
+    }
 
     return 0;
 }
-
 //
 // Changes the faction of the player stored in db
 // faction name has to be entered via Say mode
@@ -494,25 +509,27 @@ uint r_ModifyFaction(Critter& player, Critter@ npc, int value)
 //
 uint dlg_ModifyFactionByName(Critter& player, Critter@ npc, string@ say)
 {
-    if(!IS_DIALOG_SAY_MODE(say))
+    if (!IS_DIALOG_SAY_MODE(say))
+    {
         return 0;
+    }
 
     // Get stored critter.
     GameVar@ var = GetLocalVar(LVAR_terminal_current, player.Id);
-    if(!valid(var))
+    if (!valid(var))
     {
         Log("Variable LVAR_terminal_current not defined");
         return 0;
     }
 
     uint faction = GetTerminalFaction(player);
-    if(IsReadOnly(faction, var.GetValue()))
+    if (IsReadOnly(faction, var.GetValue()))
     {
         return FORCE_DIALOG_READ_ONLY;
     }
     uint modifiedFaction = 0;
     // get the faction id from the name entered
-    if(!GetFactionId(say, modifiedFaction))
+    if (!GetFactionId(say, modifiedFaction))
     {
         player.SayMsg(SAY_DIALOG, TEXTMSG_DLG, DLGSTR(TERMINAL_DIALOG, STR_WRONG_FACTION_NAME));
         return 0;
@@ -521,7 +538,6 @@ uint dlg_ModifyFactionByName(Critter& player, Critter@ npc, string@ say)
     ModifyFaction(faction, var.GetValue(), modifiedFaction);
     return FORCE_DIALOG_DB_UPDATED;
 }
-
 //
 // Invites player to be faction member
 //
@@ -531,12 +547,14 @@ uint dlg_ModifyFactionByName(Critter& player, Critter@ npc, string@ say)
 //
 uint dlg_Invite(Critter& recruiter, Critter@ npc, string@ playerName)
 {
-    if(!valid(playerName) || playerName.length() == 0)
+    if (!valid(playerName) || playerName.length() == 0)
+    {
         return 0;
+    }
 
     // get player
     uint initiateId = GetPlayerId(playerName);
-    if(initiateId == 0)
+    if (initiateId == 0)
     {
         recruiter.Say(SAY_DIALOG, "Player not found");
         return 0;
@@ -544,20 +562,22 @@ uint dlg_Invite(Critter& recruiter, Critter@ npc, string@ playerName)
 
     uint factionId = GetTerminalFaction(recruiter);
 
-    if(IsMemberOffline(factionId, initiateId))
+    if (IsMemberOffline(factionId, initiateId))
     {
         recruiter.Say(SAY_DIALOG, "Already a member");
         return 0;
     }
 
     int res = InvitePlayer(factionId, initiateId);
-    if(res != FD_RESULT_SUCCESS)
+    if (res != FD_RESULT_SUCCESS)
+    {
         recruiter.Say(SAY_NETMSG, "ERR: " + FD_Result2String(res));
+    }
     else
     {
         // newly invited player record will be currently selected one
         GameVar@ var = GetLocalVar(LVAR_terminal_current, recruiter.Id);
-        if(!valid(var))
+        if (!valid(var))
         {
             Log("ERR: Variable LVAR_terminal_current not defined");
         }
@@ -565,14 +585,15 @@ uint dlg_Invite(Critter& recruiter, Critter@ npc, string@ playerName)
 
         IFaction@ faction = GetFaction(factionId);
         Critter@  initiate = GetCritter(initiateId);
-        if(valid(initiate))
+        if (valid(initiate))
+        {
             UpdateBasesVisibility(faction, initiate);
+        }
 
         return FORCE_DIALOG_DB_UPDATED;
     }
     return 0;
 }
-
 //
 // Player confirms invitation, thus making himself a member
 //
@@ -580,21 +601,23 @@ void r_ConfirmInvitation(Critter& player, Critter@ npc, int value)
 {
     uint factionId = GetTerminalFaction(player);
 
-    if(factionId == 0)
+    if (factionId == 0)
     {
         Log("ERR: Faction hasn't been stored in map");
         return;
     }
-    if(IsMember(factionId, player))
+    if (IsMember(factionId, player))
     {
         Log("ERR: Already a member");
         return;
     }
 
-    //Log("Player.Id: " + player.Id + " is joining the faction:" + factionId);
+    // Log("Player.Id: " + player.Id + " is joining the faction:" + factionId);
     int res = ConfirmInvitation(factionId, player.Id);
-    if(res != FD_RESULT_SUCCESS)
+    if (res != FD_RESULT_SUCCESS)
+    {
         Log("ERR: " + FD_Result2String(res));
+    }
     // add 'joined' news
 
     AddFactionNews(factionId, player.Id, 0, NEWS_JOINED);
@@ -602,7 +625,6 @@ void r_ConfirmInvitation(Critter& player, Critter@ npc, int value)
     IFaction@ faction = GetFaction(factionId);
     UpdateBasesVisibility(faction, player);
 }
-
 //
 // Promote member of the faction
 //
@@ -611,23 +633,25 @@ void r_ConfirmInvitation(Critter& player, Critter@ npc, int value)
 //
 uint dlg_PromoteMember(Critter& player, Critter@ npc, string@ playerName)
 {
-    if(!valid(playerName) || playerName.length() == 0)
+    if (!valid(playerName) || playerName.length() == 0)
+    {
         return 0;
+    }
 
     // get player
     uint promoteeId = GetPlayerId(playerName);
-    if(promoteeId == 0)
+    if (promoteeId == 0)
     {
         player.Say(SAY_DIALOG, "Player not found");
         return 0;
     }
-    if(!IsTheSameFaction(player.Id, promoteeId))
+    if (!IsTheSameFaction(player.Id, promoteeId))
     {
         player.Say(SAY_DIALOG, "Not a member");
         return 0;
     }
 
-    if(!PromoteMember(player.Id, promoteeId))
+    if (!PromoteMember(player.Id, promoteeId))
     {
         player.Say(SAY_DIALOG, "You cannot promote that member");
     }
@@ -638,7 +662,6 @@ uint dlg_PromoteMember(Critter& player, Critter@ npc, string@ playerName)
     }
     return 0;
 }
-
 //
 // Promotes actually selected member
 //
@@ -646,19 +669,19 @@ uint r_PromoteMember(Critter& player, Critter@ npc, int value)
 {
     // gets currently selected member
     GameVar@ var = GetLocalVar(LVAR_terminal_current, player.Id);
-    if(!valid(var))
+
+    if (!valid(var))
     {
         Log("Variable LVAR_terminal_current not defined");
         return 0;
     }
 
-    if(!PromoteMember(player.Id, var.GetValue()))
+    if (!PromoteMember(player.Id, var.GetValue()))
     {
         return FORCE_DIALOG_MEMBEROP_FORBIDDEN;
     }
     return 0;
 }
-
 //
 // Helper func - promotes if it possible, returns false otherwise
 //
@@ -670,28 +693,30 @@ bool PromoteMember(uint promoterId, uint promoteeId)
     uint promoteeFaction = GetPlayerFaction(promoteeId);
     uint promoteeRank = GetPlayerRank(promoteeId);
 
-    if(promoterFaction != promoteeFaction)
+    if (promoterFaction != promoteeFaction)
     {
         Log("ERR: Invalid function call - you should only call it on members");
         return false;
     }
     // one can promote only to the rank below
-    if(promoterRank > promoteeRank + 1)
+    if (promoterRank > promoteeRank + 1)
     {
         int res = ChangeRank(promoterFaction, promoteeId, promoteeRank + 1);
-        if(res == FD_RESULT_SUCCESS)
+        if (res == FD_RESULT_SUCCESS)
         {
             // add news
             AddFactionNews(promoterFaction, promoterId, promoteeId, NEWS_PROMOTED);
 
             Critter@ player = GetCritter(promoterId);
-            if(valid(player))
+            if (valid(player))
             {
                 uint      factionId = GetTerminalFaction(player);
                 IFaction@ faction = GetFaction(factionId);
                 Critter@  promotee = GetCritter(promoteeId);
-                if(valid(promotee))
+                if (valid(promotee))
+                {
                     UpdateBasesVisibility(faction, promotee);
+                }
             }
             return true;
         }
@@ -706,7 +731,6 @@ bool PromoteMember(uint promoterId, uint promoteeId)
         return false;
     }
 }
-
 //
 // Demote member of the faction
 //
@@ -715,32 +739,35 @@ bool PromoteMember(uint promoterId, uint promoteeId)
 //
 uint dlg_DemoteMember(Critter& player, Critter@ npc, string@ playerName)
 {
-    if(!valid(playerName) || playerName.length() == 0)
+    if (!valid(playerName) || playerName.length() == 0)
+    {
         return 0;
+    }
 
     // get player
     uint demoteeId = GetPlayerId(playerName);
-    if(demoteeId == 0)
+    if (demoteeId == 0)
     {
         player.Say(SAY_DIALOG, "Player not found");
         return 0;
     }
-    if(!IsTheSameFaction(player.Id, demoteeId))
+    if (!IsTheSameFaction(player.Id, demoteeId))
     {
         player.Say(SAY_DIALOG, "Not a member");
         return 0;
     }
 
-    if(!DemoteMember(player.Id, demoteeId))
+    if (!DemoteMember(player.Id, demoteeId))
     {
         player.Say(SAY_DIALOG, "You cannot demote that member");
     }
     else
+    {
         // ok
         return FORCE_DIALOG_MEMBEROP_OK;
+    }
     return 0;
 }
-
 //
 // Demotes actually selected member
 //
@@ -748,13 +775,14 @@ uint r_DemoteMember(Critter& player, Critter@ npc, int value)
 {
     // gets currently selected member
     GameVar@ var = GetLocalVar(LVAR_terminal_current, player.Id);
-    if(!valid(var))
+
+    if (!valid(var))
     {
         Log("Variable LVAR_terminal_current not defined");
         return 0;
     }
 
-    if(!DemoteMember(player.Id, var.GetValue()))
+    if (!DemoteMember(player.Id, var.GetValue()))
     {
         return FORCE_DIALOG_MEMBEROP_FORBIDDEN;
     }
@@ -771,28 +799,30 @@ bool DemoteMember(uint demoterId, uint demoteeId)
     uint demoteeFaction = GetPlayerFaction(demoteeId);
     uint demoteeRank = GetPlayerRank(demoteeId);
 
-    if(demoterFaction != demoteeFaction)
+    if (demoterFaction != demoteeFaction)
     {
         Log("ERR: Invalid function call - you should only call it on members");
         return false;
     }
     // one can promote only the rank below to at least rank2
-    if(demoterRank > demoteeRank && demoteeRank > 1)
+    if (demoterRank > demoteeRank && demoteeRank > 1)
     {
         int res = ChangeRank(demoterFaction, demoteeId, demoteeRank - 1);
-        if(res == FD_RESULT_SUCCESS)
+        if (res == FD_RESULT_SUCCESS)
         {
             // add news
             AddFactionNews(demoterFaction, demoterId, demoteeId, NEWS_DEMOTED);
 
             Critter@ player = GetCritter(demoterId);
-            if(valid(player))
+            if (valid(player))
             {
                 uint      factionId = GetTerminalFaction(player);
                 IFaction@ faction = GetFaction(factionId);
                 Critter@  demotee = GetCritter(demoteeId);
-                if(valid(demotee))
+                if (valid(demotee))
+                {
                     UpdateBasesVisibility(faction, demotee);
+                }
             }
             return true;
         }
@@ -807,7 +837,6 @@ bool DemoteMember(uint demoterId, uint demoteeId)
         return false;
     }
 }
-
 //
 // Expels member from the faction
 //
@@ -816,31 +845,34 @@ bool DemoteMember(uint demoterId, uint demoteeId)
 //
 uint dlg_ExpelMember(Critter& player, Critter@ npc, string@ playerName)
 {
-    if(!valid(playerName) || playerName.length() == 0)
+    if (!valid(playerName) || playerName.length() == 0)
+    {
         return 0;
+    }
 
     // get player to be expelled
     uint exileId = GetPlayerId(playerName);
-    if(exileId == 0)
+    if (exileId == 0)
     {
         player.Say(SAY_DIALOG, "Player not found");
         return 0;
     }
-    if(!IsTheSameFaction(player.Id, exileId))
+    if (!IsTheSameFaction(player.Id, exileId))
     {
         player.Say(SAY_DIALOG, "Not a member");
         return 0;
     }
-    if(!_ExpelMember(player.Id, exileId))
+    if (!_ExpelMember(player.Id, exileId))
     {
         player.Say(SAY_DIALOG, "You cannot promote that member");
     }
     else
+    {
         // ok
         return FORCE_DIALOG_MEMBEROP_OK;
+    }
     return 0;
 }
-
 //
 // Expels actually selected member
 //
@@ -848,18 +880,21 @@ uint r_ExpelMember(Critter& player, Critter@ npc, int value)
 {
     // gets currently selected member
     GameVar@ var = GetLocalVar(LVAR_terminal_current, player.Id);
-    if(!valid(var))
+
+    if (!valid(var))
     {
         Log("Variable LVAR_terminal_current not defined");
         return 0;
     }
 
-    if(!_ExpelMember(player.Id, var.GetValue()))
+    if (!_ExpelMember(player.Id, var.GetValue()))
     {
         return FORCE_DIALOG_MEMBEROP_FORBIDDEN;
     }
     else
+    {
         return FORCE_DIALOG_MENU_MEMBERS;
+    }
 }
 //
 // Helper
@@ -869,30 +904,32 @@ bool _ExpelMember(uint expellerId, uint exileId)
     uint faction = GetPlayerFaction(expellerId);
     uint exileFaction = GetPlayerFaction(exileId);
 
-    if(faction != exileFaction)
+    if (faction != exileFaction)
     {
         Log("ERR: Invalid function call - you should only call it on members");
         return false;
     }
-    if(expellerId == exileId)
+    if (expellerId == exileId)
     {
         // player.Say(SAY_DIALOG, "Hint of the day: You don't want it.");
         return false;
     }
     int res = ExpelMember(faction, exileId);
-    if(res == FD_RESULT_SUCCESS)
+    if (res == FD_RESULT_SUCCESS)
     {
         // add news
         AddFactionNews(faction, expellerId, exileId, NEWS_EXPELLED);
 
         Critter@ player = GetCritter(expellerId);
-        if(valid(player))
+        if (valid(player))
         {
             uint      factionId = GetTerminalFaction(player);
             IFaction@ faction = GetFaction(factionId);
             Critter@  exile = GetCritter(exileId);
-            if(valid(exile))
+            if (valid(exile))
+            {
                 UpdateBasesVisibility(faction, exile);
+            }
         }
         return true;
     }
@@ -902,7 +939,6 @@ bool _ExpelMember(uint expellerId, uint exileId)
         return false;
     }
 }
-
 //
 // Resign from membership in the faction
 //
@@ -914,7 +950,6 @@ void r_Resign(Critter& player, Critter@ npc, int value)
     UpdateBasesVisibility(faction, player);
 
 }
-
 ////////////////
 // BASES MGMT
 ///////////////
@@ -923,11 +958,13 @@ void r_Resign(Critter& player, Critter@ npc, int value)
 //
 uint dlg_ChooseBase(Critter& player, Critter@ terminal, string@ baseName)
 {
-    if(!valid(baseName) || baseName.length() == 0)
+    if (!valid(baseName) || baseName.length() == 0)
+    {
         return 0;
+    }
 
     GameVar@ var = GetLocalVar(LVAR_terminal_current, player.Id);
-    if(!valid(var))
+    if (!valid(var))
     {
         Log("Variable LVAR_terminal_current not defined");
         return 0;
@@ -937,7 +974,7 @@ uint dlg_ChooseBase(Critter& player, Critter@ terminal, string@ baseName)
 
     uint          faction = GetTerminalFaction(player);
     IFactionBase@ base = GetFactionBase(faction, baseName);
-    if(!valid(base))
+    if (!valid(base))
     {
         player.Say(SAY_DIALOG, "Incorrect name");
         return 0;
@@ -952,16 +989,16 @@ uint dlg_ChooseBase(Critter& player, Critter@ terminal, string@ baseName)
 //
 void dlg_ShowBase(Critter& player, Critter@ npc, string@ say)
 {
-    if(IS_DIALOG_GENERATED(say))
+    if (IS_DIALOG_GENERATED(say))
     {
         GameVar@ var = GetLocalVar(LVAR_terminal_current, player.Id);
-        if(!valid(var))
+        if (!valid(var))
         {
             Log("Variable LVAR_terminal_current not defined");
             return;
         }
 
-        uint          faction = GetTerminalFaction(player);
+        uint faction = GetTerminalFaction(player);
 
         uint          id = var.GetValue();
         IFactionBase@ base = GetFactionBase(id);
@@ -988,19 +1025,20 @@ void dlg_ShowBase(Critter& player, Critter@ npc, string@ say)
 uint r_SelectBase(Critter& player, Critter@ npc, int value)
 {
     // this is our currently selected base
-    GameVar@             var = GetLocalVar(LVAR_terminal_current, player.Id);
-    uint                 curr = var.GetValue();
-    uint                 faction = GetTerminalFaction(player);
-    array<IFactionBase@> bases;
-    uint                 num = GetFactionBases(faction, bases);
+    GameVar@ var = GetLocalVar(LVAR_terminal_current, player.Id);
+    uint     curr = var.GetValue();
+    uint     faction = GetTerminalFaction(player);
+
+    array < IFactionBase@ > bases;
+    uint num = GetFactionBases(faction, bases);
 
     var = bases[0].Id;
     // fetch next
-    if(value == 1)
+    if (value == 1)
     {
-        for(int i = 0, iend = bases.length(); i < iend; i++)
+        for (int i = 0, iend = bases.length(); i < iend; i++)
         {
-            if(bases[i].Id == curr)
+            if (bases[i].Id == curr)
             {
                 // give next, or wrap around
                 int idx = i + 1 < iend ? i + 1 : 0;
@@ -1009,11 +1047,11 @@ uint r_SelectBase(Critter& player, Critter@ npc, int value)
             }
         }
     }
-    else if(value == -1)
+    else if (value == -1)
     {
-        for(int i = 0, iend = bases.length(); i < iend; i++)
+        for (int i = 0, iend = bases.length(); i < iend; i++)
         {
-            if(bases[i].Id == curr)
+            if (bases[i].Id == curr)
             {
                 // give previous, or wrap around
                 int idx = i - 1 < 0 ? iend - 1 : i - 1;
@@ -1030,10 +1068,15 @@ bool d_BaseRankAllowed(Critter& player, Critter@, int rank, int allowed)
 {
     GameVar@      var = GetLocalVar(LVAR_terminal_current, player.Id);
     IFactionBase@ base = GetFactionBase(var.GetValue());
-    if(allowed != 0 && base.IsRankAllowed(rank))
+
+    if (allowed != 0 && base.IsRankAllowed(rank))
+    {
         return true;
-    if(allowed == 0 && !base.IsRankAllowed(rank))
+    }
+    if (allowed == 0 && !base.IsRankAllowed(rank))
+    {
         return true;
+    }
     return false;
 }
 // changes the state of allowance of given rank for currently selected base
@@ -1041,19 +1084,22 @@ void r_BaseRankAllow(Critter& player, Critter@, int rank, int allowed)
 {
     GameVar@      var = GetLocalVar(LVAR_terminal_current, player.Id);
     IFactionBase@ base = GetFactionBase(var.GetValue());
+
     base.AllowRank(rank, allowed == 0 ? false : true);
 
-    array<Critter@> players;
-    uint            count = GetAllOnlinePlayers(players);
-    uint            factionId = GetTerminalFaction(player);
-    IFaction@       faction = GetFaction(factionId);
+    array < Critter@ > players;
+    uint      count = GetAllOnlinePlayers(players);
+    uint      factionId = GetTerminalFaction(player);
+    IFaction@ faction = GetFaction(factionId);
 
     IncreaseUpdateSeq(factionId);
 
-    for(uint i = 0; i < count; i++)
+    for (uint i = 0; i < count; i++)
     {
-        if(valid(players[i]))
+        if (valid(players[i]))
+        {
             UpdateOneBaseVisibility(faction, players[i], base);
+        }
     }
 }
 // checks if the status is allowed/not allowed to access currently selected base
@@ -1061,10 +1107,15 @@ bool d_BaseStatusAllowed(Critter& player, Critter@, int status, int allowed)
 {
     GameVar@      var = GetLocalVar(LVAR_terminal_current, player.Id);
     IFactionBase@ base = GetFactionBase(var.GetValue());
-    if(allowed != 0 && base.IsStatusAllowed(status))
+
+    if (allowed != 0 && base.IsStatusAllowed(status))
+    {
         return true;
-    if(allowed == 0 && !base.IsStatusAllowed(status))
+    }
+    if (allowed == 0 && !base.IsStatusAllowed(status))
+    {
         return true;
+    }
     return false;
 }
 // allows/disallows given status to access currently selected base
@@ -1072,26 +1123,27 @@ void r_BaseStatusAllow(Critter& player, Critter@, int status, int allowed)
 {
     GameVar@      var = GetLocalVar(LVAR_terminal_current, player.Id);
     IFactionBase@ base = GetFactionBase(var.GetValue());
+
     base.AllowStatus(status, allowed == 0 ? false : true);
 
-    array<Critter@> players;
-    uint            count = GetAllOnlinePlayers(players);
-    uint            factionId = GetTerminalFaction(player);
-    IFaction@       faction = GetFaction(factionId);
+    array < Critter@ > players;
+    uint      count = GetAllOnlinePlayers(players);
+    uint      factionId = GetTerminalFaction(player);
+    IFaction@ faction = GetFaction(factionId);
 
     IncreaseUpdateSeq(factionId);
 
-    for(uint i = 0; i < count; i++)
+    for (uint i = 0; i < count; i++)
     {
-        if(valid(players[i]))
+        if (valid(players[i]))
+        {
             UpdateOneBaseVisibility(faction, players[i], base);
+        }
     }
 }
-
 /////////////////////
 // Factions relations management
 /////////////////////
-
 /**
  * Selects faction
  *
@@ -1103,25 +1155,28 @@ void r_BaseStatusAllow(Critter& player, Critter@, int status, int allowed)
 uint r_SelectFaction(Critter& player, Critter@ npc, int value)
 {
     // this is our currently selected faction
-    GameVar@   var = GetLocalVar(LVAR_terminal_current, player.Id);
-    int        curr = var.GetValue();
-    uint       faction_id = GetTerminalFaction(player);
-    IFaction@  faction = GetFaction(faction_id);
-    array<int> factions;
-    uint       num = faction.GetKnownFactions(factions);
-    if(num < 1)
-        return 0;
+    GameVar@  var = GetLocalVar(LVAR_terminal_current, player.Id);
+    int       curr = var.GetValue();
+    uint      faction_id = GetTerminalFaction(player);
+    IFaction@ faction = GetFaction(faction_id);
 
-    if(value == 0)
+    array < int > factions;
+    uint num = faction.GetKnownFactions(factions);
+    if (num < 1)
+    {
+        return 0;
+    }
+
+    if (value == 0)
     {
         var = factions[0];
     }
     // fetch next
-    else if(value == 1)
+    else if (value == 1)
     {
-        for(int i = 0, iend = factions.length(); i < iend; i++)
+        for (int i = 0, iend = factions.length(); i < iend; i++)
         {
-            if(factions[i] == curr)
+            if (factions[i] == curr)
             {
                 // give next, or wrap around
                 int idx = i + 1 < iend ? i + 1 : 0;
@@ -1130,11 +1185,11 @@ uint r_SelectFaction(Critter& player, Critter@ npc, int value)
             }
         }
     }
-    else if(value == -1)
+    else if (value == -1)
     {
-        for(int i = 0, iend = factions.length(); i < iend; i++)
+        for (int i = 0, iend = factions.length(); i < iend; i++)
         {
-            if(factions[i] == curr)
+            if (factions[i] == curr)
             {
                 // give previous, or wrap around
                 int idx = i - 1 < 0 ? iend - 1 : i - 1;
@@ -1151,45 +1206,48 @@ uint r_SelectFaction(Critter& player, Critter@ npc, int value)
  */
 void dlg_ShowKnownFaction(Critter& player, Critter@, string@ say)
 {
-    if(IS_DIALOG_GENERATED(say))
+    if (IS_DIALOG_GENERATED(say))
     {
-        GameVar@  var = GetLocalVar(LVAR_terminal_current, player.Id);
+        GameVar@ var = GetLocalVar(LVAR_terminal_current, player.Id);
         // uint faction_id = GetTerminalFaction(player);
         IFaction@ faction = GetFaction(var.GetValue());
-        if(valid(faction))
+        if (valid(faction))
+        {
             say += "$name" + faction.Name;
+        }
         else
+        {
             say += "$nameFaction does not exist";
+        }
     }
 }
-
 /**
  * Change status for ALL members of the currently selected faction
  */
 void r_ChangeFactionStatus(Critter& player, Critter@, int status)
 {
-    GameVar@    var = GetLocalVar(LVAR_terminal_current, player.Id);
-    IFaction@   faction = GetFaction(GetTerminalFaction(player));
-    IFaction@   known_faction = GetFaction(var.GetValue());
-    array<uint> members;
-    int         num = known_faction.GetMembers(members);
-    for(int i = 0; i < num; i++)
+    GameVar@  var = GetLocalVar(LVAR_terminal_current, player.Id);
+    IFaction@ faction = GetFaction(GetTerminalFaction(player));
+    IFaction@ known_faction = GetFaction(var.GetValue());
+
+    array < uint > members;
+    int num = known_faction.GetMembers(members);
+    for (int i = 0; i < num; i++)
     {
         faction.SetStatus(members[i], status);
     }
     player.Say(SAY_DIALOG, "Done");
 }
-
 /**
  * Adds faction with given name to the list of known factions
  */
 uint dlg_AddKnownFaction(Critter& player, Critter@, string@ say)
 {
-    if(IS_DIALOG_SAY_MODE(say))
+    if (IS_DIALOG_SAY_MODE(say))
     {
         IFaction@ faction = GetFaction(GetTerminalFaction(player));
         IFaction@ known_faction = GetFaction(say);
-        if(valid(known_faction))
+        if (valid(known_faction))
         {
             player.Say(SAY_DIALOG, "Adding faction");
             faction.AddKnownFaction(known_faction.Id);
@@ -1206,23 +1264,23 @@ uint dlg_AddKnownFaction(Critter& player, Critter@, string@ say)
     }
     return 0;
 }
-
 ////////////////////////
 // LEADERSHIP CLAIMING
 ///////////////////////
-
 //
 // Shows useful info in the miscellaneous section (currently only about leadership)
 //
 void dlg_ShowInfo(Critter& player, Critter@ npc, string@ text)
 {
-    if(!IS_DIALOG_GENERATED(text))
+    if (!IS_DIALOG_GENERATED(text))
+    {
         return;
+    }
     uint faction = GetTerminalFaction(player);
     uint claimId = GetClaimId(faction);
-    if(claimId != 0)
+    if (claimId != 0)
     {
-        if(claimId == player.Id)
+        if (claimId == player.Id)
         {
             text = DLGSTR(TERMINAL_DIALOG, STR_YOUVE_CLAIMED_LEADERSHIP) +
                    (ELAPSED_TIME - GetLeaderTime(faction));
@@ -1234,10 +1292,11 @@ void dlg_ShowInfo(Critter& player, Critter@ npc, string@ text)
         }
     }
     else
+    {
         text = "$info" + "Good morning!";
+    }
     text += "\n" + DLGSTR(TERMINAL_DIALOG, STR_CHOOSE_ACTION);
 }
-
 //
 // Checks if the player can claim leadership (he has to have highest
 // reputation in the faction to do that), and no one else (including him,
@@ -1247,27 +1306,38 @@ void dlg_ShowInfo(Critter& player, Critter@ npc, string@ text)
 bool d_CanClaimLeadership(Critter& player, Critter@ npc, int value)
 {
     uint faction = GetTerminalFaction(player);
+
     // no claims for them
-    if(IsBigFaction(faction))
+    if (IsBigFaction(faction))
+    {
         return false;
+    }
 
     // already claimed
-    if(GetClaimId(faction) != 0)
+    if (GetClaimId(faction) != 0)
     {
         // check if claim time has passed
-        if(ELAPSED_TIME >= GetClaimTime(faction))
+        if (ELAPSED_TIME >= GetClaimTime(faction))
+        {
             return GetClaimId(faction) != player.Id;   // true when some other player wants to do it
+        }
         else
+        {
             return false;
+        }
     }
     // no leader, player should confirm instead of claiming (but he needs to claim it first in such situation)
-    if(GetLeaderId(faction) == 0)
+    if (GetLeaderId(faction) == 0)
+    {
         return true;
+    }
 
     uint rank = GetPlayerRank(player.Id);
     // so it means only 2,3,4 can claim
-    if(rank == RANK_ROOKIE || rank == RANK_LEADER)
+    if (rank == RANK_ROOKIE || rank == RANK_LEADER)
+    {
         return false;
+    }
     /*array<uint> members;
        GetMembers(faction, members);
         int rep = 0;
@@ -1281,7 +1351,6 @@ bool d_CanClaimLeadership(Critter& player, Critter@ npc, int value)
        } DISABLED REPUTATION CHECK*/
     return true;
 }
-
 //
 // Sets player status as the one who claimed leadership
 //
@@ -1303,27 +1372,26 @@ void r_ClaimLeadership(Critter& player, Critter@ npc, int value)
     // add news
     AddFactionNews(faction, player.Id, 0, NEWS_CLAIMED);
 }
-
 //
 // Check if player is the one that claimed leadership
 //
 bool d_ClaimedLeadership(Critter& player, Critter@ npc, int value)
 {
     uint faction = GetTerminalFaction(player);
+
     return GetClaimId(faction) == player.Id;
 }
-
 //
 // Cancels leadership claim
 //
 void r_CancelClaim(Critter& player, Critter@ npc, int value)
 {
     uint faction = GetTerminalFaction(player);
+
     SetClaimId(faction, 0);
     SetLeaderTime(faction, 0);
     SetClaimTime(faction, 0);
 }
-
 //
 // Checks if the player can confirm leadership (he has to be the one who claimed
 // leadership and there should be no leader in faction)
@@ -1331,17 +1399,23 @@ void r_CancelClaim(Critter& player, Critter@ npc, int value)
 bool d_CanConfirmLeadership(Critter& player, Critter@ npc, int value)
 {
     uint faction = GetTerminalFaction(player);
-    if(GetClaimId(faction) != player.Id)
+
+    if (GetClaimId(faction) != player.Id)
+    {
         return false;
+    }
     // check if time has passed for the leader to do something
     // if claimTime == 0 this will be always true, but claimTime != 0 when ClaimId == player.Id (previous condition)
-    if(ELAPSED_TIME >= GetLeaderTime(faction))
+    if (ELAPSED_TIME >= GetLeaderTime(faction))
+    {
         return true;
-    if(GetLeaderId(faction) != 0)
+    }
+    if (GetLeaderId(faction) != 0)
+    {
         return false;
+    }
     return true;
 }
-
 //
 // Player becomes a leader after succesfull claim
 //
@@ -1353,13 +1427,15 @@ void r_ConfirmLeadership(Critter& player, Critter@ npc, int value)
     uint leaderId = GetLeaderId(faction);
     // in case of time-limit, there is no event to demote current leader
     // it is done when claimee confirms leadership
-    if(leaderId != 0)
+    if (leaderId != 0)
     {
         DLog("Demoting current leader: " + GetSafePlayerName(leaderId));
         ChangeRank(faction, leaderId, RANK_ACCEPTED);
     }
     else
+    {
         DLog("Current leader resigned earlier");
+    }
     DLog("Promoting new leader: " + GetSafePlayerName(player.Id));
     ChangeRank(faction, player.Id, RANK_LEADER);
     SetClaimId(faction, 0);
@@ -1367,11 +1443,9 @@ void r_ConfirmLeadership(Critter& player, Critter@ npc, int value)
     // add news
     AddFactionNews(faction, player.Id, 0, NEWS_LEADER);
 }
-
 /////////////////////////////////
 /////////////////////////////////
 /////////////////////////////////
-
 //
 // Adds player's records to database
 //
@@ -1380,12 +1454,14 @@ void r_ConfirmLeadership(Critter& player, Critter@ npc, int value)
 //
 uint dlg_AddPlayer(Critter& player, Critter@ terminal, string@ playerName)
 {
-    if(!valid(playerName) || playerName.length() == 0)
+    if (!valid(playerName) || playerName.length() == 0)
+    {
         return 0;
+    }
 
     // get player
     uint playerToAddId = GetPlayerId(playerName);
-    if(playerToAddId == 0)
+    if (playerToAddId == 0)
     {
         player.Say(SAY_DIALOG, "Incorrect name");
         return 0;
@@ -1393,14 +1469,14 @@ uint dlg_AddPlayer(Critter& player, Critter@ terminal, string@ playerName)
 
     uint faction = GetTerminalFaction(player);
 
-    if(faction != FACTION_UNKNOWN && faction != FACTION_NONE)
+    if (faction != FACTION_UNKNOWN && faction != FACTION_NONE)
     {
         int res = AddPlayer(faction, playerToAddId);
-        if(res == FD_RESULT_SUCCESS)
+        if (res == FD_RESULT_SUCCESS)
         {
             // newly added record will be currently selected one
             GameVar@ var = GetLocalVar(LVAR_terminal_current, player.Id);
-            if(!valid(var))
+            if (!valid(var))
             {
                 Log("ERR: Variable LVAR_terminal_current not defined");
             }
@@ -1408,16 +1484,21 @@ uint dlg_AddPlayer(Critter& player, Critter@ terminal, string@ playerName)
             // jump to the proper line
             return FORCE_DIALOG_DB_UPDATED;
         }
-        else if(res == FD_RESULT_ALREADY_EXISTS)
+        else if (res == FD_RESULT_ALREADY_EXISTS)
+        {
             player.Say(SAY_DIALOG, "Person is already filed in the database.");
+        }
         else
+        {
             player.Say(SAY_DIALOG, "ERR: Couldn't add the player to the faction's database.");
+        }
     }
     else
+    {
         Log("ERR: Unable to determine the player's faction");
+    }
     return 0;
 }
-
 //
 // Removes player from db
 //
@@ -1426,12 +1507,14 @@ uint dlg_AddPlayer(Critter& player, Critter@ terminal, string@ playerName)
 //
 void dlg_RemovePlayer(Critter& player, Critter@ terminal, string@ playerName)
 {
-    if(!valid(playerName) || playerName.length() == 0)
+    if (!valid(playerName) || playerName.length() == 0)
+    {
         return;
+    }
 
     // get player
     uint removedId = GetPlayerId(playerName);
-    if(removedId == 0)
+    if (removedId == 0)
     {
         player.Say(SAY_DIALOG, "Player not found");
         return;
@@ -1440,14 +1523,19 @@ void dlg_RemovePlayer(Critter& player, Critter@ terminal, string@ playerName)
     uint faction = GetTerminalFaction(player);
     int  res = RemovePlayer(faction, removedId);
 
-    if(res == FD_RESULT_SUCCESS)
+    if (res == FD_RESULT_SUCCESS)
+    {
         player.Say(SAY_DIALOG, "Player succesfully removed.");
-    else if(res == FD_RESULT_NOT_FOUND)
+    }
+    else if (res == FD_RESULT_NOT_FOUND)
+    {
         player.Say(SAY_DIALOG, "Player not found in database.");
+    }
     else
+    {
         player.Say(SAY_DIALOG, "ERR: " + FD_Result2String(res));
+    }
 }
-
 //
 // Displays current faction' radio channel
 // allows to modify it (if hi rank)
@@ -1455,19 +1543,22 @@ void dlg_RemovePlayer(Critter& player, Critter@ terminal, string@ playerName)
 void dlg_RadioChannel(Critter& player, Critter@ terminal, string@ say)
 {
     uint faction = GetTerminalFaction(player);
-    if(IS_DIALOG_GENERATED(say))
+
+    if (IS_DIALOG_GENERATED(say))
     {
         // fill 'channel' lexem
         say += "$channel" + GetFactionRadioChannel(faction);
     }
-    if(IS_DIALOG_SAY_MODE(say))
+    if (IS_DIALOG_SAY_MODE(say))
     {
         // check if rank high enough to change freq
-        if(GetPlayerRank(player.Id) < RANK_IMPORTANT)
+        if (GetPlayerRank(player.Id) < RANK_IMPORTANT)
+        {
             return;
+        }
 
         int newChannel = 0;
-        if(StrToInt(say, newChannel) && newChannel >= 0 && newChannel < (2 << 16))
+        if (StrToInt(say, newChannel) && newChannel >= 0 && newChannel < (2 << 16))
         {
             SetFactionRadioChannel(faction, uint16(newChannel));
             player.SayMsg(SAY_DIALOG, TEXTMSG_DLG, DLGSTR(TERMINAL_DIALOG, STR_CHANNEL_CHANGED));
@@ -1478,7 +1569,6 @@ void dlg_RadioChannel(Critter& player, Critter@ terminal, string@ say)
         }
     }
 }
-
 //
 // Checks whether player is member of the faction
 // to which terminal belongs
@@ -1497,7 +1587,6 @@ bool d_Terminal_NotMember(Critter& player, Critter@ terminal, int val)
 
     return faction != GetGroupIndex(player);
 }
-
 //
 // Checks whether player status in faction db is INVITED
 //
@@ -1508,32 +1597,32 @@ bool d_IsInvited(Critter& player, Critter@ terminal, int val)
 
     return GetStatus(faction, player.Id) == STATUS_INVITED;
 }
-
 //
 // If terminal belongs to (big) NPC faction, invitations aren't allowed
 //
 bool d_InvitationsAllowed(Critter& player, Critter@ terminal, int val)
 {
     uint faction = GetTerminalFaction(player);
+
     return !IsBigFaction(faction);
 }
-
 /////////////
 // NEWS
 /////////////
-
 //
 // Display news info
 // currently viewed news index is stored in player.Stat[ST_VAR0] (0 means last news)
 //
 void dlg_ShowNews(Critter& player, Critter@ npc, string@ text)
 {
-    if(!IS_DIALOG_GENERATED(text))
+    if (!IS_DIALOG_GENERATED(text))
+    {
         return;
+    }
 
-    uint   faction = GetTerminalFaction(player);
-    uint   newsCount = GetFactionNewsCount(faction);
-    uint   index = newsCount - player.Stat[ST_VAR0] - 1;
+    uint faction = GetTerminalFaction(player);
+    uint newsCount = GetFactionNewsCount(faction);
+    uint index = newsCount - player.Stat[ST_VAR0] - 1;
 
     uint   master = 0;
     uint   slave = 0;
@@ -1544,20 +1633,25 @@ void dlg_ShowNews(Critter& player, Critter@ npc, string@ text)
     uint8  hour = 0;
     uint8  minute = 0;
 
-    if(GetFactionNews(faction, index, master, slave, type,
-                      year, month, day, hour, minute))
+    if (GetFactionNews(faction, index, master, slave, type,
+        year, month, day, hour, minute))
     {
         // date time
         text += "$datetime" + day + "/" + month + "/" + year + " at: " + hour + ":" + minute;
-        if(master != 0)
+        if (master != 0)
+        {
             text += "$master" + GetSafePlayerName(master);
-        if(slave != 0)
+        }
+        if (slave != 0)
+        {
             text += "$slave" + GetSafePlayerName(slave);
+        }
     }
     else
+    {
         text = "No news stored";
+    }
 }
-
 //
 // Jumps to the next news, and to the proper node to display it
 // previously viewed news is stored in Var0
@@ -1566,18 +1660,24 @@ uint r_NextNews(Critter& player, Critter@ npc, int val)
 {
     uint faction = GetTerminalFaction(player);
     uint newsCount = GetFactionNewsCount(faction);
-    if(newsCount == 0)
+
+    if (newsCount == 0)
+    {
         return 0;
+    }
 
     player.StatBase[ST_VAR0]--;
-    if(player.Stat[ST_VAR0] < 0)
+    if (player.Stat[ST_VAR0] < 0)
+    {
         player.StatBase[ST_VAR0] = 0;
-    if(uint(player.Stat[ST_VAR0]) >= newsCount)
+    }
+    if (uint(player.Stat[ST_VAR0]) >= newsCount)
+    {
         player.StatBase[ST_VAR0] = newsCount - 1;
+    }
 
     return GoToNewsNode(faction, newsCount - player.Stat[ST_VAR0] - 1);
 }
-
 //
 // Jumps to the previous news, and to the proper node to display it
 // previously viewed news is stored in Var0
@@ -1586,18 +1686,24 @@ uint r_PreviousNews(Critter& player, Critter@ npc, int val)
 {
     uint faction = GetTerminalFaction(player);
     uint newsCount = GetFactionNewsCount(faction);
-    if(newsCount == 0)
+
+    if (newsCount == 0)
+    {
         return 0;
+    }
 
     player.StatBase[ST_VAR0]++;
-    if(player.Stat[ST_VAR0] < 0)
+    if (player.Stat[ST_VAR0] < 0)
+    {
         player.StatBase[ST_VAR0] = 0;
-    if(uint(player.Stat[ST_VAR0]) >= newsCount)
+    }
+    if (uint(player.Stat[ST_VAR0]) >= newsCount)
+    {
         player.StatBase[ST_VAR0] = newsCount - 1;
+    }
 
     return GoToNewsNode(faction, newsCount - player.Stat[ST_VAR0] - 1);
 }
-
 //
 // Initializes news index (player.Stat[ST_VAR0])
 // and go to the latest news (if any)
@@ -1606,63 +1712,62 @@ uint r_GoToNews(Critter& player, Critter@ npc, int val)
 {
     uint faction = GetTerminalFaction(player);
     uint newsCount = GetFactionNewsCount(faction);
+
     DLog("NewsCount: " + newsCount);
     player.StatBase[ST_VAR0] = 0;
 
-    if(newsCount > 0)
+    if (newsCount > 0)
     {
         return GoToNewsNode(faction, newsCount - 1);
     }
     return 0;
 }
-
 //
 // Determines where to jump to properly display news
 //
-
 uint GoToNewsNode(uint faction, uint index)
 {
     uint   type = 0;
     uint   master = 0, slave = 0;
     uint16 year;
     uint8  month, day, hour, minute;
-    if(GetFactionNews(faction, index, master, slave, type, year, month, day, hour, minute))
+
+    if (GetFactionNews(faction, index, master, slave, type, year, month, day, hour, minute))
     {
         uint force = 0;
         DLog("Getting faction news " + index + ": " + master + ", " + slave + ", " + type);
-        switch(type)
+        switch (type)
         {
-        case NEWS_JOINED:
-            force = FORCE_DIALOG_JOINED;
-            break;
-        case NEWS_RESIGNED:
-            force = FORCE_DIALOG_RESIGNED;
-            break;
-        case NEWS_EXPELLED:
-            force = FORCE_DIALOG_EXPELLED;
-            break;
-        case NEWS_PROMOTED:
-            force = FORCE_DIALOG_PROMOTED;
-            break;
-        case NEWS_DEMOTED:
-            force = FORCE_DIALOG_DEMOTED;
-            break;
-        case NEWS_CLAIMED:
-            force = FORCE_DIALOG_CLAIMED;
-            break;
-        case NEWS_LEADER:
-            force = FORCE_DIALOG_LEADER;
-            break;
-        case NEWS_OVERTHROWN:
-            force = FORCE_DIALOG_OVERTHROWN;
-            break;
+            case NEWS_JOINED:
+                force = FORCE_DIALOG_JOINED;
+                break;
+            case NEWS_RESIGNED:
+                force = FORCE_DIALOG_RESIGNED;
+                break;
+            case NEWS_EXPELLED:
+                force = FORCE_DIALOG_EXPELLED;
+                break;
+            case NEWS_PROMOTED:
+                force = FORCE_DIALOG_PROMOTED;
+                break;
+            case NEWS_DEMOTED:
+                force = FORCE_DIALOG_DEMOTED;
+                break;
+            case NEWS_CLAIMED:
+                force = FORCE_DIALOG_CLAIMED;
+                break;
+            case NEWS_LEADER:
+                force = FORCE_DIALOG_LEADER;
+                break;
+            case NEWS_OVERTHROWN:
+                force = FORCE_DIALOG_OVERTHROWN;
+                break;
         }
         return force;
     }
     return 0;
     // otherwise don't jump at all
 }
-
 /**
  * Updates faction database to mark it as used now, to delay garbaging.
  */

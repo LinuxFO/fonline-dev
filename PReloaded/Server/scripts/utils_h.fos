@@ -42,16 +42,15 @@
 
 // output info about critter, for log or SayMsg
 
-#define _FileWriteString                 # (__file, __text) do { file f; f.open(__file, "a"); f.writeString(__text); f.close(); } while(false);
+#define _FileWriteString                 # (__file, __text) do { file f; f.open(__file, "a"); f.writeString(__text); f.close(); } while (false);
 
 #ifndef __UTILS_MODULE__
-
 import Location@  GetLocationOf(Critter& critter) from "utils";
 import string     GetLocationName(uint locId) from "utils";
 import string     GetLocationName(Location@ loc) from "utils";
 import bool       ReadPids(array<int>& out pids, bool removeinvalid) from "utils";
 import void       ReadDefines(string@ fileName, dictionary& items, array<string>@ defines) from "utils";
-import void       ReadMsgStrings(string& fileName, dictionary& output ) from "utils";
+import void       ReadMsgStrings(string& fileName, dictionary& output) from "utils";
 import bool       ParseDefine(const string& in line, string& out spid, int& out id) from "utils";
 import int        SkipWhitespaces(const string& in str, int start) from "utils";
 import int        SkipNonWhitespaces(const string& in str, int start) from "utils";
@@ -104,7 +103,6 @@ import void       SetGroupInfo(Critter& cr, uint faction, uint rank, uint mode) 
 import void       SetGroupInfoPack(Critter& cr, uint packInfo) from "utils";
 import void       ClearEvents(Critter& cr) from "utils";
 import void       MapRefreshVisible(Map@ map, uint hexX, uint hexY, uint radius) from "utils";
-
 import int  GetGvar(uint gvar) from "utils";
 import void SetGvar(uint gvar, uint value) from "utils";
 import int  GetLLvar(Location& location, uint llvar) from "utils";
@@ -123,7 +121,6 @@ import void SetLvar(uint id, uint lvar, uint value) from "utils";
 import int  GetUvar(uint uvar, uint key, uint index) from "utils";
 import void SetUvar(uint uvar, uint key, uint index, uint value) from "utils";
 import void SetLLvar(uint locationId, uint llvar, uint value) from "utils";
-
 import uint GetContainerValue(Item@ container) from "utils";
 import uint BaseItemValue(uint pid, bool ammo) from "utils";
 import uint BaseItemValue(uint pid, uint broken, uint det, bool ammo) from "utils";
@@ -131,14 +128,11 @@ import uint BaseItemValue(Item@ item) from "utils";
 import uint BaseItemValue(Item@ item, uint proc) from "utils";
 import uint BaseSingleItemValue(Item@ item) from "utils";
 import uint BaseSingleItemValue(Item@ item, uint proc) from "utils";
-
 import void   SetBloodType(Critter@ cr) from "utils";
 import string GetBloodType(Critter@ cr) from "utils";
 import string GetBloodRandom() from "utils";
-
 import void LogCommandUsage(Critter& player, string& commandString) from "utils";
 import void DropTimeouts(Critter& cr) from "utils";
-
 import bool     HasItem(Critter@ cr, uint pid) from "utils";
 import bool     HasSomeWeapon(Critter@ cr) from "utils";
 import uint     GetBestWeaponSkill(Critter@ cr) from "utils";
@@ -149,7 +143,6 @@ import Critter@ AddNpc(Map@ map, uint16 pid, uint16 x, uint16 y, uint8 dir, uint
 import Critter@ AddNpc(Map@ map, uint16 pid, uint16 x, uint16 y, uint8 dir, array<int> params, uint dialogId, string& script, uint aiPack, uint bagId, uint teamId, bool isMob, uint level) from "utils";
 import Critter@ AddNpc(Map@ map, uint16 pid, uint16 x, uint16 y, uint8 dir, array<int> params, uint dialogId, string& script, uint aiPack, uint bagId, uint teamId, uint factionRank, uint factionMode, bool isMob, uint level) from "utils";
 import void     AddScore(Critter@ cr, uint score, uint points) from "utils";
-
 import bool  ReloadWeapon(Critter& cr) from "utils";
 import Item@ GetRadio(Critter& cr) from "utils";
 import Item@ GetRepairTool(Critter& cr) from "utils";
@@ -162,27 +155,19 @@ import bool   SkillRoll(Critter@ cr, int skill, int bonus) from "utils";
 import int    SkillCheck(Critter& cr, int skill, int skillused, Item@ item, int bonus) from "utils";
 import string SkillName(uint8 skill) from "utils";
 import void   ChangeCrTypeSafe(Critter& cr, uint16 crType) from "utils";
-
 import bool Pickable(Item@ item) from "utils";
-
 import void TransferItemsToContOnMap(Critter& cr, Map@ map, int entid, int contpid, int itemtypes) from "utils";
 import void TransferItemsFromContOnMap(Critter& cr, Map@ map, int entid, int contpid) from "utils";
-
 import string IpToString(uint ip) from "utils";
-
 import void VerboseAction(Critter& cr, string& text) from "utils";
 import void VerboseAction(Critter& cr, Critter& target, string& text) from "utils";
 import void VerboseExperience(Critter& cr, int xpDiff, int levelDiff) from "utils";
-
 import void SetChosenActions(Critter& cr, array<int>& actions) from "utils";
-
 import void HexLine(uint16 x0, uint16 y0, uint16 x1, uint16 y1, array<uint16>@ xList, array<uint16>@ yList) from "utils";
 import void HexCircle(uint16 x0, uint16 y0, uint16 radius, array<uint16>@ xList, array<uint16>@ yList) from "utils";
-
 import bool FindPreferredGridApprox(Map& map, uint16& hx, uint16& hy) from "utils";
 
 # include "strtoint_h.fos"
-
 // utils_for_array
 // TODO: deprecate, use built-in array<T> functions
 import int  FindInArray(array<int>& arr, int value) from "utils";
@@ -199,23 +184,18 @@ import bool Present(uint what, array<uint>& where) from "utils";
 import bool Present(uint16 what, array<uint16>& where) from "utils";
 import bool Present(string& what, array<string>& where) from "utils";
 import bool Present(string& what, array<string@>@ where) from "utils";
-
 import uint CreateLocationForGroup(Critter& player, uint16 pid, uint16 worldX, uint16 worldY, array<Critter@>&) from "utils";
 import bool FindFirstFreeHex(Map@ map, uint16& x, uint16& y, uint8 dir, uint16 maxSteps) from "utils";
 import bool FindNearestFreeHex(Map& map, uint16& x, uint16& y, uint radius) from "utils";
-
 import bool GetItemCoordinates(Item& item, uint& mapID, uint16& x, uint16& y) from "utils";
 import bool ItemOnHex(uint16 pid, Map@ map, uint16 x, uint16 y) from "utils";
-
 import void PrintCallstack() from "utils";
 import void PrintCallstack(int level) from "utils";
-
 import bool LocationHasCritters(Location& loc, uint findType) from "utils";
 import uint LocationGetCritters(Location& loc, uint findType, array<Critter@>@ critters) from "utils";
 import bool LocationHasItems(Location& loc, uint16 protoId) from "utils";
 import uint LocationGetItems(Location& loc, uint16 protoId, array<Item@>@ items) from "utils";
 import void LocationDeleteItems(Location& loc, uint16 protoId) from "utils";
-
 import bool IsDisposableEncounter(Location@ loc) from "utils";
 #endif
 
@@ -231,7 +211,7 @@ shared interface IRect
     bool IsWithin(Critter& cr);
 };
 
-shared class Rect : IRect
+shared class Rect: IRect
 {
     uint x1;
     uint y1;
@@ -245,7 +225,6 @@ shared class Rect : IRect
         this.x2 = x2;
         this.y2 = y2;
     }
-
     bool IsWithin(Critter& cr)
     {
         return((cr.HexX >= this.x1 && cr.HexX <= this.x2) && (cr.HexY >= this.y1 && cr.HexY <= this.y2));

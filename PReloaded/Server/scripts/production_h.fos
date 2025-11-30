@@ -47,19 +47,21 @@ import bool Gather(Item& item, Critter& cr, Item@ used_item, uint16 pid, uint ba
 import uint get_RegenerationInterval() from "production";
 import void Regenerate(Item& item, uint16 pid, int capacity, uint pool, int total_count) from "production";
 import void ReduceCounter(uint16 pid, int value) from "production";
-import uint GetFacilities(const Map& map, string@ script_name, array<Item@>& spots) from "production";
+import uint GetFacilities(const Map& map, string@ script_name, array < Item@ > &spots) from "production";
 #endif
 
 // helper for altering facility-item images
 class PicHashes
 {
-    array<uint> hashes;
+    array < uint > hashes;
 
-    PicHashes(const array<string@>&picnames)
+    PicHashes(const array < string@ > &picnames)
     {
         hashes.resize(picnames.length());
-        for(uint i = 0, iend = picnames.length(); i < iend; i++)
+        for (uint i = 0, iend = picnames.length(); i < iend; i++)
+        {
             hashes[i] = GetStrHash(picnames[i]);
+        }
     }
     PicHashes& AddHash(string@ picname)
     {
@@ -71,7 +73,6 @@ class PicHashes
         return hashes[Random(0, hashes.length() - 1)];
     }
 };
-
 /**
  * Spawns regeneration event, if needed.
  * Because of the fact function is included in every module,

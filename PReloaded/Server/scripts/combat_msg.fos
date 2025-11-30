@@ -27,10 +27,10 @@
 
 shared class CombatRes
 {
-    array<uint> Res;
-    Critter@    Crit;
-    int         Left;
-    int         Right;
+    array < uint > Res;
+    Critter@ Crit;
+    int      Left;
+    int      Right;
 
     CombatRes()
     {
@@ -40,24 +40,25 @@ shared class CombatRes
         Right = PTR_NULL;
     }
 };
-
-void AddEff(Critter@ crit, array<uint>& eff, array<CombatRes>& combatResults)
+void AddEff(Critter@ crit, array < uint > &eff, array < CombatRes > &combatResults)
 {
     int ptr = 0;
 
     // find or create the node:
-    if(combatResults.length() == 0)
+    if (combatResults.length() == 0)
     {
         combatResults.resize(1);
         @combatResults[0].Crit = crit;
     }
 
-    while(combatResults[ptr].Crit.Id != crit.Id)
+    while (combatResults[ptr].Crit.Id != crit.Id)
     {
-        if(crit.Id < combatResults[ptr].Crit.Id)
+        if (crit.Id < combatResults[ptr].Crit.Id)
         {
-            if(combatResults[ptr].Left != PTR_NULL)
+            if (combatResults[ptr].Left != PTR_NULL)
+            {
                 ptr = combatResults[ptr].Left;
+            }
             else
             {
                 uint last = combatResults.length();
@@ -69,8 +70,10 @@ void AddEff(Critter@ crit, array<uint>& eff, array<CombatRes>& combatResults)
         }
         else
         {
-            if(combatResults[ptr].Right != PTR_NULL)
+            if (combatResults[ptr].Right != PTR_NULL)
+            {
                 ptr = combatResults[ptr].Right;
+            }
             else
             {
                 uint last = combatResults.length();
@@ -85,17 +88,22 @@ void AddEff(Critter@ crit, array<uint>& eff, array<CombatRes>& combatResults)
     // add the effect:
     uint len = eff.length();
     combatResults[ptr].Res.resize(combatResults[ptr].Res[0] + len);
-    for(uint i = 0; i < len; i++)
+    for (uint i = 0; i < len; i++)
+    {
         combatResults[ptr].Res[i + combatResults[ptr].Res[0]] = eff[i];
+    }
 
     combatResults[ptr].Res[0] += len;
 }
-
-void runTree(array<CombatRes>& combatResults, int ptr)
+void runTree(array < CombatRes > &combatResults, int ptr)
 {
-    if(ptr == 0)
-        if(combatResults.length() == 0)
+    if (ptr == 0)
+    {
+        if (combatResults.length() == 0)
+        {
             return;
+        }
+    }
     /*if (@combatResults[ptr].Crit == null)
        {
        Log("tree fail, ptr="+ptr+" in "+where);
@@ -107,8 +115,12 @@ void runTree(array<CombatRes>& combatResults, int ptr)
        if (!runTree(combatResults, combatResults[ptr].Left, where)) return false;
        if (combatResults[ptr].Right != PTR_NULL)
        if (!runTree(combatResults, combatResults[ptr].Right, where)) return false;*/
-    if(combatResults[ptr].Left  != PTR_NULL)
+    if (combatResults[ptr].Left  != PTR_NULL)
+    {
         runTree(combatResults, combatResults[ptr].Left);
-    if(combatResults[ptr].Right != PTR_NULL)
+    }
+    if (combatResults[ptr].Right != PTR_NULL)
+    {
         runTree(combatResults, combatResults[ptr].Right);
+    }
 }

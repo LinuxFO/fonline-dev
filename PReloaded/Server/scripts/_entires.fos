@@ -7,7 +7,7 @@
 
 // Common entires that are reserved. Shouldn't be used for something map specific as they are global
 
-//#define ENTIRE_DEFAULT                     (0)
+// #define ENTIRE_DEFAULT                     (0)
 
 #define ENTIRE_EC_CONT_H                     (70)
 #define ENTIRE_EC_CONT_V                     (71)

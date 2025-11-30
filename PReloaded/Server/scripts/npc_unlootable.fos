@@ -6,7 +6,6 @@
 //
 
 #include "_macros.fos"
-
 void critter_init(Critter& guard, bool firstTime)
 {
     _CritSetMode(guard, MODE_NO_LOOT);

@@ -26,8 +26,8 @@
 #define MAP_DATA_MOB_WAVE                       (12) // Id of event periodically spawning mobs in the location
 
 #define _MapHasMode                             # (map, mode)((map.GetData(MAP_DATA_MAP_MODES) & (mode)) != 0)
-#define _MapSetMode                             # (map, mode)map.SetData(MAP_DATA_MAP_MODES, map.GetData(MAP_DATA_MAP_MODES) | (mode))
-#define _MapUnsetMode                           # (map, mode)map.SetData(MAP_DATA_MAP_MODES, map.GetData(MAP_DATA_MAP_MODES) & (~(mode)))
+#define _MapSetMode                             # (map, mode) map.SetData(MAP_DATA_MAP_MODES, map.GetData(MAP_DATA_MAP_MODES) | (mode))
+#define _MapUnsetMode                           # (map, mode) map.SetData(MAP_DATA_MAP_MODES, map.GetData(MAP_DATA_MAP_MODES) & (~(mode)))
 
 #define MAP_MODE_EVENT                          (0x00000001) // Map is used in event.
 #define MAP_MODE_SPECTATE_FREELY                (0x00000002) // Any player can choose to enable/disable spectation on this map. Mode is turned off on map exit.
@@ -37,8 +37,8 @@
 #define MAP_MODE_NO_PVP                         (0x00000020) // No violence
 #define MAP_MODE_NO_DISMANTLING                 (0x00000040) // No littering
 #define MAP_MODE_NO_GRIDS                       (0x00000080) // Useless exit grids
-#define MAP_MODE_ACTIVE_TC						(0x00000100) // Map has active TC
-#define MAP_MODE_LOOT_DROP						(0x00000200) // Map has loot drop
+#define MAP_MODE_ACTIVE_TC                                              (0x00000100) // Map has active TC
+#define MAP_MODE_LOOT_DROP                                              (0x00000200) // Map has loot drop
 
 // tent
 #define MAP_DATA_TENT_OWNER                     (20)
@@ -63,7 +63,7 @@
 #define MAP_DATA_SITE_BASETYPE                  (20)
 
 // encounters
-#define MAP_DATA_DELETE_ENCOUNTER				(20)	//id of event that will delete location
+#define MAP_DATA_DELETE_ENCOUNTER                               (20)    // id of event that will delete location
 
 // ==============================================
 //	QUEST LOCATIONS
@@ -146,7 +146,6 @@
 #define MAP_DATA_SHA_ENIN_BANDITS_COUNT         (21)
 
 #ifndef __MAPDATA__
-
 import int GetRootMapData(Map& map, uint index) from "mapdata";
 import void SetRootMapData(Map& map, uint index, int val) from "mapdata";
 import int GetRootMapData(Location& loc, uint index) from "mapdata";

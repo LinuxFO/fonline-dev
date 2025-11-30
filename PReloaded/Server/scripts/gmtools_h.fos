@@ -12,10 +12,10 @@
 
 // open ~runscript functions to macros
 #define GMTServerFunc                                                           \
-    # (name, pX, p0, p1, p2, p3, p4)                                            \
-    void name(Critter & pX, int p0, int p1, int p2, string@ p3, array<int>@ p4) \
-    { name(pX, p0, p1, p2); }                                                   \
-    void name(Critter & pX, int p0, int p1, int p2)
+        # (name, pX, p0, p1, p2, p3, p4)                                            \
+        void name(Critter & pX, int p0, int p1, int p2, string@ p3, array<int>@ p4) \
+        { name(pX, p0, p1, p2); }                                                   \
+        void name(Critter & pX, int p0, int p1, int p2)
 
 #define GMTOOLS_CONFIG_ENABLED                  // comment to totally disable feature, without breaking bindings etc.
 #define GMTOOLS_CONFIG_AUTHTIMER            (1) // interval between re-checking access level (minutes)

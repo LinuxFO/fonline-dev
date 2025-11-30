@@ -9,14 +9,15 @@
 
 #ifndef __CLIENT_SCREEN_PICTURE__
 #define __CLIENT_SCREEN_PICTURE__
-
 void picture(int p0, int p1, int p2, string@ pic, array<int>@)
 {
-    if(!valid(pic) || pic.length() == 0)
+    if (!valid(pic) || pic.length() == 0)
+    {
         return;
+    }
 
     Sprite spic;
-    if(spic.Load(pic, PATH_ART_INTRFACE))
+    if (spic.Load(pic, PATH_ART_INTRFACE))
     {
         GUI_DeleteScreen(CLIENT_SCREEN_PICTURE);
         IGUIScreenOpt@ screen = GUI_CreateScreen(CLIENT_SCREEN_PICTURE, pic);

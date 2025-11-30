@@ -22,21 +22,21 @@
 #define _getMinigameTeam            # (mgData)      ((mgData) & 0xF)
 
 // Mask 0x000000F0: MinigameId
-#define _setMinigameId              # (cr, id)cr.ParamBase[ST_MINIGAME_DATA] = ((cr.Param[ST_MINIGAME_DATA] & 0xFFFFFF0F) | (((id) & 0xF) << 4))
+#define _setMinigameId              # (cr, id) cr.ParamBase[ST_MINIGAME_DATA] = ((cr.Param[ST_MINIGAME_DATA] & 0xFFFFFF0F) | (((id) & 0xF) << 4))
 #define _getMinigameId              # (mgData) (((mgData) >> 4) & 0xF)
 
 // Mask 0x000000FF: MinigameTeamAndId (MinigameTeam and MinigameId combined)
 #define _getMinigameTeamAndId       # (mgData) ((mgData) & 0xFF)
 
 // Mask 0x00000F00: MinigameFlags
-#define _setMinigameFlags           # (cr, flags)cr.ParamBase[ST_MINIGAME_DATA] = ((cr.Param[ST_MINIGAME_DATA] & 0xFFFFF0FF) | (((flags) & 0xF) << 8))
+#define _setMinigameFlags           # (cr, flags) cr.ParamBase[ST_MINIGAME_DATA] = ((cr.Param[ST_MINIGAME_DATA] & 0xFFFFF0FF) | (((flags) & 0xF) << 8))
 #define _getMinigameFlags           # (mgData) (((mgData) >> 8) & 0xF)
 #define MINIGAME_PERSISTENT         (0x1) // Don't reset minigame when removing critter from game
 #define MINIGAME_FORCE_COLOR        (0x2) // NOT IMPLEMENTED - the team has team color visible for everyone (not only minigame spectators)
 
 //  Custom Data (remember not to overwrite first 12 bits)
 // Mask 0xFFFFF000: Generic 20 bit unsigned number
-#define _setMinigameData            # (cr, data)cr.ParamBase[ST_MINIGAME_DATA] = ((cr.Param[ST_MINIGAME_DATA] & 0x00000FFF) | ((data & 0xFFFFF) << 12))
+#define _setMinigameData            # (cr, data) cr.ParamBase[ST_MINIGAME_DATA] = ((cr.Param[ST_MINIGAME_DATA] & 0x00000FFF) | ((data & 0xFFFFF) << 12))
 #define _getMinigameData            # (mgData) ((mgData) >> 12)
 
 
@@ -52,14 +52,11 @@ import void UnsetMinigame(Critter& cr) from "minigames";
 import void UnsetMinigame(Critter& cr, bool refreshColors) from "minigames";
 import void ChangeMinigameTeam(Critter& cr, int team) from "minigames";
 import int  GetMinigameTeamColor(int minigameTeam) from "minigames";
-
 import Item@ GetDSpawn(Map@ map, int minigameData) from "minigames";
 import Item@ GetNextDSpawn(Item@ dSpawn, int minigameTeamAndId, bool reverse) from "minigames";
-
 import void _DSpawn(Item& item, bool firstTime) from "minigames";
 import void _DSpawnWalk(Item& item, Critter& crit, bool entered, uint8 dir) from "minigames";
 import bool _DSpawnSkill(Item& item, Critter& crit, int skill) from "minigames";
-
 import bool TryCaptureDSpawn(Item@ dSpawn, Critter@ crit) from "minigames";
 import void CaptureDSpawn(Item@ dSpawn, Critter@ crit, uint minigameTeamAndId) from "minigames";
 import uint CaptureDSpawnTick(array<int>@ eventValues) from "minigames";

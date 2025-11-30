@@ -11,14 +11,13 @@ shared interface IBrahminTrader
     IBrahminTrader@ BuyPrice(uint price);
     IBrahminTrader@ Modifier(uint price);
     IBrahminTrader@ BrahminPen(uint penid);
-
     uint GetSellPrice();
     uint GetBuyPrice();
     uint GetModifier();
     uint GetPenID();
 };
 
-shared class CBrahminTrader : IBrahminTrader
+shared class CBrahminTrader: IBrahminTrader
 {
     // Base prices
     uint buyprice;
@@ -26,11 +25,22 @@ shared class CBrahminTrader : IBrahminTrader
     // Price modifier dependant on number of brahmins
     uint modifier;
     uint penid;
-
-    uint GetSellPrice() { return sellprice; }
-    uint GetBuyPrice()  { return buyprice; }
-    uint GetModifier()  { return modifier; }
-    uint GetPenID()     { return penid; }
+    uint GetSellPrice()
+    {
+        return sellprice;
+    }
+    uint GetBuyPrice()
+    {
+        return buyprice;
+    }
+    uint GetModifier()
+    {
+        return modifier;
+    }
+    uint GetPenID()
+    {
+        return penid;
+    }
 
     CBrahminTrader()
     {
@@ -39,13 +49,11 @@ shared class CBrahminTrader : IBrahminTrader
         this.modifier = 0;
         this.penid = 0;
     }
-
     IBrahminTrader@ BrahminPen(uint penid)
     {
         this.penid = penid;
         return this;
     }
-
     IBrahminTrader@ SellPrice(uint price)
     {
         this.sellprice = price;
@@ -56,7 +64,6 @@ shared class CBrahminTrader : IBrahminTrader
         this.buyprice = price;
         return this;
     }
-
     IBrahminTrader@ Modifier(uint price)
     {
         this.modifier = price;

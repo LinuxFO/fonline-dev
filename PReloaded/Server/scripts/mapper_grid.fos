@@ -16,9 +16,12 @@
 #include "mapper_utils_h.fos"
 #include "strtoint_h.fos"
 
-class CGrid : IMapperPlugin
+class CGrid: IMapperPlugin
 {
-    string GetName() { return "Grid"; }
+    string GetName()
+    {
+        return "Grid";
+    }
 
 
     private bool edgeGrid = true;
@@ -41,20 +44,19 @@ class CGrid : IMapperPlugin
 
     private bool enabled = true;
     private uint color = COLOR_RGB(160, 160, 160);
-
     void Render(uint layer)
     {
-        if(layer == 1)
+        if (layer == 1)
         {
             MapperMap@ map = GetActiveMap();
-            if(!valid(map))
+            if (!valid(map))
             {
                 return;
             }
             uint zoom = GetZoom();
 
             // (crappy) grid...
-            if(hexGrid)
+            if (hexGrid)
             {
                 int gridW = GetHexWidth();
                 int gridH = gridW / 2;
@@ -62,10 +64,10 @@ class CGrid : IMapperPlugin
                 int gridH2 = gridW / 4;
                 int gridH4 = gridW / 8;
 
-                for(uint i = 0, j = map.Width - 1; i < j; i += 2)
+                for (uint i = 0, j = map.Width - 1; i < j; i += 2)
                 {
                     int c = tileGridColor;
-                    if(i % tileGridDiv == 0)
+                    if (i % tileGridDiv == 0)
                     {
                         c = tileGridColor2;
                     }
@@ -73,17 +75,17 @@ class CGrid : IMapperPlugin
                     GetHexPos(i, 0, x1, y1);
                     GetHexPos(i, map.Height - 1, x2, y2);
 
-                    array<int> gridData =
+                    array < int > gridData =
                     {
                         x1, y1, c,
                         x2, y2, c
                     };
                     DrawPrimitive(DRAW_PRIMITIVE_LINESTRIP, gridData);
                 }
-                for(uint i = 1, j = map.Height - 1; i < j; i += 2)
+                for (uint i = 1, j = map.Height - 1; i < j; i += 2)
                 {
                     int c = tileGridColor;
-                    if((i + 1) % tileGridDiv == 0)
+                    if ((i + 1) % tileGridDiv == 0)
                     {
                         c = tileGridColor2;
                     }
@@ -91,7 +93,7 @@ class CGrid : IMapperPlugin
                     GetHexPos(0, i, x1, y1);
                     GetHexPos(map.Width - 1, i, x2, y2);
 
-                    if(map.Width % 2 == 0)
+                    if (map.Width % 2 == 0)
                     {
                         int ox = 0, oy = 0;
                         HexOffset(3, ox, oy);
@@ -99,7 +101,7 @@ class CGrid : IMapperPlugin
                         y2 += oy;
                     }
 
-                    array<int> gridData =
+                    array < int > gridData =
                     {
                         x1, y1, c,
                         x2, y2, c
@@ -124,7 +126,7 @@ class CGrid : IMapperPlugin
             GetHexPos(lastHexX, lastHexY, x3, y3);
             GetHexPos(lastHexX, 0, x4, y4);
 
-            if(map.Width % 2 == 0)
+            if (map.Width % 2 == 0)
             {
                 int ox = 0, oy = 0;
                 HexOffset(3, ox, oy);
@@ -134,7 +136,7 @@ class CGrid : IMapperPlugin
                 y4 += oy;
             }
 
-            array<int> gridData =
+            array < int > gridData =
             {
                 x1, y1, edgeGridColor,
                 x2, y2, edgeGridColor,
@@ -146,36 +148,35 @@ class CGrid : IMapperPlugin
             DrawPrimitive(DRAW_PRIMITIVE_LINESTRIP, gridData);
         }
     }
-
     bool Message(string& message)
     {
-        if(message == "grid")
+        if (message == "grid")
         {
             message = "Grid plugin commands: on, off, color <r> <g> <b>.";
             return true;
         }
 
-        array<string@> msg = splitEx(message, " ");
-        if(msg[0] == "grid")
+        array < string@ > msg = splitEx(message, " ");
+        if (msg[0] == "grid")
         {
-            if(msg[1] == "on")
+            if (msg[1] == "on")
             {
                 message = "Grid enabled.";
                 hexGrid = true;
                 edgeGrid = true;
                 tileGrid = true;
             }
-            else if(msg[1] == "off")
+            else if (msg[1] == "off")
             {
                 message = "Grid disabled.";
                 hexGrid = false;
                 edgeGrid = false;
                 tileGrid = false;
             }
-            else if(msg[1] == "color")
+            else if (msg[1] == "color")
             {
                 uint r = 0, g = 0, b = 0;
-                if(StrToInt(msg[2], r) && StrToInt(msg[3], g) && StrToInt(msg[4], b))
+                if (StrToInt(msg[2], r) && StrToInt(msg[3], g) && StrToInt(msg[4], b))
                 {
                     color = COLOR_RGB(r, g, b);
                     message = "Grid color changed.";
@@ -190,16 +191,25 @@ class CGrid : IMapperPlugin
 
         return false;
     }
-
-    void RenderMap()         {}
-    bool MouseDown(int)      { return false; }
-    bool MouseUp(int)        { return false; }
-    void MouseMove(int, int) {}
-    bool KeyDown(uint8 key,string& keyText)
+    void RenderMap()
     {
-        if(key == DIK_G)
+    }
+    bool MouseDown(int)
+    {
+        return false;
+    }
+    bool MouseUp(int)
+    {
+        return false;
+    }
+    void MouseMove(int, int)
+    {
+    }
+    bool KeyDown(uint8 key, string& keyText)
+    {
+        if (key == DIK_G)
         {
-            if(hexGrid)
+            if (hexGrid)
             {
 
                 hexGrid = false;
@@ -211,16 +221,23 @@ class CGrid : IMapperPlugin
         }
         return false;
     }
-    bool KeyUp(uint8,string&) { return false; }
-    void InputLost()          {}
-    void Loop()               {}
+    bool KeyUp(uint8, string&)
+    {
+        return false;
+    }
+    void InputLost()
+    {
+    }
+    void Loop()
+    {
+    }
 
 };
-
 void RegisterGrid()
 {
     IMapperPlugin@ grid = CGrid();
-    if(Plugins_Register(grid))
+
+    if (Plugins_Register(grid))
     {
         Message("Grid plugin (WIP) registered. Press G to switch grid mode.");
     }

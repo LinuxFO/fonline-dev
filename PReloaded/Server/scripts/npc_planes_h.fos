@@ -11,7 +11,6 @@
 #ifndef __NPC_PLANES_H__
 #define __NPC_PLANES_H__
 #include "_defines.fos"
-
 import bool AddMiscPlane(Critter& npc, uint priority, uint waitMinute, string@ funcName) from "npc_planes";
 import bool AddMiscPlane(Critter& npc, uint priority, int identifier, uint identifierExt, uint waitSecond, string@ funcName) from "npc_planes";
 import bool AddWalkPlane(Critter& npc, uint priority, uint16 hexX, uint16 hexY, uint8 dir, bool run, uint cut) from "npc_planes";

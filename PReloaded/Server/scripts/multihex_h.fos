@@ -31,10 +31,8 @@
 #define MHEX_ORPHANED         # (mhex) (MHEX_PARENT(mhex) == 0)
 
 #ifndef __MULTIHEX__
-
 import void MultihexSpawned(Item& item) from "multihex";
 import void MultihexDeleted(Item& item) from "multihex";
-
 import uint GetMHexes(Item@ item, array<Item@>@ mHexes) from "multihex";
 import bool IsMultihex(Item@ item) from "multihex";
 import bool IsMultihexBlocked(Item@ item) from "multihex";

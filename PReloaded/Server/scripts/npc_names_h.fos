@@ -23,12 +23,10 @@ import string GetRandomSurname() from "npc_names";
 // get random name+(nick)+surname from table
 import string GetRandomFullName(uint gender) from "npc_names";
 import string GetRandomFullName(uint gender, int& firstName, bool& genderNick, int& nick, int& surname) from "npc_names";
-
 // retrieve name
 import string GetFirstName(uint gender, uint index) from "npc_names";
 import string GetNick(uint gender, uint index, bool genderNick) from "npc_names";
 import string GetSurname(uint index) from "npc_names";
-
 // other
 // save all possible combinations in logs/npc_names.log
 import void LogNames(bool printNames) from "npc_names";

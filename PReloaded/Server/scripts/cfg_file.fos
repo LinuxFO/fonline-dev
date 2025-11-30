@@ -20,12 +20,11 @@
 shared class CSection
 {
     // all properties of a section (indices to values array)
-    dictionary     indices;
+    dictionary indices;
     // values of properties
     array<string@> values;
 
-    string         name;
-
+    string name;
     //
     // Sets name of a section
     //
@@ -48,12 +47,14 @@ shared class CSection
     string@ GetValue(string& property)
     {
         uint id = 0;
-        if(indices.get(property, id))
+        if (indices.get(property, id))
         {
             return values[id];
         }
         else
+        {
             return null;
+        }
     }
 };
 
@@ -65,13 +66,13 @@ shared class CConfig
     // all sections of config file
     array<CSection@> sections;
     // indices to sections
-    dictionary       indices;
+    dictionary indices;
 
     CConfig(string & fileName)
     {
         file f;
 
-        if(f.open(fileName, "r") >= 0)
+        if (f.open(fileName, "r") >= 0)
         {
             Parse(f);
         }
@@ -83,22 +84,22 @@ shared class CConfig
             // Log("Error while opening cfg file: " + fileName);
         }
     }
-
     //
     // Properties
     //
     string@ GetValue(string& sectionName, string& property)
     {
         uint id = 0;
-        if(indices.get(sectionName, id))
+        if (indices.get(sectionName, id))
         {
             CSection @section = sections[id];
             return section.GetValue(property);
         }
         else
+        {
             return null;
+        }
     }
-
     //
     // Adds section to the list and dicitonary
     //
@@ -126,11 +127,11 @@ shared class CConfig
         # endif
         #endif
         uint sectionCount = 0;
-        for(uint i = 0; i < lines.length(); i++)
+        for (uint i = 0; i < lines.length(); i++)
         {
             string@ line = lines[i];
             // new section
-            if(line[0] == "[")
+            if (line[0] == "[")
             {
                 CSection@ section = ParseSection(lines, i);
                 AddSection(section);
@@ -162,7 +163,7 @@ shared class CConfig
         #endif
         section.SetName(name);
         i++;
-        for(uint j = lines.length(); i < j; i++)
+        for (uint j = lines.length(); i < j; i++)
         {
             string@ line = lines[i];
             #ifdef __CLIENT
@@ -171,10 +172,12 @@ shared class CConfig
             # endif
             #endif
             // end
-            if(line.length() < 2)
+            if (line.length() < 2)
+            {
                 break;
+            }
             // next section
-            if(line[0] == "[")
+            if (line[0] == "[")
             {
                 i--;
                 break;
@@ -183,8 +186,10 @@ shared class CConfig
             else
             {
                 array<string@>@ prop = split(line, "=");
-                if(prop.length() == 2)
+                if (prop.length() == 2)
+                {
                     section.AddProperty(prop[0], prop[1]);
+                }
                 else
                 {
                     #ifdef __CLIENT

@@ -16,15 +16,15 @@
 #define _BonusDamage              # (it)      (it.Val4)  /// spear trap and bear trap
 
 // all explosives (explode.fos only)
-#define _ExplodeSetNumEvent       # (explode, eventNum)explode.Val1 = int(eventNum)
+#define _ExplodeSetNumEvent       # (explode, eventNum) explode.Val1 = int(eventNum)
 #define _ExplodeGetNumEvent       # (explode) uint(explode.Val1)
-#define _ExplodeSetSwitch         # (explode, explSwitch)explSwitch.Val1 = int(explode.Id)
+#define _ExplodeSetSwitch         # (explode, explSwitch) explSwitch.Val1 = int(explode.Id)
 #define _ExplodeGetExplode        # (explSwitch) GetItem(uint(explSwitch.Val1))
-#define _ExplodeSetOwner          # (explode, ownerId)explode.Val2 = int(ownerId)
+#define _ExplodeSetOwner          # (explode, ownerId) explode.Val2 = int(ownerId)
 #define _ExplodeGetOwner          # (explode) uint(explode.Val2)
-#define _ExplodeSetBonusDamage    # (explode, value)explode.Val4 = (value)
+#define _ExplodeSetBonusDamage    # (explode, value) explode.Val4 = (value)
 #define _ExplodeGetBonusDamage    # (explode) (explode.Val4)
-#define _ExplodeSetBonusRadius    # (explode, value)explode.Val5 = (value)
+#define _ExplodeSetBonusRadius    # (explode, value) explode.Val5 = (value)
 #define _ExplodeGetBonusRadius    # (explode) (explode.Val5)
 
 // spear traps only
@@ -36,8 +36,8 @@
 #define _DmgMax                   # (it)   (it.Val4)
 
 // alert trap only
-#define _SetPidNum                # (_it, _pid, _min, _max) do { _it.Val1 = ((_pid) << 16) | ((_min) << 8) | (_max); } while(false)
-#define _SetData                  # (_it, _bag, _level, _entire) do { _it.Val4 = ((_bag) << 16) | ((_level) << 8) | (_entire); } while(false)
+#define _SetPidNum                # (_it, _pid, _min, _max) do { _it.Val1 = ((_pid) << 16) | ((_min) << 8) | (_max); } while (false)
+#define _SetData                  # (_it, _bag, _level, _entire) do { _it.Val4 = ((_bag) << 16) | ((_level) << 8) | (_entire); } while (false)
 #define _GetPid                   # (_it) ((_it.Val1 & 0xFFFF0000) >> 16)
 #define _GetMin                   # (_it) ((_it.Val1 & 0xFF00) >> 8)
 #define _GetMax                   # (_it) (_it.Val1 & 0xFF)

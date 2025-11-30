@@ -7,25 +7,27 @@
 
 #include "_macros.fos"
 #include "production_h.fos"
-
 import bool ShuffleItem(Item& item) from "shuffling_spawner";
 
 #define PLANT_FLINT_BATCH       (1)
 #define PLANT_FLINT_CAPACITY    (3)
-
 void item_init(Item& item, bool firstTime)
 {
-	if(firstTime)
+    if (firstTime)
+    {
         item.Val0 = PLANT_FLINT_CAPACITY;
+    }
     item.SetEvent(ITEM_EVENT_SKILL, "_SkillPlantFlint");
 }
-
 bool _SkillPlantFlint(Item& item, Critter& cr, int skill)
 {
 
     Map@ map = cr.GetMap();
-    if(!valid(map))
+
+    if (!valid(map))
+    {
         return false;
+    }
 
     DeleteItem(item);
     cr.Say(SAY_NETMSG, "You've found piece of flint.");
@@ -37,27 +39,27 @@ bool _SkillPlantFlint(Item& item, Critter& cr, int skill)
 
 
 /*
-#include "_macros.fos"
+ #include "_macros.fos"
 
-#define STR_GATHERED    (3043)
-#include "production_h.fos"
+ #define STR_GATHERED    (3043)
+ #include "production_h.fos"
 
-void item_init(Item& item, bool firstTime)
-{
-	item.SetEvent(ITEM_EVENT_SKILL, "_Gather");
+   void item_init(Item& item, bool firstTime)
+   {
+        item.SetEvent(ITEM_EVENT_SKILL, "_Gather");
     AMOUNT(item) = __FlintBatch;
-}
-class GatherCallback : IGatherCallback
-{
+   }
+   class GatherCallback : IGatherCallback
+   {
     void Callback(Item& item, Critter&, Item@)
     {
         DeleteItem(item);
     }
-};
-GatherCallback Callback;
+   };
+   GatherCallback Callback;
 
-bool _Gather(Item& item, Critter& crit, int skill)
-{
+   bool _Gather(Item& item, Critter& crit, int skill)
+   {
     return Gather(item, crit, null, PID_FLINT, __FlintBatch, STR_GATHERED, 0, @Callback);
-}
-*/
+   }
+ */

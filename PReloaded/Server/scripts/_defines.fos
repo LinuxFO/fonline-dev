@@ -37,11 +37,11 @@
 // #define __TEST__
 // debug output
 # ifndef _MSC_VER
-//#define __DEBUG__
+// #define __DEBUG__
 # endif
 
 // uncomment for verbose npc_schedule*.fos
-//#define DEBUG_SCHEDULES
+// #define DEBUG_SCHEDULES
 
 #define __DEBUG_DISABLE_SQL__
 
@@ -97,15 +97,15 @@
 #define ACCESSORY_HEX                            (2)
 #define ACCESSORY_CONTAINER                      (3)
 
-//hardcoded type values in proto files :/ :( :|
+// hardcoded type values in proto files :/ :( :|
 // User types
-#define ITEM_TYPE_SMO                            (14) //(ITEM_TYPE_LAST+1) // Special Map Objects (special_map_objects.fos)
-#define ITEM_TYPE_BLUEPRINT                      (20) //(ITEM_TYPE_LAST+2) //(20) // Item blueprints
-#define ITEM_TYPE_SPOT                           (21) //(ITEM_TYPE_LAST+3) //(21) // Hex markers: waypoints, spawnpoints, etc. which don't do anything on its own beside providing data.
-#define ITEM_TYPE_MAP_OBJECT                     (22) //(ITEM_TYPE_LAST+4) //(22) // Scripted map objects which don't fit in any other category.
-#define ITEM_TYPE_TRANSFER                       (23) //(ITEM_TYPE_LAST+5) //(23) // Objects transfering critter somewhere else when used somehow
+#define ITEM_TYPE_SMO                            (14) // (ITEM_TYPE_LAST+1) // Special Map Objects (special_map_objects.fos)
+#define ITEM_TYPE_BLUEPRINT                      (20) // (ITEM_TYPE_LAST+2) //(20) // Item blueprints
+#define ITEM_TYPE_SPOT                           (21) // (ITEM_TYPE_LAST+3) //(21) // Hex markers: waypoints, spawnpoints, etc. which don't do anything on its own beside providing data.
+#define ITEM_TYPE_MAP_OBJECT                     (22) // (ITEM_TYPE_LAST+4) //(22) // Scripted map objects which don't fit in any other category.
+#define ITEM_TYPE_TRANSFER                       (23) // (ITEM_TYPE_LAST+5) //(23) // Objects transfering critter somewhere else when used somehow
                                                       // or walked over: exit edges, ladders etc. (WIP, don't use).
-#define ITEM_TYPE_TRIGGER                        (24) //(ITEM_TYPE_LAST+6) //(24) // Activators which run a function when stepped over / out (WIP, don't use).
+#define ITEM_TYPE_TRIGGER                        (24) // (ITEM_TYPE_LAST+6) //(24) // Activators which run a function when stepped over / out (WIP, don't use).
 
 // Item flags
 #define ITEM_HIDDEN                              (0x00000001)
@@ -142,39 +142,39 @@
 #define ITEM_CACHED                              (0x80000000) // Not used
 
 // Possible weapon bonus
-#define BONUS_WEAPON_CRITICAL_ROLL				(100)
-#define BONUS_WEAPON_CRITICAL_CHANCE			(101)
-#define BONUS_WEAPON_MIN_DMG					(102)
-#define BONUS_WEAPON_MAX_DMG					(103)
-#define BONUS_WEAPON_ACCURACY					(104)
-#define BONUS_WEAPON_MAX_AP						(105)
+#define BONUS_WEAPON_CRITICAL_ROLL                              (100)
+#define BONUS_WEAPON_CRITICAL_CHANCE                    (101)
+#define BONUS_WEAPON_MIN_DMG                                    (102)
+#define BONUS_WEAPON_MAX_DMG                                    (103)
+#define BONUS_WEAPON_ACCURACY                                   (104)
+#define BONUS_WEAPON_MAX_AP                                             (105)
 #define BONUS_WEAPON_MAX_RANGE                  (106)
 
 // Possible armor bonus
-#define BONUS_ARMOR_CRIT_CHANCE					(100)
-#define BONUS_ARMOR_CRIT_POWER					(101)
-#define BONUS_ARMOR_NORMAL_DT					(102)
-#define BONUS_ARMOR_LASER_DT					(103)
-#define BONUS_ARMOR_FIRE_DT						(104)
-#define BONUS_ARMOR_PLASMA_DT					(105)
-#define BONUS_ARMOR_NORMAL_DR					(106)
-#define BONUS_ARMOR_LASER_DR					(107)
-#define BONUS_ARMOR_FIRE_DR						(108)
-#define BONUS_ARMOR_PLASMA_DR					(109)
-#define BONUS_ARMOR_EXPLODE_DT					(110)
-#define BONUS_ARMOR_EXPLODE_DR					(111)
-#define BONUS_ARMOR_MAX_AP						(112)
-#define BONUS_ARMOR_RAD_RES						(113)
-#define BONUS_ARMOR_POISON_RES					(114)
-#define BONUS_ARMOR_STRENGTH					(115)
-#define BONUS_ARMOR_PERCEPTION					(116)
-#define BONUS_ARMOR_ENDURANCE					(117)
-#define BONUS_ARMOR_CHARISMA					(118)
-#define BONUS_ARMOR_INTELLIGENCE				(119)
-#define BONUS_ARMOR_AGILITY						(120)
-#define BONUS_ARMOR_LUCK						(121)
-#define BONUS_ARMOR_CARRY_WEIGHT				(122)
-#define BONUS_ARMOR_HEALING_RATE				(123)
+#define BONUS_ARMOR_CRIT_CHANCE                                 (100)
+#define BONUS_ARMOR_CRIT_POWER                                  (101)
+#define BONUS_ARMOR_NORMAL_DT                                   (102)
+#define BONUS_ARMOR_LASER_DT                                    (103)
+#define BONUS_ARMOR_FIRE_DT                                             (104)
+#define BONUS_ARMOR_PLASMA_DT                                   (105)
+#define BONUS_ARMOR_NORMAL_DR                                   (106)
+#define BONUS_ARMOR_LASER_DR                                    (107)
+#define BONUS_ARMOR_FIRE_DR                                             (108)
+#define BONUS_ARMOR_PLASMA_DR                                   (109)
+#define BONUS_ARMOR_EXPLODE_DT                                  (110)
+#define BONUS_ARMOR_EXPLODE_DR                                  (111)
+#define BONUS_ARMOR_MAX_AP                                              (112)
+#define BONUS_ARMOR_RAD_RES                                             (113)
+#define BONUS_ARMOR_POISON_RES                                  (114)
+#define BONUS_ARMOR_STRENGTH                                    (115)
+#define BONUS_ARMOR_PERCEPTION                                  (116)
+#define BONUS_ARMOR_ENDURANCE                                   (117)
+#define BONUS_ARMOR_CHARISMA                                    (118)
+#define BONUS_ARMOR_INTELLIGENCE                                (119)
+#define BONUS_ARMOR_AGILITY                                             (120)
+#define BONUS_ARMOR_LUCK                                                (121)
+#define BONUS_ARMOR_CARRY_WEIGHT                                (122)
+#define BONUS_ARMOR_HEALING_RATE                                (123)
 
 // Grid Types
 #define GRID_EXITGRID                            (1)
@@ -239,14 +239,14 @@
 // In SendMessage
 #define MESSAGE_TO_VISIBLE_ME                    (0)
 #define MESSAGE_TO_IAM_VISIBLE                   (1)
-#define MESSAGE_TO_ALL_ON_MAP                    (2) 
+#define MESSAGE_TO_ALL_ON_MAP                    (2)
 // more eng-friendly aliases
 #define SENDMESSAGE_TO_WHO_SEES_ME                   (SENDMESSAGE_TO_VISIBLE_ME)
 #define SENDMESSAGE_TO_I_SEE                         (SENDMESSAGE_TO_IAM_VISIBLE)
 
 // Slots
-#define SLOT_HEAD                                (SLOT_LAST+1)   // Head slot
-#define SLOT_TROPHY                              (SLOT_LAST+2)   // Animals skins, teeths, claws, etc.
+#define SLOT_HEAD                                (SLOT_LAST + 1)   // Head slot
+#define SLOT_TROPHY                              (SLOT_LAST + 2)   // Animals skins, teeths, claws, etc.
 #define SLOT_GROUND                              (255) // Ground slot, used when critter drop/pick item
 
 // Critter timeevents identifiers
@@ -272,21 +272,21 @@
 #define STAT_COUNT                               (STAT_END - STAT_BEGIN + 1)
 #define STAT_EXT_BEGIN                           (32)
 #define STAT_EXT_END                             (63)
-//FOClassic.fos #define ST_STRENGTH                              (0) // Used in engine +++
-//FOClassic.fos #define ST_PERCEPTION                            (1)
+// FOClassic.fos #define ST_STRENGTH                              (0) // Used in engine +++
+// FOClassic.fos #define ST_PERCEPTION                            (1)
 #define ST_ENDURANCE                             (2)
-//FOClassic.fos #define ST_CHARISMA                              (3)
-//FOClassic.fos #define ST_INTELLECT                             (4)
-//FOClassic.fos #define ST_AGILITY                               (5)
+// FOClassic.fos #define ST_CHARISMA                              (3)
+// FOClassic.fos #define ST_INTELLECT                             (4)
+// FOClassic.fos #define ST_AGILITY                               (5)
 #define ST_LUCK                                  (6)
-//FOClassic.fos #define ST_MAX_LIFE                              (7)
-//FOClassic.fos #define ST_ACTION_POINTS                         (8)
-//FOClassic.fos #define ST_ARMOR_CLASS                           (9)
-//FOClassic.fos #define ST_MELEE_DAMAGE                          (10)
-//FOClassic.fos #define ST_CARRY_WEIGHT                          (11)
-//FOClassic.fos #define ST_SEQUENCE                              (12)
-//FOClassic.fos #define ST_HEALING_RATE                          (13)
-//FOClassic.fos #define ST_CRITICAL_CHANCE                       (14)
+// FOClassic.fos #define ST_MAX_LIFE                              (7)
+// FOClassic.fos #define ST_ACTION_POINTS                         (8)
+// FOClassic.fos #define ST_ARMOR_CLASS                           (9)
+// FOClassic.fos #define ST_MELEE_DAMAGE                          (10)
+// FOClassic.fos #define ST_CARRY_WEIGHT                          (11)
+// FOClassic.fos #define ST_SEQUENCE                              (12)
+// FOClassic.fos #define ST_HEALING_RATE                          (13)
+// FOClassic.fos #define ST_CRITICAL_CHANCE                       (14)
 #define ST_MAX_CRITICAL                          (15)
 #define ST_NORMAL_ABSORB                         (16)
 #define ST_LASER_ABSORB                          (17)
@@ -295,15 +295,15 @@
 #define ST_ELECTRO_ABSORB                        (20)
 #define ST_EMP_ABSORB                            (21)
 #define ST_EXPLODE_ABSORB                        (22)
-//FOClassic.fos #define ST_NORMAL_RESIST                         (23)
+// FOClassic.fos #define ST_NORMAL_RESIST                         (23)
 #define ST_LASER_RESIST                          (24)
 #define ST_FIRE_RESIST                           (25)
 #define ST_PLASMA_RESIST                         (26)
 #define ST_ELECTRO_RESIST                        (27)
 #define ST_EMP_RESIST                            (28)
 #define ST_EXPLODE_RESIST                        (29)
-//FOClassic.fos #define ST_RADIATION_RESISTANCE                  (30)
-//FOClassic.fos #define ST_POISON_RESISTANCE                     (31)
+// FOClassic.fos #define ST_RADIATION_RESISTANCE                  (30)
+// FOClassic.fos #define ST_POISON_RESISTANCE                     (31)
 #define ST_STRENGTH_EXT                          (32)
 #define ST_PERCEPTION_EXT                        (33)
 #define ST_ENDURANCE_EXT                         (34)
@@ -342,26 +342,26 @@
 #define ST_BODY_TYPE                             (67)
 #define ST_LOCOMOTION_TYPE                       (68) // See Locomotion types
 #define ST_DAMAGE_TYPE                           (69)
-//FOClassic.fos #define ST_AGE                                   (70) // Used in engine
-//FOClassic.fos #define ST_GENDER                                (71) // Used in engine
-//FOClassic.fos #define ST_CURRENT_HP                            (72) // Used in engine
-//FOClassic.fos #define ST_POISONING_LEVEL                       (73) // Used in engine
-//FOClassic.fos #define ST_RADIATION_LEVEL                       (74) // Used in engine
-//FOClassic.fos #define ST_CURRENT_AP                            (75) // Used in engine
-//FOClassic.fos #define ST_EXPERIENCE                            (76) // Used in engine
-//FOClassic.fos #define ST_LEVEL                                 (77) // Used in engine
-//FOClassic.fos #define ST_UNSPENT_SKILL_POINTS                  (78) // Used in engine
-//FOClassic.fos #define ST_UNSPENT_PERKS                         (79) // Used in engine
-//FOClassic.fos #define ST_KARMA                                 (80) // Used in engine
-//FOClassic.fos #define ST_FOLLOW_CRIT                           (81) // Used in engine
-//FOClassic.fos #define ST_REPLICATION_MONEY                     (82) // Used in engine
-//FOClassic.fos #define ST_REPLICATION_COUNT                     (83) // Used in engine
-//FOClassic.fos #define ST_REPLICATION_TIME                      (84) // Used in engine
-//FOClassic.fos #define ST_REPLICATION_COST                      (85) // Used in engine
-//FOClassic.fos #define ST_TURN_BASED_AC                         (86) // Used in engine
-//FOClassic.fos #define ST_MAX_MOVE_AP                           (87) // Used in engine
-//FOClassic.fos #define ST_MOVE_AP                               (88) // Used in engine
-//FOClassic.fos #define ST_NPC_ROLE                              (89) // Used in engine
+// FOClassic.fos #define ST_AGE                                   (70) // Used in engine
+// FOClassic.fos #define ST_GENDER                                (71) // Used in engine
+// FOClassic.fos #define ST_CURRENT_HP                            (72) // Used in engine
+// FOClassic.fos #define ST_POISONING_LEVEL                       (73) // Used in engine
+// FOClassic.fos #define ST_RADIATION_LEVEL                       (74) // Used in engine
+// FOClassic.fos #define ST_CURRENT_AP                            (75) // Used in engine
+// FOClassic.fos #define ST_EXPERIENCE                            (76) // Used in engine
+// FOClassic.fos #define ST_LEVEL                                 (77) // Used in engine
+// FOClassic.fos #define ST_UNSPENT_SKILL_POINTS                  (78) // Used in engine
+// FOClassic.fos #define ST_UNSPENT_PERKS                         (79) // Used in engine
+// FOClassic.fos #define ST_KARMA                                 (80) // Used in engine
+// FOClassic.fos #define ST_FOLLOW_CRIT                           (81) // Used in engine
+// FOClassic.fos #define ST_REPLICATION_MONEY                     (82) // Used in engine
+// FOClassic.fos #define ST_REPLICATION_COUNT                     (83) // Used in engine
+// FOClassic.fos #define ST_REPLICATION_TIME                      (84) // Used in engine
+// FOClassic.fos #define ST_REPLICATION_COST                      (85) // Used in engine
+// FOClassic.fos #define ST_TURN_BASED_AC                         (86) // Used in engine
+// FOClassic.fos #define ST_MAX_MOVE_AP                           (87) // Used in engine
+// FOClassic.fos #define ST_MOVE_AP                               (88) // Used in engine
+// FOClassic.fos #define ST_NPC_ROLE                              (89) // Used in engine
 #define ST_VAR0                                  (90)
 #define ST_VAR1                                  (91)
 #define ST_VAR2                                  (92)
@@ -373,25 +373,25 @@
 #define ST_VAR8                                  (98)
 #define ST_VAR9                                  (99)
 #define ST_PLAYER_KARMA                          (100)
-//FOClassic.fos #define ST_BONUS_LOOK                            (101) // Used in engine
-//FOClassic.fos #define ST_HANDS_ITEM_AND_MODE                   (102) // Used in engine
-//FOClassic.fos #define ST_FREE_BARTER_PLAYER                    (103) // Used in engine
-//FOClassic.fos #define ST_DIALOG_ID                             (104) // Used in engine
-//FOClassic.fos #define ST_AI_ID                                 (105) // Used in engine
-//FOClassic.fos #define ST_TEAM_ID                               (106) // Used in engine
-//FOClassic.fos #define ST_BAG_ID                                (107) // Used in engine
+// FOClassic.fos #define ST_BONUS_LOOK                            (101) // Used in engine
+// FOClassic.fos #define ST_HANDS_ITEM_AND_MODE                   (102) // Used in engine
+// FOClassic.fos #define ST_FREE_BARTER_PLAYER                    (103) // Used in engine
+// FOClassic.fos #define ST_DIALOG_ID                             (104) // Used in engine
+// FOClassic.fos #define ST_AI_ID                                 (105) // Used in engine
+// FOClassic.fos #define ST_TEAM_ID                               (106) // Used in engine
+// FOClassic.fos #define ST_BAG_ID                                (107) // Used in engine
 #define ST_LAST_STEAL_CR_ID                      (108)
 #define ST_STEAL_COUNT                           (109)
-//FOClassic.fos #define ST_LAST_WEAPON_ID                        (110) // Used in engine
+// FOClassic.fos #define ST_LAST_WEAPON_ID                        (110) // Used in engine
 #define ST_LAST_WEAPON_USE                       (111)
-//FOClassic.fos #define ST_BASE_CRTYPE                           (112) // Used in engine
+// FOClassic.fos #define ST_BASE_CRTYPE                           (112) // Used in engine
 #define ST_DEAD_BLOCKER_ID                       (113)
 #define ST_CURRENT_ARMOR_PERK                    (114)
-//FOClassic.fos #define ST_TALK_DISTANCE                         (115) // Used in engine; if zero than taked __TalkDistance
-//FOClassic.fos #define ST_SCALE_FACTOR                          (116) // Used in engine
-//FOClassic.fos #define ST_WALK_TIME                             (117) // Hardcoded
-//FOClassic.fos #define ST_RUN_TIME                              (118) // Hardcoded
-//FOClassic.fos #define ST_MAX_TALKERS                           (119) // Hardcoded
+// FOClassic.fos #define ST_TALK_DISTANCE                         (115) // Used in engine; if zero than taked __TalkDistance
+// FOClassic.fos #define ST_SCALE_FACTOR                          (116) // Used in engine
+// FOClassic.fos #define ST_WALK_TIME                             (117) // Hardcoded
+// FOClassic.fos #define ST_RUN_TIME                              (118) // Hardcoded
+// FOClassic.fos #define ST_MAX_TALKERS                           (119) // Hardcoded
 // 120..129 reserved for hardcoded values
 
 // post-wipe todo: move those to 130+ to avoid conflicts with new hardcoded values
@@ -418,11 +418,11 @@
 
 // 150..179 reserved for 30 layers
 
-#define ST_UNSPENT_TAG				(180)
-#define ST_FIXBOY_COUNTER 			(181)
-#define ST_FIXBOY_FILTER 			(182)
-#define ST_FIXBOY_FIXALL 			(183)
-#define ST_ALPHA					(184)
+#define ST_UNSPENT_TAG                          (180)
+#define ST_FIXBOY_COUNTER                       (181)
+#define ST_FIXBOY_FILTER                        (182)
+#define ST_FIXBOY_FIXALL                        (183)
+#define ST_ALPHA                                        (184)
 
 // 186..199
 
@@ -430,19 +430,19 @@
 #define SK_SMALL_GUNS                            (200) // Used in engine
 #define SK_BIG_GUNS                              (201) // Used in engine
 #define SK_ENERGY_WEAPONS                        (202) // Used in engine
-//FOClassic.fos #define SK_UNARMED                               (203) // Used in engine
-#define SK_SCAVENGING	                         (204) // Used in engine
+// FOClassic.fos #define SK_UNARMED                               (203) // Used in engine
+#define SK_SCAVENGING                            (204) // Used in engine
 #define SK_THROWING                              (205) // Used in engine
-//FOClassic.fos #define SK_FIRST_AID                             (206) // Used in engine
-//FOClassic.fos #define SK_DOCTOR                                (207) // Used in engine
-//FOClassic.fos #define SK_SNEAK                                 (208) // Used in engine
-//FOClassic.fos #define SK_LOCKPICK                              (209) // Used in engine
-//FOClassic.fos #define SK_STEAL                                 (210) // Used in engine
-//FOClassic.fos #define SK_TRAPS                                 (211) // Used in engine
-//FOClassic.fos #define SK_SCIENCE                               (212) // Used in engine
-//FOClassic.fos #define SK_REPAIR                                (213) // Used in engine
-//FOClassic.fos #define SK_SPEECH                                (214) // Used in engine
-//FOClassic.fos #define SK_BARTER                                (215) // Used in engine
+// FOClassic.fos #define SK_FIRST_AID                             (206) // Used in engine
+// FOClassic.fos #define SK_DOCTOR                                (207) // Used in engine
+// FOClassic.fos #define SK_SNEAK                                 (208) // Used in engine
+// FOClassic.fos #define SK_LOCKPICK                              (209) // Used in engine
+// FOClassic.fos #define SK_STEAL                                 (210) // Used in engine
+// FOClassic.fos #define SK_TRAPS                                 (211) // Used in engine
+// FOClassic.fos #define SK_SCIENCE                               (212) // Used in engine
+// FOClassic.fos #define SK_REPAIR                                (213) // Used in engine
+// FOClassic.fos #define SK_SPEECH                                (214) // Used in engine
+// FOClassic.fos #define SK_BARTER                                (215) // Used in engine
 #define SK_GAMBLING                              (216)
 #define SK_OUTDOORSMAN                           (217) // Used in engine
 // 218..225
@@ -450,42 +450,42 @@
 /// Tag skills
 #define TAG_BEGIN                                (226)
 #define TAG_END                                  (229)
-//FOClassic.fos #define TAG_SKILL1                               (226) // Used in engine
-//FOClassic.fos #define TAG_SKILL2                               (227) // Used in engine
-//FOClassic.fos #define TAG_SKILL3                               (228) // Used in engine
-//FOClassic.fos #define TAG_SKILL4                               (229) // Used in engine
+// FOClassic.fos #define TAG_SKILL1                               (226) // Used in engine
+// FOClassic.fos #define TAG_SKILL2                               (227) // Used in engine
+// FOClassic.fos #define TAG_SKILL3                               (228) // Used in engine
+// FOClassic.fos #define TAG_SKILL4                               (229) // Used in engine
 
 /// Timeouts
 #define TO_SK_FIRST_AID                          (230)
 #define TO_SK_DOCTOR                             (231)
-//FOClassic.fos #define TO_SK_REPAIR                             (232) // Used in engine
-//FOClassic.fos #define TO_SK_SCIENCE                            (233) // Used in engine
+// FOClassic.fos #define TO_SK_REPAIR                             (232) // Used in engine
+// FOClassic.fos #define TO_SK_SCIENCE                            (233) // Used in engine
 #define TO_SK_LOCKPICK                           (234)
 #define TO_SK_STEAL                              (235)
 #define TO_WEAKENED                              (236)
 #define TO_FIXBOY                                (237)
-//FOClassic.fos #define TO_BATTLE                                (238) // Used in engine
-//FOClassic.fos #define TO_TRANSFER                              (239) // Used in engine
-//FOClassic.fos #define TO_REMOVE_FROM_GAME                      (240) // Used in engine
+// FOClassic.fos #define TO_BATTLE                                (238) // Used in engine
+// FOClassic.fos #define TO_TRANSFER                              (239) // Used in engine
+// FOClassic.fos #define TO_REMOVE_FROM_GAME                      (240) // Used in engine
 #define TO_REPLICATION                           (241)
-//FOClassic.fos #define TO_KARMA_VOTING                          (242) // Used in engine
+// FOClassic.fos #define TO_KARMA_VOTING                          (242) // Used in engine
 #define TO_GATHERING                             (243)
 #define TO_SNEAK                                 (244)
 #define TO_HEALING                               (245)
-#define TO_CIGARETTES							 (246)
+#define TO_CIGARETTES                                                    (246)
 
-#define TO_NUKA_COLA							 (247)
+#define TO_NUKA_COLA                                                     (247)
 #define TO_BEER                                  (248)
 
 #define TO_AGGRESSOR                             (249)
-#define TO_PSYCHO							 	 (250)
-#define TO_JET								 	 (251)
+#define TO_PSYCHO                                                                (250)
+#define TO_JET                                                                   (251)
 #define TO_IMMUNITY_TIME                         (252)
 
-#define TO_MENTATS							 	 (253)
-#define TO_BUFFOUT							 	 (254)
+#define TO_MENTATS                                                               (253)
+#define TO_BUFFOUT                                                               (254)
 
-#define TO_RAD_X							 	 (255)
+#define TO_RAD_X                                                                 (255)
 
 
 
@@ -524,9 +524,9 @@
 #define PE_TOUGHNESS                             (313)
 #define PE_STRONG_BACK                           (314) // Nolevel
 #define PE_SHARPSHOOTER                          (315)
-//FOClassic.fos #define PE_SILENT_RUNNING                        (316) // Used in engine
+// FOClassic.fos #define PE_SILENT_RUNNING                        (316) // Used in engine
 #define PE_SURVIVALIST                           (317) // Disabled
-//FOClassic.fos #define PE_MASTER_TRADER                         (318) // Disabled, Used in engine
+// FOClassic.fos #define PE_MASTER_TRADER                         (318) // Disabled, Used in engine
 #define PE_EDUCATED                              (319) // Nolevel
 #define PE_FIELD_MEDIC                           (320)
 #define PE_FORTUNE_FINDER                        (321) // Nolevel
@@ -557,7 +557,7 @@
 #define PE_SCOUT                                 (346) // Nolevel
 #define PE_MYSTERIOUS_STRANGER                   (347) // Not implemented
 #define PE_RANGER                                (348) // Nolevel
-//FOClassic.fos #define PE_QUICK_POCKETS                         (349) // Used in engine
+// FOClassic.fos #define PE_QUICK_POCKETS                         (349) // Used in engine
 #define PE_SMOOTH_TALKER                         (350) // Disabled, Used in engine
 #define PE_SWIFT_LEARNER                         (351) // Nolevel
 #define PE_TAG                                   (352) // Not implemented
@@ -660,14 +660,14 @@
 #define PE_TREASURE_HUNTER                       (459) // Nolevel
 #define PE_LOCKPICK_PERK_2                       (460) // Not implemented
 #define PE_DEAD_MAN_WALKING                      (461) // Nolevel
-#define PE_NEMEAN_ARMOR							 (462) // Nolevel, Implant
-#define PE_IMP_STRENGTH							 (463) // Nolevel, Implant
-#define PE_IMP_PERCEPTION					     (464) // Nolevel, Implant
-#define PE_IMP_ENDURANCE						 (465) // Nolevel, Implant
-#define PE_IMP_CHARISMA							 (466) // Nolevel, Implant
-#define PE_IMP_INTELLIGENCE						 (467) // Nolevel, Implant
-#define PE_IMP_AGILITY							 (468) // Nolevel, Implant
-#define PE_IMP_LUCK							 	 (469) // Nolevel, Implant
+#define PE_NEMEAN_ARMOR                                                  (462) // Nolevel, Implant
+#define PE_IMP_STRENGTH                                                  (463) // Nolevel, Implant
+#define PE_IMP_PERCEPTION                                            (464) // Nolevel, Implant
+#define PE_IMP_ENDURANCE                                                 (465) // Nolevel, Implant
+#define PE_IMP_CHARISMA                                                  (466) // Nolevel, Implant
+#define PE_IMP_INTELLIGENCE                                              (467) // Nolevel, Implant
+#define PE_IMP_AGILITY                                                   (468) // Nolevel, Implant
+#define PE_IMP_LUCK                                                              (469) // Nolevel, Implant
 // 462..469
 
 /// Addictions
@@ -708,51 +708,51 @@
 
 /// Damages
 #define DAMAGE_COUNT                             (DAMAGE_END - DAMAGE_BEGIN + 1)
-//FOClassic.fos #define DAMAGE_POISONED                          (500) // Used in engine
-//FOClassic.fos #define DAMAGE_RADIATED                          (501) // Used in engine
+// FOClassic.fos #define DAMAGE_POISONED                          (500) // Used in engine
+// FOClassic.fos #define DAMAGE_RADIATED                          (501) // Used in engine
 #define DAMAGE_EYE                               (502) // Used in engine
-//FOClassic.fos #define DAMAGE_RIGHT_ARM                         (503) // Used in engine
-//FOClassic.fos #define DAMAGE_LEFT_ARM                          (504) // Used in engine
-//FOClassic.fos #define DAMAGE_RIGHT_LEG                         (505) // Used in engine
-//FOClassic.fos #define DAMAGE_LEFT_LEG                          (506) // Used in engine
+// FOClassic.fos #define DAMAGE_RIGHT_ARM                         (503) // Used in engine
+// FOClassic.fos #define DAMAGE_LEFT_ARM                          (504) // Used in engine
+// FOClassic.fos #define DAMAGE_RIGHT_LEG                         (505) // Used in engine
+// FOClassic.fos #define DAMAGE_LEFT_LEG                          (506) // Used in engine
 // 507..509
 
 /// Modes
 #define MODE_BEGIN                               (510)
 #define MODE_END                                 (549)
 #define MODE_COUNT                               (MODE_END - MODE_BEGIN + 1)
-//FOClassic.fos #define MODE_HIDE                                (510) // Состояние скрытности                                   Used in engine
-//FOClassic.fos #define MODE_NO_STEAL                            (511) // Нельзя обворовать                                      Used in engine
-//FOClassic.fos #define MODE_NO_BARTER                           (512) // Нельзя тоговать                                        Used in engine
-//FOClassic.fos #define MODE_NO_ENEMY_STACK                      (513) // Нпц не запоминает врагов                               Used in engine
-//FOClassic.fos #define MODE_NO_PVP                              (514) // Запрещает ПвП для игрока                               Used in engine
-//FOClassic.fos #define MODE_END_COMBAT                          (515) // Согласен ли игрок закончить пошаговый бой              Used in engine
-//FOClassic.fos #define MODE_DEFAULT_COMBAT                      (516) // Режим боя по-умолчанию                                 Used in engine
-//FOClassic.fos #define MODE_NO_HOME                             (517) // Нпц не возвращается в домашнюю позицию автоматически   Used in engine
-//FOClassic.fos #define MODE_GECK                                (518) // Локация не удаляется при наличии такого нпц            Used in engine
-//FOClassic.fos #define MODE_NO_FAVORITE_ITEM                    (519) // Режим установки итемов по-умолчанию                    Used in engine
-//FOClassic.fos #define MODE_NO_ITEM_GARBAGER                    (520) // Итемы не удаляются движком                             Used in engine
-//FOClassic.fos #define MODE_DLG_SCRIPT_BARTER                   (521) // Возможно торговать при активном скрипте на диалоге     Used in engine
-//FOClassic.fos #define MODE_UNLIMITED_AMMO                      (522) // Бесконечные патроны                                    Used in engine
+// FOClassic.fos #define MODE_HIDE                                (510) // Состояние скрытности                                   Used in engine
+// FOClassic.fos #define MODE_NO_STEAL                            (511) // Нельзя обворовать                                      Used in engine
+// FOClassic.fos #define MODE_NO_BARTER                           (512) // Нельзя тоговать                                        Used in engine
+// FOClassic.fos #define MODE_NO_ENEMY_STACK                      (513) // Нпц не запоминает врагов                               Used in engine
+// FOClassic.fos #define MODE_NO_PVP                              (514) // Запрещает ПвП для игрока                               Used in engine
+// FOClassic.fos #define MODE_END_COMBAT                          (515) // Согласен ли игрок закончить пошаговый бой              Used in engine
+// FOClassic.fos #define MODE_DEFAULT_COMBAT                      (516) // Режим боя по-умолчанию                                 Used in engine
+// FOClassic.fos #define MODE_NO_HOME                             (517) // Нпц не возвращается в домашнюю позицию автоматически   Used in engine
+// FOClassic.fos #define MODE_GECK                                (518) // Локация не удаляется при наличии такого нпц            Used in engine
+// FOClassic.fos #define MODE_NO_FAVORITE_ITEM                    (519) // Режим установки итемов по-умолчанию                    Used in engine
+// FOClassic.fos #define MODE_NO_ITEM_GARBAGER                    (520) // Итемы не удаляются движком                             Used in engine
+// FOClassic.fos #define MODE_DLG_SCRIPT_BARTER                   (521) // Возможно торговать при активном скрипте на диалоге     Used in engine
+// FOClassic.fos #define MODE_UNLIMITED_AMMO                      (522) // Бесконечные патроны                                    Used in engine
 #define MODE_NO_DROP                             (523) // Нельзя сбрасывать предметы
 #define MODE_NO_LOOSE_LIMBS                      (524) // Не может терять конечности
 #define MODE_DEAD_AGES                           (525) // unused
 #define MODE_NO_HEAL                             (526) // Повреждения не излечиваются с течением времени         Used in engine
-//FOClassic.fos #define MODE_INVULNERABLE                        (527) // Неуязвимый                                             Used in engine
-//FOClassic.fos #define MODE_NO_FLATTEN                          (528) // Не помещать труп на задний план после смерти           Used in engine
+// FOClassic.fos #define MODE_INVULNERABLE                        (527) // Неуязвимый                                             Used in engine
+// FOClassic.fos #define MODE_NO_FLATTEN                          (528) // Не помещать труп на задний план после смерти           Used in engine
 #define MODE_SPECIAL_DEAD                        (529) // unused
-//FOClassic.fos #define MODE_RANGE_HTH                           (530) // Возможна рукопашная атака на расстоянии                Used in engine
+// FOClassic.fos #define MODE_RANGE_HTH                           (530) // Возможна рукопашная атака на расстоянии                Used in engine
 #define MODE_NO_KNOCK                            (531) // Не может быть сбит с ног
-//FOClassic.fos #define MODE_NO_LOOT                             (532) // Нельзя лутать                                          Used in engine
+// FOClassic.fos #define MODE_NO_LOOT                             (532) // Нельзя лутать                                          Used in engine
 #define MODE_TRADER_ITEM_LEVELS                  (533)
 #define MODE_EXT                                 (534)
 #define MODE_KILLER_ADMIN                        (535)
-//FOClassic.fos #define MODE_NO_PUSH                             (536) // Can't be pushed
-//FOClassic.fos #define MODE_NO_UNARMED                          (537)
-//FOClassic.fos #define MODE_NO_AIM                              (538) // Critter can't do aim attacks                           Hardcoded
-//FOClassic.fos #define MODE_NO_WALK                             (539) // Critter can't walk                                     Hardcoded
-//FOClassic.fos #define MODE_NO_RUN                              (540) // Critter can't run                                      Hardcoded
-//FOClassic.fos #define MODE_NO_TALK                             (541) // Npc can't talk                                         Hardcoded
+// FOClassic.fos #define MODE_NO_PUSH                             (536) // Can't be pushed
+// FOClassic.fos #define MODE_NO_UNARMED                          (537)
+// FOClassic.fos #define MODE_NO_AIM                              (538) // Critter can't do aim attacks                           Hardcoded
+// FOClassic.fos #define MODE_NO_WALK                             (539) // Critter can't walk                                     Hardcoded
+// FOClassic.fos #define MODE_NO_RUN                              (540) // Critter can't run                                      Hardcoded
+// FOClassic.fos #define MODE_NO_TALK                             (541) // Npc can't talk                                         Hardcoded
 #define MODE_NEGATE_CRIT_EFF                     (542) // Negates set critical hit Flags
 #define MODE_LAST_IP                             (543) // Stores previos IP player was logged in
 #define MODE_LAST_WPN_MODE                       (544)
@@ -853,8 +853,8 @@
 #define PARAMS_COUNT                             (1000)
 
 // Planes types
-#define AI_PLANE_PATROL                          (AI_PLANE_LAST+1) // WIP
-#define AI_PLANE_COURIER                         (AI_PLANE_LAST+2) // WIP
+#define AI_PLANE_PATROL                          (AI_PLANE_LAST + 1) // WIP
+#define AI_PLANE_COURIER                         (AI_PLANE_LAST + 2) // WIP
 
 // Planes default priority
 #define AI_PLANE_PATROL_PRIORITY                 (25)
@@ -876,11 +876,11 @@
 #define PLANE_RAM_INTO_CRITTER                   (41) // Run to a hex and try to ram into the target critter (not a real attack but can KD/damage).
 
 // Locker
-//#define LOCKER_ISOPEN                            (0x01) // Used in engine
+// #define LOCKER_ISOPEN                            (0x01) // Used in engine
 #define LOCKER_LOCKED                            (0x02)
 #define LOCKER_JAMMED                            (0x04)
 #define LOCKER_BROKEN                            (0x08)
-//#define LOCKER_NOOPEN                            (0x10) // Hardcoded
+// #define LOCKER_NOOPEN                            (0x10) // Hardcoded
 #define LOCKER_ELECTRO                           (0x20)
 
 // Timer
@@ -888,8 +888,8 @@
 #define TIMER_MAX_VALUE                          (599)
 
 // Timeouts in real seconds, generic values
-#define FIRST_AID_TIMEOUT                        # (cr)     ( REAL_SECOND( (((cr.Skill[SK_FIRST_AID] > 50 ? cr.Skill[SK_FIRST_AID] : 50) * -6 / 10) + 210) / (cr.Perk[PE_MEDIC] > 0 ? 2 : 1)) )           // cd = (-6 * skill)/10 - 210 -> from 180s @sk<=50 to 90s @sk==200 (max)
-#define DOCTOR_TIMEOUT                           # (cr)     ( REAL_SECOND( (((cr.Skill[SK_DOCTOR] > 50 ? cr.Skill[SK_DOCTOR] : 50) * -6 / 10) + 210) / (cr.Perk[PE_MEDIC] > 0 ? 2 : 1)) )           // cd = (-6 * skill)/10 - 210 -> from 180s @sk<=50 to 90s @sk==200 (max)
+#define FIRST_AID_TIMEOUT                        # (cr)     (REAL_SECOND( (((cr.Skill[SK_FIRST_AID] > 50 ? cr.Skill[SK_FIRST_AID] : 50) * -6 / 10) + 210) / (cr.Perk[PE_MEDIC] > 0 ? 2 : 1)) )            // cd = (-6 * skill)/10 - 210 -> from 180s @sk<=50 to 90s @sk==200 (max)
+#define DOCTOR_TIMEOUT                           # (cr)     (REAL_SECOND( (((cr.Skill[SK_DOCTOR] > 50 ? cr.Skill[SK_DOCTOR] : 50) * -6 / 10) + 210) / (cr.Perk[PE_MEDIC] > 0 ? 2 : 1)) )            // cd = (-6 * skill)/10 - 210 -> from 180s @sk<=50 to 90s @sk==200 (max)
 
 #define REPAIR_TIMEOUT                           # (cr)        (REAL_MINUTE(1))                                                                                                                                    // Orig 4 time on day, 1 min
 #define SCIENCE_TIMEOUT                          # (cr)       (REAL_MINUTE(1))                                                                                                                                     // Orig 6 time on day, 1 min
@@ -908,8 +908,8 @@
 #define SCORE_EVIL_OF_HOUR                       (0)
 #define SCORE_HERO_OF_HOUR                       (1)
 #define SCORE_KARMA_ON_HOUR                      (2)
-//#define SCORE_SPEAKER                            (3)
-//#define SCORE_TRADER                             (4)
+// #define SCORE_SPEAKER                            (3)
+// #define SCORE_TRADER                             (4)
 #define SCORE_ZOMBY                              (5)
 #define SCORE_PATY                               (6)
 #define SCORE_MANIAC                             (7)
@@ -928,8 +928,8 @@
 #define SCORE_RITCH                              (20)
 #define SCORE_CHOSEN_ONE                         (21)
 #define SCORE_EXPERT_EXCREMENT                   (22)
-#define SCORE_ARMORER							 (23)
-#define SCORE_GUNSMITH							 (24)
+#define SCORE_ARMORER                                                    (23)
+#define SCORE_GUNSMITH                                                   (24)
 
 #define SCORE_TC_MODOC                           (30)
 #define SCORE_TC_KLAMATH                         (31)
@@ -938,21 +938,21 @@
 #define SCORE_TC_DEN                             (34)
 #define SCORE_TC_REDDING                         (35)
 
-#define SCORE_DOM_DAYGLOW	 					 (36)
+#define SCORE_DOM_DAYGLOW                                                (36)
 
 #define SCORE_BEST_MODOC                         (40)
 #define SCORE_BEST_KLAMATH                       (41)
 #define SCORE_BEST_GECKO                         (42)
-#define SCORE_BEST_BH	                         (43)
+#define SCORE_BEST_BH                            (43)
 #define SCORE_BEST_DEN                           (44)
 #define SCORE_BEST_REDDING                       (45)
 
 #define SCORE_CATHEDRAL_CUR                      (46)
 #define SCORE_MARIPOSA_CUR                       (47)
 #define SCORE_SIERRA_CUR                         (48)
-#define SCORE_NCR_CUR  							 (49)
+#define SCORE_NCR_CUR                                                    (49)
 
-//#define SCORES_MAX                               (50)
+// #define SCORES_MAX                               (50)
 
 // Car flags
 #define CAR_BIO_ENGINE                           (0x0001)
@@ -1006,10 +1006,10 @@
 #define HOUR_AFTERNOON                           (12)
 #define HOUR_EVENING                             (18)
 #define HOUR_NIGHT                               (22)
-#define IS_MORNING                               # (hour)	((hour) >= HOUR_MORNING && (hour) < HOUR_AFTERNOON) // 5 hours
-#define IS_AFTERNOON                             # (hour)	((hour) >= HOUR_AFTERNOON && (hour) < HOUR_EVENING) // 6 hours
-#define IS_EVENING                               # (hour)	((hour) >= HOUR_EVENING && (hour) < HOUR_NIGHT)     // 4 hours
-#define IS_NIGHT                                 # (hour)	((hour) >= HOUR_NIGHT || (hour) < HOUR_MORNING)     // 9 hours
+#define IS_MORNING                               # (hour)       ((hour) >= HOUR_MORNING && (hour) < HOUR_AFTERNOON) // 5 hours
+#define IS_AFTERNOON                             # (hour)       ((hour) >= HOUR_AFTERNOON && (hour) < HOUR_EVENING) // 6 hours
+#define IS_EVENING                               # (hour)       ((hour) >= HOUR_EVENING && (hour) < HOUR_NIGHT)     // 4 hours
+#define IS_NIGHT                                 # (hour)       ((hour) >= HOUR_NIGHT || (hour) < HOUR_MORNING)     // 9 hours
 
 // Item deterioration info
 #define MAX_BROKENS                              (100)
@@ -1132,7 +1132,7 @@
 #define CALIBER_HN_NEEDLER                       (17)
 #define CALIBER_7_62MM                           (18)
 #define CALIBER_22                               (19)
-#define CALIBER_40MM_GRENADE					 (20)
+#define CALIBER_40MM_GRENADE                                     (20)
 
 // Geometry
 #define GEOMETRY_FALLOUT                         (0)
@@ -1199,24 +1199,24 @@
 // ugly debug, deleteme!
 #define _TIMEBEGIN                               uint __nowZZZ = GetTick()
 #define _TIMEEND                                            \
-    uint __endZZZ = GetTick(); if(__endZZZ - __nowZZZ > 40) \
+        uint __endZZZ = GetTick(); if (__endZZZ - __nowZZZ > 40) \
         Log("I am being executed for a very long time! (" + (__endZZZ - __nowZZZ) + " ms)")
 // deleteme end
 
-#define WEEKDAY_SUNDAY		(0)
-#define WEEKDAY_MONDAY		(1)
-#define WEEKDAY_TUESDAY		(2)
-#define WEEKDAY_WEDNESDAY	(3)
-#define WEEKDAY_THURSTDAY	(4)
-#define WEEKDAY_FRIDAY		(5)
-#define WEEKDAY_SATURDAY	(6)
+#define WEEKDAY_SUNDAY          (0)
+#define WEEKDAY_MONDAY          (1)
+#define WEEKDAY_TUESDAY         (2)
+#define WEEKDAY_WEDNESDAY       (3)
+#define WEEKDAY_THURSTDAY       (4)
+#define WEEKDAY_FRIDAY          (5)
+#define WEEKDAY_SATURDAY        (6)
 
 // Extended methods
 #define CRITTER_EVENT_EXT_INDEX_START            (100)
 #ifndef SKIP_PRAGMAS
 
 // Maximum possible normal player's sight range
-#define PLAYER_MAXIMUM_SIGHT (__LookNormal + 30 + 6) //base range + max Perception*3 + 6 from Sharpshooter
+#define PLAYER_MAXIMUM_SIGHT (__LookNormal + 30 + 6) // base range + max Perception*3 + 6 from Sharpshooter
 
 # pragma crdata "Stat 0 199"
 # pragma crdata "Skill 200 217"
@@ -1259,8 +1259,8 @@
 #  pragma bindfield "uint Critter::Reserved			 -> 395"
 
 /*
-   #pragma bindfield "uint Item::SpawnedBy				 -> 391"
-   #pragma bindfield "uint Item::Reserved				 -> 395"
+ #pragma bindfield "uint Item::SpawnedBy				 -> 391"
+ #pragma bindfield "uint Item::Reserved				 -> 395"
  */
 
 
@@ -1292,7 +1292,7 @@
 #  pragma bindfunc "bool CritterCl::IsDmgArm()      -> client_parameters.dll Critter_IsDmgArm    "
 #  pragma bindfunc "bool CritterCl::IsDmgTwoArm()   -> client_parameters.dll Critter_IsDmgTwoArm "
 #  pragma bindfunc "bool CritterCl::IsAddicted()    -> client_parameters.dll Critter_IsAddicted  "
-//#  pragma bindfunc "bool CritterCl::IsOverweight()  -> client_parameters.dll Critter_IsOverweight"
+// #  pragma bindfunc "bool CritterCl::IsOverweight()  -> client_parameters.dll Critter_IsOverweight"
 #  pragma bindfunc "int CritterCl::GetAC(bool)      -> client_parameters.dll Critter_GetAC       "
 #  pragma bindfunc "int CritterCl::GetDR(uint,bool) -> client_parameters.dll Critter_GetDR       "
 #  pragma bindfunc "int CritterCl::GetDT(uint,bool) -> client_parameters.dll Critter_GetDT       "

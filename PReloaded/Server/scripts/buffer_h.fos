@@ -81,11 +81,11 @@
 
 // Module name, as seen by AngelScript, for fast module renaming
 #ifndef BUFFER_MODULE
- #define BUFFER_MODULE "buffer"
+#define BUFFER_MODULE "buffer"
 #endif
 
 // How length of string/arrays will be stored in buffer
-#define BUFFER_LENTYPE	uint16
+#define BUFFER_LENTYPE  uint16
 
 // Backward compatibility
 // Undefine if using SDK older than revision 400
@@ -94,91 +94,89 @@
 
 shared interface Buffer
 {
-	Buffer@ opCom();
+    Buffer@ opCom();
+    Buffer@ opNeg();
 
-	Buffer@ opNeg();
+    #define _opBase#(type)                          \
+            Buffer@ opShr(type & value);   \
+            Buffer@ opShl(type  value);   \
+            Buffer@ Get(type & value);             \
+            Buffer@ Set(type & value);
 
-#define _opBase#(type)				\
-	Buffer@ opShr( type& value );	\
-	Buffer@ opShl( type  value );	\
-	Buffer@ Get( type& value );		\
-	Buffer@ Set( type& value );
+    #define _opArray#(type)                                         \
+            Buffer@ opShr(array<type>& value);    \
+            Buffer@ opShl(array<type>& value);    \
+            Buffer@ Get(array<type>& value);              \
+            Buffer@ Set(array<type>& value);
 
-#define _opArray#(type)						\
-	Buffer@ opShr( array<type>& value );	\
-	Buffer@ opShl( array<type>& value );	\
-	Buffer@ Get( array<type>& value );		\
-	Buffer@ Set( array<type>& value );
+    #define _opDump#(type, name)                                             \
+            Buffer@ opUShr(array<type>& arr);                     \
+            Buffer@ opUShrAssign(array<type>& arr);       \
+            array<type> name();
 
-#define _opDump#(type,name)						\
-	Buffer@ opUShr( array<type>& arr );			\
-	Buffer@ opUShrAssign( array<type>& arr );	\
-	array<type> name();
+    _opBase(int8)
+    _opBase(int16)
+    _opBase(int32)
+    _opBase(int64)
+    _opBase(uint8)
+    _opBase(uint16)
+    _opBase(uint32)
+    _opBase(uint64)
+    _opBase(bool)
+    _opBase(string)
+    _opBase(float)
 
-	_opBase(int8)
-	_opBase(int16)
-	_opBase(int32)
-	_opBase(int64)
-	_opBase(uint8)
-	_opBase(uint16)
-	_opBase(uint32)
-	_opBase(uint64)
-	_opBase(bool)
-	_opBase(string)
-	_opBase(float)
+    // _opArray(int8)
+    // _opArray(int16)
+    // _opArray(int32)
+    // _opArray(int64)
+    _opArray(uint8)
+    _opArray(uint16)
+    _opArray(uint32)
+    // _opArray(uint64)
+    // _opArray(bool)
+    _opArray(string)
+    // _opArray(float)
 
-	//_opArray(int8)
-	//_opArray(int16)
-	//_opArray(int32)
-	//_opArray(int64)
-	_opArray(uint8)
-	_opArray(uint16)
-	_opArray(uint32)
-	//_opArray(uint64)
-	//_opArray(bool)
-	_opArray(string)
-	//_opArray(float)
+    // _opArray(array<int8>)
+    // _opArray(array<int16>)
+    // _opArray(array<int32>)
+    // _opArray(array<int64>)
+    _opArray(array<uint8>)
+    _opArray(array<uint16>)
+    _opArray(array<uint32>)
+    // _opArray(array<uint64>)
+    // _opArray(array<bool>)
+    // _opArray(array<string>)
+    // _opArray(array<float>)
 
-	//_opArray(array<int8>)
-	//_opArray(array<int16>)
-	//_opArray(array<int32>)
-	//_opArray(array<int64>)
-	_opArray(array<uint8>)
-	_opArray(array<uint16>)
-	_opArray(array<uint32>)
-	//_opArray(array<uint64>)
-	//_opArray(array<bool>)
-	//_opArray(array<string>)
-	//_opArray(array<float>)
+    // _opArray(array<array<int8>>)
+    // _opArray(array<array<int16>>)
+    // _opArray(array<array<int32>>)
+    // _opArray(array<array<int64>>)
+    // _opArray(array<array<uint8>>)
+    // _opArray(array<array<uint16>>)
+    // _opArray(array<array<uint32>>)
+    // _opArray(array<array<uint64>>)
+    // _opArray(array<array<bool>>)
+    // _opArray(array<array<string>>)
+    // _opArray(array<array<float>>)
 
-	//_opArray(array<array<int8>>)
-	//_opArray(array<array<int16>>)
-	//_opArray(array<array<int32>>)
-	//_opArray(array<array<int64>>)
-	//_opArray(array<array<uint8>>)
-	//_opArray(array<array<uint16>>)
-	//_opArray(array<array<uint32>>)
-	//_opArray(array<array<uint64>>)
-	//_opArray(array<array<bool>>)
-	//_opArray(array<array<string>>)
-	//_opArray(array<array<float>>)
-
-	//_opDump(int8,  AsInt8)
-	//_opDump(int16, AsInt16)
-	_opDump(int32, AsInt32)
-	//_opDump(int64, AsInt64)
-	_opDump(uint8, AsUint8)
-	//_opDump(uint16,AsUint16)
-	//_opDump(uint32,AsUint32)
-	//_opDump(uint64,AsUint64)
+    // _opDump(int8,  AsInt8)
+    // _opDump(int16, AsInt16)
+    _opDump(int32, AsInt32)
+    // _opDump(int64, AsInt64)
+    _opDump(uint8, AsUint8)
+    // _opDump(uint16,AsUint16)
+    // _opDump(uint32,AsUint32)
+    // _opDump(uint64,AsUint64)
 };
 
 #ifndef __BUFFER__
-
 import Buffer@ NewBuffer() from BUFFER_MODULE;
 
 #define _newBuffer#(type) \
-	import Buffer@ NewBuffer( array<type>@ data ) from BUFFER_MODULE;
+        import Buffer@ NewBuffer(array<type>@ data) from BUFFER_MODULE;
 
 _newBuffer(int8)
 _newBuffer(int16)

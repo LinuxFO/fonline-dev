@@ -1,10 +1,7 @@
 import os
 import re
-
-SOURCE_DIR = r"PReloaded\Server\scripts"
-DEST_DIR = r"docs\files"
-
-os.makedirs(DEST_DIR, exist_ok=True)
+import argparse
+from pathlib import Path
 
 KEYWORDS = {
     'return', 'if', 'else', 'while', 'for', 'switch', 'case', 'break', 'continue', 
@@ -231,163 +228,6 @@ def link_type(type_str, type_map):
 
     return re.sub(r'\b\w+\b', replace_match, type_str)
 
-def generate_md(doc, type_map):
-    filename = doc['filename']
-    md_filename = filename + ".md"
-    path = os.path.join(DEST_DIR, md_filename)
-    
-    with open(path, 'w', encoding='utf-8') as f:
-        # Frontmatter
-        f.write("---\n")
-        f.write(f"title: {filename}\n")
-        desc_summary = format_desc(doc['description']).replace('"', '\\"')
-        if desc_summary:
-            f.write(f"description: \"{desc_summary[:150]}...\"\n")
-        f.write("---\n\n")
-        
-        f.write(f"# {filename}\n\n")
-        
-        if doc['description']:
-            for line in doc['description']:
-                f.write(f"{line}\n")
-            f.write("\n")
-        
-        if doc['includes']:
-            f.write("## Includes\n\n")
-            for inc in doc['includes']:
-                f.write(f"- `{inc}`\n")
-            f.write("\n")
-
-        if 'included_by' in doc and doc['included_by']:
-            f.write("## Included By\n\n")
-            for inc in doc['included_by']:
-                f.write(f"- [{inc}]({inc}.md)\n")
-            f.write("\n")
-
-        if doc['defines']:
-            f.write("## Defines\n\n")
-            f.write("| Name | Value | Description |\n")
-            f.write("| :--- | :--- | :--- |\n")
-            for d in doc['defines']:
-                val = f"`{d['value']}`" if d['value'] else ""
-                desc = format_desc(d['desc'])
-                f.write(f"| {d['name']} | {val} | {desc} |\n")
-            f.write("\n")
-
-        if doc['constants']:
-            f.write("## Constants\n\n")
-            f.write("| Name | Type | Value | Description |\n")
-            f.write("| :--- | :--- | :--- | :--- |\n")
-            for c in doc['constants']:
-                val = f"`{c['value']}`" if c['value'] else ""
-                desc = format_desc(c['desc'])
-                linked_type = link_type(c['type'], type_map)
-                f.write(f"| {c['name']} | `{linked_type}` | {val} | {desc} |\n")
-            f.write("\n")
-
-        if doc['classes']:
-            f.write("## Classes\n\n")
-            for c in doc['classes']:
-                f.write(f"### {c['name']}\n\n")
-                if c['desc']:
-                    f.write(f"{format_desc(c['desc'])}\n\n")
-                
-                if c['members']:
-                    f.write("**Properties**\n\n")
-                    f.write("| Name | Type | Value | Description |\n")
-                    f.write("| :--- | :--- | :--- | :--- |\n")
-                    for m in c['members']:
-                        val = f"`{m['value']}`" if m['value'] else ""
-                        desc = format_desc(m['desc'])
-                        linked_type = link_type(m['type'], type_map)
-                        f.write(f"| {m['name']} | `{linked_type}` | {val} | {desc} |\n")
-                    f.write("\n")
-                
-                if c['methods']:
-                    f.write("**Methods**\n\n")
-                    for method in c['methods']:
-                        f.write(f"#### {method['name']}\n")
-                        if method['desc']:
-                            f.write(f"{format_desc(method['desc'])}\n\n")
-                        # We could also link types in signature, but it's harder to parse safely without breaking code block syntax
-                        # For now, keep signature as code block
-                        f.write(f"```angelscript\n{method['signature']}\n```\n\n")
-            f.write("\n")
-
-        if doc['variables']:
-            f.write("## Variables\n\n")
-            f.write("| Name | Type | Value | Description |\n")
-            f.write("| :--- | :--- | :--- | :--- |\n")
-            for v in doc['variables']:
-                val = f"`{v['value']}`" if v['value'] else ""
-                desc = format_desc(v['desc'])
-                linked_type = link_type(v['type'], type_map)
-                f.write(f"| {v['name']} | `{linked_type}` | {val} | {desc} |\n")
-            f.write("\n")
-
-        if doc['functions']:
-            f.write("## Functions\n\n")
-            for func in doc['functions']:
-                f.write(f"### {func['name']}\n\n")
-                if func['desc']:
-                    f.write(f"{format_desc(func['desc'])}\n\n")
-                f.write(f"```angelscript\n{func['signature']}\n```\n\n")
-            f.write("\n")
-
-    return md_filename
-
-    return md_filename
-
-    return md_filename
-
-all_docs = []
-
-# Recursive search
-files = []
-for root, dirs, files_in_dir in os.walk(SOURCE_DIR):
-    # Skip docs-todo itself to avoid recursion if run multiple times
-    if "docs-todo" in root:
-        continue
-        
-    for f in files_in_dir:
-        if f.endswith('.fos'):
-            full_path = os.path.join(root, f)
-            rel_path = os.path.relpath(full_path, SOURCE_DIR)
-            files.append(rel_path)
-
-files.sort()
-
-print(f"Found {len(files)} scripts.")
-
-# First pass: Parse all files and build type map & include graph
-parsed_docs = []
-type_map = {}
-included_by = {} # filename -> list of relative paths that include it
-
-for rel_path in files:
-    fpath = os.path.join(SOURCE_DIR, rel_path)
-    try:
-        doc = parse_file(fpath)
-        doc['rel_path'] = rel_path # Store relative path
-        parsed_docs.append(doc)
-        
-        # Register classes as types
-        # We map ClassName -> RelativePath.md
-        # Note: If multiple files define same class, last one wins (AngelScript usually doesn't allow duplicates globally)
-        doc_rel_path = rel_path + ".md"
-        for c in doc['classes']:
-            type_map[c['name']] = doc_rel_path
-        
-        # Build include graph
-        for inc in doc['includes']:
-            inc_name = os.path.basename(inc)
-            if inc_name not in included_by:
-                included_by[inc_name] = []
-            included_by[inc_name].append(rel_path)
-            
-    except Exception as e:
-        print(f"Error parsing {rel_path}: {e}")
-
 def get_relative_link(from_rel_path, to_rel_path):
     # Calculate relative path from one doc file to another
     # from_rel_path: path/to/A.fos
@@ -415,13 +255,13 @@ def link_type_rel(type_str, type_map, current_rel_path):
     return re.sub(r'\b\w+\b', replace_match, type_str)
 
 # Update generate_md to handle relative paths and subdirectories
-def generate_md_rel(doc, type_map, included_by):
+def generate_md_rel(doc, type_map, included_by, dest_dir):
     rel_path = doc['rel_path']
     filename = doc['filename']
     
     # Output path: docs-todo/rel_path.md
     md_rel_path = rel_path + ".md"
-    full_dest_path = os.path.join(DEST_DIR, md_rel_path)
+    full_dest_path = os.path.join(dest_dir, md_rel_path)
     
     # Ensure directory exists
     os.makedirs(os.path.dirname(full_dest_path), exist_ok=True)
@@ -529,26 +369,96 @@ def generate_md_rel(doc, type_map, included_by):
 
     return md_rel_path
 
-# Second pass: Generate MD
-for doc in parsed_docs:
-    try:
-        fname = doc['filename']
-        # Match included_by using filename (heuristic)
-        doc['included_by'] = included_by.get(fname, [])
-        
-        md_path = generate_md_rel(doc, type_map, included_by)
-        all_docs.append({'name': doc['rel_path'], 'md': md_path, 'desc': format_desc(doc['description'])})
-    except Exception as e:
-        print(f"Error generating {doc['filename']}: {e}")
+def main():
+    parser = argparse.ArgumentParser(description='Generate Markdown documentation from FOnline scripts.')
+    parser.add_argument('--source', '-s', default=r"PReloaded\Server\scripts", help='Source directory containing .fos scripts')
+    parser.add_argument('--dest', '-d', default=r"ai\docs\files", help='Destination directory for generated documentation')
+    
+    args = parser.parse_args()
+    
+    source_dir = os.path.abspath(args.source)
+    dest_dir = os.path.abspath(args.dest)
+    
+    print(f"Source Directory: {source_dir}")
+    print(f"Destination Directory: {dest_dir}")
+    
+    if not os.path.exists(source_dir):
+        print(f"Error: Source directory '{source_dir}' does not exist.")
+        return
 
-# README
-with open(os.path.join(DEST_DIR, "README.md"), 'w', encoding='utf-8') as f:
-    f.write("# Script Documentation\n\n")
-    f.write("| Script | Description |\n")
-    f.write("| :--- | :--- |\n")
-    for item in all_docs:
-        desc = item['desc'].split('\n')[0] if item['desc'] else ""
-        # Link in README is relative to docs-todo root
-        f.write(f"| [{item['name']}]({item['md']}) | {desc} |\n")
+    os.makedirs(dest_dir, exist_ok=True)
 
-print("Documentation generation complete.")
+    all_docs = []
+
+    # Recursive search
+    files = []
+    for root, dirs, files_in_dir in os.walk(source_dir):
+        # Skip docs dirs itself to avoid recursion if run multiple times
+        if "docs" in root:
+            continue
+            
+        for f in files_in_dir:
+            if f.endswith('.fos'):
+                full_path = os.path.join(root, f)
+                rel_path = os.path.relpath(full_path, source_dir)
+                files.append(rel_path)
+
+    files.sort()
+
+    print(f"Found {len(files)} scripts.")
+
+    # First pass: Parse all files and build type map & include graph
+    parsed_docs = []
+    type_map = {}
+    included_by = {} # filename -> list of relative paths that include it
+
+    for rel_path in files:
+        fpath = os.path.join(source_dir, rel_path)
+        try:
+            doc = parse_file(fpath)
+            doc['rel_path'] = rel_path # Store relative path
+            parsed_docs.append(doc)
+            
+            # Register classes as types
+            # We map ClassName -> RelativePath.md
+            # Note: If multiple files define same class, last one wins (AngelScript usually doesn't allow duplicates globally)
+            doc_rel_path = rel_path + ".md"
+            for c in doc['classes']:
+                type_map[c['name']] = doc_rel_path
+            
+            # Build include graph
+            for inc in doc['includes']:
+                inc_name = os.path.basename(inc)
+                if inc_name not in included_by:
+                    included_by[inc_name] = []
+                included_by[inc_name].append(rel_path)
+                
+        except Exception as e:
+            print(f"Error parsing {rel_path}: {e}")
+
+    # Second pass: Generate MD
+    for doc in parsed_docs:
+        try:
+            fname = doc['filename']
+            # Match included_by using filename (heuristic)
+            doc['included_by'] = included_by.get(fname, [])
+            
+            md_path = generate_md_rel(doc, type_map, included_by, dest_dir)
+            all_docs.append({'name': doc['rel_path'], 'md': md_path, 'desc': format_desc(doc['description'])})
+        except Exception as e:
+            print(f"Error generating {doc['filename']}: {e}")
+
+    # README
+    with open(os.path.join(dest_dir, "README.md"), 'w', encoding='utf-8') as f:
+        f.write("# Script Documentation\n\n")
+        f.write("| Script | Description |\n")
+        f.write("| :--- | :--- |\n")
+        for item in all_docs:
+            desc = item['desc'].split('\n')[0] if item['desc'] else ""
+            # Link in README is relative to docs root
+            f.write(f"| [{item['name']}]({item['md']}) | {desc} |\n")
+
+    print("Documentation generation complete.")
+
+if __name__ == '__main__':
+    main()

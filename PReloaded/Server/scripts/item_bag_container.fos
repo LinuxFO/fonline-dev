@@ -10,68 +10,68 @@
 #include "_macros.fos"
 
 #define ID    # (item)      (item.Val4)
-
 import bool LockerClose(Item& item) from "lockers";
-
 ///////////////////
 // This is where container bags properties are assigned
 ///////////////////
 CItemBag@ AddItemBag(uint id)
 {
     CItemBag@ itembag = GetItemBag(id);
-    if(valid(itembag))
+
+    if (valid(itembag))
+    {
         return itembag;
+    }
     @itembag = @CItemBag(id);
 
-    switch(id)
+    switch (id)
     {
-    case 1:
-        // quick, testing bag - spawn rate either 1 or 2 minutes, 2 bags, each with 50% chance. Chance doesn't have to be %, doesn't have to sum up to 100
-        // for example AddBag(10, 1).AddBag(20, 3) is 1:3 ratio for second bag
-        // todo: autolocking
+        case 1:
+            // quick, testing bag - spawn rate either 1 or 2 minutes, 2 bags, each with 50% chance. Chance doesn't have to be %, doesn't have to sum up to 100
+            // for example AddBag(10, 1).AddBag(20, 3) is 1:3 ratio for second bag
+            // todo: autolocking
 
-        // Few caps, fruit / meat, rocks
-        itembag.RateMin(20).RateMax(30).AddBag(440, 50).AddBag(441, 50).AddBag(446, 50);
-        break;
-    case 2:
-        // rocks, knife, knuckles, empty bottle, empty glass
-        itembag.RateMin(20).RateMax(30).AddBag(446, 50).AddBag(453, 50).AddBag(454, 50);
-        break;
-    case 3:
-        // empty jet, empty hypo needle, gunpowder
-        itembag.RateMin(20).RateMax(30).AddBag(457, 50).AddBag(456, 50).AddBag(455, 50);
-        break;
+            // Few caps, fruit / meat, rocks
+            itembag.RateMin(20).RateMax(30).AddBag(440, 50).AddBag(441, 50).AddBag(446, 50);
+            break;
+        case 2:
+            // rocks, knife, knuckles, empty bottle, empty glass
+            itembag.RateMin(20).RateMax(30).AddBag(446, 50).AddBag(453, 50).AddBag(454, 50);
+            break;
+        case 3:
+            // empty jet, empty hypo needle, gunpowder
+            itembag.RateMin(20).RateMax(30).AddBag(457, 50).AddBag(456, 50).AddBag(455, 50);
+            break;
     }
 
     ItemBags.insertLast(itembag);
 
     return itembag;
 }
-
 //////////////////
 // Rest is magic
 //////////////////
-
-
 void item_init(Item& item, bool firstTime)
 {
     // item.SetEvent(ITEM_EVENT_SKILL, "_UseSkill");
     // add itembag
     CItemBag@ itembag = AddItemBag(ID(item));
+
     Log("" + ID(item) + " at " + item.MapId + "," + item.HexX + "," + item.HexY);
     // spawn event
     CreateTimeEvent(AFTER(itembag.GetSpawnTime()), "item_bag_container@e_Spawn", item.Id, false);
 }
-
 uint e_Spawn(array<uint>@ values)
 {
     DLog("Spawning items inside bag container");
     Item@ container = GetItem(values[0]);
-    if(!valid(container) || container.IsNotValid)
+    if (!valid(container) || container.IsNotValid)
+    {
         return 0;                                               // item removed
 
+    }
     CItemBag@ itembag = GetItemBag(ID(container));
-    if(!valid(itembag))
+    if (!valid(itembag))
     {
         Log("Couldn't obtain itembag object");
         return 0;
@@ -81,14 +81,16 @@ uint e_Spawn(array<uint>@ values)
 }
 
 array<CItemBag@> ItemBags;
-
 CItemBag@ GetItemBag(uint id)
 {
     CItemBag@ itembag;
-    for(uint i = 0, j = ItemBags.length(); i < j; i++)
+
+    for (uint i = 0, j = ItemBags.length(); i < j; i++)
     {
-        if(ItemBags[i].id == id)
+        if (ItemBags[i].id == id)
+        {
             return ItemBags[i];
+        }
     }
     return null;
 }
@@ -98,16 +100,16 @@ class CItemBag
     uint id;
 
     // spawn rate, ingame minutes
-    uint        ratemin;
-    uint        ratemax;
+    uint ratemin;
+    uint ratemax;
 
-    uint        lockermin;
-    uint        lockermax;
+    uint lockermin;
+    uint lockermax;
 
     array<uint> bags;
     array<uint> chances;
 
-    uint        totalChance;
+    uint totalChance;
 
     CItemBag(uint id)
     {
@@ -123,7 +125,6 @@ class CItemBag
         lockermax = 0;
         totalChance = 0;
     }
-
     //
     // Sets spawn rate, minimum time
     //
@@ -176,17 +177,19 @@ class CItemBag
     void Spawn(Item& cont)
     {
         array<Item@> items;
-        if(cont.GetItems(0, items) > 0)         // only if it's empty
+        if (cont.GetItems(0, items) > 0)         // only if it's empty
+        {
             return;
+        }
         uint r = Random(0, totalChance);
         uint bagIdx = 0;
 
         // get random bag
-        if(chances.length() > 1)
+        if (chances.length() > 1)
         {
-            for(uint i = 0, j = chances.length(); i < j; i++)
+            for (uint i = 0, j = chances.length(); i < j; i++)
             {
-                if(r < chances[i])
+                if (r < chances[i])
                 {
                     bagIdx = i;
                     DLog("Chosen bag: " + bags[bagIdx]);
@@ -196,7 +199,7 @@ class CItemBag
         }
         SpawnItems(cont, bags[bagIdx]);
 
-        if(lockermin != 0)
+        if (lockermin != 0)
         {
             LockerClose(cont);
             cont.LockerId = Random(0, 0x7FFFFFFF);
@@ -214,11 +217,11 @@ class CItemBag
         array<uint>   maxCounts;
         array<int>    slots;
 
-        uint          num = GetBagItems(bagId, pids, minCounts, maxCounts, slots);
+        uint num = GetBagItems(bagId, pids, minCounts, maxCounts, slots);
 
-        for(uint i = 0; i < num; i++)
+        for (uint i = 0; i < num; i++)
         {
-            if(slots[i] == SLOT_INV)
+            if (slots[i] == SLOT_INV)
             {
                 Item@ it = cont.AddItem(pids[i], Random(minCounts[i], maxCounts[i]), 0);
             }

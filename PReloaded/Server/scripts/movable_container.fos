@@ -8,25 +8,25 @@
 #include "_macros.fos"
 #include "utils_h.fos"
 #include "MsgStr.h"
-
 import bool ReverseItem(Critter& cr, Item& item) from "fix_boy";
-
 void TryPickupContainer(Critter& cr, Item& locker)
 {
-    if(locker.GetType() == ITEM_TYPE_CONTAINER && locker.GetProtoId() >= 650 && locker.GetProtoId() < 700)
+    if (locker.GetType() == ITEM_TYPE_CONTAINER && locker.GetProtoId() >= 650 && locker.GetProtoId() < 700)
     {
-        if(locker.Accessory != ACCESSORY_CRITTER)
+        if (locker.Accessory != ACCESSORY_CRITTER)
         {
-            array<Item@> items;
-            if(locker.GetItems(0, items) == 0)
+            array < Item@ > items;
+            if (locker.GetItems(0, items) == 0)
             {
                 int freeWeight = cr.Stat[ST_CARRY_WEIGHT] - cr.ItemsWeight();
-                if(freeWeight >= int(locker.Proto.Weight) || cr.ItemsWeight() == 0)
+                if (freeWeight >= int(locker.Proto.Weight) || cr.ItemsWeight() == 0)
                 {
                     MoveItem(locker, 1, cr);
                 }
                 else
+                {
                     cr.SayMsg(SAY_NETMSG, TEXTMSG_GAME, STR_OVERWEIGHT);
+                }
             }
         }
         else
@@ -35,21 +35,24 @@ void TryPickupContainer(Critter& cr, Item& locker)
         }
     }
 }
-
 void TryRotateContainer(Critter& cr, Item& locker)
 {
-    if(locker.GetType() == ITEM_TYPE_CONTAINER && locker.GetProtoId() >= 650 && locker.GetProtoId() < 700)
+    if (locker.GetType() == ITEM_TYPE_CONTAINER && locker.GetProtoId() >= 650 && locker.GetProtoId() < 700)
     {
-        array<Item@> items;
-        if(locker.GetItems(0, items) == 0)
+        array < Item@ > items;
+        if (locker.GetItems(0, items) == 0)
         {
             int pid = locker.GetProtoId();
-            if(pid % 2 == 0)
+            if (pid % 2 == 0)
+            {
                 pid += 1;
+            }
             else
+            {
                 pid -= 1;
+            }
             ProtoItem@ proto = GetProtoItem(pid);
-            if(valid(proto))
+            if (valid(proto))
             {
                 locker.ChangeProto(pid);
             }

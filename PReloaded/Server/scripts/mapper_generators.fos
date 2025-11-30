@@ -78,10 +78,9 @@ class Queue
         @head = null;
         @tail = null;
     }
-
     void Push(uint x, uint y)
     {
-        if(!valid(head))
+        if (!valid(head))
         {
             @head = Node(x, y);
             @tail = head;
@@ -92,32 +91,32 @@ class Queue
             @tail = tail.next;
         }
     }
-
     bool Empty()
     {
         return(!valid(head));
     }
-
     void Top(uint& x, uint& y)
     {
         x = head.x;
         y = head.y;
     }
-
     void Pop(uint& x, uint& y)
     {
         x = head.x;
         y = head.y;
         @head = head.next;
-        if(!valid(head))
+        if (!valid(head))
+        {
             @tail = null;
+        }
     }
-
     void Pop()
     {
         @head = head.next;
-        if(!valid(head))
+        if (!valid(head))
+        {
             @tail = null;
+        }
     }
 };
 
@@ -138,9 +137,14 @@ class Room
         Y2 = y2;
         Num = num;
     }
-
-    uint RX() { return (X1 + X2) / 2; }
-    uint RY() { return (Y1 + Y2) / 2; }
+    uint RX()
+    {
+        return (X1 + X2) / 2;
+    }
+    uint RY()
+    {
+        return (Y1 + Y2) / 2;
+    }
 };
 
 class Edge
@@ -173,8 +177,8 @@ class GeneratorContext
     uint                 MaxX;
     uint                 MaxY;
     uint                 RoomsCount;
-    #define TAB1    # (_x, _y)tab1[(_y) * MaxX + (_x)]
-    #define TAB2    # (_x, _y)tab2[(_y) * MaxX + (_x)]
+    #define TAB1    # (_x, _y) tab1[(_y) * MaxX + (_x)]
+    #define TAB2    # (_x, _y) tab2[(_y) * MaxX + (_x)]
 
     GeneratorContext(uint max_x, uint max_y, uint min_x, uint min_y, uint path_size)
     {
@@ -187,52 +191,55 @@ class GeneratorContext
         @tab1 = @array<int>(MaxX * MaxY, 0);
         @q = Queue();
     }
-
     void LineH(uint x, uint y, uint len)
     {
-        for(uint end = x + len; x < end; x++)
+        for (uint end = x + len; x < end; x++)
         {
             TAB1(x, y) = TILE_WALL;
             q.Push(x, y);
         }
     }
-
     void LineV(uint x, uint y, uint len)
     {
-        for(uint end = y + len; y < end; y++)
+        for (uint end = y + len; y < end; y++)
         {
             TAB1(x, y) = TILE_WALL;
             q.Push(x, y);
         }
     }
-
     void SubDivide(uint x1, uint y1, uint x2, uint y2)
     {
-        if(x2 - x1 < minRoomX || y2 - y1 < minRoomY)
+        if (x2 - x1 < minRoomX || y2 - y1 < minRoomY)
         {
             MakeRoom(x1, y1, x2, y2);
             return;
         }
         bool horizontal = false;
-        if(x2 - x1 < 2 * minRoomX)
+        if (x2 - x1 < 2 * minRoomX)
         {
-            if(y2 - y1 < 2 * minRoomY)
+            if (y2 - y1 < 2 * minRoomY)
             {
                 MakeRoom(x1, y1, x2, y2);
                 return;
             }
             else
+            {
                 horizontal = true;
+            }
         }
         else
         {
-            if(y2 - y1 < 2 * minRoomY)
+            if (y2 - y1 < 2 * minRoomY)
+            {
                 horizontal = false;
+            }
             else
+            {
                 horizontal = Random(1, x2 + y2 - x1 - y1) <= int(y2 - y1);
+            }
         }
 
-        if(horizontal)
+        if (horizontal)
         {
             uint sy = Random(y1 + minRoomY, y2 - minRoomY);
             LineH(x1, sy, x2 - x1 + 1);
@@ -247,36 +254,31 @@ class GeneratorContext
             SubDivide(sx + 1, y1, x2, y2);
         }
     }
-
     void MakeRoom(uint x1, uint y1, uint x2, uint y2)
     {
-        for(uint i = x1; i <= x2; i++)
+        for (uint i = x1; i <= x2; i++)
         {
             TAB1(i, y1) = RoomsCount;
             TAB1(i, y2) = RoomsCount;
         }
-        for(uint i = y1; i <= y2; i++)
+        for (uint i = y1; i <= y2; i++)
         {
             TAB1(x1, i) = RoomsCount;
             TAB1(x2, i) = RoomsCount;
         }
         Rooms.insertLast(@Room(x1, y1, x2, y2, RoomsCount++));
     }
-
-
     private bool isHorizontalBlocker(uint x, uint y)
     {
         return safe(x - 1, y) && safe(x + 1, y) && TAB1(x - 1, y) != TILE_WALL && TAB1(x + 1, y) != TILE_WALL;
     }
-
     private bool isVerticalBlocker(uint x, uint y)
     {
         return safe(x, y - 1) && safe(x, y + 1) && TAB1(x, y - 1) != TILE_WALL && TAB1(x, y + 1) != TILE_WALL;
     }
-
     private void makeHorizontalBlocker(uint x, uint y)
     {
-        if(!valid(edges[TAB1(x - 1, y) * RoomsCount + TAB1(x + 1, y)]))
+        if (!valid(edges[TAB1(x - 1, y) * RoomsCount + TAB1(x + 1, y)]))
         {
             Rooms[TAB1(x - 1, y)].Neighbours.insertLast(TAB1(x + 1, y));
             Rooms[TAB1(x + 1, y)].Neighbours.insertLast(TAB1(x - 1, y));
@@ -289,10 +291,9 @@ class GeneratorContext
         edge.Xs.insertLast(x);
         edge.Ys.insertLast(y);
     }
-
     private void makeVerticalBlocker(uint x, uint y)
     {
-        if(!valid(edges[TAB1(x, y - 1) * RoomsCount + TAB1(x, y + 1)]))
+        if (!valid(edges[TAB1(x, y - 1) * RoomsCount + TAB1(x, y + 1)]))
         {
             Rooms[TAB1(x, y - 1)].Neighbours.insertLast(TAB1(x, y + 1));
             Rooms[TAB1(x, y + 1)].Neighbours.insertLast(TAB1(x, y - 1));
@@ -305,30 +306,34 @@ class GeneratorContext
         edge.Xs.insertLast(x);
         edge.Ys.insertLast(y);
     }
-
     void FindEdges()
     {
         edges.resize(RoomsCount * RoomsCount);
-        for(uint i = 0; i < RoomsCount * RoomsCount; i++)
+        for (uint i = 0; i < RoomsCount * RoomsCount; i++)
+        {
             @edges[i] = null;
-        while(!q.Empty())
+        }
+        while (!q.Empty())
         {
             uint x = 0;
             uint y = 0;
             q.Pop(x, y);
             // sides
-            if(isHorizontalBlocker(x, y))
+            if (isHorizontalBlocker(x, y))
+            {
                 makeHorizontalBlocker(x, y);
-            if(isVerticalBlocker(x, y))
+            }
+            if (isVerticalBlocker(x, y))
+            {
                 makeVerticalBlocker(x, y);
+            }
         }
     }
-
     void BuildTree()
     {
         array<uint> tree;
         tree.insertLast(Random(0, RoomsCount - 1));
-        while(tree.length() != RoomsCount)
+        while (tree.length() != RoomsCount)
         {
             uint end = Random(0, tree.length() - 1);
             uint i = (end + 1) % tree.length();
@@ -336,14 +341,16 @@ class GeneratorContext
             {
                 Room@ room = Rooms[tree[i]];
                 bool  found = false;
-                for(uint j = 0; j < room.Neighbours.length(); j++)
+                for (uint j = 0; j < room.Neighbours.length(); j++)
                 {
-                    if(tree.find(room.Neighbours[j]) >= 0)
+                    if (tree.find(room.Neighbours[j]) >= 0)
+                    {
                         continue;
+                    }
                     tree.insertLast(room.Neighbours[j]);
                     found = true;
                     spanningEdges.insertLast(getEdge(room.Num, room.Neighbours[j]));
-                    if(!setEdgeType(room.Num, room.Neighbours[j], EDGE_WALK))
+                    if (!setEdgeType(room.Num, room.Neighbours[j], EDGE_WALK))
                     {
                         // Message("no edge for "+room.Num+","+room.Neighbours[j]);
                     }
@@ -351,17 +358,18 @@ class GeneratorContext
                 i++;
                 i %= tree.length();
             }
-            while(i != end);
+            while (i != end);
         }
     }
-
     void MakeShootableEdges()
     {
         uint j = shootableEdges.length();
-        for(uint i = 0; i < j;)
+        for (uint i = 0; i < j;)
         {
-            if(shootableEdges[i].Type == EDGE_WALK || rollNoShootEdge())
+            if (shootableEdges[i].Type == EDGE_WALK || rollNoShootEdge())
+            {
                 @shootableEdges[i] = shootableEdges[--j];
+            }
             else
             {
                 shootableEdges[i].Type = EDGE_SHOOT;
@@ -370,56 +378,62 @@ class GeneratorContext
         }
         shootableEdges.resize(j);
     }
-
     bool rollNoShootEdge()
     {
         return Random(0, 2) != 0;
     }
-
     void ProcessWalls()
     {
         // spanningEdges - delete
         // shootableEdges - make shootable
 
         // spanning
-        for(uint i = 0, j = spanningEdges.length(); i < j; i++)
+        for (uint i = 0, j = spanningEdges.length(); i < j; i++)
         {
             Edge@ edge = spanningEdges[i];
-            if(edge.Xs.length() < pathSize)
+            if (edge.Xs.length() < pathSize)
             {
-                for(uint k = 0; k < edge.Xs.length(); k++)
+                for (uint k = 0; k < edge.Xs.length(); k++)
+                {
                     TAB1(edge.Xs[k], edge.Ys[k]) = TILE_DELETED;
+                }
                 continue;
             }
             bool horizontal = edge.Ys[0] == edge.Ys[1];
-            if(horizontal)
+            if (horizontal)
             {
                 uint localY = edge.Ys[0];
                 uint minX = edge.Xs[0];
                 uint maxX = edge.Xs[0];
                 uint len = edge.Xs.length();
-                for(uint k = 1; k < len; k++)
+                for (uint k = 1; k < len; k++)
                 {
-                    if(edge.Xs[k] < minX)
+                    if (edge.Xs[k] < minX)
+                    {
                         minX = edge.Xs[k];
-                    if(edge.Xs[k] > maxX)
+                    }
+                    if (edge.Xs[k] > maxX)
+                    {
                         maxX = edge.Xs[k];
+                    }
                 }
                 uint pathStart = Random(minX, maxX - pathSize + 1);
                 uint k = minX;
-                while(k + 2 < pathStart)
+                while (k + 2 < pathStart)
+                {
                     k++;
-                while(k < pathStart)
+                }
+                while (k < pathStart)
                 {
                     TAB1(k, localY) = TILE_SHOOTABLE;
                     k++;
                 }
-                while(k < pathStart + pathSize)
+                while (k < pathStart + pathSize)
                 {
                     TAB1(k, localY) = TILE_DELETED;
                     k++;
                 }
-                while(k < pathStart + pathSize + 2 && k <= maxX)
+                while (k < pathStart + pathSize + 2 && k <= maxX)
                 {
                     TAB1(k, localY) = TILE_SHOOTABLE;
                     k++;
@@ -431,28 +445,34 @@ class GeneratorContext
                 uint minY = edge.Ys[0];
                 uint maxY = edge.Ys[0];
                 uint len = edge.Ys.length();
-                for(uint k = 1; k < len; k++)
+                for (uint k = 1; k < len; k++)
                 {
-                    if(edge.Ys[k] < minY)
+                    if (edge.Ys[k] < minY)
+                    {
                         minY = edge.Ys[k];
-                    if(edge.Ys[k] > maxY)
+                    }
+                    if (edge.Ys[k] > maxY)
+                    {
                         maxY = edge.Ys[k];
+                    }
                 }
                 uint pathStart = Random(minY, maxY - pathSize + 1);
                 uint k = minY;
-                while(k + 2 < pathStart)
+                while (k + 2 < pathStart)
+                {
                     k++;
-                while(k < pathStart)
+                }
+                while (k < pathStart)
                 {
                     TAB1(localX, k) = TILE_SHOOTABLE;
                     k++;
                 }
-                while(k < pathStart + pathSize)
+                while (k < pathStart + pathSize)
                 {
                     TAB1(localX, k) = TILE_DELETED;
                     k++;
                 }
-                while(k < pathStart + pathSize + 2 && k <= maxY)
+                while (k < pathStart + pathSize + 2 && k <= maxY)
                 {
                     TAB1(localX, k) = TILE_SHOOTABLE;
                     k++;
@@ -461,32 +481,40 @@ class GeneratorContext
         }
 
         // shootable
-        for(uint i = 0, j = shootableEdges.length(); i < j; i++)
+        for (uint i = 0, j = shootableEdges.length(); i < j; i++)
         {
             Edge@ edge = shootableEdges[i];
-            if(edge.Xs.length() < pathSize)
+            if (edge.Xs.length() < pathSize)
             {
-                for(uint k = 0; k < edge.Xs.length(); k++)
+                for (uint k = 0; k < edge.Xs.length(); k++)
+                {
                     TAB1(edge.Xs[k], edge.Ys[k]) = TILE_SHOOTABLE;
+                }
                 continue;
             }
             bool horizontal = edge.Ys[0] == edge.Ys[1];
-            if(horizontal)
+            if (horizontal)
             {
                 uint localY = edge.Ys[0];
                 uint minX = edge.Xs[0];
                 uint maxX = edge.Xs[0];
                 uint len = edge.Xs.length();
-                for(uint k = 1; k < len; k++)
+                for (uint k = 1; k < len; k++)
                 {
-                    if(edge.Xs[k] < minX)
+                    if (edge.Xs[k] < minX)
+                    {
                         minX = edge.Xs[k];
-                    if(edge.Xs[k] > maxX)
+                    }
+                    if (edge.Xs[k] > maxX)
+                    {
                         maxX = edge.Xs[k];
+                    }
                 }
                 uint pathStart = Random(minX, maxX - pathSize + 1);
-                for(uint k = pathStart; k < pathStart + pathSize; k++)
+                for (uint k = pathStart; k < pathStart + pathSize; k++)
+                {
                     TAB1(k, localY) = TILE_SHOOTABLE;
+                }
             }
             else             // vertical
             {
@@ -494,59 +522,67 @@ class GeneratorContext
                 uint minY = edge.Ys[0];
                 uint maxY = edge.Ys[0];
                 uint len = edge.Ys.length();
-                for(uint k = 1; k < len; k++)
+                for (uint k = 1; k < len; k++)
                 {
-                    if(edge.Ys[k] < minY)
+                    if (edge.Ys[k] < minY)
+                    {
                         minY = edge.Ys[k];
-                    if(edge.Ys[k] > maxY)
+                    }
+                    if (edge.Ys[k] > maxY)
+                    {
                         maxY = edge.Ys[k];
+                    }
                 }
                 uint pathStart = Random(minY, maxY - pathSize + 1);
-                for(uint k = pathStart; k < pathStart + pathSize; k++)
+                for (uint k = pathStart; k < pathStart + pathSize; k++)
+                {
                     TAB1(localX, k) = TILE_SHOOTABLE;
+                }
             }
         }
     }
-
     private bool safe(uint x, uint y)
     {
         return x < MaxX && y < MaxY;
     }
-
     private Edge@ getEdge(uint r1, uint r2)
     {
         return edges[r1 * RoomsCount + r2];
     }
-
     private int edgeType(uint r1, uint r2)
     {
         Edge@ edge = edges[r1 * RoomsCount + r2];
-        if(!valid(edge))
+        if (!valid(edge))
+        {
             return -1;
+        }
         return edge.Type;
     }
-
     private uint edgeSize(uint r1, uint r2)
     {
         Edge@ edge = edges[r1 * RoomsCount + r2];
-        if(!valid(edge))
+        if (!valid(edge))
+        {
             return 0;
+        }
         return edge.Xs.length();
     }
-
     private bool setEdgeType(uint r1, uint r2, uint type)
     {
         Edge@ edge = edges[r1 * RoomsCount + r2];
-        if(!valid(edge))
+        if (!valid(edge))
+        {
             return false;
+        }
         edge.Type = type;
         return true;
     }
-
     void Generate()
     {
-        for(uint i = 0, j = MaxX * MaxY; i < j; i++)
+        for (uint i = 0, j = MaxX * MaxY; i < j; i++)
+        {
             tab1[i] = TILE_UNINIT;
+        }
         SubDivide(0, 0, MaxX - 1, MaxY - 1);
         FindEdges();
         BuildTree();
@@ -555,108 +591,151 @@ class GeneratorContext
         Cleanup();
         Recognize();
     }
-
     void Cleanup()
     {
-        for(uint16 y = 0; y < MaxY; y++)
-            for(uint16 x = 0; x < MaxX; x++)
+        for (uint16 y = 0; y < MaxY; y++)
+        {
+            for (uint16 x = 0; x < MaxX; x++)
             {
-                switch(TAB1(x, y))
+                switch (TAB1(x, y))
                 {
-                case TILE_WALL:
-                case TILE_SHOOTABLE:
-                    continue;
-                default:
-                    TAB1(x, y) = 0;
+                    case TILE_WALL:
+                    case TILE_SHOOTABLE:
+                        continue;
+                    default:
+                        TAB1(x, y) = 0;
                 }
             }
+        }
     }
-
     void Recognize()
     {
         @tab2 = @array<int>(MaxX * MaxY, 0);
 
         // step 1 - the frame
-        for(uint i = 0; i < MaxX; i++)
+        for (uint i = 0; i < MaxX; i++)
         {
-            if(TAB1(i, 0) == TILE_WALL)
+            if (TAB1(i, 0) == TILE_WALL)
+            {
                 TAB2(i, 0) = WALL_V;
-            else if(TAB1(i, 0) == TILE_SHOOTABLE)
+            }
+            else if (TAB1(i, 0) == TILE_SHOOTABLE)
+            {
                 TAB2(i, 0) = WALL_V | B_FLAG_SMALL;
+            }
 
-            if(TAB1(i, MaxY - 1) == TILE_WALL)
+            if (TAB1(i, MaxY - 1) == TILE_WALL)
+            {
                 TAB2(i, MaxY - 1) = WALL_V;
-            else if(TAB1(i, MaxY - 1) == TILE_SHOOTABLE)
+            }
+            else if (TAB1(i, MaxY - 1) == TILE_SHOOTABLE)
+            {
                 TAB2(i, MaxY - 1) = WALL_V | B_FLAG_SMALL;
+            }
         }
-        for(uint i = 0; i < MaxY; i++)
+        for (uint i = 0; i < MaxY; i++)
         {
-            if(TAB1(0, i) == TILE_WALL)
+            if (TAB1(0, i) == TILE_WALL)
+            {
                 TAB2(0, i) = WALL_H;
-            else if(TAB1(0, i) == TILE_SHOOTABLE)
+            }
+            else if (TAB1(0, i) == TILE_SHOOTABLE)
+            {
                 TAB2(0, i) = WALL_H | B_FLAG_SMALL;
+            }
 
-            if(TAB1(MaxX - 1, i) == TILE_WALL)
+            if (TAB1(MaxX - 1, i) == TILE_WALL)
+            {
                 TAB2(MaxX - 1, i) = WALL_H;
-            else if(TAB1(MaxX - 1, i) == TILE_SHOOTABLE)
+            }
+            else if (TAB1(MaxX - 1, i) == TILE_SHOOTABLE)
+            {
                 TAB2(MaxX - 1, i) = WALL_H | B_FLAG_SMALL;
+            }
         }
         // step 2 - inside, remember that the map is inverted along the y axis
-        for(uint y = 1; y < MaxY - 1; y++)
-            for(uint x = 1; x < MaxX - 1; x++)
+        for (uint y = 1; y < MaxY - 1; y++)
+        {
+            for (uint x = 1; x < MaxX - 1; x++)
             {
-                if(TAB1(x, y) == 0)
+                if (TAB1(x, y) == 0)
+                {
                     continue;
+                }
                 int idx = 0;
-                if(FLAG(TAB1(x, y - 1), TILE_WALL))
+                if (FLAG(TAB1(x, y - 1), TILE_WALL))
+                {
                     idx += 1;                                   // up
-                if(FLAG(TAB1(x, y + 1), TILE_WALL))
+                }
+                if (FLAG(TAB1(x, y + 1), TILE_WALL))
+                {
                     idx += 2;                                   // down
-                if(FLAG(TAB1(x + 1, y), TILE_WALL))
+                }
+                if (FLAG(TAB1(x + 1, y), TILE_WALL))
+                {
                     idx += 4;                                   // left, inverted
-                if(FLAG(TAB1(x - 1, y), TILE_WALL))
+                }
+                if (FLAG(TAB1(x - 1, y), TILE_WALL))
+                {
                     idx += 8;                                   // right, inverted
+                }
                 TAB2(x, y) = Walls[idx];
-                if(TAB1(x, y) == TILE_SHOOTABLE)
+                if (TAB1(x, y) == TILE_SHOOTABLE)
+                {
                     TAB2(x, y) |= B_FLAG_SMALL;
+                }
             }
+        }
     }
-
     void Spawn(MapperMap@ map, uint16 hx, uint16 hy)
     {
-        for(uint16 y = 0; y < MaxY; y++)
-            for(uint16 x = 0; x < MaxX; x++)
+        for (uint16 y = 0; y < MaxY; y++)
+        {
+            for (uint16 x = 0; x < MaxX; x++)
             {
                 uint hex = TAB2(x, y);
-                if(hex == 0)
+                if (hex == 0)
+                {
                     continue;
+                }
                 uint tx = hx + 2 * x;
                 uint ty = hy + 2 * y;
                 uint pid = FLAG(hex, B_FLAG_SMALL) ? PID_SHOOTABLE : PID_WALL;
-                if(FLAG(hex, B_LEFT))
+                if (FLAG(hex, B_LEFT))
+                {
                     map.AddObject(tx + 1, ty, MAP_OBJECT_ITEM, pid);
-                if(FLAG(hex, B_TOP))
+                }
+                if (FLAG(hex, B_TOP))
+                {
                     map.AddObject(tx, ty, MAP_OBJECT_ITEM, pid);
-                if(FLAG(hex, B_BOTTOM))
+                }
+                if (FLAG(hex, B_BOTTOM))
+                {
                     map.AddObject(tx, ty + 1, MAP_OBJECT_ITEM, pid);
+                }
             }
+        }
     }
-
     void Render()
     {
-        for(uint y = 0; y < MaxY; y++)
-            for(uint x = 0; x < MaxX; x++)
+        for (uint y = 0; y < MaxY; y++)
+        {
+            for (uint x = 0; x < MaxX; x++)
             {
-                if(TAB1(MaxX - x - 1, y) != TILE_WALL && TAB1(MaxX - x - 1, y) != TILE_SHOOTABLE)
+                if (TAB1(MaxX - x - 1, y) != TILE_WALL && TAB1(MaxX - x - 1, y) != TILE_SHOOTABLE)
                 {
                     // DrawText(""+TAB1(x,y), 100+x*8, 10+y*8, 10, 10, COLOR_BLUE, FONT_TYPE_DEFAULT, 0);
                     continue;
                 }
                 int color = int(COLOR_RED);
-                if(TAB1(MaxX - x - 1, y) == TILE_SHOOTABLE)
+                if (TAB1(MaxX - x - 1, y) == TILE_SHOOTABLE)
+                {
                     color = COLOR_RGBA(0x40, 0, 0, 0x20);
-                else if(TAB1(MaxX - x - 1, y) == TILE_DELETED)
+                }
+                else if (TAB1(MaxX - x - 1, y) == TILE_DELETED)
+                {
                     color = COLOR_RGBA(0x60, 0x60, 0x80, 0x20);
+                }
                 array<int> data;
                 data.resize(12);
                 data[0] = 100 + x * 8;
@@ -693,6 +772,7 @@ class GeneratorContext
                 // DrawText(""+TAB1(MaxX-x-1,y), 100+x*8, 100+y*8, 10, 10, COLOR_BLUE, FONT_TYPE_DEFAULT, 0);
 
             }
+        }
         /*for (uint i = 0; i < this.Rooms.length(); i++)
            {
                 Room@ room=this.Rooms[i];
@@ -745,23 +825,24 @@ class GeneratorContext
            }*/
     }
 };
-
 import MapperMap@ GetActiveMap() from "mapper_main";
-
 void test_generators()
 {
     @ctx = GeneratorContext(40, 40, 4, 4, 3);
     ctx.Generate();
     MapperMap@ map = GetActiveMap();
-    if(valid(map))
+    if (valid(map))
+    {
         ctx.Spawn(map, SX, SY);
+    }
     Message("success, found " + ctx.Rooms.length() + " rooms");
 }
 
 GeneratorContext@ ctx = null;
-
 void RenderGen()
 {
-    if(valid(ctx))
+    if (valid(ctx))
+    {
         ctx.Render();
+    }
 }

@@ -17,12 +17,11 @@
 #include "_animation.fos"
 #include "_math.fos"
 #include "ITEMPID.H"
-
-
 void SetItemAttribute(Item& item, int attribute)   // Export
 {
     uint16 pid = item.GetProtoId();
-    if(pid == PID_MOTORCYCLE_HELMET)
+
+    if (pid == PID_MOTORCYCLE_HELMET)
     {
         // Inventory lst numbers 417..429
         attribute = CLAMP(attribute, ATTRIBUTE_Head_Motorcycle_White, ATTRIBUTE_Head_Motorcycle_Skull);
@@ -31,22 +30,24 @@ void SetItemAttribute(Item& item, int attribute)   // Export
         item.Update();
     }
 }
-
 void SetSuitNumber(Item& suit, int number)   // Export
 {
     uint16 pid = suit.GetProtoId();
-    if(pid == PID_TIBBETS_PRISON)
+
+    if (pid == PID_TIBBETS_PRISON)
     {
         // Valid numbers 1..24
         number = CLAMP(number, 1, 24);
         suit.Val7 = number;
         suit.Update();
     }
-    else if(pid == PID_VAULT_SUIT)
+    else if (pid == PID_VAULT_SUIT)
     {
         // Valid numbers 13, 26, 29
-        if(number != 13 && number != 26 && number != 29)
+        if (number != 13 && number != 26 && number != 29)
+        {
             number = 13;
+        }
         suit.Val7 = number;
         suit.Update();
     }

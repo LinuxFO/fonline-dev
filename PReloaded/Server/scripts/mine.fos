@@ -14,10 +14,7 @@
 #include "npc_roles_h.fos"
 #include "production_h.fos"
 #include "utils_h.fos"
-
-
-import void SetAmountOfResources(array<Item@>&, int value) from "production";
-
+import void SetAmountOfResources(array < Item@ > &, int value) from "production";
 uint r_CheckCanBuy(Critter& player, Critter@ npc)
 {
 /*
@@ -27,10 +24,9 @@ uint r_CheckCanBuy(Critter& player, Critter@ npc)
         return FORCE_DIALOG_MINE_CAN_BUY;
 
     return FORCE_DIALOG_MINE_ALREADY_HAS_MINE;
-	*/
-	return FORCE_DIALOG_MINE_CAN_BUY;
+ */
+    return FORCE_DIALOG_MINE_CAN_BUY;
 }
-
 bool d_CanAfford(Critter& player, Critter@ npc)
 {
     return(player.CountItem(PID_BOTTLE_CAPS) >= MINE_COST);
@@ -40,7 +36,6 @@ void createmine(Critter& cr, int, int, int)
     cr.AddItem(PID_BOTTLE_CAPS, MINE_COST);
     r_PurchaseMine(cr, null);
 }
-
 void r_PurchaseMine(Critter& player, Critter@ npc)
 {
 }

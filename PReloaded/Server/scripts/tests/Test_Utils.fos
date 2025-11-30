@@ -1,0 +1,81 @@
+//
+// FOnline: Reloaded
+//
+// Test_Utils.fos
+//
+// Unit tests for utility functions
+//
+
+#include "TestRunner.fos"
+#include "utils_h.fos"
+
+// Test to verify SkillName function returns correct names
+class Test_SkillName: ITest
+{
+    string@ GetName()
+    {
+        return "Test_SkillName";
+    }
+    void Run(TestRunner@ runner)
+    {
+        // Test small guns skill
+        runner.AssertEquals(SkillName(SK_SMALL_GUNS), "Small Guns", "SK_SMALL_GUNS should return 'Small Guns'");
+
+        // Test big guns skill
+        runner.AssertEquals(SkillName(SK_BIG_GUNS), "Big Guns", "SK_BIG_GUNS should return 'Big Guns'");
+
+        // Test energy weapons
+        runner.AssertEquals(SkillName(SK_ENERGY_WEAPONS), "Energy Weapons", "SK_ENERGY_WEAPONS should return 'Energy Weapons'");
+
+        // Test first aid
+        runner.AssertEquals(SkillName(SK_FIRST_AID), "First Aid", "SK_FIRST_AID should return 'First Aid'");
+
+        // Test invalid skill number (should return empty string)
+        runner.AssertEquals(SkillName(255), "", "Invalid skill should return empty string");
+    }
+}
+
+// Test to verify GetAuthString function returns correct access level names
+class Test_GetAuthString: ITest
+{
+    string@ GetName()
+    {
+        return "Test_GetAuthString";
+    }
+    void Run(TestRunner@ runner)
+    {
+        // Test client access level
+        runner.AssertEquals(GetAuthString(ACCESS_CLIENT), "Client", "ACCESS_CLIENT should return 'Client'");
+
+        // Test tester access level
+        runner.AssertEquals(GetAuthString(ACCESS_TESTER), "Tester", "ACCESS_TESTER should return 'Tester'");
+
+        // Test GM access level
+        runner.AssertEquals(GetAuthString(ACCESS_MODER), "GM", "ACCESS_MODER should return 'GM'");
+
+        // Test admin access level
+        runner.AssertEquals(GetAuthString(ACCESS_ADMIN), "Admin", "ACCESS_ADMIN should return 'Admin'");
+
+        // Test unknown access level
+        runner.AssertEquals(GetAuthString(9999), "Unknown", "Unknown access level should return 'Unknown'");
+    }
+}
+// Main function to run all tests
+void RunAllTests()
+{
+    TestRunner@ runner = TestRunner();
+
+    // Add tests
+    Test_SkillName@ test1 = Test_SkillName();
+
+    runner.AddTest(test1);
+
+    Test_GetAuthString@ test2 = Test_GetAuthString();
+    runner.AddTest(test2);
+
+    // Run all tests
+    runner.RunAll();
+
+    // Log results
+    runner.LogResults();
+}

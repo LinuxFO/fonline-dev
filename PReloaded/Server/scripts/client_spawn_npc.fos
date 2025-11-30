@@ -17,20 +17,20 @@
 //
 // Spawns critter with given params
 //
-class CSpawnNpcOKButton : CSmallButton
+class CSpawnNpcOKButton: CSmallButton
 {
     // critter params
-    uint             pid;
-    uint16           hexX;
-    uint16           hexY;
-    uint8            dir;
-    uint             dialog;
-    string           script;
-    uint             ai;
-    uint             bag;
-    uint             team;
-    uint             mob;
-    uint             level;
+    uint   pid;
+    uint16 hexX;
+    uint16 hexY;
+    uint8  dir;
+    uint   dialog;
+    string script;
+    uint   ai;
+    uint   bag;
+    uint   team;
+    uint   mob;
+    uint   level;
 
     CSpawnNpcWindow@ window;
     CSpawnNpcOKButton(int left, int top, CSpawnNpcWindow@ window)
@@ -38,7 +38,6 @@ class CSpawnNpcOKButton : CSmallButton
         super(left, top);
         @this.window = @window;
     }
-
     // sets params for critter to be spawned
     void SetParams(uint pid, uint16 hexX, uint16 hexY, uint8 dir, uint dialog, string script, uint ai, uint bag, uint team, uint mob, uint level)
     {
@@ -66,7 +65,7 @@ class CSpawnNpcOKButton : CSmallButton
 //
 // Closes window
 //
-class CSpawnNpcCancelButton : CSmallButton
+class CSpawnNpcCancelButton: CSmallButton
 {
     CSpawnNpcWindow@ window;
     CSpawnNpcCancelButton(int left, int top, CSpawnNpcWindow@ window)
@@ -74,11 +73,13 @@ class CSpawnNpcCancelButton : CSmallButton
         super(left, top);
         @this.window = @window;
     }
-
-    void Click() { window.HideWindow(); }
+    void Click()
+    {
+        window.HideWindow();
+    }
 };
 
-class CSpawnNpcList : CListBox
+class CSpawnNpcList: CListBox
 {
     CSpawnNpcWindow@ window;
 
@@ -88,7 +89,6 @@ class CSpawnNpcList : CListBox
         // Message("Text height: " + textHeight);
         @this.window = window;
     }
-
     void Click()
     {
         CListBox::Click();
@@ -100,7 +100,7 @@ class CSpawnNpcList : CListBox
 //
 // List scrolling
 //
-class CSpawnNpcScrollDown : CSmallArrowDown
+class CSpawnNpcScrollDown: CSmallArrowDown
 {
     CListBox@ list;
 
@@ -109,10 +109,12 @@ class CSpawnNpcScrollDown : CSmallArrowDown
         super(left, top);
         @this.list = @list;
     }
-
-    void Click() { list.Scroll(1); }
+    void Click()
+    {
+        list.Scroll(1);
+    }
 };
-class CSpawnNpcScrollUp : CSmallArrowDown
+class CSpawnNpcScrollUp: CSmallArrowDown
 {
     CListBox@ list;
 
@@ -121,8 +123,10 @@ class CSpawnNpcScrollUp : CSmallArrowDown
         super(left, top);
         @this.list = @list;
     }
-
-    void Click() { list.Scroll(-1); }
+    void Click()
+    {
+        list.Scroll(-1);
+    }
 };
 
 //
@@ -139,25 +143,25 @@ class CSpawnNpcScrollUp : CSmallArrowDown
 
    }*/
 
-class CSpawnNpcWindow : Window
+class CSpawnNpcWindow: Window
 {
     uint     crId;
     CConfig@ crits;
     // spawn params
-    uint     pid;
-    uint16   hexX;
-    uint16   hexY;
-    uint8    dir;
-    uint     dialog;
-    uint     script;
-    uint     ai;
-    uint     team;
-    uint     bag;
-    uint     mob;
-    uint     level;
+    uint   pid;
+    uint16 hexX;
+    uint16 hexY;
+    uint8  dir;
+    uint   dialog;
+    uint   script;
+    uint   ai;
+    uint   team;
+    uint   bag;
+    uint   mob;
+    uint   level;
 
     // name (for cfg file) of the critter that'll be spawned
-    string@                crName;
+    string@ crName;
 
     CSpawnNpcOKButton@     ok;
     CSpawnNpcCancelButton@ cancel;
@@ -166,24 +170,24 @@ class CSpawnNpcWindow : Window
     CSpawnNpcScrollUp      @up;
     CLabel@                desc;
 
-    CTextBox@              pidTxt;
-    CTextBox@              dialogTxt;
-    CTextBox@              scriptTxt;
-    CTextBox@              aiTxt;
-    CTextBox@              teamTxt;
-    CTextBox@              bagTxt;
-    CTextBox@              mobTxt;
-    CTextBox@              levelTxt;
+    CTextBox@ pidTxt;
+    CTextBox@ dialogTxt;
+    CTextBox@ scriptTxt;
+    CTextBox@ aiTxt;
+    CTextBox@ teamTxt;
+    CTextBox@ bagTxt;
+    CTextBox@ mobTxt;
+    CTextBox@ levelTxt;
 
     CSpawnNpcWindow()
     {
         crId = pid = hexX = hexY = dir = dialog = script = ai = team = bag = mob = level = 0;
     }
-
     void Init()
     {
         int w = 573;
         int h = 230;
+
         // super(__ScreenWidth/2 - w/2, __ScreenHeight/2 - h/2, w, h, "perk.png");
         @list = CSpawnNpcList(this);
         AddControl(@list);
@@ -273,13 +277,12 @@ class CSpawnNpcWindow : Window
 
         // parse critter data
         @crits = CConfig("spawnnpc.cfg");
-        for(uint i = 0, j = crits.sections.length(); i < j; i++)
+        for (uint i = 0, j = crits.sections.length(); i < j; i++)
         {
             list.AddElement(crits.sections[i].name);
         }
         Window::Init();
     }
-
     //
     // Sets hex coords for spawn
     //
@@ -300,61 +303,73 @@ class CSpawnNpcWindow : Window
 
         pid = 0;
         @val = @crits.GetValue(name, "pid");
-        if(valid(val))
+        if (valid(val))
         {
             pidTxt.SetText(@val);
             StrToInt(val, pid);
         }
         else
+        {
             pidTxt.SetText("");
+        }
         dialog = 0;
         @val = @crits.GetValue(name, "dialog");
-        if(valid(val))
+        if (valid(val))
         {
             dialogTxt.SetText(@val);
             StrToInt(val, dialog);
         }
         else
+        {
             dialogTxt.SetText("");
+        }
         string script = "";
         @val = @crits.GetValue(name, "script");
-        if(valid(val))
+        if (valid(val))
         {
             scriptTxt.SetText(@val);
             script = val;            // StrToInt(val, script);
         }
         else
+        {
             scriptTxt.SetText("");
+        }
         ai = 0;
         @val = @crits.GetValue(name, "ai");
-        if(valid(val))
+        if (valid(val))
         {
             aiTxt.SetText(@val);
             StrToInt(val, ai);
         }
         else
+        {
             aiTxt.SetText("");
+        }
         bag = 0;
         @val = @crits.GetValue(name, "bag");
-        if(valid(val))
+        if (valid(val))
         {
             bagTxt.SetText(@val);
             StrToInt(val, bag);
         }
         else
+        {
             bagTxt.SetText("");
+        }
         team = 0;
         @val = @crits.GetValue(name, "team");
-        if(valid(val))
+        if (valid(val))
         {
             teamTxt.SetText(@val);
             StrToInt(val, team);
         }
         else
+        {
             teamTxt.SetText("");
+        }
         mob = 0;
         @val = @crits.GetValue(name, "mob");
-        if(valid(val))
+        if (valid(val))
         {
             // mobTxt.SetText(@val);
             StrToInt(val, mob);
@@ -363,13 +378,15 @@ class CSpawnNpcWindow : Window
         //	mobTxt.SetText("");
         level = 0;
         @val = @crits.GetValue(name, "level");
-        if(valid(val))
+        if (valid(val))
         {
             levelTxt.SetText(@val);
             StrToInt(val, level);
         }
         else
+        {
             levelTxt.SetText("");
+        }
         // set params for ok button
         ok.SetParams(pid, hexX, hexY, uint8(Random(0, 5)), dialog, script, ai, bag, team, mob, level);
     }
@@ -379,31 +396,45 @@ class CSpawnNpcWindow : Window
     void UpdateParams()
     {
         uint _pid = 0;
-        if(StrToInt(pidTxt.Text(), _pid))
+
+        if (StrToInt(pidTxt.Text(), _pid))
+        {
             pid = _pid;
+        }
         uint _dialog = 0;
-        if(StrToInt(dialogTxt.Text(), _dialog))
+        if (StrToInt(dialogTxt.Text(), _dialog))
+        {
             dialog = _dialog;
+        }
 
         uint _ai = 0;
-        if(StrToInt(aiTxt.Text(), _ai))
+        if (StrToInt(aiTxt.Text(), _ai))
+        {
             ai = _ai;
+        }
         uint _team = 0;
-        if(StrToInt(teamTxt.Text(), _team))
+        if (StrToInt(teamTxt.Text(), _team))
+        {
             team = _team;
+        }
         uint _bag = 0;
-        if(StrToInt(bagTxt.Text(), _bag))
+        if (StrToInt(bagTxt.Text(), _bag))
+        {
             bag = _bag;
+        }
         uint _level = 0;
-        if(StrToInt(levelTxt.Text(), _level))
+        if (StrToInt(levelTxt.Text(), _level))
+        {
             level = _level;
+        }
 
         ok.SetParams(pid, hexX, hexY, uint8(Random(0, 5)), dialog, scriptTxt.Text(), ai, bag, team, mob, level);
     }
-
     void Show()
     {
-        if(Auto())
+        if (Auto())
+        {
             ok.Click();
+        }
     }
 };

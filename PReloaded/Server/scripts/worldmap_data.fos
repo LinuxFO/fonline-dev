@@ -7,13 +7,13 @@
 
 #include "_macros.fos"
 #include "worldmap_h.fos"
-
 bool LoadWorldmapTables(string@ fileName)
 {
     file f;
+
     DLog("Reading Tables");
     // Open the file in 'read' mode
-    if(f.open(fileName, "r") >= 0)
+    if (f.open(fileName, "r") >= 0)
     {
         // Read the whole file into the string buffer
         string str;
@@ -28,9 +28,9 @@ bool LoadWorldmapTables(string@ fileName)
         array<uint> groups;
         array<uint> quantities;
 
-        for(uint i = 0; i < lines.length(); i++)
+        for (uint i = 0; i < lines.length(); i++)
         {
-            if(lines[i].length() < 5)
+            if (lines[i].length() < 5)
             {
                 Log("Empty line");
                 continue;
@@ -57,8 +57,10 @@ bool LoadWorldmapTables(string@ fileName)
 
             CZone@ zone = SetZone(x, y, y * ZONE_COUNT_X + x, difficulty, terrain, fill, chance);
 
-            if(splittedline.length() < 3)
+            if (splittedline.length() < 3)
+            {
                 continue;
+            }
 
             zone.LocationPids.resize(0);
             zone.Groups.resize(0);
@@ -68,13 +70,15 @@ bool LoadWorldmapTables(string@ fileName)
 
             // Read locations
             uint loc = 0;
-            for(uint j = 0, k = str_locations.length(); j < k; j++)
+            for (uint j = 0, k = str_locations.length(); j < k; j++)
             {
-                if(str_locations[j].length() == 0)
+                if (str_locations[j].length() == 0)
+                {
                     continue;
+                }
                 loc = 0;
                 StrToInt(str_locations[j], loc);
-                if(loc == 0)
+                if (loc == 0)
                 {
                     Log("Wrong location pid");
                     continue;
@@ -82,20 +86,24 @@ bool LoadWorldmapTables(string@ fileName)
                 zone.LocationPids.insertLast(loc);
             }
 
-            if(splittedline.length() < 4)
+            if (splittedline.length() < 4)
+            {
                 continue;
+            }
 
-            if(splittedline[3].length() > 3)
+            if (splittedline[3].length() > 3)
             {
                 array<string@>@ str_groups = split(splittedline[3], ",");
 
                 // Groups and their quantities
                 uint group = 0;
                 uint quantity = 0;
-                for(uint j = 0, k = str_groups.length(); j < k; j++)
+                for (uint j = 0, k = str_groups.length(); j < k; j++)
                 {
-                    if(str_groups[j].length() == 0)
+                    if (str_groups[j].length() == 0)
+                    {
                         continue;
+                    }
                     array<string@>@ grch = split(str_groups[j], ":");
                     group = 0;
                     chance = 0;
@@ -107,17 +115,19 @@ bool LoadWorldmapTables(string@ fileName)
                 }
             }
 
-            if(splittedline.length() < 5)
+            if (splittedline.length() < 5)
             {
                 continue;
             }
 
             uint flag;
             array<string@>@ str_flags = split(splittedline[4], ",");
-            for(uint j = 0, k = str_flags.length(); j < k; j++)
+            for (uint j = 0, k = str_flags.length(); j < k; j++)
             {
-                if(str_flags[j].length() == 0)
+                if (str_flags[j].length() == 0)
+                {
                     continue;
+                }
                 flag = 0;
                 StrToInt(str_flags[j], flag);
                 zone.Flags.insertLast(flag);

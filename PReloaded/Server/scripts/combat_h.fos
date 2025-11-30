@@ -39,7 +39,7 @@
 
 // for WeaponSubtype
 #define WS_UNARMED                 (1)
-#define WS_MELEE                   (2) //no longer used since all melee weapons use SK_UNARMED so they are identified as WS_UNARMED
+#define WS_MELEE                   (2) // no longer used since all melee weapons use SK_UNARMED so they are identified as WS_UNARMED
 #define WS_THROWING                (3)
 #define WS_GUN                     (4)
 

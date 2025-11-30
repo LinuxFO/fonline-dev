@@ -14,9 +14,7 @@
 #include "production_h.fos"
 #include "npc_planes_h.fos"
 #include "entire.fos"
-
 import Item@ GetContainer(Critter& cr) from "prospects";
-
 void critter_init(Critter& npc, bool firstTime)
 {
     _CritSetMode(npc, MODE_NO_STEAL);
@@ -24,21 +22,21 @@ void critter_init(Critter& npc, bool firstTime)
 
     npc.SetEvent(CRITTER_EVENT_IDLE, "_Idle");
 }
-
 void _Idle(Critter& npc)
 {
     // share with player-owner
     // transfer half of the minerals and ore to the container
     Item@ cont = GetContainer(npc);
 
-    uint  count = npc.CountItem(PID_MINERAL) / 2;
-    if(count > 0)
+    uint count = npc.CountItem(PID_MINERAL) / 2;
+
+    if (count > 0)
     {
         npc.DeleteItem(PID_MINERAL, count);
         cont.AddItem(PID_MINERAL, count, 0);
     }
     count = npc.CountItem(PID_METAL_ORE) / 2;
-    if(count > 0)
+    if (count > 0)
     {
         npc.DeleteItem(PID_METAL_ORE, count);
         cont.AddItem(PID_METAL_ORE, count, 0);
